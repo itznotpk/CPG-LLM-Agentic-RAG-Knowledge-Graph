@@ -7,10 +7,10 @@ import { GlassCard } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
 const STAGE_DEFS = [
-  { stage: 2, num: '01', label: 'DDx Analysis',      hasThinking: true  },
-  { stage: 3, num: '02', label: 'CPG Routing',        hasThinking: false },
-  { stage: 4, num: '03', label: 'Evidence Retrieval', hasThinking: false },
-  { stage: 5, num: '04', label: 'Plan Synthesis',     hasThinking: false },
+  { stage: 2, num: '01', label: 'DDx Analysis',      hasThinking: true,  pendingDescription: 'Parses clinical notes to extract symptoms and rank candidate diagnoses.' },
+  { stage: 3, num: '02', label: 'CPG Routing',        hasThinking: false, pendingDescription: 'Routes confirmed diagnoses to matching clinical practice guidelines (runs on Confirm).' },
+  { stage: 4, num: '03', label: 'Evidence Retrieval', hasThinking: false, pendingDescription: 'Retrieves relevant clinical rules, recommendations, and evidence (runs on Confirm).' },
+  { stage: 5, num: '04', label: 'Plan Synthesis',     hasThinking: false, pendingDescription: 'Synthesizes guideline-backed care recommendations and performs safety checks (runs on Confirm).' },
 ];
 
 const FRIENDLY_ERRORS = {
@@ -314,11 +314,15 @@ export function PipelineProgress({
                           <RefreshCw className="w-3 h-3" strokeWidth={1.5} /> Retry Stage
                         </button>
                       </div>
-                    ) : stage.detail && stage.status !== 'pending' && (
+                    ) : stage.detail && stage.status !== 'pending' ? (
                       <p className={`text-xs mb-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                         {stage.detail}
                       </p>
-                    )}
+                    ) : stage.status === 'pending' && stage.pendingDescription ? (
+                      <p className={`text-xs mb-1 italic ${isDark ? 'text-slate-500' : 'text-slate-400'} opacity-75`}>
+                        {stage.pendingDescription}
+                      </p>
+                    ) : null}
 
                     {/* Sub-steps */}
                     {stage.subSteps.length > 0 && (

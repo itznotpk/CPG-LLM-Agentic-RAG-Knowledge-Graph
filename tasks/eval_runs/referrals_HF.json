@@ -1,0 +1,352 @@
+[
+  {
+    "condition": "Heart Failure in Pregnancy",
+    "specialty": "Multidisciplinary Team",
+    "urgency": "routine",
+    "trigger": null,
+    "evidence": "The treatment of heart failure (HF) in pregnant women is more difficult than in non-pregnant women, and should always involve a multidisciplinary team approach.",
+    "icd_hint": null,
+    "cpg_chunk_id": "e556bc0b-832c-4d20-b2f4-37249adffced",
+    "cpg_source": "Section 11: Management Of Heart Failure In Pregnancy"
+  },
+  {
+    "condition": "Heart Failure in Pregnancy",
+    "specialty": "Multidisciplinary Team",
+    "urgency": "routine",
+    "trigger": null,
+    "evidence": "Timing and mode of delivery should be carefully planned by the multidisciplinary team.",
+    "icd_hint": null,
+    "cpg_chunk_id": "e556bc0b-832c-4d20-b2f4-37249adffced",
+    "cpg_source": "Section 11: Management Of Heart Failure In Pregnancy"
+  },
+  {
+    "condition": "Heart Failure in Pregnancy",
+    "specialty": "Multidisciplinary Team",
+    "urgency": "routine",
+    "trigger": null,
+    "evidence": "Follow-up visit at 6 weeks postpartum should be attended by the multidisciplinary team, a full cardiac assessment should be done, and appropriate contraception should be advised.",
+    "icd_hint": null,
+    "cpg_chunk_id": "e556bc0b-832c-4d20-b2f4-37249adffced",
+    "cpg_source": "Section 11: Management Of Heart Failure In Pregnancy"
+  },
+  {
+    "condition": "Severe Cardiac Lesions",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "postpartum assessment for corrective surgery",
+    "evidence": "These patients should be evaluated postpartum to assess the need for corrective surgery.",
+    "icd_hint": null,
+    "cpg_chunk_id": "db98e05c-4c75-42a5-9fcd-72dec5e11865",
+    "cpg_source": "Section 11: Management Of Heart Failure In Pregnancy"
+  },
+  {
+    "condition": "Heart Failure",
+    "specialty": "Multidisciplinary Team",
+    "urgency": "routine",
+    "trigger": "6 weeks postpartum follow-up",
+    "evidence": "Follow-up visit at 6 weeks postpartum should be attended by the multidisciplinary team, a full cardiac assessment should be done, and appropriate contraception should be advised.",
+    "icd_hint": null,
+    "cpg_chunk_id": "db98e05c-4c75-42a5-9fcd-72dec5e11865",
+    "cpg_source": "Section 11: Management Of Heart Failure In Pregnancy"
+  },
+  {
+    "condition": "Heart Failure with Preserved Ejection Fraction",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "unclear diagnosis",
+    "evidence": "The following patients who continue to have dyspnea may be referred to these centers for further evaluation and management: Cases where the diagnosis is unclear.",
+    "icd_hint": null,
+    "cpg_chunk_id": "d9bd656d-4940-483c-bf28-1965760f375b",
+    "cpg_source": "Section 13: Chronic Heart Failure - Heart Failure with Preserved LVEF (HFpEF)"
+  },
+  {
+    "condition": "Heart Failure with Preserved Ejection Fraction",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "non-responders to treatment with multiple comorbidities",
+    "evidence": "The following patients who continue to have dyspnea may be referred to these centers for further evaluation and management: Non responders to treatment especially those with multiple comorbidities.",
+    "icd_hint": null,
+    "cpg_chunk_id": "d9bd656d-4940-483c-bf28-1965760f375b",
+    "cpg_source": "Section 13: Chronic Heart Failure - Heart Failure with Preserved LVEF (HFpEF)"
+  },
+  {
+    "condition": "Hypertrophic Cardiomyopathy",
+    "specialty": "Multidisciplinary Team",
+    "urgency": "routine",
+    "trigger": null,
+    "evidence": "Referral to multidisciplinary HCM centers can help optimize care for patients with HCM.",
+    "icd_hint": null,
+    "cpg_chunk_id": "9dbae526-795d-4335-b773-4aa8e46557ed",
+    "cpg_source": "Section 14.3: Cardiomyopathy And Heart Failure"
+  },
+  {
+    "condition": "Chemotherapy-induced Cardiomyopathy",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "LVEF < 50% on pre-treatment evaluation",
+    "evidence": "If the LVEF is < 50%, refer to the cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "6ef3d4a3-96da-4dec-a6fe-acc479bfe951",
+    "cpg_source": "Section 14.5: Cardio-Oncology And Heart Failure"
+  },
+  {
+    "condition": "Chemotherapy-induced Cardiomyopathy",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "LVEF < 50%",
+    "evidence": "A pre-treatment cardiac echocardiogram is advisable. If the LVEF < 50%, they should be referred to the cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "6ef3d4a3-96da-4dec-a6fe-acc479bfe951",
+    "cpg_source": "Section 14.5: Cardio-Oncology And Heart Failure"
+  },
+  {
+    "condition": "Chemotherapy-induced Cardiomyopathy",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "LVEF < 50% on pre-treatment evaluation",
+    "evidence": "If the LVEF is < 50%, refer to the cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2960f26b-22ab-4e66-a46f-b2ad7783a70a",
+    "cpg_source": "Section 14.5: Cardio-Oncology And Heart Failure"
+  },
+  {
+    "condition": "Chemotherapy-induced Cardiomyopathy",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "LVEF < 50%",
+    "evidence": "If the LVEF < 50%, they should be referred to the cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2960f26b-22ab-4e66-a46f-b2ad7783a70a",
+    "cpg_source": "Section 14.5: Cardio-Oncology And Heart Failure"
+  },
+  {
+    "condition": "Heart Failure in Adult Congenital Heart Disease",
+    "specialty": "Multidisciplinary Team",
+    "urgency": "routine",
+    "trigger": null,
+    "evidence": "These patients are preferably managed by a multidisciplinary team that includes both the ACHD and HF cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "43047d9c-4607-4fe0-9944-9902649e5122",
+    "cpg_source": "Section 14.9: Heart Failure In Adult Congenital Heart Disease (ACHD)"
+  },
+  {
+    "condition": "Arrhythmias in Adult Congenital Heart Disease",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "moderate or complex CHD or complex arrhythmias",
+    "evidence": "Diagnostic and interventional catheter and device-based electrophysiologic procedures in adults with moderate or complex CHD or complex arrhythmias should be performed in a regional ACHD center by a cardiac electrophysiologist with expertise in CHD.",
+    "icd_hint": null,
+    "cpg_chunk_id": "43047d9c-4607-4fe0-9944-9902649e5122",
+    "cpg_source": "Section 14.9: Heart Failure In Adult Congenital Heart Disease (ACHD)"
+  },
+  {
+    "condition": "Heart Failure in Adult Congenital Heart Disease",
+    "specialty": "Palliative Care",
+    "urgency": "routine",
+    "trigger": null,
+    "evidence": "Advanced care planning is preferably done in an ACHD center with support from a multidisciplinary team involving both the ACHD cardiologist and palliative care specialist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "43047d9c-4607-4fe0-9944-9902649e5122",
+    "cpg_source": "Section 14.9: Heart Failure In Adult Congenital Heart Disease (ACHD)"
+  },
+  {
+    "condition": "Heart Failure, severe symptomatic despite optimal medical therapy",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "severe symptomatic HF despite OMT with no other alternative therapeutic options",
+    "evidence": "All patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for heart transplant. They need to be referred to a HF specialist hospital for further evaluation.",
+    "icd_hint": null,
+    "cpg_chunk_id": "4e43ca06-8eb1-4c85-813e-5e65862b0b79",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Heart Failure, advanced, ineligible for transplant or LVAD",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "unable to receive advanced therapy (transplant or LVAD)",
+    "evidence": "In patients who are unable to receive advanced therapy, palliative care consultation should be considered.",
+    "icd_hint": null,
+    "cpg_chunk_id": "4e43ca06-8eb1-4c85-813e-5e65862b0b79",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Heart Failure",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "severe symptomatic despite optimal medical therapy and no alternative therapeutic options",
+    "evidence": "All patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for heart transplant. They need to be referred to a HF specialist hospital for further evaluation.",
+    "icd_hint": null,
+    "cpg_chunk_id": "fafa96f2-b9de-4b1e-91ed-208e833b96fe",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Heart Failure with Refractory Symptoms",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "unable to receive advanced therapy",
+    "evidence": "In patients who are unable to receive advanced therapy, palliative care consultation should be considered.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "complications including cardiac cachexia or multiorgan failure, concurrent non-cardiac life-threatening diseases, or intolerance to guideline-directed therapies",
+    "evidence": "Patients suffering from advanced HF alongside complications including cardiac cachexia or multiorgan failure, having concurrent non-cardiac life-threatening diseases, or being intolerant to guideline-directed therapies.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "likely eligible for advanced therapies but not receiving them",
+    "evidence": "Patients likely eligible for advanced therapies but not receiving them due to various factors.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "repeated hospitalizations or emergency department visits within the past 3 months",
+    "evidence": "Patients with repeated hospitalizations or emergency department visits within the past 3 months.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "poor prognostic estimate with estimated life expectancy of 6 months or less",
+    "evidence": "Patients with poor prognostic estimate, with estimated life expectancy of 6 months or less.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "refractory symptoms requiring palliative sedation, severe emotional or physical symptoms, or severe spiritual or existential distress",
+    "evidence": "Patients suffering from refractory symptoms requiring palliative sedation, severe emotional or physical symptoms, and severe spiritual or existential distress.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "patient, family, or care team request for palliative care",
+    "evidence": "Patients, their families, or care teams requesting palliative care, including assistance in discussing goals of care and other planning surrounding withdrawal or de-escalation of life-prolonging interventions.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Advanced Heart Failure",
+    "specialty": "Palliative Care",
+    "urgency": "consider",
+    "trigger": "severe symptomatic heart failure despite optimal medical therapy with no other alternative therapeutic options",
+    "evidence": "Patients with severe symptomatic HF despite OMT and no other alternative therapeutic options should be considered for palliative care.",
+    "icd_hint": null,
+    "cpg_chunk_id": "2e12c34c-81c8-4683-93d8-d6e72ca4e4b7",
+    "cpg_source": "Section 15: Advanced Heart Failure"
+  },
+  {
+    "condition": "Arrhythmia",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "when indicated",
+    "evidence": "Patients with arrhythmias, when indicated, should be referred for evaluation and treatment.",
+    "icd_hint": null,
+    "cpg_chunk_id": "7b50279b-1de9-425d-adfb-3094ccd59cfa",
+    "cpg_source": "Section 7: Prevention of Heart Failure"
+  },
+  {
+    "condition": "Acute Heart Failure",
+    "specialty": "Cardiology",
+    "urgency": "urgent",
+    "trigger": "admission to hospital",
+    "evidence": "The patient should be seen by a specialist as soon as possible after admission to co-ordinate the initial and further management.",
+    "icd_hint": null,
+    "cpg_chunk_id": "5fb26de3-02fb-4fc6-8c1f-0dd90b9c366a",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Acute Heart Failure",
+    "specialty": "Cardiology",
+    "urgency": "urgent",
+    "trigger": "clinical deterioration or failure to improve",
+    "evidence": "Similarly, should the patient not improve, he should be considered to be transferred to a tertiary hospital with a Cardiology Unit.",
+    "icd_hint": null,
+    "cpg_chunk_id": "5fb26de3-02fb-4fc6-8c1f-0dd90b9c366a",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Acute Heart Failure",
+    "specialty": "Intensive Care",
+    "urgency": "urgent",
+    "trigger": "hemodynamic instability, arrhythmias, hypoperfusion, need for invasive ventilation, or SpO2 < 90% despite supplemental oxygen",
+    "evidence": "Initial care in the critical care unit (ICU/CCU) should be considered for high-risk patients with features such as: Hemodynamic instability, Arrhythmias, Hypoperfused state-cold peripheries... Need for invasive ventilatory support, Oxygen saturation (SpO2) < 90% despite supplemental oxygen.",
+    "icd_hint": null,
+    "cpg_chunk_id": "5fb26de3-02fb-4fc6-8c1f-0dd90b9c366a",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Acute Myocardial Infarction",
+    "specialty": "Cardiology",
+    "urgency": "urgent",
+    "trigger": "precipitating acute HF",
+    "evidence": "Reversible myocardial ischemia causing Acute HF needs early recognition, rapid stabilization and referral for urgent coronary angiography.",
+    "icd_hint": null,
+    "cpg_chunk_id": "5fb26de3-02fb-4fc6-8c1f-0dd90b9c366a",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Acute Heart Failure",
+    "specialty": "Intensive Care",
+    "urgency": "routine",
+    "trigger": "high-risk features: hemodynamic instability, arrhythmias, hypoperfused state, need for invasive ventilatory support, SpO2 <90% despite supplemental oxygen",
+    "evidence": "Initial care in the critical care unit (ICU/CCU) should be considered for high-risk patients with features such as: Hemodynamic instability. Arrhythmias. Hypoperfused state-cold peripheries, capillary refill time more than 2 seconds, diaphoresis, oliguria, dizziness, confusion, narrow pulse pressure, hypotension. Need for invasive ventilatory support. Oxygen saturation (SpO2) < 90% despite supplemental oxygen.",
+    "icd_hint": null,
+    "cpg_chunk_id": "47ee2958-5b18-49e7-93e4-e1ac154e560e",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Acute Heart Failure",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "no clinical improvement; transfer to tertiary hospital",
+    "evidence": "Similarly, should the patient not improve, he should be considered to be transferred to a tertiary hospital with a Cardiology Unit.",
+    "icd_hint": null,
+    "cpg_chunk_id": "47ee2958-5b18-49e7-93e4-e1ac154e560e",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Acute Heart Failure with Cardiogenic Shock",
+    "specialty": "Intensive Care",
+    "urgency": "urgent",
+    "trigger": "persistent signs of hypoperfusion despite adequate filling status",
+    "evidence": "These patients are best managed in specialized tertiary centers.",
+    "icd_hint": null,
+    "cpg_chunk_id": "d2075d58-41f2-4951-9f4b-d5678d2da6c8",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  },
+  {
+    "condition": "Heart Failure with Reduced Ejection Fraction",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "post-discharge follow-up",
+    "evidence": "Informed of the need and, if indicated, given appointments for further cardiac work up e.g., coronary angiography and cardiac rehabilitation.",
+    "icd_hint": null,
+    "cpg_chunk_id": "59531e20-2fd5-456a-88e7-692f05e2e897",
+    "cpg_source": "Section 9: Acute Heart Failure"
+  }
+]

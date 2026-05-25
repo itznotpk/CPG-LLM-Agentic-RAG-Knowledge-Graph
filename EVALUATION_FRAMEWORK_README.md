@@ -118,12 +118,12 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 
 ## Benchmark Scenario Set
 
-**Test Cases** (5 representative clinical vignettes):
-1. **Acute chest pain**: 58-year-old with atypical presentation, multiple comorbidities
-2. **Hypertension management**: 72-year-old with resistant hypertension on 3 agents
-3. **Drug-drug interaction**: Patient on warfarin + newly prescribed NSAID for pain
-4. **Pediatric asthma**: 6-year-old with recurrent wheezing, unclear trigger
-5. **Uncertainty scenario**: 45-year-old with nonspecific symptoms (fatigue, abdominal pain, 2-month duration)
+**Test Cases** (5 consultation-shaped scenarios — Doctor UI input shape: Patient + Vitals + Labs + Conditions + Current Medications + Allergies + Chief Complaint. No clinician hypotheses or proposed drugs in the input; the system synthesises the plan from structured patient data alone. Full definitions in *Consultation-Shaped Test Cases* section below):
+1. **Case 8 — T2DM + HFrEF + Obesity**: tests **9-section executable plan (P1–P9) + dual-source safety critic** — action-verbed meds with section+chunk citations, time-anchored monitoring schedule, numeric red-flag trip-wires, and both `source="llm"` and `source="graph"` safety flags merged on the same surface.
+2. **Case 9 — AF + Post-PCI + T2DM**: tests **KG-sourced safety flags from the current-meds list** — warfarin × fluconazole/amiodarone DDIs surfaced from Neo4j on an unaltered med list, with no clinician prompt to look.
+3. **Case 10 — HTN in Pregnancy + GDM**: tests **teratogen KG-veto on an existing med** — losartan is already in the patient's med list (prescribed pre-pregnancy); system must STOP it on its own based on patient state (pregnant + female + GA 30w).
+4. **Case 11 — Stable CAD + ED**: tests **explicit CPG conflict-naming + pre-emptive contraindication** — ED-CPG default would be PDE5i but patient's existing ISMN makes that fatal; system surfaces the conflict and routes nitrate review to cardiology before a PDE5i is ever proposed.
+5. **Case 12 — Full Metabolic Syndrome**: tests **multi-CPG priority-ordering + refuse-to-compute** — chief complaint includes the patient's own questions about CVD risk % and bariatric remission %; system retrieves CPG thresholds but refuses to fabricate either number.
 
 ---
 
@@ -643,149 +643,168 @@ You now have a complete evaluation framework:
 
 ---
 
-# COMORBIDITY TEST CASES (Cross-CPG Evaluation)
+# CONSULTATION-SHAPED TEST CASES (Cross-CPG Evaluation)
 
-> These 5 cases are designed as the highest-value benchmarking scenarios. Each spans **2–5 CPGs simultaneously**, requiring the system to synthesize potentially conflicting guidelines, quantify uncertainty at decision branch points, and flag appropriate specialist deferral. They are the best cases for differentiating this system from single-guideline tools (Qmed AskCPG) and general LLMs (GPT-4/Gemini).
+> Each case represents **one complete consultation = one query → one final care plan**, matching the shipped product model. The system produces the full plan in one pass.
+>
+> Each case is engineered to force a *specific* differentiator that a single-CPG tool (Qmed AskCPG) or a general LLM (GPT-4/Gemini) cannot easily produce: a 9-section executable plan with dual-source safety flags, KG-sourced DDI flags from free-text meds, KG-veto on a wrong drug proposal, explicit conflict-surfacing across overlapping CPGs, and correct refusal-to-compute on scope-edge questions.
+>
+> **All CPGs referenced are present in the live 30-CPG corpus** (see `tasks/Next-Step/Last Step Improvement/DDx Gap/cpg_scope_review.md`). Each case names the **Showcase Capability** — the column on which this case is designed to make the system win, and the metric to score.
 
-## Case 8: T2DM + Heart Failure with Reduced EF + Obesity (Metabolic Heart Failure)
+## Case 8: T2DM + HFrEF + Obesity — Structured Executable Plan + Hybrid Safety Critic
 **Target CPGs:** T2-Diabetes-Mellitus (6th Edition) · Heart-Failure (5th Edition) · Obesity-Management (2023)
-**Test Focus:** Multi-guideline medication reconciliation; SGLT2i dual indication; risk of hypoglycemia in HFrEF.
+**Showcase Capability:** **9-section executable care plan (P1–P9) + dual-source safety flags (`source="llm"` + `source="graph"`) merged without dedup.** On the same vignette, Qmed returns a bulleted prose plan with page-level citations. Your system returns a structured plan with: action verbs on every med (`START` / `CHANGE` / `CONTINUE`), per-chunk citations (`§10.1.2.1 [chunk 4]`), a time-anchored monitoring schedule, a Safety Netting / Red Flags panel with numeric trip-wires, and a follow-up ladder with concrete dates. The Stage 6 hybrid safety critic surfaces *both* LLM-reasoned flags and KG-verified flags side-by-side on the same plan.
+**Score on:** plan structure completeness (P1–P9 sections present, binary per section), action-verb correctness on each med (START/CHANGE/CONTINUE), citation granularity (section + chunk vs page-only), monitoring-schedule timing-anchor presence, red-flag count with numeric thresholds, dual-source safety flag count.
 
-**User Query:**
-> "A 62-year-old male with a BMI of 34 (obese) and Type 2 Diabetes (HbA1c 8.4%) on Metformin 1g BD and Gliclazide MR 60mg OD is newly diagnosed with Heart Failure with reduced Ejection Fraction (HFrEF), LVEF 25%. BP is 128/76 mmHg, eGFR 58 ml/min/1.73m². He is clinically stable and euvolemic. What medication changes are required, and how should his anti-diabetic regimen be adjusted?"
+**Consult input (Doctor UI schema):**
+*   **Patient:** 62M
+*   **Vitals:** BP 128/76, HR 82, SpO2 97%, Weight 98kg, Temp 36.8°C, BMI 34
+*   **Labs:** HbA1c 8.4%, eGFR 58, K+ 4.4, LVEF 25% (echo today)
+*   **Conditions:** Heart Failure with reduced EF (newly diagnosed); Type 2 Diabetes Mellitus; Obesity
+*   **Current Medications:** Metformin 1g BD; Gliclazide MR 60mg OD
+*   **Allergies:** Nil known
+*   **Notes / Chief complaint:** "Newly diagnosed HFrEF on routine echo. Clinically stable, euvolemic, no dyspnoea at rest. Here for management plan."
 
-**Expected Ground Truth:**
-*   **Summary:** Stable HFrEF newly diagnosed in a patient with T2DM and obesity. Requires initiation of all 4 pillars of HFrEF GDMT, reconciled with his anti-diabetic therapy.
-*   **Medication Changes:**
-    *   START (HFrEF Pillars — initiate all four simultaneously or sequentially):
-        1.  ACE-Inhibitor (e.g., Ramipril) OR ARNI (Sacubitril/Valsartan if tolerated and affordable).
-        2.  Beta-blocker with proven HFrEF efficacy (Bisoprolol, Carvedilol, or Nebivolol — NOT atenolol).
-        3.  Mineralocorticoid Receptor Antagonist (MRA): Spironolactone 25mg OD (monitor potassium and renal function closely given eGFR 58).
-        4.  SGLT2 inhibitor: Dapagliflozin 10mg OD or Empagliflozin 10mg OD — **dual indication** (HFrEF mortality benefit AND T2DM glycaemic control). This is the cornerstone addition.
-    *   REVIEW Gliclazide MR: High risk of hypoglycemia in the context of new HFrEF (reduced oral intake, altered renal perfusion). Consider dose reduction or cessation; replace with SGLT2i which is now serving dual purpose.
-    *   CONTINUE Metformin: Safe to continue at eGFR 58 (contraindicated only at eGFR <30 per Malaysian T2DM CPG). No dose change required at this eGFR.
-    *   WEIGHT: Obesity management (lifestyle, dietitian referral) remains important but GLP-1 RA agents (e.g., semaglutide) have insufficient safety data in severe HFrEF (LVEF ≤25%) — defer to cardiologist before adding.
-*   **Uncertainty Flag:** Metformin in HFrEF has historically been avoided; however, current evidence and Malaysian CPG permit use in stable HFrEF if eGFR ≥30. Clinician should confirm haemodynamic stability before continuing.
-*   **Monitoring & Next Steps:**
-    *   Repeat eGFR and potassium at 2 weeks post-MRA initiation.
-    *   Titrate beta-blocker and ACEI/ARNI to maximally tolerated doses over 4–8 weeks.
-    *   Refer to HF specialist/cardiologist for further optimisation.
+**Expected behaviour — the plan should render as 9 sections (this *is* the differentiator):**
+*   **P1 Clinical Summary** — patient one-liner + indication framing.
+*   **P2 Medications** — every line tagged `START` / `CHANGE` / `CONTINUE`:
+    *   START: ACE-I (enalapril/ramipril low-dose, titrate); β-blocker (bisoprolol 1.25mg OD); MRA (spironolactone 12.5–25mg OD); SGLT2i (dapagliflozin 10mg OD or empagliflozin 10mg OD — **dual indication** HFrEF + T2DM).
+    *   CHANGE: gliclazide MR → review for de-escalation (sulfonylureas increase HF risk; hypoglycaemia risk rises once SGLT2i begins).
+    *   CONTINUE: metformin 1g BD (safe at eGFR ≥30 in stable HF per Malaysian T2DM CPG).
+    *   Every line carries section + chunk citation (`CPG HFrEF §10.1.x [chunk N]`), not page numbers.
+*   **P3 Procedures & Investigations** — baseline ECG (rhythm, QRS, LBBB for CRT eligibility), repeat echo, renal profile, HbA1c, UACR (DKD screen).
+*   **P4 Monitoring & Investigations** — time-anchored: renal/K+ within 7–14 days of ACE-I/MRA initiation; BP at each visit + after titration; HR at each visit; daily weight (>2kg/3d trigger); HbA1c q3–6mo; serum K+ before MRA + periodically; UTI/uro-genital surveillance on SGLT2i.
+*   **P5 Lifestyle** — sodium <2g/day; weight reduction; cardiac rehab; smoking cessation; BP target 130–139/70–79.
+*   **P6 Referrals** — **cardiology** for HFrEF optimisation (this was empty in the screenshot — fix before demo); dietitian for obesity + T2DM.
+*   **P7 Patient Education** — SGLT2i sick-day rules, DKA red-flag symptoms, hypoglycaemia recognition, daily foot inspection, glucose tablets to carry.
+*   **P8 Safety Netting — Red Flags (numeric trip-wires)** — SBP <90, HR <50, K+ ≥5.6, creatinine ↑≥30% within 2 months of ACE-I, NYHA III–IV deterioration, euglycaemic DKA risk on SGLT2i, weight ↑>2kg/3d, acute decompensation signs.
+*   **P9 Follow-up Plan (time-anchored ladder)** — 1–2 weeks (renal/K+ recheck post-ACE-I), 2–4 weeks (renal/K+ post-MRA/SGLT2i), 4–6 weeks (β-blocker uptitration), 6–12 weeks (HbA1c review, consider GLP-1 RA if >8%), 3 months (echo if indicated), ongoing (titration, weight, annual DKD screen). Concrete next-review date computed.
+
+**Expected behaviour — Stage 6 hybrid safety critic (the dual-source differentiator):**
+*   `source="llm"` flag: "Combining ACE-I + MRA + low eGFR raises hyperkalaemia risk above either alone — recheck K+ at 7 days post-MRA, not 14."
+*   `source="graph"` flag: KG-verified DDI surface — `spironolactone × ACE-I` interaction (hyperkalaemia, MAJOR); `metformin × HFrEF` historical-caution flag now downgraded (CPG permits at eGFR ≥30); `gliclazide × HFrEF` (sulfonylureas associated with excess HF mortality — supports the CHANGE action).
+*   **Merged without dedup, both sources shown** — clinician sees the LLM-reasoned narrative *and* the graph-traversal evidence on the same surface. Qmed has neither column.
+
+**Uncertainty flag:** GLP-1 RA for obesity is deferred to follow-up — limited safety data in severe HFrEF (LVEF ≤25%); cardiology should weigh in before initiation.
 
 ---
 
-## Case 9: Non-Valvular AF + Post-PCI (Drug-Eluting Stent) + T2DM (Triple Antithrombotic Therapy Dilemma)
+---
+
+## Case 9: AF + Post-PCI + T2DM — KG-Sourced DDI Discovery from Free-Text Meds
 **Target CPGs:** Atrial-Fibrillation (2012) · Percutaneous-Coronary-Intervention · NSTE-ACS (3rd Edition) · T2-Diabetes-Mellitus (6th Edition)
-**Test Focus:** Anticoagulation-antiplatelet conflict; bleeding vs thromboembolism risk; preferred P2Y12 in triple therapy.
+**Showcase Capability:** **KG-sourced safety flags (`source="graph"`) that an LLM-only system structurally cannot produce.** The clinician volunteers extra meds in plain prose; the system must surface drug–drug interactions from Neo4j (`(:Drug)-[:INTERACTS_WITH {severity}]->(:Drug)`), not from text recall. Qmed will answer the triple-therapy question correctly but miss the in-prose interactions.
+**Score on:** count of KG-sourced flags (precision + recall vs ground truth), severity-tier correctness (CRITICAL/MAJOR/MINOR).
 
-**User Query:**
-> "A 67-year-old female with known non-valvular Atrial Fibrillation (CHA2DS2-VASc = 4) on Warfarin (INR 2.4) has just undergone successful primary PCI with a Drug-Eluting Stent (DES) for NSTEMI. She also has Type 2 Diabetes. What is the recommended antithrombotic strategy post-PCI, including which P2Y12 inhibitor to choose and for how long?"
+**Consult input (Doctor UI schema):**
+*   **Patient:** 67F
+*   **Vitals:** BP 132/78, HR 72, SpO2 97%, Weight 64kg, Temp 36.7°C
+*   **Labs:** INR 2.4, eGFR 64, HbA1c 7.1%
+*   **Conditions:** Non-valvular Atrial Fibrillation (CHA2DS2-VASc 4); NSTEMI s/p primary PCI with DES yesterday; Type 2 Diabetes Mellitus; Oesophageal candidiasis (current)
+*   **Current Medications:** Warfarin 5mg OD; Amiodarone 200mg OD (since last year, for rate control); Metformin 1g BD; Sitagliptin 100mg OD; Fluconazole 100mg OD (day 9 of 14, for oesophageal candidiasis)
+*   **Allergies:** Nil known
+*   **Notes / Chief complaint:** "Post-PCI day 1. Need full antithrombotic plan and review of current medications."
 
-**Expected Ground Truth:**
-*   **Summary:** AF patient on OAC undergoing PCI with DES — classic triple antithrombotic therapy scenario. Goal: minimise bleeding while preventing stent thrombosis and stroke.
-*   **Medication Changes:**
-    *   Triple Therapy duration: **Minimise to shortest possible period** (1 week, or as clinically indicated) due to high bleeding risk (OAC + DAPT).
-    *   P2Y12 of choice in triple therapy: **Clopidogrel 75mg OD** — NOT ticagrelor or prasugrel, as these carry significantly higher bleeding risk without additional stent benefit in this context.
-    *   After triple therapy phase: Transition to **Dual Therapy: OAC (preferably DOAC) + Clopidogrel 75mg** for up to 12 months.
-    *   After 12 months: **Monotherapy with OAC alone** (AF remains the dominant long-term indication).
-    *   Anticoagulant switch: Consider transitioning from Warfarin to a **DOAC** (Apixaban preferred in AF + DM due to lower bleeding risk profile) after PCI stabilisation — requires haematology/cardiology co-decision.
-*   **Diabetes consideration:** T2DM increases platelet reactivity. However, this does NOT warrant switching to ticagrelor in the context of triple therapy — bleeding risk remains paramount.
-*   **Uncertainty Flag:** The optimal triple therapy duration (1 week vs 1 month) should be individualised based on stent complexity (LAD, bifurcation, long stent = consider 1 month). Clinician should risk-stratify using HAS-BLED score.
-*   **Monitoring & Next Steps:**
-    *   Regular INR monitoring if continuing Warfarin (target 2.0–2.5 in AF + coronary stent).
-    *   HAS-BLED score assessment to guide duration.
-    *   Refer to Cardiologist for ongoing antithrombotic management review at 1, 3, 6, and 12 months.
+**Expected behaviour — primary answer:**
+*   Triple therapy: keep as short as possible (1 week typical, up to 1 month if complex stent), then dual therapy (OAC + clopidogrel) to 12 months, then OAC alone.
+*   P2Y12 of choice: **clopidogrel** (NOT ticagrelor or prasugrel) — bleeding risk in triple therapy.
+*   Consider switching warfarin → DOAC (apixaban) after PCI stabilises.
+
+**Expected behaviour — KG-sourced flags the clinician didn't ask about (this is the differentiator):**
+*   **CRITICAL — warfarin × fluconazole**: fluconazole inhibits CYP2C9 → warfarin level ↑, INR can rise to >5. Recommend INR check within 3 days; consider warfarin dose ↓ 25–50% until fluconazole completed.
+*   **CRITICAL — warfarin × amiodarone**: amiodarone potentiates warfarin (CYP2C9/3A4 inhibition + protein-binding displacement); INR will rise over 1–3 weeks. If switching to DOAC, amiodarone also interacts with apixaban (P-gp) — monitor.
+*   **MAJOR — amiodarone × clopidogrel** (about to be started): amiodarone weakly reduces clopidogrel activation; usually clinically tolerated but flag for monitoring antiplatelet response.
+*   **MAJOR — sitagliptin in AF + heart-disease context**: no DDI but flag — limited CV outcome benefit; if T2DM management is being revisited, prefer SGLT2i or GLP-1 RA per T2DM CPG given concurrent ASCVD.
+
+**Uncertainty flag:** "Answer assumes amiodarone is being continued for rate control. If amiodarone is short-course-only or being stopped post-PCI, DDI flags above resolve over 4–6 weeks (long half-life)."
+
+**Deferral:** anticoagulation switch and amiodarone continuation are cardiology-led decisions — flag, do not prescribe unilaterally.
 
 ---
 
-## Case 10: Hypertension in Pregnancy + Gestational Diabetes (Obstetric Pharmacological Safety)
+---
+
+## Case 10: HTN in Pregnancy + GDM — Teratogen KG-Veto on Current Med
 **Target CPGs:** Hypertension (5th Edition) · Diabetes-in-Pregnancy (2017) · Heart-Disease-in-Pregnancy (2nd Edition)
-**Test Focus:** Drug safety in pregnancy (teratogens); BP target modification; anti-diabetic agents in pregnancy; high-stakes deferral.
+**Showcase Capability:** **KG-driven teratogen veto on a drug already in the current-meds list.** The patient was on losartan for pre-existing hypertension *before* the pregnancy was known; the chief complaint is GDM + raised BP at booking. The system must audit the existing med list against the patient's current state (pregnant) and surface the absolute contraindication from `(:Drug)-[:CONTRAINDICATED_WITH]->(:Condition)` — even though the clinician didn't ask about losartan. This is the *harder* check: vetoing a med the patient is actively taking, not one a clinician proposed.
+**Score on:** correct STOP action on losartan (binary), KG-sourced contraindication citation, sex-aware routing trace (female + pregnancy → Heart-Disease-in-Pregnancy CPG invoked), cross-CPG bridge on PPCM family history.
 
-**User Query:**
-> "A 35-year-old primigravida at 30 weeks gestation presents with BP readings of 158/104 mmHg on two occasions 4 hours apart. She has no proteinuria and no symptoms of severe features. She is newly diagnosed with Gestational Diabetes (fasting blood glucose 7.4 mmol/L). She is currently on no medications. What antihypertensive and anti-diabetic therapy should be initiated, and what medications must be absolutely avoided?"
+**Consult input (Doctor UI schema):**
+*   **Patient:** 35F
+*   **Vitals:** BP 158/104 (confirmed on 2 readings 4h apart), HR 88, SpO2 98%, Weight 78kg (booking), Temp 36.8°C
+*   **Labs:** Fasting glucose 7.4 mmol/L, OGTT 2h 11.2, urinalysis no proteinuria, eGFR 102
+*   **Obstetric:** Primigravida, 30 weeks gestation by dates
+*   **Conditions:** Essential Hypertension (pre-existing, diagnosed 2 years ago); Gestational Diabetes Mellitus (newly diagnosed today)
+*   **Current Medications:** Losartan 50mg OD (started 2 years ago, before pregnancy)
+*   **Allergies:** Nil known
+*   **Family History:** Sister had peripartum cardiomyopathy
+*   **Notes / Chief complaint:** "Booking visit at 30 weeks (late booker). BP elevated today, GDM diagnosed on OGTT. No headache, no visual symptoms, no RUQ pain. Plan for HTN + GDM management."
 
-**Expected Ground Truth:**
-*   **Summary:** Gestational hypertension (non-severe, no severe features) with co-existing gestational diabetes at 30 weeks. Pharmacological management must balance maternal BP control with foetal safety.
-*   **Medication Changes — Antihypertensive (SAFE in pregnancy):**
-    *   **First-line options:** Methyldopa 250–500mg TDS, **OR** Labetalol 100–200mg BD/TDS, **OR** Nifedipine (slow-release) 20–30mg OD.
-    *   Target BP: `<150/100 mmHg` (NOT as aggressively as in non-pregnant patients; overly tight control risks uteroplacental insufficiency).
-    *   **ABSOLUTELY AVOID:** ACE inhibitors (Ramipril, Enalapril) and Angiotensin Receptor Blockers (Losartan, Valsartan) — **Category X teratogens** (foetal renal dysgenesis, oligohydramnios, neonatal anuria).
-*   **Medication Changes — Anti-Diabetic (SAFE in pregnancy):**
-    *   **First-line:** Dietary modification + Medical Nutrition Therapy. If targets not met:
-    *   **Insulin therapy** is the gold standard (does not cross the placenta; multiple regimens available — basal-bolus preferred if uncontrolled).
-    *   **Metformin:** Conditionally acceptable per Malaysian Diabetes in Pregnancy CPG; however, crosses the placenta — requires shared decision-making with patient.
-    *   **AVOID:** Sulfonylureas (except as last resort) — risk of neonatal hypoglycemia.
-*   **Uncertainty Flag:** BP threshold for pharmacotherapy in gestational hypertension (140/90 vs 150/100) varies by guideline. At 158/104, initiation is indicated per most guidelines, but the specific target (140 vs 150 systolic) has moderate uncertainty.
-*   **Monitoring & Next Steps:**
-    *   Urgent referral to Maternal-Foetal Medicine / Obstetric specialist — this case requires multidisciplinary management.
-    *   Foetal surveillance: regular growth scans, Doppler studies.
-    *   Serial urinalysis for proteinuria — to detect progression to Pre-eclampsia.
-    *   Consider delivery planning if gestation reaches 37 weeks or if maternal/foetal deterioration occurs.
-
----
-
-## Case 11: Stable CAD + Erectile Dysfunction (PDE5 Inhibitor + Nitrate Absolute Contraindication)
-**Target CPGs:** Stable-Coronary-Artery-Disease (2nd Edition) · Erectile-Dysfunction (2024)
-**Test Focus:** Critical drug-drug interaction (absolute contraindication); alternative therapy recommendation; appropriate specialist deferral.
-
-**User Query:**
-> "A 56-year-old male with known Stable Coronary Artery Disease is on Isosorbide Mononitrate (ISMN) 60mg OD (long-acting nitrate), Aspirin 100mg OD, and Atorvastatin 40mg OD. He presents requesting a prescription for Sildenafil (Viagra) 50mg for erectile dysfunction. He reports the ED has significantly affected his quality of life. Is it safe to prescribe Sildenafil? What are his options?"
-
-**Expected Ground Truth:**
-*   **Summary:** Absolute contraindication identified: PDE5 inhibitor + concurrent nitrate therapy. Sildenafil cannot be prescribed safely while the patient remains on long-acting nitrate.
-*   **Medication Changes:**
-    *   **DO NOT PRESCRIBE Sildenafil (or any PDE5 inhibitor)** while patient is on long-acting ISMN. This is an **absolute contraindication** — combined use causes severe, potentially fatal hypotension due to synergistic vasodilation.
-    *   The 24-hour nitrate-free interval concept applies to SHORT-ACTING nitrates (GTN PRN); with long-acting ISMN 60mg OD, NO safe washout window exists.
-*   **Clinically Safe Alternatives for ED:**
-    *   **Vacuum Erection Device (VED):** Non-pharmacological, no cardiovascular risk — recommended as first alternative.
-    *   **Intracavernosal Alprostadil (ICI):** Effective second-line; no interaction with nitrates; requires patient training.
-    *   **Intraurethral Alprostadil (MUSE):** Less effective than ICI; suitable for patients who decline injection.
-*   **Pathway to PDE5i (if clinically feasible):**
-    *   If the cardiologist determines ISMN is not essential for symptom control (patient is asymptomatic, stable, on aspirin + statin alone sufficient): consider a **nitrate holiday** — stop ISMN, reassess angina symptoms, and then prescribe PDE5i only if nitrate-free.
-    *   This decision requires **cardiologist involvement**, NOT primary care prescribing.
-*   **Uncertainty Flag:** Low-risk CAD patients who are angina-free may be candidates for nitrate de-escalation. Confidence in this pathway is moderate (70%) — highly dependent on individual CAD severity and symptom burden.
-*   **Monitoring & Next Steps:**
-    *   REFER to Cardiologist: Review necessity of long-acting nitrate in this patient's regimen.
-    *   REFER to Urologist or Sexual Medicine specialist: Comprehensive ED assessment and non-pharmacological options.
-    *   Patient education: Explain the contraindication clearly; document consent that Sildenafil was withheld for safety.
+**Expected behaviour:**
+*   **STOP losartan immediately — KG-sourced veto on existing med:** P2 Medications must show `STOP Losartan 50mg OD — absolutely contraindicated in pregnancy (Category D: foetal renal dysgenesis, oligohydramnios, neonatal anuria). Continued exposure in 3rd trimester is the highest-risk window.` This is the differentiator — the system audits the *existing* med list against the patient's current state and surfaces a teratogen the clinician may have missed at booking.
+*   **START replacement antihypertensive (safe at 30 weeks, non-severe):** labetalol 100mg BD (titrate) OR methyldopa 250mg TDS OR nifedipine SR 20mg OD. Target BP <150/100 — not <140/90, overly tight control risks uteroplacental insufficiency at this GA.
+*   **GDM:** lifestyle + MNT trial first; insulin if targets unmet at 1–2 weeks (gold standard, does not cross placenta); metformin shared-decision only (CPG-permitted but crosses placenta).
+*   **AVOID list:** ACE-I, ARB, direct renin inhibitors, sulfonylureas (neonatal hypoglycaemia).
+*   **PPCM family history (Heart-Disease-in-Pregnancy CPG bridge):** family history alone is not a screening indication; baseline ECG + BNP reasonable; echo only if symptomatic (dyspnoea disproportionate to GA, orthopnoea, oedema beyond physiological).
+*   **Refer:** urgent Maternal-Foetal Medicine for hypertension management at 30 weeks; obstetric cardiology if any cardiac symptoms develop. Foetal surveillance: growth scans, serial UPCR for pre-eclampsia progression.
+*   **Assumption flag:** "Plan assumes no severe features today. If headache, visual symptoms, RUQ pain, or proteinuria develop, escalate to pre-eclampsia pathway." Also: "BP pharmacotherapy threshold (140/90 vs 150/100) varies by guideline at this GA — Malaysian HTN 5th Ed defers to obstetric guidance."
 
 ---
 
-## Case 12: Obesity + T2DM + Dyslipidaemia + Hypertension (Full Metabolic Syndrome — Primary CVD Prevention)
+---
+
+## Case 11: Stable CAD + ED — Conflict-Surfacing Between Two CPGs
+**Target CPGs:** Stable-Coronary-Artery-Disease (2nd Edition) · Erectile-Dysfunction (2024) · Primary-Secondary-Prevention-of-CVD (2017)
+**Showcase Capability:** **Explicit conflict-surfacing between two CPGs that pull in opposite directions.** The ED CPG wants PDE5i as first-line; the Stable-CAD CPG mandates nitrate continuation; the system must name the conflict explicitly, not paper over it, and route the upstream decision (nitrate de-escalation) to cardiology. Qmed will give the correct contraindication but typically won't name it as a *guideline conflict* or articulate the upstream-decision pathway.
+**Score on:** explicit conflict naming (binary), KG-sourced contraindication citation, alternative-therapy completeness, correct cardiology-led deferral on nitrate review.
+
+**Consult input (Doctor UI schema):**
+*   **Patient:** 56M
+*   **Vitals:** BP 124/76, HR 64, SpO2 98%, Weight 78kg, Temp 36.6°C
+*   **Labs:** LDL 1.6 mmol/L, eGFR 88
+*   **Conditions:** Stable Coronary Artery Disease (PCI 18 months ago, angina-free since); Erectile Dysfunction (new complaint today)
+*   **Current Medications:** Isosorbide Mononitrate (ISMN) 60mg OD; Aspirin 100mg OD; Atorvastatin 40mg OD; Bisoprolol 5mg OD
+*   **Allergies:** Nil known
+*   **Notes / Chief complaint:** "Patient presents with erectile dysfunction affecting marital relationship. Requesting treatment options. Reports angina-free for 6 months."
+
+**Expected behaviour:**
+*   **DO NOT PRESCRIBE PDE5i — KG-sourced absolute contraindication:** P8 Red Flags must include `PDE5i × long-acting nitrate = synergistic vasodilation, potentially fatal hypotension. No safe washout interval for ISMN 60mg OD (the 24h washout rule applies to GTN PRN only, not long-acting nitrate).` This flag must fire even though no PDE5i is currently in the med list — the system anticipates the obvious ED-CPG-default and pre-empts it.
+*   **Explicit conflict statement (the differentiator):** P1 Summary or P6 Referrals must say: "Two CPGs apply and conflict on first-line ED therapy: ED CPG (2024) recommends PDE5i first-line, but Stable-CAD CPG (2nd Ed) mandates anti-anginal continuation. The contraindication wins — but the conflict means the upstream decision is *whether the long-acting nitrate is still necessary*, given the patient is angina-free for 6 months. That is a cardiology call, not primary care."
+*   **Safe ED options today** (no nitrate interaction): vacuum erection device (first-line non-pharmacological), intracavernosal alprostadil, intraurethral alprostadil (MUSE).
+*   **Nitrate-holiday pathway:** if cardiologist deems ISMN non-essential (angina-free for 6 months on full secondary-prevention regimen — β-blocker + aspirin + statin), de-escalate ISMN → reassess angina → then PDE5i becomes possible. Often resolvable in 1–2 weeks.
+*   **Refer:** cardiology (nitrate review) + urology/sexual medicine (ED workup).
+*   **Assumption flag:** "Plan assumes patient has not already obtained PDE5i over-the-counter. Counsel explicitly on the contraindication; if exposure has occurred, screen for hypotensive symptoms."
+
+---
+
+---
+
+## Case 12: Full Metabolic Syndrome — Multi-CPG Reconciliation + Scope-Edge Deferral
 **Target CPGs:** Obesity-Management (2023) · T2-Diabetes-Mellitus (6th Edition) · Dyslipidaemia (6th Edition) · Hypertension (5th Edition) · Primary-Secondary-Prevention-of-CVD (2017)
-**Test Focus:** Multi-risk-factor CVD primary prevention; priority-ordering of interventions; Asian BMI threshold for bariatric surgery; GLP-1 RA dual indication.
+**Showcase Capability:** **5-CPG reconciliation with explicit priority-ordering, plus correct deferral on scope-edge questions the system should *not* answer.** This case forces the system to (a) merge five overlapping CPGs without contradiction, (b) refuse to compute a risk score itself (CPG retrieval, not calculation), (c) refuse to quote a bariatric remission percentage and route to bariatric MDT. Qmed will answer all five domains in parallel but typically won't name the priority order or refuse out-of-scope sub-questions.
+**Score on:** count of CPGs correctly invoked, explicit priority-ordering present, correct refusal-to-compute, refusal-to-quote-remission-%, bariatric referral threshold cited.
 
-**User Query:**
-> "A 46-year-old Malay male presents for a comprehensive health review. BMI 38.5 kg/m² (Obese Class II). Newly diagnosed Type 2 Diabetes (HbA1c 9.2%). LDL-C is 4.4 mmol/L. BP is 148/94 mmHg (confirmed on two visits). He has no prior cardiovascular events, no chest pain, no kidney disease (eGFR 82). He is currently on no medications. What is the comprehensive, prioritised management plan addressing all his conditions?"
+**Consult input (Doctor UI schema):**
+*   **Patient:** 46M (Malay)
+*   **Vitals:** BP 148/94 (confirmed on 2 separate visits), HR 78, SpO2 98%, Weight 112kg, BMI 38.5, Temp 36.7°C
+*   **Labs:** HbA1c 9.2%, LDL 4.4 mmol/L, HDL 0.9, TG 2.4, eGFR 82, UACR 8 mg/g, fasting glucose 9.8
+*   **Conditions:** Type 2 Diabetes Mellitus (newly diagnosed); Hypertension (newly confirmed); Dyslipidaemia (newly noted); Obesity Class II
+*   **Current Medications:** Nil
+*   **Allergies:** Nil known
+*   **Social:** Non-smoker, occasional alcohol, sedentary office worker
+*   **Notes / Chief complaint:** "Comprehensive health screening. Multiple risk factors identified at this visit. Patient asking about CVD risk and whether bariatric surgery would cure his diabetes. Plan?"
 
-**Expected Ground Truth:**
-*   **Summary:** Full metabolic syndrome with 4 major CVD risk factors (obesity, T2DM, dyslipidaemia, hypertension) and no prior CVD event. Patient qualifies as **HIGH RISK** for primary CVD prevention. Multiple CPGs converge on this patient.
-*   **CVD Risk Classification (clinician-side; the system retrieves CPG text, it does not compute Framingham/SCORE itself):**
-    *   Framingham/SCORE risk assessment indicates **HIGH cardiovascular risk** due to T2DM + dyslipidaemia + hypertension combined. Consider Very High Risk if 10-year CVD risk >10%.
-*   **Priority 1 — Lifestyle Modification (All CPGs converge here):**
-    *   Intensive lifestyle programme: calorie-restricted diet, ≥150 min/week moderate physical activity.
-    *   Dietitian referral mandatory.
-    *   Smoking cessation if applicable.
-*   **Priority 2 — Anti-Diabetic Therapy:**
-    *   With HbA1c 9.2%, lifestyle alone insufficient — initiate pharmacotherapy.
-    *   **First-line:** GLP-1 Receptor Agonist (e.g., Semaglutide OD or Dulaglutide weekly) — **dual indication**: T2DM glycaemic control AND obesity management (average 5–15% weight loss). Supported by both T2DM CPG and Obesity CPG.
-    *   **Alternative/Add-on:** SGLT2 inhibitor (Dapagliflozin or Empagliflozin) — cardiovascular outcome benefit in T2DM even without prior CVD; also supports modest weight loss and BP reduction.
-    *   Metformin 500mg OD, titrate to 1g BD as background therapy.
-    *   Target HbA1c: `<7.0%` (or `<6.5%` if achievable without hypoglycemia).
-*   **Priority 3 — Dyslipidaemia:**
-    *   START: High-intensity statin (Atorvastatin 40–80mg OD OR Rosuvastatin 20–40mg OD).
-    *   LDL-C target for HIGH RISK (T2DM without prior CVD): `<1.8 mmol/L` AND `>50% reduction from baseline`.
-    *   If Very High Risk: `<1.4 mmol/L` — may require add-on Ezetimibe.
-*   **Priority 4 — Hypertension:**
-    *   BP 148/94 confirmed on 2 visits — pharmacotherapy indicated.
-    *   **Preferred agent:** ACE inhibitor (e.g., Ramipril 5mg OD) or ARB (Losartan 50mg OD) — preferred in T2DM due to nephroprotective benefit (delays diabetic nephropathy).
-    *   Target BP: `<130/80 mmHg` in T2DM patients per Hypertension CPG.
-*   **Priority 5 — Bariatric Surgery Assessment:**
-    *   BMI 38.5 with comorbidities (T2DM, HTN, dyslipidaemia): **meets Asian threshold for bariatric surgery referral** (BMI ≥37.5 with ≥1 obesity-related comorbidity per Malaysian Obesity CPG).
-    *   Referral to bariatric surgery centre if lifestyle + pharmacotherapy fail to achieve adequate weight loss at 3–6 months.
-*   **Uncertainty Flag:** GLP-1 RA vs SGLT2i as first add-on to Metformin — both are CPG-supported, preference guided by weight loss priority (GLP-1 RA superior) vs cardiorenal protection (SGLT2i may be preferred if borderline CKD develops). Decision should be individualised with patient.
-*   **Monitoring & Next Steps:**
-    *   HbA1c every 3 months until target achieved, then 6-monthly.
-    *   Fasting lipid profile at 6 weeks post-statin, then annually.
-    *   Annual eGFR + urine albumin-creatinine ratio (screen for diabetic nephropathy).
-    *   Refer to: Endocrinologist (complex T2DM management), Dietitian, and Bariatric Surgery team if BMI target not met.
+**Expected behaviour:**
+*   **Cite all 5 CPGs explicitly** and name the convergence: "Five Malaysian CPGs apply — Obesity (2023), T2DM (6th Ed), Dyslipidaemia (6th Ed), Hypertension (5th Ed), Primary-Secondary CVD Prevention (2017). They converge on lifestyle, and diverge on pharmacotherapy priority order."
+*   **Priority order (the differentiator vs Qmed's parallel list):**
+    1.  Lifestyle (all 5 CPGs) — calorie deficit, ≥150 min/wk activity, dietitian referral mandatory.
+    2.  Anti-diabetic: GLP-1 RA (semaglutide / dulaglutide) — **dual indication** per T2DM + Obesity CPGs (5–15% weight loss). Alternative/add-on: SGLT2i. Background metformin 500mg OD → 1g BD. Target HbA1c <7%.
+    3.  Dyslipidaemia: high-intensity statin (atorvastatin 40–80mg / rosuvastatin 20–40mg). LDL target <1.8 mmol/L AND >50% reduction.
+    4.  Hypertension: ACE-I or ARB (nephroprotection in T2DM). Target <130/80 per Hypertension CPG in T2DM.
+    5.  Bariatric: BMI 38.5 + comorbidities meets **Asian threshold (BMI ≥37.5 + ≥1 comorbidity)** per Obesity CPG — refer if 3–6 month lifestyle + pharmacotherapy fails.
+*   **Refuse-to-compute on sub-question 1 (CVD risk %):** "Framingham/SCORE 10-year risk calculation is a clinician-side computation — the system retrieves CPG-defined risk thresholds, it does not compute risk scores. T2DM + dyslipidaemia + HTN clustering places this patient in the *high-risk* category per Primary-Secondary CVD Prevention CPG; that determines the LDL and BP targets above."
+*   **Refuse-to-quote on sub-question 2 (bariatric remission %):** "Do not quote a single remission percentage. T2DM remission post-bariatric surgery is well-documented but varies by procedure (sleeve vs RYGB), T2DM duration, beta-cell reserve, and surgeon volume. The patient meets Asian referral threshold — defer specific prognosis to the bariatric MDT consultation."
+*   **Continuing plan:** start statin + ACE-I + metformin + GLP-1 RA *while* awaiting bariatric review (months-long wait); do not delay pharmacotherapy.
+*   **Uncertainty flag:** GLP-1 RA vs SGLT2i first-line — both CPG-supported; preference depends on weight-loss priority (GLP-1 RA superior) vs cardiorenal protection (SGLT2i if CKD develops). Individualise.
+
+---

@@ -158,10 +158,12 @@ SELECT
     c.id::text       AS chunk_id,
     c.content        AS content,
     c.metadata->>'category' AS category,
-    d.title          AS cpg_source
+    coalesce(c.metadata->>'cpg_name', d.title) AS cpg_source
 FROM chunks c
 JOIN documents d ON d.id = c.document_id
-WHERE ($1::text IS NULL OR d.title ILIKE '%' || $1 || '%')
+WHERE ($1::text IS NULL
+       OR d.title ILIKE '%' || $1 || '%'
+       OR c.metadata->>'cpg_name' ILIKE '%' || $1 || '%')
   AND length(c.content) > 60
 ORDER BY d.title, c.chunk_index
 LIMIT $2;
@@ -180,12 +182,39 @@ async def fetch_candidate_chunks(
     return [dict(r) for r in rows]
 
 
+def _category_in_whitelist(raw_category: Any) -> bool:
+    """`metadata.category` in this corpus is a JSON array (e.g.
+    `["Treatment", "Prevention"]`), so `metadata->>'category'` returns a
+    JSON-encoded string like '["Treatment"]'. A chunk passes when ANY of its
+    category labels is whitelisted, or when the column is null/empty (legacy)."""
+    if raw_category is None:
+        return None in REFERRAL_CATEGORY_WHITELIST
+    if isinstance(raw_category, list):
+        cats = raw_category
+    elif isinstance(raw_category, str):
+        s = raw_category.strip()
+        if not s:
+            return None in REFERRAL_CATEGORY_WHITELIST
+        if s.startswith("["):
+            try:
+                cats = json.loads(s)
+                if not isinstance(cats, list):
+                    cats = [s]
+            except json.JSONDecodeError:
+                cats = [s]
+        else:
+            cats = [s]
+    else:
+        cats = [str(raw_category)]
+    return any(c in REFERRAL_CATEGORY_WHITELIST for c in cats)
+
+
 def filter_referral_candidates(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Pass 1b: category whitelist + regex match on content. Returns a
     subset of `rows`; non-destructive."""
     out: list[dict[str, Any]] = []
     for r in rows:
-        if r.get("category") not in REFERRAL_CATEGORY_WHITELIST:
+        if not _category_in_whitelist(r.get("category")):
             continue
         text = r.get("content") or ""
         if not _REFERRAL_KEYWORD_RE.search(text):

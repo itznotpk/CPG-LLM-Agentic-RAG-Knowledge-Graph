@@ -148,9 +148,9 @@ export function SeverityStagingGrid() {
             return (
               <div key={field.key} className="space-y-1">
                 <label
-                  className={`flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}
+                  className={`flex items-end gap-1 h-7 pb-0.5 leading-tight text-[10px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}
                 >
-                  {field.label}
+                  <span>{field.label}</span>
                   {isEGFR && isAutoEGFR && (
                     <span className={`text-xs font-normal ml-1 ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
                       (auto)

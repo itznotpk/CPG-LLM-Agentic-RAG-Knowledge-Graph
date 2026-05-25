@@ -403,7 +403,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       {/* ── Known Allergies ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
         <p className={`${eyebrow} mb-2`}>
-          Known allergies{isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>click × to remove</span>}
+          Known allergies
         </p>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {(isEditing ? draft.allergies : (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean)).map((a, idx) => (
@@ -441,7 +441,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       {/* ── Comorbidities ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
         <p className={`${eyebrow} mb-2`}>
-          Comorbidities{isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>click × to remove</span>}
+          Comorbidities
         </p>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {(isEditing ? draft.comorbidities : (mpisData?.comorbidities || [])).map((c, idx) => (
@@ -672,7 +672,7 @@ function NewPatientForm({ nsn, onClear }) {
 
       {/* ── Known Allergies ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-2`}>Known allergies <span className={`ml-1 normal-case text-[10px] font-normal ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>click × to remove</span></p>
+        <p className={`${eyebrow} mb-2`}>Known allergies</p>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {allergies.map((a, idx) => (
             <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-red-500/10 text-red-400 border-red-500/30' : 'bg-red-50 text-red-600 border-red-200'}`}>
@@ -697,7 +697,7 @@ function NewPatientForm({ nsn, onClear }) {
 
       {/* ── Comorbidities ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-2`}>Comorbidities <span className={`ml-1 normal-case text-[10px] font-normal ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>click × to remove</span></p>
+        <p className={`${eyebrow} mb-2`}>Comorbidities</p>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {conditions.map((c, idx) => (
             <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/30' : 'bg-teal-50 text-teal-700 border-teal-200'}`}>

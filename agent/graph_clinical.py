@@ -464,6 +464,86 @@ async def extract_candidate_drugs_from_chunks(chunk_ids: List[str]) -> List[str]
 
 
 # ---------------------------------------------------------------------------
+# Referral lookup (used by Stage 5 post-validator)
+# ---------------------------------------------------------------------------
+
+@dataclass
+class ReferralHit:
+    """One KG-sourced referral recommendation matched to a patient condition."""
+
+    condition: str          # matched Condition node display name
+    specialty: str          # Specialty node display name
+    urgency: str            # urgent | routine | consider
+    trigger: Optional[str]  # condition that warrants referral, if any
+    evidence: str           # one supporting CPG sentence
+    cpg_source: str         # CPG document title
+
+    def label(self) -> str:
+        """Human-readable label for unresolved_questions / UI."""
+        parts = [self.specialty]
+        if self.urgency == "urgent":
+            parts.append("(urgent)")
+        elif self.urgency == "consider":
+            parts.append("(consider)")
+        out = " ".join(parts)
+        if self.trigger:
+            out = f"{out} — trigger: {self.trigger}"
+        return out
+
+
+async def lookup_referrals(condition_names: List[str]) -> List[ReferralHit]:
+    """Look up KG-sourced referral recommendations for a patient's conditions.
+
+    The match is symmetric to `match_plan_drugs`: substring match of the
+    Condition node's `name_normalised` against the lowercased condition string.
+    Requires `size(name_normalised) >= 4` to avoid 3-letter false positives
+    (e.g. "AF" matching "AFI" or "AFP").
+
+    Fail-open: returns [] on Neo4j error so the pipeline never blocks.
+    """
+    condition_names = [c for c in (condition_names or []) if c]
+    if not condition_names:
+        return []
+    cypher = """
+    UNWIND $names AS raw
+    WITH toLower(raw) AS needle
+    MATCH (c:Condition)-[r:REQUIRES_REFERRAL]->(s:Specialty)
+    WHERE c.name_normalised IS NOT NULL
+      AND size(c.name_normalised) >= 4
+      AND (needle CONTAINS c.name_normalised OR c.name_normalised CONTAINS needle)
+    RETURN DISTINCT
+        c.name           AS condition,
+        s.name           AS specialty,
+        r.urgency        AS urgency,
+        r.trigger        AS trigger,
+        r.evidence       AS evidence,
+        r.source_document AS cpg_source
+    """
+    try:
+        session_ctx = await _get_neo4j_session()
+        async with session_ctx as session:
+            result = await session.run(cypher, names=condition_names)
+            hits: List[ReferralHit] = []
+            async for rec in result:
+                hits.append(ReferralHit(
+                    condition=rec["condition"] or "",
+                    specialty=rec["specialty"] or "",
+                    urgency=(rec["urgency"] or "routine"),
+                    trigger=rec["trigger"],
+                    evidence=(rec["evidence"] or "")[:300],
+                    cpg_source=rec["cpg_source"] or "",
+                ))
+            logger.info(
+                "lookup_referrals: %d referral hit(s) for %d condition name(s)",
+                len(hits), len(condition_names),
+            )
+            return hits
+    except Exception as exc:
+        logger.warning("lookup_referrals failed: %s", exc)
+        return []
+
+
+# ---------------------------------------------------------------------------
 # Public API
 # ---------------------------------------------------------------------------
 

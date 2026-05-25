@@ -1,0 +1,372 @@
+[
+  {
+    "condition": "Atrial Fibrillation with Haemodynamic Compromise",
+    "specialty": "Emergency Medicine",
+    "urgency": "urgent",
+    "trigger": "haemodynamic compromise, acute dyspnoea, acute heart failure, chest pain, ischaemia, near syncope, hypotension",
+    "evidence": "This is required for patients with: AF/AFL with haemodynamic compromise, acute dyspnoea, acute heart failure, chest pain, ischaemia, near syncope, hypotension",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Rapid Uncontrolled Heart Rate",
+    "specialty": "Emergency Medicine",
+    "urgency": "urgent",
+    "trigger": "rapid uncontrolled heart rate over 140 bpm at rest",
+    "evidence": "AF/AFL with rapid uncontrolled heart rate, e.g., over 140 bpm at rest",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Acute Systemic Illness",
+    "specialty": "Emergency Medicine",
+    "urgency": "urgent",
+    "trigger": "acute systemic illness requiring acute management",
+    "evidence": "AF/AFL with acute systemic illness requiring acute management",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation, New Onset",
+    "specialty": "Emergency Medicine",
+    "urgency": "urgent",
+    "trigger": "first/new onset of symptoms no contraindications to cardioversion within 48 hours of onset",
+    "evidence": "first/new onset of AF/AFL symptoms, no contraindications to cardioversion, with the possibility of cardioversion within 48 hours of onset.",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "need further investigation/echocardiography",
+    "evidence": "Outpatient specialist referral is recommended for those who: Need further investigation/echocardiography",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Suspected Structural Heart Disease",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "suspected structural heart disease (hypertensive, valvular, ischaemic)",
+    "evidence": "Have suspected structural heart disease (e.g., hypertensive, valvular, ischaemic)",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "to be considered for cardioversion",
+    "evidence": "Are to be considered for cardioversion",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation, Highly Symptomatic",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "highly symptomatic requiring maintenance of sinus rhythm antiarrhythmic therapy",
+    "evidence": "Are highly symptomatic, requiring 'maintenance of sinus rhythm' antiarrhythmic therapy",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "difficulty with pharmacological rate control",
+    "evidence": "Are having difficulty with pharmacological rate control",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "second opinion on risk/benefit ratio of anticoagulation",
+    "evidence": "Require a second opinion of the risk/benefit ratio of anticoagulation",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Syncope",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "syncopal attacks",
+    "evidence": "Are having syncopal attacks",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Wolff-Parkinson-White Syndrome",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "pre-excited AF",
+    "evidence": "Tertiary referral is recommended for patients who have: AF with WPW syndrome (pre-excited AF)",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation, Highly Symptomatic",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "unresponsive to first-line antiarrhythmic treatment",
+    "evidence": "Highly-symptomatic AF unresponsive to first-line antiarrhythmic treatment",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "uncontrolled ventricular rate with maximally tolerated atrioventricular-blocking therapy",
+    "evidence": "Uncontrolled ventricular rate with maximally tolerated atrioventricular-blocking therapy",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Flutter, Recurrent",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "recurrent AFL including mixed AFL and AF where AFL is dominant",
+    "evidence": "Recurrent AFL (including mixed AFL and AF where AFL is the dominant arrhythmia)",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Tachycardia-Bradycardia Syndrome",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "sinus node dysfunction",
+    "evidence": "Tachycardia-bradycardia syndrome (sinus node dysfunction)",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "suspicion or documentation of regular tachycardia triggering AF (e.g., SVT)",
+    "evidence": "Suspicion or documentation of a regular tachycardia triggering AF (e.g., SVT).",
+    "icd_hint": null,
+    "cpg_chunk_id": "fdf99cf1-81a2-4d22-a693-bc9721542d3c",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "need further investigation/echocardiography",
+    "evidence": "Outpatient specialist referral is recommended for those who: Need further investigation/echocardiography",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "suspected structural heart disease (hypertensive, valvular, ischaemic)",
+    "evidence": "Outpatient specialist referral is recommended for those who: Have suspected structural heart disease (e.g., hypertensive, valvular, ischaemic)",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "to be considered for cardioversion",
+    "evidence": "Outpatient specialist referral is recommended for those who: Are to be considered for cardioversion",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "highly symptomatic, requiring maintenance of sinus rhythm antiarrhythmic therapy",
+    "evidence": "Outpatient specialist referral is recommended for those who: Are highly symptomatic, requiring 'maintenance of sinus rhythm' antiarrhythmic therapy",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "difficulty with pharmacological rate control",
+    "evidence": "Outpatient specialist referral is recommended for those who: Are having difficulty with pharmacological rate control",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "require second opinion on risk/benefit ratio of anticoagulation",
+    "evidence": "Outpatient specialist referral is recommended for those who: Require a second opinion of the risk/benefit ratio of anticoagulation",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "syncopal attacks",
+    "evidence": "Outpatient specialist referral is recommended for those who: Are having syncopal attacks",
+    "icd_hint": null,
+    "cpg_chunk_id": "c401b552-43f9-4dc3-a9f6-ad2a53da920b",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "consider",
+    "trigger": "symptomatic AF or AF-related complications",
+    "evidence": "Patients with symptomatic AF or AF-related complications should be considered for referral to a cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "5e8b9044-9cc4-4d4c-a311-4b9ccb681200",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "consider",
+    "trigger": "symptomatic or AF-related complications",
+    "evidence": "Patients with symptomatic AF or AF-related complications should be considered for referral to a cardiologist.",
+    "icd_hint": null,
+    "cpg_chunk_id": "09067641-daae-44b4-a217-ac99371ce42f",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Paroxysmal Presentation and Symptomatic Bradycardia",
+    "specialty": "Neurology",
+    "urgency": "routine",
+    "trigger": "symptomatic bradycardia",
+    "evidence": "Patients with paroxysmal AF and symptomatic bradycardia should be referred for electrophysiological review for consideration of atrial based pacing.",
+    "icd_hint": null,
+    "cpg_chunk_id": "d1cfc05b-f765-4882-9592-c79777ac0cc6",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Paroxysmal Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "symptomatic, failed trial of antiarrhythmic medication",
+    "evidence": "Catheter ablation for paroxysmal AF should be considered in symptomatic patients who have previously failed a trial of antiarrhythmic medication.",
+    "icd_hint": null,
+    "cpg_chunk_id": "99f2c433-d4ae-4d8a-b24a-a03a6d5c0b0d",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Persistent Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "symptomatic, refractory to antiarrhythmic therapy",
+    "evidence": "Ablation of persistent symptomatic AF that is refractory to antiarrhythmic therapy should be considered a treatment option.",
+    "icd_hint": null,
+    "cpg_chunk_id": "99f2c433-d4ae-4d8a-b24a-a03a6d5c0b0d",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Long-standing Persistent Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "symptomatic, refractory to antiarrhythmic drugs",
+    "evidence": "Catheter ablation of AF may be considered in patients with symptomatic long-standing persistent AF refractory to antiarrhythmic drugs.",
+    "icd_hint": null,
+    "cpg_chunk_id": "99f2c433-d4ae-4d8a-b24a-a03a6d5c0b0d",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation with Heart Failure",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "antiarrhythmic medication including amiodarone fails to control symptoms",
+    "evidence": "Catheter ablation of AF in patients with heart failure may be considered when antiarrhythmic medication, including amiodarone, fails to control symptoms.",
+    "icd_hint": null,
+    "cpg_chunk_id": "99f2c433-d4ae-4d8a-b24a-a03a6d5c0b0d",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "symptomatic, undergoing cardiac surgery",
+    "evidence": "Surgical ablation of AF should be considered in patients with symptomatic AF undergoing cardiac surgery.",
+    "icd_hint": null,
+    "cpg_chunk_id": "99f2c433-d4ae-4d8a-b24a-a03a6d5c0b0d",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Paroxysmal Atrial Fibrillation with Bradycardia",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "symptomatic bradycardia",
+    "evidence": "Patients with paroxysmal AF and symptomatic bradycardia should be referred for electrophysiological review for consideration of atrial based pacing.",
+    "icd_hint": null,
+    "cpg_chunk_id": "99f2c433-d4ae-4d8a-b24a-a03a6d5c0b0d",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Wolff-Parkinson-White Syndrome with Atrial Fibrillation",
+    "specialty": "Cardiology",
+    "urgency": "urgent",
+    "trigger": "survived sudden cardiac death with overt accessory pathway conduction",
+    "evidence": "Immediate referral to an experienced ablation centre for catheter ablation is recommended for patients who survived SCD and have evidence of overt AP conduction.",
+    "icd_hint": null,
+    "cpg_chunk_id": "71972d48-da3e-46de-974b-522592786c95",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Wolff-Parkinson-White Syndrome",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "high-risk profession (pilots, public transport drivers) with overt asymptomatic accessory pathway conduction",
+    "evidence": "Catheter ablation is recommended for patients with high-risk professions (e.g. pilots, public transport drivers) and overt but asymptomatic AP conduction on the surface ECG.",
+    "icd_hint": null,
+    "cpg_chunk_id": "71972d48-da3e-46de-974b-522592786c95",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Wolff-Parkinson-White Syndrome",
+    "specialty": "Cardiology",
+    "urgency": "routine",
+    "trigger": "high risk of developing atrial fibrillation with overt asymptomatic accessory pathway conduction",
+    "evidence": "Catheter ablation is recommended in patients at high risk of developing AF in the presence of an overt but asymptomatic AP on the surface ECG.",
+    "icd_hint": null,
+    "cpg_chunk_id": "71972d48-da3e-46de-974b-522592786c95",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  },
+  {
+    "condition": "Wolff-Parkinson-White Syndrome",
+    "specialty": "Cardiology",
+    "urgency": "consider",
+    "trigger": "asymptomatic with evidence of overt accessory pathway after full explanation and counseling",
+    "evidence": "Asymptomatic patients with evidence of an overt AP should be considered for catheter ablation of the AP only after a full explanation and careful counseling.",
+    "icd_hint": null,
+    "cpg_chunk_id": "71972d48-da3e-46de-974b-522592786c95",
+    "cpg_source": "Atrial-Fibrillation(2012)"
+  }
+]
