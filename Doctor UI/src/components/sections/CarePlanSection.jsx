@@ -125,7 +125,7 @@ function MedicationRow({ med, action }) {
         </div>
       </td>
       <td className="py-3 pr-4 align-top">
-        <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{med.reason}</p>
+        {med.reason && <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{med.reason}</p>}
         {med.instructions && (
           <p className={`mt-1 inline-flex items-center gap-1 text-[11px] px-1.5 py-0.5 rounded ${isDark ? 'bg-amber-500/15 text-amber-300' : 'bg-amber-100 text-amber-700'}`}>
             <AlertCircle className="w-3 h-3" strokeWidth={1.7} /> {med.instructions}
@@ -170,10 +170,36 @@ function MedicationsTable({ medications }) {
 }
 
 /* ============================================================
+   Red flag row — title/subtitle split on " — ", collapsible detail
+   ============================================================ */
+function RedFlagRow({ text }) {
+  const { isDark } = useTheme();
+  const dashIdx = text ? text.indexOf(' — ') : -1;
+  const flagTitle = dashIdx !== -1 ? text.slice(0, dashIdx).trim() : text;
+  const flagSub   = dashIdx !== -1 ? text.slice(dashIdx + 3).trim() : null;
+  return (
+    <div className={`py-2.5 border-b last:border-b-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
+      <div className="flex items-start gap-3">
+        <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 ${isDark ? 'bg-red-500/20 text-red-300' : 'bg-red-100 text-red-700'}`}>
+          <Check className="w-3 h-3" strokeWidth={2.4} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className={`text-sm font-semibold leading-snug ${isDark ? 'text-red-400' : 'text-red-600'}`}>{flagTitle}</div>
+          {flagSub && (
+            <div className={`text-xs mt-0.5 leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>{flagSub}</div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================================================
    List row — Interventions / Monitoring / Lifestyle / Referrals / Red flags
    ============================================================ */
 function ListRow({ bulletTone = 'ok', title, sub, tag, tagTone }) {
   const { isDark } = useTheme();
+  const [expanded, setExpanded] = useState(false);
   const bulletColor = {
     ok:     isDark ? 'bg-emerald-500/20 text-emerald-300' : 'bg-emerald-100 text-emerald-700',
     info:   isDark ? 'bg-blue-500/20 text-blue-300'       : 'bg-blue-100 text-blue-700',
@@ -187,16 +213,97 @@ function ListRow({ bulletTone = 'ok', title, sub, tag, tagTone }) {
     danger:  isDark ? 'bg-red-500/15 text-red-300' : 'bg-red-100 text-red-700',
   }[tagTone || 'default'];
   return (
-    <div className={`flex items-start gap-3 py-2.5 border-b last:border-b-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
-      <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 ${bulletColor}`}>
-        <Check className="w-3 h-3" strokeWidth={2.4} />
+    <div className={`py-2.5 border-b last:border-b-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
+      <div className="flex items-start gap-3">
+        <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 ${bulletColor}`}>
+          <Check className="w-3 h-3" strokeWidth={2.4} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className={`text-sm font-medium leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>{title}</div>
+        </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {tag && (
+            <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${tagColor}`}>{tag}</span>
+          )}
+          {sub && (
+            <button
+              onClick={() => setExpanded(v => !v)}
+              className={`p-0.5 rounded transition-colors ${isDark ? 'text-slate-400 hover:bg-white/10' : 'text-slate-400 hover:bg-black/5'}`}
+              aria-label={expanded ? 'Collapse' : 'Expand'}
+            >
+              {expanded ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} /> : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
+            </button>
+          )}
+        </div>
       </div>
-      <div className="flex-1 min-w-0">
-        <div className={`text-sm font-medium leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>{title}</div>
-        {sub && <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{sub}</div>}
+      {expanded && sub && (
+        <div className={`mt-1.5 ml-8 text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          {sub}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function MedListRow({ bulletTone = 'ok', drugName, dose, description, tag, tagTone }) {
+  const { isDark } = useTheme();
+  const [expanded, setExpanded] = useState(false);
+
+  const bulletColor = {
+    ok:     isDark ? 'bg-emerald-500/20 text-emerald-300' : 'bg-emerald-100 text-emerald-700',
+    info:   isDark ? 'bg-blue-500/20 text-blue-300'       : 'bg-blue-100 text-blue-700',
+    warn:   isDark ? 'bg-amber-500/20 text-amber-300'     : 'bg-amber-100 text-amber-700',
+    danger: isDark ? 'bg-red-500/20 text-red-300'         : 'bg-red-100 text-red-700',
+  }[bulletTone];
+  const tagColor = {
+    default: isDark ? 'bg-white/10 text-slate-300' : 'bg-slate-100 text-slate-600',
+    accent:  isDark ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)]' : 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)]',
+    warn:    isDark ? 'bg-amber-500/15 text-amber-300' : 'bg-amber-100 text-amber-700',
+    danger:  isDark ? 'bg-red-500/15 text-red-300' : 'bg-red-100 text-red-700',
+  }[tagTone || 'default'];
+  const nameColor = {
+    ok:     isDark ? 'text-emerald-300' : 'text-emerald-700',
+    warn:   isDark ? 'text-amber-300'   : 'text-amber-700',
+    danger: isDark ? 'text-red-400'     : 'text-red-600',
+    info:   isDark ? 'text-blue-300'    : 'text-blue-700',
+  }[bulletTone] || (isDark ? 'text-white' : 'text-slate-800');
+
+  return (
+    <div className={`py-2.5 border-b last:border-b-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
+      <div className="flex items-start gap-3">
+        <div className={`mt-0.5 w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0 ${bulletColor}`}>
+          <Check className="w-3 h-3" strokeWidth={2.4} />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className={`text-sm font-semibold leading-snug ${nameColor}`}>{drugName}</div>
+          {dose && (
+            <div className={`text-xs mt-0.5 leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+              {dose}
+            </div>
+          )}
+        </div>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {tag && (
+            <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${tagColor}`}>{tag}</span>
+          )}
+          {description && (
+            <button
+              onClick={() => setExpanded(v => !v)}
+              className={`p-0.5 rounded hover:bg-black/5 transition-colors ${isDark ? 'text-slate-400 hover:bg-white/10' : 'text-slate-400'}`}
+              aria-label={expanded ? 'Collapse' : 'Expand'}
+            >
+              {expanded
+                ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} />
+                : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />
+              }
+            </button>
+          )}
+        </div>
       </div>
-      {tag && (
-        <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0 ${tagColor}`}>{tag}</span>
+      {expanded && description && (
+        <div className={`mt-2 ml-8 text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          {description}
+        </div>
       )}
     </div>
   );
@@ -219,6 +326,18 @@ function parseSuggestedDate(instruction) {
   if (unit === 'year')  d.setFullYear(d.getFullYear() + n);
   return d.toISOString().split('T')[0];
 }
+function FollowUpItem({ timeline, body, isDark }) {
+  return (
+    <div className="relative py-2">
+      <div className={`absolute -left-[18px] top-3 w-3 h-3 rounded-full border-2 ${isDark ? 'bg-slate-900 border-[var(--accent-primary)]' : 'bg-white border-[var(--accent-primary)]'}`} />
+      <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[var(--accent-primary)]">{timeline}</div>
+      {body && (
+        <p className={`text-sm leading-relaxed mt-0.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{body}</p>
+      )}
+    </div>
+  );
+}
+
 function FollowUpBlock({ followUp }) {
   const { isDark } = useTheme();
   const { state, dispatch } = useApp();
@@ -251,11 +370,7 @@ function FollowUpBlock({ followUp }) {
         {items.map((it, idx) => {
           const { timeline, body } = parseInstruction(it);
           return (
-            <div key={idx} className="relative py-2">
-              <div className={`absolute -left-[18px] top-3 w-3 h-3 rounded-full border-2 ${isDark ? 'bg-slate-900 border-[var(--accent-primary)]' : 'bg-white border-[var(--accent-primary)]'}`} />
-              <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[var(--accent-primary)]">{timeline}</div>
-              <p className={`text-sm leading-relaxed mt-0.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{body}</p>
-            </div>
+            <FollowUpItem key={idx} timeline={timeline} body={body} isDark={isDark} />
           );
         })}
       </div>
@@ -555,11 +670,12 @@ export function CarePlanSection() {
                       ...(carePlan.medications.start || []).map((m) => ({ ...m, _action: 'start' })),
                       ...(carePlan.medications.change || []).map((m) => ({ ...m, _action: 'change' })),
                     ].map((m) => (
-                      <ListRow
+                      <MedListRow
                         key={`${m._action}-${m.id}`}
                         bulletTone={m._action === 'stop' ? 'danger' : m._action === 'start' ? 'ok' : 'warn'}
-                        title={`${m.name}${m._action === 'change' ? ` (${m.previousDose} → ${m.newDose})` : m.dose ? ` · ${m.dose}` : ''}`}
-                        sub={m.reason}
+                        drugName={m._action === 'change' ? `${m.name} (${m.previousDose} → ${m.newDose})` : m.name}
+                        dose={m._action !== 'change' ? m.dose : null}
+                        description={m.reason}
                         tag={m._action.toUpperCase()}
                         tagTone={m._action === 'stop' ? 'danger' : m._action === 'start' ? 'accent' : 'warn'}
                       />
@@ -575,7 +691,7 @@ export function CarePlanSection() {
 
                 <Section title="Red Flags" icon={AlertCircle} count={carePlan.redFlags?.length || 0} kind="red-flags">
                   <div>
-                    {(carePlan.redFlags || []).map((f, i) => <ListRow key={i} bulletTone="danger" title={f} />)}
+                    {(carePlan.redFlags || []).map((f, i) => <RedFlagRow key={i} text={f} />)}
                   </div>
                 </Section>
               </div>
@@ -647,7 +763,7 @@ export function CarePlanSection() {
               </Section>
               <Section title="Red Flags — Return Immediately" icon={AlertCircle} count={carePlan.redFlags?.length || 0} kind="red-flags">
                 <div>
-                  {(carePlan.redFlags || []).map((f, i) => <ListRow key={i} bulletTone="danger" title={f} />)}
+                  {(carePlan.redFlags || []).map((f, i) => <RedFlagRow key={i} text={f} />)}
                 </div>
               </Section>
             </>

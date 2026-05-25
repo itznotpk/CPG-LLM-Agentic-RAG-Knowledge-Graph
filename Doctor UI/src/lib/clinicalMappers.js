@@ -30,17 +30,35 @@ export function mapTreatmentPlanToCarePlan(plan) {
   const referrals       = plan.recommendations.filter(r => r.type === 'referral');
   const investigations  = plan.recommendations.filter(r => r.type === 'investigation');
 
+  // Split "Drug Name 50mg OD orally..." into { drugName, dose }
+  // Cuts at the first standalone number or at known dose keywords
+  const splitIntervention = (text) => {
+    if (!text) return { drugName: text, dose: null };
+    // Try splitting at " — " first (explicit separator from LLM)
+    const dashIdx = text.indexOf(' — ');
+    if (dashIdx !== -1) return { drugName: text.slice(0, dashIdx).trim(), dose: text.slice(dashIdx + 3).trim() };
+    // Split before first dose pattern: number+unit or "up to", "at least", common dose words
+    const dosePattern = /\s+(?=\d|\bup to\b|\bat least\b|\bonce\b|\btwice\b|\bthrce\b|\boral|\bIV\b|\bIM\b|\bSC\b|\btopical\b|\bnebulised\b)/i;
+    const match = text.search(dosePattern);
+    if (match !== -1) return { drugName: text.slice(0, match).trim(), dose: text.slice(match).trim() };
+    return { drugName: text, dose: null };
+  };
+
   // Split pharmacological recommendations by action field
   const byAction = (action) => pharmacological
     .filter(r => (r.action ?? 'start') === action)
-    .map((r, i) => ({
-      id: i + 1,
-      name: r.intervention,
-      reason: r.rationale,
-      cpgRef: r.cpg_source,
-      evidenceGrade: r.evidence_grade || null,
-      accepted: true,
-    }));
+    .map((r, i) => {
+      const { drugName, dose } = splitIntervention(r.intervention);
+      return {
+        id: i + 1,
+        name: drugName,
+        dose: dose,
+        reason: r.rationale,
+        cpgRef: r.cpg_source,
+        evidenceGrade: r.evidence_grade || null,
+        accepted: true,
+      };
+    });
 
   const interventionItems = [...procedures, ...investigations].map((r, i) => ({
     id: i + 1,
