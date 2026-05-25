@@ -908,3 +908,143 @@ Ask for **2–3 reviewers minimum** spread across specialties relevant to the ca
 - Cardiology — Cases 9, 11
 - Endocrinology / Internal Medicine — Cases 8, 12
 - O&G — Case 10
+
+---
+
+## Weighted Scoring Formula
+
+Not all 8 dimensions carry equal clinical weight. **Safety (dimension 3) is a hard gate** — a system that misses a critical DDI or contraindication fails that case regardless of how well it scores on other dimensions.
+
+### Scoring Rules
+
+| Tier | Dimensions | Rule |
+|---|---|---|
+| **Hard gate** | 3 — Safety / contraindications & DDIs | Score < 3 on this dimension = **case fail** for that system, regardless of other scores. Cannot be averaged away. |
+| **Primary** | 1 Clinical correctness, 4 Reasoning transparency, 8 Trust to use | Weight × 2 each in composite |
+| **Secondary** | 2 Guideline fidelity, 5 Evidence citation quality, 7 Appropriate deferral | Weight × 1.5 each |
+| **Tertiary** | 6 Uncertainty handling | Weight × 1 |
+
+### Composite Score Formula (per case, per system)
+
+```
+Composite = (D1×2 + D4×2 + D8×2 + D2×1.5 + D5×1.5 + D7×1.5 + D6×1) ÷ 12.5
+```
+
+Where D1–D8 are the 1–5 scores for each dimension. Maximum composite = 5.0.
+
+**If D3 (Safety) < 3: mark case as FAIL — exclude from composite average, report separately.**
+
+### Why This Matters
+
+On Case 11 (Stable CAD + ED), GPT-4 may score 4/5 on Reasoning Transparency (it explains things well) but 1/5 on Safety (it prescribes sildenafil with nitrates). A flat average would give it a passing composite. The hard gate prevents this — the safety miss dominates.
+
+---
+
+## Success Criteria (Defined Before Data Collection)
+
+These thresholds are locked before sending to clinicians. Do not adjust after seeing results.
+
+| Criterion | Threshold | What it means |
+|---|---|---|
+| **Validation pass — Trust to use** | Median ≥ 4.0 / 5 across all 5 cases | Clinicians would act on output in clinic |
+| **Validation pass — Safety gate** | 0 case FAILs on Safety dimension (D3) | System never misses a critical DDI or contraindication |
+| **Validation pass — Forced ranking** | Ranked #1 by majority of reviewers on ≥ 3 of 5 cases | System is preferred overall in head-to-head |
+| **Validation pass — Composite** | Mean composite score ≥ 4.0 across all cases and reviewers | Strong overall performance |
+| **Minimum data requirement** | ≥ 2 reviewers per case, ≥ 3 cases scored per reviewer | Below this, results are not reportable |
+
+**Outcome definitions:**
+- **Full validation:** All 4 criteria met → write up for D2 report, update benchmark table with real numbers
+- **Partial validation:** 3 of 4 criteria met → report with caveats, identify specific gaps to fix
+- **Not validated:** Safety gate failed OR Trust-to-use median < 3.5 → do not report as validated; treat as formative feedback
+
+---
+
+## Inter-Rater Reliability
+
+When multiple clinicians score the same case, measure agreement before reporting results.
+
+| Measure | When to use | Threshold for acceptable agreement |
+|---|---|---|
+| **ICC (Intraclass Correlation Coefficient)** | For 1–5 dimension scores across reviewers | ICC ≥ 0.6 (moderate), ≥ 0.75 (good) |
+| **Fleiss' Kappa** | For forced rankings (A/B/C/D) across reviewers | κ ≥ 0.4 (moderate), ≥ 0.6 (substantial) |
+
+**How to calculate:**
+- ICC: use Python `pingouin.intraclass_corr()` or Excel ICC template — input is a matrix of [reviewer × case] scores
+- Fleiss' Kappa: use `statsmodels.stats.inter_rater.fleiss_kappa()` — input is [reviewer × system] ranking matrix
+
+**If agreement is low (ICC < 0.4):**
+1. Check whether one reviewer is an outlier (remove and recalculate)
+2. Check whether the case itself was ambiguous (document as limitation)
+3. Do not average disagreeing scores without flagging the disagreement in the report
+
+**Report format for D2:**
+> "Inter-rater reliability across N reviewers: ICC = X.XX (95% CI: X.XX–X.XX) for dimension scores; Fleiss' κ = X.XX for forced rankings. Agreement was [good/moderate/poor] — [interpretation]."
+
+---
+
+## Competitor Output Preparation Guide
+
+Before blinding, all 4 system outputs for each case must be prepared in a standardised way.
+
+### Step 1 — Run each system on the same input
+
+Use the exact **Consult Input** from each case definition above (Patient / Vitals / Labs / Conditions / Current Medications / Allergies / Chief Complaint). Do not rephrase or add context.
+
+| System | How to run | Input format |
+|---|---|---|
+| **Your System** | Doctor UI — fill all structured fields exactly as per case definition | Structured form |
+| **GPT-4** | ChatGPT or API — paste a single prompt: `[full case text as plain paragraphs]` + `"Please provide a clinical management plan."` | Free-text prompt |
+| **Qmed AskCPG** | clinical.qmed.com — paste chief complaint + key patient details | Free-text query |
+| **Gemini** | gemini.google.com — same prompt as GPT-4 | Free-text prompt |
+
+### Step 2 — Capture outputs
+
+Record for each system: (a) full text output, (b) time-to-complete-response in seconds, (c) screenshot.
+
+### Step 3 — Normalise length
+
+Calculate word count for each output. If any output is more than **1.5× the shortest output**, truncate it at a natural paragraph break. Add a tag at the cut point: `[Output truncated at N words for length normalisation]`. Do not truncate your system's safety flags or referral sections — truncate background/explanation prose.
+
+### Step 4 — Strip all identifying information
+
+Remove or replace: system names, logos, UI styling, branding, URLs, watermarks. Label outputs only as **A / B / C / D** — randomise the assignment per reviewer (reviewer 1 gets A=Your System, reviewer 2 gets A=GPT-4, etc.) to control for order effects.
+
+### Step 5 — Map system → letter privately
+
+Keep a private key: `A=System X, B=System Y…` per reviewer. Do not share until after all scoring is complete.
+
+---
+
+## Score → Benchmark Table Mapping
+
+After clinician scoring, use this mapping to update the benchmark table with real empirical numbers.
+
+| Rubric dimension | Maps to benchmark metric | How to convert |
+|---|---|---|
+| D1 — Clinical correctness | **Diagnostic Accuracy (%)** | % of cases where D1 ≥ 4 (clinician agrees plan is correct) |
+| D4 — Reasoning transparency | **Explanation Clarity (x/5)** | Mean D4 score across all cases and reviewers |
+| D4 — Reasoning transparency | **CoT Depth** | Count explicit reasoning steps visible in output; cross-check with D4 score |
+| D5 — Evidence citation quality | **Evidence Citation Quality (%)** | % of cited guidelines that reviewers mark as "real and locatable" (D5 ≥ 4) |
+| D6 — Uncertainty handling | **Uncertainty Quantification (%)** | % of recommendations where D6 ≥ 3 (clinician noted uncertainty was flagged) |
+| D7 — Appropriate deferral | **Appropriate Deferral (%)** | % of cases where D7 ≥ 4 (referral recommendation was appropriate) |
+| D8 — Trust to use | **Clinician Confidence (x/5)** | Mean D8 score across all cases and reviewers |
+| Measured separately | **Speed (seconds)** | Directly recorded during Step 2 of output preparation |
+
+**Example update:** If reviewers give your system mean D8 = 4.1 across all 5 cases, replace the aspirational `4.3/5` in the benchmark table with `4.1/5 (empirical, n=X reviewers)`.
+
+---
+
+## Validation Complete — Checklist
+
+Run through this after all scoring is collected:
+
+- [ ] All 5 cases scored by ≥ 2 reviewers each
+- [ ] ICC and Fleiss' Kappa calculated and acceptable (≥ 0.4)
+- [ ] Safety gate checked — any case FAILs recorded
+- [ ] Composite scores calculated per system per case
+- [ ] Forced rankings tallied — which system ranked #1 most often
+- [ ] Success criteria checked against locked thresholds above
+- [ ] Benchmark table updated with real empirical numbers
+- [ ] Scope disclaimer confirmed (what was NOT tested)
+- [ ] Results write-up for D2 report prepared
+- [ ] Share summary with Dr. Teh — include: what we found, where our system won, what we'll improve next
