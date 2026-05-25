@@ -504,6 +504,60 @@ async def lookup_referrals(condition_names: List[str]) -> List[ReferralHit]:
     condition_names = [c for c in (condition_names or []) if c]
     if not condition_names:
         return []
+
+    # Expand common clinical abbreviations so substring-match works on
+    # "AF (CHA2DS2-VASc 4)" → "atrial fibrillation", "T2DM" → "type 2 diabetes
+    # mellitus", etc. The expansions are *added* as extra needles, not
+    # replacements, so original strings still match too.
+    _ABBREV_MAP = {
+        "af": "atrial fibrillation",
+        "afib": "atrial fibrillation",
+        "a-fib": "atrial fibrillation",
+        "t2dm": "type 2 diabetes mellitus",
+        "t1dm": "type 1 diabetes mellitus",
+        "dm": "diabetes mellitus",
+        "hfref": "heart failure with reduced ejection fraction",
+        "hfpef": "heart failure with preserved ejection fraction",
+        "hfmref": "heart failure with mildly reduced ejection fraction",
+        "hf": "heart failure",
+        "chf": "congestive heart failure",
+        "ckd": "chronic kidney disease",
+        "cad": "coronary artery disease",
+        "cabg": "coronary artery bypass graft",
+        "pci": "percutaneous coronary intervention",
+        "acs": "acute coronary syndrome",
+        "nstemi": "non-st elevation myocardial infarction",
+        "stemi": "st elevation myocardial infarction",
+        "mi": "myocardial infarction",
+        "htn": "hypertension",
+        "copd": "chronic obstructive pulmonary disease",
+        "pah": "pulmonary arterial hypertension",
+        "tia": "transient ischaemic attack",
+        "cvd": "cardiovascular disease",
+        "ihd": "ischaemic heart disease",
+        "dkd": "diabetic kidney disease",
+        "nafld": "non-alcoholic fatty liver disease",
+        "gdm": "gestational diabetes mellitus",
+        "pad": "peripheral arterial disease",
+        "vte": "venous thromboembolism",
+        "dvt": "deep vein thrombosis",
+        "pe": "pulmonary embolism",
+        "ie": "infective endocarditis",
+        "ed": "erectile dysfunction",
+        "npc": "nasopharyngeal carcinoma",
+        "crc": "colorectal carcinoma",
+    }
+    import re as _re
+    expanded: list[str] = []
+    for raw in condition_names:
+        expanded.append(raw)
+        lowered = raw.lower()
+        for tok in _re.findall(r"[a-z0-9-]+", lowered):
+            full = _ABBREV_MAP.get(tok)
+            if full and full not in expanded:
+                expanded.append(full)
+    condition_names = expanded
+
     cypher = """
     UNWIND $names AS raw
     WITH toLower(raw) AS needle
@@ -699,6 +753,39 @@ async def lookup_referrals(
     names = [n for n in (condition_names or []) if n and n.strip()]
     if not names:
         return []
+
+    _ABBREV_MAP = {
+        "af": "atrial fibrillation", "afib": "atrial fibrillation", "a-fib": "atrial fibrillation",
+        "t2dm": "type 2 diabetes mellitus", "t1dm": "type 1 diabetes mellitus", "dm": "diabetes mellitus",
+        "hfref": "heart failure with reduced ejection fraction",
+        "hfpef": "heart failure with preserved ejection fraction",
+        "hfmref": "heart failure with mildly reduced ejection fraction",
+        "hf": "heart failure", "chf": "congestive heart failure",
+        "ckd": "chronic kidney disease", "cad": "coronary artery disease",
+        "cabg": "coronary artery bypass graft", "pci": "percutaneous coronary intervention",
+        "acs": "acute coronary syndrome",
+        "nstemi": "non-st elevation myocardial infarction",
+        "stemi": "st elevation myocardial infarction", "mi": "myocardial infarction",
+        "htn": "hypertension", "copd": "chronic obstructive pulmonary disease",
+        "pah": "pulmonary arterial hypertension", "tia": "transient ischaemic attack",
+        "cvd": "cardiovascular disease", "ihd": "ischaemic heart disease",
+        "dkd": "diabetic kidney disease", "nafld": "non-alcoholic fatty liver disease",
+        "gdm": "gestational diabetes mellitus", "pad": "peripheral arterial disease",
+        "vte": "venous thromboembolism", "dvt": "deep vein thrombosis",
+        "pe": "pulmonary embolism", "ie": "infective endocarditis",
+        "ed": "erectile dysfunction", "npc": "nasopharyngeal carcinoma",
+        "crc": "colorectal carcinoma",
+    }
+    import re as _re
+    expanded: list[str] = []
+    for raw in names:
+        expanded.append(raw)
+        lowered = raw.lower()
+        for tok in _re.findall(r"[a-z0-9-]+", lowered):
+            full = _ABBREV_MAP.get(tok)
+            if full and full not in expanded:
+                expanded.append(full)
+    names = expanded
 
     cypher = """
     UNWIND $names AS raw

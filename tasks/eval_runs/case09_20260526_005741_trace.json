@@ -1,0 +1,1962 @@
+{
+  "case": {
+    "chief_complaint": "Post-PCI with DES for NSTEMI in patient with known non-valvular AF on warfarin and T2DM \u2014 needs antithrombotic strategy.",
+    "history": "67-year-old female with known non-valvular Atrial Fibrillation (CHA2DS2-VASc = 4) on Warfarin (INR 2.4) has just undergone successful primary PCI with a Drug-Eluting Stent (DES) for NSTEMI. She also has Type 2 Diabetes. Question: recommended antithrombotic strategy post-PCI, including which P2Y12 inhibitor to choose and for how long.",
+    "age": 67,
+    "sex": "F",
+    "comorbidities": [
+      "Non-valvular Atrial Fibrillation (CHA2DS2-VASc 4)",
+      "NSTEMI status-post primary PCI with Drug-Eluting Stent",
+      "Type 2 Diabetes Mellitus"
+    ],
+    "current_medications": [
+      "Warfarin (INR 2.4)"
+    ],
+    "allergies": [],
+    "vitals": {}
+  },
+  "events": [
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "running",
+        "detail": "Analyzing symptoms and history\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Extracted symptom query: \"Post-PCI\"",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Condition hypotheses: Non-ST",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "complete",
+        "detail": "5 candidates \u00b7 top: BA41.0",
+        "data": [
+          {
+            "code": "BA41.0",
+            "title": "Acute ST elevation myocardial infarction",
+            "similarity": 0.3084,
+            "base_similarity": 0.3084,
+            "final_score": 0.3084,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3084,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3084,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.308",
+              "Final DDx score 0.308",
+              "LLM: Patient had NSTEMI requiring PCI; this is the closest MI code. Patient had NSTEMI, not STEMI."
+            ],
+            "math_rank": 8,
+            "llm_rank": 1,
+            "rank_delta": 7,
+            "override_reason": "red_flag_cant_miss: Closest code for patient's recent MI, which drives current management."
+          },
+          {
+            "code": "8B26.4",
+            "title": "Posterior cerebral artery syndrome",
+            "similarity": 0.3432,
+            "base_similarity": 0.3432,
+            "final_score": 0.3432,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3432,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3432,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.343",
+              "Final DDx score 0.343",
+              "LLM: No clinical evidence or symptoms suggesting posterior cerebral artery syndrome."
+            ],
+            "math_rank": 1,
+            "llm_rank": 2,
+            "rank_delta": -1,
+            "override_reason": null
+          },
+          {
+            "code": "BE15.1",
+            "title": "Postprocedural right pulmonary artery stenosis",
+            "similarity": 0.3345,
+            "base_similarity": 0.3345,
+            "final_score": 0.3345,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3345,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3345,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.335",
+              "Final DDx score 0.335",
+              "LLM: No indication of postprocedural right pulmonary artery stenosis."
+            ],
+            "math_rank": 2,
+            "llm_rank": 3,
+            "rank_delta": -1,
+            "override_reason": null
+          },
+          {
+            "code": "BC02.40",
+            "title": "Acquired stenosis of the neoaortic valve of truncal origin",
+            "similarity": 0.3326,
+            "base_similarity": 0.3326,
+            "final_score": 0.3326,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3326,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3326,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.333",
+              "Final DDx score 0.333",
+              "LLM: No evidence of acquired stenosis of the neoaortic valve of truncal origin."
+            ],
+            "math_rank": 3,
+            "llm_rank": 4,
+            "rank_delta": -1,
+            "override_reason": null
+          },
+          {
+            "code": "BE15",
+            "title": "Postprocedural pulmonary arterial tree disorder",
+            "similarity": 0.3323,
+            "base_similarity": 0.3323,
+            "final_score": 0.3323,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3323,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3323,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.332",
+              "Final DDx score 0.332",
+              "LLM: No indication of postprocedural pulmonary arterial tree disorder."
+            ],
+            "math_rank": 4,
+            "llm_rank": 5,
+            "rank_delta": -1,
+            "override_reason": null
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "running",
+        "detail": "Matching ICD codes to clinical guidelines\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Primary-Secondary-Prevention-of-CVD(2017)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "T2-Diabetes-Mellitus(6th-Edition)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Heart-Disease-in-Pregnancy(2nd Edition)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Ischaemic-Stroke(3rd Edition)",
+        "badge": "ancestor_d1_sibling",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Atrial-Fibrillation(2012)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "NSTEMI(2011)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Diabetes-in-Pregnancy(2017)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "CVD-Prevention-Women(2016)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "complete",
+        "detail": "7 CPGs matched: Primary-Secondary-Prevention-of-CVD(2017), T2-Diabetes-Mellitus(6th-Edition), Heart-Disease-in-Pregnancy(2nd Edition), Atrial-Fibrillation(2012), NSTEMI(2011), Diabetes-in-Pregnancy(2017), CVD-Prevention-Women(2016)",
+        "data": [
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "T2-Diabetes-Mellitus(6th-Edition)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "Atrial-Fibrillation(2012)",
+          "NSTEMI(2011)",
+          "Diabetes-in-Pregnancy(2017)",
+          "CVD-Prevention-Women(2016)"
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "running",
+        "detail": "Retrieving relevant guideline chunks\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "Generating 7 targeted queries\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Specialist referrals indicated and their urgency for this pa\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Lifestyle modifications, diet, exercise, weight, smoking, al\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Baseline investigations, tests, and imaging indicated for th\u2026\"",
+        "badge": "4 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"In patients with non-valvular atrial fibrillation on warfari\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"The concomitant use of prasugrel or ticagrelor with warfarin\u2026\"",
+        "badge": "2 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Patients receiving triple antithrombotic therapy with warfar\u2026\"",
+        "badge": "1 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Dose adjustments for clopidogrel or warfarin are not routine\u2026\"",
+        "badge": "3 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Criteria for specialist referral or escalation of antithromb\u2026\"",
+        "badge": "2 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Patients with NSTEMI, non-valvular atrial fibrillation, and \u2026\"",
+        "badge": "4 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Patients with non-valvular atrial fibrillation on warfarin p\u2026\"",
+        "badge": "2 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "20 unique chunks after deduplication",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "complete",
+        "detail": "20 evidence chunks retrieved"
+      }
+    },
+    {
+      "event": "graph_navigator",
+      "data": {
+        "rules": [
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Vitamin K Antagonist",
+            "condition": "Non-Valvular Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "running",
+        "detail": "Generating evidence-based care plan\u2026"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "complete",
+        "detail": "Care plan ready \u00b7 86797 ms total",
+        "badge": "conf. 0.85"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 6,
+        "detail": "Safety review running\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "safety_review",
+      "data": {
+        "flags": [
+          {
+            "severity": "MODERATE",
+            "recommendation_index": 0,
+            "flag_type": "drug_interaction",
+            "detail": "Warfarin interacts with Aspirin. Evidence: Lifelong Warfarin (target INR 3.0; range 2.5-3.5) plus Aspirin 75-150mg daily",
+            "suggested_alternative": null,
+            "source": "graph"
+          }
+        ],
+        "safe_to_proceed": true,
+        "reviewer_notes": "LLM safety review unavailable: ValidationError | 1 graph-verified flag(s) added from Neo4j KG"
+      }
+    },
+    {
+      "event": "final_result",
+      "data": {
+        "treatment_plan": {
+          "icd_primary": "8B26.4",
+          "icd_alternates": [
+            "BA41.0",
+            "BE15.1"
+          ],
+          "summary": "67-year-old female with known non-valvular atrial fibrillation (CHA2DS2-VASc 4) on warfarin (INR 2.4) who has undergone PCI with a drug-eluting stent for NSTEMI, with concurrent Type 2 Diabetes Mellitus. This patient requires a carefully balanced antithrombotic strategy managing the dual risk of stent thrombosis and thromboembolism against a significant bleeding risk from triple therapy (VKA + aspirin + clopidogrel).",
+          "recommendations": [
+            {
+              "intervention": "Initiate Triple Therapy: VKA (Warfarin, target INR 2.0-2.5) + Aspirin 75-100mg daily + Clopidogrel 75mg daily for 3-6 months",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade II-a, Level C",
+              "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+              "rationale": "For this 67F with AF and NSTEMI post-PCI with DES, triple therapy is recommended in the short term (3-6 months) to balance stent thrombosis risk with bleeding risk.",
+              "contraindications_checked": [
+                "Warfarin",
+                "Active bleeding"
+              ]
+            },
+            {
+              "intervention": "Step-down to Dual Therapy: VKA (Warfarin, target INR 2.0-3.0) + Clopidogrel 75mg daily (or alternatively aspirin) up to month 12",
+              "type": "pharmacological",
+              "action": "change",
+              "evidence_grade": "Grade II-a, Level C",
+              "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+              "rationale": "Following the initial 3-6 months of triple therapy, step down to VKA plus a single antiplatelet to reduce bleeding risk while managing long-term AF and vascular risk.",
+              "contraindications_checked": [
+                "Warfarin",
+                "Aspirin",
+                "Clopidogrel"
+              ]
+            },
+            {
+              "intervention": "VKA Monotherapy: Warfarin (target INR 2.0-3.0) after 12 months",
+              "type": "pharmacological",
+              "action": "change",
+              "evidence_grade": "Grade II-b, Level C",
+              "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+              "rationale": "For stable vascular disease (>1 year post event) in this AF patient, VKA monotherapy may be considered to prevent long-term stroke risk, as concomitant antiplatelet therapy is generally not recommended without new events.",
+              "contraindications_checked": [
+                "Warfarin"
+              ]
+            },
+            {
+              "intervention": "Dose regulation: Maintain INR at the lower end of the therapeutic range (2.0-2.5) while on combination antiplatelet therapy",
+              "type": "pharmacological",
+              "action": "change",
+              "evidence_grade": "Grade II-b, Level C",
+              "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+              "rationale": "To mitigate the high bleeding risk of triple therapy in this 67-year-old, the CPG recommends strict regulation of anticoagulation intensity to the lower target.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Aspirin 300 mg loading dose followed by 75-150 mg daily maintenance",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG Management of UA/NSTEMI \u00a77.2.2 [chunk 3]",
+              "rationale": "Indicated for the NSTEMI and PCI management; loading and maintenance doses are standard of care for this patient.",
+              "contraindications_checked": [
+                "Warfarin"
+              ]
+            },
+            {
+              "intervention": "Clopidogrel 75 mg daily (following loading dose if not already given)",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG Management of UA/NSTEMI \u00a77.2.2 [chunk 3]",
+              "rationale": "As part of the antiplatelet strategy post-PCI. It is preferred in combination with VKA after the initial triple therapy period.",
+              "contraindications_checked": [
+                "Warfarin"
+              ]
+            },
+            {
+              "intervention": "Statin therapy \u2014 initiate or continue high potency statin (e.g. Atorvastatin 80mg od)",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG Management of UA/NSTEMI \u00a77.2.5 [chunk 3]",
+              "rationale": "High dose statins are recommended early after admission for UA/NSTEMI to reduce MACE. This patient with T2DM and CAD is at high vascular risk.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Proton Pump Inhibitor (PPI) \u2014 gastric protection",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": null,
+              "cpg_source": "CPG Management of Thromboembolism \u00a76 Table 13 [chunk 1]",
+              "rationale": "To mitigate the increased risk of gastrointestinal bleeding associated with triple antithrombotic therapy in this 67-year-old.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Dietary counseling to reduce calorie-dense food, focus on complex carbohydrates and fruits/vegetables",
+              "type": "lifestyle",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG Prevention of CVD in Women \u00a76.1.1 [chunk 17]",
+              "rationale": "This 67F with T2DM and ACS requires lifestyle management for weight and glycemic control as part of comprehensive CV risk reduction.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Cardiology (routine) \u2014 St Elevation Myocardial Infarction; trigger: post-STEMI",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "STEMI(4th Edition)",
+              "rationale": "Early referral for cardiac rehabilitation is advisable.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Physiotherapy (routine) \u2014 St Elevation Myocardial Infarction; trigger: post-acute cardiac event",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "STEMI(4th Edition)",
+              "rationale": "Following an acute cardiac event or post cardiac surgery, patients should be referred to a cardiac rehabilitative physician for exercise prescription.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Atrial Fibrillation",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "Heart-Disease-in-Pregnancy(2nd Edition)",
+              "rationale": "The choice of therapeutic anticoagulation for other indications would depend upon the risk of thrombosis, patients' preference and the consensus of the multidisciplinary team.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Cardiology (urgent) \u2014 Atrial Fibrillation; trigger: first occurrence in patients with valvular heart disease",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "Heart-Disease-in-Pregnancy(2nd Edition)",
+              "rationale": "If AF should occur for the first time in patients with valvular heart disease, immediate anticoagulation with UFH is advised.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Cardiology (urgent) \u2014 Stemi; trigger: presented initially to non-PCI-capable hospital",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "STEMI(4th Edition)",
+              "rationale": "STEMI patients who present initially to non-PCI-capable hospitals should be referred for early coronary angiography with a view to revascularization in the presence of any of the following:",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Cardiology (routine) \u2014 Unstable Angina / Non-ST Elevation Myocardial Infarction; trigger: post-discharge",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "NSTEMI(2011)",
+              "rationale": "referral to a cardiac rehabilitation program where appropriate",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "All patients should be referred for formal diabetes education preferably delivered by a multidisciplinary healthcare professional team.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Type 2 Diabetes Mellitus With Obesity; trigger: evaluation for bariatric surgery appropriateness",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Evaluation for the appropriateness of surgery should be performed by a multidisciplinary team consisting of endocrinologist, bariatric surgeon, psychiatrist, dietitian and physiotherapist prior to surgery.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Type 2 Diabetes Mellitus in Adolescents",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "A multidisciplinary diabetes team is important.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Cardiology (routine) \u2014 Type 2 Diabetes Mellitus with Abnormal Resting ECG; trigger: abnormal resting ECG at baseline",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Baseline resting ECG is recommended. If abnormal, refer to cardiology.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Nephrology (routine) \u2014 Type 2 Diabetes Mellitus with Diabetic Kidney Disease; trigger: rapid decline in renal function (eGFR loss >5 ml/min/1.73 m\u00b2 in 1 year or >10 ml/min/1.73 m\u00b2 in 5 years)",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "All patients with T2DM and DKD should be referred to a nephrologist in these situations: rapid decline in renal function (eGFR loss >5 ml/min/1.73 m\u00b2 in 1 year or >10 ml/min/1.73 m\u00b2 in 5 years)",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Ophthalmology (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Annual dilated eye exam",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Ophthalmology (routine) \u2014 Obesity with Type 2 Diabetes Mellitus; trigger: retinopathy with rapid glycaemic improvement on semaglutide",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "Obesity-Management(2023)",
+              "rationale": "Patients with obesity and T2DM with retinopathy treated with semaglutide should be monitored closely and co-managed with an ophthalmologist.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Ophthalmology (routine) \u2014 Type 2 Diabetes Mellitus with Obesity and Retinopathy; trigger: baseline retinopathy treated with semaglutide",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "Obesity-Management(2023)",
+              "rationale": "Patients with obesity and T2DM with retinopathy treated with semaglutide should be monitored closely and co-managed with an ophthalmologist.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Dietetics (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Registered dietitian for medical nutrition therapy",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Psychiatry (consider) \u2014 Type 2 Diabetes Mellitus; trigger: if indicated",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Mental health professional, if indicated",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Dentistry (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Dentist for comprehensive dental and periodontal examination",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Oral Health Professional (routine) \u2014 Type 2 Diabetes Mellitus",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Therefore, referrals should be done routinely for oral healthcare.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Bariatric Surgery (consider) \u2014 Type 2 Diabetes Mellitus; trigger: BMI >= 32 kg/m\u00b2 with inadequate glycaemic control despite lifestyle modification and pharmacotherapy",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Bariatric surgery may be considered in patients with BMI \u226532 kg/m\u00b2 and their T2DM cannot be controlled by lifestyle changes and pharmacotherapy.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Bariatric Surgery (consider) \u2014 Type 2 Diabetes Mellitus With Obesity; trigger: BMI >= 37.5 kg/m\u00b2 with inadequately controlled hyperglycaemia despite lifestyle modification and optimal medical treatment",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Metabolic surgery should be recommended for Asians with T2DM as below: \u226537.5 kg/m\u00b2",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Geriatrics (routine) \u2014 Type 2 Diabetes Mellitus with Cognitive Impairment; trigger: cognitive impairment identified on screening",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+              "rationale": "Annual screening with tools such as the Mini-Mental State Examination, Mini-Cognitive, the Montreal Cognitive Assessment and the Clinical Frailty Score may help identify patients requiring neuropsychological evaluation and referral to geriatrician.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Refer to Endocrinology (routine) \u2014 Diabetes Mellitus; trigger: insulin requirement exceeds 0.1 unit/kg/hour during labour",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "Diabetes-in-Pregnancy(2017)",
+              "rationale": "If requirement exceeds 0.1 unit/kg/hour, refer to the endocrinologist/physician.",
+              "contraindications_checked": []
+            }
+          ],
+          "monitoring": [
+            {
+              "parameter": "INR",
+              "schedule": "Weekly until stable, then monthly",
+              "target": "2.0-2.5 during triple therapy; 2.0-3.0 long term",
+              "cpg_ref": "CPG AF \u00a76.3.2"
+            },
+            {
+              "parameter": "Hemoglobin / Bleeding signs",
+              "schedule": "During routine follow-up",
+              "target": "Absence of major bleeding",
+              "cpg_ref": "CPG AF \u00a76.6"
+            },
+            {
+              "parameter": "Plasma Glucose / HbA1c",
+              "schedule": "Every 3 months or as indicated",
+              "target": "Individualized (typically HbA1c < 8.0% in complex elderly)",
+              "cpg_ref": "CPG T2DM Special Populations \u00a76.3 [chunk 7]"
+            }
+          ],
+          "red_flags": [
+            "Signs of major bleeding (hematemesis, melena, intracranial hemorrhage) \u2014 stop antithrombotics and seek emergency care",
+            "Stent thrombosis symptoms (recurrent acute chest pain, ECG changes) \u2014 urgent review for re-catheterization",
+            "Severe hypoglycemia or cognitive dysfunction \u2014 reassess T2DM regimen and consider de-escalation"
+          ],
+          "follow_up": [
+            "1 month: Assess for bleeding complications and check INR stability. Ensure triple therapy is well tolerated.",
+            "3-6 months: Re-evaluate for transition from triple therapy to VKA + single antiplatelet (Step-down) if clinically stable.",
+            "12 months: Review for step-down to VKA monotherapy if no recurrent ACS or revascularization events.",
+            "Ongoing: Annual cognitive and frailty screening given T2DM and age to ensure management aligns with functional status."
+          ],
+          "confidence": 0.85,
+          "unresolved_questions": [
+            "Specific PPI choice and duration not explicitly detailed in the retrieved chunks, though recommended as 'consider where necessary' in Table 13.",
+            "The evidence base strongly notes a 'lack of published evidence' for this specific complex patient profile (AF + NSTEMI + PCI), relying heavily on consensus and balancing risks."
+          ]
+        },
+        "ddx": [
+          {
+            "code": "BA41.0",
+            "title": "Acute ST elevation myocardial infarction",
+            "similarity": 0.3084,
+            "base_similarity": 0.3084,
+            "final_score": 0.3084,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3084,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3084,
+              "route_method": "exact"
+            },
+            "matched_cpg_title": "Appendix",
+            "reasoning": [
+              "Vector similarity 0.308",
+              "Final DDx score 0.308",
+              "LLM: Patient had NSTEMI requiring PCI; this is the closest MI code. Patient had NSTEMI, not STEMI."
+            ],
+            "math_rank": 8,
+            "llm_rank": 1,
+            "rank_delta": 7,
+            "override_reason": "red_flag_cant_miss: Closest code for patient's recent MI, which drives current management."
+          },
+          {
+            "code": "8B26.4",
+            "title": "Posterior cerebral artery syndrome",
+            "similarity": 0.3432,
+            "base_similarity": 0.3432,
+            "final_score": 0.3432,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3432,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3432,
+              "route_method": "ancestor_d1_sibling"
+            },
+            "matched_cpg_title": "Section 3: Diagnosis And Initial Assessment",
+            "reasoning": [
+              "Vector similarity 0.343",
+              "Final DDx score 0.343",
+              "LLM: No clinical evidence or symptoms suggesting posterior cerebral artery syndrome."
+            ],
+            "math_rank": 1,
+            "llm_rank": 2,
+            "rank_delta": -1,
+            "override_reason": null
+          },
+          {
+            "code": "BE15.1",
+            "title": "Postprocedural right pulmonary artery stenosis",
+            "similarity": 0.3345,
+            "base_similarity": 0.3345,
+            "final_score": 0.3345,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3345,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3345,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.335",
+              "Final DDx score 0.335",
+              "LLM: No indication of postprocedural right pulmonary artery stenosis."
+            ],
+            "math_rank": 2,
+            "llm_rank": 3,
+            "rank_delta": -1,
+            "override_reason": null
+          },
+          {
+            "code": "BC02.40",
+            "title": "Acquired stenosis of the neoaortic valve of truncal origin",
+            "similarity": 0.3326,
+            "base_similarity": 0.3326,
+            "final_score": 0.3326,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3326,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3326,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.333",
+              "Final DDx score 0.333",
+              "LLM: No evidence of acquired stenosis of the neoaortic valve of truncal origin."
+            ],
+            "math_rank": 3,
+            "llm_rank": 4,
+            "rank_delta": -1,
+            "override_reason": null
+          },
+          {
+            "code": "BE15",
+            "title": "Postprocedural pulmonary arterial tree disorder",
+            "similarity": 0.3323,
+            "base_similarity": 0.3323,
+            "final_score": 0.3323,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3323,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3323,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.332",
+              "Final DDx score 0.332",
+              "LLM: No indication of postprocedural pulmonary arterial tree disorder."
+            ],
+            "math_rank": 4,
+            "llm_rank": 5,
+            "rank_delta": -1,
+            "override_reason": null
+          }
+        ],
+        "cpgs_matched": [
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "T2-Diabetes-Mellitus(6th-Edition)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "Atrial-Fibrillation(2012)",
+          "NSTEMI(2011)",
+          "Diabetes-in-Pregnancy(2017)",
+          "CVD-Prevention-Women(2016)"
+        ],
+        "elapsed_ms": 86796.99999999866,
+        "stage_errors": [],
+        "graph_navigator_rules": [
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Vitamin K Antagonist",
+            "condition": "Non-Valvular Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ],
+        "safety_report": {
+          "flags": [
+            {
+              "severity": "MODERATE",
+              "recommendation_index": 0,
+              "flag_type": "drug_interaction",
+              "detail": "Warfarin interacts with Aspirin. Evidence: Lifelong Warfarin (target INR 3.0; range 2.5-3.5) plus Aspirin 75-150mg daily",
+              "suggested_alternative": null,
+              "source": "graph"
+            }
+          ],
+          "safe_to_proceed": true,
+          "reviewer_notes": "LLM safety review unavailable: ValidationError | 1 graph-verified flag(s) added from Neo4j KG"
+        },
+        "cpg_references": [
+          "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+          "CPG Management of UA/NSTEMI \u00a77.2.2 [chunk 3]",
+          "CPG Management of UA/NSTEMI \u00a77.2.5 [chunk 3]",
+          "CPG Management of Thromboembolism \u00a76 Table 13 [chunk 1]",
+          "CPG Prevention of CVD in Women \u00a76.1.1 [chunk 17]",
+          "STEMI(4th Edition)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "NSTEMI(2011)",
+          "T2-Diabetes-Mellitus(6th-Edition)",
+          "Obesity-Management(2023)",
+          "Diabetes-in-Pregnancy(2017)",
+          "CPG AF \u00a76.3.2",
+          "CPG AF \u00a76.6",
+          "CPG T2DM Special Populations \u00a76.3 [chunk 7]"
+        ],
+        "follow_up_parsed": [
+          {
+            "when": "1 month",
+            "days_from_now": 30,
+            "action": "Assess for bleeding complications and check INR stability. Ensure triple therapy is well tolerated.",
+            "raw": "1 month: Assess for bleeding complications and check INR stability. Ensure triple therapy is well tolerated."
+          },
+          {
+            "when": "3-6 months",
+            "days_from_now": 120,
+            "action": "Re-evaluate for transition from triple therapy to VKA + single antiplatelet (Step-down) if clinically stable.",
+            "raw": "3-6 months: Re-evaluate for transition from triple therapy to VKA + single antiplatelet (Step-down) if clinically stable."
+          },
+          {
+            "when": "12 months",
+            "days_from_now": 360,
+            "action": "Review for step-down to VKA monotherapy if no recurrent ACS or revascularization events.",
+            "raw": "12 months: Review for step-down to VKA monotherapy if no recurrent ACS or revascularization events."
+          },
+          {
+            "when": "Ongoing",
+            "days_from_now": null,
+            "action": "Annual cognitive and frailty screening given T2DM and age to ensure management aligns with functional status.",
+            "raw": "Ongoing: Annual cognitive and frailty screening given T2DM and age to ensure management aligns with functional status."
+          }
+        ]
+      }
+    },
+    {
+      "event": "done",
+      "data": {}
+    }
+  ],
+  "final": {
+    "treatment_plan": {
+      "icd_primary": "8B26.4",
+      "icd_alternates": [
+        "BA41.0",
+        "BE15.1"
+      ],
+      "summary": "67-year-old female with known non-valvular atrial fibrillation (CHA2DS2-VASc 4) on warfarin (INR 2.4) who has undergone PCI with a drug-eluting stent for NSTEMI, with concurrent Type 2 Diabetes Mellitus. This patient requires a carefully balanced antithrombotic strategy managing the dual risk of stent thrombosis and thromboembolism against a significant bleeding risk from triple therapy (VKA + aspirin + clopidogrel).",
+      "recommendations": [
+        {
+          "intervention": "Initiate Triple Therapy: VKA (Warfarin, target INR 2.0-2.5) + Aspirin 75-100mg daily + Clopidogrel 75mg daily for 3-6 months",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade II-a, Level C",
+          "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+          "rationale": "For this 67F with AF and NSTEMI post-PCI with DES, triple therapy is recommended in the short term (3-6 months) to balance stent thrombosis risk with bleeding risk.",
+          "contraindications_checked": [
+            "Warfarin",
+            "Active bleeding"
+          ]
+        },
+        {
+          "intervention": "Step-down to Dual Therapy: VKA (Warfarin, target INR 2.0-3.0) + Clopidogrel 75mg daily (or alternatively aspirin) up to month 12",
+          "type": "pharmacological",
+          "action": "change",
+          "evidence_grade": "Grade II-a, Level C",
+          "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+          "rationale": "Following the initial 3-6 months of triple therapy, step down to VKA plus a single antiplatelet to reduce bleeding risk while managing long-term AF and vascular risk.",
+          "contraindications_checked": [
+            "Warfarin",
+            "Aspirin",
+            "Clopidogrel"
+          ]
+        },
+        {
+          "intervention": "VKA Monotherapy: Warfarin (target INR 2.0-3.0) after 12 months",
+          "type": "pharmacological",
+          "action": "change",
+          "evidence_grade": "Grade II-b, Level C",
+          "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+          "rationale": "For stable vascular disease (>1 year post event) in this AF patient, VKA monotherapy may be considered to prevent long-term stroke risk, as concomitant antiplatelet therapy is generally not recommended without new events.",
+          "contraindications_checked": [
+            "Warfarin"
+          ]
+        },
+        {
+          "intervention": "Dose regulation: Maintain INR at the lower end of the therapeutic range (2.0-2.5) while on combination antiplatelet therapy",
+          "type": "pharmacological",
+          "action": "change",
+          "evidence_grade": "Grade II-b, Level C",
+          "cpg_source": "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+          "rationale": "To mitigate the high bleeding risk of triple therapy in this 67-year-old, the CPG recommends strict regulation of anticoagulation intensity to the lower target.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Aspirin 300 mg loading dose followed by 75-150 mg daily maintenance",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG Management of UA/NSTEMI \u00a77.2.2 [chunk 3]",
+          "rationale": "Indicated for the NSTEMI and PCI management; loading and maintenance doses are standard of care for this patient.",
+          "contraindications_checked": [
+            "Warfarin"
+          ]
+        },
+        {
+          "intervention": "Clopidogrel 75 mg daily (following loading dose if not already given)",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG Management of UA/NSTEMI \u00a77.2.2 [chunk 3]",
+          "rationale": "As part of the antiplatelet strategy post-PCI. It is preferred in combination with VKA after the initial triple therapy period.",
+          "contraindications_checked": [
+            "Warfarin"
+          ]
+        },
+        {
+          "intervention": "Statin therapy \u2014 initiate or continue high potency statin (e.g. Atorvastatin 80mg od)",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG Management of UA/NSTEMI \u00a77.2.5 [chunk 3]",
+          "rationale": "High dose statins are recommended early after admission for UA/NSTEMI to reduce MACE. This patient with T2DM and CAD is at high vascular risk.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Proton Pump Inhibitor (PPI) \u2014 gastric protection",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": null,
+          "cpg_source": "CPG Management of Thromboembolism \u00a76 Table 13 [chunk 1]",
+          "rationale": "To mitigate the increased risk of gastrointestinal bleeding associated with triple antithrombotic therapy in this 67-year-old.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Dietary counseling to reduce calorie-dense food, focus on complex carbohydrates and fruits/vegetables",
+          "type": "lifestyle",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG Prevention of CVD in Women \u00a76.1.1 [chunk 17]",
+          "rationale": "This 67F with T2DM and ACS requires lifestyle management for weight and glycemic control as part of comprehensive CV risk reduction.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Cardiology (routine) \u2014 St Elevation Myocardial Infarction; trigger: post-STEMI",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "STEMI(4th Edition)",
+          "rationale": "Early referral for cardiac rehabilitation is advisable.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Physiotherapy (routine) \u2014 St Elevation Myocardial Infarction; trigger: post-acute cardiac event",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "STEMI(4th Edition)",
+          "rationale": "Following an acute cardiac event or post cardiac surgery, patients should be referred to a cardiac rehabilitative physician for exercise prescription.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Atrial Fibrillation",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "rationale": "The choice of therapeutic anticoagulation for other indications would depend upon the risk of thrombosis, patients' preference and the consensus of the multidisciplinary team.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Cardiology (urgent) \u2014 Atrial Fibrillation; trigger: first occurrence in patients with valvular heart disease",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "rationale": "If AF should occur for the first time in patients with valvular heart disease, immediate anticoagulation with UFH is advised.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Cardiology (urgent) \u2014 Stemi; trigger: presented initially to non-PCI-capable hospital",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "STEMI(4th Edition)",
+          "rationale": "STEMI patients who present initially to non-PCI-capable hospitals should be referred for early coronary angiography with a view to revascularization in the presence of any of the following:",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Cardiology (routine) \u2014 Unstable Angina / Non-ST Elevation Myocardial Infarction; trigger: post-discharge",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "NSTEMI(2011)",
+          "rationale": "referral to a cardiac rehabilitation program where appropriate",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "All patients should be referred for formal diabetes education preferably delivered by a multidisciplinary healthcare professional team.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Type 2 Diabetes Mellitus With Obesity; trigger: evaluation for bariatric surgery appropriateness",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Evaluation for the appropriateness of surgery should be performed by a multidisciplinary team consisting of endocrinologist, bariatric surgeon, psychiatrist, dietitian and physiotherapist prior to surgery.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Multidisciplinary Team (routine) \u2014 Type 2 Diabetes Mellitus in Adolescents",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "A multidisciplinary diabetes team is important.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Cardiology (routine) \u2014 Type 2 Diabetes Mellitus with Abnormal Resting ECG; trigger: abnormal resting ECG at baseline",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Baseline resting ECG is recommended. If abnormal, refer to cardiology.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Nephrology (routine) \u2014 Type 2 Diabetes Mellitus with Diabetic Kidney Disease; trigger: rapid decline in renal function (eGFR loss >5 ml/min/1.73 m\u00b2 in 1 year or >10 ml/min/1.73 m\u00b2 in 5 years)",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "All patients with T2DM and DKD should be referred to a nephrologist in these situations: rapid decline in renal function (eGFR loss >5 ml/min/1.73 m\u00b2 in 1 year or >10 ml/min/1.73 m\u00b2 in 5 years)",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Ophthalmology (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Annual dilated eye exam",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Ophthalmology (routine) \u2014 Obesity with Type 2 Diabetes Mellitus; trigger: retinopathy with rapid glycaemic improvement on semaglutide",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "Obesity-Management(2023)",
+          "rationale": "Patients with obesity and T2DM with retinopathy treated with semaglutide should be monitored closely and co-managed with an ophthalmologist.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Ophthalmology (routine) \u2014 Type 2 Diabetes Mellitus with Obesity and Retinopathy; trigger: baseline retinopathy treated with semaglutide",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "Obesity-Management(2023)",
+          "rationale": "Patients with obesity and T2DM with retinopathy treated with semaglutide should be monitored closely and co-managed with an ophthalmologist.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Dietetics (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Registered dietitian for medical nutrition therapy",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Psychiatry (consider) \u2014 Type 2 Diabetes Mellitus; trigger: if indicated",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Mental health professional, if indicated",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Dentistry (routine) \u2014 Type 2 Diabetes Mellitus; trigger: newly diagnosed",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Dentist for comprehensive dental and periodontal examination",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Oral Health Professional (routine) \u2014 Type 2 Diabetes Mellitus",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Therefore, referrals should be done routinely for oral healthcare.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Bariatric Surgery (consider) \u2014 Type 2 Diabetes Mellitus; trigger: BMI >= 32 kg/m\u00b2 with inadequate glycaemic control despite lifestyle modification and pharmacotherapy",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Bariatric surgery may be considered in patients with BMI \u226532 kg/m\u00b2 and their T2DM cannot be controlled by lifestyle changes and pharmacotherapy.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Bariatric Surgery (consider) \u2014 Type 2 Diabetes Mellitus With Obesity; trigger: BMI >= 37.5 kg/m\u00b2 with inadequately controlled hyperglycaemia despite lifestyle modification and optimal medical treatment",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Metabolic surgery should be recommended for Asians with T2DM as below: \u226537.5 kg/m\u00b2",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Geriatrics (routine) \u2014 Type 2 Diabetes Mellitus with Cognitive Impairment; trigger: cognitive impairment identified on screening",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "T2-Diabetes-Mellitus(6th-Edition)",
+          "rationale": "Annual screening with tools such as the Mini-Mental State Examination, Mini-Cognitive, the Montreal Cognitive Assessment and the Clinical Frailty Score may help identify patients requiring neuropsychological evaluation and referral to geriatrician.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Refer to Endocrinology (routine) \u2014 Diabetes Mellitus; trigger: insulin requirement exceeds 0.1 unit/kg/hour during labour",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "Diabetes-in-Pregnancy(2017)",
+          "rationale": "If requirement exceeds 0.1 unit/kg/hour, refer to the endocrinologist/physician.",
+          "contraindications_checked": []
+        }
+      ],
+      "monitoring": [
+        {
+          "parameter": "INR",
+          "schedule": "Weekly until stable, then monthly",
+          "target": "2.0-2.5 during triple therapy; 2.0-3.0 long term",
+          "cpg_ref": "CPG AF \u00a76.3.2"
+        },
+        {
+          "parameter": "Hemoglobin / Bleeding signs",
+          "schedule": "During routine follow-up",
+          "target": "Absence of major bleeding",
+          "cpg_ref": "CPG AF \u00a76.6"
+        },
+        {
+          "parameter": "Plasma Glucose / HbA1c",
+          "schedule": "Every 3 months or as indicated",
+          "target": "Individualized (typically HbA1c < 8.0% in complex elderly)",
+          "cpg_ref": "CPG T2DM Special Populations \u00a76.3 [chunk 7]"
+        }
+      ],
+      "red_flags": [
+        "Signs of major bleeding (hematemesis, melena, intracranial hemorrhage) \u2014 stop antithrombotics and seek emergency care",
+        "Stent thrombosis symptoms (recurrent acute chest pain, ECG changes) \u2014 urgent review for re-catheterization",
+        "Severe hypoglycemia or cognitive dysfunction \u2014 reassess T2DM regimen and consider de-escalation"
+      ],
+      "follow_up": [
+        "1 month: Assess for bleeding complications and check INR stability. Ensure triple therapy is well tolerated.",
+        "3-6 months: Re-evaluate for transition from triple therapy to VKA + single antiplatelet (Step-down) if clinically stable.",
+        "12 months: Review for step-down to VKA monotherapy if no recurrent ACS or revascularization events.",
+        "Ongoing: Annual cognitive and frailty screening given T2DM and age to ensure management aligns with functional status."
+      ],
+      "confidence": 0.85,
+      "unresolved_questions": [
+        "Specific PPI choice and duration not explicitly detailed in the retrieved chunks, though recommended as 'consider where necessary' in Table 13.",
+        "The evidence base strongly notes a 'lack of published evidence' for this specific complex patient profile (AF + NSTEMI + PCI), relying heavily on consensus and balancing risks."
+      ]
+    },
+    "ddx": [
+      {
+        "code": "BA41.0",
+        "title": "Acute ST elevation myocardial infarction",
+        "similarity": 0.3084,
+        "base_similarity": 0.3084,
+        "final_score": 0.3084,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3084,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3084,
+          "route_method": "exact"
+        },
+        "matched_cpg_title": "Appendix",
+        "reasoning": [
+          "Vector similarity 0.308",
+          "Final DDx score 0.308",
+          "LLM: Patient had NSTEMI requiring PCI; this is the closest MI code. Patient had NSTEMI, not STEMI."
+        ],
+        "math_rank": 8,
+        "llm_rank": 1,
+        "rank_delta": 7,
+        "override_reason": "red_flag_cant_miss: Closest code for patient's recent MI, which drives current management."
+      },
+      {
+        "code": "8B26.4",
+        "title": "Posterior cerebral artery syndrome",
+        "similarity": 0.3432,
+        "base_similarity": 0.3432,
+        "final_score": 0.3432,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3432,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3432,
+          "route_method": "ancestor_d1_sibling"
+        },
+        "matched_cpg_title": "Section 3: Diagnosis And Initial Assessment",
+        "reasoning": [
+          "Vector similarity 0.343",
+          "Final DDx score 0.343",
+          "LLM: No clinical evidence or symptoms suggesting posterior cerebral artery syndrome."
+        ],
+        "math_rank": 1,
+        "llm_rank": 2,
+        "rank_delta": -1,
+        "override_reason": null
+      },
+      {
+        "code": "BE15.1",
+        "title": "Postprocedural right pulmonary artery stenosis",
+        "similarity": 0.3345,
+        "base_similarity": 0.3345,
+        "final_score": 0.3345,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3345,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3345,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.335",
+          "Final DDx score 0.335",
+          "LLM: No indication of postprocedural right pulmonary artery stenosis."
+        ],
+        "math_rank": 2,
+        "llm_rank": 3,
+        "rank_delta": -1,
+        "override_reason": null
+      },
+      {
+        "code": "BC02.40",
+        "title": "Acquired stenosis of the neoaortic valve of truncal origin",
+        "similarity": 0.3326,
+        "base_similarity": 0.3326,
+        "final_score": 0.3326,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3326,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3326,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.333",
+          "Final DDx score 0.333",
+          "LLM: No evidence of acquired stenosis of the neoaortic valve of truncal origin."
+        ],
+        "math_rank": 3,
+        "llm_rank": 4,
+        "rank_delta": -1,
+        "override_reason": null
+      },
+      {
+        "code": "BE15",
+        "title": "Postprocedural pulmonary arterial tree disorder",
+        "similarity": 0.3323,
+        "base_similarity": 0.3323,
+        "final_score": 0.3323,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3323,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3323,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.332",
+          "Final DDx score 0.332",
+          "LLM: No indication of postprocedural pulmonary arterial tree disorder."
+        ],
+        "math_rank": 4,
+        "llm_rank": 5,
+        "rank_delta": -1,
+        "override_reason": null
+      }
+    ],
+    "cpgs_matched": [
+      "Primary-Secondary-Prevention-of-CVD(2017)",
+      "T2-Diabetes-Mellitus(6th-Edition)",
+      "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "Atrial-Fibrillation(2012)",
+      "NSTEMI(2011)",
+      "Diabetes-in-Pregnancy(2017)",
+      "CVD-Prevention-Women(2016)"
+    ],
+    "elapsed_ms": 86796.99999999866,
+    "stage_errors": [],
+    "graph_navigator_rules": [
+      {
+        "drug": "Statin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+        "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+        "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+      },
+      {
+        "drug": "Vitamin K Antagonist",
+        "condition": "Non-Valvular Atrial Fibrillation",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+        "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+        "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+      },
+      {
+        "drug": "Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+        "source_document": "Section 6: T2DM in Special Populations",
+        "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+      },
+      {
+        "drug": "Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "SECOND_LINE_FOR",
+        "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      },
+      {
+        "drug": "Metformin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Metformin is the preferred choice as a first line therapy.",
+        "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+        "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+      },
+      {
+        "drug": "Metformin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "As first line therapy, metformin is the preferred choice.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      },
+      {
+        "drug": "Basal Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "[Level I] basal insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+      },
+      {
+        "drug": "Gliclazide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Glimepiride",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Glipizide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Dulaglutide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+      },
+      {
+        "drug": "Metformin And Vildagliptin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+      },
+      {
+        "drug": "Glp-1Ra",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "SECOND_LINE_FOR",
+        "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      }
+    ],
+    "safety_report": {
+      "flags": [
+        {
+          "severity": "MODERATE",
+          "recommendation_index": 0,
+          "flag_type": "drug_interaction",
+          "detail": "Warfarin interacts with Aspirin. Evidence: Lifelong Warfarin (target INR 3.0; range 2.5-3.5) plus Aspirin 75-150mg daily",
+          "suggested_alternative": null,
+          "source": "graph"
+        }
+      ],
+      "safe_to_proceed": true,
+      "reviewer_notes": "LLM safety review unavailable: ValidationError | 1 graph-verified flag(s) added from Neo4j KG"
+    },
+    "cpg_references": [
+      "CPG Management of Thromboembolism \u00a76.4.4 [chunk 2]",
+      "CPG Management of UA/NSTEMI \u00a77.2.2 [chunk 3]",
+      "CPG Management of UA/NSTEMI \u00a77.2.5 [chunk 3]",
+      "CPG Management of Thromboembolism \u00a76 Table 13 [chunk 1]",
+      "CPG Prevention of CVD in Women \u00a76.1.1 [chunk 17]",
+      "STEMI(4th Edition)",
+      "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "NSTEMI(2011)",
+      "T2-Diabetes-Mellitus(6th-Edition)",
+      "Obesity-Management(2023)",
+      "Diabetes-in-Pregnancy(2017)",
+      "CPG AF \u00a76.3.2",
+      "CPG AF \u00a76.6",
+      "CPG T2DM Special Populations \u00a76.3 [chunk 7]"
+    ],
+    "follow_up_parsed": [
+      {
+        "when": "1 month",
+        "days_from_now": 30,
+        "action": "Assess for bleeding complications and check INR stability. Ensure triple therapy is well tolerated.",
+        "raw": "1 month: Assess for bleeding complications and check INR stability. Ensure triple therapy is well tolerated."
+      },
+      {
+        "when": "3-6 months",
+        "days_from_now": 120,
+        "action": "Re-evaluate for transition from triple therapy to VKA + single antiplatelet (Step-down) if clinically stable.",
+        "raw": "3-6 months: Re-evaluate for transition from triple therapy to VKA + single antiplatelet (Step-down) if clinically stable."
+      },
+      {
+        "when": "12 months",
+        "days_from_now": 360,
+        "action": "Review for step-down to VKA monotherapy if no recurrent ACS or revascularization events.",
+        "raw": "12 months: Review for step-down to VKA monotherapy if no recurrent ACS or revascularization events."
+      },
+      {
+        "when": "Ongoing",
+        "days_from_now": null,
+        "action": "Annual cognitive and frailty screening given T2DM and age to ensure management aligns with functional status.",
+        "raw": "Ongoing: Annual cognitive and frailty screening given T2DM and age to ensure management aligns with functional status."
+      }
+    ]
+  }
+}

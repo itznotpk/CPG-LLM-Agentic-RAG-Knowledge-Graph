@@ -1125,7 +1125,25 @@ Generate exactly {n} queries (one per domain as instructed)."""
         end_idx = raw.find("]", bracket_idx)
         if end_idx != -1:
             raw = raw[bracket_idx:end_idx + 1]
-    queries = json.loads(raw)
+    try:
+        queries = json.loads(raw)
+    except json.JSONDecodeError:
+        # JSONL fallback: model returned one JSON value per line (no array wrapper)
+        queries = []
+        for line in raw.splitlines():
+            line = line.strip().rstrip(",")
+            if not line:
+                continue
+            try:
+                val = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(val, str):
+                queries.append(val)
+            elif isinstance(val, list):
+                queries.extend(v for v in val if isinstance(v, str))
+        if not queries:
+            logger.warning("stage_4: query JSON parse failed; raw head=%r", raw[:200])
     return [q for q in queries if isinstance(q, str)][:n]
 
 
@@ -1879,12 +1897,12 @@ Produce a TreatmentPlan JSON object matching this schema:
             len(missing_pillars), coverage_codes, missing_pillars,
         )
 
-    has_referral = any(r.type == "referral" for r in plan.recommendations)
-    if not has_referral:
+    if True:  # always run KG referrals; dedupe against LLM-produced ones below
         # KG-first: ask Neo4j what referrals exist for the patient's conditions.
         # Falls back to the static dict (_ALWAYS_REFER_CONDITIONS) for codes the
         # KG doesn't yet cover. Fail-open: KG errors degrade silently to dict.
         kg_specialty_messages: list[str] = []
+        kg_recs = []
         try:
             from .graph_clinical import lookup_referrals as _lookup_referrals
             kg_inputs: list[str] = []
@@ -1894,6 +1912,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                     kg_inputs.append(title)
             kg_inputs.extend(case.comorbidities or [])
             kg_recs = await _lookup_referrals(kg_inputs) if kg_inputs else []
+            logger.info("stage_5 KG lookup: %d input(s) -> %d referral(s)", len(kg_inputs), len(kg_recs))
             for rec in kg_recs:
                 trig = f" (trigger: {rec.trigger})" if rec.trigger else ""
                 msg = (
@@ -1907,6 +1926,9 @@ Produce a TreatmentPlan JSON object matching this schema:
         if kg_recs:
             from .models import Recommendation as _Rec
             seen_keys: set[tuple[str, str]] = set()
+            for existing in plan.recommendations:
+                if existing.type == "referral":
+                    seen_keys.add(("", (existing.intervention or "").lower()))
             for rec in kg_recs:
                 key = (rec.specialty.lower(), (rec.condition or "").lower())
                 if key in seen_keys:
@@ -1928,7 +1950,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                             type="referral",
                             action=None,
                             evidence_grade=None,
-                            cpg_source=rec.cpg_source or "Neo4j KG",
+                            cpg_source=(getattr(rec, "source_document", None) or getattr(rec, "cpg_source", None) or "Neo4j KG"),
                             rationale=rationale[:480],
                             contraindications_checked=[],
                         )

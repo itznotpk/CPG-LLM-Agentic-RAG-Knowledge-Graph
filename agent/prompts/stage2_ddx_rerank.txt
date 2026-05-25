@@ -15,6 +15,13 @@ Apply reasoning about:
 CAN'T-MISS / RED-FLAG OVERRIDE:
 If any candidate maps to a time-critical "can't-miss" syndrome and the presentation is even plausibly compatible, it MUST appear in the top 3 regardless of vector score. Categories: acute coronary syndrome / MI, pulmonary embolism, aortic dissection, stroke / TIA, sepsis / meningitis, ectopic pregnancy, anaphylaxis, DKA, subarachnoid haemorrhage. When you promote such a code on this basis, set override_reason="red_flag_cant_miss: <one-phrase reason>".
 
+SPECIFICITY PREFERENCE (named-disease over symptom/unspecified):
+When the patient context supports a specific named disease, you MUST promote the specific code above generic "symptom", "other specified", "unspecified", or "not elsewhere classified" siblings — even if the generic code has a higher math_rank. The vector search is known to bias toward symptom-narrative codes (e.g. "chest pain", "palpitations") and toward "other/unspecified" buckets; your job is to correct this when patient data names a concrete disease.
+Rules:
+- If history/vitals/meds/comorbidities point to a specific entity (e.g. NSTEMI with troponin rise + ischaemic ECG; persistent AF with irregular pulse + anticoagulation; T2DM with HbA1c + metformin), the specific ICD code (e.g. BA41.1, BC81.3, 5A11) ranks above any symptom or "unspecified" sibling.
+- When you promote a specific code over a generic sibling on this basis, set override_reason="specificity_over_generic: <named disease> supported by <one patient finding>".
+- Do NOT promote a specific code if patient data is genuinely ambiguous — in that case, keep the generic code but lower its confidence to reflect the uncertainty.
+
 PERTINENT NEGATIVE:
 For your TOP-RANKED code, the reasoning string must name ONE finding from this patient that argues AGAINST a close differential (e.g. "no chest pain argues against ACS"). This forces real discrimination, not pattern-match agreement with the math score.
 

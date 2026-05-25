@@ -1048,3 +1048,74 @@ Run through this after all scoring is collected:
 - [ ] Scope disclaimer confirmed (what was NOT tested)
 - [ ] Results write-up for D2 report prepared
 - [ ] Share summary with Dr. Teh — include: what we found, where our system won, what we'll improve next
+
+---
+
+## ClerPath's Defensible Architectural Moat
+
+Three load-bearing capabilities map 1:1 onto the three rural-clinic problem statements in `README.md`. Each is structural — a competitor would have to rebuild, not just reprompt, to match it. Everything else is parity or UX.
+
+### Moat 1 — ICD-11-anchored routing with first-class refusal
+*Addresses Problem #1: Guideline Accessibility & Search Friction*
+
+We diagnose with **ICD-11 codes**, not free text. Stage 2 vector-searches 3,914 codes + LLM rerank; Stage 3 then resolves the code against verified CPG metadata via a deterministic D1–D6 ladder (exact → sibling → ancestor_d1 → ancestor_d2 → semantic_scope → out_of_scope) with a sex-incompatibility filter applied **before** retrieval.
+
+- **Why competitors can't match:** Pure-RAG systems (Qmed, NotebookLM, GPT-4) start from text → CPG. They will always paraphrase whatever the retriever surfaces, even when the case is genuinely out of corpus or biologically incompatible. We can **refuse cleanly** with an `out_of_scope` SSE event and a sex-filter rejection log — both auditable.
+
+### Moat 2 — Dual grounding: pgvector documents **and** Neo4j knowledge graph
+*Addresses Problem #3: Medication Safety Vulnerability in Pharmacist-Vacant Clinics*
+
+Two independent grounding sources, used at two different stages:
+- **Stage 4.5** — `clinical_graph_lookup` injects KG evidence (typed edges: `CONTRAINDICATED_WITH`, `INTERACTS_WITH {severity}`, `REQUIRES_MONITORING`) before synthesis.
+- **Stage 6** — `_kg_verify_plan` re-checks the final TreatmentPlan against the same graph, in parallel with an LLM critic (`asyncio.gather`). Flags are **merged without dedup**; `safe_to_proceed` is recomputed across the union.
+
+- **Why competitors can't match:** Pure-RAG can only flag what was retrieved into context. We flag what the **graph knows** — including DDIs, teratogens, and contraindications on the patient's *existing* medications, even when no CPG paragraph in the retrieved set mentions them. This is the hardest moat to copy: it requires curated graph data, not just PDF ingestion.
+
+### Moat 3 — Schema-constrained executable plan (typed `TreatmentPlan`)
+*Addresses Problem #2: Clinical Diagnostic Isolation & Cognitive Fatigue*
+
+Stage 5 returns a **Pydantic-validated JSON** plan with 9 fixed sections (P1 Summary → P9 Follow-up), recommendations tagged with `action ∈ {START, CHANGE, CONTINUE, STOP}`, structured citation objects (CPG + section + chunk), and time-anchored monitoring/red-flag/follow-up fields.
+
+- **Why competitors can't match:** Qmed and NotebookLM return **prose**. Prose cannot be rendered as a checklist UI, diffed across visits, fed into an order-entry system, or programmatically audited by Stage 6. The typed schema is what makes the plan *executable* inside a 10-minute consultation window — not just readable.
+
+### Moat 4 — End-to-end intake-to-plan workflow (rPPG + typed `PatientCase`)
+*Spans Problems #1–#3: shortens the entire 10-minute consultation loop, not just the LLM step*
+
+Competitors begin at the *question*. We begin at the *patient* — and the input is structured, not free text:
+
+- **rPPG contactless vitals** — HR / SpO2 / RR captured via webcam in clinics where pulse oximeters may be broken or unavailable. No competitor (Qmed, NotebookLM, GPT-4, Gemini) ingests video → vitals.
+- **Typed `PatientCase` schema as universal stage input** — vitals, allergies, conditions, current medications, sex, age are passed as **structured fields** (not a prose blob) into every downstream stage. The Stage 6 allergy check is deterministic (`patient.allergies` set-membership) rather than hope-the-LLM-noticed-it; the Stage 3 sex filter is a field comparison; the Stage 4 query generator interpolates current meds and comorbidities by name.
+
+- **Why this is distinct from Moats 1–3:** Moats 1–3 are about what we do with the input *after* it arrives. Moat 4 is about the input itself being a richer, machine-readable contract — which is what *makes* the safety checks in Moat 2 and the schema in Moat 3 possible in the first place. Chat-based competitors can't deterministically check "is sulfa in this patient's allergy list" because the allergy list isn't a list; it's a sentence the user typed.
+
+### Moat 5 — Auditable per-stage decision trace (not just streamed tokens)
+*Spans Problems #1–#2: transforms transparency from "I can see the source" to "I can see the decision logic"*
+
+Our SSE stream emits **typed structured events per stage** — not just token-by-token output:
+- `ddx` — which ICD-11 codes were considered, with confidence scores
+- `routing` — which D-level resolved the match (D1 exact / D2 sibling / ...), which CPGs were filtered out and why (e.g., sex filter)
+- `retrieval` — which chunks were pulled from which CPGs at which similarity scores
+- `safety` — every flag with `source ∈ {llm, graph}` and `severity`
+- `out_of_scope` — first-class refusal event
+
+- **Why this is distinct from Moats 1–3 and from competitors:** Moat 3 is about the *output* being structured; Moat 5 is about the *process* being structured. NotebookLM shows the source paragraph; Qmed shows the answer. Neither shows the **decision logic** — e.g., "BD42 was rejected at D3 because exclusion similarity (0.31) exceeded base score (0.28)". A clinician auditing a missed call needs to see *why* the system thought what it thought, not just *what* it cited. This is what makes ClerPath auditable in a way a chat interface structurally cannot be.
+
+### Parity Layer — what we share with competitors (not differentiators)
+Honest accounting of what is **table stakes**, not a moat:
+
+- **Grounded citations** — Qmed cites at page granularity; we cite at section + chunk; NotebookLM cites with an inline parsed-passage side panel (arguably best UX). All three are auditable; pick on UX preference, not capability.
+- **Multi-CPG retrieval in one answer** — Qmed confirmed (HF 5th + T2DM 6th + Obesity 2nd cited together); we do the same via scoped pgvector. Parity.
+- **Streaming output** — all three stream tokens. Our differentiator is *what* streams (Moat 5: typed per-stage events), not *that* it streams.
+
+### Moat → Problem Statement Traceability
+
+| `README.md` Problem | Documented Need | Structural Moat |
+|---|---|---|
+| #1 Guideline Accessibility & Search Friction | Deterministic Scoped Routing (Stages 3 & 4) | **Moat 1** — ICD-11 routing + refusal |
+| #2 Clinical Diagnostic Isolation & Cognitive Fatigue | DDx Re-Ranking + Override + Synthesis (Stages 2 & 5) | **Moat 3** — Typed `TreatmentPlan` schema |
+| #3 Medication Safety Vulnerability | Independent Adversarial Safety Critic (Stage 6) | **Moat 2** — Dual grounding (pgvector + KG) |
+| Spans #1–#3 (input layer) | rPPG + structured intake | **Moat 4** — Typed `PatientCase` + contactless vitals |
+| Spans #1–#2 (transparency layer) | Live SSE clinician UI | **Moat 5** — Typed per-stage decision trace |
+
+Moats 1–3 are the **core architectural triad** (one per problem statement). Moats 4 and 5 are the **enabling layers** that make the triad work end-to-end: Moat 4 supplies the structured input the safety checks depend on; Moat 5 surfaces the decision logic so a clinician can audit *why*, not just *what*. None is decorative; none is reachable by a pure-RAG competitor without rebuilding the pipeline.
+

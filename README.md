@@ -143,6 +143,7 @@ ClearPath features a **hybrid deterministic + agentic clinical architecture** th
 * **Treatment Plan Synthesizer Agent:** Assembles patient data, retrieved CPG evidence, and Graph rules into a Pydantic-validated `TreatmentPlan` JSON structure, stamping recommendations with MOH evidence levels (e.g., Level I, Grade A).
 
 ### Stage 6: Medication Safety Critic (`run_safety_critic`)
+* **Hybrid LLM + Knowledge-Graph Critic:** Two independent graders run in parallel (`asyncio.gather`) and their flags are **merged without dedup** — the LLM critic catches narrative/reasoning issues, while a Neo4j `_kg_verify_plan` pass catches structural drug/condition violations even when no CPG paragraph mentions them. `safe_to_proceed` is recomputed across the union; any CRITICAL/MAJOR flag blocks sign-off.
 * **Independent Clinical Safety Critic Subagent:** Operating on a strict **Generator → Evaluator pattern**, this adversarial subagent plays the role of an independent clinical pharmacist. Without having seen Stage 5's reasoning chain, it audits the TreatmentPlan for:
   1. *Drug Allergies* (including complex sulfonamide class cross-reactivity risks).
   2. *Drug-Drug Interactions* (e.g., Warfarin + new NSAID bleeding risk).

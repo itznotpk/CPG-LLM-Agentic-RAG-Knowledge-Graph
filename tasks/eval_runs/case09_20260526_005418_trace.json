@@ -1,0 +1,1820 @@
+{
+  "case": {
+    "chief_complaint": "Post-PCI with DES for NSTEMI in patient with known non-valvular AF on warfarin and T2DM \u2014 needs antithrombotic strategy.",
+    "history": "67-year-old female with known non-valvular Atrial Fibrillation (CHA2DS2-VASc = 4) on Warfarin (INR 2.4) has just undergone successful primary PCI with a Drug-Eluting Stent (DES) for NSTEMI. She also has Type 2 Diabetes. Question: recommended antithrombotic strategy post-PCI, including which P2Y12 inhibitor to choose and for how long.",
+    "age": 67,
+    "sex": "F",
+    "comorbidities": [
+      "Non-valvular Atrial Fibrillation (CHA2DS2-VASc 4)",
+      "NSTEMI status-post primary PCI with Drug-Eluting Stent",
+      "Type 2 Diabetes Mellitus"
+    ],
+    "current_medications": [
+      "Warfarin (INR 2.4)"
+    ],
+    "allergies": [],
+    "vitals": {}
+  },
+  "events": [
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "running",
+        "detail": "Analyzing symptoms and history\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Extracted symptom query: \"Post-PCI\"",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Condition hypotheses: Non-ST",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "complete",
+        "detail": "5 candidates \u00b7 top: 8B26.4",
+        "data": [
+          {
+            "code": "8B26.4",
+            "title": "Posterior cerebral artery syndrome",
+            "similarity": 0.3432,
+            "base_similarity": 0.3432,
+            "final_score": 0.3432,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3432,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3432,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.343",
+              "Final DDx score 0.343"
+            ],
+            "math_rank": 1,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BE15.1",
+            "title": "Postprocedural right pulmonary artery stenosis",
+            "similarity": 0.3345,
+            "base_similarity": 0.3345,
+            "final_score": 0.3345,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3345,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3345,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.335",
+              "Final DDx score 0.335"
+            ],
+            "math_rank": 2,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BC02.40",
+            "title": "Acquired stenosis of the neoaortic valve of truncal origin",
+            "similarity": 0.3326,
+            "base_similarity": 0.3326,
+            "final_score": 0.3326,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3326,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3326,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.333",
+              "Final DDx score 0.333"
+            ],
+            "math_rank": 3,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BE15",
+            "title": "Postprocedural pulmonary arterial tree disorder",
+            "similarity": 0.3323,
+            "base_similarity": 0.3323,
+            "final_score": 0.3323,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3323,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3323,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.332",
+              "Final DDx score 0.332"
+            ],
+            "math_rank": 4,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BE16",
+            "title": "Postprocedural pulmonary venous disorder",
+            "similarity": 0.3133,
+            "base_similarity": 0.3133,
+            "final_score": 0.3133,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3133,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3133,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.313",
+              "Final DDx score 0.313"
+            ],
+            "math_rank": 5,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "running",
+        "detail": "Matching ICD codes to clinical guidelines\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Ischaemic-Stroke(3rd Edition)",
+        "badge": "ancestor_d1_sibling",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Primary-Secondary-Prevention-of-CVD(2017)",
+        "badge": "ancestor_d1_sibling",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "T2-Diabetes-Mellitus(6th-Edition)",
+        "badge": "ancestor_d1_sibling",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Heart-Disease-in-Pregnancy(2nd Edition)",
+        "badge": "ancestor_d1_sibling",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Heart-Disease-in-Pregnancy(2nd Edition)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Atrial-Fibrillation(2012)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "NSTEMI(2011)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Diabetes-in-Pregnancy(2017)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "CVD-Prevention-Women(2016)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "complete",
+        "detail": "8 CPGs matched: Ischaemic-Stroke(3rd Edition), Primary-Secondary-Prevention-of-CVD(2017), T2-Diabetes-Mellitus(6th-Edition), Heart-Disease-in-Pregnancy(2nd Edition), Atrial-Fibrillation(2012), NSTEMI(2011), Diabetes-in-Pregnancy(2017), CVD-Prevention-Women(2016)",
+        "data": [
+          "Ischaemic-Stroke(3rd Edition)",
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "T2-Diabetes-Mellitus(6th-Edition)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "Atrial-Fibrillation(2012)",
+          "NSTEMI(2011)",
+          "Diabetes-in-Pregnancy(2017)",
+          "CVD-Prevention-Women(2016)"
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "running",
+        "detail": "Retrieving relevant guideline chunks\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "Generating 7 targeted queries\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Specialist referrals indicated and their urgency for this pa\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Lifestyle modifications, diet, exercise, weight, smoking, al\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Baseline investigations, tests, and imaging indicated for th\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"For patients with non-valvular atrial fibrillation on warfar\u2026\"",
+        "badge": "5 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"The concomitant use of warfarin with P2Y12 inhibitors such a\u2026\"",
+        "badge": "1 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Patients on triple antithrombotic therapy (warfarin plus dua\u2026\"",
+        "badge": "2 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Dose adjustments for P2Y12 inhibitors or warfarin should be \u2026\"",
+        "badge": "1 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Criteria for escalation, de-escalation, or modification of a\u2026\"",
+        "badge": "0 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"Patients receiving antithrombotic therapy after NSTEMI and P\u2026\"",
+        "badge": "2 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "\"The follow-up schedule for patients with non-valvular atrial\u2026\"",
+        "badge": "2 new / 5 hits",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "20 unique chunks after deduplication",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "complete",
+        "detail": "20 evidence chunks retrieved"
+      }
+    },
+    {
+      "event": "graph_navigator",
+      "data": {
+        "rules": [
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Vitamin K Antagonist",
+            "condition": "Non-Valvular Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "running",
+        "detail": "Generating evidence-based care plan\u2026"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "complete",
+        "detail": "Care plan ready \u00b7 116875 ms total",
+        "badge": "conf. 0.70"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 6,
+        "detail": "Safety review running\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "safety_review",
+      "data": {
+        "flags": [
+          {
+            "severity": "MODERATE",
+            "recommendation_index": 0,
+            "flag_type": "drug_interaction",
+            "detail": "Warfarin interacts with Aspirin. Evidence: Lifelong Warfarin (target INR 3.0; range 2.5-3.5) plus Aspirin 75-150mg daily",
+            "suggested_alternative": null,
+            "source": "graph"
+          }
+        ],
+        "safe_to_proceed": true,
+        "reviewer_notes": "LLM safety review unavailable: ValidationError | 1 graph-verified flag(s) added from Neo4j KG"
+      }
+    },
+    {
+      "event": "final_result",
+      "data": {
+        "treatment_plan": {
+          "icd_primary": "BC81",
+          "icd_alternates": [
+            "BE15.1",
+            "8B26.4"
+          ],
+          "summary": "67-year-old female with known non-valvular atrial fibrillation (CHA\u2082DS\u2082-VASc = 4) on warfarin (INR 2.4) presenting with NSTEMI post-PCI with drug-eluting stent, and Type 2 Diabetes Mellitus. This patient requires a carefully balanced antithrombotic strategy addressing both stroke prevention (AF) and coronary stent thrombosis prevention (post-PCI ACS), while mitigating the MAJOR bleeding risk of triple therapy (VKA + dual antiplatelets).",
+          "recommendations": [
+            {
+              "intervention": "Warfarin \u2014 maintain INR 2.0\u20132.5 (target 2.0\u20132.5) when combined with clopidogrel or low-dose aspirin, rather than standard INR 2.0\u20133.0, to reduce bleeding risk during triple or dual antithrombotic therapy",
+              "type": "pharmacological",
+              "action": "continue",
+              "evidence_grade": "Grade II-b, Level C",
+              "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+              "rationale": "This 67F with non-valvular AF (CHA\u2082DS\u2082-VASc 4) on warfarin requires ongoing anticoagulation; when VKA is combined with antiplatelet agents post-PCI, careful regulation with a lower INR range of 2.0\u20132.5 is recommended to minimise bleeding.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "Triple therapy: VKA (INR 2.0\u20132.5) + aspirin 75\u2013100 mg/day + clopidogrel 75 mg daily for 3\u20136 months (or longer in selected patients at low bleeding risk) \u2014 antithrombotic strategy following ACS with PCI in AF patient",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade II-a, Level C",
+              "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+              "rationale": "This 67F with AF on warfarin underwent PCI with DES for NSTEMI; the CPG recommends triple therapy (VKA + aspirin + clopidogrel) in the short term (3\u20136 months) following ACS with PCI in AF patients at moderate to high thrombo-embolic risk.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "After 3\u20136 months of triple therapy, transition to VKA (INR 2.0\u20133.0) + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) \u2014 long-term dual antithrombotic therapy up to 12 months post-PCI",
+              "type": "pharmacological",
+              "action": "change",
+              "evidence_grade": "Grade II-a, Level C",
+              "cpg_source": "CPG AF \u00a76.4.4 [chunk 2]",
+              "rationale": "Following the initial period of triple therapy, this 67F with DES for NSTEMI should transition to VKA plus clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) for long-term therapy up to 1 year.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "After 12 months post-PCI, VKA monotherapy (INR 2.0\u20133.0, target 2.5) \u2014 lifelong anticoagulation for non-valvular AF with CHA\u2082DS\u2082-VASc 4",
+              "type": "pharmacological",
+              "action": "continue",
+              "evidence_grade": "Grade II-b, Level C",
+              "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+              "rationale": "This 67F with non-valvular AF and CHA\u2082DS\u2082-VASc score of 4 (high stroke risk) requires lifelong oral anticoagulation; once stable vascular disease (>1 year post-ACS, no acute events), VKA monotherapy is recommended without concomitant antiplatelet therapy.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "Clopidogrel 75 mg daily as the P2Y12 inhibitor of choice (loading dose 300\u2013600 mg) \u2014 preferred over prasugrel in this 67-year-old female",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG UA/NSTEMI \u00a79.1.2 [chunk 3]",
+              "rationale": "This patient is 67 years old (approaching the age threshold of 75 years); the CPG recommends avoiding prasugrel in patients older than 75 years due to bleeding risk, and both aspirin and clopidogrel confer greater absolute and relative benefits in the elderly undergoing PCI.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "Aspirin 75\u2013150 mg daily \u2014 long-term antiplatelet agent for coronary artery disease",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG UA/NSTEMI \u00a710.1.1 [chunk 6]",
+              "rationale": "This 67F post-PCI for NSTEMI requires aspirin as part of dual antiplatelet therapy; the CPG recommends ASA at 75\u2013150 mg daily unless contraindicated.",
+              "contraindications_checked": [
+                "warfarin"
+              ]
+            },
+            {
+              "intervention": "High-potency statin therapy initiated early and continued indefinitely \u2014 to achieve LDL-C <2.0 mmol/L",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]",
+              "rationale": "This 67F with T2DM and ACS post-PCI requires statin therapy regardless of baseline LDL-C; the CPG recommends early initiation of statin therapy and targeting LDL-C <2.0 mmol/L, with indefinite continuation.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "ACE-I (e.g. ramipril 2.5 mg BD, uptitrate to 10 mg OD) \u2014 for secondary prevention post-ACS, particularly given T2DM",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level A",
+              "cpg_source": "CPG UA/NSTEMI \u00a710.1.4 [chunk 6]",
+              "rationale": "This 67F with diabetes and ACS post-PCI benefits from ACE-I therapy; the CPG recommends ACE-Is early in patients with diabetes unless contraindicated, with long-term benefit.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "Beta-blocker (e.g. bisoprolol 1.25 mg OD, uptitrate to 10 mg OD) \u2014 continued indefinitely for ischaemic heart disease post-ACS",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": "Grade I, Level B",
+              "cpg_source": "CPG UA/NSTEMI \u00a77.2.4.2 [chunk 7]",
+              "rationale": "This 67F post-NSTEMI with PCI requires beta-blocker therapy; the CPG recommends beta-blockers administered early and continued indefinitely in patients with ischaemia or LV dysfunction.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "Gastric protection with a proton pump inhibitor \u2014 recommended when triple therapy (VKA + aspirin + clopidogrel) is used",
+              "type": "pharmacological",
+              "action": "start",
+              "evidence_grade": null,
+              "cpg_source": "CPG AF \u00a7Table 13 footnote [chunk 2]",
+              "rationale": "This 67F on triple antithrombotic therapy (VKA + aspirin + clopidogrel) has high GI bleeding risk; the CPG Table 13 footnote states gastric protection with a PPI should be considered where necessary.",
+              "contraindications_checked": [
+                "none"
+              ]
+            },
+            {
+              "intervention": "Radial access preferred for any further invasive procedures \u2014 to minimise bleeding in anticoagulated patient",
+              "type": "procedure",
+              "action": null,
+              "evidence_grade": "Grade II-a, Level C",
+              "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+              "rationale": "This 67F on warfarin who has undergone PCI for NSTEMI; the CPG recommends radial access as the first choice in anticoagulated patients at very high risk of thrombo-embolism even during therapeutic anticoagulation.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Smoking cessation \u2014 reduces cardiovascular risk and reinfarction rate",
+              "type": "lifestyle",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+              "rationale": "This 67F post-ACS with T2DM requires comprehensive risk factor modification; smoking cessation reduces reinfarction and death rates.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Low cholesterol / low saturated fat diet \u2014 for cardiovascular risk reduction",
+              "type": "lifestyle",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+              "rationale": "This 67F with T2DM and CAD post-PCI requires dietary modification to reduce cardiovascular risk.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Regular physical activity \u2014 minimum 30\u201360 minutes of moderate activity 3\u20134 times weekly (walking, cycling, swimming or equivalent aerobic activities)",
+              "type": "lifestyle",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+              "rationale": "This 67F post-ACS with T2DM benefits from regular exercise to improve cardiovascular outcomes and glycaemic control.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Optimal glycaemic control in diabetes \u2014 blood sugar less than 8 mmol/l in the acute setting and optimal control following discharge",
+              "type": "lifestyle",
+              "action": null,
+              "evidence_grade": "Grade I, Level B",
+              "cpg_source": "CPG UA/NSTEMI \u00a79.4 [chunk 1]",
+              "rationale": "This 67F with T2DM and ACS post-PCI requires glycaemic management; the CPG recommends keeping blood sugars less than 8 mmol/l in the acute setting and optimal control following discharge.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Fasting lipid profile \u2014 baseline assessment of TC, LDL-C, HDL-C, TG within 24 hours of hospitalisation",
+              "type": "investigation",
+              "action": null,
+              "evidence_grade": "Grade I, Level C",
+              "cpg_source": "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]",
+              "rationale": "This 67F with NSTEMI post-PCI and T2DM requires lipid assessment; the CPG recommends fasting lipid profile for all patients within 24 hours of hospitalisation.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Echocardiogram \u2014 assess LV function post-ACS",
+              "type": "investigation",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG UA/NSTEMI \u00a710.2 [chunk 6]",
+              "rationale": "This 67F post-NSTEMI requires assessment of LV function to guide ACE-I and beta-blocker dosing and to detect LV dysfunction.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "INR monitoring \u2014 weekly until stable on triple therapy, then at regular intervals",
+              "type": "investigation",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG AF \u00a76.3.2 [chunk 2]",
+              "rationale": "This 67F on warfarin combined with antiplatelet agents requires close INR monitoring to maintain the lower target range of 2.0\u20132.5 during triple therapy to minimise bleeding risk.",
+              "contraindications_checked": []
+            },
+            {
+              "intervention": "Cardiac rehabilitation program referral \u2014 Phase 1 inpatient CR transitioning to Phase 2 outpatient CR within 3\u20136 months",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "CPG UA/NSTEMI \u00a711.1 [chunk 9]",
+              "rationale": "This 67F post-NSTEMI with PCI benefits from cardiac rehabilitation which has been shown to reduce mortality by approximately 20\u201325%.",
+              "contraindications_checked": []
+            }
+          ],
+          "monitoring": [
+            {
+              "parameter": "INR",
+              "schedule": "Weekly until stable on triple therapy (target INR 2.0\u20132.5), then at regular intervals; after transition to dual therapy, target INR 2.0\u20133.0",
+              "target": "INR 2.0\u20132.5 during triple therapy; INR 2.0\u20133.0 (target 2.5) during VKA monotherapy",
+              "cpg_ref": "CPG AF \u00a76.3.2, \u00a76.4.4 [chunk 2, chunk 5]"
+            },
+            {
+              "parameter": "Fasting lipid profile (TC, LDL-C, HDL-C, TG)",
+              "schedule": "At baseline within 24 hours of hospitalisation, then periodically to assess statin efficacy",
+              "target": "LDL-C <2.0 mmol/L",
+              "cpg_ref": "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]"
+            },
+            {
+              "parameter": "Haemoglobin and haematocrit",
+              "schedule": "Regular monitoring during triple antithrombotic therapy for occult bleeding",
+              "target": null,
+              "cpg_ref": null
+            },
+            {
+              "parameter": "Renal function (creatinine, eGFR)",
+              "schedule": "Baseline and periodically during ACE-I therapy",
+              "target": null,
+              "cpg_ref": null
+            },
+            {
+              "parameter": "Blood glucose / HbA1c",
+              "schedule": "Acute phase: blood glucose monitoring; post-discharge: HbA1c every 3 months until optimal control achieved",
+              "target": "Blood glucose <8 mmol/l in acute setting; HbA1c <6.5% for optimal stroke prevention",
+              "cpg_ref": "CPG UA/NSTEMI \u00a79.4 [chunk 1]; CPG Stroke \u00a75.4.6 [chunk 4]"
+            },
+            {
+              "parameter": "Blood pressure",
+              "schedule": "At each visit",
+              "target": "BP <130/80 mmHg (diabetic target)",
+              "cpg_ref": "CPG UA/NSTEMI \u00a711.3 [chunk 17]"
+            }
+          ],
+          "red_flags": [
+            "Recurrent or refractory angina with dynamic ST deviation, heart failure, life-threatening arrhythmias, or haemodynamic instability \u2014 urgent coronary angiography and revascularisation required [chunk 10]",
+            "Signs of major bleeding (haematemesis, melaena, intracranial haemorrhage symptoms) on triple antithrombotic therapy \u2014 immediate medical review and cessation of antiplatelet agents as appropriate",
+            "INR >3.5 while on triple therapy \u2014 increased intracranial bleeding risk; warfarin dose adjustment and close monitoring required [chunk 2]",
+            "Stent thrombosis symptoms (recurrent chest pain, new ST changes) \u2014 emergency re-evaluation"
+          ],
+          "follow_up": [
+            "1\u20133 months post-discharge: reassess symptom status, verify medication adherence, check INR stability on triple therapy (target 2.0\u20132.5) \u2014 if stable, continue triple therapy for 3\u20136 months",
+            "3\u20136 months: transition from triple therapy to VKA + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) if no recurrent ischaemic events or bleeding complications",
+            "9\u201312 months: reassess coronary status and consider non-invasive stress testing if symptoms recur; transition to VKA monotherapy (INR 2.0\u20133.0) if >1 year post-PCI with no acute events",
+            "Ongoing: lifelong anticoagulation for non-valvular AF (CHA\u2082DS\u2082-VASc 4); regular INR monitoring; annual cardiovascular risk factor review; cardiac rehabilitation program completion",
+            "Ongoing: uptitrate ACE-I and beta-blocker to maximal tolerated doses at each outpatient visit [chunk 9]"
+          ],
+          "confidence": 0.7,
+          "unresolved_questions": [
+            "The CPG AF \u00a76.4.4 acknowledges a 'lack of published evidence on optimal management strategy' for AF patients post-PCI; recommendations are based on consensus (Level C evidence). More recent evidence (e.g., WOEST, PIONEER AF-PCI, RE-DUAL PCI, AUGUSTUS trials) may offer updated guidance on dual therapy (OAC + single antiplatelet) vs triple therapy \u2014 a current guideline check is warranted.",
+            "The specific type of drug-eluting stent (sirolimus-eluting vs paclitaxel-eluting vs newer generation) is not specified; the CPG AF \u00a76.4.3 recommends at least 3 months of triple therapy for sirolimus-eluting stents and at least 6 months for paclitaxel-eluting stents. Clarification of stent type would refine the triple therapy duration.",
+            "Whether this 67F should be considered for a DOAC (e.g. apixaban) instead of warfarin is not addressed by the AF CPG \u00a76.4.3/6.4.4 evidence for post-PCI patients, though the Stroke CPG \u00a75.7B [chunk 4] notes DOACs are superior or non-inferior to warfarin for NVAF stroke prevention. Interaction with antiplatelet agents in post-PCI setting would need specialist review.",
+            "HAS-BLED score has not been calculated for this patient \u2014 assessment of bleeding risk is recommended before initiating antithrombotic therapy (CPG AF \u00a76.6.2, Table 14).",
+            "LVEF not provided \u2014 affects ACE-I and beta-blocker dosing targets and indication for aldosterone receptor antagonist.",
+            "Monitoring protocol for specific drug interactions (warfarin-aspirin, warfarin-clopidogrel) during triple therapy not explicitly detailed in retrieved chunks \u2014 close clinical surveillance recommended.",
+            "The predicted ICD-11 code (8B26.4: Posterior cerebral artery syndrome) does not match the clinical presentation (AF with NSTEMI post-PCI). The primary diagnosis should be coded as BC81 (Non-rheumatic atrial fibrillation) with BD11 (Acute myocardial infarction) as a secondary code."
+          ]
+        },
+        "ddx": [
+          {
+            "code": "8B26.4",
+            "title": "Posterior cerebral artery syndrome",
+            "similarity": 0.3432,
+            "base_similarity": 0.3432,
+            "final_score": 0.3432,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3432,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3432,
+              "route_method": "ancestor_d1_sibling"
+            },
+            "matched_cpg_title": "Section 3: Diagnosis And Initial Assessment",
+            "reasoning": [
+              "Vector similarity 0.343",
+              "Final DDx score 0.343"
+            ],
+            "math_rank": 1,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BE15.1",
+            "title": "Postprocedural right pulmonary artery stenosis",
+            "similarity": 0.3345,
+            "base_similarity": 0.3345,
+            "final_score": 0.3345,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3345,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3345,
+              "route_method": "ancestor_d1_sibling"
+            },
+            "matched_cpg_title": "Appendix",
+            "reasoning": [
+              "Vector similarity 0.335",
+              "Final DDx score 0.335"
+            ],
+            "math_rank": 2,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BC02.40",
+            "title": "Acquired stenosis of the neoaortic valve of truncal origin",
+            "similarity": 0.3326,
+            "base_similarity": 0.3326,
+            "final_score": 0.3326,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3326,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3326,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.333",
+              "Final DDx score 0.333"
+            ],
+            "math_rank": 3,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BE15",
+            "title": "Postprocedural pulmonary arterial tree disorder",
+            "similarity": 0.3323,
+            "base_similarity": 0.3323,
+            "final_score": 0.3323,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3323,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3323,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.332",
+              "Final DDx score 0.332"
+            ],
+            "math_rank": 4,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          },
+          {
+            "code": "BE16",
+            "title": "Postprocedural pulmonary venous disorder",
+            "similarity": 0.3133,
+            "base_similarity": 0.3133,
+            "final_score": 0.3133,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "score_breakdown": {
+              "base_similarity": 0.3133,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.3133,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.313",
+              "Final DDx score 0.313"
+            ],
+            "math_rank": 5,
+            "llm_rank": null,
+            "rank_delta": null,
+            "override_reason": null
+          }
+        ],
+        "cpgs_matched": [
+          "Ischaemic-Stroke(3rd Edition)",
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "T2-Diabetes-Mellitus(6th-Edition)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "Atrial-Fibrillation(2012)",
+          "NSTEMI(2011)",
+          "Diabetes-in-Pregnancy(2017)",
+          "CVD-Prevention-Women(2016)"
+        ],
+        "elapsed_ms": 116875.0,
+        "stage_errors": [],
+        "graph_navigator_rules": [
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Vitamin K Antagonist",
+            "condition": "Non-Valvular Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ],
+        "safety_report": {
+          "flags": [
+            {
+              "severity": "MODERATE",
+              "recommendation_index": 0,
+              "flag_type": "drug_interaction",
+              "detail": "Warfarin interacts with Aspirin. Evidence: Lifelong Warfarin (target INR 3.0; range 2.5-3.5) plus Aspirin 75-150mg daily",
+              "suggested_alternative": null,
+              "source": "graph"
+            }
+          ],
+          "safe_to_proceed": true,
+          "reviewer_notes": "LLM safety review unavailable: ValidationError | 1 graph-verified flag(s) added from Neo4j KG"
+        },
+        "cpg_references": [
+          "CPG AF \u00a76.4.4 [chunk 5]",
+          "CPG AF \u00a76.4.4 [chunk 2]",
+          "CPG UA/NSTEMI \u00a79.1.2 [chunk 3]",
+          "CPG UA/NSTEMI \u00a710.1.1 [chunk 6]",
+          "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]",
+          "CPG UA/NSTEMI \u00a710.1.4 [chunk 6]",
+          "CPG UA/NSTEMI \u00a77.2.4.2 [chunk 7]",
+          "CPG AF \u00a7Table 13 footnote [chunk 2]",
+          "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+          "CPG UA/NSTEMI \u00a79.4 [chunk 1]",
+          "CPG UA/NSTEMI \u00a710.2 [chunk 6]",
+          "CPG AF \u00a76.3.2 [chunk 2]",
+          "CPG UA/NSTEMI \u00a711.1 [chunk 9]",
+          "CPG AF \u00a76.3.2, \u00a76.4.4 [chunk 2, chunk 5]",
+          "CPG UA/NSTEMI \u00a79.4 [chunk 1]; CPG Stroke \u00a75.4.6 [chunk 4]"
+        ],
+        "follow_up_parsed": [
+          {
+            "when": "",
+            "days_from_now": null,
+            "action": "1\u20133 months post-discharge: reassess symptom status, verify medication adherence, check INR stability on triple therapy (target 2.0\u20132.5) \u2014 if stable, continue triple therapy for 3\u20136 months",
+            "raw": "1\u20133 months post-discharge: reassess symptom status, verify medication adherence, check INR stability on triple therapy (target 2.0\u20132.5) \u2014 if stable, continue triple therapy for 3\u20136 months"
+          },
+          {
+            "when": "3\u20136 months",
+            "days_from_now": 120,
+            "action": "transition from triple therapy to VKA + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) if no recurrent ischaemic events or bleeding complications",
+            "raw": "3\u20136 months: transition from triple therapy to VKA + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) if no recurrent ischaemic events or bleeding complications"
+          },
+          {
+            "when": "9\u201312 months",
+            "days_from_now": 300,
+            "action": "reassess coronary status and consider non-invasive stress testing if symptoms recur; transition to VKA monotherapy (INR 2.0\u20133.0) if >1 year post-PCI with no acute events",
+            "raw": "9\u201312 months: reassess coronary status and consider non-invasive stress testing if symptoms recur; transition to VKA monotherapy (INR 2.0\u20133.0) if >1 year post-PCI with no acute events"
+          },
+          {
+            "when": "Ongoing",
+            "days_from_now": null,
+            "action": "lifelong anticoagulation for non-valvular AF (CHA\u2082DS\u2082-VASc 4); regular INR monitoring; annual cardiovascular risk factor review; cardiac rehabilitation program completion",
+            "raw": "Ongoing: lifelong anticoagulation for non-valvular AF (CHA\u2082DS\u2082-VASc 4); regular INR monitoring; annual cardiovascular risk factor review; cardiac rehabilitation program completion"
+          },
+          {
+            "when": "Ongoing",
+            "days_from_now": null,
+            "action": "uptitrate ACE-I and beta-blocker to maximal tolerated doses at each outpatient visit [chunk 9]",
+            "raw": "Ongoing: uptitrate ACE-I and beta-blocker to maximal tolerated doses at each outpatient visit [chunk 9]"
+          }
+        ]
+      }
+    },
+    {
+      "event": "done",
+      "data": {}
+    }
+  ],
+  "final": {
+    "treatment_plan": {
+      "icd_primary": "BC81",
+      "icd_alternates": [
+        "BE15.1",
+        "8B26.4"
+      ],
+      "summary": "67-year-old female with known non-valvular atrial fibrillation (CHA\u2082DS\u2082-VASc = 4) on warfarin (INR 2.4) presenting with NSTEMI post-PCI with drug-eluting stent, and Type 2 Diabetes Mellitus. This patient requires a carefully balanced antithrombotic strategy addressing both stroke prevention (AF) and coronary stent thrombosis prevention (post-PCI ACS), while mitigating the MAJOR bleeding risk of triple therapy (VKA + dual antiplatelets).",
+      "recommendations": [
+        {
+          "intervention": "Warfarin \u2014 maintain INR 2.0\u20132.5 (target 2.0\u20132.5) when combined with clopidogrel or low-dose aspirin, rather than standard INR 2.0\u20133.0, to reduce bleeding risk during triple or dual antithrombotic therapy",
+          "type": "pharmacological",
+          "action": "continue",
+          "evidence_grade": "Grade II-b, Level C",
+          "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+          "rationale": "This 67F with non-valvular AF (CHA\u2082DS\u2082-VASc 4) on warfarin requires ongoing anticoagulation; when VKA is combined with antiplatelet agents post-PCI, careful regulation with a lower INR range of 2.0\u20132.5 is recommended to minimise bleeding.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "Triple therapy: VKA (INR 2.0\u20132.5) + aspirin 75\u2013100 mg/day + clopidogrel 75 mg daily for 3\u20136 months (or longer in selected patients at low bleeding risk) \u2014 antithrombotic strategy following ACS with PCI in AF patient",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade II-a, Level C",
+          "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+          "rationale": "This 67F with AF on warfarin underwent PCI with DES for NSTEMI; the CPG recommends triple therapy (VKA + aspirin + clopidogrel) in the short term (3\u20136 months) following ACS with PCI in AF patients at moderate to high thrombo-embolic risk.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "After 3\u20136 months of triple therapy, transition to VKA (INR 2.0\u20133.0) + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) \u2014 long-term dual antithrombotic therapy up to 12 months post-PCI",
+          "type": "pharmacological",
+          "action": "change",
+          "evidence_grade": "Grade II-a, Level C",
+          "cpg_source": "CPG AF \u00a76.4.4 [chunk 2]",
+          "rationale": "Following the initial period of triple therapy, this 67F with DES for NSTEMI should transition to VKA plus clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) for long-term therapy up to 1 year.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "After 12 months post-PCI, VKA monotherapy (INR 2.0\u20133.0, target 2.5) \u2014 lifelong anticoagulation for non-valvular AF with CHA\u2082DS\u2082-VASc 4",
+          "type": "pharmacological",
+          "action": "continue",
+          "evidence_grade": "Grade II-b, Level C",
+          "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+          "rationale": "This 67F with non-valvular AF and CHA\u2082DS\u2082-VASc score of 4 (high stroke risk) requires lifelong oral anticoagulation; once stable vascular disease (>1 year post-ACS, no acute events), VKA monotherapy is recommended without concomitant antiplatelet therapy.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "Clopidogrel 75 mg daily as the P2Y12 inhibitor of choice (loading dose 300\u2013600 mg) \u2014 preferred over prasugrel in this 67-year-old female",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG UA/NSTEMI \u00a79.1.2 [chunk 3]",
+          "rationale": "This patient is 67 years old (approaching the age threshold of 75 years); the CPG recommends avoiding prasugrel in patients older than 75 years due to bleeding risk, and both aspirin and clopidogrel confer greater absolute and relative benefits in the elderly undergoing PCI.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "Aspirin 75\u2013150 mg daily \u2014 long-term antiplatelet agent for coronary artery disease",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG UA/NSTEMI \u00a710.1.1 [chunk 6]",
+          "rationale": "This 67F post-PCI for NSTEMI requires aspirin as part of dual antiplatelet therapy; the CPG recommends ASA at 75\u2013150 mg daily unless contraindicated.",
+          "contraindications_checked": [
+            "warfarin"
+          ]
+        },
+        {
+          "intervention": "High-potency statin therapy initiated early and continued indefinitely \u2014 to achieve LDL-C <2.0 mmol/L",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]",
+          "rationale": "This 67F with T2DM and ACS post-PCI requires statin therapy regardless of baseline LDL-C; the CPG recommends early initiation of statin therapy and targeting LDL-C <2.0 mmol/L, with indefinite continuation.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "ACE-I (e.g. ramipril 2.5 mg BD, uptitrate to 10 mg OD) \u2014 for secondary prevention post-ACS, particularly given T2DM",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level A",
+          "cpg_source": "CPG UA/NSTEMI \u00a710.1.4 [chunk 6]",
+          "rationale": "This 67F with diabetes and ACS post-PCI benefits from ACE-I therapy; the CPG recommends ACE-Is early in patients with diabetes unless contraindicated, with long-term benefit.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "Beta-blocker (e.g. bisoprolol 1.25 mg OD, uptitrate to 10 mg OD) \u2014 continued indefinitely for ischaemic heart disease post-ACS",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": "Grade I, Level B",
+          "cpg_source": "CPG UA/NSTEMI \u00a77.2.4.2 [chunk 7]",
+          "rationale": "This 67F post-NSTEMI with PCI requires beta-blocker therapy; the CPG recommends beta-blockers administered early and continued indefinitely in patients with ischaemia or LV dysfunction.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "Gastric protection with a proton pump inhibitor \u2014 recommended when triple therapy (VKA + aspirin + clopidogrel) is used",
+          "type": "pharmacological",
+          "action": "start",
+          "evidence_grade": null,
+          "cpg_source": "CPG AF \u00a7Table 13 footnote [chunk 2]",
+          "rationale": "This 67F on triple antithrombotic therapy (VKA + aspirin + clopidogrel) has high GI bleeding risk; the CPG Table 13 footnote states gastric protection with a PPI should be considered where necessary.",
+          "contraindications_checked": [
+            "none"
+          ]
+        },
+        {
+          "intervention": "Radial access preferred for any further invasive procedures \u2014 to minimise bleeding in anticoagulated patient",
+          "type": "procedure",
+          "action": null,
+          "evidence_grade": "Grade II-a, Level C",
+          "cpg_source": "CPG AF \u00a76.4.4 [chunk 5]",
+          "rationale": "This 67F on warfarin who has undergone PCI for NSTEMI; the CPG recommends radial access as the first choice in anticoagulated patients at very high risk of thrombo-embolism even during therapeutic anticoagulation.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Smoking cessation \u2014 reduces cardiovascular risk and reinfarction rate",
+          "type": "lifestyle",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+          "rationale": "This 67F post-ACS with T2DM requires comprehensive risk factor modification; smoking cessation reduces reinfarction and death rates.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Low cholesterol / low saturated fat diet \u2014 for cardiovascular risk reduction",
+          "type": "lifestyle",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+          "rationale": "This 67F with T2DM and CAD post-PCI requires dietary modification to reduce cardiovascular risk.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Regular physical activity \u2014 minimum 30\u201360 minutes of moderate activity 3\u20134 times weekly (walking, cycling, swimming or equivalent aerobic activities)",
+          "type": "lifestyle",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+          "rationale": "This 67F post-ACS with T2DM benefits from regular exercise to improve cardiovascular outcomes and glycaemic control.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Optimal glycaemic control in diabetes \u2014 blood sugar less than 8 mmol/l in the acute setting and optimal control following discharge",
+          "type": "lifestyle",
+          "action": null,
+          "evidence_grade": "Grade I, Level B",
+          "cpg_source": "CPG UA/NSTEMI \u00a79.4 [chunk 1]",
+          "rationale": "This 67F with T2DM and ACS post-PCI requires glycaemic management; the CPG recommends keeping blood sugars less than 8 mmol/l in the acute setting and optimal control following discharge.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Fasting lipid profile \u2014 baseline assessment of TC, LDL-C, HDL-C, TG within 24 hours of hospitalisation",
+          "type": "investigation",
+          "action": null,
+          "evidence_grade": "Grade I, Level C",
+          "cpg_source": "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]",
+          "rationale": "This 67F with NSTEMI post-PCI and T2DM requires lipid assessment; the CPG recommends fasting lipid profile for all patients within 24 hours of hospitalisation.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Echocardiogram \u2014 assess LV function post-ACS",
+          "type": "investigation",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG UA/NSTEMI \u00a710.2 [chunk 6]",
+          "rationale": "This 67F post-NSTEMI requires assessment of LV function to guide ACE-I and beta-blocker dosing and to detect LV dysfunction.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "INR monitoring \u2014 weekly until stable on triple therapy, then at regular intervals",
+          "type": "investigation",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG AF \u00a76.3.2 [chunk 2]",
+          "rationale": "This 67F on warfarin combined with antiplatelet agents requires close INR monitoring to maintain the lower target range of 2.0\u20132.5 during triple therapy to minimise bleeding risk.",
+          "contraindications_checked": []
+        },
+        {
+          "intervention": "Cardiac rehabilitation program referral \u2014 Phase 1 inpatient CR transitioning to Phase 2 outpatient CR within 3\u20136 months",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "CPG UA/NSTEMI \u00a711.1 [chunk 9]",
+          "rationale": "This 67F post-NSTEMI with PCI benefits from cardiac rehabilitation which has been shown to reduce mortality by approximately 20\u201325%.",
+          "contraindications_checked": []
+        }
+      ],
+      "monitoring": [
+        {
+          "parameter": "INR",
+          "schedule": "Weekly until stable on triple therapy (target INR 2.0\u20132.5), then at regular intervals; after transition to dual therapy, target INR 2.0\u20133.0",
+          "target": "INR 2.0\u20132.5 during triple therapy; INR 2.0\u20133.0 (target 2.5) during VKA monotherapy",
+          "cpg_ref": "CPG AF \u00a76.3.2, \u00a76.4.4 [chunk 2, chunk 5]"
+        },
+        {
+          "parameter": "Fasting lipid profile (TC, LDL-C, HDL-C, TG)",
+          "schedule": "At baseline within 24 hours of hospitalisation, then periodically to assess statin efficacy",
+          "target": "LDL-C <2.0 mmol/L",
+          "cpg_ref": "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]"
+        },
+        {
+          "parameter": "Haemoglobin and haematocrit",
+          "schedule": "Regular monitoring during triple antithrombotic therapy for occult bleeding",
+          "target": null,
+          "cpg_ref": null
+        },
+        {
+          "parameter": "Renal function (creatinine, eGFR)",
+          "schedule": "Baseline and periodically during ACE-I therapy",
+          "target": null,
+          "cpg_ref": null
+        },
+        {
+          "parameter": "Blood glucose / HbA1c",
+          "schedule": "Acute phase: blood glucose monitoring; post-discharge: HbA1c every 3 months until optimal control achieved",
+          "target": "Blood glucose <8 mmol/l in acute setting; HbA1c <6.5% for optimal stroke prevention",
+          "cpg_ref": "CPG UA/NSTEMI \u00a79.4 [chunk 1]; CPG Stroke \u00a75.4.6 [chunk 4]"
+        },
+        {
+          "parameter": "Blood pressure",
+          "schedule": "At each visit",
+          "target": "BP <130/80 mmHg (diabetic target)",
+          "cpg_ref": "CPG UA/NSTEMI \u00a711.3 [chunk 17]"
+        }
+      ],
+      "red_flags": [
+        "Recurrent or refractory angina with dynamic ST deviation, heart failure, life-threatening arrhythmias, or haemodynamic instability \u2014 urgent coronary angiography and revascularisation required [chunk 10]",
+        "Signs of major bleeding (haematemesis, melaena, intracranial haemorrhage symptoms) on triple antithrombotic therapy \u2014 immediate medical review and cessation of antiplatelet agents as appropriate",
+        "INR >3.5 while on triple therapy \u2014 increased intracranial bleeding risk; warfarin dose adjustment and close monitoring required [chunk 2]",
+        "Stent thrombosis symptoms (recurrent chest pain, new ST changes) \u2014 emergency re-evaluation"
+      ],
+      "follow_up": [
+        "1\u20133 months post-discharge: reassess symptom status, verify medication adherence, check INR stability on triple therapy (target 2.0\u20132.5) \u2014 if stable, continue triple therapy for 3\u20136 months",
+        "3\u20136 months: transition from triple therapy to VKA + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) if no recurrent ischaemic events or bleeding complications",
+        "9\u201312 months: reassess coronary status and consider non-invasive stress testing if symptoms recur; transition to VKA monotherapy (INR 2.0\u20133.0) if >1 year post-PCI with no acute events",
+        "Ongoing: lifelong anticoagulation for non-valvular AF (CHA\u2082DS\u2082-VASc 4); regular INR monitoring; annual cardiovascular risk factor review; cardiac rehabilitation program completion",
+        "Ongoing: uptitrate ACE-I and beta-blocker to maximal tolerated doses at each outpatient visit [chunk 9]"
+      ],
+      "confidence": 0.7,
+      "unresolved_questions": [
+        "The CPG AF \u00a76.4.4 acknowledges a 'lack of published evidence on optimal management strategy' for AF patients post-PCI; recommendations are based on consensus (Level C evidence). More recent evidence (e.g., WOEST, PIONEER AF-PCI, RE-DUAL PCI, AUGUSTUS trials) may offer updated guidance on dual therapy (OAC + single antiplatelet) vs triple therapy \u2014 a current guideline check is warranted.",
+        "The specific type of drug-eluting stent (sirolimus-eluting vs paclitaxel-eluting vs newer generation) is not specified; the CPG AF \u00a76.4.3 recommends at least 3 months of triple therapy for sirolimus-eluting stents and at least 6 months for paclitaxel-eluting stents. Clarification of stent type would refine the triple therapy duration.",
+        "Whether this 67F should be considered for a DOAC (e.g. apixaban) instead of warfarin is not addressed by the AF CPG \u00a76.4.3/6.4.4 evidence for post-PCI patients, though the Stroke CPG \u00a75.7B [chunk 4] notes DOACs are superior or non-inferior to warfarin for NVAF stroke prevention. Interaction with antiplatelet agents in post-PCI setting would need specialist review.",
+        "HAS-BLED score has not been calculated for this patient \u2014 assessment of bleeding risk is recommended before initiating antithrombotic therapy (CPG AF \u00a76.6.2, Table 14).",
+        "LVEF not provided \u2014 affects ACE-I and beta-blocker dosing targets and indication for aldosterone receptor antagonist.",
+        "Monitoring protocol for specific drug interactions (warfarin-aspirin, warfarin-clopidogrel) during triple therapy not explicitly detailed in retrieved chunks \u2014 close clinical surveillance recommended.",
+        "The predicted ICD-11 code (8B26.4: Posterior cerebral artery syndrome) does not match the clinical presentation (AF with NSTEMI post-PCI). The primary diagnosis should be coded as BC81 (Non-rheumatic atrial fibrillation) with BD11 (Acute myocardial infarction) as a secondary code."
+      ]
+    },
+    "ddx": [
+      {
+        "code": "8B26.4",
+        "title": "Posterior cerebral artery syndrome",
+        "similarity": 0.3432,
+        "base_similarity": 0.3432,
+        "final_score": 0.3432,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3432,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3432,
+          "route_method": "ancestor_d1_sibling"
+        },
+        "matched_cpg_title": "Section 3: Diagnosis And Initial Assessment",
+        "reasoning": [
+          "Vector similarity 0.343",
+          "Final DDx score 0.343"
+        ],
+        "math_rank": 1,
+        "llm_rank": null,
+        "rank_delta": null,
+        "override_reason": null
+      },
+      {
+        "code": "BE15.1",
+        "title": "Postprocedural right pulmonary artery stenosis",
+        "similarity": 0.3345,
+        "base_similarity": 0.3345,
+        "final_score": 0.3345,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3345,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3345,
+          "route_method": "ancestor_d1_sibling"
+        },
+        "matched_cpg_title": "Appendix",
+        "reasoning": [
+          "Vector similarity 0.335",
+          "Final DDx score 0.335"
+        ],
+        "math_rank": 2,
+        "llm_rank": null,
+        "rank_delta": null,
+        "override_reason": null
+      },
+      {
+        "code": "BC02.40",
+        "title": "Acquired stenosis of the neoaortic valve of truncal origin",
+        "similarity": 0.3326,
+        "base_similarity": 0.3326,
+        "final_score": 0.3326,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3326,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3326,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.333",
+          "Final DDx score 0.333"
+        ],
+        "math_rank": 3,
+        "llm_rank": null,
+        "rank_delta": null,
+        "override_reason": null
+      },
+      {
+        "code": "BE15",
+        "title": "Postprocedural pulmonary arterial tree disorder",
+        "similarity": 0.3323,
+        "base_similarity": 0.3323,
+        "final_score": 0.3323,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3323,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3323,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.332",
+          "Final DDx score 0.332"
+        ],
+        "math_rank": 4,
+        "llm_rank": null,
+        "rank_delta": null,
+        "override_reason": null
+      },
+      {
+        "code": "BE16",
+        "title": "Postprocedural pulmonary venous disorder",
+        "similarity": 0.3133,
+        "base_similarity": 0.3133,
+        "final_score": 0.3133,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "score_breakdown": {
+          "base_similarity": 0.3133,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.3133,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.313",
+          "Final DDx score 0.313"
+        ],
+        "math_rank": 5,
+        "llm_rank": null,
+        "rank_delta": null,
+        "override_reason": null
+      }
+    ],
+    "cpgs_matched": [
+      "Ischaemic-Stroke(3rd Edition)",
+      "Primary-Secondary-Prevention-of-CVD(2017)",
+      "T2-Diabetes-Mellitus(6th-Edition)",
+      "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "Atrial-Fibrillation(2012)",
+      "NSTEMI(2011)",
+      "Diabetes-in-Pregnancy(2017)",
+      "CVD-Prevention-Women(2016)"
+    ],
+    "elapsed_ms": 116875.0,
+    "stage_errors": [],
+    "graph_navigator_rules": [
+      {
+        "drug": "Statin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+        "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+        "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+      },
+      {
+        "drug": "Vitamin K Antagonist",
+        "condition": "Non-Valvular Atrial Fibrillation",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+        "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+        "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+      },
+      {
+        "drug": "Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+        "source_document": "Section 6: T2DM in Special Populations",
+        "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+      },
+      {
+        "drug": "Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "SECOND_LINE_FOR",
+        "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      },
+      {
+        "drug": "Metformin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Metformin is the preferred choice as a first line therapy.",
+        "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+        "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+      },
+      {
+        "drug": "Metformin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "As first line therapy, metformin is the preferred choice.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      },
+      {
+        "drug": "Basal Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "[Level I] basal insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+      },
+      {
+        "drug": "Gliclazide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Glimepiride",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Glipizide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Dulaglutide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+      },
+      {
+        "drug": "Metformin And Vildagliptin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+      },
+      {
+        "drug": "Glp-1Ra",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "SECOND_LINE_FOR",
+        "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      }
+    ],
+    "safety_report": {
+      "flags": [
+        {
+          "severity": "MODERATE",
+          "recommendation_index": 0,
+          "flag_type": "drug_interaction",
+          "detail": "Warfarin interacts with Aspirin. Evidence: Lifelong Warfarin (target INR 3.0; range 2.5-3.5) plus Aspirin 75-150mg daily",
+          "suggested_alternative": null,
+          "source": "graph"
+        }
+      ],
+      "safe_to_proceed": true,
+      "reviewer_notes": "LLM safety review unavailable: ValidationError | 1 graph-verified flag(s) added from Neo4j KG"
+    },
+    "cpg_references": [
+      "CPG AF \u00a76.4.4 [chunk 5]",
+      "CPG AF \u00a76.4.4 [chunk 2]",
+      "CPG UA/NSTEMI \u00a79.1.2 [chunk 3]",
+      "CPG UA/NSTEMI \u00a710.1.1 [chunk 6]",
+      "CPG UA/NSTEMI \u00a710.1.3 [chunk 6]",
+      "CPG UA/NSTEMI \u00a710.1.4 [chunk 6]",
+      "CPG UA/NSTEMI \u00a77.2.4.2 [chunk 7]",
+      "CPG AF \u00a7Table 13 footnote [chunk 2]",
+      "CPG UA/NSTEMI \u00a711.3 [chunk 17]",
+      "CPG UA/NSTEMI \u00a79.4 [chunk 1]",
+      "CPG UA/NSTEMI \u00a710.2 [chunk 6]",
+      "CPG AF \u00a76.3.2 [chunk 2]",
+      "CPG UA/NSTEMI \u00a711.1 [chunk 9]",
+      "CPG AF \u00a76.3.2, \u00a76.4.4 [chunk 2, chunk 5]",
+      "CPG UA/NSTEMI \u00a79.4 [chunk 1]; CPG Stroke \u00a75.4.6 [chunk 4]"
+    ],
+    "follow_up_parsed": [
+      {
+        "when": "",
+        "days_from_now": null,
+        "action": "1\u20133 months post-discharge: reassess symptom status, verify medication adherence, check INR stability on triple therapy (target 2.0\u20132.5) \u2014 if stable, continue triple therapy for 3\u20136 months",
+        "raw": "1\u20133 months post-discharge: reassess symptom status, verify medication adherence, check INR stability on triple therapy (target 2.0\u20132.5) \u2014 if stable, continue triple therapy for 3\u20136 months"
+      },
+      {
+        "when": "3\u20136 months",
+        "days_from_now": 120,
+        "action": "transition from triple therapy to VKA + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) if no recurrent ischaemic events or bleeding complications",
+        "raw": "3\u20136 months: transition from triple therapy to VKA + clopidogrel 75 mg daily (or alternatively aspirin 75\u2013100 mg daily) if no recurrent ischaemic events or bleeding complications"
+      },
+      {
+        "when": "9\u201312 months",
+        "days_from_now": 300,
+        "action": "reassess coronary status and consider non-invasive stress testing if symptoms recur; transition to VKA monotherapy (INR 2.0\u20133.0) if >1 year post-PCI with no acute events",
+        "raw": "9\u201312 months: reassess coronary status and consider non-invasive stress testing if symptoms recur; transition to VKA monotherapy (INR 2.0\u20133.0) if >1 year post-PCI with no acute events"
+      },
+      {
+        "when": "Ongoing",
+        "days_from_now": null,
+        "action": "lifelong anticoagulation for non-valvular AF (CHA\u2082DS\u2082-VASc 4); regular INR monitoring; annual cardiovascular risk factor review; cardiac rehabilitation program completion",
+        "raw": "Ongoing: lifelong anticoagulation for non-valvular AF (CHA\u2082DS\u2082-VASc 4); regular INR monitoring; annual cardiovascular risk factor review; cardiac rehabilitation program completion"
+      },
+      {
+        "when": "Ongoing",
+        "days_from_now": null,
+        "action": "uptitrate ACE-I and beta-blocker to maximal tolerated doses at each outpatient visit [chunk 9]",
+        "raw": "Ongoing: uptitrate ACE-I and beta-blocker to maximal tolerated doses at each outpatient visit [chunk 9]"
+      }
+    ]
+  }
+}
