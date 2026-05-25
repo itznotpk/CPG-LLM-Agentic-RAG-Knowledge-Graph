@@ -19,6 +19,7 @@ import {
   Send,
   Shield,
   LayoutGrid,
+  Clock,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -37,16 +38,17 @@ import { GraphNavigatorPanel } from './GraphNavigatorPanel';
 /* ============================================================
    Section card (collapsible) — used inside each tab
    ============================================================ */
-function Section({ title, icon: Icon, children, defaultOpen = true, rightAction, count, kind }) {
+function Section({ title, icon: Icon, children, defaultOpen = true, rightAction, count, kind, noCollapse = false }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const { isDark } = useTheme();
   const isRedFlag = kind === 'red-flags';
+  const open = noCollapse ? true : isOpen;
 
   return (
     <GlassCard className={`overflow-hidden ${isRedFlag ? (isDark ? 'border border-red-500/30' : 'border border-red-200') : ''}`}>
       <div
-        className={`flex items-center justify-between p-4 cursor-pointer ${isDark ? 'hover:bg-white/5' : 'hover:bg-white/10'}`}
-        onClick={() => setIsOpen(!isOpen)}
+        className={`flex items-center justify-between p-4 ${!noCollapse ? `cursor-pointer ${isDark ? 'hover:bg-white/5' : 'hover:bg-white/10'}` : ''}`}
+        onClick={noCollapse ? undefined : () => setIsOpen(!isOpen)}
       >
         <div className="flex items-center gap-3 flex-1">
           <div className={`p-2 rounded-xl ${isRedFlag
@@ -61,12 +63,12 @@ function Section({ title, icon: Icon, children, defaultOpen = true, rightAction,
         </div>
         <div className="flex items-center gap-2">
           {rightAction}
-          {isOpen
+          {!noCollapse && (open
             ? <ChevronUp className={`w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} strokeWidth={1.5} />
-            : <ChevronDown className={`w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} strokeWidth={1.5} />}
+            : <ChevronDown className={`w-5 h-5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`} strokeWidth={1.5} />)}
         </div>
       </div>
-      {isOpen && <div className="px-4 pb-4">{children}</div>}
+      {open && <div className="px-4 pb-4">{children}</div>}
     </GlassCard>
   );
 }
@@ -197,7 +199,7 @@ function RedFlagRow({ text }) {
 /* ============================================================
    List row — Interventions / Monitoring / Lifestyle / Referrals / Red flags
    ============================================================ */
-function ListRow({ bulletTone = 'ok', title, sub, tag, tagTone }) {
+function ListRow({ bulletTone = 'ok', title, sub, tag, tagTone, noCollapse = false, scheduleBelow = false }) {
   const { isDark } = useTheme();
   const [expanded, setExpanded] = useState(false);
   const bulletColor = {
@@ -220,23 +222,31 @@ function ListRow({ bulletTone = 'ok', title, sub, tag, tagTone }) {
         </div>
         <div className="flex-1 min-w-0">
           <div className={`text-sm font-medium leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>{title}</div>
-        </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
-          {tag && (
-            <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${tagColor}`}>{tag}</span>
-          )}
-          {sub && (
-            <button
-              onClick={() => setExpanded(v => !v)}
-              className={`p-0.5 rounded transition-colors ${isDark ? 'text-slate-400 hover:bg-white/10' : 'text-slate-400 hover:bg-black/5'}`}
-              aria-label={expanded ? 'Collapse' : 'Expand'}
-            >
-              {expanded ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} /> : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
-            </button>
+          {scheduleBelow && tag && (
+            <div className="mt-1 flex items-center gap-1.5">
+              <Clock className="w-3 h-3 flex-shrink-0 text-[var(--accent-primary)]" strokeWidth={2} />
+              <span className="text-[11px] font-medium text-[var(--accent-primary)] leading-snug">{tag}</span>
+            </div>
           )}
         </div>
+        {!scheduleBelow && (
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {tag && (
+              <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full ${tagColor}`}>{tag}</span>
+            )}
+            {sub && !noCollapse && (
+              <button
+                onClick={() => setExpanded(v => !v)}
+                className={`p-0.5 rounded transition-colors ${isDark ? 'text-slate-400 hover:bg-white/10' : 'text-slate-400 hover:bg-black/5'}`}
+                aria-label={expanded ? 'Collapse' : 'Expand'}
+              >
+                {expanded ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} /> : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
+              </button>
+            )}
+          </div>
+        )}
       </div>
-      {expanded && sub && (
+      {(noCollapse ? sub : (expanded && sub)) && (
         <div className={`mt-1.5 ml-8 text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           {sub}
         </div>
@@ -712,7 +722,7 @@ export function CarePlanSection() {
           {/* ── CARE & MONITORING ──────────────────────────────── */}
           {tab === 'care' && (
             <>
-              <Section title="Procedures & Interventions" icon={Stethoscope} count={carePlan.interventions?.length || 0}>
+              <Section title="Procedures & Interventions" icon={Stethoscope} count={carePlan.interventions?.length || 0} noCollapse>
                 <div>
                   {(carePlan.interventions || []).map((i) => (
                     <ListRow
@@ -736,11 +746,13 @@ export function CarePlanSection() {
                       sub={i.target ? `Target: ${i.target}` : i.cpgRef}
                       tag={i.schedule}
                       tagTone="accent"
+                      noCollapse
+                      scheduleBelow
                     />
                   ))}
                 </div>
               </Section>
-              <Section title="Lifestyle & Self-Management" icon={Heart} count={carePlan.lifestyle?.length || 0}>
+              <Section title="Lifestyle & Self-Management" icon={Heart} count={carePlan.lifestyle?.length || 0} noCollapse>
                 <div>
                   {(carePlan.lifestyle || []).map((i) => <ListRow key={i.id} bulletTone="ok" title={i.goal} tag={i.category} />)}
                 </div>
@@ -772,11 +784,11 @@ export function CarePlanSection() {
           {/* ── REFERENCES ─────────────────────────────────────── */}
           {tab === 'refs' && (
             <Section title="CPG References" icon={BookOpen} count={refsCount}>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col gap-2">
                 {(carePlan.cpgReferences || []).map((ref, idx) => (
                   <button
                     key={idx}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium inline-flex items-center gap-2 transition-colors
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium inline-flex items-center gap-2 transition-colors self-start
                       ${isDark
                         ? 'bg-[var(--accent-primary)]/15 hover:bg-[var(--accent-primary)]/25 text-slate-200'
                         : 'bg-[var(--accent-primary)]/10 hover:bg-[var(--accent-primary)]/20 text-slate-700'}`}

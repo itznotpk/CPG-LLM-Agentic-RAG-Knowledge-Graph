@@ -637,7 +637,8 @@ export const updateConsultation = async (consultationId, updates = {}) => {
         p_patient_education: updates.patientEducation || null,
         p_referrals: updates.referrals || null,
         p_lifestyle_goals: updates.lifestyleGoals || null,
-        p_cpg_references: updates.cpgReferences || null
+        p_cpg_references: updates.cpgReferences || null,
+        p_report_pdf_url: updates.reportPdfUrl || null
       });
 
     if (error) {
@@ -649,6 +650,68 @@ export const updateConsultation = async (consultationId, updates = {}) => {
     return { success: true, error: null };
   } catch (err) {
     console.error('Exception updating consultation:', err);
+    return { success: false, error: err };
+  }
+};
+
+/**
+ * Upload a care plan PDF blob to Supabase Storage and return the signed URL.
+ * @param {number} consultationId - The consultation ID (used as filename)
+ * @param {string} patientNric - Patient's NRIC (used as folder name)
+ * @param {Blob} pdfBlob - The PDF blob from generateCarePlanPDFBlob()
+ * @returns {Promise<{success: boolean, url: string|null, error: Error|null}>}
+ */
+export const uploadCarePlanPDF = async (consultationId, patientNric, pdfBlob) => {
+  try {
+    const path = `${patientNric}/${consultationId}.pdf`;
+    console.log('📤 Uploading care plan PDF:', path);
+
+    const { error: uploadError } = await supabase.storage
+      .from('care-plan-reports')
+      .upload(path, pdfBlob, { contentType: 'application/pdf', upsert: true });
+
+    if (uploadError) {
+      console.error('Error uploading PDF:', uploadError);
+      return { success: false, url: null, error: uploadError };
+    }
+
+    const { data: signedData, error: signError } = await supabase.storage
+      .from('care-plan-reports')
+      .createSignedUrl(path, 60 * 60 * 24 * 365); // 1 year
+
+    if (signError) {
+      console.error('Error creating signed URL:', signError);
+      return { success: false, url: null, error: signError };
+    }
+
+    console.log('✅ PDF uploaded, signed URL created');
+    return { success: true, url: signedData.signedUrl, error: null };
+  } catch (err) {
+    console.error('Exception uploading care plan PDF:', err);
+    return { success: false, url: null, error: err };
+  }
+};
+
+/**
+ * Download a care plan PDF from Supabase Storage by its stored URL.
+ * @param {string} reportPdfUrl - The URL stored in the consultation record
+ * @param {string} fileName - Desired download filename
+ * @returns {Promise<{success: boolean, error: Error|null}>}
+ */
+export const downloadCarePlanPDF = async (reportPdfUrl, fileName = 'care-plan.pdf') => {
+  try {
+    const res = await fetch(reportPdfUrl);
+    if (!res.ok) throw new Error(`Failed to fetch PDF: ${res.status}`);
+    const blob = await res.blob();
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    a.click();
+    URL.revokeObjectURL(url);
+    return { success: true, error: null };
+  } catch (err) {
+    console.error('Exception downloading care plan PDF:', err);
     return { success: false, error: err };
   }
 };
@@ -746,6 +809,7 @@ export const getAllPatientConsultations = async (patientNric, limit = 10) => {
       diagnoses: c.diagnoses || [],
       carePlanSummary: c.care_plan_summary,
       medicationRecommendations: c.medication_recommendations,
+      reportPdfUrl: c.report_pdf_url || null,
       consultationTime: c.consultation_time,
       createdAt: c.created_at,
       updatedAt: c.updated_at,

@@ -99,7 +99,26 @@ export function mapTreatmentPlanToCarePlan(plan) {
   const cpgSourceSet = new Set(
     allRecs.map((r) => r.cpg_source).filter(Boolean)
   );
-  const cpgReferences = [...cpgSourceSet].map((src) => ({ title: src }));
+
+  // Expand abbreviated CPG prefixes to full document titles.
+  // Order matters: longer/more-specific prefixes must come first.
+  const CPG_PREFIX_MAP = [
+    ['CPG Heart Failure and Diabetes', 'CPG Heart Failure & Diabetes Mellitus'],
+    ['CPG HF and Diabetes',            'CPG Heart Failure & Diabetes Mellitus'],
+    ['CPG Heart Failure',              'CPG Management of Heart Failure (4th Edition)'],
+    ['CPG HF',                         'CPG Management of Heart Failure (4th Edition)'],
+    ['CPG T2DM',                       'CPG Type 2 Diabetes Mellitus (6th Edition)'],
+  ];
+
+  const expandCpgSource = (src) => {
+    let result = src;
+    for (const [abbrev, full] of CPG_PREFIX_MAP) {
+      result = result.replaceAll(abbrev, full);
+    }
+    return result;
+  };
+
+  const cpgReferences = [...cpgSourceSet].map((src) => ({ title: expandCpgSource(src) }));
 
   return {
     clinicalSummary: plan.summary ?? '',

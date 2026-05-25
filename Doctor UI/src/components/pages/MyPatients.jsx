@@ -22,12 +22,36 @@ import {
   Stethoscope,
   TestTube,
   AlertTriangle,
-  Loader2
+  Loader2,
+  Download
 } from 'lucide-react';
 import { GlassCard } from '../shared/GlassCard';
 import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
-import { getAllPatients, getPatientConsultation, getAllPatientConsultations } from '../../lib/supabase';
+import { getAllPatients, getPatientConsultation, getAllPatientConsultations, downloadCarePlanPDF } from '../../lib/supabase';
+
+// Download a single diagnosis record as a plain-text report
+function downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay) {
+  const name = typeof dx === 'object' ? dx.name : dx;
+  const icd = typeof dx === 'object' && dx.icdCode ? dx.icdCode : '—';
+  const lines = [
+    'DIAGNOSIS REPORT',
+    '================',
+    `Patient   : ${patient?.name || patient?.nsn || '—'}`,
+    `NRIC/NSN  : ${patient?.nsn || '—'}`,
+    `Date      : ${dateToDisplay || '—'}  ${timeToDisplay || ''}`.trim(),
+    '',
+    `Diagnosis : ${name}`,
+    `ICD-11    : ${icd}`,
+  ];
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `diagnosis_${(name || 'report').replace(/\s+/g, '_').slice(0, 40)}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
 
 // Helper component to display next review date from consultations
 function NextReviewDisplay({ patientNric, consultations, isDark, accent }) {
@@ -621,38 +645,47 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                       <div className={`space-y-2 ${hasMore ? 'max-h-48 overflow-y-auto pr-2' : ''}`} style={hasMore ? { scrollbarWidth: 'thin' } : {}}>
                                         {sortedDiagnoses.map((dx, i) => (
                                           <div key={dx.id || i} className={`p-2 rounded-lg border-l-2 border-[var(--accent-primary)]/50 ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
-                                            <div className="flex items-start justify-between">
-                                              <div>
-                                                <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                                  {typeof dx === 'object' ? dx.name : dx}
-                                                </p>
-                                                {typeof dx === 'object' && dx.icdCode && (
-                                                  <p className={`text-xs ds-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                                    ICD-11: {dx.icdCode}
-                                                  </p>
-                                                )}
-                                              </div>
-                                              {(() => {
-                                                // Use recordedAt if available, otherwise fallback to consultationTime
-                                                const dateObj = dx.recordedAt ? new Date(dx.recordedAt) : (consultation?.consultationTime ? new Date(consultation.consultationTime) : null);
-                                                // Format with UTC+08:00 timezone
-                                                const dateToDisplay = dateObj ? dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' }) : null;
-                                                const timeToDisplay = dateObj ? dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' }) : null;
-
-                                                return dateToDisplay && (
-                                                  <div className="text-right">
-                                                    <p className={`text-xs ds-numeric ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                                                      {dateToDisplay}
+                                            {(() => {
+                                              const dateObj = dx.recordedAt ? new Date(dx.recordedAt) : (consultation?.consultationTime ? new Date(consultation.consultationTime) : null);
+                                              const dateToDisplay = dateObj ? dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' }) : null;
+                                              const timeToDisplay = dateObj ? dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' }) : null;
+                                              return (
+                                                <div className="flex items-center justify-between gap-3">
+                                                  {/* Left: diagnosis name + ICD + timestamp */}
+                                                  <div className="min-w-0">
+                                                    <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                                      {typeof dx === 'object' ? dx.name : dx}
                                                     </p>
-                                                    {timeToDisplay && (
-                                                      <p className={`text-[10px] ds-numeric ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
-                                                        {timeToDisplay}
+                                                    {typeof dx === 'object' && dx.icdCode && (
+                                                      <p className={`text-xs ds-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                                        ICD-11: {dx.icdCode}
+                                                      </p>
+                                                    )}
+                                                    {dateToDisplay && (
+                                                      <p className={`text-[11px] mt-0.5 ds-numeric ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                                                        {dateToDisplay}{timeToDisplay && <span className="ml-1.5">{timeToDisplay}</span>}
                                                       </p>
                                                     )}
                                                   </div>
-                                                );
-                                              })()}
-                                            </div>
+                                                  {/* Right: download button */}
+                                                  <button
+                                                    title={consultation?.reportPdfUrl ? 'Download care plan PDF' : 'Download diagnosis report'}
+                                                    onClick={() => {
+                                                      if (consultation?.reportPdfUrl) {
+                                                        const dxName = typeof dx === 'object' ? dx.name : dx;
+                                                        const fileName = `care-plan_${(dxName || 'report').replace(/\s+/g, '_').slice(0, 40)}.pdf`;
+                                                        downloadCarePlanPDF(consultation.reportPdfUrl, fileName);
+                                                      } else {
+                                                        downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay);
+                                                      }
+                                                    }}
+                                                    className={`flex-shrink-0 p-2 rounded-md transition-colors text-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/15 hover:bg-[var(--accent-primary)]/25' : 'bg-[var(--accent-primary)]/10 hover:bg-[var(--accent-primary)]/20'}`}
+                                                  >
+                                                    <Download className="w-5 h-5" strokeWidth={2} />
+                                                  </button>
+                                                </div>
+                                              );
+                                            })()}
                                           </div>
                                         ))}
                                       </div>

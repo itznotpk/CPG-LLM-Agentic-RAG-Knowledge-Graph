@@ -161,23 +161,30 @@ export function DiagnosisSection() {
               <button
                 key={diff.id}
                 onClick={() => handleSelectDiagnosis(diff.id)}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 border-l-4 ${
+                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 border-2 ${
                   isSelected
-                    ? `border-l-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'}`
-                    : `border-l-transparent ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`
+                    ? `border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/15 shadow-[0_0_0_1px_var(--accent-primary)]' : 'bg-[var(--accent-primary)]/8 shadow-[0_0_0_1px_var(--accent-primary)]'}`
+                    : `border-transparent ${isDark ? 'hover:bg-white/5 hover:border-white/10' : 'hover:bg-slate-50 hover:border-slate-200'}`
                 }`}
               >
                 {/* Row 1: name · ICD · badges · percentage — matches 19-probability.html .head */}
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className={`font-mono text-xs font-semibold shrink-0 ${
-                    isSelected ? 'text-[var(--accent-primary)]' : isDark ? 'text-slate-400' : 'text-slate-500'
-                  }`}>
-                    {String(idx + 1).padStart(2, '0')}
-                  </span>
+                  {/* Selected checkmark / index number */}
+                  {isSelected ? (
+                    <span className="w-5 h-5 rounded-full bg-[var(--accent-primary)] flex items-center justify-center shrink-0">
+                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l3 3 5-5" />
+                      </svg>
+                    </span>
+                  ) : (
+                    <span className={`font-mono text-xs font-semibold shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  )}
                   {/* .nm — font-weight 500, var(--slate-700) */}
                   <span
                     className="flex-1 text-sm truncate"
-                    style={{ fontWeight: 500, color: isDark ? '#e2e8f0' : 'var(--slate-700)' }}
+                    style={{ fontWeight: isSelected ? 600 : 500, color: isSelected ? 'var(--accent-primary)' : isDark ? '#e2e8f0' : 'var(--slate-700)' }}
                   >
                     {diff.name}
                   </span>

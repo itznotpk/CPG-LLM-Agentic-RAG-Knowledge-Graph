@@ -14,8 +14,10 @@ import {
   updateConsultation,
   updatePatientMedications,
   updatePatientRiskLevel,
-  updatePatientStatus
+  updatePatientStatus,
+  uploadCarePlanPDF
 } from '../lib/supabase';
+import { generateCarePlanPDFBlob } from '../utils/pdfGenerator';
 import { getNowUTC8, getTodayUTC8 } from '../utils/timezone';
 
 // Always use Supabase for patient data
@@ -704,6 +706,32 @@ export function AppProvider({ children }) {
         }
       } catch (err) {
         console.error('💥 Exception during sync:', err);
+      }
+    }
+
+    // Generate and upload care plan PDF to Supabase Storage
+    if (USE_SUPABASE && state.currentConsultationId && state.patient?.nsn) {
+      try {
+        const selectedIds = state.diagnosis?.selectedDiagnosisIds || [];
+        const selectedDiagnoses = (state.diagnosis?.differentials || []).filter(d => selectedIds.includes(d.id));
+        const pdfBlob = generateCarePlanPDFBlob({
+          patient: state.patient,
+          diagnosis: { ...state.diagnosis, differentials: selectedDiagnoses },
+          carePlan: state.carePlan,
+        });
+        const { success, url, error: pdfErr } = await uploadCarePlanPDF(
+          state.currentConsultationId,
+          state.patient.nsn,
+          pdfBlob
+        );
+        if (success && url) {
+          await updateConsultation(state.currentConsultationId, { reportPdfUrl: url });
+          console.log('✅ Care plan PDF stored:', url);
+        } else {
+          console.warn('⚠️ PDF upload failed:', pdfErr);
+        }
+      } catch (err) {
+        console.error('💥 Exception uploading care plan PDF:', err);
       }
     }
 
