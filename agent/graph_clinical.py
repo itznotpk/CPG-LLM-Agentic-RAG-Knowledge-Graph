@@ -578,3 +578,106 @@ def format_flags_for_prompt(flags: List[ClinicalFlag]) -> str:
             + (f" (chunks: {chunk_refs})" if chunk_refs else "")
         )
     return "\n".join(lines) + "\n"
+
+
+# ---------------------------------------------------------------------------
+# Referral KG lookup (KG-first replacement for _ALWAYS_REFER_CONDITIONS dict)
+# ---------------------------------------------------------------------------
+
+@dataclass
+class ReferralRecommendation:
+    """A referral recommendation surfaced from the KG for a patient case."""
+
+    condition: str            # display name of matched :Condition node
+    specialty: str            # display name of matched :Specialty node
+    urgency: str              # urgent | routine | consider
+    trigger: Optional[str] = None
+    triggers: List[str] = field(default_factory=list)
+    evidence: str = ""
+    evidence_list: List[str] = field(default_factory=list)
+    source_document: str = ""
+    icd_hint: Optional[str] = None
+
+
+async def lookup_referrals(
+    condition_names: List[str],
+) -> List[ReferralRecommendation]:
+    """Resolve referral edges in Neo4j for a patient's conditions.
+
+    Matches symmetrically by substring on `:Condition.name_normalised`. Mirrors
+    the `match_plan_drugs` pattern — name-based with length guard to avoid
+    false positives on very short tokens.
+
+    Args:
+        condition_names: free-text condition strings (DDx titles + comorbidities).
+
+    Returns:
+        Deduplicated list of ReferralRecommendation, one per (specialty, condition).
+        Returns [] on any failure — caller is expected to fall back to a static
+        dict so the pipeline never goes silent.
+    """
+    names = [n for n in (condition_names or []) if n and n.strip()]
+    if not names:
+        return []
+
+    cypher = """
+    UNWIND $names AS raw
+    WITH toLower(raw) AS needle
+    MATCH (c:Condition)-[r:REQUIRES_REFERRAL]->(s:Specialty)
+    WHERE c.name_normalised IS NOT NULL
+      AND size(c.name_normalised) >= 4
+      AND (needle CONTAINS c.name_normalised OR c.name_normalised CONTAINS needle)
+    RETURN
+      c.name AS condition,
+      s.name AS specialty,
+      coalesce(r.urgency, 'routine') AS urgency,
+      r.trigger AS trigger,
+      coalesce(r.trigger_list, []) AS triggers,
+      coalesce(r.evidence, '') AS evidence,
+      coalesce(r.evidence_list, []) AS evidence_list,
+      coalesce(r.source_document, '') AS source_document,
+      r.icd_hint AS icd_hint
+    """
+    try:
+        session_ctx = await _get_neo4j_session()
+        async with session_ctx as session:
+            result = await session.run(cypher, names=names)
+            records = [dict(r) async for r in result]
+    except Exception as exc:
+        logger.warning("lookup_referrals failed: %s", exc)
+        return []
+
+    # Dedup by (specialty, condition); collapse multi-edge records by upgrading
+    # urgency (urgent > routine > consider).
+    _urgency_rank = {"urgent": 3, "routine": 2, "consider": 1}
+    merged: Dict[tuple, ReferralRecommendation] = {}
+    for rec in records:
+        key = (rec["specialty"].lower(), rec["condition"].lower())
+        new = ReferralRecommendation(
+            condition=rec["condition"],
+            specialty=rec["specialty"],
+            urgency=rec["urgency"],
+            trigger=rec.get("trigger"),
+            triggers=list(rec.get("triggers") or []),
+            evidence=rec.get("evidence") or "",
+            evidence_list=list(rec.get("evidence_list") or []),
+            source_document=rec.get("source_document") or "",
+            icd_hint=rec.get("icd_hint"),
+        )
+        existing = merged.get(key)
+        if existing is None:
+            merged[key] = new
+            continue
+        # Keep the higher-urgency record; union evidence + triggers.
+        if _urgency_rank.get(new.urgency, 0) > _urgency_rank.get(existing.urgency, 0):
+            new.evidence_list = list({*existing.evidence_list, *new.evidence_list})
+            new.triggers = list({*existing.triggers, *new.triggers})
+            merged[key] = new
+        else:
+            existing.evidence_list = list({*existing.evidence_list, *new.evidence_list})
+            existing.triggers = list({*existing.triggers, *new.triggers})
+
+    out = list(merged.values())
+    logger.info("lookup_referrals: %d recommendation(s) for %d input name(s)",
+                len(out), len(names))
+    return out

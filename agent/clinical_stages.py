@@ -1850,11 +1850,23 @@ Produce a TreatmentPlan JSON object matching this schema:
     intervention_blob = " ".join(
         (r.intervention or "").lower() for r in plan.recommendations
     )
-    expected_pillars = _expected_pillars_for(icd_primary)
+    # Coverage checks consider not just the primary DDx but the top-5 codes —
+    # a patient with AF (BC81) + ACS (BA41) + CAD (BA52) may have CAD as primary
+    # yet still require AF/ACS-driven referrals and pillar therapies.
+    coverage_codes = [d.code for d in ddx[:5] if getattr(d, "code", None)]
+    if icd_primary and icd_primary not in coverage_codes:
+        coverage_codes.insert(0, icd_primary)
+
     missing_pillars: list[str] = []
-    for pillar in expected_pillars:
-        if not any(sub.lower() in intervention_blob for sub in pillar["substrings"]):
-            missing_pillars.append(pillar["pillar"])
+    seen_pillar_labels: set[str] = set()
+    for code in coverage_codes:
+        for pillar in _expected_pillars_for(code):
+            label = pillar["pillar"]
+            if label in seen_pillar_labels:
+                continue
+            if not any(sub.lower() in intervention_blob for sub in pillar["substrings"]):
+                missing_pillars.append(label)
+                seen_pillar_labels.add(label)
     if missing_pillars:
         for label in missing_pillars:
             plan.unresolved_questions.append(
@@ -1863,21 +1875,65 @@ Produce a TreatmentPlan JSON object matching this schema:
                 "explicitly before finalising the regimen."
             )
         logger.info(
-            "stage_5 coverage: %d expected pillar(s) missing for %s — %s",
-            len(missing_pillars), icd_primary, missing_pillars,
+            "stage_5 coverage: %d expected pillar(s) missing across %s — %s",
+            len(missing_pillars), coverage_codes, missing_pillars,
         )
 
-    referral_required = _required_referral_for(icd_primary)
     has_referral = any(r.type == "referral" for r in plan.recommendations)
-    if referral_required and not has_referral:
-        plan.unresolved_questions.append(
-            f"Expected referral not surfaced in plan: {referral_required}. "
-            "No referral recommendation was emitted — clinician should arrange "
-            "specialist input."
-        )
-        logger.info(
-            "stage_5 coverage: missing required referral for %s — %s",
-            icd_primary, referral_required,
-        )
+    if not has_referral:
+        # KG-first: ask Neo4j what referrals exist for the patient's conditions.
+        # Falls back to the static dict (_ALWAYS_REFER_CONDITIONS) for codes the
+        # KG doesn't yet cover. Fail-open: KG errors degrade silently to dict.
+        kg_specialty_messages: list[str] = []
+        try:
+            from .graph_clinical import lookup_referrals as _lookup_referrals
+            kg_inputs: list[str] = []
+            for d in ddx[:5]:
+                title = getattr(d, "title", None)
+                if title:
+                    kg_inputs.append(title)
+            kg_inputs.extend(case.comorbidities or [])
+            kg_recs = await _lookup_referrals(kg_inputs) if kg_inputs else []
+            for rec in kg_recs:
+                trig = f" (trigger: {rec.trigger})" if rec.trigger else ""
+                msg = (
+                    f"{rec.specialty} — {rec.condition}, urgency: {rec.urgency}{trig}. "
+                    f"Evidence: {(rec.evidence or '')[:160]}"
+                )
+                kg_specialty_messages.append(msg)
+        except Exception as exc:
+            logger.warning("KG referral lookup failed in Stage 5 validator: %s", exc)
+
+        if kg_specialty_messages:
+            seen_msgs: set[str] = set()
+            for msg in kg_specialty_messages:
+                if msg in seen_msgs:
+                    continue
+                seen_msgs.add(msg)
+                plan.unresolved_questions.append(
+                    f"Expected referral not surfaced in plan: {msg} "
+                    "No referral recommendation was emitted — clinician should "
+                    "arrange specialist input."
+                )
+            logger.info(
+                "stage_5 coverage (KG): %d missing referral(s)",
+                len(seen_msgs),
+            )
+        else:
+            # Static-dict fallback (covers conditions not yet in the KG).
+            seen_specialties: set[str] = set()
+            for code in coverage_codes:
+                referral_required = _required_referral_for(code)
+                if referral_required and referral_required not in seen_specialties:
+                    seen_specialties.add(referral_required)
+                    plan.unresolved_questions.append(
+                        f"Expected referral not surfaced in plan: {referral_required}. "
+                        "No referral recommendation was emitted — clinician should "
+                        "arrange specialist input."
+                    )
+                    logger.info(
+                        "stage_5 coverage (dict fallback): missing required referral for %s — %s",
+                        code, referral_required,
+                    )
 
     return plan

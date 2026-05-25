@@ -1,13 +1,13 @@
-"""Non-interactive runner for EVALUATION_FRAMEWORK_README.md Case 8.
+"""Non-interactive runner for EVALUATION_FRAMEWORK_README.md Case 9.
 
-T2DM + HFrEF + Obesity (Metabolic Heart Failure). Posts the canned case to
-the live /clinical/plan/stream SSE endpoint, captures every event + the final
-TreatmentPlan, and writes both a JSON trace and a readable Markdown summary
-under tasks/eval_runs/.
+Non-Valvular AF + Post-PCI (DES) + T2DM — triple antithrombotic therapy
+dilemma. Posts the canned case to the live /clinical/plan/stream SSE
+endpoint, captures every event + the final TreatmentPlan, and writes both
+a JSON trace and a readable Markdown summary under tasks/eval_runs/.
 
 Usage:
-    python scripts/run_eval_case_08.py             # uses http://localhost:8058
-    python scripts/run_eval_case_08.py --url http://localhost:8000
+    python scripts/run_eval_case_09.py             # uses http://localhost:8058
+    python scripts/run_eval_case_09.py --url http://localhost:8000
 """
 from __future__ import annotations
 
@@ -24,20 +24,28 @@ import aiohttp
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "tasks" / "eval_runs"
 
-CASE_8 = {
-    "chief_complaint": "Newly diagnosed HFrEF (LVEF 25%) in obese T2DM patient on metformin + gliclazide.",
-    "history": (
-        "62-year-old male, BMI 34 (obese), Type 2 Diabetes (HbA1c 8.4%) on Metformin 1g BD "
-        "and Gliclazide MR 60mg OD, newly diagnosed Heart Failure with reduced Ejection "
-        "Fraction (HFrEF, LVEF 25%). Clinically stable and euvolemic. Asking what medication "
-        "changes are required and how to adjust the anti-diabetic regimen."
+CASE_9 = {
+    "chief_complaint": (
+        "Post-PCI with DES for NSTEMI in patient with known non-valvular AF on warfarin "
+        "and T2DM — needs antithrombotic strategy."
     ),
-    "age": 62,
-    "sex": "M",
-    "comorbidities": ["Type 2 Diabetes Mellitus", "Obesity (BMI 34)", "HFrEF (LVEF 25%)"],
-    "current_medications": ["Metformin 1g BD", "Gliclazide MR 60mg OD"],
+    "history": (
+        "67-year-old female with known non-valvular Atrial Fibrillation (CHA2DS2-VASc = 4) "
+        "on Warfarin (INR 2.4) has just undergone successful primary PCI with a Drug-Eluting "
+        "Stent (DES) for NSTEMI. She also has Type 2 Diabetes. Question: recommended "
+        "antithrombotic strategy post-PCI, including which P2Y12 inhibitor to choose and "
+        "for how long."
+    ),
+    "age": 67,
+    "sex": "F",
+    "comorbidities": [
+        "Non-valvular Atrial Fibrillation (CHA2DS2-VASc 4)",
+        "NSTEMI status-post primary PCI with Drug-Eluting Stent",
+        "Type 2 Diabetes Mellitus",
+    ],
+    "current_medications": ["Warfarin (INR 2.4)"],
     "allergies": [],
-    "vitals": {"sbp": 128, "dbp": 76, "egfr": 58},
+    "vitals": {},
 }
 
 
@@ -46,7 +54,7 @@ async def stream_case(url: str) -> tuple[list[dict], dict | None]:
     final_result: dict | None = None
     timeout = aiohttp.ClientTimeout(total=900, connect=10)
     headers = {"Connection": "close", "Accept": "text/event-stream"}
-    payload = {"case": CASE_8}
+    payload = {"case": CASE_9}
 
     async with aiohttp.ClientSession(timeout=timeout) as session:
         async with session.post(f"{url}/clinical/plan/stream", json=payload, headers=headers) as resp:
@@ -97,7 +105,7 @@ def write_summary(md_path: Path, final: dict) -> None:
     ddx = final.get("ddx", []) or []
     safety = final.get("safety_report") or {}
     lines: list[str] = []
-    lines.append("# Case 8 Run — T2DM + HFrEF + Obesity")
+    lines.append("# Case 9 Run — AF + Post-PCI (DES) + T2DM")
     lines.append("")
     lines.append(f"- Run at: {datetime.now().isoformat(timespec='seconds')}")
     lines.append(f"- elapsed_ms: {final.get('elapsed_ms', 0)}")
@@ -149,15 +157,15 @@ async def main() -> int:
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    trace_path = OUT_DIR / f"case08_{stamp}_trace.json"
-    summary_path = OUT_DIR / f"case08_{stamp}_summary.md"
+    trace_path = OUT_DIR / f"case09_{stamp}_trace.json"
+    summary_path = OUT_DIR / f"case09_{stamp}_summary.md"
 
     t0 = time.monotonic()
     events, final = await stream_case(url)
     elapsed = time.monotonic() - t0
 
     trace_path.write_text(
-        json.dumps({"case": CASE_8, "events": events, "final": final}, indent=2),
+        json.dumps({"case": CASE_9, "events": events, "final": final}, indent=2),
         encoding="utf-8",
     )
     if final:
