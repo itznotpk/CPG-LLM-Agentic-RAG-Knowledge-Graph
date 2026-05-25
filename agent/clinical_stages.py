@@ -749,13 +749,11 @@ async def stage_2_ddx(
         _s2_model if _using_override
         else os.getenv("SYMPTOM_EXTRACT_MODEL", os.getenv("LLM_CHOICE", "gemini-2.0-flash"))
     )
-    # mimo (and other reasoning models reached via the STAGE2 override) must have
-    # thinking disabled for extraction, or they burn the whole token budget on hidden
-    # reasoning and return empty content → silent fallback to the raw, diluting notes.
+    # mimo (and other reasoning models) must have thinking disabled for extraction, 
+    # or they burn the whole token budget on hidden reasoning and return empty content 
+    # → silent fallback to the raw, diluting notes.
     extraction_extra_body = (
-        {"chat_template_kwargs": {"enable_thinking": False}}
-        if "mimo" in extraction_model.lower()
-        else None
+        {"chat_template_kwargs": {"enable_thinking": False}} if "mimo" in extraction_model.lower() else None
     )
     query, extraction_fell_back = await _extract_symptom_phrase(
         case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body

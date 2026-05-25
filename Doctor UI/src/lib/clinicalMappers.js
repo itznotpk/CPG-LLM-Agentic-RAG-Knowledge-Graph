@@ -60,13 +60,21 @@ export function mapTreatmentPlanToCarePlan(plan) {
     accepted: true,
   }));
 
-  const referralItems = referrals.map((r, i) => ({
-    id: i + 1,
-    specialty: r.intervention,
-    reason: r.rationale,
-    cpgRef: r.cpg_source,
-    accepted: true,
-  }));
+  const referralItems = referrals.map((r, i) => {
+    const text = (r.intervention || '').toLowerCase();
+    let urgency = 'Routine';
+    if (text.includes('urgent')) urgency = 'Urgent';
+    else if (text.includes('semi-urgent') || text.includes('prompt')) urgency = 'Semi-Urgent';
+    
+    return {
+      id: i + 1,
+      specialty: r.intervention,
+      reason: r.rationale,
+      urgency,
+      cpgRef: r.cpg_source,
+      accepted: true,
+    };
+  });
 
   // Collect unique CPG source strings across all recommendations
   const allRecs = plan.recommendations ?? [];
