@@ -15,6 +15,7 @@ import pytest
 from agent.clinical_stages import _extract_symptom_phrase
 from agent.clinical_workflow import route_comorbidities
 from agent.routing import CPGDocRef
+from agent.models import StagedComorbidity
 
 
 # ---------------------------------------------------------------------------
@@ -194,3 +195,75 @@ async def test_comorbidity_search_ddx_failure_continues():
         assert call_count == 2
         assert len(result) == 1
         assert result[0].cpg_name == "CKD-Management(2022)"
+
+
+# ---------------------------------------------------------------------------
+# staged_comorbidities short-circuit — 3 tests
+# ---------------------------------------------------------------------------
+
+async def test_comorbidity_icd_code_short_circuit_bypasses_ddx():
+    """staged_comorbidity with confirmed icd_code bypasses search_ddx entirely."""
+    cpg = _make_cpg("Diabetes-Mellitus-T2(2023)")
+    staged = [StagedComorbidity(label="Type 2 Diabetes Mellitus", icd_code="E11")]
+
+    with (
+        patch("ddx.search_ddx.search_ddx", new_callable=AsyncMock) as mock_ddx,
+        patch("agent.clinical_workflow.route_icd_to_cpgs", new_callable=AsyncMock,
+              return_value=[cpg]) as mock_route,
+    ):
+        result = await route_comorbidities(
+            comorbidities=[],
+            existing_cpgs=[],
+            top_k=2,
+            staged_comorbidities=staged
+        )
+        assert len(result) == 1
+        assert result[0].cpg_name == "Diabetes-Mellitus-T2(2023)"
+        mock_ddx.assert_not_called()
+        mock_route.assert_called_once_with("E11", top_k=2)
+
+
+async def test_comorbidity_mixed_staged_and_legacy_deduplicated():
+    """Mixed staged and legacy are deduplicated, and coded comorbidity takes precedence."""
+    cpg = _make_cpg("Diabetes-Mellitus-T2(2023)")
+    staged = [StagedComorbidity(label="Type 2 Diabetes Mellitus", icd_code="E11")]
+    legacy = ["Type 2 Diabetes Mellitus"]  # Duplicate label name
+
+    with (
+        patch("ddx.search_ddx.search_ddx", new_callable=AsyncMock) as mock_ddx,
+        patch("agent.clinical_workflow.route_icd_to_cpgs", new_callable=AsyncMock,
+              return_value=[cpg]) as mock_route,
+    ):
+        result = await route_comorbidities(
+            comorbidities=legacy,
+            existing_cpgs=[],
+            top_k=2,
+            staged_comorbidities=staged
+        )
+        assert len(result) == 1
+        assert result[0].cpg_name == "Diabetes-Mellitus-T2(2023)"
+        mock_ddx.assert_not_called()
+        mock_route.assert_called_once_with("E11", top_k=2)
+
+
+async def test_comorbidity_staged_without_icd_falls_back():
+    """staged_comorbidity without icd_code falls back to search_ddx."""
+    cpg = _make_cpg("Diabetes-Mellitus-T2(2023)")
+    staged = [StagedComorbidity(label="Type 2 Diabetes Mellitus", icd_code=None)]
+
+    with (
+        patch("ddx.search_ddx.search_ddx", new_callable=AsyncMock,
+              return_value=[_ddx_hit("E11", "Type 2 DM", 0.85)]) as mock_ddx,
+        patch("agent.clinical_workflow.route_icd_to_cpgs", new_callable=AsyncMock,
+              return_value=[cpg]) as mock_route,
+    ):
+        result = await route_comorbidities(
+            comorbidities=[],
+            existing_cpgs=[],
+            top_k=2,
+            staged_comorbidities=staged
+        )
+        assert len(result) == 1
+        assert result[0].cpg_name == "Diabetes-Mellitus-T2(2023)"
+        mock_ddx.assert_called_once_with("Type 2 Diabetes Mellitus", top_k=3)
+        mock_route.assert_called_once_with("E11", top_k=2)

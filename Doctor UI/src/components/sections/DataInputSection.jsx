@@ -244,7 +244,9 @@ function ChartModal({ patient, isOpen, onClose }) {
 // Patient Info Display Card — read-only by default, Edit unlocks all fields
 function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
   const { isDark } = useTheme();
-  const { dispatch } = useApp();
+  const { dispatch, state } = useApp();
+  const priorVisit = state?.priorVisit;
+  const priorVisitMeta = state?.priorVisitMeta;
 
   const [isEditing, setIsEditing] = React.useState(false);
   const [isSaving, setIsSaving] = React.useState(false);
@@ -399,6 +401,35 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
           </div>
         </div>
       </div>
+
+      {/* ── Prior Visit Summary (only when previous consultation exists) ── */}
+      {priorVisit && (
+        <div className={`px-5 py-4 border-b ${divider}`}>
+          <div className="flex items-center justify-between mb-2">
+            <p className={eyebrow}>Last consultation</p>
+            {priorVisit.visit_date && (
+              <span className={`text-[11px] font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                {priorVisit.visit_date}
+                {priorVisitMeta?.consultationNumber ? ` · #${priorVisitMeta.consultationNumber}` : ''}
+              </span>
+            )}
+          </div>
+          <div className={`text-sm space-y-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            {priorVisit.prior_icd_primary && (
+              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>ICD:</span> {priorVisit.prior_icd_primary}</p>
+            )}
+            {priorVisit.prior_plan_summary && (
+              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Plan:</span> {priorVisit.prior_plan_summary}</p>
+            )}
+            {priorVisit.key_labs_delta && (
+              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Labs:</span> {priorVisit.key_labs_delta}</p>
+            )}
+            {priorVisit.what_changed && (
+              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Change:</span> {priorVisit.what_changed}</p>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* ── Known Allergies ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>

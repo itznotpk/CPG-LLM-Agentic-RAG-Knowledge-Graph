@@ -717,6 +717,38 @@ async def clinical_plan(request: ClinicalPlanRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+class SummarisePriorRequest(_BaseModel):
+    consultation_date: str
+    clinical_notes: str
+    care_plan_summary: Optional[str] = None
+    prior_icd_primary: Optional[str] = None
+    medication_recommendations: Optional[Any] = None
+
+
+@app.post("/clinical/summarise-prior")
+async def summarise_prior(request: SummarisePriorRequest):
+    """Generate a lean PriorVisitSummary from a saved consultation.
+
+    Called by the Doctor UI immediately after the consultation is persisted to
+    Supabase. Returns the JSON the caller should write into
+    consultations.prior_visit_summary so the next visit can read it back.
+    """
+    from .clinical_stages import summarise_prior_visit
+
+    try:
+        summary = await summarise_prior_visit(
+            consultation_date=request.consultation_date,
+            clinical_notes=request.clinical_notes,
+            care_plan_summary=request.care_plan_summary,
+            prior_icd_primary=request.prior_icd_primary,
+            medication_recommendations=request.medication_recommendations,
+        )
+        return summary.model_dump()
+    except Exception as e:
+        logger.error("summarise-prior failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 # ---------------------------------------------------------------------------
 # Shared SSE plumbing for clinical streaming endpoints.
 #

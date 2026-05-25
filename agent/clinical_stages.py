@@ -26,7 +26,7 @@ from pydantic import model_validator
 
 from .db_utils import db_pool
 from .graph_clinical import ClinicalFlag, format_flags_for_prompt
-from .models import ChunkResult, PatientCase, Recommendation, TreatmentPlan
+from .models import ChunkResult, PatientCase, PriorVisitSummary, Recommendation, TreatmentPlan
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
 from .providers import make_vertex_client
@@ -310,6 +310,26 @@ def render_ddx_top5(candidates: list[DDxResult]) -> str:
 # ---------------------------------------------------------------------------
 # Stage 2 — DDx
 # ---------------------------------------------------------------------------
+
+def _format_prior_visit(prior) -> str:
+    """Render PriorVisitSummary as a compact prompt block, or empty string when absent.
+
+    Kept lean (~5 lines) so it doesn't dominate Stage 4/5 context windows.
+    """
+    if not prior:
+        return ""
+    fields = [
+        ("visit_date", getattr(prior, "visit_date", None)),
+        ("prior_icd_primary", getattr(prior, "prior_icd_primary", None)),
+        ("prior_plan_summary", getattr(prior, "prior_plan_summary", None)),
+        ("key_labs_delta", getattr(prior, "key_labs_delta", None)),
+        ("what_changed", getattr(prior, "what_changed", None)),
+    ]
+    lines = [f"- {k}: {v}" for k, v in fields if v]
+    if not lines:
+        return ""
+    return "prior_visit:\n" + "\n".join(lines) + "\n"
+
 
 def _build_symptom_text(case: PatientCase) -> str:
     parts = [case.chief_complaint]
@@ -1086,6 +1106,7 @@ async def _generate_retrieval_queries(
     vitals_str = json.dumps(case.vitals) if case.vitals else "none"
     staging_dict = case.severity_staging if case.severity_staging else {}
     severity_str = ", ".join(f"{k} {v}" for k, v in staging_dict.items()) or "not specified"
+    prior_block = _format_prior_visit(getattr(case, "prior_visit", None))
 
     system_prompt = _load_prompt("stage4_query_generation.txt")
 
@@ -1096,7 +1117,7 @@ async def _generate_retrieval_queries(
 - Comorbidities: {", ".join(case.comorbidities) or "none"}
 - Current medications: {", ".join(case.current_medications) or "none"}
 - Vitals: {vitals_str}
-
+{prior_block}
 icd_codes: {icd_summary}
 cpg_names: {cpg_names}
 severity_staging: {severity_str}
@@ -1291,6 +1312,96 @@ def _load_prompt(filename: str) -> str:
 
 SYNTHESIS_SYSTEM = _load_prompt("stage5_synthesis.txt")
 SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
+
+
+# ---------------------------------------------------------------------------
+# Prior-visit summariser — called once at consultation save-time.
+# Output is stored as JSONB in Supabase consultations.prior_visit_summary and
+# read back on the next visit as PatientCase.prior_visit.
+# Uses PRIOR_VISIT_SUMMARISER_MODEL (env) — default mimo for cheap reasoning.
+# ---------------------------------------------------------------------------
+
+PRIOR_VISIT_SUMMARISER_PROMPT = _load_prompt("prior_visit_summariser.txt")
+
+
+async def summarise_prior_visit(
+    consultation_date: str,
+    clinical_notes: str,
+    care_plan_summary: str | None = None,
+    prior_icd_primary: str | None = None,
+    medication_recommendations: dict | list | None = None,
+) -> PriorVisitSummary:
+    """Compress a saved consultation into a lean PriorVisitSummary.
+
+    Idempotent and side-effect free — caller is responsible for persisting the
+    result to Supabase. Falls back to a minimal summary on LLM failure rather
+    than raising, so consultation save never blocks on the summariser.
+    """
+    base_url = os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key = os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
+    model = os.getenv("PRIOR_VISIT_SUMMARISER_MODEL", "xiaomimimo/MiMo-7B-RL")
+
+    fallback = PriorVisitSummary(
+        visit_date=consultation_date,
+        prior_icd_primary=prior_icd_primary or None,
+        prior_plan_summary=(care_plan_summary or "").strip()[:200] or None,
+        key_labs_delta=None,
+        what_changed=None,
+    )
+
+    if not PRIOR_VISIT_SUMMARISER_PROMPT:
+        logger.warning("prior_visit_summariser: prompt file missing; returning fallback")
+        return fallback
+
+    client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
+    user_payload = json.dumps(
+        {
+            "consultation_date": consultation_date,
+            "clinical_notes": clinical_notes or "",
+            "care_plan_summary": care_plan_summary or "",
+            "prior_icd_primary": prior_icd_primary or "",
+            "medication_recommendations": medication_recommendations or {},
+        },
+        ensure_ascii=False,
+    )
+
+    extra_body = (
+        {"chat_template_kwargs": {"enable_thinking": False}} if "mimo" in model.lower() else None
+    )
+
+    try:
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": PRIOR_VISIT_SUMMARISER_PROMPT},
+                {"role": "user", "content": user_payload},
+            ],
+            temperature=0.1,
+            max_tokens=400,
+            extra_body=extra_body,
+        )
+        raw = (resp.choices[0].message.content or "").strip()
+        # Strip markdown fence if any
+        if raw.startswith("```"):
+            raw = raw.strip("`")
+            if raw.startswith("json"):
+                raw = raw[4:].strip()
+        data = json.loads(raw)
+        # Enforce hard caps server-side as a belt-and-braces guard.
+        for k, cap in (("prior_plan_summary", 200), ("key_labs_delta", 120), ("what_changed", 120)):
+            v = data.get(k)
+            if isinstance(v, str) and len(v) > cap:
+                data[k] = v[:cap].rstrip()
+        return PriorVisitSummary(
+            visit_date=data.get("visit_date") or consultation_date,
+            prior_icd_primary=data.get("prior_icd_primary") or (prior_icd_primary or None),
+            prior_plan_summary=data.get("prior_plan_summary") or None,
+            key_labs_delta=data.get("key_labs_delta") or None,
+            what_changed=data.get("what_changed") or None,
+        )
+    except Exception as e:
+        logger.warning("prior_visit_summariser failed (%s); using fallback", e)
+        return fallback
 
 
 _CURRENT_YEAR = 2026
@@ -1803,7 +1914,7 @@ async def stage_5_synthesize(
 - Medications: {", ".join(case.current_medications) or "none"}
 - Allergies: {", ".join(case.allergies) or "none"}
 - Vitals: {json.dumps(case.vitals) if case.vitals else "none"}
-
+{_format_prior_visit(getattr(case, "prior_visit", None))}
 Predicted ICD-11: {icd_primary} ({ddx[0].title if ddx else ""})
 Alternate codes: {", ".join(icd_alternates) or "none"}
 

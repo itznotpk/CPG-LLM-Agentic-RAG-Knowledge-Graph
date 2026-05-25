@@ -223,6 +223,19 @@ class StagedComorbidity(BaseModel):
     severity: Optional[str] = Field(None, description="Severity qualifier, e.g. 'Stage 3b', 'NYHA III'")
 
 
+class PriorVisitSummary(BaseModel):
+    """Lean summary of the most recent prior consultation. Generated at write-time
+    by an LLM from the saved consultation note + care plan and stored in Supabase.
+    Surfaced back into PatientCase so Stage 4/5 prompts and the UI patient card
+    can see what was tried previously without paying the cost of the full note."""
+
+    visit_date: Optional[str] = Field(None, description="ISO date of prior visit, e.g. '2026-04-12'")
+    prior_icd_primary: Optional[str] = Field(None, description="Primary ICD-11 code from the prior visit")
+    prior_plan_summary: Optional[str] = Field(None, description="1-3 lines: what was prescribed / done last visit")
+    key_labs_delta: Optional[str] = Field(None, description="Short free-text: notable lab changes since prior visit")
+    what_changed: Optional[str] = Field(None, description="Short free-text: clinical status change vs prior visit")
+
+
 class PatientCase(BaseModel):
     """Stage 1 input — structured patient record passed into the clinical workflow."""
 
@@ -244,6 +257,11 @@ class PatientCase(BaseModel):
     staged_comorbidities: List[StagedComorbidity] = Field(
         default_factory=list,
         description="Structured comorbidities with ICD codes. Frontend may populate either this OR comorbidities (free text).",
+    )
+    # NEW — lean prior-visit summary (generated at write-time, stored in Supabase consultations.prior_visit_summary)
+    prior_visit: Optional[PriorVisitSummary] = Field(
+        None,
+        description="Summary of the most recent prior consultation, when available. Frontend passes through verbatim from Supabase.",
     )
 
     @field_validator("chief_complaint")
