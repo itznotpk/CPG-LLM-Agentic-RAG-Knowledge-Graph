@@ -46,12 +46,18 @@ logger = logging.getLogger(__name__)
 
 ANCESTOR_MAX_DEPTH = 2
 ROUTE_TOP_K = 3
-# D2 semantic-fallback floor. Calibrated against the full 30-CPG corpus
-# (2026-05-23): min in-scope positive match = 0.417 (thyroid), max unrelated
-# orphan = 0.364 (valve disease). 0.40 sits in that gap — accepts genuine matches,
-# rejects orphans. Titan-v1 cosine runs compressed, so this is far below the 0.65
-# that "feels" right for normalised embeddings. See tasks/cpg_scope_review.md.
-SEMANTIC_SCOPE_THRESHOLD = 0.40  # minimum cosine similarity for D2 semantic fallback
+# D2 semantic-fallback floor. CURRENT calibration (2026-05-25, after 7 clinician-
+# edited CPG scopes were re-embedded against the 30-CPG corpus): min in-scope
+# positive = 0.367 (CVD-Women best-code BA40.1), max unrelated orphan = 0.265
+# (UTI GC08 -> IE-prophylaxis). 0.32 sits in the (0.265, 0.367) gap with ~0.05
+# headroom each side. Probe: scripts/calibrate_semantic_scope_threshold.py.
+# Titan-v1 cosine runs compressed — these absolute numbers are lower than they
+# would be for normalised embeddings.
+# History: 0.65 (initial spec draft, never gated traffic) -> 0.40 (2026-05-23,
+# full-corpus calibration: thyroid 0.417 > valve 0.364) -> 0.32 (this calibration,
+# after Heart-Pregnancy/Cancer-Pain/Colorectal/Stable-CAD/T2DM/T1DM/Growth-Hormone
+# scope edits). See tasks/Next-Step/Last Step Improvement/DDx Gap/cpg_scope_review.md.
+SEMANTIC_SCOPE_THRESHOLD = 0.32  # minimum cosine similarity for D2 semantic fallback
 
 
 RouteMethod = Literal[

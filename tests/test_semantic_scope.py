@@ -9,7 +9,7 @@ Nine test cases covering:
   3. procedure_scope with empty tags → returns []
   4. _extract_procedure_tags maps clinical keywords to snake_case tags
   5. semantic_scope fires only after D1 AND procedure_scope both miss
-  6. semantic_scope threshold boundary (exactly at 0.65 → included; below → excluded)
+  6. semantic_scope threshold boundary (exactly at SEMANTIC_SCOPE_THRESHOLD → included; below → excluded)
   7. semantic_scope picks the single best CPG from multiple candidates
   8. stage_3_route forwards extracted procedure_tags to route_icd_to_cpgs
   9. out_of_scope returned when D1, procedure_scope, and semantic_scope all miss
@@ -191,7 +191,7 @@ async def test_semantic_scope_fires_only_after_d1_and_procedure_miss():
 
 @pytest.mark.asyncio
 async def test_semantic_scope_threshold_at_boundary():
-    """Score of exactly 0.65 must be included; 0.649 must be excluded."""
+    """Score of exactly SEMANTIC_SCOPE_THRESHOLD must be included; (threshold - 0.001) must be excluded."""
     from agent.routing import _semantic_scope_match, SEMANTIC_SCOPE_THRESHOLD
 
     mock_conn = AsyncMock()

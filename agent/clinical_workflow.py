@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 # High-trust routes for COMORBIDITY mapping only. A comorbidity is a bare term
 # routed without an LLM rerank safety net, so we accept tight structural matches
-# (≤1 hop) plus the calibrated semantic_scope (0.40 floor — gives clinically sound
+# (≤1 hop) plus the calibrated semantic_scope (SEMANTIC_SCOPE_THRESHOLD floor, currently 0.32 — gives clinically sound
 # cross-maps like IHD→Stable-CAD), but DROP the broad multi-hop structural
 # fallbacks (ancestor_d1_sibling, ancestor_d1_sibling_child, ancestor_d2) that
 # otherwise drift — e.g. "Depression"/"Osteoarthritis" symptom codes reaching

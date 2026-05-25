@@ -41,13 +41,14 @@ DATA_DIR = Path(__file__).parent / "data"
 PROGRESS_FILE = DATA_DIR / "icd11_progress.json"       # no leading dot — avoids OneDrive locking issues
 PROGRESS_TMP = DATA_DIR / "icd11_progress.json.tmp"
 
-TARGET_CHAPTERS = ["02", "05", "08", "11", "16", "18", "21"]
+TARGET_CHAPTERS = ["02", "05", "08", "09", "11", "16", "18", "21"]
 
 # Chapter root MMS entity IDs (verified against WHO API 2024-01 release)
 CHAPTER_ROOT_IDS = {
     "02": "1630407678",   # Neoplasms
     "05": "21500692",     # Endocrine, nutritional or metabolic diseases
     "08": "1296093776",   # Diseases of the nervous system
+    "09": "868865918",    # Diseases of the visual system
     "11": "426429380",    # Diseases of the circulatory system
     "16": "30659757",     # Diseases of the genitourinary system
     "18": "714000734",    # Pregnancy, childbirth or the puerperium

@@ -124,7 +124,7 @@ Implemented (eight-level router):
 - `ancestor_d2` — grandparent block; ancestor walk capped at depth 2 (`ANCESTOR_MAX_DEPTH = 2`).
 - `procedure_scope` — match on shared procedure tags.
 - `semantic_scope` (D2) — cosine similarity between `icd11_codes.embedding` and
-  `documents.scope_embedding`, gated at `SEMANTIC_SCOPE_THRESHOLD = 0.65`; catches
+  `documents.scope_embedding`, gated at `SEMANTIC_SCOPE_THRESHOLD = 0.32` (re-calibrated 2026-05-25 after 7 clinician scope edits; was 0.40, originally 0.65); catches
   cross-chapter conditions the structural walk misses.
 - Route method stamping through `CPGDocRef.match_type`: `exact`, `sibling`, `ancestor_d1`, `ancestor_d1_sibling`, `ancestor_d1_sibling_child`, `ancestor_d2`, `procedure_scope`, `semantic_scope`. `find_cpgs_for_code` returns `[], "out_of_scope"` only when all eight levels miss.
 

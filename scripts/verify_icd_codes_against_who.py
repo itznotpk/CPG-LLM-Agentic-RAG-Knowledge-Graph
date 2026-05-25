@@ -92,13 +92,11 @@ def parse_review(text: str) -> dict[str, dict]:
     """Return {cpg_name: {'header': str, 'scope_line_idx': int, 'codes': [tokens], 'lines': [str]}}."""
     out: dict[str, dict] = {}
     lines = text.splitlines()
-    cur_cpg: str | None = None
     cur = None
     for i, raw in enumerate(lines):
         if raw.startswith("## "):
             header = raw[3:].strip()
             name = re.sub(r"\s*(✅|⚠️).*$", "", header).strip()
-            cur_cpg = name
             cur = {"header_idx": i, "scope_line_idx": None, "codes": []}
             out[name] = cur
             continue
@@ -126,7 +124,9 @@ def _code_sort_key(code: str) -> tuple:
 async def expand_range(conn: asyncpg.Connection, start: str, end: str) -> list[str]:
     """Return all codes c with _code_sort_key(start) <= key(c) <= key(end).
     Restricted to codes in the same chapter prefix (first 2 chars must match start)."""
-    prefix = start[:2]
+    # Use only the first character of the start code as a coarse filter
+    # (so ranges like 2A00-2F9Z that span multiple BB-prefix blocks are not truncated).
+    prefix = start[:1]
     rows = await conn.fetch(
         "SELECT code FROM icd11_codes WHERE code LIKE $1 ORDER BY code",
         prefix + "%",

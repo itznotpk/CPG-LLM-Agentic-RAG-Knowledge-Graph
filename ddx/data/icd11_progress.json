@@ -1,16 +1,10 @@
 {
   "release_id": "2024-01",
   "completed_chapters": [
-    "02",
-    "05",
-    "08",
-    "11",
-    "16",
-    "18",
-    "21"
+    "09"
   ],
   "in_progress_chapter": null,
   "in_progress_entities_done": [],
-  "started_at": "2026-05-09T15:33:25.000000+00:00",
-  "last_updated_at": "2026-05-16T18:13:24.999972+00:00"
+  "started_at": "2026-05-25T04:13:33.702184+00:00",
+  "last_updated_at": "2026-05-25T04:46:12.529563+00:00"
 }
