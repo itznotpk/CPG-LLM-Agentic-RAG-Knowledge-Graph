@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useReducer, useEffect } from 'react';
+import React, { createContext, useContext, useState, useReducer, useEffect, useRef } from 'react';
 import {
   sampleDiagnosis,
   sampleCarePlan,
@@ -6,6 +6,7 @@ import {
 import { runClinicalPlan, runDDxStream, resynthesizePlanStream } from '../lib/clinicalApi';
 import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
 import {
+  supabase,
   searchPatientByNRIC,
   savePatientVitals,
   isSupabaseConfigured,
@@ -67,39 +68,17 @@ const initialState = {
   safetyReport: null,      // SafetyReport | null — set on safety_review SSE event
 };
 
-// ── Consultation snapshot persistence ──────────────────────────────────────
-// Survives an accidental refresh / tab-restore within the session. Note: this
-// restores DATA + current step, but does NOT resume a stream that was mid-flight
-// at reload — the network connection dies with the page, so a run interrupted by
-// a refresh comes back frozen at its last streamed state.
+// Snapshot persistence intentionally disabled — refreshes start from a clean
+// state so a previous patient's fields can't leak into a new-patient entry.
 const PERSIST_KEY = 'cpg.consultation.v1';
 
 function loadPersistedState() {
-  try {
-    const raw = sessionStorage.getItem(PERSIST_KEY);
-    if (!raw) return initialState;
-    const saved = JSON.parse(raw);
-    // A run interrupted by reload can't keep streaming — clear transient flags.
-    return { ...initialState, ...saved, isAnalyzing: false, isGeneratingPlan: false };
-  } catch {
-    return initialState;
-  }
-}
-
-function persistState(state) {
-  try {
-    sessionStorage.setItem(PERSIST_KEY, JSON.stringify(state));
-  } catch {
-    // Quota/serialization errors are non-fatal — persistence is best-effort.
-  }
+  try { sessionStorage.removeItem(PERSIST_KEY); } catch { /* ignore */ }
+  return initialState;
 }
 
 function clearPersistedState() {
-  try {
-    sessionStorage.removeItem(PERSIST_KEY);
-  } catch {
-    // ignore
-  }
+  try { sessionStorage.removeItem(PERSIST_KEY); } catch { /* ignore */ }
 }
 
 function appReducer(state, action) {
@@ -217,10 +196,174 @@ function updateItemAcceptance(items, id, accepted) {
 export function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState, loadPersistedState);
 
-  // Snapshot consultation state so an accidental refresh/tab-restore recovers it.
+  // Mirror current state in a ref so Realtime callbacks (registered once per
+  // NRIC/consult) can compare against the latest values without re-subscribing.
+  const stateRef = useRef(state);
+  useEffect(() => { stateRef.current = state; }, [state]);
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // Sync the active consultation with Supabase. Eliminates ghost-patient and
+  // stale-field UI by layering:
+  //   1. Verify on mount (rehydrated NRIC)
+  //   2. Re-verify on tab focus / visibilitychange / network online
+  //   3. Periodic poll every 60s while tab is visible (fallback when
+  //      Realtime is disabled on the table)
+  //   4. Realtime: patients UPDATE → refresh slice; patients DELETE → RESET
+  //   5. Realtime: consultations DELETE for the active row → clear consult id
+  //
+  // Reset-on-not-found only fires for definitive lookups (no RPC error), so
+  // transient network failures never wipe an in-progress consult.
+  // ──────────────────────────────────────────────────────────────────────────
+  const currentNric = state.patient?.nsn || '';
+  const currentConsultationId = state.currentConsultationId || null;
+
   useEffect(() => {
-    persistState(state);
-  }, [state]);
+    if (!USE_SUPABASE || !currentNric) return;
+
+    let cancelled = false;
+    let pollTimer = null;
+
+    const refreshPatient = async () => {
+      try {
+        const { found, patient, error } = await searchPatientByNRIC(currentNric);
+        if (cancelled || error) return;
+        if (!found) {
+          // Only treat not-found as a deletion when this NRIC was previously
+          // loaded from the DB (mpisSyncedAt is set only by searchPatientByNRIC).
+          // Otherwise this is a New Patient flow — the clinician is typing a
+          // brand-new NRIC and we must NOT wipe the form fields they're filling.
+          if (stateRef.current.patient?.mpisSyncedAt) {
+            clearPersistedState();
+            dispatch({ type: 'RESET' });
+          }
+          return;
+        }
+        // Patient still exists — refresh slice in case fields changed
+        // (name, allergies, meds, risk level, vitals history, …).
+        dispatch({ type: 'SET_PATIENT', payload: patient });
+        dispatch({
+          type: 'SET_MPIS_DATA',
+          payload: {
+            race: patient.race,
+            allergies: patient.allergies,
+            comorbidities: patient.comorbidities,
+            currentMeds: patient.currentMeds,
+            vitalsHistory: patient.vitalsHistory,
+          },
+        });
+      } catch {
+        // best-effort
+      }
+    };
+
+    refreshPatient();
+
+    const onVisible = () => {
+      if (document.visibilityState === 'visible') refreshPatient();
+    };
+    document.addEventListener('visibilitychange', onVisible);
+    window.addEventListener('focus', refreshPatient);
+    window.addEventListener('online', refreshPatient);
+
+    // Poll fallback: every 60s while the tab is visible. Cheap RPC, and the
+    // only thing that catches deletes when Realtime is disabled and the user
+    // never blurs the tab.
+    pollTimer = setInterval(() => {
+      if (document.visibilityState === 'visible') refreshPatient();
+    }, 60_000);
+
+    // Realtime channel — single subscription per active NRIC + consult id.
+    // If Realtime is off in the dashboard, .subscribe() is a no-op and the
+    // verify/poll layers above still cover correctness (just not instant).
+    const channelName = `consult-watch-${currentNric}-${currentConsultationId || 'none'}`;
+    const channel = supabase
+      .channel(channelName)
+      .on(
+        'postgres_changes',
+        { event: 'UPDATE', schema: 'public', table: 'patients', filter: `nric=eq.${currentNric}` },
+        () => { refreshPatient(); }
+      )
+      .on(
+        'postgres_changes',
+        { event: 'DELETE', schema: 'public', table: 'patients', filter: `nric=eq.${currentNric}` },
+        () => {
+          if (!stateRef.current.patient?.mpisSyncedAt) return; // new-patient flow — ignore
+          clearPersistedState();
+          dispatch({ type: 'RESET' });
+        }
+      );
+
+    // INSERT on consultations for this patient. If we have no active consult
+    // yet (e.g. another doctor / tab opened one for the same NRIC), adopt its
+    // id and pull in clinical_notes / next_review. Don't touch diagnosis or
+    // carePlan — those are derived from a fresh pipeline run, not persisted.
+    channel.on(
+      'postgres_changes',
+      { event: 'INSERT', schema: 'public', table: 'consultations', filter: `patient_nric=eq.${currentNric}` },
+      (payload) => {
+        const row = payload?.new;
+        if (!row?.id) return;
+        if (stateRef.current.currentConsultationId) return; // user already has one
+        dispatch({ type: 'SET_CONSULTATION_ID', payload: row.id });
+        if (row.clinical_notes && row.clinical_notes !== stateRef.current.clinicalNotes) {
+          dispatch({ type: 'SET_CLINICAL_NOTES', payload: row.clinical_notes });
+        }
+        if (row.next_review && row.next_review !== stateRef.current.nextReviewDate) {
+          dispatch({ type: 'SET_NEXT_REVIEW_DATE', payload: row.next_review });
+        }
+      }
+    );
+
+    if (currentConsultationId) {
+      channel
+        .on(
+          'postgres_changes',
+          { event: 'UPDATE', schema: 'public', table: 'consultations', filter: `id=eq.${currentConsultationId}` },
+          (payload) => {
+            const row = payload?.new;
+            if (!row) return;
+            // Echo suppression: skip fields that already match local state, so
+            // our own writes looping back don't clobber in-flight user edits.
+            const nextNotes = row.clinical_notes ?? '';
+            if (nextNotes !== (stateRef.current.clinicalNotes ?? '')) {
+              dispatch({ type: 'SET_CLINICAL_NOTES', payload: nextNotes });
+            }
+            const nextReview = row.next_review ?? '';
+            if (nextReview !== (stateRef.current.nextReviewDate ?? '')) {
+              dispatch({ type: 'SET_NEXT_REVIEW_DATE', payload: nextReview });
+            }
+            // diagnoses/care_plan JSONB columns are write-only snapshots of the
+            // last pipeline run; rehydrating them into the rich UI state would
+            // require remapping that loses information, so we leave the local
+            // pipeline-derived state authoritative.
+          }
+        )
+        .on(
+          'postgres_changes',
+          { event: 'DELETE', schema: 'public', table: 'consultations', filter: `id=eq.${currentConsultationId}` },
+          () => {
+            // Patient still valid; only the consultation row is gone.
+            // Drop the id so subsequent updateConsultation() calls don't write
+            // to a tombstone, and clear downstream artefacts tied to it.
+            dispatch({ type: 'SET_CONSULTATION_ID', payload: null });
+            dispatch({ type: 'SET_DIAGNOSIS', payload: null });
+            dispatch({ type: 'SET_CARE_PLAN', payload: null });
+            dispatch({ type: 'RESET_PIPELINE' });
+          }
+        );
+    }
+
+    channel.subscribe();
+
+    return () => {
+      cancelled = true;
+      if (pollTimer) clearInterval(pollTimer);
+      document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('focus', refreshPatient);
+      window.removeEventListener('online', refreshPatient);
+      supabase.removeChannel(channel);
+    };
+  }, [currentNric, currentConsultationId]);
 
   const loadDemoData = () => {
     dispatch({ type: 'LOAD_DEMO_DATA' });

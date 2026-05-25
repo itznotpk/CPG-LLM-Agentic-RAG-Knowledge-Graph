@@ -75,7 +75,7 @@ def intake_patient() -> dict:
 
 async def _stream_events(url: str, endpoint: str, payload: dict):
     """Yield (event_type, data) tuples from an SSE endpoint."""
-    timeout = aiohttp.ClientTimeout(total=300, connect=10)
+    timeout = aiohttp.ClientTimeout(total=900, connect=10)
     async with aiohttp.ClientSession(timeout=timeout) as session:
         try:
             headers = {"Connection": "close", "Accept": "text/event-stream"}
@@ -302,7 +302,20 @@ def print_care_plan(result: dict):
     if monitoring:
         print("  Monitoring:")
         for m in monitoring:
-            print(f"  • {m}")
+            if isinstance(m, dict):
+                param = m.get("parameter", "?")
+                sched = m.get("schedule", "")
+                target = m.get("target") or ""
+                ref = m.get("cpg_ref", "")
+                print(f"  • {Colors.BOLD}{param}{Colors.END}")
+                if sched:
+                    print(f"      Schedule: {sched}")
+                if target:
+                    print(f"      Target:   {target}")
+                if ref:
+                    print(f"      Source:   {Colors.DIM}{ref}{Colors.END}")
+            else:
+                print(f"  • {m}")
         print()
     red_flags = plan.get("red_flags", [])
     if red_flags:

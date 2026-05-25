@@ -141,6 +141,24 @@ def test_extract_procedure_tags_no_match_returns_empty():
     assert isinstance(tags, list)
 
 
+def test_extract_procedure_tags_dental_routes_to_pre_op():
+    """Dental extraction in patient history must tag pre_op_assessment so the
+    Pre-Anaesthetic-Consultation CPG (procedure_scope=['pre_op_assessment', ...])
+    can route in via the procedure_scope branch."""
+    from agent.clinical_stages import _extract_procedure_tags
+
+    for text in [
+        "Elective dental extraction planned in 7 days",
+        "Patient scheduled for tooth extraction next week",
+        "Pre-procedure review before colonoscopy",
+        "Outpatient endoscopy planned",
+    ]:
+        tags = _extract_procedure_tags(text)
+        assert "pre_op_assessment" in tags, (
+            f"missing pre_op_assessment for: {text!r} → {tags}"
+        )
+
+
 # ---------------------------------------------------------------------------
 # 5. semantic_scope fires after D1 AND procedure_scope both miss
 # ---------------------------------------------------------------------------
