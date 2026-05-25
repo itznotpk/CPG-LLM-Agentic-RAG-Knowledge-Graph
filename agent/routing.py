@@ -253,6 +253,61 @@ async def _semantic_scope_match(
     )
 
 
+async def _score_refs_by_scope_embedding(
+    conn,
+    code: str,
+    refs: list[CPGDocRef],
+) -> list[CPGDocRef]:
+    """
+    Re-score candidate CPGs by cosine(ICD embedding, CPG scope embedding).
+    The scope embedding is built from scope_rationale, icd11_scope, and
+    procedure_scope, so direct disease/procedure CPGs should rank above broad
+    catch-all CPGs when both have an exact ICD scope hit.
+    """
+    if not refs:
+        return refs
+
+    cpg_names = [ref.cpg_name for ref in refs]
+    try:
+        await conn.execute("SET ivfflat.probes = 100")
+        rows = await conn.fetch(
+            """
+            WITH icd AS (
+                SELECT embedding FROM icd11_codes WHERE code = $1
+            )
+            SELECT d.metadata->>'cpg_name' AS cpg_name,
+                   MAX(1 - (d.scope_embedding <=> icd.embedding)) AS similarity
+            FROM documents d, icd
+            WHERE d.scope_verified = TRUE
+              AND d.scope_embedding IS NOT NULL
+              AND icd.embedding IS NOT NULL
+              AND d.metadata->>'cpg_name' = ANY($2::text[])
+            GROUP BY d.metadata->>'cpg_name'
+            """,
+            code,
+            cpg_names,
+        )
+    except Exception as exc:
+        logger.debug("scope-embedding candidate scoring skipped for %s: %s", code, exc)
+        return refs
+
+    scores = {}
+    for row in rows:
+        try:
+            cpg_name = row["cpg_name"]
+            similarity = row["similarity"]
+        except (KeyError, TypeError):
+            continue
+        if cpg_name is not None and similarity is not None:
+            scores[cpg_name] = float(similarity)
+    for ref in refs:
+        if ref.cpg_name in scores:
+            ref.score = scores[ref.cpg_name]
+            if ref.matched_scope and not ref.matched_scope.startswith("semantic:"):
+                ref.matched_scope = f"{ref.matched_scope}; semantic:{ref.score:.3f}"
+    return refs
+
+
 async def find_cpgs_for_code(
     code: str,
     conn,
@@ -273,14 +328,41 @@ async def find_cpgs_for_code(
     8. semantic_scope      — cosine(icd_embedding, scope_embedding) >= threshold
     9. out_of_scope
     """
+    async def _with_procedure_refs(refs: list[CPGDocRef], route_method: str) -> tuple[list[CPGDocRef], str]:
+        if not procedure_tags:
+            return refs, route_method
+        procedure_refs = await _procedure_scope_match(conn, procedure_tags)
+        if not procedure_refs:
+            return refs, route_method
+        logger.debug(
+            "procedure_scope merged: code=%s method=%s tags=%s cpgs=%d",
+            code,
+            route_method,
+            procedure_tags,
+            len(procedure_refs),
+        )
+        seen = {ref.cpg_name for ref in refs}
+        merged = refs[:]
+        for ref in procedure_refs:
+            if ref.cpg_name not in seen:
+                seen.add(ref.cpg_name)
+                merged.append(ref)
+        return await _score_refs_by_scope_embedding(conn, code, merged), route_method
+
     # 1. Exact
     exact = await _scope_code_match(conn, code, match_type="exact")
     if exact:
-        return exact, "exact"
+        return await _with_procedure_refs(
+            await _score_refs_by_scope_embedding(conn, code, exact),
+            "exact",
+        )
 
     range_refs = await _range_match(conn, code)
     if range_refs:
-        return range_refs, "exact"
+        return await _with_procedure_refs(
+            await _score_refs_by_scope_embedding(conn, code, range_refs),
+            "exact",
+        )
 
     # 2. Sibling (same parent, incl. .Y / .Z)
     siblings = await fetch_icd_siblings(conn, code)
@@ -289,7 +371,10 @@ async def find_cpgs_for_code(
             conn, sibling_code, match_type="sibling", matched_scope=sibling_code,
         )
         if refs:
-            return refs, "sibling"
+            return await _with_procedure_refs(
+                await _score_refs_by_scope_embedding(conn, code, refs),
+                "sibling",
+            )
 
     # 3. ancestor_d1 — direct parent only
     ancestors = await fetch_icd_ancestors(conn, code, max_depth=max_depth)
@@ -300,7 +385,10 @@ async def find_cpgs_for_code(
                 conn, ancestor["code"], match_type="ancestor_d1", matched_scope=ancestor["code"],
             )
             if refs:
-                return refs, "ancestor_d1"
+                return await _with_procedure_refs(
+                    await _score_refs_by_scope_embedding(conn, code, refs),
+                    "ancestor_d1",
+                )
 
     # 4. ancestor_d1_sibling — peer categories of the direct parent
     ancestor_siblings = await fetch_icd_ancestor_siblings(conn, code)
@@ -309,7 +397,10 @@ async def find_cpgs_for_code(
             conn, anc_sib_code, match_type="ancestor_d1_sibling", matched_scope=anc_sib_code,
         )
         if refs:
-            return refs, "ancestor_d1_sibling"
+            return await _with_procedure_refs(
+                await _score_refs_by_scope_embedding(conn, code, refs),
+                "ancestor_d1_sibling",
+            )
 
     # 5. ancestor_d1_sibling_child — children of those peer categories
     ancestor_sibling_children = await fetch_icd_ancestor_sibling_children(conn, code)
@@ -318,7 +409,10 @@ async def find_cpgs_for_code(
             conn, child_code, match_type="ancestor_d1_sibling_child", matched_scope=child_code,
         )
         if refs:
-            return refs, "ancestor_d1_sibling_child"
+            return await _with_procedure_refs(
+                await _score_refs_by_scope_embedding(conn, code, refs),
+                "ancestor_d1_sibling_child",
+            )
 
     # 6. ancestor_d2 — grandparent block
     for ancestor in ancestors:
@@ -328,14 +422,17 @@ async def find_cpgs_for_code(
                 conn, ancestor["code"], match_type="ancestor_d2", matched_scope=ancestor["code"],
             )
             if refs:
-                return refs, "ancestor_d2"
+                return await _with_procedure_refs(
+                    await _score_refs_by_scope_embedding(conn, code, refs),
+                    "ancestor_d2",
+                )
 
     # 7. procedure_scope — tag overlap (catches procedure-only CPGs with no icd11_scope)
     if procedure_tags:
         refs = await _procedure_scope_match(conn, procedure_tags)
         if refs:
             logger.debug("procedure_scope match: code=%s tags=%s cpgs=%d", code, procedure_tags, len(refs))
-            return refs, "procedure_scope"
+            return await _score_refs_by_scope_embedding(conn, code, refs), "procedure_scope"
 
     # 8. semantic_scope — cosine fallback via scope_embedding (D2)
     refs = await _semantic_scope_match(conn, code)
@@ -376,6 +473,7 @@ async def route_icd_to_cpgs(
             if result.cpg_name not in seen_names:
                 seen_names.add(result.cpg_name)
                 deduped.append(result)
+        deduped.sort(key=lambda ref: (ref.score, ref.match_type == "exact", ref.cpg_name), reverse=True)
 
     return deduped[:top_k]
 

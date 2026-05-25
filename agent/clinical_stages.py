@@ -980,6 +980,45 @@ def sex_incompatible_reason(cpg_name: str, sex: str | None) -> str | None:
     return None
 
 
+_PREGNANCY_CONTEXT_KEYWORDS = (
+    "pregnan",
+    "gestation",
+    "antenatal",
+    "obstetric",
+    "trimester",
+    "gravida",
+    "para",
+    "foetal",
+    "fetal",
+)
+
+
+def pregnancy_context_missing_reason(cpg_name: str, clinical_context: str | None) -> str | None:
+    """Return a reason when a pregnancy CPG is routed for a non-pregnancy case."""
+    low_name = cpg_name.lower()
+    if not any(word in low_name for word in ("pregnancy", "antenatal", "obstetric")):
+        return None
+    low_context = (clinical_context or "").lower()
+    if any(keyword in low_context for keyword in _PREGNANCY_CONTEXT_KEYWORDS):
+        return None
+    return "pregnancy CPG requires pregnancy/obstetric context"
+
+
+def _case_cpg_priority(ref: CPGDocRef, ddx: list[DDxResult], clinical_context: str | None) -> tuple[float, int, str]:
+    """Rank candidate CPGs by semantic fit to the selected ICD scope."""
+    route_tie_break = {
+        "exact": 4,
+        "procedure_scope": 3,
+        "sibling": 2,
+        "ancestor_d1": 1,
+        "ancestor_d1_sibling": 0,
+        "ancestor_d1_sibling_child": 0,
+        "ancestor_d2": 0,
+        "semantic_scope": 0,
+    }.get(ref.match_type, 0)
+    return ref.score, route_tie_break, ref.cpg_name
+
+
 async def stage_3_route(
     ddx: list[DDxResult],
     top_k_codes: int = 2,
@@ -992,15 +1031,18 @@ async def stage_3_route(
     procedure_tags = _extract_procedure_tags(clinical_context or "")
     all_refs: dict[str, CPGDocRef] = {}
     excluded_names: set[str] = set()
+    route_fetch_k = max(top_k_cpgs, 10)
 
     for result in ddx[:top_k_codes]:
-        refs = await route_icd_to_cpgs(result.code, top_k=top_k_cpgs, procedure_tags=procedure_tags or None)
+        refs = await route_icd_to_cpgs(result.code, top_k=route_fetch_k, procedure_tags=procedure_tags or None)
 
         # Drop CPGs biologically incompatible with the patient's sex before they
         # can become the primary match or feed retrieval.
         compat_refs: list[CPGDocRef] = []
         for ref in refs:
             reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
+            if reason is None:
+                reason = pregnancy_context_missing_reason(ref.cpg_name, clinical_context)
             if reason is not None:
                 if ref.cpg_name not in excluded_names:
                     excluded_names.add(ref.cpg_name)
@@ -1016,6 +1058,10 @@ async def stage_3_route(
             compat_refs.append(ref)
 
         if compat_refs:
+            compat_refs.sort(
+                key=lambda ref: _case_cpg_priority(ref, ddx[:top_k_codes], clinical_context),
+                reverse=True,
+            )
             primary_ref = compat_refs[0]
             result.score_breakdown = build_score_breakdown(
                 result,
@@ -1025,13 +1071,6 @@ async def stage_3_route(
         for ref in compat_refs:
             if ref.cpg_name not in all_refs:
                 all_refs[ref.cpg_name] = ref
-                if emit:
-                    await emit("sub_step", {
-                        "stage": 3,
-                        "detail": f"{ref.cpg_name}",
-                        "badge": ref.match_type,
-                        "status": "complete",
-                    })
 
     if not all_refs:
         out_of_scope = build_out_of_scope_info(ddx[:top_k_codes])
@@ -1050,6 +1089,20 @@ async def stage_3_route(
                     "data": out_of_scope.model_dump(),
                 })
 
+    ranked_refs = sorted(
+        all_refs.values(),
+        key=lambda ref: _case_cpg_priority(ref, ddx[:top_k_codes], clinical_context),
+        reverse=True,
+    )[:top_k_cpgs]
+    if emit:
+        for ref in ranked_refs:
+            await emit("sub_step", {
+                "stage": 3,
+                "detail": f"{ref.cpg_name}",
+                "badge": ref.match_type,
+                "status": "complete",
+            })
+
     # After routing is resolved, any candidate still without a route_method
     # (stage-2 numeric-only breakdown, never matched a CPG) is out_of_scope.
     for result in ddx:
@@ -1059,7 +1112,7 @@ async def stage_3_route(
                 route_method="out_of_scope",
             )
 
-    return list(all_refs.values())[:top_k_cpgs]
+    return ranked_refs
 
 
 # ---------------------------------------------------------------------------
