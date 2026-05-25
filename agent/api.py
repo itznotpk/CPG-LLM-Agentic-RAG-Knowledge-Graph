@@ -40,6 +40,7 @@ from .models import (
     ToolCall,
     PatientCase,
     TreatmentPlan,
+    SafetyReport,
 )
 from pydantic import BaseModel as _BaseModel
 
@@ -68,6 +69,99 @@ class ClinicalPlanResponse(_BaseModel):
     elapsed_ms: float
     stage_errors: list[str] = []
     graph_navigator_rules: list[dict] = []
+    safety_report: SafetyReport | None = None
+    cpg_references: list[str] = []  # Derived from recommendations/monitoring citations
+    follow_up_parsed: list[dict] = []  # Derived from treatment_plan.follow_up; drives TCA date picker
+
+
+import re as _re
+
+# Matches the leading "WHEN:" segment of a follow-up string. Examples covered:
+#   "1-2 weeks: reassess renal function …"     -> when="1-2 weeks"
+#   "3 months: repeat HbA1c …"                 -> when="3 months"
+#   "Ongoing: titrate β-blocker …"             -> when="Ongoing"
+#   "Annual: review CPG currency …"            -> when="Annual"
+#   "At 24h: review fluid status …"            -> when="At 24h"
+_FOLLOWUP_WHEN_RE = _re.compile(
+    r"^\s*(?P<when>"
+    r"(?:at\s+)?(?:\d+\s*[-–to]+\s*)?\d+\s*(?:hours?|hrs?|h|days?|d|weeks?|wks?|w|months?|mo|years?|y)"
+    r"|ongoing|annual(?:ly)?|biannual(?:ly)?|monthly|weekly|daily|long[-\s]?term|maintenance"
+    r")\s*[:\-—]\s*(?P<rest>.+)$",
+    _re.IGNORECASE,
+)
+
+# Days-from-now conversion for the TCA date picker. Conservative midpoints; the
+# clinician still sees the verbatim "when" string and can override.
+_WHEN_TO_DAYS = [
+    (_re.compile(r"(\d+)\s*[-–to]+\s*(\d+)\s*(hour|hr|h)\b", _re.I), lambda m: max(1, int((int(m.group(1)) + int(m.group(2))) / 48))),
+    (_re.compile(r"(\d+)\s*(hour|hr|h)\b", _re.I),                  lambda m: max(1, int(int(m.group(1)) / 24))),
+    (_re.compile(r"(\d+)\s*[-–to]+\s*(\d+)\s*(day|d)\b", _re.I),    lambda m: int((int(m.group(1)) + int(m.group(2))) / 2)),
+    (_re.compile(r"(\d+)\s*(day|d)\b", _re.I),                      lambda m: int(m.group(1))),
+    (_re.compile(r"(\d+)\s*[-–to]+\s*(\d+)\s*(week|wk|w)\b", _re.I),lambda m: int((int(m.group(1)) + int(m.group(2))) / 2) * 7),
+    (_re.compile(r"(\d+)\s*(week|wk|w)\b", _re.I),                  lambda m: int(m.group(1)) * 7),
+    (_re.compile(r"(\d+)\s*[-–to]+\s*(\d+)\s*(month|mo)\b", _re.I), lambda m: int((int(m.group(1)) + int(m.group(2))) / 2) * 30),
+    (_re.compile(r"(\d+)\s*(month|mo)\b", _re.I),                   lambda m: int(m.group(1)) * 30),
+    (_re.compile(r"(\d+)\s*(year|y)\b", _re.I),                     lambda m: int(m.group(1)) * 365),
+    (_re.compile(r"annual(?:ly)?", _re.I),                          lambda m: 365),
+    (_re.compile(r"biannual(?:ly)?", _re.I),                        lambda m: 180),
+    (_re.compile(r"monthly", _re.I),                                lambda m: 30),
+    (_re.compile(r"weekly", _re.I),                                 lambda m: 7),
+    (_re.compile(r"daily", _re.I),                                  lambda m: 1),
+]
+
+
+def _parse_follow_up(items: list[str]) -> list[dict]:
+    """Best-effort parser. Returns one dict per item with:
+       when         : str  — verbatim timeline phrase (or "" if unparseable)
+       days_from_now: int | None — for TCA date picker; None if ongoing/unparseable
+       action       : str  — the rest of the string after the timeline
+       raw          : str  — the original string
+    Unparseable items still return a dict so list lengths match by index.
+    """
+    out: list[dict] = []
+    for raw in items or []:
+        s = (raw or "").strip()
+        if not s:
+            continue
+        m = _FOLLOWUP_WHEN_RE.match(s)
+        if m:
+            when = m.group("when").strip()
+            rest = m.group("rest").strip()
+        else:
+            when = ""
+            rest = s
+        days = None
+        if when:
+            for pat, fn in _WHEN_TO_DAYS:
+                mm = pat.search(when)
+                if mm:
+                    days = fn(mm)
+                    break
+        out.append({"when": when, "days_from_now": days, "action": rest, "raw": s})
+    return out
+
+
+def _derive_cpg_references(plan: TreatmentPlan) -> list[str]:
+    """Collect unique CPG citation strings from a TreatmentPlan for the UI's
+    collapsible references section. Order preserved by first appearance so the
+    primary CPG (cited most prominently) sorts to the top."""
+    seen: list[str] = []
+    seen_set: set[str] = set()
+    for r in plan.recommendations or []:
+        src = (r.cpg_source or "").strip()
+        if src and src not in seen_set:
+            seen_set.add(src)
+            seen.append(src)
+    for m in plan.monitoring or []:
+        ref = None
+        if isinstance(m, dict):
+            ref = (m.get("cpg_ref") or "").strip()
+        else:
+            ref = (getattr(m, "cpg_ref", None) or "").strip()
+        if ref and ref not in seen_set:
+            seen_set.add(ref)
+            seen.append(ref)
+    return seen
 
 from .tools import (
     vector_search_tool,
@@ -611,6 +705,9 @@ async def clinical_plan(request: ClinicalPlanRequest):
             elapsed_ms=result.elapsed_ms,
             stage_errors=result.stage_errors,
             graph_navigator_rules=result.graph_navigator_rules,
+            safety_report=result.safety_report,
+            cpg_references=_derive_cpg_references(result.treatment_plan),
+            follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
         )
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
@@ -738,6 +835,9 @@ async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
             elapsed_ms=result.elapsed_ms,
             stage_errors=result.stage_errors,
             graph_navigator_rules=result.graph_navigator_rules,
+            safety_report=result.safety_report,
+            cpg_references=_derive_cpg_references(result.treatment_plan),
+            follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
         )
         # safety_review was already emitted inside the workflow; final_result
         # is intentionally last so the UI can gate rendering on safety arrival.
@@ -787,6 +887,9 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             elapsed_ms=result.elapsed_ms,
             stage_errors=result.stage_errors,
             graph_navigator_rules=result.graph_navigator_rules,
+            safety_report=result.safety_report,
+            cpg_references=_derive_cpg_references(result.treatment_plan),
+            follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
         )
         await emit("final_result", final.model_dump())
 

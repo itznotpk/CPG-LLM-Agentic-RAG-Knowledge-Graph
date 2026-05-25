@@ -863,34 +863,41 @@ export function DataInputSection({ onViewChart }) {
 
 
   const handleAnalyze = async () => {
+    // Push every Step 1 card to Supabase before kicking off analysis.
+    // Severity/staging has no column — it's embedded into clinical_notes by analyzeAssessment().
+    try {
+      const { registerPatient, updatePatientFromMPIS } = await import('../../lib/supabase');
+      const nric = patient?.nsn || nsn;
 
-    // For new patients: register to Supabase implicitly before analyzing
-    if (!mpisFound && patient?.name && patient?.dob && patient?.gender) {
-      try {
-        const { registerPatient, updatePatientFromMPIS } = await import('../../lib/supabase');
-        const nric = patient.nsn || nsn;
-        const result = await registerPatient({
-          nric,
-          fullName: patient.name,
-          dateOfBirth: patient.dob,
-          gender: patient.gender,
-          race: mpisData?.race || null,
-          allergies: mpisData?.allergies || null,
-          comorbidities: mpisData?.comorbidities || null,
-        });
-        if (!result.error && mpisData?.currentMeds?.length > 0) {
-          await updatePatientFromMPIS(nric, {
+      if (nric) {
+        // New patient → register; existing patient → skip register (row already exists)
+        if (!mpisFound && patient?.name && patient?.dob && patient?.gender) {
+          await registerPatient({
+            nric,
+            fullName: patient.name,
+            dateOfBirth: patient.dob,
+            gender: patient.gender,
+            race: mpisData?.race || null,
             allergies: mpisData?.allergies || null,
             comorbidities: mpisData?.comorbidities || null,
-            currentMeds: mpisData.currentMeds,
           });
         }
-      } catch (_) {}
+
+        // Always sync MPIS edits (allergies/comorbidities/meds + race) — covers both flows
+        await updatePatientFromMPIS(nric, {
+          allergies: mpisData?.allergies || null,
+          comorbidities: mpisData?.comorbidities || null,
+          currentMeds: mpisData?.currentMeds || [],
+          race: mpisData?.race || null,
+        });
+
+        // Always push vitals snapshot
+        await saveVitalsToDB();
+      }
+    } catch (err) {
+      console.warn('Pre-analyze sync failed (non-fatal):', err);
     }
 
-    if (mpisFound) {
-      await saveVitalsToDB();
-    }
     analyzeAssessment();
   };
 

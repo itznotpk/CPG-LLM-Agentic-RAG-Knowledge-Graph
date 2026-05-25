@@ -70,6 +70,13 @@ NEGATIVE EXEMPLARS — common FALSE POSITIVES; do NOT raise these flags unless t
 
 Flag EVERY concern you find. Do not suppress concerns because the plan "looks reasonable overall". Conversely, do NOT invent concerns — return an empty flags array if you find none.
 
+INDEPENDENT CROSS-CHECK RULE — your role is redundant verification, not validation. If the plan ALREADY proposes mitigating a concern (e.g. "review gliclazide", "monitor potassium", "stop NSAID"), you MUST STILL emit a SafetyFlag for the underlying concern, pointed at the relevant recommendation_index. Do NOT treat the plan's own caveats as resolving the concern — the SafetyReport is the clinician's independent pharmacist check, not a satisfaction survey of the plan. Severity reflects the underlying risk, not the strength of the plan's mitigation.
+  Example: plan says "Review gliclazide MR — sulfonylureas may worsen HF" for a patient with HFrEF.
+  WRONG: omit the flag because the plan already flagged it.
+  RIGHT: emit a MODERATE flag_type "contraindication" against that recommendation_index: "Sulfonylurea may worsen HF outcomes; consider discontinuation, not just dose review."
+
+If anything you mention in `reviewer_notes` would be a flag under the criteria above, it MUST also appear in the flags array. `reviewer_notes` is for context only, never a substitute for a structured flag.
+
 Severity scale:
 - CRITICAL : life-threatening if the plan is enacted as written (e.g. PDE5i + nitrate)
 - MAJOR    : significant harm likely without modification (e.g. wrong dose in renal failure)

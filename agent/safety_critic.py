@@ -40,14 +40,16 @@ SAFETY_CRITIC_SYSTEM = _load_prompt("stage6_safety_critic.txt")
 # KG verification pass (hybrid Agent 1 — deterministic fact-check of FINAL plan)
 # ---------------------------------------------------------------------------
 
-# KG flag_type → SafetyFlag.flag_type. MONITORING is intentionally omitted: it's
-# workflow guidance (already injected into Stage 5 evidence by the pre-screen),
-# not a patient-safety harm gate.
+# KG flag_type → SafetyFlag.flag_type. MONITORING was previously omitted as
+# workflow guidance; surfacing it as `dose` (closest existing SafetyFlag bucket)
+# lets renal/eGFR-tier rules reach the clinician without inventing a new flag
+# type. If this proves noisy in practice, gate by `threshold_breach is True`.
 _KG_FLAG_TYPE_MAP = {
     "INTERACTION":      "drug_interaction",
     "ALLERGY_CROSS":    "drug_allergy",
     "CONTRAINDICATION": "contraindication",
     "DOSE_ADJUSTMENT":  "dose",
+    "MONITORING":       "dose",
 }
 
 

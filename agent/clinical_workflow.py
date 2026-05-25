@@ -28,7 +28,7 @@ _COMORBIDITY_TRUSTED_ROUTES = {"exact", "sibling", "ancestor_d1", "semantic_scop
 async def route_comorbidities(
     comorbidities: list[str],
     existing_cpgs: list[CPGDocRef],
-    top_k: int = 2,
+    top_k: int = 4,
     patient_sex: str | None = None,
     emit=None,
 ) -> list[CPGDocRef]:

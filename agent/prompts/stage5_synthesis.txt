@@ -263,17 +263,36 @@ recommendations array MUST cover all applicable types below:
     Do NOT set action=null for pharmacological recommendations.
 
   type="investigation"
-    Tests and imaging required before or during treatment.
-    Examples: "ECG — baseline before initiating antiarrhythmic therapy"
-              "Echocardiography — assess LVEF and exclude structural heart disease"
+    Tests and imaging required before or during treatment. EMIT ONE Recommendation
+    PER DISTINCT TEST — do not bundle multiple tests into a single intervention string.
+    Examples (each is a separate Recommendation):
+      "ECG — baseline before initiating antiarrhythmic therapy"
+      "Echocardiography — assess LVEF and exclude structural heart disease"
+      "Lipid profile (TC, LDL-C, HDL-C, TG) — baseline cardiovascular risk assessment"
+      "Urine albumin-creatinine ratio (UACR) — baseline diabetic kidney disease screening"
+      "HbA1c — baseline glycaemic assessment"
+    WRONG: one Recommendation "ECG, echocardiography, lipid profile, UACR — baseline assessment".
+    RIGHT: four separate Recommendations, one per test.
 
   type="procedure"
-    Physical interventions. Examples: "DC cardioversion — for haemodynamically unstable AF"
+    Physical interventions, one Recommendation per procedure.
+    Examples: "DC cardioversion — for haemodynamically unstable AF"
+              "Coronary angiography — risk-stratified invasive assessment in NSTE-ACS"
 
   type="lifestyle"
-    Non-pharmacological actions from the CPG.
-    Examples: "Sodium restriction <2g/day — to reduce fluid retention in heart failure"
-              "Smoking cessation — reduces cardiovascular risk and slows PAH progression"
+    Non-pharmacological actions from the CPG. EMIT ONE Recommendation PER DOMAIN —
+    do not bundle diet + exercise + smoking into a single sentence. Standard domains
+    to consider when supported by retrieved evidence: diet/nutrition, physical
+    activity / exercise, weight management, sodium/fluid restriction, smoking
+    cessation, alcohol moderation, sleep, vaccination, self-monitoring.
+    Examples (each is a separate Recommendation):
+      "Sodium restriction <2g/day — to reduce fluid retention in heart failure"
+      "Aerobic exercise ≥150 min/week of moderate intensity — improves functional capacity in HFrEF"
+      "Weight reduction target 5–10% of body weight over 6 months — for obesity (BMI 34) with CV risk"
+      "Smoking cessation — reduces cardiovascular risk and slows progression"
+      "Alcohol moderation to ≤2 standard drinks/day — to reduce BP and HF risk"
+    WRONG: one Recommendation "Lifestyle modification: dietary counselling, weight loss, exercise, sodium restriction".
+    RIGHT: 4+ separate Recommendations, one per domain, each cited to a specific chunk.
 
   type="referral"
     Include specialist type, urgency, and clinical trigger.

@@ -54,6 +54,81 @@ DDX_THINKING_BUDGET = 5000   # tokens; sufficient for re-ranking ≤10 candidate
 
 
 # ---------------------------------------------------------------------------
+# Condition-expected therapy coverage (#1A) + always-refer set (#2)
+#
+# Both maps are keyed by ICD-11 code prefix. Prefix match is anchored, so a
+# more-specific ICD code (e.g. "BD11.2") matches any registered shorter prefix
+# (e.g. "BD11"). Add new conditions here as their gaps are identified — the
+# Stage 4 anchor-query injector and the Stage 5 post-validator both read these
+# tables, so a single entry covers retrieval seeding + synthesis check.
+# ---------------------------------------------------------------------------
+
+# Drug-class pillars expected for a condition. Each entry pairs:
+#   - a clinician-facing pillar label (used in unresolved_questions)
+#   - a list of substrings; the post-validator considers the pillar "present"
+#     if ANY substring appears in ANY recommendation.intervention (case-insens)
+#   - a retrieval query the Stage 4 injector seeds when no chunk for the
+#     pillar has likely been retrieved
+_CONDITION_EXPECTED_THERAPIES: dict[str, list[dict]] = {
+    # HFrEF — four-pillar GDMT. BD11.0 / BD11.2 / BD11.Z all match the BD11 prefix.
+    "BD11": [
+        {
+            "pillar": "ACE inhibitor or ARNI",
+            "substrings": ["ace inhibitor", "ace-i", "acei", "arni", "sacubitril",
+                           "ramipril", "perindopril", "enalapril", "lisinopril", "captopril"],
+            "query": "ACE inhibitor or ARNI (sacubitril/valsartan) for heart failure with reduced ejection fraction",
+        },
+        {
+            "pillar": "Beta-blocker (HFrEF-proven: bisoprolol, carvedilol, metoprolol succinate, nebivolol)",
+            "substrings": ["beta-blocker", "beta blocker", "bisoprolol", "carvedilol",
+                           "metoprolol", "nebivolol"],
+            "query": "Beta-blocker bisoprolol carvedilol metoprolol succinate nebivolol for HFrEF mortality reduction",
+        },
+        {
+            "pillar": "Mineralocorticoid receptor antagonist (spironolactone or eplerenone)",
+            "substrings": ["mineralocorticoid", "spironolactone", "eplerenone", "mra "],
+            "query": "Mineralocorticoid receptor antagonist spironolactone eplerenone for HFrEF — dose, potassium monitoring, eGFR threshold",
+        },
+        {
+            "pillar": "SGLT2 inhibitor (dapagliflozin or empagliflozin)",
+            "substrings": ["sglt2", "dapagliflozin", "empagliflozin"],
+            "query": "SGLT2 inhibitor dapagliflozin empagliflozin for heart failure with reduced ejection fraction",
+        },
+    ],
+}
+
+# ICD prefixes for which a referral recommendation is expected. Maps prefix to
+# the specialty label used when surfacing the missing referral.
+_ALWAYS_REFER_CONDITIONS: dict[str, str] = {
+    "BD11": "Cardiology (heart failure specialist) — newly diagnosed HFrEF requires GDMT optimisation and device-therapy assessment",
+    "BC81": "Cardiology — atrial fibrillation requires risk-stratified anticoagulation and rate/rhythm strategy",
+    "BA41": "Cardiology — acute coronary syndrome / NSTEMI requires invasive risk stratification",
+    "GB61": "Nephrology — CKD stage ≥3 requires specialist co-management",
+    "JB00": "Maternal-Foetal Medicine / Obstetrics — pregnancy with comorbidity requires multidisciplinary care",
+}
+
+
+def _matches_icd_prefix(icd_code: str, table: dict) -> str | None:
+    """Return the prefix key in `table` that matches `icd_code`, or None."""
+    if not icd_code:
+        return None
+    for prefix in table:
+        if icd_code.startswith(prefix):
+            return prefix
+    return None
+
+
+def _expected_pillars_for(icd_code: str) -> list[dict]:
+    key = _matches_icd_prefix(icd_code, _CONDITION_EXPECTED_THERAPIES)
+    return _CONDITION_EXPECTED_THERAPIES.get(key, []) if key else []
+
+
+def _required_referral_for(icd_code: str) -> str | None:
+    key = _matches_icd_prefix(icd_code, _ALWAYS_REFER_CONDITIONS)
+    return _ALWAYS_REFER_CONDITIONS.get(key) if key else None
+
+
+# ---------------------------------------------------------------------------
 # DDxResult — pipeline-internal, not a user-facing schema type
 # ---------------------------------------------------------------------------
 
@@ -1049,6 +1124,30 @@ async def stage_4_retrieve(
 
     queries = await _generate_retrieval_queries(case, ddx, cpgs, n=queries_per_code)
 
+    # Condition-anchor queries (#1A): prepend mandatory queries derived from
+    # the primary DDx ICD so high-leverage drug classes (e.g. HFrEF MRA pillar)
+    # are not silently omitted when the LLM doesn't seed a query for them.
+    # Anchors are deduplicated against existing queries by exact substring match.
+    primary_code = ddx[0].code if ddx else ""
+    anchor_queries = [p["query"] for p in _expected_pillars_for(primary_code)]
+    # Universal section anchors — fire on every case regardless of condition.
+    # Generic phrasing intentional: vector search matches the patient context +
+    # whichever CPGs were routed, so the same query pulls stroke lifestyle from
+    # a stroke CPG and HFrEF lifestyle from an HF CPG. Closes the systematic
+    # under-retrieval of investigation / lifestyle / referral sections.
+    anchor_queries.extend([
+        "Baseline investigations, tests, and imaging indicated for this patient's diagnosis",
+        "Lifestyle modifications, diet, exercise, weight, smoking, alcohol recommendations for this patient",
+        "Specialist referrals indicated and their urgency for this patient",
+    ])
+    if anchor_queries:
+        existing_lower = [q.lower() for q in queries]
+        for aq in anchor_queries:
+            if not any(aq.lower()[:30] in eq for eq in existing_lower):
+                queries.insert(0, aq)
+        logger.info("Stage 4: injected %d anchor queries (condition + universal) for %s",
+                    len(anchor_queries), primary_code)
+
     seen_chunk_ids: set[str] = set()
     all_chunks: list[ChunkResult] = []
 
@@ -1715,6 +1814,41 @@ Produce a TreatmentPlan JSON object matching this schema:
         logger.info(
             "stage_5_empty_sections: %s (icd=%s, evidence_chunks=%d, flags=%d)",
             empty_sections, icd_primary, len(evidence), len(flags or []),
+        )
+
+    # Post-synthesis coverage validators (#1A + #2). Both are commandment-safe:
+    # they surface gaps as unresolved_questions, never as fabricated recs.
+    intervention_blob = " ".join(
+        (r.intervention or "").lower() for r in plan.recommendations
+    )
+    expected_pillars = _expected_pillars_for(icd_primary)
+    missing_pillars: list[str] = []
+    for pillar in expected_pillars:
+        if not any(sub.lower() in intervention_blob for sub in pillar["substrings"]):
+            missing_pillars.append(pillar["pillar"])
+    if missing_pillars:
+        for label in missing_pillars:
+            plan.unresolved_questions.append(
+                f"Expected therapy not surfaced in plan: {label}. "
+                "No supporting chunk retrieved — clinician should consider this "
+                "explicitly before finalising the regimen."
+            )
+        logger.info(
+            "stage_5 coverage: %d expected pillar(s) missing for %s — %s",
+            len(missing_pillars), icd_primary, missing_pillars,
+        )
+
+    referral_required = _required_referral_for(icd_primary)
+    has_referral = any(r.type == "referral" for r in plan.recommendations)
+    if referral_required and not has_referral:
+        plan.unresolved_questions.append(
+            f"Expected referral not surfaced in plan: {referral_required}. "
+            "No referral recommendation was emitted — clinician should arrange "
+            "specialist input."
+        )
+        logger.info(
+            "stage_5 coverage: missing required referral for %s — %s",
+            icd_primary, referral_required,
         )
 
     return plan

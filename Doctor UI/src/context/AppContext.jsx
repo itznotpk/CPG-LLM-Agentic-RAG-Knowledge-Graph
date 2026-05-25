@@ -412,8 +412,16 @@ export function AppProvider({ children }) {
     // Keep Supabase consultation creation (audit trail)
     if (USE_SUPABASE && state.patient.nsn) {
       try {
+        // Embed severity/staging into clinical_notes (no dedicated column in consultations)
+        const staging = state.severityStaging || {};
+        const stagingKeys = Object.keys(staging).filter(k => staging[k] !== '' && staging[k] != null);
+        const stagingBlock = stagingKeys.length > 0
+          ? `[Severity/Staging]\n${stagingKeys.map(k => `- ${k}: ${staging[k]}`).join('\n')}\n\n`
+          : '';
+        const notesToSave = stagingBlock + (state.clinicalNotes || '');
+
         console.log('🆕 Starting new consultation for patient:', state.patient.nsn);
-        const result = await startConsultation(state.patient.nsn, state.clinicalNotes);
+        const result = await startConsultation(state.patient.nsn, notesToSave);
         if (result.success && result.consultationId) {
           console.log('✅ New consultation created with ID:', result.consultationId);
           dispatch({ type: 'SET_CONSULTATION_ID', payload: result.consultationId });
