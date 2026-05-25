@@ -112,7 +112,9 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 
 ---
 
-# DETAILED BENCHMARK ANALYSIS
+# EXPECTED / TARGET PERFORMANCE — PENDING EMPIRICAL RUN
+
+> The numbers in this section are **aspirational targets**, not measured results. Real numbers will come from running the demo scripts in `scripts/` (e.g. `run_demo_002_cancer_pain.py`, `run_demo_003_pregnancy_heart.py`, `run_demo_004_diabetic_retinopathy.py`) plus the clinician scoring protocol in Phase 1–4 above. Update this section once empirical capture is complete.
 
 ## Benchmark Scenario Set
 
@@ -142,12 +144,11 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 - Intermediate steps visible to clinician
 
 **Evidence Citation Quality:** 92%
-- Cites specific CPG sections (AHA 2017 Hypertension Guidelines, ESC DDI protocols)
-- Links to UpToDate summaries where available
-- Indicates evidence strength (Class I vs Class IIb recommendations)
+- Cites specific Malaysian MoH CPG sections (e.g. Hypertension 5th Edition, T2DM 6th Edition)
+- Preserves the original CPG's evidence grading scheme — note the corpus contains three incompatible schemes (ESC, USPSTF, SIGN50); prompts must keep them separate, not normalise across them
 
 **Uncertainty Quantification:** 87%
-- Explicitly states confidence ("I am highly confident in this diagnosis" vs "This presentation is atypical; confidence moderate")
+- Tiered confidence surfaced via DDx similarity scores + safety severity tiers (CRITICAL / MAJOR / MINOR); a numeric % is not exposed in the current UI
 - Flags assumptions ("Assuming patient medication compliance...")
 - Notes knowledge gaps
 
@@ -155,9 +156,9 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 - Optimized for clinical workflow
 - Complex cases (uncertainty scenario) take longer
 
-**Evidence Sourcing:** Mixed proprietary RAG + CPG database + UpToDate summaries
-- Advantage: Real-time guideline updates
-- Advantage: Evidence grading (Level of Evidence A, B, C)
+**Evidence Sourcing:** Malaysian MoH CPG corpus (pgvector) + Neo4j drug/condition knowledge graph
+- No UpToDate integration; no AHA/ESC source feed
+- Preserves each CPG's native evidence grading (ESC, USPSTF, or SIGN50 — kept separate, not normalised)
 
 **Appropriate Deferral:** 78%
 - Correctly identifies when pediatric endocrinology or cardiology needed
@@ -200,9 +201,9 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 - Fastest system
 - Speed comes at cost of depth
 
-**Evidence Sourcing:** General training data (knowledge cutoff Feb 2024)
+**Evidence Sourcing:** General training data only
 - No real-time guideline updates
-- Can't access UpToDate or proprietary clinical databases
+- No access to a proprietary clinical corpus
 - Relies on patterns learned during training
 
 **Appropriate Deferral:** 45%
@@ -366,7 +367,7 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 | Evidence Citation Quality | **92%** | 34% | 42% | 94% | 88% |
 | Uncertainty Quantification | **87%** | 21% | 31% | 15% | 64% |
 | Speed (seconds) | 18-22 | **8-12** | 10-15 | 25-40 | 16-20 |
-| Evidence Sourcing | RAG/CPG/UToDate | Training data | Training data | User uploads | Guidelines/Lit |
+| Evidence Sourcing | Malaysian CPG + KG | Training data | Training data | User uploads | Guidelines/Lit |
 | Appropriate Deferral | **78%** | 45% | 52% | N/A | 74% |
 | Clinician Confidence | **4.3/5** | 2.1 | 2.8 | 1.8 | 3.9 |
 
@@ -409,11 +410,11 @@ Based on the benchmark data, your system differentiates on **three core factors*
 - **Competitive Advantage**: No other system makes intermediate reasoning visible at this granularity
 
 ### 2. **UNCERTAINTY QUANTIFICATION WITH CONFIDENCE STATEMENTS** (Secondary Differentiator)
-- Your system explicitly quantifies confidence in 87% of recommendations
-- Competitors mostly use vague language ("may," "consider") without confidence numbers
+- Your system surfaces tiered confidence on most recommendations via DDx similarity scores + safety severity tiers (CRITICAL / MAJOR / MINOR)
+- Competitors mostly use vague language ("may," "consider") without any structured confidence signal
 - **Clinical Value**: Clinician knows when to trust recommendation vs when to seek additional confirmation
-- **Contrast**: Qmed cites guidelines (high confidence) but doesn't differentiate atypical cases; Your System says "This atypical presentation reduces confidence from 95% to 62%"
-- **Competitive Advantage**: Quantified uncertainty enables risk-based clinical decisions
+- **Contrast**: Qmed cites guidelines but doesn't differentiate atypical cases; Your System flags atypical presentations with lower DDx similarity and elevates safety-critic severity
+- **Competitive Advantage**: Structured (tiered) uncertainty enables risk-based clinical decisions. Note: a numeric % confidence is NOT currently surfaced in the UI — adding it is a future enhancement.
 
 ### 3. **EVIDENCE SYNTHESIS WITH PEDAGOGICAL EXPLANATION** (Tertiary Differentiator)
 - Your system explains *why* guidelines exist; explains underlying evidence
@@ -759,7 +760,7 @@ You now have a complete evaluation framework:
 
 **Expected Ground Truth:**
 *   **Summary:** Full metabolic syndrome with 4 major CVD risk factors (obesity, T2DM, dyslipidaemia, hypertension) and no prior CVD event. Patient qualifies as **HIGH RISK** for primary CVD prevention. Multiple CPGs converge on this patient.
-*   **CVD Risk Classification:**
+*   **CVD Risk Classification (clinician-side; the system retrieves CPG text, it does not compute Framingham/SCORE itself):**
     *   Framingham/SCORE risk assessment indicates **HIGH cardiovascular risk** due to T2DM + dyslipidaemia + hypertension combined. Consider Very High Risk if 10-year CVD risk >10%.
 *   **Priority 1 — Lifestyle Modification (All CPGs converge here):**
     *   Intensive lifestyle programme: calorie-restricted diet, ≥150 min/week moderate physical activity.
