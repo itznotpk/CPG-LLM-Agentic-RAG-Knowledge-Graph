@@ -132,12 +132,27 @@ async def _fetch_rows(
     conn: asyncpg.Connection,
     only_verified: bool,
     limit: int | None,
+    since: str | None = None,
 ) -> list[asyncpg.Record]:
     clauses = ["title IS NOT NULL"]
     args: list[Any] = []
 
     if only_verified:
         clauses.append("scope_verified = TRUE")
+
+    if since is not None:
+        from datetime import datetime, date
+        if isinstance(since, str):
+            try:
+                since_val: Any = datetime.fromisoformat(since)
+            except ValueError:
+                since_val = date.fromisoformat(since)
+        else:
+            since_val = since
+        args.append(since_val)
+        clauses.append(
+            f"(verified_at >= ${len(args)} OR classified_at >= ${len(args)})"
+        )
 
     sql = f"""
         SELECT id::text, title, scope_rationale, icd11_scope, procedure_scope,
@@ -159,6 +174,7 @@ async def backfill(
     dry_run: bool = False,
     limit: int | None = None,
     only_verified: bool = True,
+    since: str | None = None,
 ) -> dict[str, int]:
     database_url = os.getenv("DATABASE_URL")
     if not database_url:
@@ -180,7 +196,7 @@ async def backfill(
             """)
 
         print("Step 2: fetching document rows...")
-        rows = await _fetch_rows(conn, only_verified=only_verified, limit=limit)
+        rows = await _fetch_rows(conn, only_verified=only_verified, limit=limit, since=since)
         pending = [row for row in rows if _needs_processing(row, force=force)]
         skipped = len(rows) - len(pending)
         print(
@@ -255,6 +271,11 @@ def _parse_args() -> argparse.Namespace:
         action="store_true",
         help="Process all documents instead of only scope_verified=TRUE rows.",
     )
+    parser.add_argument(
+        "--since",
+        type=str,
+        help="Only process rows whose verified_at or classified_at >= this timestamp (e.g. '2026-05-25').",
+    )
     return parser.parse_args()
 
 
@@ -266,5 +287,6 @@ if __name__ == "__main__":
             dry_run=args.dry_run,
             limit=args.limit,
             only_verified=not args.all_documents,
+            since=args.since,
         )
     )

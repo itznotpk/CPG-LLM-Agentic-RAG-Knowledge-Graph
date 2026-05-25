@@ -1904,20 +1904,40 @@ Produce a TreatmentPlan JSON object matching this schema:
         except Exception as exc:
             logger.warning("KG referral lookup failed in Stage 5 validator: %s", exc)
 
-        if kg_specialty_messages:
-            seen_msgs: set[str] = set()
-            for msg in kg_specialty_messages:
-                if msg in seen_msgs:
+        if kg_recs:
+            from .models import Recommendation as _Rec
+            seen_keys: set[tuple[str, str]] = set()
+            for rec in kg_recs:
+                key = (rec.specialty.lower(), (rec.condition or "").lower())
+                if key in seen_keys:
                     continue
-                seen_msgs.add(msg)
-                plan.unresolved_questions.append(
-                    f"Expected referral not surfaced in plan: {msg} "
-                    "No referral recommendation was emitted — clinician should "
-                    "arrange specialist input."
+                seen_keys.add(key)
+                urgency_word = (rec.urgency or "routine").lower()
+                intervention = (
+                    f"Refer to {rec.specialty} ({urgency_word}) — {rec.condition}"
                 )
+                if rec.trigger:
+                    intervention += f"; trigger: {rec.trigger}"
+                rationale = (rec.evidence or "").strip() or (
+                    f"KG-sourced referral for {rec.condition}"
+                )
+                try:
+                    plan.recommendations.append(
+                        _Rec(
+                            intervention=intervention,
+                            type="referral",
+                            action=None,
+                            evidence_grade=None,
+                            cpg_source=rec.cpg_source or "Neo4j KG",
+                            rationale=rationale[:480],
+                            contraindications_checked=[],
+                        )
+                    )
+                except Exception as exc:
+                    logger.warning("KG referral injection failed (%s): %s", key, exc)
             logger.info(
-                "stage_5 coverage (KG): %d missing referral(s)",
-                len(seen_msgs),
+                "stage_5 coverage (KG): injected %d referral recommendation(s)",
+                len(seen_keys),
             )
         else:
             # Static-dict fallback (covers conditions not yet in the KG).

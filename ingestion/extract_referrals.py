@@ -343,13 +343,23 @@ async def extract_from_chunk(
     full_prompt = f"{prompt}\n\n[FOCUS - extract referrals from this region only]\n{text}\n"
 
     async with concurrency_sem:
-        try:
-            agent = Agent(model)
-            response = await agent.run(full_prompt)
-            result_text = (response.output or "").strip()
-        except Exception as exc:
-            logger.warning("LLM call failed for chunk %s: %s", chunk_id, exc)
-            return []
+        agent = Agent(model)
+        result_text = ""
+        delay = 2.0
+        for attempt in range(5):
+            try:
+                response = await agent.run(full_prompt)
+                result_text = (response.output or "").strip()
+                break
+            except Exception as exc:
+                is_throttle = "429" in str(exc) or "ThrottlingException" in str(exc) or "Too many requests" in str(exc)
+                if is_throttle and attempt < 4:
+                    logger.info("Throttle on chunk %s attempt %d, sleeping %.1fs", chunk_id, attempt + 1, delay)
+                    await asyncio.sleep(delay)
+                    delay = min(delay * 2, 30.0)
+                    continue
+                logger.warning("LLM call failed for chunk %s (attempt %d): %s", chunk_id, attempt + 1, exc)
+                return []
 
     # Best-effort JSON extraction
     match = re.search(r"\[.*\]", result_text, re.DOTALL)
