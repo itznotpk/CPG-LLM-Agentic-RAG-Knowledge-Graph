@@ -22,6 +22,31 @@ import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
 import { PlanGenerationProcess } from './PlanGenerationProcess';
 
+const OVERRIDE_KEY_MAP = {
+  'red_flag_cant_miss': "Red Flag (Can't Miss)",
+  'specificity_over_generic': 'Specificity over Generic',
+  'clinical_contradiction': 'Clinical Contradiction',
+  'clinical_contradiction_rule': 'Clinical Contradiction Rule',
+  'presentation_fit': 'Presentation Fit',
+  'age_gender_compat': 'Demographic Compatibility',
+  'sex_compat': 'Sex Compatibility'
+};
+
+function parseOverrideReason(reason) {
+  if (!reason) return [];
+  const parts = reason.includes(';') ? reason.split(';') : [reason];
+  return parts.map(part => {
+    const colonIdx = part.indexOf(':');
+    if (colonIdx !== -1) {
+      const key = part.slice(0, colonIdx).trim();
+      const val = part.slice(colonIdx + 1).trim();
+      const prettyKey = OVERRIDE_KEY_MAP[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      return { key: prettyKey, val };
+    }
+    return { key: null, val: part.trim().replace(/_/g, ' ') };
+  });
+}
+
 export function DiagnosisSection() {
   const { state, confirmDiagnosis, goToStep, selectDiagnosis } = useApp();
   const { isDark } = useTheme();
@@ -30,10 +55,8 @@ export function DiagnosisSection() {
 
   if (!diagnosis) return null;
 
-  // Sort differentials by probability (highest first)
-  const sortedDifferentials = [...diagnosis.differentials].sort(
-    (a, b) => b.probability - a.probability
-  );
+  // Keep differentials in their final LLM re-ranked order from the backend
+  const sortedDifferentials = [...diagnosis.differentials];
 
   // Get the selected diagnoses (or default to highest probability)
   const selectedIds = diagnosis.selectedDiagnosisIds?.length > 0
@@ -153,7 +176,7 @@ export function DiagnosisSection() {
           {sortedDifferentials.map((diff, idx) => {
             const isSelected = selectedIds.includes(diff.id);
             const isTopSuggestion = idx === 0;
-            // probability is already 0–100 (mapped from similarity*100 in clinicalMappers.js)
+            // probability is already 0–100 (mapped from final_score*100 or similarity*100 in clinicalMappers.js)
             const pct = diff.probability != null ? Math.round(diff.probability) : null;
 
             // Canonical MHNexus colors from 19-probability.html
@@ -205,7 +228,7 @@ export function DiagnosisSection() {
                   </span>
                   <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${riskDotColor}`} />
                   {isTopSuggestion && (
-                    <span className="text-[10px] font-semibold text-[var(--accent-primary)] bg-[var(--accent-primary)]/10 px-1.5 py-0.5 rounded shrink-0">
+                    <span className="text-[10px] font-semibold text-[var(--accent-primary)] bg-[var(--accent-primary)]/10 px-1.5 py-0.5 rounded shrink-0 animate-pulse">
                       AI top pick
                     </span>
                   )}
@@ -219,6 +242,27 @@ export function DiagnosisSection() {
                     </span>
                   )}
                 </div>
+
+                {/* Row 1.5: rank-deviation indication (post-rerank tracking) */}
+                {diff.mathRank && diff.mathRank !== (idx + 1) && (
+                  <div className="flex items-center gap-1.5 mb-1.5 text-[11px] font-mono">
+                    <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>Reranked:</span>
+                    <span className={`px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 ${
+                      diff.rankDelta > 0 
+                        ? (isDark ? 'bg-emerald-500/10 text-emerald-400' : 'bg-emerald-50 text-emerald-700') 
+                        : (isDark ? 'bg-rose-500/10 text-rose-400' : 'bg-rose-50 text-rose-700')
+                    }`}>
+                      math #{diff.mathRank} → AI #{idx + 1} ({diff.rankDelta > 0 ? `↑${diff.rankDelta}` : `↓${Math.abs(diff.rankDelta)}`})
+                    </span>
+                    {Math.abs(diff.rankDelta) >= 2 && (
+                      <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 animate-pulse ${
+                        isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-800'
+                      }`}>
+                        Clinical Override
+                      </span>
+                    )}
+                  </div>
+                )}
 
                 {/* Row 2: probability bar — 10px height, 6px radius, 0.7s CSS transition */}
                 {pct != null && (
@@ -239,6 +283,32 @@ export function DiagnosisSection() {
                         transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
                       }}
                     />
+                  </div>
+                )}
+
+                {/* Row 3: clinical override reason, if any — only shown when selected */}
+                {isSelected && diff.overrideReason && (
+                  <div className={`mt-2 flex flex-col gap-1.5 text-xs p-2.5 rounded-lg border leading-relaxed ${
+                    isDark ? 'bg-amber-950/20 text-amber-300 border-amber-500/10' 
+                           : 'bg-amber-50/50 text-amber-800 border-amber-100'
+                  }`}>
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <span className="shrink-0 font-bold font-mono text-[9px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded uppercase">Clinical Override</span>
+                    </div>
+                    <div className="space-y-1 pl-1">
+                      {parseOverrideReason(diff.overrideReason).map((item, idx) => (
+                        <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-1">
+                          {item.key && (
+                            <span className="font-semibold shrink-0 text-[11px] text-amber-500/90 dark:text-amber-300">
+                              {item.key}:
+                            </span>
+                          )}
+                          <span className={`${item.key ? 'italic' : ''} text-slate-700 dark:text-slate-200`}>
+                            {item.val}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </button>

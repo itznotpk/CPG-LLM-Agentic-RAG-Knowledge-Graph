@@ -269,9 +269,69 @@ export function PlanGenerationProcess({
     ? selectedDiagnoses[0]?.name
     : `${selectedDiagnoses.length} confirmed diagnoses`;
   const activeLabel = currentStageLabel(stageData);
-  const cpgEvents = pipelineEvents.filter((e) => e.stage === 3 && e.eventType === 'sub_step');
+  const cpgEvents = pipelineEvents.filter((e) => e.stage === 3 && e.eventType === 'sub_step' && e.badge !== 'excluded');
+  const uniqueCpgNames = new Set(cpgEvents.map((e) => e.detail));
+  const cpgCount = uniqueCpgNames.size;
   const retrievalDetail = [...pipelineEvents].reverse().find((e) => e.stage === 4 && e.eventType === 'stage_update')?.detail;
-  const cpgCount = cpgEvents.length;
+
+  const activeStage = stageData.find((s) => s.status === 'running') || 
+                      [...stageData].reverse().find((s) => s.status === 'complete') ||
+                      stageData[0];
+
+  const renderWhatIsHappening = () => {
+    const tone = ACCENT[activeStage.accent || 'teal'];
+    const Icon = activeStage.icon || GitBranch;
+    const iconTone = isDark ? tone.darkText : tone.text;
+
+    return (
+      <div className="space-y-4">
+        {/* Active Stage Header */}
+        <div className="flex items-center gap-3">
+          <div className={`w-9 h-9 rounded-lg flex items-center justify-center border transition-all duration-300 ${
+            isDark ? `${tone.darkBg} ${tone.darkBorder}` : `${tone.bg} ${tone.border}`
+          }`}>
+            <Icon className={`w-4.5 h-4.5 ${iconTone}`} strokeWidth={1.8} />
+          </div>
+          <div>
+            <span className={`text-[10px] uppercase font-bold tracking-wider ${iconTone}`}>
+              Active Phase: Stage {activeStage.stage}
+            </span>
+            <h4 className={`text-sm font-bold -mt-0.5 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+              {activeStage.label}
+            </h4>
+          </div>
+        </div>
+
+        {/* Per-stage plain-English explainer — no event mirroring (Live Activity handles that) */}
+        <div className={`text-xs leading-relaxed space-y-2.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+          {activeStage.stage === 3 && (
+            <>
+              <p>The AI is looking up which Malaysian Clinical Practice Guidelines cover your patient's confirmed diagnosis, using the ICD-11 code hierarchy to step up to broader categories when no exact match exists.</p>
+              <p>Only verified, scope-matched guidelines are used. Where a parent-category match was needed, a provenance badge flags this so you know the fit isn't exact.</p>
+            </>
+          )}
+          {activeStage.stage === 4 && (
+            <>
+              <p>The system is reading inside the matched guidelines for the sections that directly apply — dosing rules, monitoring intervals, contraindications, referral thresholds, and red-flag escalation criteria.</p>
+              <p>Generic background text is filtered out so every recommendation in your care plan traces back to a specific, relevant guideline passage.</p>
+            </>
+          )}
+          {activeStage.stage === 5 && (
+            <>
+              <p>The AI is composing your care plan — deciding which medications to start, stop, or adjust; which lifestyle changes apply; which referrals are needed; and which vitals to monitor and how often.</p>
+              <p>Where the retrieved evidence doesn't clearly support a decision, the system surfaces an unresolved question rather than inventing an answer.</p>
+            </>
+          )}
+          {activeStage.stage === 6 && (
+            <>
+              <p>Before the plan is shown to you, an independent safety engine re-reads every medication decision and cross-checks it against this patient's comorbidities, current drugs, allergies, and organ function.</p>
+              <p>Any concern — interaction, contraindication, or dose mismatch — is flagged for your acknowledgement. Nothing is hidden or auto-resolved.</p>
+            </>
+          )}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <div className="animate-fadeIn space-y-6">
@@ -357,14 +417,7 @@ export function PlanGenerationProcess({
             <GitBranch className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.8} />
             <h3 className={`text-sm font-semibold ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>What Is Happening</h3>
           </div>
-          <div className={`space-y-3 text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            <p>
-              The selected diagnosis is being routed to guideline documents, then the system retrieves the most relevant CPG chunks before synthesizing recommendations.
-            </p>
-            <p>
-              Once synthesis finishes, the safety layer checks the medication plan for interactions, contraindications, dose concerns, and allergy risks.
-            </p>
-          </div>
+          {renderWhatIsHappening()}
         </GlassCard>
       </div>
     </div>

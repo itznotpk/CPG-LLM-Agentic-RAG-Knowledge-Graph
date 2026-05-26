@@ -7,7 +7,7 @@ import logging
 import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
-from .models import PatientCase, TreatmentPlan, SafetyReport, StagedComorbidity
+from .models import PatientCase, TreatmentPlan, SafetyReport, StagedComorbidity, ChunkResult
 from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
@@ -179,6 +179,7 @@ class WorkflowResult:
     safety_report: SafetyReport | None = None
     graph_navigator_rules: list[dict] = field(default_factory=list)
     stage_timings: dict[str, float] = field(default_factory=dict)
+    evidence: list[ChunkResult] = field(default_factory=list)
 
 
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
@@ -288,6 +289,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         safety_report=safety_report,
         graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
         stage_timings=timings,
+        evidence=evidence,
     )
 
 
@@ -385,7 +387,7 @@ async def run_clinical_workflow_streaming(
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",
-            "detail": f"{len(cpgs)} CPGs matched: {', '.join(names)}",
+            "detail": f"{len(cpgs)} CPGs matched",
             "data": names,
         })
         logger.info("Stage 3 Routing: %d CPGs: %s", len(cpgs), names)
@@ -474,6 +476,7 @@ async def run_clinical_workflow_streaming(
         stage_errors=errors,
         safety_report=safety_report,
         graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
+        evidence=evidence,
     )
 
 
@@ -511,7 +514,7 @@ async def run_resynthesize_streaming(
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",
-            "detail": f"{len(cpgs)} CPGs matched: {', '.join(names)}",
+            "detail": f"{len(cpgs)} CPGs matched",
             "data": names,
         })
         logger.info("Re-synth Stage 3 Routing: %d CPGs: %s", len(cpgs), names)
@@ -596,4 +599,5 @@ async def run_resynthesize_streaming(
         stage_errors=errors,
         safety_report=safety_report,
         graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
+        evidence=evidence,
     )

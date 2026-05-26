@@ -514,7 +514,7 @@ export function AppProvider({ children }) {
           state.severityStaging || {},
         );
         const diagnosis = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
-        const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan);
+        const carePlan  = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);
         dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
         dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
         dispatch({ type: 'SET_CARE_PLAN', payload: carePlan });
@@ -634,7 +634,7 @@ export function AppProvider({ children }) {
         (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
       );
 
-      const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan);
+      const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);
       dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
       dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
       dispatch({ type: 'SET_DIAGNOSIS', payload: mapDdxToDiagnosis(response.ddx, response.cpgs_matched) });

@@ -2,15 +2,29 @@
  * Map ClinicalPlanResponse.ddx → diagnosis state shape for DiagnosisSection
  */
 export function mapDdxToDiagnosis(ddxList, cpgsMatched) {
-  const differentials = ddxList.map((d, i) => ({
-    id: i + 1,
-    name: d.title,
-    icdCode: d.code,
-    probability: Math.round(d.similarity * 100),
-    risk: d.similarity >= 0.75 ? 'high' : d.similarity >= 0.45 ? 'medium' : 'low',
-    reasoning: d.reasoning || [],       // LLM reasoning for display
-    inclusionMatch: d.inclusion_match,
-  }));
+  const differentials = ddxList.map((d, i) => {
+    const scoreVal = d.score_breakdown?.final_score !== undefined
+      ? d.score_breakdown.final_score
+      : d.similarity;
+    return {
+      id: i + 1,
+      name: d.title,
+      icdCode: d.code,
+      probability: Math.round(scoreVal * 100),
+      risk: scoreVal >= 0.75 ? 'high' : scoreVal >= 0.45 ? 'medium' : 'low',
+      reasoning: d.reasoning || [],       // LLM reasoning for display
+      inclusionMatch: d.inclusion_match,
+      // Re-ranking & override data
+      mathRank: d.math_rank,
+      llmRank: d.llm_rank,
+      rankDelta: d.rank_delta,
+      overrideReason: d.override_reason,
+      exclusionMatch: d.exclusion_match,
+      matchedExclusion: d.matched_exclusion,
+      exclusionPenalty: d.exclusion_penalty,
+      scoreBreakdown: d.score_breakdown,
+    };
+  });
 
   return {
     differentials,
@@ -22,7 +36,7 @@ export function mapDdxToDiagnosis(ddxList, cpgsMatched) {
 /**
  * Map ClinicalPlanResponse.treatment_plan → carePlan state shape for CarePlanSection
  */
-export function mapTreatmentPlanToCarePlan(plan) {
+export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
   // Split recommendations by type into UI sections
   const pharmacological = plan.recommendations.filter(r => r.type === 'pharmacological');
   const procedures      = plan.recommendations.filter(r => r.type === 'procedure');
@@ -137,31 +151,177 @@ export function mapTreatmentPlanToCarePlan(plan) {
     referralItems.push({ ...item, id: referralItems.length + 1 });
   });
 
-  // Collect unique CPG source strings across all recommendations
   const allRecs = plan.recommendations ?? [];
-  const cpgSourceSet = new Set(
-    allRecs.map((r) => r.cpg_source).filter(Boolean)
-  );
 
-  // Expand abbreviated CPG prefixes to full document titles.
-  // Order matters: longer/more-specific prefixes must come first.
-  const CPG_PREFIX_MAP = [
-    ['CPG Heart Failure and Diabetes', 'CPG Heart Failure & Diabetes Mellitus'],
-    ['CPG HF and Diabetes',            'CPG Heart Failure & Diabetes Mellitus'],
-    ['CPG Heart Failure',              'CPG Management of Heart Failure (4th Edition)'],
-    ['CPG HF',                         'CPG Management of Heart Failure (4th Edition)'],
-    ['CPG T2DM',                       'CPG Type 2 Diabetes Mellitus (6th Edition)'],
-  ];
-
-  const expandCpgSource = (src) => {
-    let result = src;
-    for (const [abbrev, full] of CPG_PREFIX_MAP) {
-      result = result.replaceAll(abbrev, full);
-    }
-    return result;
+  // ----- CPG FULL NAME LOOKUP -----
+  // Maps the abbreviated CPG names used in cpg_source to full human-readable guideline titles.
+  // Abbreviation comes from the LLM's cpg_source (e.g. "CPG PCI §3.2 [chunk 1]").
+  // The routing cpg_name values (e.g. "Percutaneous-Coronary-Intervention") are also mapped.
+  const CPG_FULL_NAMES = {
+    // Cardiology
+    'PCI':                'Management of Percutaneous Coronary Intervention',
+    'Percutaneous-Coronary-Intervention': 'Management of Percutaneous Coronary Intervention',
+    'NSTE-ACS':           'Management of Non-ST Elevation Acute Coronary Syndrome',
+    'NSTEMI':             'Management of Non-ST Elevation Acute Coronary Syndrome',
+    'STEMI':              'Management of ST Elevation Myocardial Infarction',
+    'Stable CAD':         'Management of Stable Coronary Artery Disease',
+    'Stable-Coronary-Artery-Disease': 'Management of Stable Coronary Artery Disease',
+    'Heart Failure':      'Management of Heart Failure',
+    'AF':                 'Management of Atrial Fibrillation',
+    'AF Management':      'Management of Atrial Fibrillation',
+    'Atrial-Fibrillation': 'Management of Atrial Fibrillation',
+    'IE':                 'Prevention of Infective Endocarditis',
+    'Infective-Endocarditis': 'Prevention of Infective Endocarditis',
+    'PAH':                'Management of Pulmonary Arterial Hypertension',
+    'Pulmonary-Arterial-Hypertension': 'Management of Pulmonary Arterial Hypertension',
+    'CVD Prevention':     'Primary & Secondary Prevention of Cardiovascular Disease',
+    'Dyslipidaemia':      'Management of Dyslipidaemia',
+    'Dyslipidemia':       'Management of Dyslipidaemia',
+    'Heart-Disease-in-Pregnancy': 'Management of Heart Disease in Pregnancy',
+    // Hypertension & Stroke
+    'Hypertension':       'Management of Hypertension',
+    'HTN':                'Management of Hypertension',
+    'Stroke':             'Management of Ischaemic Stroke',
+    'Ischaemic Stroke':   'Management of Ischaemic Stroke',
+    'Ischaemic-Stroke':   'Management of Ischaemic Stroke',
+    // Endocrine
+    'T2DM':               'Management of Type 2 Diabetes Mellitus',
+    'Type-2-Diabetes':    'Management of Type 2 Diabetes Mellitus',
+    'T1DM':               'Management of Type 1 Diabetes Mellitus',
+    'Diabetes in Pregnancy': 'Management of Diabetes in Pregnancy',
+    'Diabetes-in-Pregnancy': 'Management of Diabetes in Pregnancy',
+    'Thyroid':            'Management of Thyroid Disorders',
+    'Thyroid-Disorders':  'Management of Thyroid Disorders',
+    'Erectile Dysfunction': 'Management of Erectile Dysfunction',
+    'Erectile-Dysfunction': 'Management of Erectile Dysfunction',
+    'Growth Hormone':     'Use of Growth Hormone',
+    'Growth-Hormone':     'Use of Growth Hormone',
+    'Obesity':            'Management of Obesity',
+    'Obesity-Management': 'Management of Obesity',
+    // Oncology
+    'Cancer Pain':        'Management of Cancer Pain',
+    'Cancer-Pain':        'Management of Cancer Pain',
+    'Breast Cancer':      'Management of Breast Cancer',
+    'Breast-Carcinoma':   'Management of Breast Cancer',
+    'Colorectal':         'Management of Colorectal Carcinoma',
+    'Colorectal-Carcinoma': 'Management of Colorectal Carcinoma',
+    'Cervical Cancer':    'Management of Cervical Cancer',
+    'Cervical-Carcinoma': 'Management of Cervical Cancer',
+    'Nasopharyngeal':     'Management of Nasopharyngeal Carcinoma',
+    'Nasopharyngeal-Carcinoma': 'Management of Nasopharyngeal Carcinoma',
+    // Anaesthesia
+    'Pre-Anaesthetic':    'Pre-Anaesthetic Assessment',
+    'Pre-Anaesthetic-Assessment': 'Pre-Anaesthetic Assessment',
+    'Medication Safety':  'Safe Use of Medications in Anaesthesia',
+    'Medication-Safety-In-Anaesthesia': 'Safe Use of Medications in Anaesthesia',
   };
 
-  const cpgReferences = [...cpgSourceSet].map((src) => ({ title: expandCpgSource(src) }));
+  const resolveCpgFullName = (shortName) => {
+    if (!shortName) return shortName;
+    // Direct lookup
+    if (CPG_FULL_NAMES[shortName]) return CPG_FULL_NAMES[shortName];
+    // Try stripping "CPG " prefix
+    const stripped = shortName.replace(/^CPG\s+/i, '').trim();
+    if (CPG_FULL_NAMES[stripped]) return CPG_FULL_NAMES[stripped];
+    // Try case-insensitive
+    const lower = stripped.toLowerCase();
+    for (const [k, v] of Object.entries(CPG_FULL_NAMES)) {
+      if (k.toLowerCase() === lower) return v;
+    }
+    // Fallback: clean up the raw name (replace hyphens, strip edition tags for display)
+    return stripped.replace(/-/g, ' ').replace(/\(.*?\)/g, '').trim() || shortName;
+  };
+
+  // Parse a raw cpg_source string into structured fields for the reference card.
+  // Example: "CPG PCI §3.2 [chunk 1] — antiplatelet loading before PCI"
+  const parseCpgSource = (src, rationale, intervention) => {
+    if (!src) return null;
+    if (/^no specific cpg/i.test(src.trim())) return null;
+    if (/^No loaded CPG/i.test(src.trim())) return null;
+
+    // Extract section (§x.x or Section x.x)
+    const sectionMatch = src.match(/§([\d.]+[)\]]?)|Section\s([\d.]+)/i);
+    const sectionNum = sectionMatch ? (sectionMatch[1] || sectionMatch[2] || '').replace(/[)\]]/g, '') : null;
+
+    // Extract chunk ID (kept internally for linking, hidden from display)
+    const chunkMatch = src.match(/\[chunk\s*(\d+)\]/i);
+    const chunkId = chunkMatch ? parseInt(chunkMatch[1]) : null;
+
+    // Extract CPG short name: everything between "CPG " and the first § or [ or —
+    const cpgNameMatch = src.match(/^(?:CPG\s+)?(.+?)(?:\s*§|\s*\[|\s*—|\s*Section\s)/i);
+    const cpgShortName = cpgNameMatch
+      ? cpgNameMatch[1].replace(/\[chunk\s*\d+\]/gi, '').trim()
+      : src.replace(/§.*|Section\s.*|\[.*|—.*/gi, '').replace(/^CPG\s+/i, '').trim();
+
+    const fullName = resolveCpgFullName(cpgShortName);
+
+    // Build human-readable section label
+    const sectionLabel = sectionNum ? `Section ${sectionNum}` : null;
+
+    // Build clean display title
+    const displayTitle = sectionLabel ? `${fullName} — ${sectionLabel}` : fullName;
+
+    // Look up original CPG text from synchronized evidence array by chunkId index (1-based index)
+    let originalText = null;
+    if (chunkId && Array.isArray(evidence) && chunkId > 0 && chunkId <= evidence.length) {
+      const chunk = evidence[chunkId - 1];
+      if (chunk) {
+        if (chunk.parent_content) {
+          originalText = chunk.section_content
+            ? `Section Context:\n${chunk.section_content}\n\nParent Section Context:\n${chunk.parent_content}\n\nMatched Clause:\n${chunk.content}`
+            : `Parent Section Context:\n${chunk.parent_content}\n\nMatched Clause:\n${chunk.content}`;
+        } else {
+          originalText = chunk.content;
+        }
+      }
+    }
+
+    return {
+      raw: src,
+      cpgShortName,
+      cpgFullName: fullName,
+      displayTitle,
+      section: sectionLabel,
+      sectionNum,
+      chunkId,
+      // The rationale is the clinical reasoning — what the clinician needs to understand
+      // WHY this evidence applies. The inline note (after " — ") is a brief LLM summary.
+      context: rationale || null,
+      originalText: originalText,
+      // Track which recommendation uses this ref
+      usedBy: intervention ? [intervention] : [],
+    };
+  };
+
+  // Collect CPG references from all recommendations, grouped by CPG guideline name.
+  // Each unique cpg_source becomes a ref; refs are grouped by cpgFullName.
+  const cpgRefMap = new Map(); // key = raw src, value = structured ref
+  for (const r of allRecs) {
+    const src = (r.cpg_source || '').trim();
+    if (!src || /^no specific cpg/i.test(src) || /^No loaded CPG/i.test(src)) continue;
+    if (!cpgRefMap.has(src)) {
+      cpgRefMap.set(src, parseCpgSource(src, r.rationale, r.intervention));
+    } else {
+      // Same source cited by another recommendation — track the additional usage
+      const existing = cpgRefMap.get(src);
+      if (existing && r.intervention && !existing.usedBy.includes(r.intervention)) {
+        existing.usedBy.push(r.intervention);
+      }
+    }
+  }
+  const allRefs = [...cpgRefMap.values()].filter(Boolean);
+
+  // Group by CPG full name, preserving order
+  const groupMap = new Map();
+  for (const ref of allRefs) {
+    const key = ref.cpgFullName;
+    if (!groupMap.has(key)) {
+      groupMap.set(key, { cpgFullName: key, refs: [] });
+    }
+    groupMap.get(key).refs.push(ref);
+  }
+  const cpgReferences = allRefs;              // flat list (backward compat)
+  const cpgReferenceGroups = [...groupMap.values()]; // grouped
 
   return {
     clinicalSummary: plan.summary ?? '',
@@ -169,6 +329,7 @@ export function mapTreatmentPlanToCarePlan(plan) {
     icdAlternates: plan.icd_alternates,
     confidence: plan.confidence,
     cpgReferences,
+    cpgReferenceGroups,
     medications: {
       start: byAction('start'),
       stop: byAction('stop'),

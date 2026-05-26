@@ -469,6 +469,134 @@ function TabBar({ tabs, active, onChange }) {
 }
 
 /* ============================================================
+   CPG Reference Card — tappable, expands to show evidence context
+   ============================================================ */
+function CpgReferenceCard({ cpgRef, isDark }) {
+  const [open, setOpen] = useState(false);
+  const hasContext = Boolean(cpgRef?.context);
+  const hasOriginalText = Boolean(cpgRef?.originalText);
+  const canExpand = hasContext || hasOriginalText;
+
+  // Truncate long intervention names for the "Used by" line
+  const truncate = (s, max = 50) => s && s.length > max ? s.slice(0, max) + '…' : s;
+
+  return (
+    <div className={`rounded-lg border transition-all duration-200 overflow-hidden ${
+      isDark
+        ? 'bg-slate-800/30 border-slate-700/50 hover:border-[var(--accent-primary)]/40'
+        : 'bg-white border-slate-200 hover:border-[var(--accent-primary)]/40'
+    }`}>
+      {/* Header row — always visible */}
+      <button
+        onClick={() => canExpand && setOpen(v => !v)}
+        className={`w-full flex items-start gap-3 px-3.5 py-2.5 text-left transition-colors ${
+          canExpand ? 'cursor-pointer' : 'cursor-default'
+        }`}
+      >
+        <div className="flex-1 min-w-0">
+          {/* Display title: Full CPG Name — Section X.X.X */}
+          <span className={`text-xs font-medium leading-snug block ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+            {cpgRef?.displayTitle || cpgRef?.title}
+          </span>
+
+          {/* Used by line — which recommendations cite this */}
+          {cpgRef?.usedBy?.length > 0 && (
+            <div className={`mt-1 text-[10px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              <span className="font-medium">Used by: </span>
+              {cpgRef.usedBy.map((u, i) => (
+                <span key={i}>
+                  {truncate(u)}{i < cpgRef.usedBy.length - 1 ? ', ' : ''}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+        {canExpand && (
+          <div className={`flex-shrink-0 mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            {open
+              ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} />
+              : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
+          </div>
+        )}
+      </button>
+
+      {/* Expandable context — clinical rationale and original CPG text */}
+      {open && canExpand && (
+        <div className={`px-3.5 pb-3.5 pt-2 border-t text-xs leading-relaxed space-y-3 ${
+          isDark
+            ? 'border-white/5'
+            : 'border-slate-100'
+        }`}>
+          {hasContext && (
+            <div>
+              <span className={`block font-semibold uppercase tracking-wider text-[9px] mb-1.5 ${isDark ? 'text-slate-500 font-mono' : 'text-slate-400 font-mono'}`}>Clinical Application</span>
+              <p className={isDark ? 'text-slate-300 italic pl-1.5 border-l-2 border-[var(--accent-primary)]/40' : 'text-slate-700 italic pl-1.5 border-l-2 border-[var(--accent-primary)]/40'}>{cpgRef.context}</p>
+            </div>
+          )}
+          {hasOriginalText && (
+            <div>
+              <span className={`block font-semibold uppercase tracking-wider text-[9px] mb-1.5 ${isDark ? 'text-slate-500 font-mono' : 'text-slate-400 font-mono'}`}>Original Guideline Context</span>
+              <div className={`p-3 rounded-lg border font-sans whitespace-pre-line leading-relaxed ${
+                isDark 
+                  ? 'bg-slate-900/60 border-slate-800/80 text-slate-300 shadow-inner' 
+                  : 'bg-slate-50 border-slate-150 text-slate-600 shadow-inner'
+              }`}>
+                {cpgRef.originalText}
+              </div>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CpgReferenceGroup({ group, isDark }) {
+  const [open, setOpen] = useState(true);
+  const count = group.refs.length;
+
+  return (
+    <div className={`rounded-xl border overflow-hidden ${
+      isDark ? 'border-slate-700/50' : 'border-slate-200'
+    }`}>
+      {/* Group header */}
+      <button
+        onClick={() => setOpen(v => !v)}
+        className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+          isDark
+            ? 'bg-[var(--accent-primary)]/8 hover:bg-[var(--accent-primary)]/12'
+            : 'bg-[var(--accent-primary)]/5 hover:bg-[var(--accent-primary)]/10'
+        }`}
+      >
+        <BookOpen className="w-4 h-4 flex-shrink-0 text-[var(--accent-primary)]" strokeWidth={1.7} />
+        <div className="flex-1 min-w-0">
+          <span className={`text-sm font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+            {group.cpgFullName}
+          </span>
+          <span className={`ml-2 text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            {count} reference{count !== 1 ? 's' : ''}
+          </span>
+        </div>
+        <div className={`flex-shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+          {open
+            ? <ChevronUp className="w-4 h-4" strokeWidth={2} />
+            : <ChevronDown className="w-4 h-4" strokeWidth={2} />}
+        </div>
+      </button>
+
+      {/* Refs inside */}
+      {open && (
+        <div className={`flex flex-col gap-1.5 p-3 ${isDark ? 'bg-slate-900/30' : 'bg-slate-50/50'}`}>
+          {group.refs.map((ref, idx) => (
+            <CpgReferenceCard key={idx} cpgRef={ref} isDark={isDark} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ============================================================
    MAIN — Care Plan section (Tabbed layout)
    ============================================================ */
 export function CarePlanSection() {
@@ -549,6 +677,7 @@ export function CarePlanSection() {
     (carePlan.redFlags?.length || 0) +
     (Array.isArray(carePlan.followUp) ? carePlan.followUp.length : carePlan.followUp ? 1 : 0);
   const refsCount = carePlan.cpgReferences?.length || 0;
+  const refsGroupCount = carePlan.cpgReferenceGroups?.length || 0;
 
   const tabs = [
     { key: 'overview', label: 'Overview',          icon: LayoutGrid },
@@ -789,23 +918,23 @@ export function CarePlanSection() {
             </>
           )}
 
-          {/* ── REFERENCES ─────────────────────────────────────── */}
           {tab === 'refs' && (
             <Section title="CPG References" icon={BookOpen} count={refsCount}>
-              <div className="flex flex-col gap-2">
-                {(carePlan.cpgReferences || []).map((ref, idx) => (
-                  <button
-                    key={idx}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium inline-flex items-center gap-2 transition-colors self-start
-                      ${isDark
-                        ? 'bg-[var(--accent-primary)]/15 hover:bg-[var(--accent-primary)]/25 text-slate-200'
-                        : 'bg-[var(--accent-primary)]/10 hover:bg-[var(--accent-primary)]/20 text-slate-700'}`}
-                  >
-                    <BookOpen className="w-3 h-3 text-[var(--accent-primary)]" strokeWidth={1.7} />
-                    <span>{ref.title}</span>
-                    {ref.page && <span className="text-[10px] font-mono opacity-60">p.{ref.page}</span>}
-                  </button>
+              {/* Summary line */}
+              {refsGroupCount > 0 && (
+                <p className={`text-xs mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  {refsCount} reference{refsCount !== 1 ? 's' : ''} from {refsGroupCount} guideline{refsGroupCount !== 1 ? 's' : ''}
+                </p>
+              )}
+              <div className="flex flex-col gap-3">
+                {(carePlan.cpgReferenceGroups || []).map((group, idx) => (
+                  <CpgReferenceGroup key={idx} group={group} isDark={isDark} />
                 ))}
+                {refsCount === 0 && (
+                  <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    No CPG references were matched for this plan.
+                  </p>
+                )}
               </div>
             </Section>
           )}

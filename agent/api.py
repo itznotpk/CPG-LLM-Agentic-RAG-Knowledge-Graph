@@ -72,6 +72,7 @@ class ClinicalPlanResponse(_BaseModel):
     safety_report: SafetyReport | None = None
     cpg_references: list[str] = []  # Derived from recommendations/monitoring citations
     follow_up_parsed: list[dict] = []  # Derived from treatment_plan.follow_up; drives TCA date picker
+    evidence: list[dict] = []
 
 
 import re as _re
@@ -144,12 +145,21 @@ def _parse_follow_up(items: list[str]) -> list[dict]:
 def _derive_cpg_references(plan: TreatmentPlan) -> list[str]:
     """Collect unique CPG citation strings from a TreatmentPlan for the UI's
     collapsible references section. Order preserved by first appearance so the
-    primary CPG (cited most prominently) sorts to the top."""
+    primary CPG (cited most prominently) sorts to the top.
+
+    Gap-flag strings written by the LLM when no relevant chunk was retrieved
+    (e.g. 'No specific CPG chunk retrieved for ACS management…') are excluded —
+    they are evidence-gap disclosures that belong in unresolved_questions, not
+    in the references list.
+    """
     seen: list[str] = []
     seen_set: set[str] = set()
     for r in plan.recommendations or []:
         src = (r.cpg_source or "").strip()
-        if src and src not in seen_set:
+        # Skip LLM gap-flags — these are honest "no evidence" disclosures, not citations
+        if not src or src.lower().startswith("no specific cpg"):
+            continue
+        if src not in seen_set:
             seen_set.add(src)
             seen.append(src)
     for m in plan.monitoring or []:
@@ -158,7 +168,7 @@ def _derive_cpg_references(plan: TreatmentPlan) -> list[str]:
             ref = (m.get("cpg_ref") or "").strip()
         else:
             ref = (getattr(m, "cpg_ref", None) or "").strip()
-        if ref and ref not in seen_set:
+        if ref and not ref.lower().startswith("no specific cpg") and ref not in seen_set:
             seen_set.add(ref)
             seen.append(ref)
     return seen
@@ -708,6 +718,7 @@ async def clinical_plan(request: ClinicalPlanRequest):
             safety_report=result.safety_report,
             cpg_references=_derive_cpg_references(result.treatment_plan),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
+            evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
@@ -870,6 +881,7 @@ async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
             safety_report=result.safety_report,
             cpg_references=_derive_cpg_references(result.treatment_plan),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
+            evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
         # safety_review was already emitted inside the workflow; final_result
         # is intentionally last so the UI can gate rendering on safety arrival.
@@ -922,6 +934,7 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             safety_report=result.safety_report,
             cpg_references=_derive_cpg_references(result.treatment_plan),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
+            evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
         await emit("final_result", final.model_dump())
 

@@ -37,6 +37,31 @@ const MATCH_TYPE_COLORS = {
   out_of_scope: 'bg-slate-600/30 text-slate-400 border-slate-500/40',
 };
 
+const OVERRIDE_KEY_MAP = {
+  'red_flag_cant_miss': "Red Flag (Can't Miss)",
+  'specificity_over_generic': 'Specificity over Generic',
+  'clinical_contradiction': 'Clinical Contradiction',
+  'clinical_contradiction_rule': 'Clinical Contradiction Rule',
+  'presentation_fit': 'Presentation Fit',
+  'age_gender_compat': 'Demographic Compatibility',
+  'sex_compat': 'Sex Compatibility'
+};
+
+function formatOverrideReason(reason) {
+  if (!reason) return '';
+  const parts = reason.includes(';') ? reason.split(';') : [reason];
+  return parts.map(part => {
+    const colonIdx = part.indexOf(':');
+    if (colonIdx !== -1) {
+      const key = part.slice(0, colonIdx).trim();
+      const val = part.slice(colonIdx + 1).trim();
+      const prettyKey = OVERRIDE_KEY_MAP[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      return `${prettyKey}: ${val}`;
+    }
+    return part.trim().replace(/_/g, ' ');
+  }).join('; ');
+}
+
 // Compact before/after re-rank + score-breakdown table for the DDx stage.
 // All fields come from the stage-2 stage_update `data` (DDxResult.model_dump()).
 function DDxCandidateTable({ candidates, isDark }) {
@@ -62,6 +87,8 @@ function DDxCandidateTable({ candidates, isDark }) {
           ? 'text-slate-500'
           : delta > 0 ? 'text-emerald-400' : 'text-red-400';
         const incl = Number(sb.inclusion_match || 0);
+        const ccBoost = Number(sb.cc_boost || 0);
+        const ccRaw = sb.cc_boost_raw;
         const excl = Number(sb.exclusion_penalty || 0);
 
         return (
@@ -88,6 +115,9 @@ function DDxCandidateTable({ candidates, isDark }) {
               <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
                 {'  + incl '}{fmt(incl, true)}
               </span>
+              <span className={ccBoost > 0 ? 'text-sky-400' : 'opacity-40'} title={ccRaw != null ? `CC confidence: ${Math.round(ccRaw * 100)}%` : 'CC hint boost'}>
+                {'  + CC '}{fmt(ccBoost, true)}
+              </span>
               <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
                 {'  − excl '}{fmt(excl)}
               </span>
@@ -100,7 +130,7 @@ function DDxCandidateTable({ candidates, isDark }) {
             {c.override_reason && (
               <div className="mt-1 flex items-start gap-1 text-[11px] text-amber-400">
                 <span className="shrink-0">⤷ override:</span>
-                <span className="italic">{c.override_reason}</span>
+                <span className="italic">{formatOverrideReason(c.override_reason)}</span>
               </div>
             )}
           </div>

@@ -43,6 +43,7 @@ logger = logging.getLogger(__name__)
 DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
 EXCLUSION_PENALTY_WEIGHT = 0.3       # λ — applied in ddx/search_ddx.py; defined here for central reference
 INCLUSION_BOOST_WEIGHT = 0.3         # mirrors ddx/search_ddx.py; weights the synonym-match addend
+CC_BOOST_WEIGHT = 0.15               # calibrated: min 0.10 works, 0.15 gives robust margin (see scripts/calibrate_cc_boost.py)
 OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
 DDX_DISPLAY_FLOOR = 0.30
 SCORE_TERM_DISPLAY_FLOOR = 0.50
@@ -144,6 +145,8 @@ class ScoreBreakdown(BaseModel):
     base_similarity: float
     inclusion_match: float = 0.0
     inclusion_phrase: str | None = None
+    cc_boost: float = 0.0              # weighted CC-derived confidence boost (CC_BOOST_WEIGHT × raw confidence)
+    cc_boost_raw: float | None = None  # unweighted LLM confidence (0.0-1.0) for display
     exclusion_penalty: float = 0.0
     exclusion_phrase: str | None = None
     final_score: float
@@ -154,10 +157,10 @@ class ScoreBreakdown(BaseModel):
 
     @model_validator(mode="after")
     def validate_final_score(self) -> "ScoreBreakdown":
-        expected = self.base_similarity + self.inclusion_match - self.exclusion_penalty
+        expected = self.base_similarity + self.inclusion_match + self.cc_boost - self.exclusion_penalty
         if abs(self.final_score - expected) > 0.001:
             raise ValueError(
-                "final_score must equal base_similarity + inclusion_match - exclusion_penalty"
+                "final_score must equal base_similarity + inclusion_match + cc_boost - exclusion_penalty"
             )
         return self
 
@@ -175,6 +178,8 @@ class DDxResult(BaseModel):
     matched_exclusion: str | None = None
     exclusion_similarity: float | None = None
     exclusion_penalty: float = 0.0
+    cc_boost: float = 0.0              # weighted CC boost (CC_BOOST_WEIGHT × cc_confidence)
+    cc_confidence: float | None = None # raw LLM confidence from CC hint extraction (0.0-1.0)
     score_breakdown: ScoreBreakdown | None = None
     matched_cpg_title: str | None = None
     reasoning: list[str] = []
@@ -191,9 +196,10 @@ class OutOfScopeInfo(BaseModel):
     message: str
 
 
-DDX_SCORE_EXPLAINER = """Each diagnosis is scored from three signals:
+DDX_SCORE_EXPLAINER = """Each diagnosis is scored from four signals:
 - Symptom match - how closely the patient's presentation matches the condition's official description.
 - Known-term match - bonus when the patient's words match a recognised synonym for the condition.
+- CC confidence - boost when the clinician's chief complaint strongly implies this specific diagnosis (dynamic, based on LLM confidence).
 - Exclusion caution - the score is reduced when the presentation matches something the WHO guideline explicitly says this code is NOT. The diagnosis is not removed; it is ranked lower with the reason shown.
 
 The CPG badge tells you HOW the guideline behind a diagnosis was found: an exact match is the strongest; a broader ancestor match indicates the guideline covers a parent or related category."""
@@ -209,8 +215,11 @@ def build_score_breakdown(
     # final past 1.0. exclusion_penalty is already weighted upstream.
     raw_inclusion = float(result.inclusion_similarity or 0.0)
     inclusion_match = round(INCLUSION_BOOST_WEIGHT * raw_inclusion, 4)
+    # CC boost — already pre-weighted (CC_BOOST_WEIGHT × raw confidence) upstream
+    cc_boost = round(float(result.cc_boost or 0.0), 4)
+    cc_boost_raw = result.cc_confidence  # preserve the unweighted LLM confidence for display
     exclusion_penalty = float(result.exclusion_penalty or 0.0)
-    final_score = round(base_similarity + inclusion_match - exclusion_penalty, 4)
+    final_score = round(base_similarity + inclusion_match + cc_boost - exclusion_penalty, 4)
 
     # Phrase is shown when the underlying MATCH (raw cosine) is strong — not the
     # weighted addend (which is always < the floor after weighting).
@@ -229,6 +238,8 @@ def build_score_breakdown(
         base_similarity=round(base_similarity, 4),
         inclusion_match=round(inclusion_match, 4),
         inclusion_phrase=inclusion_phrase,
+        cc_boost=cc_boost,
+        cc_boost_raw=cc_boost_raw,
         exclusion_penalty=round(exclusion_penalty, 4),
         exclusion_phrase=exclusion_phrase,
         final_score=final_score,
@@ -278,6 +289,11 @@ def render_ddx_candidate(candidate: DDxResult, rank: int) -> str:
         lines.append(
             f'       ✓ Matched known term "{breakdown.inclusion_phrase}" '
             f"(+{breakdown.inclusion_match:.0%})"
+        )
+    if breakdown.cc_boost > 0:
+        raw_pct = f"{breakdown.cc_boost_raw:.0%}" if breakdown.cc_boost_raw else "?"
+        lines.append(
+            f"       ✓ CC confidence boost: {raw_pct} confidence → +{breakdown.cc_boost:.0%} weighted"
         )
     if breakdown.exclusion_phrase:
         lines.append(
@@ -735,6 +751,84 @@ async def _generate_condition_hypotheses(
         return []
 
 
+async def _extract_cc_icd_hints(
+    cc: str,
+    client: openai.AsyncOpenAI,
+    model: str,
+    extra_body: dict | None = None,
+    max_n: int = 3,
+) -> list[dict]:
+    """Extract high-confidence ICD-11 codes with per-code confidence from the
+    chief complaint text alone.
+
+    Returns a list of {"code": "BA41.0", "confidence": 0.92} dicts where
+    confidence is the LLM's own calibrated assessment of how strongly the CC
+    implies that specific diagnosis. The confidence is then used as a dynamic
+    weight (CC_BOOST_WEIGHT × confidence) — never a hardcoded percentage.
+
+    Confidence anchoring (same scale as the reranker):
+      0.90+ : CC explicitly names the diagnosis or presents textbook syndrome
+      0.70  : CC strongly suggests but one key finding is ambiguous
+      0.50  : plausible but genuinely competing differentials
+      <0.40 : should not be returned (below the "high confidence from CC" threshold)
+
+    Returns [] on any failure — the caller falls back to the unmodified pool.
+    """
+    prompt = (
+        "You are a clinical coding expert.\n"
+        "Given ONLY the chief complaint below, identify the ICD-11 codes a doctor "
+        "would assign as the PRIMARY working diagnosis.\n"
+        "Rules:\n"
+        "- Return a JSON array of objects: [{\"code\": \"BA41.0\", \"confidence\": 0.92}]\n"
+        "- confidence is YOUR calibrated probability (0.0-1.0) that this CC implies this diagnosis:\n"
+        "    0.90+: CC explicitly names the diagnosis or textbook syndrome\n"
+        "    0.70 : strongly suggests but one key finding ambiguous\n"
+        "    0.50 : plausible but competing differentials\n"
+        "- Only include codes with confidence >= 0.40. Maximum 3 codes.\n"
+        "- If the CC is too vague for any confident code, return []\n"
+        "- Return ONLY the JSON array. No explanation.\n\n"
+        f"Chief complaint: {cc}\n\n"
+        "JSON:"
+    )
+    try:
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=120,
+            temperature=0,
+            **({"extra_body": extra_body} if extra_body else {}),
+        )
+        txt = (resp.choices[0].message.content or "").strip()
+        # Parse JSON — robust to markdown fences
+        raw = txt.strip().strip("` \n")
+        if raw.startswith("json"):
+            raw = raw[4:].strip()
+        hints = json.loads(raw)
+        if not isinstance(hints, list):
+            return []
+
+        import re as _re
+        valid = []
+        for h in hints[:max_n]:
+            if not isinstance(h, dict):
+                continue
+            code = (h.get("code") or "").strip().upper()
+            conf = float(h.get("confidence", 0))
+            # Validate ICD-11 format and confidence threshold
+            if (
+                code
+                and _re.match(r"^[A-Z]{1,2}[A-Z0-9]{1,3}(\.[A-Z0-9]{1,3})?$", code)
+                and 0.0 < conf <= 1.0
+            ):
+                valid.append({"code": code, "confidence": round(conf, 3)})
+
+        logger.info("CC ICD hints: %s from CC: %r", valid, cc[:80])
+        return valid
+    except Exception as exc:
+        logger.warning("CC ICD hint extraction failed (%s) — no pool injection", exc)
+        return []
+
+
 async def stage_2_ddx(
     case: PatientCase,
     top_k: int = 5,
@@ -814,6 +908,26 @@ async def stage_2_ddx(
             "badge": "DDx",
         })
 
+    # CC-boosted ICD hint injection — extract high-confidence ICD-11 codes with
+    # per-code confidence directly from the chief complaint. The confidence is the
+    # LLM's own calibrated assessment (dynamic, not hardcoded). It becomes an additive
+    # boost signal: cc_boost = CC_BOOST_WEIGHT × confidence, just like inclusion_match.
+    cc_icd_hints = await _extract_cc_icd_hints(
+        case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
+    )
+    # Build a lookup: code -> confidence for pool injection
+    cc_confidence_map: dict[str, float] = {}
+    if cc_icd_hints:
+        for hint in cc_icd_hints:
+            cc_confidence_map[hint["code"]] = hint["confidence"]
+        if emit is not None:
+            detail_parts = [f'{h["code"]} ({h["confidence"]:.0%})' for h in cc_icd_hints]
+            await emit("sub_step", {
+                "stage": 2,
+                "detail": "CC priority codes: " + ", ".join(detail_parts),
+                "badge": "CC-boost",
+            })
+
     queries = [query] + hypotheses
     search_results = await asyncio.gather(
         *(search_ddx(q, top_k=fetch_k) for q in queries),
@@ -830,7 +944,48 @@ async def stage_2_ddx(
                 continue
             if code not in pool or r.get("similarity", 0) > pool[code].get("similarity", 0):
                 pool[code] = r
-    raw = sorted(pool.values(), key=lambda r: r.get("similarity", 0), reverse=True)[: max(fetch_k, 10)]
+
+    # Inject CC-hinted codes that are missing from the pool entirely.
+    # We fetch them via search_ddx(code) to get the canonical DDx row with all fields.
+    if cc_confidence_map:
+        missing_codes = [c for c in cc_confidence_map if c not in pool]
+        if missing_codes:
+            fetch_results = await asyncio.gather(
+                *(search_ddx(code, top_k=5) for code in missing_codes),
+                return_exceptions=True,
+            )
+            for hint_code, hint_res in zip(missing_codes, fetch_results):
+                if isinstance(hint_res, Exception):
+                    continue
+                matched = next((r for r in hint_res if r.get("code") == hint_code), None)
+                if matched:
+                    pool[hint_code] = matched
+                    logger.info("CC-boost: injected missing code %s into pool", hint_code)
+                else:
+                    logger.info("CC-boost: code %s not found in DDx index", hint_code)
+
+        # Apply the dynamic CC boost as an additive field on pool entries.
+        # cc_boost = CC_BOOST_WEIGHT × confidence (e.g. 0.25 × 0.92 = 0.23)
+        # This is stored as a field on the pool dict so DDxResult picks it up.
+        for code, conf in cc_confidence_map.items():
+            if code in pool:
+                boost_val = round(CC_BOOST_WEIGHT * conf, 4)
+                pool[code]["cc_boost"] = boost_val
+                pool[code]["cc_confidence"] = conf
+                logger.info(
+                    "CC-boost applied: %s confidence=%.2f → boost=+%.3f (weight=%.2f)",
+                    code, conf, boost_val, CC_BOOST_WEIGHT,
+                )
+
+    # Sort by (similarity + cc_boost) so CC-boosted codes surface to top-K for
+    # the LLM reranker. The cc_boost is additive — a high-confidence CC code with
+    # moderate vector similarity will still outrank a low-relevance code with high
+    # vector similarity alone.
+    raw = sorted(
+        pool.values(),
+        key=lambda r: r.get("similarity", 0) + r.get("cc_boost", 0),
+        reverse=True,
+    )[: max(fetch_k, 10)]
 
     results: list[DDxResult] = []
     for r in raw:
@@ -840,6 +995,17 @@ async def stage_2_ddx(
             )
         except Exception as exc:
             logger.warning("Skipping malformed DDx result %r: %s", r, exc)
+
+    # Compute full final_score (base + inclusion + cc_boost - exclusion) and re-sort
+    # so math_rank reflects the complete composite score. Without this, pool sort order
+    # (similarity + cc_boost only) would assign math_rank ignoring inclusion/exclusion
+    # — e.g. a code with 0.65 sim + 0.23 inclusion = 0.88 final would be math_rank #3
+    # behind codes with 0.69 sim but 0.69 final. The doctor sees 88% ranked below 69%.
+    for r in results:
+        if r.score_breakdown is None:
+            r.score_breakdown = build_score_breakdown(r)
+        r.final_score = r.score_breakdown.final_score
+    results.sort(key=lambda r: r.final_score or 0, reverse=True)
 
     if rerank and results:
         results = await _llm_rerank_ddx(case, results, emit=emit)

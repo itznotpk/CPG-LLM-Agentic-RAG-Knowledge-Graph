@@ -292,15 +292,25 @@ export function TextToSpeechButton({ text, label = 'Read Aloud', className = '' 
     speechSynthesis.cancel();
 
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9;
-    utterance.pitch = 1;
+    utterance.rate  = 0.88;   // slightly slower — calm clinical tone
+    utterance.pitch = 1.08;   // slightly higher — softer, female-friendly
     utterance.volume = 1;
 
-    // Try to use a natural-sounding voice
+    // Female voice priority list — works across Chrome/Edge/Windows
     const voices = speechSynthesis.getVoices();
-    const preferredVoice = voices.find(v => 
-      v.name.includes('Google') || v.name.includes('Natural') || v.lang.startsWith('en')
-    );
+    const FEMALE_PRIORITY = [
+      'Microsoft Aria Online (Natural)',   // Edge neural (best)
+      'Microsoft Aria',                    // Edge fallback
+      'Google UK English Female',          // Chrome soft female
+      'Google US English',                 // Chrome generic (usually female)
+      'Microsoft Zira',                    // Windows classic female
+      'Microsoft Jenny Online (Natural)',  // Edge neural alt
+      'Samantha',                          // macOS / Safari female
+    ];
+    const preferredVoice =
+      FEMALE_PRIORITY.map(name => voices.find(v => v.name === name)).find(Boolean) ||
+      voices.find(v => /female/i.test(v.name) && v.lang.startsWith('en')) ||
+      voices.find(v => v.lang.startsWith('en-'));
     if (preferredVoice) {
       utterance.voice = preferredVoice;
     }
