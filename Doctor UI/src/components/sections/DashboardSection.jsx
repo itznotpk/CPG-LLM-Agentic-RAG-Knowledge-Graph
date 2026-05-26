@@ -97,6 +97,7 @@ export function DashboardSection() {
   // RAG Debugger State
   const [systemLogs, setSystemLogs] = useState([]);
   const [isFetchingLogs, setIsFetchingLogs] = useState(false);
+  const [autoRefreshLogs, setAutoRefreshLogs] = useState(true);
   
   const fetchLogs = async () => {
     try {
@@ -114,167 +115,198 @@ export function DashboardSection() {
     }
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setLoading(true);
-        // Fetch consultations from the last 30 days
-        const thirtyDaysAgo = new Date();
-        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  const fetchData = async (showLoadingState = true) => {
+    try {
+      if (showLoadingState) setLoading(true);
+      // Fetch consultations from the last 30 days
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      
+      const { data: consultsData, error: consultsError } = await supabase
+        .from('consultations')
+        .select('*')
+        .gte('created_at', thirtyDaysAgo.toISOString())
+        .order('created_at', { ascending: false });
         
-        const { data: consultsData, error: consultsError } = await supabase
-          .from('consultations')
-          .select('*')
-          .gte('created_at', thirtyDaysAgo.toISOString())
-          .order('created_at', { ascending: false });
-          
-        if (consultsError) throw consultsError;
+      if (consultsError) throw consultsError;
+      
+      // Fetch all patients to map NRIC -> Name
+      const { data: patientsData, error: patientsError } = await supabase
+        .from('patients')
+        .select('nric, full_name');
         
-        // Fetch all patients to map NRIC -> Name
-        const { data: patientsData, error: patientsError } = await supabase
-          .from('patients')
-          .select('nric, full_name');
-          
-        if (patientsError) throw patientsError;
+      if (patientsError) throw patientsError;
+      
+      const patientMap = {};
+      patientsData.forEach(p => { patientMap[p.nric] = p.full_name; });
+      
+      // --- Process Metrics ---
+      let todayCount = 0;
+      let totalTimeSaved = 0;
+      let cpgAlignedCount = 0;
+      let citationsTotal = 0;
+      let referralsCount = 0;
+      let referralsJustified = 0;
+      
+      const todayStr = new Date().toISOString().split('T')[0];
+      
+      const dxMap = {};
+      const cpgMap = {};
+      const newLogs = [];
+      
+      (consultsData || []).forEach(c => {
+        const isToday = c.created_at.startsWith(todayStr);
+        if (isToday) todayCount++;
         
-        const patientMap = {};
-        patientsData.forEach(p => { patientMap[p.nric] = p.full_name; });
+        // Mock time saved: ~4 mins per consult (since this isn't recorded in DB)
+        const timeSaved = 4;
+        if (isToday) totalTimeSaved += timeSaved;
         
-        // --- Process Metrics ---
-        let todayCount = 0;
-        let totalTimeSaved = 0;
-        let cpgAlignedCount = 0;
-        let citationsTotal = 0;
-        let referralsCount = 0;
-        let referralsJustified = 0;
+        // Parse CPG References
+        let cpgCount = 0;
+        let cpgRefs = [];
+        try {
+           cpgRefs = typeof c.cpg_references === 'string' ? JSON.parse(c.cpg_references) : (c.cpg_references || []);
+        } catch(e) {}
         
-        const todayStr = new Date().toISOString().split('T')[0];
-        
-        const dxMap = {};
-        const cpgMap = {};
-        const newLogs = [];
-        
-        (consultsData || []).forEach(c => {
-          const isToday = c.created_at.startsWith(todayStr);
-          if (isToday) todayCount++;
+        if (Array.isArray(cpgRefs) && cpgRefs.length > 0) {
+          cpgAlignedCount++;
+          cpgCount = cpgRefs.length;
+          citationsTotal += cpgCount;
           
-          // Mock time saved: ~4 mins per consult (since this isn't recorded in DB)
-          const timeSaved = 4;
-          if (isToday) totalTimeSaved += timeSaved;
-          
-          // Parse CPG References
-          let cpgCount = 0;
-          let cpgRefs = [];
-          try {
-             cpgRefs = typeof c.cpg_references === 'string' ? JSON.parse(c.cpg_references) : (c.cpg_references || []);
-          } catch(e) {}
-          
-          if (Array.isArray(cpgRefs) && cpgRefs.length > 0) {
-            cpgAlignedCount++;
-            cpgCount = cpgRefs.length;
-            citationsTotal += cpgCount;
-            
-            cpgRefs.forEach(ref => {
-              const section = ref.section || ref.title || ref.name || 'General Guideline';
-              cpgMap[section] = (cpgMap[section] || 0) + 1;
-            });
-          }
-          
-          // Parse Referrals
-          let refs = [];
-          try {
-             refs = typeof c.referrals === 'string' ? JSON.parse(c.referrals) : (c.referrals || []);
-          } catch(e) {}
-          
-          if (Array.isArray(refs) && refs.length > 0) {
-             referralsCount++;
-             if (cpgCount > 0) referralsJustified++;
-          }
-          
-          // Parse Diagnoses
-          let dxs = [];
-          try {
-            dxs = typeof c.diagnoses === 'string' ? JSON.parse(c.diagnoses) : (c.diagnoses || []);
-          } catch(e) {}
-          
-          let ddxStr = 'Pending';
-          if (Array.isArray(dxs) && dxs.length > 0) {
-            const firstDx = typeof dxs[0] === 'string' ? dxs[0] : (dxs[0].condition || dxs[0].name || dxs[0].diagnosis || 'Unknown');
-            ddxStr = firstDx;
-            dxs.forEach(dx => {
-              const name = typeof dx === 'string' ? dx : (dx.condition || dx.name || dx.diagnosis || 'Unknown');
-              if (name && name !== 'Unknown') {
-                dxMap[name] = (dxMap[name] || 0) + 1;
-              }
-            });
-          }
-          
-          // Extract text cleanly from clinical notes
-          let complaintText = 'No notes';
-          if (c.clinical_notes) {
-            complaintText = c.clinical_notes.replace(/<[^>]*>?/gm, '').substring(0, 50);
-            if (c.clinical_notes.length > 50) complaintText += '...';
-          }
-          
-          newLogs.push({
-            id: c.id,
-            patient: patientMap[c.patient_nric] || 'Unknown Patient',
-            complaint: complaintText,
-            ddx: ddxStr,
-            cpgCitations: cpgCount,
-            outcome: 'accepted', // Mocked as we don't have tracking for this yet
-            timeSaved: timeSaved,
-            date: new Date(c.created_at).toLocaleString('en-MY', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+          cpgRefs.forEach(ref => {
+            const section = ref.section || ref.title || ref.name || 'General Guideline';
+            cpgMap[section] = (cpgMap[section] || 0) + 1;
           });
+        }
+        
+        // Parse Referrals
+        let refs = [];
+        try {
+           refs = typeof c.referrals === 'string' ? JSON.parse(c.referrals) : (c.referrals || []);
+        } catch(e) {}
+        
+        if (Array.isArray(refs) && refs.length > 0) {
+           referralsCount++;
+           if (cpgCount > 0) referralsJustified++;
+        }
+        
+        // Parse Diagnoses
+        let dxs = [];
+        try {
+          dxs = typeof c.diagnoses === 'string' ? JSON.parse(c.diagnoses) : (c.diagnoses || []);
+        } catch(e) {}
+        
+        let ddxStr = 'Pending';
+        if (Array.isArray(dxs) && dxs.length > 0) {
+          const firstDx = typeof dxs[0] === 'string' ? dxs[0] : (dxs[0].condition || dxs[0].name || dxs[0].diagnosis || 'Unknown');
+          ddxStr = firstDx;
+          dxs.forEach(dx => {
+            const name = typeof dx === 'string' ? dx : (dx.condition || dx.name || dx.diagnosis || 'Unknown');
+            if (name && name !== 'Unknown') {
+              dxMap[name] = (dxMap[name] || 0) + 1;
+            }
+          });
+        }
+        
+        // Extract text cleanly from clinical notes
+        let complaintText = 'No notes';
+        if (c.clinical_notes) {
+          complaintText = c.clinical_notes.replace(/<[^>]*>?/gm, '').substring(0, 50);
+          if (c.clinical_notes.length > 50) complaintText += '...';
+        }
+        
+        newLogs.push({
+          id: c.id,
+          patient: patientMap[c.patient_nric] || 'Unknown Patient',
+          complaint: complaintText,
+          ddx: ddxStr,
+          cpgCitations: cpgCount,
+          outcome: 'accepted', // Mocked as we don't have tracking for this yet
+          timeSaved: timeSaved,
+          date: new Date(c.created_at).toLocaleString('en-MY', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
         });
+      });
+      
+      const totalConsults = Math.max(consultsData.length, 1);
+      
+      // Sort and select top Diagnoses
+      const topDxList = Object.entries(dxMap)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([name, count]) => ({
+          name,
+          count,
+          pct: Math.round((count / totalConsults) * 100)
+        }));
         
-        const totalConsults = Math.max(consultsData.length, 1);
+      // Sort and select top CPG sections
+      const topCpgList = Object.entries(cpgMap)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map(([section, hits]) => ({
+          section,
+          hits
+        }));
         
-        // Sort and select top Diagnoses
-        const topDxList = Object.entries(dxMap)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 5)
-          .map(([name, count]) => ({
-            name,
-            count,
-            pct: Math.round((count / totalConsults) * 100)
-          }));
-          
-        // Sort and select top CPG sections
-        const topCpgList = Object.entries(cpgMap)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 5)
-          .map(([section, hits]) => ({
-            section,
-            hits
-          }));
-          
-        setSummaryMetrics({
-          timeSavedTotal: totalTimeSaved,
-          cpgAligned: { count: cpgAlignedCount, total: totalConsults },
-          citationsIssued: citationsTotal,
-          referrals: { count: referralsCount, cpgJustified: referralsJustified },
-          consultationsToday: todayCount,
-          avgTimePerConsult: 4.0,
-          acceptanceRate: 92, // Mocked 
-        });
-        
-        setConsultationLog(newLogs);
-        setTopDiagnoses(topDxList);
-        setCpgSectionsUsed(topCpgList);
-        
-        // Also fetch initial logs
-        fetchLogs();
-        
-      } catch (err) {
-        console.error('Error fetching dashboard data:', err);
-      } finally {
-        setLoading(false);
-      }
+      setSummaryMetrics({
+        timeSavedTotal: totalTimeSaved,
+        cpgAligned: { count: cpgAlignedCount, total: totalConsults },
+        citationsIssued: citationsTotal,
+        referrals: { count: referralsCount, cpgJustified: referralsJustified },
+        consultationsToday: todayCount,
+        avgTimePerConsult: 4.0,
+        acceptanceRate: 92, // Mocked 
+      });
+      
+      setConsultationLog(newLogs);
+      setTopDiagnoses(topDxList);
+      setCpgSectionsUsed(topCpgList);
+      
+    } catch (err) {
+      console.error('Error fetching dashboard data:', err);
+    } finally {
+      if (showLoadingState) setLoading(false);
     }
+  };
+
+  // Fetch initial data on mount and subscribe to realtime updates
+  useEffect(() => {
+    fetchData(true);
+    fetchLogs();
     
-    fetchData();
+    // Subscribe to schema changes in Supabase
+    const channel = supabase
+      .channel('schema-db-changes')
+      .on(
+        'postgres_changes',
+        { event: '*', schema: 'public', table: 'consultations' },
+        (payload) => {
+          console.log('Realtime change received in Performance Monitoring dashboard:', payload);
+          fetchData(false);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
+
+  // Control the automatic log fetching interval
+  useEffect(() => {
+    let intervalId;
+    if (autoRefreshLogs) {
+      // Initial fetch when enabling
+      fetchLogs();
+      intervalId = setInterval(() => {
+        fetchLogs();
+      }, 4000);
+    }
+    return () => {
+      if (intervalId) clearInterval(intervalId);
+    };
+  }, [autoRefreshLogs]);
 
   const cpgPct = Math.round((summaryMetrics.cpgAligned.count / summaryMetrics.cpgAligned.total) * 100);
 
@@ -294,7 +326,7 @@ export function DashboardSection() {
       <div>
         <div className="flex items-center justify-between">
           <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            AI Assistant Performance
+            Performance Monitoring
           </h1>
           {loading && <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'} animate-pulse`}>Syncing with database...</span>}
         </div>
@@ -462,18 +494,45 @@ export function DashboardSection() {
       {/* ── RAG Pipeline Debugging ───────────────────── */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <p className={`text-[10px] font-semibold uppercase tracking-widest ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            RAG Pipeline Debugging
-          </p>
-          <Button 
-            variant="ghost" 
-            size="sm" 
-            icon={RefreshIcon} 
-            onClick={fetchLogs} 
-            className={isFetchingLogs ? 'animate-spin' : ''}
-          >
-            Refresh Logs
-          </Button>
+          <div className="flex items-center gap-3">
+            <p className={`text-[10px] font-semibold uppercase tracking-widest ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              RAG Pipeline Debugging
+            </p>
+            {/* Realtime database / logs status pill */}
+            <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium border
+              ${autoRefreshLogs 
+                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' 
+                : 'bg-slate-500/10 text-slate-400 border-slate-500/20'}`}>
+              <span className={`relative flex h-1.5 w-1.5 ${autoRefreshLogs ? 'block' : 'hidden'}`}>
+                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              {!autoRefreshLogs && <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />}
+              {autoRefreshLogs ? 'Real-time Streaming' : 'Live Paused'}
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <label className={`flex items-center gap-2 cursor-pointer select-none text-xs ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-800'} transition-colors`}>
+              <input
+                type="checkbox"
+                checked={autoRefreshLogs}
+                onChange={(e) => setAutoRefreshLogs(e.target.checked)}
+                className="sr-only peer"
+              />
+              <span className="relative w-8 h-4 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-emerald-500"></span>
+              <span>Auto-refresh</span>
+            </label>
+            <div className={`w-[1px] h-4 ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              icon={RefreshIcon} 
+              onClick={fetchLogs} 
+              className={isFetchingLogs ? 'animate-spin' : ''}
+            >
+              Refresh Logs
+            </Button>
+          </div>
         </div>
         <Card className="overflow-hidden bg-slate-950 border-slate-800" variant="dark">
           <div className="flex items-center gap-2 p-3 border-b border-white/10 bg-slate-900/50">

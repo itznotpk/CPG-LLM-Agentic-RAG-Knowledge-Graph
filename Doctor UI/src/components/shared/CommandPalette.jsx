@@ -34,7 +34,7 @@ export default function CommandPalette({ onNavigate, onGoToStep }) {
       { id: 'go-dashboard', group: 'Navigate', label: 'Go to Home', keywords: 'dashboard start overview', icon: LayoutDashboard, run: () => onNavigate('dashboard') },
       { id: 'go-patients', group: 'Navigate', label: 'My Patients', keywords: 'patient list roster', icon: Users, run: () => onNavigate('patients') },
       { id: 'go-consult', group: 'Navigate', label: 'Open Consultation', keywords: 'consult encounter visit', icon: Stethoscope, run: () => onNavigate('consultation') },
-      { id: 'go-analytics', group: 'Navigate', label: 'AI Performance', keywords: 'analytics metrics dashboard', icon: BarChart3, run: () => onNavigate('analytics') },
+      { id: 'go-analytics', group: 'Navigate', label: 'Performance Monitoring', keywords: 'analytics metrics dashboard performance monitoring live real-time', icon: BarChart3, run: () => onNavigate('analytics') },
       { id: 'go-settings', group: 'Navigate', label: 'Settings', keywords: 'preferences profile theme', icon: Settings, run: () => onNavigate('settings') },
       { id: 'step-data', group: 'Consultation steps', label: 'Step 1 · Data Input', keywords: 'vitals demographics notes intake', icon: ClipboardList, run: () => { onNavigate('consultation'); onGoToStep?.(1); } },
       { id: 'step-dx', group: 'Consultation steps', label: 'Step 2 · Diagnosis', keywords: 'differential assessment dx', icon: Microscope, run: () => { onNavigate('consultation'); onGoToStep?.(2); } },

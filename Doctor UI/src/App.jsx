@@ -51,7 +51,7 @@ function AppContent({ view }) {
   const [chartPatient, setChartPatient] = useState(null);
   const [showChart, setShowChart] = useState(false);
   const currentView = showChart ? 'chart' : view;
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   const profile = authProfile ? {
     name:       authProfile.full_name      || 'Clinician',
