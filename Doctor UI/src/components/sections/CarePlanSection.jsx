@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { getTodayUTC8 } from '../../utils/timezone';
 import {
   ClipboardList,
@@ -20,6 +20,8 @@ import {
   Shield,
   LayoutGrid,
   Clock,
+  Pencil,
+  Trash2,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -100,6 +102,8 @@ const ACTION_STYLES = {
   change:   { label: 'CHANGE',   light: 'bg-amber-100 text-amber-700',     dark: 'bg-amber-500/20 text-amber-300' },
   continue: { label: 'CONTINUE', light: 'bg-blue-100 text-blue-700',       dark: 'bg-blue-500/20 text-blue-300' },
 };
+const ACTION_OPTIONS = ['start', 'continue', 'change', 'stop'];
+
 function ActionTag({ action }) {
   const { isDark } = useTheme();
   const s = ACTION_STYLES[action];
@@ -107,43 +111,159 @@ function ActionTag({ action }) {
     <span className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-wider ${isDark ? s.dark : s.light}`}>{s.label}</span>
   );
 }
-function MedicationRow({ med, action }) {
+
+/* Editable inline text — click to edit, blur/enter to save */
+function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '' }) {
   const { isDark } = useTheme();
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(value || '');
+  const ref = useRef(null);
+
+  useEffect(() => { setDraft(value || ''); }, [value]);
+  useEffect(() => {
+    if (editing && ref.current) {
+      ref.current.focus();
+      // Move cursor to end
+      const len = ref.current.value?.length || 0;
+      ref.current.setSelectionRange(len, len);
+    }
+  }, [editing]);
+
+  const commit = () => {
+    setEditing(false);
+    if (draft !== (value || '')) onChange(draft);
+  };
+
+  if (editing) {
+    const inputCls = `w-full px-1.5 py-0.5 rounded border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/40 ${isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white border-slate-200 text-slate-800'} ${className}`;
+    if (multiline) {
+      return (
+        <textarea
+          ref={ref}
+          value={draft}
+          onChange={(e) => setDraft(e.target.value)}
+          onBlur={commit}
+          onKeyDown={(e) => { if (e.key === 'Escape') { setDraft(value || ''); setEditing(false); } }}
+          className={`${inputCls} min-h-[48px] resize-y`}
+          placeholder={placeholder}
+          rows={2}
+        />
+      );
+    }
+    return (
+      <input
+        ref={ref}
+        value={draft}
+        onChange={(e) => setDraft(e.target.value)}
+        onBlur={commit}
+        onKeyDown={(e) => { if (e.key === 'Enter') commit(); if (e.key === 'Escape') { setDraft(value || ''); setEditing(false); } }}
+        className={inputCls}
+        placeholder={placeholder}
+      />
+    );
+  }
+
   return (
-    <tr className={`border-b ${isDark ? 'border-white/5' : 'border-slate-100'} last:border-b-0`}>
-      <td className="py-3 pr-4 align-top w-[80px]"><ActionTag action={action} /></td>
+    <span
+      onClick={() => setEditing(true)}
+      className={`group/edit cursor-pointer inline-flex items-center gap-1 rounded px-1 -mx-1 transition-colors ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'} ${className}`}
+      title="Click to edit"
+    >
+      <span className="min-w-0">{value || <span className="italic opacity-50">{placeholder || 'Click to edit'}</span>}</span>
+      <Pencil className={`w-3 h-3 flex-shrink-0 opacity-0 group-hover/edit:opacity-60 transition-opacity ${isDark ? 'text-slate-400' : 'text-slate-400'}`} strokeWidth={1.7} />
+    </span>
+  );
+}
+
+/* Editable action dropdown — single select that shows colored label */
+function ActionDropdown({ action, onChange }) {
+  const { isDark } = useTheme();
+  const s = ACTION_STYLES[action];
+  return (
+    <select
+      value={action}
+      onChange={(e) => onChange(e.target.value)}
+      className={`appearance-none cursor-pointer px-2.5 py-1 rounded text-[10px] font-bold tracking-wider border-0 focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/40 transition-all ${isDark ? s.dark : s.light}`}
+      style={{ WebkitAppearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 5px center', paddingRight: '20px' }}
+    >
+      {ACTION_OPTIONS.map((opt) => (
+        <option key={opt} value={opt}>{ACTION_STYLES[opt].label}</option>
+      ))}
+    </select>
+  );
+}
+
+function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete }) {
+  const { isDark } = useTheme();
+  // originalAction = the category the med belongs to (determines content rendering)
+  // action = the displayed action (may be overridden by user)
+  return (
+    <tr className={`border-b ${isDark ? 'border-white/5' : 'border-slate-100'} last:border-b-0 group/row`}>
+      <td className="py-3 pr-4 align-top w-[100px]">
+        <ActionDropdown action={action} onChange={onActionChange} />
+      </td>
       <td className="py-3 pr-4 align-top">
-        <div className={`font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{med.name}</div>
-        <div className={`mt-0.5 text-xs font-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-          {action === 'change' ? (
-            <>
-              <span className="line-through opacity-60">{med.previousDose}</span>
-              <span className="mx-1.5">→</span>
-              <span className={`font-semibold ${isDark ? 'text-amber-300' : 'text-amber-700'}`}>{med.newDose}</span>
-            </>
+        <div className={`font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
+          <InlineEdit value={med.name} onChange={(v) => onFieldChange('name', v)} placeholder="Medication name" />
+        </div>
+        <div className={`mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          {originalAction === 'change' ? (
+            <InlineEdit
+              value={`${med.previousDose || ''} → ${med.newDose || ''}`}
+              onChange={(v) => {
+                const parts = v.split('→').map(s => s.trim());
+                if (parts.length >= 2) {
+                  onFieldChange('previousDose', parts[0]);
+                  onFieldChange('newDose', parts[1]);
+                } else {
+                  onFieldChange('dose', v);
+                }
+              }}
+              multiline
+              className={`text-xs leading-relaxed`}
+              placeholder="Dose change details"
+            />
           ) : (
-            <span>{med.dose}</span>
+            <InlineEdit value={med.dose} onChange={(v) => onFieldChange('dose', v)} multiline className="text-xs leading-relaxed" placeholder="Dose & details" />
           )}
         </div>
       </td>
       <td className="py-3 pr-4 align-top">
-        {med.reason && <p className={`text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{med.reason}</p>}
+        <InlineEdit
+          value={med.reason}
+          onChange={(v) => onFieldChange('reason', v)}
+          multiline
+          className={`text-xs leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}
+          placeholder="Reason & instructions"
+        />
         {med.instructions && (
-          <p className={`mt-1 inline-flex items-center gap-1 text-[11px] px-1.5 py-0.5 rounded ${isDark ? 'bg-amber-500/15 text-amber-300' : 'bg-amber-100 text-amber-700'}`}>
-            <AlertCircle className="w-3 h-3" strokeWidth={1.7} /> {med.instructions}
-          </p>
+          <div className={`mt-1 text-[11px] px-1.5 py-0.5 rounded ${isDark ? 'bg-amber-500/15 text-amber-300' : 'bg-amber-100 text-amber-700'}`}>
+            <InlineEdit value={med.instructions} onChange={(v) => onFieldChange('instructions', v)} placeholder="Instructions" />
+          </div>
         )}
         {med.kiv && (
-          <p className={`mt-1 inline-flex items-center gap-1 text-[11px] px-1.5 py-0.5 rounded ${isDark ? 'bg-blue-500/15 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>{med.kiv}</p>
+          <div className={`mt-1 text-[11px] px-1.5 py-0.5 rounded ${isDark ? 'bg-blue-500/15 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
+            <InlineEdit value={med.kiv} onChange={(v) => onFieldChange('kiv', v)} placeholder="KIV note" />
+          </div>
         )}
       </td>
       <td className="py-3 align-top w-[140px]">
-        {med.cpgRef && <span className={`text-[11px] font-mono ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{med.cpgRef}</span>}
+        <div className="flex items-start justify-between">
+          <span className={`text-[11px] font-mono ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{med.cpgRef || ''}</span>
+          <button
+            onClick={onDelete}
+            className={`p-1 rounded-md opacity-0 group-hover/row:opacity-100 transition-all flex-shrink-0 ml-1
+              ${isDark ? 'text-red-400 hover:bg-red-500/20 hover:text-red-300' : 'text-red-400 hover:bg-red-50 hover:text-red-600'}`}
+            title="Delete medication"
+          >
+            <Trash2 className="w-3.5 h-3.5" strokeWidth={1.7} />
+          </button>
+        </div>
       </td>
     </tr>
   );
 }
-function MedicationsTable({ medications }) {
+function MedicationsTable({ medications, dispatch }) {
   const { isDark } = useTheme();
   const ordered = [
     ...(medications.stop || []).map((m) => ({ med: m, action: 'stop' })),
@@ -152,6 +272,19 @@ function MedicationsTable({ medications }) {
     ...(medications.continue || []).map((m) => ({ med: m, action: 'continue' })),
   ];
   if (ordered.length === 0) return <p className="text-sm text-slate-500">No medication changes.</p>;
+
+  const handleFieldChange = (action, medId, field, value) => {
+    dispatch({ type: 'UPDATE_MEDICATION_FIELD', payload: { actionType: action, medId, field, value } });
+  };
+
+  const handleActionChange = (currentAction, medId, newAction) => {
+    dispatch({ type: 'UPDATE_MEDICATION_FIELD', payload: { actionType: currentAction, medId, field: 'displayAction', value: newAction } });
+  };
+
+  const handleDelete = (action, medId) => {
+    dispatch({ type: 'DELETE_MEDICATION', payload: { actionType: action, medId } });
+  };
+
   return (
     <div className="overflow-x-auto -mx-1">
       <table className="w-full text-left">
@@ -164,7 +297,17 @@ function MedicationsTable({ medications }) {
           </tr>
         </thead>
         <tbody>
-          {ordered.map(({ med, action }) => <MedicationRow key={`${action}-${med.id}`} med={med} action={action} />)}
+          {ordered.map(({ med, action }) => (
+            <MedicationRow
+              key={`${action}-${med.id}`}
+              med={med}
+              action={med.displayAction || action}
+              originalAction={action}
+              onFieldChange={(field, value) => handleFieldChange(action, med.id, field, value)}
+              onActionChange={(newAction) => handleActionChange(action, med.id, newAction)}
+              onDelete={() => handleDelete(action, med.id)}
+            />
+          ))}
         </tbody>
       </table>
     </div>
@@ -600,7 +743,7 @@ function CpgReferenceGroup({ group, isDark }) {
    MAIN — Care Plan section (Tabbed layout)
    ============================================================ */
 export function CarePlanSection() {
-  const { state, finalizePlan, goToStep } = useApp();
+  const { state, dispatch, finalizePlan, goToStep } = useApp();
   const { isDark } = useTheme();
   const { carePlan, patientData, diagnosis, mpisData, vitals, safetyReport, clinicalPlanResponse } = state;
   const graphNavigatorRules = clinicalPlanResponse?.graph_navigator_rules || [];
@@ -813,20 +956,25 @@ export function CarePlanSection() {
                 }>
                   <div>
                     {[
-                      ...(carePlan.medications.stop || []).map((m) => ({ ...m, _action: 'stop' })),
-                      ...(carePlan.medications.start || []).map((m) => ({ ...m, _action: 'start' })),
-                      ...(carePlan.medications.change || []).map((m) => ({ ...m, _action: 'change' })),
-                    ].map((m) => (
-                      <MedListRow
-                        key={`${m._action}-${m.id}`}
-                        bulletTone={m._action === 'stop' ? 'danger' : m._action === 'start' ? 'ok' : 'warn'}
-                        drugName={m._action === 'change' ? `${m.name} (${m.previousDose} → ${m.newDose})` : m.name}
-                        dose={m._action !== 'change' ? m.dose : null}
-                        description={m.reason}
-                        tag={m._action.toUpperCase()}
-                        tagTone={m._action === 'stop' ? 'danger' : m._action === 'start' ? 'accent' : 'warn'}
-                      />
-                    ))}
+                      ...(carePlan.medications.stop || []).map((m) => ({ ...m, _origAction: 'stop' })),
+                      ...(carePlan.medications.start || []).map((m) => ({ ...m, _origAction: 'start' })),
+                      ...(carePlan.medications.change || []).map((m) => ({ ...m, _origAction: 'change' })),
+                    ].map((m) => {
+                      const effectiveAction = m.displayAction || m._origAction;
+                      const toneMap = { stop: 'danger', start: 'ok', change: 'warn', continue: 'info' };
+                      const tagToneMap = { stop: 'danger', start: 'accent', change: 'warn', continue: 'default' };
+                      return (
+                        <MedListRow
+                          key={`${m._origAction}-${m.id}`}
+                          bulletTone={toneMap[effectiveAction] || 'ok'}
+                          drugName={m._origAction === 'change' ? `${m.name} (${m.previousDose} → ${m.newDose})` : m.name}
+                          dose={m._origAction !== 'change' ? m.dose : null}
+                          description={m.reason}
+                          tag={ACTION_STYLES[effectiveAction]?.label || effectiveAction.toUpperCase()}
+                          tagTone={tagToneMap[effectiveAction] || 'accent'}
+                        />
+                      );
+                    })}
                     <button
                       onClick={() => setTab('meds')}
                       className="mt-2 text-xs font-semibold text-[var(--accent-primary)] hover:underline flex items-center gap-1"
@@ -852,7 +1000,7 @@ export function CarePlanSection() {
           {/* ── MEDICATIONS ────────────────────────────────────── */}
           {tab === 'meds' && (
             <Section title="Medications" icon={Pill} count={medsCount}>
-              <MedicationsTable medications={carePlan.medications} />
+              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} />
             </Section>
           )}
 

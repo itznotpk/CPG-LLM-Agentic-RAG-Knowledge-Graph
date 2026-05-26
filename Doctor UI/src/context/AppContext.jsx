@@ -162,6 +162,54 @@ function appReducer(state, action) {
           },
         },
       };
+    case 'UPDATE_MEDICATION_FIELD': {
+      // Update a single field on a medication within its action category
+      const { actionType, medId, field, value } = action.payload;
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          medications: {
+            ...state.carePlan.medications,
+            [actionType]: (state.carePlan.medications[actionType] || []).map((med) =>
+              med.id === medId ? { ...med, [field]: value } : med
+            ),
+          },
+        },
+      };
+    }
+    case 'CHANGE_MEDICATION_ACTION': {
+      // Move a medication from one action category to another
+      const { fromAction, toAction, medId: moveMedId } = action.payload;
+      if (fromAction === toAction) return state;
+      const fromList = state.carePlan.medications[fromAction] || [];
+      const medToMove = fromList.find((m) => m.id === moveMedId);
+      if (!medToMove) return state;
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          medications: {
+            ...state.carePlan.medications,
+            [fromAction]: fromList.filter((m) => m.id !== moveMedId),
+            [toAction]: [...(state.carePlan.medications[toAction] || []), medToMove],
+          },
+        },
+      };
+    }
+    case 'DELETE_MEDICATION': {
+      const { actionType: delAction, medId: delMedId } = action.payload;
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          medications: {
+            ...state.carePlan.medications,
+            [delAction]: (state.carePlan.medications[delAction] || []).filter((m) => m.id !== delMedId),
+          },
+        },
+      };
+    }
     case 'APPEND_PIPELINE_EVENT':
       return { ...state, pipelineEvents: [...state.pipelineEvents, action.payload] };
     case 'SET_PIPELINE_SUMMARY':
