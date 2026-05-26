@@ -78,20 +78,63 @@ export function mapTreatmentPlanToCarePlan(plan) {
     accepted: true,
   }));
 
-  const referralItems = referrals.map((r, i) => {
+  const cleanReferralText = (value = '') => String(value)
+    .replace(/\s+/g, ' ')
+    .replace(/\s*\((routine|urgent|consider|today|semi-urgent|prompt)\)/gi, '')
+    .replace(/^refer\s+to\s+/i, 'Referral to ')
+    .trim();
+
+  const referralDepartment = (value = '') => {
+    const text = cleanReferralText(value).toLowerCase();
+    const departments = [
+      ['cardiology', 'Cardiology'],
+      ['cardiologist', 'Cardiology'],
+      ['multidisciplinary team', 'Multidisciplinary Team'],
+      ['physiotherapy', 'Physiotherapy'],
+      ['nephrology', 'Nephrology'],
+      ['ophthalmology', 'Ophthalmology'],
+      ['dietetics', 'Dietetics'],
+      ['psychiatry', 'Psychiatry'],
+      ['dentistry', 'Dentistry'],
+      ['oral health professional', 'Oral Health Professional'],
+      ['bariatric surgery', 'Bariatric Surgery'],
+    ];
+    const match = departments.find(([needle]) => text.includes(needle));
+    if (match) return match[1];
+
+    return cleanReferralText(value)
+      .replace(/^referral to\s+/i, '')
+      .split(/\s+[-–—]\s+|:/)[0]
+      .trim();
+  };
+
+  const urgencyRank = { Routine: 1, 'Semi-Urgent': 2, Urgent: 3 };
+
+  const referralItems = [];
+  const referralByDepartment = new Map();
+
+  referrals.forEach((r) => {
     const text = (r.intervention || '').toLowerCase();
     let urgency = 'Routine';
     if (text.includes('urgent')) urgency = 'Urgent';
     else if (text.includes('semi-urgent') || text.includes('prompt')) urgency = 'Semi-Urgent';
-    
-    return {
-      id: i + 1,
-      specialty: r.intervention,
+
+    const department = referralDepartment(r.intervention);
+    const existing = referralByDepartment.get(department.toLowerCase());
+    if (existing && urgencyRank[existing.urgency] >= urgencyRank[urgency]) return;
+
+    referralByDepartment.set(department.toLowerCase(), {
+      id: 0,
+      specialty: `Referral to ${department}`,
       reason: r.rationale,
       urgency,
       cpgRef: r.cpg_source,
       accepted: true,
-    };
+    });
+  });
+
+  [...referralByDepartment.values()].forEach((item) => {
+    referralItems.push({ ...item, id: referralItems.length + 1 });
   });
 
   // Collect unique CPG source strings across all recommendations

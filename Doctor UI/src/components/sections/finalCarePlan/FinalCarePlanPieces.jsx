@@ -123,7 +123,7 @@ export function VitalsTable({ vitals }) {
 /* ============================================================
    ASSESSMENT — diagnoses
    ============================================================ */
-export function AssessmentList({ diagnoses, cpgReferences }) {
+export function AssessmentList({ diagnoses }) {
   return (
     <>
       <div className="dx-list">
@@ -138,15 +138,6 @@ export function AssessmentList({ diagnoses, cpgReferences }) {
           </div>
         )}
       </div>
-
-      {cpgReferences && cpgReferences.length > 0 &&
-      <div className="cpg-cite">
-          <span className="cpg-lbl">CPG Evidence ·</span>
-          <span>{cpgReferences.map((r, i) =>
-          <span key={i}>{r.title}{r.page ? ` (p.${r.page})` : ''}{i < cpgReferences.length - 1 ? ' · ' : ''}</span>
-          )}</span>
-        </div>
-      }
     </>);
 
 }
@@ -167,8 +158,6 @@ export function MedTable({ meds }) {
         <tr>
           <th style={{ width: 80 }}>Action</th>
           <th>Medication</th>
-          <th>Reason / instructions</th>
-          <th style={{ width: 140 }}>Reference</th>
         </tr>
       </thead>
       <tbody>
@@ -183,12 +172,6 @@ export function MedTable({ meds }) {
               m.dose}
               </div>
             </td>
-            <td>
-              <div className="desc">{m.reason}</div>
-              {m.instructions && <div style={{ fontSize: 11, color: '#b45309', marginTop: 4 }}>⚠ {m.instructions}</div>}
-              {m.kiv && <div style={{ fontSize: 11, color: '#1d4ed8', marginTop: 4 }}>{m.kiv}</div>}
-            </td>
-            <td className="cpg">{m.cpgRef || '—'}</td>
           </tr>
         )}
       </tbody>

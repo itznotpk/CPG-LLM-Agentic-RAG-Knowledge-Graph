@@ -241,12 +241,18 @@ summary (string) — Section 1: Clinical Assessment
   initiating ERA therapy — drug interaction with bosentan (LFT monitoring mandatory)."
 
 follow_up (list of strings) — Section 6: Follow-up
-  Populate from evidence. Each item must state WHEN, WHAT to reassess, and WHAT ACTION follows.
-  Format: "Timeline: reassessment target — action if met / action if not met"
+  Populate from evidence. Each item must be concise and display-friendly.
+  Format: "Point — short description"
+  Formatting rules:
+    - Text before the dash is the headtitle / point, usually the timeline or review topic.
+    - Text after the dash is the short subtitle / description, max 18 words.
+    - Use one dash only. Do not use colon.
+    - Avoid long explanations, citations, or internal evidence notes.
+    - Preserve retrieved numbers, units, and timelines verbatim.
   Examples:
-    "4 weeks: reassess WHO functional class and 6MWT — if improved, continue bosentan and uptitrate to 125mg BD"
-    "3 months: repeat echocardiography — if RVSP worsening, refer for right heart catheterisation"
-    "Ongoing: annual review of CPG currency — guidelines updated 2019, check for new evidence on combination therapy"
+    "4 weeks — reassess WHO functional class and 6MWT"
+    "3 months — repeat echocardiography"
+    "Ongoing — review symptoms, adherence, adverse effects, and new evidence"
   If no follow-up chunk was retrieved, add to unresolved_questions:
     "Follow-up schedule not retrieved — recommend re-scoring retrieval query."
 
@@ -285,6 +291,12 @@ recommendations array MUST cover all applicable types below:
     to consider when supported by retrieved evidence: diet/nutrition, physical
     activity / exercise, weight management, sodium/fluid restriction, smoking
     cessation, alcohol moderation, sleep, vaccination, self-monitoring.
+    Use exactly this display-friendly intervention format:
+      "{Lifestyle domain} — {short actionable description}"
+    Rules:
+      - Title before the dash should be short, e.g. "Smoking cessation", "Exercise", "Blood pressure target".
+      - Do not use a colon after the title.
+      - Description after the dash should be one concise subtitle, max 18 words.
     Examples (each is a separate Recommendation):
       "Sodium restriction <2g/day — to reduce fluid retention in heart failure"
       "Aerobic exercise ≥150 min/week of moderate intensity — improves functional capacity in HFrEF"
@@ -302,23 +314,39 @@ recommendations array MUST cover all applicable types below:
 monitoring list — MUST be populated if ANY monitoring content appears in the retrieved chunks.
   Each entry is a structured object with these fields:
     parameter : string — what to monitor (e.g. "LFTs", "6-Minute Walk Test", "BNP/NT-proBNP")
-    schedule  : string — when and how often (e.g. "monthly for 4 months, then quarterly")
+    schedule  : string — concise timing keywords only (e.g. "Baseline", "2-5 days post-PCI", "q3 months", "Each visit")
     target    : string or null — goal value or threshold (e.g. "within normal range", "eGFR >45 mL/min")
     cpg_ref   : string or null — CPG section (e.g. "CPG PAH §7.3")
+  Schedule formatting rules:
+    - Keep schedule short: max 6 words unless a retrieved numeric interval requires more.
+    - Use timing keywords only, not explanation or rationale.
+    - Preserve retrieved numbers and units verbatim.
+    - Remove phrases like "during fluconazole course", "until stable", and "then as clinically indicated" unless they are the only safety-critical timing detail.
+    - Prefer compact forms: "Immediate + q2-3d", "Baseline + day 2-5", "q3 months", "Annually", "Each visit".
   Examples:
-    {"parameter": "LFTs", "schedule": "monthly for 4 months, then quarterly", "target": "within normal range", "cpg_ref": "CPG PAH §7.3"}
-    {"parameter": "6-Minute Walk Test", "schedule": "every 3 months", "target": "improvement in functional capacity", "cpg_ref": "CPG PAH §8.1"}
-    {"parameter": "BNP/NT-proBNP", "schedule": "at baseline and every 3–6 months", "target": null, "cpg_ref": "CPG PAH §8.1"}
-    {"parameter": "INR", "schedule": "weekly until stable, then monthly", "target": "therapeutic range", "cpg_ref": "CPG AF §5.2"}
+    {"parameter": "LFTs", "schedule": "Monthly x4, then quarterly", "target": "within normal range", "cpg_ref": "CPG PAH §7.3"}
+    {"parameter": "6-Minute Walk Test", "schedule": "q3 months", "target": "improvement in functional capacity", "cpg_ref": "CPG PAH §8.1"}
+    {"parameter": "BNP/NT-proBNP", "schedule": "Baseline + q3-6 months", "target": null, "cpg_ref": "CPG PAH §8.1"}
+    {"parameter": "INR", "schedule": "Immediate + q2-3d", "target": "therapeutic range", "cpg_ref": "CPG AF §5.2"}
   If no monitoring chunk was retrieved, add to unresolved_questions:
     "Monitoring protocol not retrieved — recommend re-scoring retrieval query."
 
 red_flags list — MUST be populated if escalation or danger criteria appear in the evidence.
-  Copy escalation criteria VERBATIM from the chunks where possible.
+  Return each red flag as a concise display string using exactly this format:
+    "Title: short trigger/action subtitle"
+  Formatting rules:
+    - Title = the clinical danger label only, usually 2-8 words.
+    - Subtitle = the actionable trigger or immediate action only, max 18 words.
+    - Use ONE colon only. Do not use em dashes, semicolons, citations, chunk numbers, evidence notes, rationale, mortality statistics, or background explanation.
+    - Do not include treatment-of-choice explanation unless it is the immediate action.
+    - Do not include phrases like "definition of", "may indicate", "mortality", "treatment of choice", or "[chunk N]".
+    - If the chunk contains a long sentence, compress it into a short clinician-facing trigger/action while preserving any numeric thresholds verbatim.
   Examples:
-    "WHO FC IV deterioration — urgent specialist review within 24h"
-    "Syncope or presyncope — hospitalise immediately"
-    "Systolic BP <90 mmHg on therapy — withhold medication, seek urgent review"
+    "WHO FC IV deterioration: urgent specialist review within 24h"
+    "Syncope or presyncope: hospitalise immediately"
+    "Systolic BP <90 mmHg: withhold medication and seek urgent review"
+    "Stent thrombosis: acute ischaemic symptoms at rest or new ECG/cardiac biomarker changes"
+    "Major bleeding: stop antiplatelet/anticoagulant as clinically indicated and arrange urgent review"
   If no escalation chunk was retrieved, add to unresolved_questions:
     "Escalation criteria not retrieved."
 

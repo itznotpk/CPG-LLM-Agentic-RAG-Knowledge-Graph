@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useApp } from '../../context/AppContext';
-import { generateCarePlanPDF } from '../../utils/pdfGenerator';
+import { generatePdfFromElement } from '../../utils/htmlToPdf';
 import { FinalCarePlan } from './finalCarePlan/FinalCarePlan';
 import './finalCarePlan/finalCarePlan.css';
 
@@ -11,6 +11,8 @@ export function OutputSection() {
     clinicalNotes, nextReviewDate, mpisData, currentUser,
     consultationId, consultationDuration,
   } = state;
+
+  const fcpRef = useRef(null);
 
   // Patient: Step 4 uses `patient`, Step 3 uses `patientData` — accept either
   const resolvedPatient = patient ?? patientData ?? {};
@@ -68,8 +70,14 @@ export function OutputSection() {
     duration: consultationDuration || '—',
   };
 
-  const handleExportPDF = () => {
-    generateCarePlanPDF({ patient: resolvedPatient, diagnosis, carePlan });
+  const handleExportPDF = async () => {
+    const paperEl = fcpRef.current?.getPaperElement?.();
+    if (!paperEl) {
+      console.warn('Paper element not found, cannot export PDF');
+      return;
+    }
+    const fileName = `CarePlan_${resolvedPatient?.name?.replace(/\s+/g, '_') || 'Patient'}_${new Date().toISOString().split('T')[0]}.pdf`;
+    await generatePdfFromElement(paperEl, { fileName, download: true });
   };
   const handlePrint = () => window.print();
   const handleNewAssessment = () => resetApp();
@@ -79,6 +87,7 @@ export function OutputSection() {
 
   return (
     <FinalCarePlan
+      ref={fcpRef}
       patient={resolvedPatient}
       diagnoses={diagnoses}
       carePlan={carePlan}
@@ -95,3 +104,4 @@ export function OutputSection() {
     />
   );
 }
+

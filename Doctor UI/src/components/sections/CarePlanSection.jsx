@@ -368,9 +368,17 @@ function FollowUpBlock({ followUp }) {
   ];
 
   const parseInstruction = (text) => {
-    const colonIdx = text.indexOf(':');
+    const source = String(text || '').replace(/\s+/g, ' ').trim();
+    const dashMatch = source.match(/\s+(?:-|—|–|â€”|Ã¢â‚¬â€)\s+/);
+    if (dashMatch?.index != null) {
+      return {
+        timeline: source.slice(0, dashMatch.index).trim(),
+        body: source.slice(dashMatch.index + dashMatch[0].length).trim(),
+      };
+    }
+    const colonIdx = source.indexOf(':');
     if (colonIdx === -1) return { timeline: '—', body: text };
-    return { timeline: text.slice(0, colonIdx).trim(), body: text.slice(colonIdx + 1).trim() };
+    return { timeline: source.slice(0, colonIdx).trim(), body: source.slice(colonIdx + 1).trim() };
   };
 
   return (

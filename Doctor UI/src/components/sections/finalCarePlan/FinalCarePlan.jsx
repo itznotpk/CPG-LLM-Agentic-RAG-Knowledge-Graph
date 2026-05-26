@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react';
 import { Letterhead, PatientBanner, SoapSection, VitalsTable, AssessmentList, MedTable, PlanTable, PlanSub, fcpIcons } from './FinalCarePlanPieces';
 /* Final Care Plan — Stage 4 app */
 
@@ -45,8 +45,10 @@ function EditableBullets({ items, onChange, editing }) {
           <div key={i} className="bullet">
             <span className="marker">•</span>
             <span>{typeof l === 'object'
-              ? <><strong style={{ marginRight: 6 }}>{l.category}:</strong>{l.goal}</>
-              : l}
+              ? (l.category
+                ? <><span className="item-title">{l.category}</span><span className="item-subtitle">{l.goal}</span></>
+                : <SplitPlanText text={l.goal} />)
+              : <SplitPlanText text={l} />}
             </span>
           </div>
         ))}
@@ -121,7 +123,201 @@ function EditableTable({ headers, rows, onChange, editing, buildEmpty, renderVie
   );
 }
 
+function SplitTitleSubtitle({ text }) {
+  const source = text || '';
+  const dashIdx = source.indexOf('—');
+  if (dashIdx === -1) return <div className="name">{source}</div>;
+
+  const title = source.slice(0, dashIdx).trim();
+  const subtitle = source.slice(dashIdx + 1).trim();
+  return (
+    <div>
+      <div className="name">{title}</div>
+      {subtitle && <div className="desc" style={{ maxWidth: 'none', width: '100%' }}>{subtitle}</div>}
+    </div>
+  );
+}
+
+function ReferralTitleSubtitle({ text }) {
+  const source = String(text || '')
+    .replace(/\s*\((routine|urgent|consider|today|semi-urgent|prompt)\)/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const title = source
+    .replace(/â€”|Ã¢â‚¬â€|\u2014|\u2013/g, ' - ')
+    .split(/\s+-\s+|:/)[0]
+    .trim();
+
+  return <div className="name">{title}</div>;
+}
+
 /* ── Editable medications table ── */
+function SplitPlanText({ text }) {
+  const planText = String(text || '').replace(/\s+/g, ' ').trim();
+  const splitMatch = planText.match(/\s+(?:-|—|–|â€”|Ã¢â‚¬â€|ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Â)\s+/);
+  if (splitMatch?.index != null) {
+    const title = planText.slice(0, splitMatch.index).trim();
+    const subtitle = planText.slice(splitMatch.index + splitMatch[0].length).trim();
+    return (
+      <>
+        <span className="item-title">{title}</span>
+        {subtitle && <span className="item-subtitle">{subtitle}</span>}
+      </>
+    );
+  }
+  if (!planText) return <span></span>;
+  const cleanText = String(text || '').replace(/â€”|Ã¢â‚¬â€/g, ' - ');
+  const normalised = cleanText.replace(/\u2014|\u2013/g, ' - ');
+  const idx = normalised.indexOf(' - ');
+  if (idx !== -1) {
+    const title = normalised.slice(0, idx).trim();
+    const subtitle = normalised.slice(idx + 3).trim();
+    return (
+      <>
+        <span className="item-title">{title}</span>
+        {subtitle && <span className="item-subtitle">{subtitle}</span>}
+      </>
+    );
+  }
+  const source = text || '';
+  const dashIdx = source.indexOf('â€”');
+  if (dashIdx === -1) return <span>{source}</span>;
+
+  const title = source.slice(0, dashIdx).trim();
+  const subtitle = source.slice(dashIdx + 1).trim();
+  return (
+    <>
+      <span className="item-title">{title}</span>
+      {subtitle && <span className="item-subtitle">{subtitle}</span>}
+    </>
+  );
+}
+
+function ShortColonText({ text }) {
+  const source = String(text || '')
+    .replace(/\s*\[[^\]]+\]/g, '')
+    .replace(/â€”|Ã¢â‚¬â€|\u2014|\u2013/g, ' - ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const colonIdx = source.indexOf(':');
+  const dashIdx = source.indexOf(' - ');
+  const separatorIdx = colonIdx !== -1 ? colonIdx : dashIdx;
+
+  if (separatorIdx === -1) return <span className="item-title">{source}</span>;
+
+  const title = source.slice(0, separatorIdx).trim();
+  const descriptionStart = separatorIdx + (colonIdx !== -1 ? 1 : 3);
+  const description = source
+    .slice(descriptionStart)
+    .split(/\s+-\s+|;\s+|,\s*urgent\b|,\s*emergency\b|\.\s+/i)[0]
+    .trim();
+
+  return (
+    <>
+      <span className="item-title">{title}</span>
+      {description && <span className="item-subtitle">{description}</span>}
+    </>
+  );
+}
+
+function EducationList({ items }) {
+  return (
+    <div className="education-grid">
+      {items.map((item, i) => (
+        <div key={i} className="education-item">
+            <span className="marker"></span>
+          <div><SplitPlanText text={item} /></div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function RedFlagList({ items }) {
+  return (
+    <div className="redflags redflags-compact">
+      <h5>{fcpIcons.alert({ stroke: '#991b1b' })} Return immediately if:</h5>
+      <div className="redflag-list">
+        {items.map((item, i) => (
+          <div key={i} className="redflag-item">
+            <ShortColonText text={item} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function normaliseReferralDepartment(value = '') {
+  const text = String(value)
+    .replace(/\s*\((routine|urgent|consider|today|semi-urgent|prompt)\)/gi, '')
+    .replace(/â€”|Ã¢â‚¬â€|\u2014|\u2013/g, ' - ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const title = text.split(/\s+-\s+|:/)[0].replace(/^refer(?:ral)?\s+to\s+/i, '').trim();
+  const lower = title.toLowerCase();
+  const departments = [
+    ['cardiologist', 'Cardiology'],
+    ['cardiology', 'Cardiology'],
+    ['multidisciplinary team', 'Multidisciplinary Team'],
+    ['physiotherapy', 'Physiotherapy'],
+    ['nephrology', 'Nephrology'],
+    ['ophthalmology', 'Ophthalmology'],
+    ['dietetics', 'Dietetics'],
+    ['psychiatry', 'Psychiatry'],
+    ['dentistry', 'Dentistry'],
+    ['oral health professional', 'Oral Health Professional'],
+    ['bariatric surgery', 'Bariatric Surgery'],
+    ['geriatrics', 'Geriatrics'],
+    ['endocrinology', 'Endocrinology'],
+  ];
+  const match = departments.find(([needle]) => lower.includes(needle));
+  return match ? match[1] : title;
+}
+
+function collapseReferrals(referrals = []) {
+  const urgencyRank = { Routine: 1, 'Semi-Urgent': 2, Urgent: 3 };
+  const byDepartment = new Map();
+
+  referrals.forEach((ref) => {
+    const department = normaliseReferralDepartment(ref.specialty);
+    const specialty = `Refer to ${department}`;
+    const existing = byDepartment.get(department.toLowerCase());
+    if (existing && urgencyRank[existing.urgency] >= urgencyRank[ref.urgency]) return;
+    byDepartment.set(department.toLowerCase(), { ...ref, specialty });
+  });
+
+  return [...byDepartment.values()]
+    .sort((a, b) => (urgencyRank[b.urgency] || 0) - (urgencyRank[a.urgency] || 0))
+    .map((ref, i) => ({ ...ref, id: ref.id ?? i + 1 }));
+}
+
+function urgencyTagClass(urgency = '') {
+  if (String(urgency).toLowerCase().includes('urgent')) return 'stop';
+  if (String(urgency).toLowerCase().includes('semi')) return 'change';
+  return 'change';
+}
+
+function compactSchedule(value = '') {
+  const source = String(value || '').trim();
+  const text = source.toLowerCase();
+  if (!source) return '';
+
+  if (text.includes('weekly until stable')) return 'Weekly -> monthly';
+  if (text.includes('every 6 months') && text.includes('amiodarone')) return 'q6 months';
+  if (text.includes('each clinic visit')) return 'Each visit';
+  if (text.includes('every 3 months') && text.includes('every 6 months')) return 'q3 months -> q6 months';
+  if (text.includes('self-monitoring')) return 'Self-monitoring';
+  if (text.includes('baseline') && text.includes('annually')) return 'Baseline -> annually';
+  if (text.includes('next clinic visit')) return 'Next visit';
+  if (text.includes('annually')) return 'Annually';
+  if (text.includes('every 6 months')) return 'q6 months';
+  if (text.includes('every 3 months')) return 'q3 months';
+  if (text.includes('monthly')) return 'Monthly';
+
+  return source.length > 36 ? source.split(/;|, then|, or|, more/i)[0].trim() : source;
+}
+
 function EditableMedTable({ meds, onChange, editing }) {
   const rows = [
     ...(meds.stop || []).map(m => ({ ...m, action: 'stop' })),
@@ -146,7 +342,7 @@ function EditableMedTable({ meds, onChange, editing }) {
   };
 
   const addRow = () => {
-    const newRow = { id: Date.now(), name: '', dose: '', reason: '', cpgRef: '', action: 'start' };
+    const newRow = { id: Date.now(), name: '', dose: '', action: 'start' };
     onChange({ ...meds, start: [...(meds.start || []), newRow] });
   };
 
@@ -159,7 +355,7 @@ function EditableMedTable({ meds, onChange, editing }) {
           display: 'grid', gap: 6, padding: '10px 12px',
           background: 'rgba(16,185,129,0.04)', borderRadius: 8,
           border: '1px solid rgba(16,185,129,0.2)',
-          gridTemplateColumns: '90px 1fr 1fr 120px 24px',
+          gridTemplateColumns: '90px 1fr 24px',
         }}>
           {/* Action */}
           <div>
@@ -177,20 +373,6 @@ function EditableMedTable({ meds, onChange, editing }) {
             <input type="text" value={row.dose || row.newDose || ''} onChange={e => updateRow(i, row.action === 'change' ? 'newDose' : 'dose', e.target.value)}
               style={EDIT_INPUT} placeholder="Dose / frequency" />
           </div>
-          {/* Reason */}
-          <div>
-            <div style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6b7280', marginBottom: 3 }}>Reason / Instructions</div>
-            <input type="text" value={row.reason || ''} onChange={e => updateRow(i, 'reason', e.target.value)}
-              style={{ ...EDIT_INPUT, marginBottom: 4 }} placeholder="Reason" />
-            <input type="text" value={row.instructions || ''} onChange={e => updateRow(i, 'instructions', e.target.value)}
-              style={EDIT_INPUT} placeholder="Instructions (optional)" />
-          </div>
-          {/* CPG ref */}
-          <div>
-            <div style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6b7280', marginBottom: 3 }}>Reference</div>
-            <input type="text" value={row.cpgRef || ''} onChange={e => updateRow(i, 'cpgRef', e.target.value)}
-              style={EDIT_INPUT} placeholder="CPG ref" />
-          </div>
           <div style={{ display: 'flex', alignItems: 'center', paddingTop: 18 }}>
             <button onClick={() => removeRow(i)} style={REMOVE_BTN}>×</button>
           </div>
@@ -201,20 +383,25 @@ function EditableMedTable({ meds, onChange, editing }) {
   );
 }
 
-export function FinalCarePlan({
+export const FinalCarePlan = forwardRef(function FinalCarePlan({
   patient, diagnoses, carePlan: plan, allergies, vitals,
   clinicalNotes, provider, encounter, nextReviewDate,
   onExportPDF, onPrint, onBack, onNewAssessment,
-}) {
+}, ref) {
   const [editing, setEditing] = useState(false);
+  const paperRef = useRef(null);
+
+  // Expose the paper DOM element to the parent via ref
+  useImperativeHandle(ref, () => ({
+    getPaperElement: () => paperRef.current,
+  }));
 
   const initialDraft = () => ({
     clinicalNotes,
-    clinicalSummary: plan.clinicalSummary,
     medications: plan.medications,
     interventions: plan.interventions,
     monitoring: plan.monitoring,
-    referrals: plan.referrals,
+    referrals: collapseReferrals(plan.referrals),
     lifestyle: plan.lifestyle,
     patientEducation: [
       'Diabetes self-management — understanding HbA1c targets, hypoglycaemia recognition and management',
@@ -259,7 +446,7 @@ export function FinalCarePlan({
           </div>
         )}
 
-        <div className="paper">
+        <div className="paper" ref={paperRef}>
           <Letterhead provider={provider} encounter={encounter} />
           <PatientBanner patient={patient} encounter={encounter} allergies={allergies} />
 
@@ -279,45 +466,38 @@ export function FinalCarePlan({
             </SoapSection>
 
             <SoapSection letter="A" title="Assessment" desc="Clinical impression" id="soap-a">
-              <AssessmentList diagnoses={diagnoses} cpgReferences={plan.cpgReferences.slice(0, 2)} />
+              <AssessmentList diagnoses={diagnoses} />
             </SoapSection>
 
             <SoapSection letter="P" title="Plan" desc="Recommended interventions" id="soap-p">
-              <PlanSub num="P1" title="Clinical Summary">
-                <EditableText multiline editing={editing} value={draft.clinicalSummary}
-                  onChange={set('clinicalSummary')} className="narrative" style={{ fontSize: 13 }} />
-              </PlanSub>
-
-              <PlanSub num="P2" title="Medications" count={`${totalMeds} items`}>
+              <PlanSub num="P1" title="Medications" count={`${totalMeds} items`}>
                 <EditableMedTable meds={draft.medications} onChange={set('medications')} editing={editing} />
               </PlanSub>
 
-              <PlanSub num="P3" title="Procedures & Interventions" count={`${draft.interventions.length} items`}>
+              <PlanSub num="P2" title="Procedures & Interventions" count={`${draft.interventions.length} items`}>
                 <EditableTable
                   editing={editing}
                   headers={[
                     { label: 'Procedure', field: 'name' },
-                    { label: 'Rationale', field: 'rationale' },
                     { label: 'Urgency', field: 'urgency', width: 140 },
                   ]}
                   rows={draft.interventions}
                   onChange={set('interventions')}
-                  buildEmpty={() => ({ id: Date.now(), name: '', rationale: '', urgency: 'Routine' })}
+                  buildEmpty={() => ({ id: Date.now(), name: '', urgency: 'Routine' })}
                   renderView={(r) => [
-                    <div><div className="name">{r.name}</div></div>,
-                    <div className="desc">{r.rationale}</div>,
+                    <SplitTitleSubtitle text={r.name} />,
                     <span className={`atag ${r.urgency === 'Today' ? 'stop' : 'change'}`}>{r.urgency}</span>,
                   ]}
                 />
               </PlanSub>
 
-              <PlanSub num="P4" title="Monitoring & Investigations" count={`${draft.monitoring.length} items`}>
+              <PlanSub num="P3" title="Monitoring & Investigations" count={`${draft.monitoring.length} items`}>
                 <EditableTable
                   editing={editing}
                   headers={[
-                    { label: 'Parameter', field: 'parameter' },
+                    { label: 'Parameter', field: 'parameter', width: 220 },
                     { label: 'Target', field: 'target' },
-                    { label: 'Schedule', field: 'schedule', width: 140 },
+                    { label: 'Schedule', field: 'schedule', width: 280 },
                   ]}
                   rows={draft.monitoring}
                   onChange={set('monitoring')}
@@ -325,39 +505,39 @@ export function FinalCarePlan({
                   renderView={(r) => [
                     <div className="name">{r.parameter}</div>,
                     <div className="desc">{r.target || '—'}</div>,
-                    <span className="atag continue">{r.schedule}</span>,
+                    <span className="atag continue">{compactSchedule(r.schedule)}</span>,
                   ]}
                 />
               </PlanSub>
 
-              <PlanSub num="P5" title="Lifestyle & Self-Management" count={`${draft.lifestyle.length} goals`}>
+              <PlanSub num="P4" title="Lifestyle & Self-Management" count={`${draft.lifestyle.length} goals`}>
                 <EditableBullets items={draft.lifestyle} onChange={set('lifestyle')} editing={editing} />
               </PlanSub>
 
-              <PlanSub num="P6" title="Referrals" count={`${draft.referrals.length} sent`}>
+              <PlanSub num="P5" title="Referrals" count={`${draft.referrals.length} sent`}>
                 <EditableTable
                   editing={editing}
                   headers={[
                     { label: 'Specialty', field: 'specialty' },
-                    { label: 'Reason for referral', field: 'reason' },
                     { label: 'Urgency', field: 'urgency', width: 140 },
                   ]}
                   rows={draft.referrals}
                   onChange={set('referrals')}
                   buildEmpty={() => ({ id: Date.now(), specialty: '', reason: '', urgency: 'Routine' })}
                   renderView={(r) => [
-                    <div className="name">{r.specialty}</div>,
-                    <div className="desc">{r.reason}</div>,
-                    <span className="atag change">{r.urgency}</span>,
+                    <ReferralTitleSubtitle text={r.specialty} />,
+                    <span className={`atag ${urgencyTagClass(r.urgency)}`}>{r.urgency}</span>,
                   ]}
                 />
               </PlanSub>
 
-              <PlanSub num="P7" title="Patient Education">
-                <EditableBullets items={draft.patientEducation} onChange={set('patientEducation')} editing={editing} />
+              <PlanSub num="P6" title="Patient Education">
+                {editing
+                  ? <EditableBullets items={draft.patientEducation} onChange={set('patientEducation')} editing={editing} />
+                  : <EducationList items={draft.patientEducation} />}
               </PlanSub>
 
-              <PlanSub num="P8" title="Safety Netting — Red Flags">
+              <PlanSub num="P7" title="Safety Netting — Red Flags">
                 {editing ? (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
                     {draft.redFlags.map((f, i) => (
@@ -374,14 +554,11 @@ export function FinalCarePlan({
                     </button>
                   </div>
                 ) : (
-                  <div className="redflags">
-                    <h5>{fcpIcons.alert({ stroke: '#991b1b' })} Return to clinic / call emergency for any of the following</h5>
-                    <ul>{draft.redFlags.map((f, i) => <li key={i}>{f}</li>)}</ul>
-                  </div>
+                  <RedFlagList items={draft.redFlags} />
                 )}
               </PlanSub>
 
-              <PlanSub num="P9" title="Follow-up Plan">
+              <PlanSub num="P8" title="Follow-up Plan">
                 <div className="tca-row">
                   <div className="tca-list">
                     {draft.followUp.map((f, i) => {
@@ -398,7 +575,7 @@ export function FinalCarePlan({
                       ) : (
                         <div key={i} className="tca-li">
                           <span className="when">{when}</span>
-                          <span className="what">{what}</span>
+                          <span className="what"><SplitPlanText text={what} /></span>
                         </div>
                       );
                     })}
@@ -494,4 +671,4 @@ export function FinalCarePlan({
       </aside>
     </div>
   );
-}
+});

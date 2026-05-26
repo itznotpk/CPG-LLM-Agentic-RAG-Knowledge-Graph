@@ -29,6 +29,47 @@ function textToMeds(text) {
     .map(name => ({ name, dose: '', frequency: '' }));
 }
 
+function medicationLabel(med) {
+  if (typeof med === 'string') return med;
+  return med?.name || med?.medication || 'Unnamed medication';
+}
+
+function CurrentMedicationRows({ meds = [], isDark, isEditing = false, onRemove }) {
+  if (!meds.length) {
+    return <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>None recorded</p>;
+  }
+
+  return (
+    <div className="space-y-0">
+      {meds.map((med, idx) => (
+        <div
+          key={`${medicationLabel(med)}-${idx}`}
+          className={`flex items-start justify-between gap-3 text-sm py-2.5 border-b last:border-0 ${
+            isDark ? 'border-white/5' : 'border-slate-100'
+          }`}
+        >
+          <span className={`font-medium leading-snug break-words ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            {medicationLabel(med)}
+          </span>
+          {isEditing && (
+            <button
+              onClick={() => onRemove?.(idx)}
+              className={`shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-colors ${
+                isDark
+                  ? 'text-slate-500 hover:text-red-400 hover:bg-red-500/10'
+                  : 'text-slate-400 hover:text-red-500 hover:bg-red-50'
+              }`}
+              aria-label={`Remove ${medicationLabel(med)}`}
+            >
+              <X className="w-3.5 h-3.5" strokeWidth={2} />
+            </button>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // Analyzing Skeleton Component
 function AnalyzingSkeleton() {
   const { isDark } = useTheme();
@@ -506,10 +547,16 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
               {(isEditing ? draft.currentMeds : mpisData?.currentMeds).length} active
             </span>
           )}
-          {isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>click row to edit/stop</span>}
+          {isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>remove from list if no longer active</span>}
         </p>
-        <div className="space-y-1">
-          {(isEditing ? draft.currentMeds : (mpisData?.currentMeds || [])).map((med, idx) => (
+        <div className="space-y-2">
+          <CurrentMedicationRows
+            meds={isEditing ? draft.currentMeds : (mpisData?.currentMeds || [])}
+            isDark={isDark}
+            isEditing={isEditing}
+            onRemove={(idx) => setDraft(d => ({ ...d, currentMeds: d.currentMeds.filter((_, i) => i !== idx) }))}
+          />
+          {false && (isEditing ? draft.currentMeds : (mpisData?.currentMeds || [])).map((med, idx) => (
             <div key={idx} className={`flex items-center justify-between text-sm py-1.5 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
               <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
                 {med.name}
@@ -526,7 +573,6 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
               </span>
             </div>
           ))}
-          {!isEditing && !(mpisData?.currentMeds?.length) && <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>None recorded</p>}
           {isEditing && (
             <input
               type="text" placeholder="Add medication — e.g. Atorvastatin 20mg OD" className={`${inputCls} mt-2`}
@@ -748,8 +794,14 @@ function NewPatientForm({ nsn, onClear }) {
         <p className={`${eyebrow} mb-3`}>
           Current medications{meds.length > 0 && <span className="ml-1.5 normal-case font-normal">{meds.length} active</span>}
         </p>
-        <div className="space-y-1">
-          {meds.map((med, idx) => (
+        <div className="space-y-2">
+          <CurrentMedicationRows
+            meds={meds}
+            isDark={isDark}
+            isEditing
+            onRemove={(idx) => setMeds(p => p.filter((_, i) => i !== idx))}
+          />
+          {false && meds.map((med, idx) => (
             <div key={idx} className={`flex items-center justify-between text-sm py-1.5 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
               <span className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
                 {med.name}
@@ -760,7 +812,6 @@ function NewPatientForm({ nsn, onClear }) {
               </span>
             </div>
           ))}
-          {meds.length === 0 && <p className={`text-sm ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>None recorded</p>}
           <input type="text" placeholder="Add medication — e.g. Atorvastatin 20mg OD" className={`${inputCls} mt-2`}
             value={medInput} onChange={e => setMedInput(e.target.value)}
             onKeyDown={e => { if (e.key === 'Enter' && medInput.trim()) { setMeds(p => [...p, { name: medInput.trim(), dose: '', frequency: '' }]); setMedInput(''); } }} />
