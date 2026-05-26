@@ -74,11 +74,9 @@ export function RPPGScanModal({ onClose }) {
 
     // Save one row to live_vitals with patient info
     const nric = state.patient?.nsn;
-    const name = state.patient?.name;
     if (nric) {
       await supabase.from('live_vitals').insert({
         patient_nric:    nric,
-        patient_name:    name || '',
         consultation_id: state.currentConsultationId || null,
         source:          'rppg',
         hr:              payload.hr          ? Number(payload.hr)          : null,
