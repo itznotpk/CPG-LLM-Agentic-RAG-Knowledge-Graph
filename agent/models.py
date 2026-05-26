@@ -330,6 +330,10 @@ class TreatmentPlan(BaseModel):
 
 # Safety Critic Models
 class SafetyFlag(BaseModel):
+    title: Optional[str] = Field(
+        None,
+        description="Short clinician-facing headline, e.g. 'enalapril + spironolactone - hyperkalemia interaction caution'",
+    )
     severity: Literal["CRITICAL", "MAJOR", "MODERATE"]
     recommendation_index: int = Field(..., ge=0, description="0-based index into TreatmentPlan.recommendations")
     flag_type: Literal["drug_allergy", "drug_interaction", "dose", "contraindication"]

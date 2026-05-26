@@ -20,6 +20,7 @@ import {
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
+import { PlanGenerationProcess } from './PlanGenerationProcess';
 
 export function DiagnosisSection() {
   const { state, confirmDiagnosis, goToStep, selectDiagnosis } = useApp();
@@ -57,6 +58,17 @@ export function DiagnosisSection() {
   const handleSelectDiagnosis = (diagnosisId) => {
     selectDiagnosis(diagnosisId);
   };
+
+  if (isGeneratingPlan) {
+    return (
+      <PlanGenerationProcess
+        selectedDiagnoses={selectedDiagnoses}
+        pipelineEvents={state.pipelineEvents}
+        safetyReport={state.safetyReport}
+        resynthOverride={state.resynthOverride}
+      />
+    );
+  }
 
   return (
     <div className="space-y-6 animate-fadeIn">

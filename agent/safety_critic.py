@@ -108,6 +108,7 @@ def _kg_flag_to_safety(
             detail = f"{detail} Threshold: {rule_str} (patient value unknown)."
 
     return SafetyFlag(
+        title=f"{cf.subject} - {relation_pretty} caution",
         severity=severity,
         recommendation_index=rec_index,
         flag_type=safety_type,

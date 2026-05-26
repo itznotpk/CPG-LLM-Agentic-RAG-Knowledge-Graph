@@ -82,9 +82,15 @@ Severity scale:
 - MAJOR    : significant harm likely without modification (e.g. wrong dose in renal failure)
 - MODERATE : monitoring or dose adjustment warranted, not an outright stop
 
-For each flag, set recommendation_index to the 0-based index of the recommendation in the input array. Provide a one-sentence patient-specific detail. Suggest an alternative only if one is clearly clinically supported.
+For each flag, set recommendation_index to the 0-based index of the recommendation in the input array.
+Set title to a concise clinician-facing headline that names the offending drug(s) and the risk, not just the generic flag type.
+Use this style:
+- "drug A + drug B - hyperkalemia interaction caution"
+- "drug A - renal dose caution"
+- "drug A - allergy cross-reactivity caution"
+Provide a one-sentence patient-specific detail describing the impact/effect. Suggest an alternative only if one is clearly clinically supported.
 
 Set safe_to_proceed = false if ANY CRITICAL or MAJOR flag is present, else true.
 
 Return a valid SafetyReport JSON object with this exact shape — no markdown fences, no preamble:
-{"flags": [{"severity": "CRITICAL|MAJOR|MODERATE", "recommendation_index": 0, "flag_type": "drug_allergy|drug_interaction|dose|contraindication", "detail": "...", "suggested_alternative": "...or null"}], "safe_to_proceed": true, "reviewer_notes": "...or null"}
+{"flags": [{"title": "drug A + drug B - risk interaction caution", "severity": "CRITICAL|MAJOR|MODERATE", "recommendation_index": 0, "flag_type": "drug_allergy|drug_interaction|dose|contraindication", "detail": "...", "suggested_alternative": "...or null"}], "safe_to_proceed": true, "reviewer_notes": "...or null"}

@@ -5,6 +5,76 @@ import { useTheme } from '../../context/ThemeContext';
 
 const SEVERITY_ORDER = { CRITICAL: 0, MAJOR: 1, MODERATE: 2 };
 
+const KNOWN_DRUGS = [
+  'enalapril', 'spironolactone', 'dapagliflozin', 'bisoprolol', 'furosemide',
+  'warfarin', 'aspirin', 'clopidogrel', 'amiodarone', 'digoxin', 'ivabradine',
+  'metformin', 'gliclazide', 'insulin', 'atorvastatin', 'simvastatin',
+  'amlodipine', 'hydrochlorothiazide', 'losartan', 'valsartan', 'sacubitril',
+  'ramipril', 'lisinopril', 'perindopril', 'carvedilol', 'metoprolol',
+  'sildenafil', 'tadalafil', 'isosorbide mononitrate', 'nitroglycerin',
+];
+
+const RISK_LABELS = [
+  { re: /hyperkala?emia/i, label: 'hyperkalemia' },
+  { re: /symptomatic hypotension|hypotension/i, label: 'hypotension' },
+  { re: /acute kidney injury|AKI/i, label: 'acute kidney injury' },
+  { re: /renal function|eGFR|creatinine/i, label: 'renal monitoring' },
+  { re: /bleeding|haemorrhage|hemorrhage/i, label: 'bleeding' },
+  { re: /QT|torsades/i, label: 'QT prolongation' },
+  { re: /bradycardia/i, label: 'bradycardia' },
+  { re: /bronchospasm/i, label: 'bronchospasm' },
+  { re: /allerg|cross-react/i, label: 'allergy cross-reactivity' },
+  { re: /dose|CrCl|renal/i, label: 'dose' },
+];
+
+function toDisplayDrug(text) {
+  return text.trim().replace(/\s+/g, ' ').toLowerCase();
+}
+
+function unique(items) {
+  return [...new Set(items.filter(Boolean))];
+}
+
+function extractDrugNames(detail = '') {
+  const fromParentheses = [...detail.matchAll(/\(([^)]+)\)/g)]
+    .flatMap((m) => m[1].split(/,| and | & |\+/i))
+    .map((s) => s.replace(/\b(and|or)\b/gi, '').trim())
+    .filter((s) => /^[a-z][a-z0-9 -]{2,}$/i.test(s) && !/\d/.test(s))
+    .map(toDisplayDrug);
+
+  const lower = detail.toLowerCase();
+  const fromKnownList = KNOWN_DRUGS.filter((drug) => lower.includes(drug));
+
+  return unique([...fromParentheses, ...fromKnownList]).slice(0, 5);
+}
+
+function flagTypeLabel(flagType = '') {
+  return flagType.replace(/_/g, ' ');
+}
+
+function riskLabel(detail = '', flagType = '') {
+  const matched = RISK_LABELS.find(({ re }) => re.test(detail));
+  return matched?.label || flagTypeLabel(flagType) || 'safety';
+}
+
+function safetyFlagTitle(flag) {
+  if (flag.title) return flag.title;
+
+  const drugs = extractDrugNames(flag.detail);
+  const risk = riskLabel(flag.detail, flag.flag_type);
+  const type = flagTypeLabel(flag.flag_type);
+
+  if (flag.flag_type === 'drug_interaction' && drugs.length >= 2) {
+    return `${drugs.join(' + ')} - ${risk} interaction caution`;
+  }
+
+  if (drugs.length >= 1) {
+    return `${drugs.join(' + ')} - ${risk} ${type} caution`;
+  }
+
+  return `${risk} ${type} caution`;
+}
+
 function severityColor(severity, isDark) {
   if (severity === 'CRITICAL') return isDark ? 'text-red-400' : 'text-red-700';
   if (severity === 'MAJOR')    return isDark ? 'text-amber-400' : 'text-amber-700';
@@ -136,9 +206,16 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
                 </Badge>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <p className={`text-sm font-medium ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
-                      {flag.flag_type.replace('_', ' ')} · rec #{flag.recommendation_index + 1}
+                    <p className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+                      {safetyFlagTitle(flag)}
                     </p>
+                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full border ${
+                      isDark
+                        ? 'bg-white/5 border-white/10 text-slate-400'
+                        : 'bg-white/60 border-slate-200 text-slate-500'
+                    }`}>
+                      rec #{flag.recommendation_index + 1}
+                    </span>
                     {flag.source === 'graph' ? (
                       <span
                         title="Verified against a structured edge in the Neo4j clinical knowledge graph"
@@ -163,8 +240,8 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
                       </span>
                     )}
                   </div>
-                  <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                    {flag.detail}
+                  <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                    <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>Impact: </span>{flag.detail}
                   </p>
                   {flag.suggested_alternative && (
                     <p className={`text-xs mt-1 font-medium ${isDark ? 'text-sky-400' : 'text-sky-700'}`}>
