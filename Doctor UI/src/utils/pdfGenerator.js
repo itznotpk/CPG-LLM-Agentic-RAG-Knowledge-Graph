@@ -1,5 +1,5 @@
 import jsPDF from 'jspdf';
-import 'jspdf-autotable';
+import autoTable from 'jspdf-autotable';
 
 /**
  * Generates a PDF care plan document
@@ -80,7 +80,7 @@ export function generateCarePlanPDF({ patient, diagnosis, carePlan }) {
   // ===== PATIENT INFORMATION =====
   addSectionHeader('PATIENT INFORMATION');
 
-  doc.autoTable({
+  autoTable(doc, {
     startY: yPos,
     margin: { left: margin, right: margin },
     theme: 'grid',
@@ -189,7 +189,7 @@ export function generateCarePlanPDF({ patient, diagnosis, carePlan }) {
   if (interventions.length > 0) {
     addSectionHeader('INTERVENTIONS & PROCEDURES');
 
-    doc.autoTable({
+    autoTable(doc, {
       startY: yPos,
       margin: { left: margin, right: margin },
       theme: 'striped',
@@ -205,7 +205,7 @@ export function generateCarePlanPDF({ patient, diagnosis, carePlan }) {
   if (investigations.length > 0) {
     addSectionHeader('LABORATORY INVESTIGATIONS');
 
-    doc.autoTable({
+    autoTable(doc, {
       startY: yPos,
       margin: { left: margin, right: margin },
       theme: 'striped',
@@ -347,7 +347,7 @@ export function generateCarePlanPDFBlob({ patient, diagnosis, carePlan }) {
 
   // Patient info
   addSectionHeader('PATIENT INFORMATION');
-  doc.autoTable({
+  autoTable(doc, {
     startY: yPos, margin: { left: margin, right: margin }, theme: 'grid',
     headStyles: { fillColor: [212, 230, 241], textColor: [30, 41, 59], fontStyle: 'bold' },
     body: [
@@ -415,7 +415,7 @@ export function generateCarePlanPDFBlob({ patient, diagnosis, carePlan }) {
   const interventions = carePlan?.interventions?.filter(i => i.accepted !== false) || [];
   if (interventions.length > 0) {
     addSectionHeader('INTERVENTIONS & PROCEDURES');
-    doc.autoTable({
+    autoTable(doc, {
       startY: yPos, margin: { left: margin, right: margin }, theme: 'striped',
       headStyles: { fillColor: [59, 177, 156], textColor: [255, 255, 255] },
       head: [['Intervention', 'Code', 'Urgency']],

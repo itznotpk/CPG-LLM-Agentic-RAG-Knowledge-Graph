@@ -894,6 +894,10 @@ export function DataInputSection({ onViewChart }) {
 
 
   const handleAnalyze = async () => {
+    if (!clinicalNotes || !clinicalNotes.trim()) {
+      alert("Please enter Clinical Notes (the chief complaint) before starting the analysis.");
+      return;
+    }
     // Push every Step 1 card to Supabase before kicking off analysis.
     // Severity/staging has no column — it's embedded into clinical_notes by analyzeAssessment().
     try {

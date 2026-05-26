@@ -179,6 +179,26 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
   const [historyPatient, setHistoryPatient] = useState(null);
   const [patientConsultations, setPatientConsultations] = useState({}); // Cache consultations by NRIC
   const [loadingConsultation, setLoadingConsultation] = useState(null);
+  const [selectedPatientConsultations, setSelectedPatientConsultations] = useState([]);
+  const [loadingHistory, setLoadingHistory] = useState(false);
+
+  // Fetch all past consultations for a patient
+  const fetchPatientConsultations = async (patientNric) => {
+    setLoadingHistory(true);
+    try {
+      const result = await getAllPatientConsultations(patientNric, 50); // Fetch up to 50 past consultations
+      if (result.consultations) {
+        setSelectedPatientConsultations(result.consultations);
+      } else {
+        setSelectedPatientConsultations([]);
+      }
+    } catch (err) {
+      console.error('Failed to fetch patient consultations:', err);
+      setSelectedPatientConsultations([]);
+    } finally {
+      setLoadingHistory(false);
+    }
+  };
 
   // Fetch patients from Supabase only
   const fetchPatients = useCallback(async () => {
@@ -330,10 +350,13 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
   const handlePatientExpand = (patient) => {
     if (selectedPatient?.id === patient.id) {
       setSelectedPatient(null); // Collapse
+      setSelectedPatientConsultations([]);
     } else {
       setSelectedPatient(patient); // Expand
       // Refresh consultation data for this patient to ensure sync
       refreshPatientConsultation(patient.nsn);
+      // Fetch all past consultations for this patient
+      fetchPatientConsultations(patient.nsn);
     }
   };
 
@@ -619,89 +642,96 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
 
                             {/* Diagnoses */}
                             <div className={`mb-6 pb-4 border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                              <p className="ds-eyebrow mb-3">Diagnoses / medical history</p>
+                              <p className="ds-eyebrow mb-3">Diagnoses / medical history (Past consultations & care plans)</p>
                               {(() => {
-                                // Get diagnoses from consultation (selected differential diagnoses from database)
-                                const consultation = patientConsultations[patient.nsn];
-                                const consultDiagnoses = consultation?.diagnoses || [];
-                                const MAX_VISIBLE = 3;
+                                if (loadingHistory) {
+                                  return (
+                                    <div className="flex items-center gap-2 py-4">
+                                      <Loader2 className={`w-4 h-4 animate-spin ${accent.text}`} />
+                                      <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading history & care plans...</span>
+                                    </div>
+                                  );
+                                }
 
-                                if (consultDiagnoses.length > 0) {
-                                  // Sort diagnoses by recordedAt descending (latest first)
-                                  const sortedDiagnoses = [...consultDiagnoses].sort((a, b) => {
-                                    const dateA = a.recordedAt ? new Date(a.recordedAt) : new Date(0);
-                                    const dateB = b.recordedAt ? new Date(b.recordedAt) : new Date(0);
-                                    return dateB - dateA;
-                                  });
-
-                                  const consultTimeFormatted = consultation?.consultationTime
-                                    ? new Date(consultation.consultationTime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
-                                    : null;
-                                  const hasMore = sortedDiagnoses.length > MAX_VISIBLE;
+                                if (selectedPatientConsultations.length > 0) {
+                                  const MAX_VISIBLE = 2;
+                                  const hasMore = selectedPatientConsultations.length > MAX_VISIBLE;
 
                                   return (
                                     <div>
                                       {/* Scrollable container with max height */}
-                                      <div className={`space-y-2 ${hasMore ? 'max-h-48 overflow-y-auto pr-2' : ''}`} style={hasMore ? { scrollbarWidth: 'thin' } : {}}>
-                                        {sortedDiagnoses.map((dx, i) => (
-                                          <div key={dx.id || i} className={`p-2 rounded-lg border-l-2 border-[var(--accent-primary)]/50 ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
-                                            {(() => {
-                                              const dateObj = dx.recordedAt ? new Date(dx.recordedAt) : (consultation?.consultationTime ? new Date(consultation.consultationTime) : null);
-                                              const dateToDisplay = dateObj ? dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' }) : null;
-                                              const timeToDisplay = dateObj ? dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' }) : null;
-                                              return (
-                                                <div className="flex items-center justify-between gap-3">
-                                                  {/* Left: diagnosis name + ICD + timestamp */}
-                                                  <div className="min-w-0">
-                                                    <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                                      {typeof dx === 'object' ? dx.name : dx}
-                                                    </p>
-                                                    {typeof dx === 'object' && dx.icdCode && (
-                                                      <p className={`text-xs ds-mono ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                                        ICD-11: {dx.icdCode}
-                                                      </p>
-                                                    )}
-                                                    {dateToDisplay && (
-                                                      <p className={`text-[11px] mt-0.5 ds-numeric ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                                                        {dateToDisplay}{timeToDisplay && <span className="ml-1.5">{timeToDisplay}</span>}
-                                                      </p>
-                                                    )}
-                                                  </div>
-                                                  {/* Right: download button */}
-                                                  <button
-                                                    title={consultation?.reportPdfUrl ? 'Download care plan PDF' : 'Download diagnosis report'}
-                                                    onClick={() => {
-                                                      if (consultation?.reportPdfUrl) {
-                                                        const dxName = typeof dx === 'object' ? dx.name : dx;
-                                                        const fileName = `care-plan_${(dxName || 'report').replace(/\s+/g, '_').slice(0, 40)}.pdf`;
-                                                        downloadCarePlanPDF(consultation.reportPdfUrl, fileName);
-                                                      } else {
-                                                        downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay);
-                                                      }
-                                                    }}
-                                                    className={`flex-shrink-0 p-2 rounded-md transition-colors text-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/15 hover:bg-[var(--accent-primary)]/25' : 'bg-[var(--accent-primary)]/10 hover:bg-[var(--accent-primary)]/20'}`}
-                                                  >
-                                                    <Download className="w-5 h-5" strokeWidth={2} />
-                                                  </button>
+                                      <div className={`space-y-3 ${hasMore ? 'max-h-60 overflow-y-auto pr-2' : ''}`} style={hasMore ? { scrollbarWidth: 'thin' } : {}}>
+                                        {selectedPatientConsultations.map((consult, index) => {
+                                          const dateObj = consult.consultationTime ? new Date(consult.consultationTime) : new Date(consult.createdAt || 0);
+                                          const dateToDisplay = dateObj ? dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' }) : 'Unknown Date';
+                                          const timeToDisplay = dateObj ? dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' }) : '';
+                                          const diagnoses = consult.diagnoses || [];
+
+                                          return (
+                                            <div key={consult.id || index} className={`p-3 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-slate-200'} flex items-center justify-between gap-4 hover:border-[var(--accent-primary)]/40 transition-colors`}>
+                                              <div className="min-w-0">
+                                                <div className="flex items-center gap-2 flex-wrap">
+                                                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--accent-primary)]/20 ${accent.text} uppercase tracking-wider`}>
+                                                    Consultation
+                                                  </span>
+                                                  <span className={`text-xs font-semibold ds-numeric ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                                                    {dateToDisplay} {timeToDisplay && `at ${timeToDisplay}`}
+                                                  </span>
                                                 </div>
-                                              );
-                                            })()}
-                                          </div>
-                                        ))}
+
+                                                {/* Diagnoses for this specific consultation */}
+                                                <div className="mt-2 space-y-1">
+                                                  {diagnoses.length > 0 ? (
+                                                    diagnoses.map((dx, i) => (
+                                                      <p key={i} className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
+                                                        • <span className="font-medium">{typeof dx === 'object' ? dx.name : dx}</span>
+                                                        {typeof dx === 'object' && dx.icdCode && (
+                                                          <span className={`ml-2 text-xs font-mono px-1.5 py-0.5 rounded ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-200/80 text-slate-500'}`}>
+                                                            {dx.icdCode}
+                                                          </span>
+                                                        )}
+                                                      </p>
+                                                    ))
+                                                  ) : (
+                                                    <p className={`text-xs italic ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>• No specific diagnoses recorded</p>
+                                                  )}
+                                                </div>
+                                              </div>
+
+                                              {/* Download button for this specific care plan */}
+                                              <button
+                                                title={consult.reportPdfUrl ? 'Download Care Plan PDF' : 'Download Diagnosis Text Report'}
+                                                onClick={() => {
+                                                  if (consult.reportPdfUrl) {
+                                                    const fileName = `CarePlan_${(patient.name || 'Patient').replace(/\s+/g, '_')}_${dateToDisplay.replace(/\s+/g, '_')}.pdf`;
+                                                    downloadCarePlanPDF(consult.reportPdfUrl, fileName);
+                                                  } else {
+                                                    const firstDx = diagnoses[0] || 'No_Diagnosis';
+                                                    const dxName = typeof firstDx === 'object' ? firstDx.name : firstDx;
+                                                    downloadDiagnosisReport(dxName, patient, dateToDisplay, timeToDisplay);
+                                                  }
+                                                }}
+                                                className={`flex-shrink-0 p-2.5 rounded-xl transition-all shadow-sm flex items-center justify-center text-white bg-teal-600 hover:bg-teal-700 active:scale-95`}
+                                              >
+                                                <Download className="w-4 h-4" strokeWidth={2.5} />
+                                              </button>
+                                            </div>
+                                          );
+                                        })}
                                       </div>
+
                                       {/* Show count indicator if scrollable */}
                                       {hasMore && (
                                         <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                                          Showing all {sortedDiagnoses.length} diagnoses (scroll to view)
+                                          Showing all {selectedPatientConsultations.length} past consultations (scroll to view)
                                         </p>
                                       )}
                                     </div>
                                   );
                                 } else {
-                                  // No fallback to comorbidities - diagnoses come ONLY from consultations.diagnoses
                                   return (
                                     <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                      No diagnoses recorded
+                                      No past consultations or care plans recorded
                                     </p>
                                   );
                                 }
