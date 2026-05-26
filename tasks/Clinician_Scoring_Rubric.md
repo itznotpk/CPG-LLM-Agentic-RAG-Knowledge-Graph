@@ -6,14 +6,14 @@
 
 | Aspects | 5 | 4 | 3 | 2 | 1 | Marks |
 |---|---|---|---|---|---|---|
-| **1. Clinical Correctness** — Does the plan match what I'd prescribe / avoid? | Fully correct. All meds appropriate, right doses, all contraindicated drugs excluded. | Mostly correct. Minor omissions that would not cause harm. Core management sound. | Partially correct. Some key meds missing or suboptimal. Needs modification before use. | Significant gaps or errors. Missing critical meds or includes inappropriate ones. | Incorrect or harmful. Wrong meds, critical drugs omitted, or dangerous plan suggested. | &nbsp; |
-| **2. Guideline Fidelity** — Are citations consistent with Malaysian MoH CPGs? | All recommendations explicitly tied to named CPG, edition, and section. No deviations. | Most CPG-aligned. Minor deviations acceptable clinically. Guidelines cited but not always by section. | Some CPG-aligned, others generic. Guidelines mentioned vaguely without edition or section. | Few recommendations traceable to CPGs. Mostly relies on general knowledge. | No CPG alignment. Recommendations contradict current Malaysian guidelines or none referenced. | &nbsp; |
-| **3. Safety — DDIs & Contraindications** ⚠️ | Catches ALL critical DDIs and contraindications. Flags severity. Zero dangerous omissions. | Catches major DDIs. May miss 1 minor interaction. No life-threatening omissions. | Catches the most obvious contraindication but misses 1–2 clinically relevant DDIs. | Misses significant DDIs. Output could lead to patient harm if followed without verification. | Misses critical contraindication (e.g. PDE5i + nitrates, teratogen in pregnancy). Dangerous. | &nbsp; |
-| **4. Reasoning Transparency** — Can I follow *why* it reached the conclusion? | Every recommendation has step-by-step rationale. Full chain: data → evidence → decision. ≥6 steps. | Most recommendations have clear rationale. Reasoning visible for key decisions. 4–5 steps. | Some reasoning visible but several recommendations have no explanation. 2–3 steps. | Minimal reasoning. Conclusions given without justification. Hard to understand decisions. | No reasoning shown. Conclusions only. Completely black-box output. | &nbsp; |
-| **5. Evidence Citation Quality** — Are guidelines named and locatable? Any hallucinated refs? | All major recommendations cite CPG name + edition + section. Real and locatable. Zero hallucinations. | Most cite named CPGs. 1–2 citations generic (no section). No hallucinated references detected. | Some specific, some vague citations. 1–2 potentially unverifiable references. | Mostly generic ("guidelines recommend..."). Multiple unverifiable or hallucinated references. | No citations OR multiple clearly hallucinated references. Cannot verify any claim. | &nbsp; |
-| **6. Uncertainty Handling** — Does it flag what it's unsure about and assumptions made? | Explicitly flags all uncertainty. States assumptions, conflicting evidence, and where judgment is needed. | Flags major uncertainties. Some assumptions stated. Minor gaps in uncertainty communication. | Mentions uncertainty in 1–2 places but several assumptions unstated. | Little to no uncertainty flagged. Presents uncertain recommendations as certain. | No uncertainty acknowledged. All recommendations presented with equal certainty. No caution signals. | &nbsp; |
-| **7. Appropriate Deferral** — Does it correctly recommend specialist referral where needed? | Identifies all referral needs. Names specialist, reason, and urgency. Does not over- or under-refer. | Identifies most referral needs. May miss 1 non-urgent referral or be vague on urgency. | Identifies the most obvious referral but misses 1–2 important ones, or too vague to act on. | Referral recommendations missing or inappropriate. Over-refers or misses clear indications. | No referral despite clear indication, OR dangerous recommendation to manage independently. | &nbsp; |
-| **8. Trust to Use** — Would I act on this in clinic without re-checking everything? | Would act on this with minimal additional verification. High confidence in accuracy and safety. | Would use with minor cross-checking on 1–2 points. Comfortable following the overall plan. | Would use as a starting point only. Requires significant verification before acting. | Would not act on this without substantial independent review. More questions than answers. | Would not use this output. Concerns about accuracy or safety are too significant. | &nbsp; |
+| **1. Clinical Correctness** — Matches what I'd prescribe / avoid? | Fully correct; right meds, right doses, contraindicated drugs excluded. | Mostly correct; minor omissions, no harm. | Partial; some key meds missing or suboptimal. | Significant gaps; missing critical meds or includes inappropriate ones. | Incorrect or harmful plan. | &nbsp; |
+| **2. Guideline Fidelity** — Consistent with Malaysian MoH CPGs? | All recs tied to named CPG + edition + section. | Most CPG-aligned; section sometimes omitted. | Mixed; vague CPG mentions, no edition/section. | Few recs traceable; mostly general knowledge. | No CPG alignment, or contradicts current MoH guidelines. | &nbsp; |
+| **3. Safety — DDIs & Contraindications** ⚠️ | Catches ALL critical DDIs/contraindications with severity. | Catches major DDIs; may miss 1 minor. | Catches obvious contraindication; misses 1–2 clinically relevant DDIs. | Misses significant DDIs; could harm if followed. | Misses critical contraindication (e.g. PDE5i + nitrate, teratogen). Dangerous. | &nbsp; |
+| **4. Reasoning Transparency** — Can I follow *why*? | Full chain (data → evidence → decision) for every rec, ≥6 steps. | Clear rationale for key decisions, 4–5 steps. | Some reasoning; several recs unexplained, 2–3 steps. | Minimal reasoning; conclusions without justification. | No reasoning shown; black-box. | &nbsp; |
+| **5. Evidence Citation Quality** — Named, locatable, real? | All cite CPG + edition + section; no hallucinations. | Most cite named CPGs; 1–2 generic; no hallucinations. | Mix of specific and vague; 1–2 unverifiable. | Mostly generic; multiple unverifiable refs. | No citations or clearly hallucinated. | &nbsp; |
+| **6. Uncertainty Handling** — Flags assumptions and unsure points? | Explicitly flags all uncertainty; states assumptions and conflicts. | Flags major uncertainties; some assumptions stated. | Uncertainty mentioned in 1–2 places; several assumptions unstated. | Little uncertainty flagged; presents uncertain recs as certain. | No uncertainty acknowledged; uniform certainty. | &nbsp; |
+| **7. Appropriate Deferral** — Specialist referral where needed? | All referrals identified; names specialist, reason, urgency. | Most referrals identified; may miss 1 non-urgent or be vague on urgency. | Obvious referral caught; misses 1–2 important ones. | Referrals missing or inappropriate; over- or under-refers. | No referral despite clear indication, or unsafe self-management. | &nbsp; |
+| **8. Trust to Use** — Would I act on this without re-checking everything? | Would act with minimal verification. | Would use with cross-checks on 1–2 points. | Useful as starting point; needs significant verification. | Would not act without substantial review. | Would not use; safety/accuracy concerns too significant. | &nbsp; |
 | | | | | | **Total** | **/40** |
 
 ---
@@ -33,3 +33,40 @@
 **Single biggest concern:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 **Did this system reach the right answer for the *right reason*, or by coincidence?** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+---
+---
+
+# Clinical Decision Support System — Workflow / UI-UX Rubric
+
+**System:** \_\_\_\_ (A / B / C / D) &nbsp;&nbsp;&nbsp; **Reviewer Specialty:** \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ &nbsp;&nbsp;&nbsp; **Years in Practice:** \_\_\_\_
+
+> Score this rubric **once per system** after watching the demo walkthrough — not per case. It evaluates how the tool fits clinical workflow, not the clinical content of any single output.
+
+| Aspects | 5 | 4 | 3 | 2 | 1 | Marks |
+|---|---|---|---|---|---|---|
+| **1. Workflow fit** — Can I use this *during* a patient encounter? | Fits naturally in the 10-min window. | Usable during encounter, minor friction. | Borderline; works for long reviews, not fast triage. | Mostly a post-consult tool. | Unusable during encounter. | &nbsp; |
+| **2. Time-to-answer (perceived)** — Is latency acceptable? | Feels instant for the value returned. | Slight delay, justified by depth. | Noticeable wait; tolerable for complex cases. | Slow; would lose patient attention. | Unusably slow. | &nbsp; |
+| **3. Information density** — Right amount shown? | Optimal; key info scannable, depth one click away. | Well-balanced, minor over/under-display. | Mixed; some sections too dense or too sparse. | Poor balance; must hunt for key recommendation. | Unusable; drowns me in text or one-liners. | &nbsp; |
+| **4. Reasoning visibility** — Can I expand/collapse CoT? | Full trace on demand (DDx, routing, retrieval, safety) without losing summary. | Most reasoning accessible; 1–2 stages hidden. | Citations visible but *why* logic not exposed. | Mostly black-box with footnotes. | No reasoning visible at all. | &nbsp; |
+| **5. Safety surfacing** — Are critical flags impossible to miss? | Visually unmissable (colour/position/severity); source shown. | Clearly displayed; no risk of missing CRITICAL/MAJOR. | Mixed into text; could skim past moderate flags. | Buried in prose; easy to miss under time pressure. | No structured surfacing; indistinguishable from answer. | &nbsp; |
+| **6. Override & feedback** — Can I push back, annotate, correct? | Full override loop; re-synthesizes with my input. | Partial; can edit final plan, not upstream reasoning. | View-only with copy-paste workaround. | Read-only; accept or discard the whole answer. | No interaction model at all. | &nbsp; |
+| | | | | | **Total** | **/30** |
+
+---
+
+**Open questions (3):**
+
+1. Where in your day would this tool fit? (pre-consult / during / post / teaching) \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+2. One thing you'd **remove** from the UI; one thing you'd **add**:
+   - Remove: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+   - Add: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+3. Would you recommend it to a colleague? Why / why not? \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+
+---
+
+**Forced Ranking** (after scoring all systems — rank best to worst on workflow/UI):
+
+1st \_\_\_\_ &nbsp;&nbsp; 2nd \_\_\_\_ &nbsp;&nbsp; 3rd \_\_\_\_ &nbsp;&nbsp; 4th \_\_\_\_
