@@ -1,4 +1,5 @@
 import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react';
+import { useTheme } from '../../../context/ThemeContext';
 import { Letterhead, PatientBanner, SoapSection, VitalsTable, AssessmentList, MedTable, PlanTable, PlanSub, fcpIcons } from './FinalCarePlanPieces';
 /* Final Care Plan — Stage 4 app */
 
@@ -449,6 +450,121 @@ function EditableMedTable({ meds, onChange, editing }) {
   );
 }
 
+/* ── Parse clinical notes into structured sections ── */
+function parseClinicalNotes(notes) {
+  if (!notes) return [];
+  const regex = /(CC:|Chief Complaint:|HPI:|History of Present Illness:|PE:|Physical Exam:|Physical Examination:|Labs:|Laboratory:|PMH:|Past Medical History:|\[Severity\/Staging\]|Severity\/Staging:)/gi;
+  const parts = notes.split(regex);
+  const sections = [];
+  
+  // If there's content before any key, treat it as general/unlabeled
+  let firstPart = parts[0]?.trim();
+  if (firstPart) {
+    sections.push({ key: '', label: '', content: firstPart });
+  }
+  
+  for (let i = 1; i < parts.length; i += 2) {
+    const rawKey = parts[i];
+    const rawValue = parts[i + 1] || '';
+    
+    // Normalize rawKey into a nice label
+    let label = rawKey.trim();
+    if (label.endsWith(':')) label = label.slice(0, -1).trim();
+    
+    // Clean up label names
+    const lowerLabel = label.toLowerCase();
+    if (lowerLabel === 'cc') label = 'Chief Complaint';
+    else if (lowerLabel === 'hpi') label = 'History of Present Illness';
+    else if (lowerLabel === 'pe') label = 'Physical Exam';
+    else if (lowerLabel === 'pmh') label = 'Past Medical History';
+    else if (lowerLabel === '[severity/staging]') label = 'Severity / Staging';
+    
+    const content = rawValue.trim();
+    if (content) {
+      sections.push({ key: rawKey.trim().toLowerCase(), label, content });
+    }
+  }
+  return sections;
+}
+
+/* ── Render Subjective Sections ── */
+function renderSubjectiveNotes(notes) {
+  const sections = parseClinicalNotes(notes);
+  const subjectiveSections = sections.filter(s => 
+    !s.key.includes('pe') && 
+    !s.key.includes('physical') && 
+    !s.key.includes('lab')
+  );
+  
+  // Rearrange: move Severity/Staging to the bottom
+  const severityIndex = subjectiveSections.findIndex(s => s.key.includes('severity') || s.key.includes('staging'));
+  if (severityIndex !== -1) {
+    const severitySection = subjectiveSections.splice(severityIndex, 1)[0];
+    subjectiveSections.push(severitySection);
+  }
+  
+  if (subjectiveSections.length === 0) {
+    return <p style={{ margin: 0, color: 'var(--fg-muted)', fontStyle: 'italic' }}>{notes || 'No subjective history documented.'}</p>;
+  }
+  
+  return (
+    <div className="narrative-blocks" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {subjectiveSections.map((s, idx) => (
+        <div key={idx} style={{ lineHeight: '1.6' }}>
+          {s.label ? (
+            <div style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--accent-primary)', marginBottom: '2px' }}>
+              {s.label}
+            </div>
+          ) : null}
+          <div style={{ fontSize: '13.5px', color: 'var(--fg-primary)' }}>
+            {s.content}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ── Render Objective Sections (PE / Labs) ── */
+function renderObjectiveNotes(notes) {
+  const sections = parseClinicalNotes(notes);
+  const peLabsSections = sections.filter(s => 
+    s.key.includes('pe') || 
+    s.key.includes('physical') || 
+    s.key.includes('lab')
+  );
+  
+  if (peLabsSections.length === 0) {
+    return (
+      <div style={{ marginTop: 14, lineHeight: '1.6' }}>
+        <div style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--accent-primary)', marginBottom: '2px' }}>
+          Physical Exam
+        </div>
+        <div style={{ fontSize: '13.5px', color: 'var(--fg-primary)' }}>
+          Reduced sensation to monofilament test bilateral plantar surfaces.
+          Pedal pulses present and symmetric. Skin intact. No active foot lesions or fungal infection.
+          Fundoscopy deferred — referral made for dilated exam.
+        </div>
+      </div>
+    );
+  }
+  
+  return (
+    <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+      {peLabsSections.map((s, idx) => (
+        <div key={idx} style={{ lineHeight: '1.6' }}>
+          <div style={{ fontSize: '11px', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.04em', color: 'var(--accent-primary)', marginBottom: '2px' }}>
+            {s.label}
+          </div>
+          <div style={{ fontSize: '13.5px', color: 'var(--fg-primary)' }}>
+            {s.content}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export const FinalCarePlan = forwardRef(function FinalCarePlan({
   patient, diagnoses, carePlan: plan, allergies, vitals,
   clinicalNotes, provider, encounter, nextReviewDate,
@@ -456,6 +572,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   pdfUploaded, pdfUploading,
 }, ref) {
   const [editing, setEditing] = useState(false);
+  const { isDark } = useTheme();
   const paperRef = useRef(null);
 
   // Expose the paper DOM element to the parent via ref
@@ -484,6 +601,11 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   });
 
   const [draft, setDraft] = useState(initialDraft);
+
+  React.useEffect(() => {
+    setDraft(initialDraft());
+  }, [clinicalNotes, plan, patient, nextReviewDate]);
+
   const set = (key) => (val) => setDraft(d => ({ ...d, [key]: val }));
 
   const totalMeds =
@@ -495,10 +617,14 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   return (
     <div className="fcp-shell">
       <div>
-        <div className="fcp-eyebrow">
-          <span className="step">Step 4 of 4 · Final Care Plan</span>
-          <span className="status"><span className="dot"></span>Ready to approve</span>
-          <span className="doc-id">DOC-{encounter.id}</span>
+        <div className="mb-6">
+          <span className="ds-eyebrow">STEP 4 OF 4</span>
+          <h2 className={`text-2xl font-semibold tracking-tight mb-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            Final Care Plan
+          </h2>
+          <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+            Review, print, or export the finalized care plan document.
+          </p>
         </div>
 
         {editing && (
@@ -515,21 +641,23 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
 
         <div className="paper" ref={paperRef}>
           <Letterhead provider={provider} encounter={encounter} />
-          <PatientBanner patient={patient} encounter={encounter} allergies={allergies} />
+          <PatientBanner patient={patient} encounter={encounter} allergies={allergies} provider={provider} />
 
           <div className="doc-body">
             <SoapSection letter="S" title="Subjective" desc="Patient-reported history" id="soap-s">
-              <EditableText multiline editing={editing} value={draft.clinicalNotes}
-                onChange={set('clinicalNotes')} className="narrative" />
+              {editing ? (
+                <EditableText multiline editing={editing} value={draft.clinicalNotes}
+                  onChange={set('clinicalNotes')} className="narrative" />
+              ) : (
+                <div className="narrative">
+                  {renderSubjectiveNotes(draft.clinicalNotes)}
+                </div>
+              )}
             </SoapSection>
 
             <SoapSection letter="O" title="Objective" desc="Vital signs & exam findings" id="soap-o">
               <VitalsTable vitals={vitals} />
-              <p style={{ marginTop: 14, fontSize: 13, lineHeight: 1.6 }}>
-                <strong>Physical exam:</strong> Reduced sensation to monofilament test bilateral plantar surfaces.
-                Pedal pulses present and symmetric. Skin intact. No active foot lesions or fungal infection.
-                Fundoscopy deferred — referral made for dilated exam.
-              </p>
+              {renderObjectiveNotes(draft.clinicalNotes)}
             </SoapSection>
 
             <SoapSection letter="A" title="Assessment" desc="Clinical impression" id="soap-a">

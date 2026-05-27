@@ -151,28 +151,29 @@ html, body {
   background: var(--slate-50);
 }
 .patient-banner .field {
-  padding: 12px 18px;
+  padding: 8px 14px;
   border-right: 1px solid var(--slate-200);
 }
 .patient-banner .field:last-child { border-right: 0; }
 .patient-banner .field-label {
-  font-size: 10px;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--fg-muted);
-  margin-bottom: 3px;
+  margin-bottom: 1px;
 }
 .patient-banner .field-value {
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   color: var(--fg-primary);
+  line-height: 1.35;
 }
 .patient-banner .field-sub {
-  font-size: 11px;
+  font-size: 10.5px;
   color: var(--fg-muted);
   font-family: var(--font-mono);
-  margin-top: 1px;
+  margin-top: 0px;
 }
 
 .allergy-strip {

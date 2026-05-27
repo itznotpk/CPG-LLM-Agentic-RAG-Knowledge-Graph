@@ -709,7 +709,15 @@ export function AppProvider({ children }) {
       const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);
       dispatch({ type: 'SET_CARE_PLAN', payload: newCarePlan });
       dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: response });
-      dispatch({ type: 'SET_DIAGNOSIS', payload: mapDdxToDiagnosis(response.ddx, response.cpgs_matched) });
+      const mappedDiag = mapDdxToDiagnosis(response.ddx, response.cpgs_matched);
+      const previouslySelectedCodes = selectedDiagnoses.map(d => d.icdCode);
+      const newSelectedIds = mappedDiag.differentials
+        .filter(d => previouslySelectedCodes.includes(d.icdCode))
+        .map(d => d.id);
+      if (newSelectedIds.length > 0) {
+        mappedDiag.selectedDiagnosisIds = newSelectedIds;
+      }
+      dispatch({ type: 'SET_DIAGNOSIS', payload: mappedDiag });
       dispatch({
         type: 'SET_PIPELINE_SUMMARY',
         payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },

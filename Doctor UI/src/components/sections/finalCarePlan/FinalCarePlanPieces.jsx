@@ -25,11 +25,10 @@ export function Letterhead({ provider, encounter }) {
     <div className="letterhead">
       <div className="crest">M</div>
       <div>
-        <div className="hospital-name">ClearPath</div>
+        <div className="font-display italic text-teal-700 text-2xl leading-none tracking-tight mb-1">ClearPath.</div>
         <div className="hospital-tagline">{provider.clinic} · No.12 Jalan Bukit Damansara, KL</div>
       </div>
       <div className="doc-meta">
-        <div className="doc-type">Clinical Care Plan</div>
         <div>{encounter.id}</div>
         <div>{encounter.date} · {encounter.time}</div>
       </div>
@@ -40,29 +39,41 @@ export function Letterhead({ provider, encounter }) {
 /* ============================================================
    PATIENT BANNER + ALLERGY STRIP
    ============================================================ */
-export function PatientBanner({ patient, encounter, allergies }) {
+export function PatientBanner({ patient, encounter, allergies, provider }) {
+  const patientSubParts = [
+    patient.age ? `${patient.age} y` : null,
+    patient.sex || patient.gender,
+    patient.ethnicity
+  ].filter(Boolean);
+  const patientSub = patientSubParts.join(' · ');
+
+  const nsnLast4 = patient.nsn ? patient.nsn.slice(-4) : '5821';
+  const displayMrn = patient.mrn || `MRN-${nsnLast4}`;
+
   return (
     <>
       <div className="patient-banner">
         <div className="field">
           <div className="field-label">Patient</div>
           <div className="field-value">{patient.name}</div>
-          <div className="field-sub">{patient.age} y · {patient.sex} · {patient.ethnicity}</div>
+          {patientSub && <div className="field-sub">{patientSub}</div>}
         </div>
         <div className="field">
           <div className="field-label">MRN</div>
-          <div className="field-value">{patient.mrn}</div>
-          <div className="field-sub">NRIC last 4: ····5821</div>
+          <div className="field-value">{displayMrn}</div>
+          <div className="field-sub">NRIC last 4: ····{nsnLast4}</div>
         </div>
         <div className="field">
           <div className="field-label">Encounter</div>
           <div className="field-value">{encounter.type}</div>
-          <div className="field-sub">{encounter.duration}</div>
+          {encounter.duration && encounter.duration !== '—' && (
+            <div className="field-sub">{encounter.duration}</div>
+          )}
         </div>
         <div className="field">
           <div className="field-label">Provider</div>
-          <div className="field-value">Dr. Aiman Halim</div>
-          <div className="field-sub">MMC-48921</div>
+          <div className="field-value">{provider?.name || 'Dr. Aiman Halim'}</div>
+          <div className="field-sub">{provider?.mmcNo ? `MMC-${provider.mmcNo.replace(/^MMC-/i, '')}` : 'MMC-48921'}</div>
         </div>
       </div>
       {allergies && allergies.length > 0 &&

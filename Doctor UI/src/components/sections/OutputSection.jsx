@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useApp } from '../../context/AppContext';
+import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../shared/Notification';
 import { generatePdfFromElement } from '../../utils/htmlToPdf';
 import { FinalCarePlan } from './finalCarePlan/FinalCarePlan';
@@ -7,6 +8,7 @@ import './finalCarePlan/finalCarePlan.css';
 
 export function OutputSection() {
   const { state, resetApp, goToStep, uploadFinalCarePlanPDF } = useApp();
+  const { profile: authProfile } = useAuth();
   const toast = useToast();
   const {
     patient, patientData, carePlan, diagnosis, vitals,
@@ -50,20 +52,18 @@ export function OutputSection() {
     : null);
   const vitalsExt = { ...v, weight, height, bmi, rr: v.rr ?? 18 };
 
-  // Provider — wire to currentUser when available
-  const provider = currentUser?.name
-    ? {
-        name: currentUser.name,
-        role: currentUser.role || 'Clinician',
-        mmcNo: currentUser.mmcNo || '—',
-        clinic: currentUser.clinic || 'Clinic',
-      }
-    : {
-        name: 'Dr. Aiman Halim',
-        role: 'Family Medicine Specialist',
-        mmcNo: 'MMC-48921',
-        clinic: 'Klinik Kesihatan Bandar Bukit Damansara',
-      };
+  // Provider — dynamically wire to authProfile (current login session's doctor)
+  const provider = authProfile ? {
+    name: authProfile.full_name || 'Dr. Clinician',
+    role: authProfile.specialty || authProfile.role || 'Clinician',
+    mmcNo: authProfile.license_number || '—',
+    clinic: authProfile.facility || 'Clinic',
+  } : {
+    name: 'Dr. Aiman Halim',
+    role: 'Family Medicine Specialist',
+    mmcNo: 'MMC-48921',
+    clinic: 'Klinik Kesihatan Bandar Bukit Damansara',
+  };
 
   const now = new Date();
   const encounter = {
