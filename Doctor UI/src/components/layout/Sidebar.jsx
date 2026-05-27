@@ -55,7 +55,7 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
       onMouseLeave={() => setIsHovered(false)}
       animate={{ width: resolvedCollapsed ? 80 : 256 }}
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-      className={`fixed left-0 top-0 h-full z-50 flex flex-col overflow-hidden backdrop-blur-xl
+      className={`fixed left-0 top-0 h-full z-50 flex flex-col overflow-hidden backdrop-blur-xl print:hidden
         ${isDark
           ? 'bg-slate-950/80 border-r border-white/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.5)]'
           : 'bg-white/85 border-r border-slate-200/60 shadow-[0_8px_32px_0_rgba(148,163,184,0.18)]'

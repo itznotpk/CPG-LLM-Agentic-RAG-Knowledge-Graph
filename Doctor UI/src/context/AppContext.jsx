@@ -164,6 +164,28 @@ function appReducer(state, action) {
           },
         },
       };
+    case 'ADD_MEDICATION': {
+      const newMed = {
+        id: `new-${Date.now()}`,
+        name: '',
+        dose: '',
+        reason: '',
+        instructions: '',
+        kiv: '',
+        cpgRef: 'Manual entry',
+        displayAction: 'continue',
+      };
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          medications: {
+            ...state.carePlan.medications,
+            continue: [...(state.carePlan.medications?.continue || []), newMed],
+          },
+        },
+      };
+    }
     case 'UPDATE_MEDICATION_FIELD': {
       // Update a single field on a medication within its action category
       const { actionType, medId, field, value } = action.payload;

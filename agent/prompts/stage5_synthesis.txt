@@ -267,6 +267,11 @@ recommendations array MUST cover all applicable types below:
       action="contraindicated", intervention="Sildenafil — patient on long-acting nitrates; risk of severe hypotension"
     Do NOT write "consider ERA therapy" — be specific with drug name, dose, route, and frequency.
     Do NOT set action=null for pharmacological recommendations.
+    If the CPG chunk only names a drug CLASS (e.g. "beta-blocker", "ACE inhibitor", "statin")
+    without specifying a particular agent, dose, or route, you MUST:
+      1. Use the class name as the drug, but append "(agent and dose not specified in CPG)"
+         e.g. "Beta-blocker (agent and dose not specified in CPG) — post-MI secondary prevention"
+      2. Add an unresolved_questions entry: "Specific [class] agent and dose not stated in retrieved evidence — clinician to select."
 
   type="investigation"
     Tests and imaging required before or during treatment. EMIT ONE Recommendation
@@ -359,9 +364,14 @@ SYNTHESIS RULES:
      (e.g. "CPG PAH §6.1 [chunk 3] ⚠ Published 2011 (15y old)") AND add an unresolved_questions entry
      noting the CPG is stale and a current guideline check is warranted.
    - evidence_grade: assign using EVIDENCE GRADE ASSIGNMENT rules above. Null if no tag present.
-   - rationale: one sentence explaining WHY this applies to THIS SPECIFIC PATIENT.
-     Must reference patient-specific data: age, sex, comorbidities, vitals, or medications.
-     Acceptable: "Preferred in this 22F with shellfish allergy — no cross-reactivity with bosentan."
+   - rationale: SHORT concise clinical statement (max 15 words) stating WHY for THIS patient.
+     Reference one patient-specific data point (age, sex, comorbidity, vital, or medication).
+     Do NOT use shorthand like "21M" or "22F". Spell out age and gender (e.g., "21-year-old male").
+     Do NOT write full narrative sentences with background explanation.
+     Acceptable: "Post-DES — clopidogrel 75mg daily compulsory ≥1 year"
+     Acceptable: "22-year-old female with shellfish allergy — no cross-reactivity with bosentan"
+     Acceptable: "HbA1c 8.5% — intensive statin therapy indicated"
+     NOT acceptable: "This 21-year-old male received DES yesterday; clopidogrel 75 mg daily for at least a year is mandated to prevent late stent thrombosis."
      NOT acceptable: "Recommended for patients with this condition."
    - contraindications_checked: list every allergy and current medication checked against this recommendation.
      Never leave empty if the patient has allergies or current medications.
@@ -370,12 +380,20 @@ SYNTHESIS RULES:
 
 3. red_flags — populate from evidence only. Copy escalation criteria verbatim from chunks.
 
-4. unresolved_questions — use liberally. Add an item whenever:
+4. unresolved_questions — use liberally. Add an item whenever evidence is missing or ambiguous.
+   MUST format each entry strictly as: "Short Title — Subtitle description"
+   - Title: 2-6 word topic before the dash.
+   - Subtitle: concise description of what is missing or needs clinician input after the dash.
+   Examples:
+     "Optimal Anticoagulation Strategy — triple therapy vs DOAC-based dual pathway therapy not addressed in retrieved chunks."
+     "Specific Statin Dose — target 'LDL-C <2.0 mmol/L' provided, but exact drug/dose not specified."
+     "Warfarin-Fluconazole Interaction — dose adjustment requires specialist guidance; specific INR target not retrieved."
+     "Outdated Guideline — CPG PCI is from 2009 (15+ years old); current guideline check warranted."
+   Add an item whenever:
    - A clinical decision cannot be made from the retrieved evidence
    - A chunk was truncated before completing a dose or monitoring instruction
    - The patient's specific context (age, comorbidity, medication) is not addressed by the evidence
    - A drug interaction or allergy cross-reactivity requires specialist verification
-   - The evidence is from a CPG published more than 5 years ago on a rapidly evolving topic
 
 5. confidence — calibrate to actual evidence coverage across ALL output sections:
    1.0 = all recommendations, monitoring, and red_flags grounded in retrieved evidence
@@ -407,7 +425,7 @@ WHAT NOT TO DO:
 - Do not copy CPG background text or pathophysiology into recommendations
 - Do not set monitoring or red_flags to empty lists if relevant chunks were retrieved
 - Do not produce fewer recommendations than the number of distinct clinical actions the evidence supports
-- Do not write generic rationale — every rationale must name a specific patient data point
+- Do not write generic rationale — every rationale must name a specific patient data point and be ≤15 words
 - Do not round, convert, or paraphrase any number or unit (see COMMANDMENT 2 above)
 - Do not propagate the medical myths listed above (see COMMANDMENT 3) without explicit chunk support
 

@@ -2,13 +2,6 @@ import React, { useState, useRef, useImperativeHandle, forwardRef } from 'react'
 import { Letterhead, PatientBanner, SoapSection, VitalsTable, AssessmentList, MedTable, PlanTable, PlanSub, fcpIcons } from './FinalCarePlanPieces';
 /* Final Care Plan — Stage 4 app */
 
-const EDIT_INPUT = {
-  background: 'rgba(16,185,129,0.06)',
-  border: '1px solid rgba(16,185,129,0.35)',
-  borderRadius: 6, padding: '4px 8px',
-  fontSize: 13, fontFamily: 'inherit', outline: 'none', width: '100%',
-};
-
 const REMOVE_BTN = {
   background: 'none', border: 'none', cursor: 'pointer',
   color: '#ef4444', fontSize: 16, lineHeight: 1, padding: '0 4px', flexShrink: 0,
@@ -21,6 +14,12 @@ const ADD_BTN = {
   padding: '3px 10px', cursor: 'pointer',
 };
 
+const INLINE_EDIT = {
+  background: 'transparent', border: 'none', borderBottom: '1px dashed #cbd5e1',
+  borderRadius: 0, padding: '2px 0', fontSize: 13, fontFamily: 'inherit',
+  outline: 'none', width: '100%',
+};
+
 /* ── Editable plain text / textarea ── */
 function EditableText({ value, onChange, editing, multiline = false, className = '', style = {} }) {
   if (!editing) {
@@ -28,10 +27,10 @@ function EditableText({ value, onChange, editing, multiline = false, className =
       ? <p className={`narrative ${className}`} style={style}>{value}</p>
       : <span className={className} style={style}>{value}</span>;
   }
-  const base = { ...EDIT_INPUT, lineHeight: 1.6, ...style };
+  const base = { ...INLINE_EDIT, lineHeight: 1.6, ...style };
   return multiline
     ? <textarea rows={4} value={value} onChange={e => onChange(e.target.value)}
-        style={{ ...base, resize: 'vertical', display: 'block' }} className={className} />
+        style={{ ...base, resize: 'vertical', display: 'block', borderBottom: 'none', border: '1px dashed #cbd5e1', borderRadius: 6, padding: '8px' }} className={className} />
     : <input type="text" value={value} onChange={e => onChange(e.target.value)}
         style={{ ...base, display: 'inline-block' }} className={className} />;
 }
@@ -55,32 +54,66 @@ function EditableBullets({ items, onChange, editing }) {
       </div>
     );
   }
+  const INLINE_TITLE = {
+    background: 'transparent', border: 'none', borderBottom: '1px dashed #cbd5e1',
+    borderRadius: 0, padding: '2px 0', fontSize: 13, fontWeight: 600, fontFamily: 'inherit',
+    outline: 'none', width: '100%', color: '#1e293b',
+  };
+  const INLINE_SUB = {
+    background: 'transparent', border: 'none', borderBottom: '1px dashed #e2e8f0',
+    borderRadius: 0, padding: '2px 0', fontSize: 12, fontFamily: 'inherit',
+    outline: 'none', width: '100%', color: '#64748b',
+  };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       {items.map((l, i) => {
-        const text = typeof l === 'object' ? `${l.category}: ${l.goal}` : l;
+        const raw = typeof l === 'object' ? `${l.category}: ${l.goal}` : l;
+        const dashMatch = raw.match(/\s+(?:—|-|–)\s+/);
+        const title = dashMatch ? raw.slice(0, dashMatch.index).trim() : raw;
+        const subtitle = dashMatch ? raw.slice(dashMatch.index + dashMatch[0].length).trim() : '';
+
         return (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-            <span style={{ color: 'var(--accent-primary)', fontWeight: 700, flexShrink: 0 }}>•</span>
-            <input type="text" value={text}
-              onChange={e => {
-                const next = [...items];
-                if (typeof l === 'object') {
-                  const ci = e.target.value.indexOf(': ');
-                  next[i] = ci > -1
-                    ? { ...l, category: e.target.value.slice(0, ci), goal: e.target.value.slice(ci + 2) }
-                    : { ...l, goal: e.target.value };
-                } else { next[i] = e.target.value; }
-                onChange(next);
-              }}
-              style={EDIT_INPUT}
-            />
-            <button onClick={() => onChange(items.filter((_, j) => j !== i))} style={REMOVE_BTN}>×</button>
+          <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '4px 0', borderBottom: '1px solid #f1f5f9' }}>
+            <span style={{ color: 'var(--accent-primary)', fontWeight: 700, flexShrink: 0, marginTop: 2 }}>•</span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <input type="text" value={title}
+                onChange={e => {
+                  const next = [...items];
+                  const newVal = subtitle ? `${e.target.value} — ${subtitle}` : e.target.value;
+                  if (typeof l === 'object') {
+                    const ci = newVal.indexOf(': ');
+                    next[i] = ci > -1
+                      ? { ...l, category: newVal.slice(0, ci), goal: newVal.slice(ci + 2) }
+                      : { ...l, goal: newVal };
+                  } else { next[i] = newVal; }
+                  onChange(next);
+                }}
+                style={INLINE_TITLE}
+                placeholder="Title"
+              />
+              <input type="text" value={subtitle}
+                onChange={e => {
+                  const next = [...items];
+                  const newVal = e.target.value ? `${title} — ${e.target.value}` : title;
+                  if (typeof l === 'object') {
+                    const ci = newVal.indexOf(': ');
+                    next[i] = ci > -1
+                      ? { ...l, category: newVal.slice(0, ci), goal: newVal.slice(ci + 2) }
+                      : { ...l, goal: newVal };
+                  } else { next[i] = newVal; }
+                  onChange(next);
+                }}
+                style={INLINE_SUB}
+                placeholder="Description"
+              />
+            </div>
+            <button onClick={() => onChange(items.filter((_, j) => j !== i))} style={{ ...REMOVE_BTN, marginTop: 4 }}>×</button>
           </div>
         );
       })}
       <button onClick={() => onChange([...items, typeof items[0] === 'object' ? { category: 'New', goal: '' } : ''])}
-        style={ADD_BTN}>+ Add item</button>
+        style={{ ...ADD_BTN, alignSelf: 'flex-start' }}>+ Add item</button>
     </div>
   );
 }
@@ -95,30 +128,39 @@ function EditableTable({ headers, rows, onChange, editing, buildEmpty, renderVie
       </table>
     );
   }
+  const INLINE = {
+    background: 'transparent', border: 'none', borderBottom: '1px dashed #cbd5e1',
+    borderRadius: 0, padding: '2px 0', fontSize: 13, fontFamily: 'inherit',
+    outline: 'none', width: '100%',
+  };
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-      {rows.map((row, i) => (
-        <div key={i} style={{
-          display: 'grid', gap: 6, padding: '8px 10px',
-          background: 'rgba(16,185,129,0.04)', borderRadius: 8,
-          border: '1px solid rgba(16,185,129,0.2)',
-          gridTemplateColumns: headers.map(h => h.width ? `${h.width}px` : '1fr').join(' ') + ' 24px',
-        }}>
-          {headers.map((h, j) => (
-            <div key={j}>
-              <div style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6b7280', marginBottom: 3 }}>{h.label}</div>
-              <input type="text" value={row[h.field] ?? ''} onChange={e => {
-                const next = rows.map((r, ri) => ri === i ? { ...r, [h.field]: e.target.value } : r);
-                onChange(next);
-              }} style={EDIT_INPUT} />
-            </div>
+    <div>
+      <table className="tbl">
+        <thead>
+          <tr>
+            {headers.map((h, i) => <th key={i} style={h.width ? { width: h.width } : undefined}>{h.label}</th>)}
+            <th style={{ width: 30 }}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => (
+            <tr key={i}>
+              {headers.map((h, j) => (
+                <td key={j} style={{ verticalAlign: 'top' }}>
+                  <input type="text" value={row[h.field] ?? ''} onChange={e => {
+                    const next = rows.map((r, ri) => ri === i ? { ...r, [h.field]: e.target.value } : r);
+                    onChange(next);
+                  }} style={INLINE} />
+                </td>
+              ))}
+              <td style={{ verticalAlign: 'top', paddingTop: 6 }}>
+                <button onClick={() => onChange(rows.filter((_, ri) => ri !== i))} style={REMOVE_BTN} title="Remove row">×</button>
+              </td>
+            </tr>
           ))}
-          <div style={{ display: 'flex', alignItems: 'center', paddingTop: 18 }}>
-            <button onClick={() => onChange(rows.filter((_, ri) => ri !== i))} style={REMOVE_BTN}>×</button>
-          </div>
-        </div>
-      ))}
-      <button onClick={() => onChange([...rows, buildEmpty()])} style={ADD_BTN}>+ Add row</button>
+        </tbody>
+      </table>
+      <button onClick={() => onChange([...rows, buildEmpty()])} style={{ ...ADD_BTN, marginTop: 8 }}>+ Add row</button>
     </div>
   );
 }
@@ -348,37 +390,61 @@ function EditableMedTable({ meds, onChange, editing }) {
 
   if (!editing) return <MedTable meds={meds} />;
 
+  const EDIT_INLINE = {
+    background: 'transparent', border: 'none', borderBottom: '1px dashed #cbd5e1',
+    borderRadius: 0, padding: '2px 0', fontSize: 13, fontFamily: 'inherit',
+    outline: 'none', width: '100%',
+  };
+
+  const ACTION_COLORS = {
+    start: { bg: '#dcfce7', color: '#166534', border: '#86efac' },
+    stop: { bg: '#fee2e2', color: '#991b1b', border: '#fca5a5' },
+    change: { bg: '#fef9c3', color: '#854d0e', border: '#fde047' },
+    continue: { bg: '#e0f2fe', color: '#075985', border: '#7dd3fc' },
+  };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-      {rows.map((row, i) => (
-        <div key={i} style={{
-          display: 'grid', gap: 6, padding: '10px 12px',
-          background: 'rgba(16,185,129,0.04)', borderRadius: 8,
-          border: '1px solid rgba(16,185,129,0.2)',
-          gridTemplateColumns: '90px 1fr 24px',
-        }}>
-          {/* Action */}
-          <div>
-            <div style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6b7280', marginBottom: 3 }}>Action</div>
-            <select value={row.action} onChange={e => updateRow(i, 'action', e.target.value)}
-              style={{ ...EDIT_INPUT, padding: '4px 6px' }}>
-              {['start','stop','change','continue'].map(a => <option key={a} value={a}>{a}</option>)}
-            </select>
-          </div>
-          {/* Medication */}
-          <div>
-            <div style={{ fontSize: 10, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6b7280', marginBottom: 3 }}>Medication</div>
-            <input type="text" value={row.name || ''} onChange={e => updateRow(i, 'name', e.target.value)}
-              style={{ ...EDIT_INPUT, marginBottom: 4 }} placeholder="Drug name" />
-            <input type="text" value={row.dose || row.newDose || ''} onChange={e => updateRow(i, row.action === 'change' ? 'newDose' : 'dose', e.target.value)}
-              style={EDIT_INPUT} placeholder="Dose / frequency" />
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', paddingTop: 18 }}>
-            <button onClick={() => removeRow(i)} style={REMOVE_BTN}>×</button>
-          </div>
-        </div>
-      ))}
-      <button onClick={addRow} style={ADD_BTN}>+ Add medication</button>
+    <div>
+      <table className="tbl" style={{ tableLayout: 'fixed' }}>
+        <thead>
+          <tr>
+            <th style={{ width: 100 }}>Action</th>
+            <th>Medication</th>
+            <th style={{ width: 30 }}></th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, i) => {
+            const ac = ACTION_COLORS[row.action] || ACTION_COLORS.start;
+            return (
+              <tr key={i}>
+                <td style={{ verticalAlign: 'top', paddingTop: 10 }}>
+                  <select value={row.action} onChange={e => updateRow(i, 'action', e.target.value)}
+                    style={{
+                      appearance: 'none', WebkitAppearance: 'none',
+                      background: ac.bg, color: ac.color, border: `1px solid ${ac.border}`,
+                      borderRadius: 4, padding: '3px 8px', fontSize: 11,
+                      fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em',
+                      cursor: 'pointer', outline: 'none', width: '100%',
+                    }}>
+                    {['start','stop','change','continue'].map(a => <option key={a} value={a}>{a}</option>)}
+                  </select>
+                </td>
+                <td style={{ verticalAlign: 'top', padding: '6px 8px' }}>
+                  <input type="text" value={row.name || ''} onChange={e => updateRow(i, 'name', e.target.value)}
+                    style={{ ...EDIT_INLINE, fontWeight: 600, fontSize: 14 }} placeholder="Drug name" />
+                  <input type="text" value={row.dose || row.newDose || ''} onChange={e => updateRow(i, row.action === 'change' ? 'newDose' : 'dose', e.target.value)}
+                    style={{ ...EDIT_INLINE, fontSize: 12, color: '#64748b', marginTop: 2 }} placeholder="Dose / frequency / details" />
+                </td>
+                <td style={{ verticalAlign: 'top', paddingTop: 10, textAlign: 'center' }}>
+                  <button onClick={() => removeRow(i)} style={REMOVE_BTN} title="Remove medication">×</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <button onClick={addRow} style={{ ...ADD_BTN, marginTop: 8 }}>+ Add medication</button>
     </div>
   );
 }
@@ -540,17 +606,29 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
 
               <PlanSub num="P7" title="Safety Netting — Red Flags">
                 {editing ? (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    {draft.redFlags.map((f, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                        <input type="text" value={f}
-                          onChange={e => { const next = [...draft.redFlags]; next[i] = e.target.value; set('redFlags')(next); }}
-                          style={{ ...EDIT_INPUT, background: 'rgba(239,68,68,0.06)', border: '1px solid rgba(239,68,68,0.3)' }} />
-                        <button onClick={() => set('redFlags')(draft.redFlags.filter((_, j) => j !== i))} style={REMOVE_BTN}>×</button>
-                      </div>
-                    ))}
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                    {draft.redFlags.map((f, i) => {
+                      const colonIdx = f.indexOf(':');
+                      const rfTitle = colonIdx > -1 ? f.slice(0, colonIdx).trim() : f;
+                      const rfDesc = colonIdx > -1 ? f.slice(colonIdx + 1).trim() : '';
+                      return (
+                        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '4px 0', borderBottom: '1px solid #fef2f2' }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <input type="text" value={rfTitle}
+                              onChange={e => { const next = [...draft.redFlags]; next[i] = rfDesc ? `${e.target.value}: ${rfDesc}` : e.target.value; set('redFlags')(next); }}
+                              style={{ background: 'transparent', border: 'none', borderBottom: '1px dashed #fca5a5', borderRadius: 0, padding: '2px 0', fontSize: 13, fontWeight: 600, fontFamily: 'inherit', outline: 'none', width: '100%', color: '#991b1b' }}
+                              placeholder="Red flag title" />
+                            <input type="text" value={rfDesc}
+                              onChange={e => { const next = [...draft.redFlags]; next[i] = e.target.value ? `${rfTitle}: ${e.target.value}` : rfTitle; set('redFlags')(next); }}
+                              style={{ background: 'transparent', border: 'none', borderBottom: '1px dashed #fecaca', borderRadius: 0, padding: '2px 0', fontSize: 12, fontFamily: 'inherit', outline: 'none', width: '100%', color: '#64748b' }}
+                              placeholder="Description" />
+                          </div>
+                          <button onClick={() => set('redFlags')(draft.redFlags.filter((_, j) => j !== i))} style={{ ...REMOVE_BTN, marginTop: 4 }}>×</button>
+                        </div>
+                      );
+                    })}
                     <button onClick={() => set('redFlags')([...draft.redFlags, ''])}
-                      style={{ ...ADD_BTN, color: '#b91c1c', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.3)' }}>
+                      style={{ ...ADD_BTN, color: '#b91c1c', background: 'rgba(239,68,68,0.08)', border: '1px solid rgba(239,68,68,0.3)', alignSelf: 'flex-start' }}>
                       + Add red flag
                     </button>
                   </div>
@@ -563,15 +641,22 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                 <div className="tca-row">
                   <div className="tca-list">
                     {draft.followUp.map((f, i) => {
-                      const idx = f.indexOf(':');
-                      const when = idx > -1 ? f.slice(0, idx).trim() : '—';
-                      const what = idx > -1 ? f.slice(idx + 1).trim() : f;
+                      const splitMatch = f.match(/\s*(?::|—|-|–)\s+/);
+                      const when = splitMatch ? f.slice(0, splitMatch.index).trim() : '—';
+                      const what = splitMatch ? f.slice(splitMatch.index + splitMatch[0].length).trim() : f;
                       return editing ? (
-                        <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 6, marginBottom: 4 }}>
-                          <input type="text" value={f}
-                            onChange={e => { const next = [...draft.followUp]; next[i] = e.target.value; set('followUp')(next); }}
-                            style={EDIT_INPUT} />
-                          <button onClick={() => set('followUp')(draft.followUp.filter((_, j) => j !== i))} style={REMOVE_BTN}>×</button>
+                        <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '4px 0', borderBottom: '1px solid #f1f5f9' }}>
+                          <div style={{ flex: 1, minWidth: 0 }}>
+                            <input type="text" value={when}
+                              onChange={e => { const next = [...draft.followUp]; next[i] = `${e.target.value}: ${what}`; set('followUp')(next); }}
+                              style={{ background: 'transparent', border: 'none', borderBottom: '1px dashed #cbd5e1', borderRadius: 0, padding: '2px 0', fontSize: 13, fontWeight: 600, fontFamily: 'inherit', outline: 'none', width: '100%', color: '#1e293b' }}
+                              placeholder="When" />
+                            <input type="text" value={what}
+                              onChange={e => { const next = [...draft.followUp]; next[i] = `${when}: ${e.target.value}`; set('followUp')(next); }}
+                              style={{ background: 'transparent', border: 'none', borderBottom: '1px dashed #e2e8f0', borderRadius: 0, padding: '2px 0', fontSize: 12, fontFamily: 'inherit', outline: 'none', width: '100%', color: '#64748b' }}
+                              placeholder="Description" />
+                          </div>
+                          <button onClick={() => set('followUp')(draft.followUp.filter((_, j) => j !== i))} style={{ ...REMOVE_BTN, marginTop: 4 }}>×</button>
                         </div>
                       ) : (
                         <div key={i} className="tca-li">
@@ -581,7 +666,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                       );
                     })}
                     {editing && (
-                      <button onClick={() => set('followUp')([...draft.followUp, 'When: What'])} style={ADD_BTN}>
+                      <button onClick={() => set('followUp')([...draft.followUp, 'When: What'])} style={{ ...ADD_BTN, alignSelf: 'flex-start' }}>
                         + Add item
                       </button>
                     )}
@@ -590,7 +675,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                     <div className="label">Next Review (TCA)</div>
                     {editing ? (
                       <input type="text" value={draft.nextReviewDate} onChange={e => set('nextReviewDate')(e.target.value)}
-                        style={{ ...EDIT_INPUT, fontSize: 18, fontWeight: 700 }} />
+                        style={{ background: 'transparent', border: 'none', borderBottom: '2px dashed #10b981', borderRadius: 0, padding: '2px 0', fontSize: 18, fontWeight: 700, fontFamily: 'inherit', outline: 'none', width: '100%', color: '#065f46' }} />
                     ) : (
                       <div className="date">{draft.nextReviewDate || '—'}</div>
                     )}

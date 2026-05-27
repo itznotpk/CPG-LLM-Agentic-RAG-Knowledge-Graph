@@ -171,7 +171,7 @@ function AppContent({ view }) {
         return (
           <>
             {/* Page header — standardized to match the other tabs (ds-h1) */}
-            <div className="mb-6">
+            <div className="mb-6 print:hidden">
               <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Consultation</h1>
               <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 AI-assisted clinical workflow, step by step
@@ -179,10 +179,12 @@ function AppContent({ view }) {
             </div>
 
             {/* Persistent Patient Banner */}
-            <PatientBanner />
+            <div className="print:hidden">
+              <PatientBanner />
+            </div>
 
             {/* Step Indicator */}
-            <div className="mb-6">
+            <div className="mb-6 print:hidden">
               <StepIndicator
                 steps={steps}
                 currentStep={currentStep}

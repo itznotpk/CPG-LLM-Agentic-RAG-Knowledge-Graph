@@ -22,6 +22,7 @@ import {
   Clock,
   Pencil,
   Trash2,
+  Plus,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -271,7 +272,6 @@ function MedicationsTable({ medications, dispatch }) {
     ...(medications.change || []).map((m) => ({ med: m, action: 'change' })),
     ...(medications.continue || []).map((m) => ({ med: m, action: 'continue' })),
   ];
-  if (ordered.length === 0) return <p className="text-sm text-slate-500">No medication changes.</p>;
 
   const handleFieldChange = (action, medId, field, value) => {
     dispatch({ type: 'UPDATE_MEDICATION_FIELD', payload: { actionType: action, medId, field, value } });
@@ -285,31 +285,50 @@ function MedicationsTable({ medications, dispatch }) {
     dispatch({ type: 'DELETE_MEDICATION', payload: { actionType: action, medId } });
   };
 
+  const handleAddMedication = () => {
+    dispatch({ type: 'ADD_MEDICATION' });
+  };
+
   return (
     <div className="overflow-x-auto -mx-1">
-      <table className="w-full text-left">
-        <thead>
-          <tr className={isDark ? 'text-slate-500' : 'text-slate-500'}>
-            <th className="py-2 pr-4 text-[10px] uppercase tracking-wider font-semibold">Action</th>
-            <th className="py-2 pr-4 text-[10px] uppercase tracking-wider font-semibold">Medication</th>
-            <th className="py-2 pr-4 text-[10px] uppercase tracking-wider font-semibold">Reason &amp; instructions</th>
-            <th className="py-2 text-[10px] uppercase tracking-wider font-semibold">CPG</th>
-          </tr>
-        </thead>
-        <tbody>
-          {ordered.map(({ med, action }) => (
-            <MedicationRow
-              key={`${action}-${med.id}`}
-              med={med}
-              action={med.displayAction || action}
-              originalAction={action}
-              onFieldChange={(field, value) => handleFieldChange(action, med.id, field, value)}
-              onActionChange={(newAction) => handleActionChange(action, med.id, newAction)}
-              onDelete={() => handleDelete(action, med.id)}
-            />
-          ))}
-        </tbody>
-      </table>
+      {ordered.length === 0 ? (
+        <p className="text-sm text-slate-500 mb-4 ml-1">No medication changes.</p>
+      ) : (
+        <table className="w-full text-left mb-4">
+          <thead>
+            <tr className={isDark ? 'text-slate-500' : 'text-slate-500'}>
+              <th className="py-2 pr-4 text-[10px] uppercase tracking-wider font-semibold">Action</th>
+              <th className="py-2 pr-4 text-[10px] uppercase tracking-wider font-semibold">Medication</th>
+              <th className="py-2 pr-4 text-[10px] uppercase tracking-wider font-semibold">Reason &amp; instructions</th>
+              <th className="py-2 text-[10px] uppercase tracking-wider font-semibold">CPG</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ordered.map(({ med, action }) => (
+              <MedicationRow
+                key={`${action}-${med.id}`}
+                med={med}
+                action={med.displayAction || action}
+                originalAction={action}
+                onFieldChange={(field, value) => handleFieldChange(action, med.id, field, value)}
+                onActionChange={(newAction) => handleActionChange(action, med.id, newAction)}
+                onDelete={() => handleDelete(action, med.id)}
+              />
+            ))}
+          </tbody>
+        </table>
+      )}
+      <button
+        onClick={handleAddMedication}
+        className={`ml-1 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
+          isDark 
+            ? 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white' 
+            : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+        }`}
+      >
+        <Plus className="w-3.5 h-3.5" strokeWidth={2.5} />
+        Add Medication
+      </button>
     </div>
   );
 }
@@ -742,6 +761,21 @@ function CpgReferenceGroup({ group, isDark }) {
 /* ============================================================
    MAIN — Care Plan section (Tabbed layout)
    ============================================================ */
+function parseUnresolvedQuestion(q) {
+  const dashMatch = q.match(/\s+(?:—|-|–)\s+/);
+  if (dashMatch) {
+    const title = q.slice(0, dashMatch.index).replace(/\*\*/g, '').trim();
+    const desc = q.slice(dashMatch.index + dashMatch[0].length).trim();
+    return (
+      <span className="block mb-2.5">
+        <strong className="block font-semibold text-red-600 dark:text-red-400 mb-0.5">{title}</strong>
+        <span className="block opacity-90 leading-snug">{desc}</span>
+      </span>
+    );
+  }
+  return <span className="block mb-2.5">{q.replace(/\*\*/g, '')}</span>;
+}
+
 export function CarePlanSection() {
   const { state, dispatch, finalizePlan, goToStep } = useApp();
   const { isDark } = useTheme();
@@ -921,7 +955,7 @@ export function CarePlanSection() {
                 <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
                   <p className="text-amber-500 text-sm font-medium mb-1">⚠ Unresolved Questions</p>
                   <ul className={`text-xs space-y-1 pl-3 list-disc ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
-                    {carePlan.unresolvedQuestions.map((q, i) => <li key={i}>{q}</li>)}
+                    {carePlan.unresolvedQuestions.map((q, i) => <li key={i}>{parseUnresolvedQuestion(q)}</li>)}
                   </ul>
                 </div>
               )}

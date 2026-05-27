@@ -102,9 +102,32 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
   // While critic is running (report not yet received), show nothing
   if (report === undefined || report === null) return null;
 
-  const flags = [...(report.flags || [])].sort(
-    (a, b) => (SEVERITY_ORDER[a.severity] ?? 3) - (SEVERITY_ORDER[b.severity] ?? 3)
-  );
+  // Deduplicate flags that involve the same set of drugs at the same severity
+  // (e.g. "Aspirin + Clopidogrel + Warfarin" vs "Warfarin + Aspirin + Clopidogrel").
+  const dedupFlags = (rawFlags) => {
+    const seen = new Map(); // key → merged flag
+    for (const flag of rawFlags) {
+      const drugs = extractDrugNames(flag.title || safetyFlagTitle(flag));
+      const key = [...drugs].sort().join('|') + '::' + (flag.severity || '') + '::' + (flag.flag_type || '');
+      if (seen.has(key)) {
+        // Merge recommendation indices into the existing entry
+        const existing = seen.get(key);
+        if (flag.recommendation_index != null) {
+          existing._recIndices = existing._recIndices || [existing.recommendation_index];
+          if (!existing._recIndices.includes(flag.recommendation_index)) {
+            existing._recIndices.push(flag.recommendation_index);
+          }
+        }
+      } else {
+        seen.set(key, { ...flag, _recIndices: flag.recommendation_index != null ? [flag.recommendation_index] : [] });
+      }
+    }
+    return [...seen.values()];
+  };
+
+  const flags = dedupFlags(
+    (report.flags || []).filter((f) => f.severity !== 'MODERATE')
+  ).sort((a, b) => (SEVERITY_ORDER[a.severity] ?? 3) - (SEVERITY_ORDER[b.severity] ?? 3));
   const hasBlockingFlag = !report.safe_to_proceed;
   const hasFlags = flags.length > 0;
 
@@ -214,7 +237,9 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
                         ? 'bg-white/5 border-white/10 text-slate-400'
                         : 'bg-white/60 border-slate-200 text-slate-500'
                     }`}>
-                      rec #{flag.recommendation_index + 1}
+                      rec {(flag._recIndices && flag._recIndices.length > 0
+                        ? flag._recIndices.map(i => `#${i + 1}`).join(', ')
+                        : `#${flag.recommendation_index + 1}`)}
                     </span>
                     {flag.source === 'graph' ? (
                       <span

@@ -857,3 +857,45 @@ html, body {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+@media print {
+  /* Hide all top-level wrappers */
+  body, html {
+    background: white !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* Reset layout constraints on main content */
+  main {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+  main > div {
+    padding: 0 !important;
+  }
+
+  /* Hide the action rail, eyebrow, and non-print components inside the shell */
+  .fcp-eyebrow,
+  .action-rail,
+  .print-hide {
+    display: none !important;
+  }
+  
+  /* Strip shell grid */
+  .fcp-shell {
+    grid-template-columns: 1fr !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: block !important;
+    max-width: 100% !important;
+  }
+  
+  /* Clean the paper for direct printing */
+  .paper {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+}
