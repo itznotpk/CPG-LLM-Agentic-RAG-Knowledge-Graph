@@ -554,7 +554,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=1,
-                max_tokens=3000,
+                max_tokens=8000,
             )
             raw_content = resp.choices[0].message.content
 
@@ -703,6 +703,12 @@ async def _extract_symptom_phrase(
             logger.warning("Symptom extraction returned empty — falling back to raw notes")
             return notes, True
 
+        lower_phrase = phrase.lower().strip(" .;,")
+        negatives = ("no", "none", "n/a", "no symptoms", "no active symptoms", "asymptomatic", "no primary symptom", "no primary symptoms")
+        if len(phrase.strip()) < 3 or lower_phrase in negatives or not any(char.isalpha() for char in phrase):
+            logger.warning("Symptom extraction returned %r (too short, negative, or invalid) — falling back to raw notes", phrase)
+            return notes, True
+
         logger.info("Symptom extraction OK: %r → %r (%d words)", notes[:60], phrase, len(phrase.split()))
         return phrase, False
     except Exception as exc:
@@ -743,7 +749,7 @@ async def _generate_condition_hypotheses(
         )
         txt = (resp.choices[0].message.content or "").strip()
         conds = [c.strip(" .;-\t") for c in txt.replace("\n", ",").split(",")]
-        conds = [c for c in conds if c and len(c) <= 60][:max_n]
+        conds = [c for c in conds if c and 3 <= len(c) <= 60 and any(char.isalpha() for char in c)][:max_n]
         logger.info("Condition hypotheses: %s", conds)
         return conds
     except Exception as exc:
@@ -803,7 +809,26 @@ async def _extract_cc_icd_hints(
         raw = txt.strip().strip("` \n")
         if raw.startswith("json"):
             raw = raw[4:].strip()
-        hints = json.loads(raw)
+        
+        try:
+            hints = json.loads(raw)
+        except Exception as json_exc:
+            import re
+            # Try to find array brackets [ ... ]
+            match = re.search(r'\[\s*\{.*\}\s*\]', raw, re.DOTALL)
+            if match:
+                try:
+                    hints = json.loads(match.group(0))
+                except Exception:
+                    logger.warning("Failed to parse CC ICD hints from bracket extraction. Raw content: %r", txt)
+                    raise json_exc
+            else:
+                if "[]" in raw or "empty" in raw.lower() or "no codes" in raw.lower() or "none" in raw.lower():
+                    hints = []
+                else:
+                    logger.warning("Failed to parse CC ICD hints JSON. Raw content: %r", txt)
+                    raise json_exc
+
         if not isinstance(hints, list):
             return []
 
@@ -928,7 +953,9 @@ async def stage_2_ddx(
                 "badge": "CC-boost",
             })
 
-    queries = [query] + hypotheses
+    queries = [q for q in ([query] + hypotheses) if q and len(q.strip()) >= 3 and any(char.isalpha() for char in q)]
+    if not queries:
+        queries = [case.chief_complaint]
     search_results = await asyncio.gather(
         *(search_ddx(q, top_k=fetch_k) for q in queries),
         return_exceptions=True,

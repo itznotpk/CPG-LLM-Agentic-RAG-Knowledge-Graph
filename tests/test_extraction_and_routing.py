@@ -107,6 +107,20 @@ async def test_extraction_strips_quotes_and_trailing_period():
     assert fell_back is False
 
 
+async def test_extraction_falls_back_on_negative_response():
+    # LLM returns negative symptom phrase e.g. "No symptoms"
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client("No active symptoms"), "test-model")
+    assert result == NOTES_LONG
+    assert fell_back is True
+
+
+async def test_extraction_falls_back_on_too_short_response():
+    # LLM returns too short symptom phrase e.g. "No"
+    result, fell_back = await _extract_symptom_phrase(NOTES_LONG, _mock_client("No"), "test-model")
+    assert result == NOTES_LONG
+    assert fell_back is True
+
+
 # ---------------------------------------------------------------------------
 # route_comorbidities — 6 tests
 # ---------------------------------------------------------------------------
