@@ -870,7 +870,11 @@ export function AppProvider({ children }) {
         pdfBlob,
       );
       if (success && url) {
-        await updateConsultation(state.currentConsultationId, { reportPdfUrl: url });
+        const updateRes = await updateConsultation(state.currentConsultationId, { reportPdfUrl: url });
+        if (!updateRes.success) {
+          console.warn('⚠️ PDF uploaded, but failed to update consultation row:', updateRes.error);
+          return { success: false, url: null };
+        }
         console.log('✅ Care plan PDF stored (DOM-captured):', url);
         return { success: true, url };
       } else {

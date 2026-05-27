@@ -24,7 +24,6 @@ export async function generatePdfFromElement(element, { fileName, download = fal
     windowHeight: element.scrollHeight,
   });
 
-  const imgData = canvas.toDataURL('image/png');
   const imgW    = canvas.width;
   const imgH    = canvas.height;
 
@@ -69,8 +68,8 @@ export async function generatePdfFromElement(element, { fileName, download = fal
       imgW, sliceH,         // dest w, h
     );
 
-    const pageImgData = pageCanvas.toDataURL('image/png');
-    doc.addImage(pageImgData, 'PNG', margin, margin, contentW, sliceH * ratio);
+    const pageImgData = pageCanvas.toDataURL('image/jpeg', 0.8);
+    doc.addImage(pageImgData, 'JPEG', margin, margin, contentW, sliceH * ratio);
 
     // Page footer
     doc.setFontSize(8);

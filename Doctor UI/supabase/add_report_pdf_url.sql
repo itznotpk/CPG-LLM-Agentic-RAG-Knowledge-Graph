@@ -36,6 +36,17 @@ BEGIN
       TO authenticated
       USING (bucket_id = 'care-plan-reports');
   END IF;
+
+  IF NOT EXISTS (
+    SELECT 1 FROM pg_policies
+    WHERE schemaname = 'storage' AND tablename = 'objects'
+      AND policyname = 'Authenticated users can update PDFs'
+  ) THEN
+    CREATE POLICY "Authenticated users can update PDFs"
+      ON storage.objects FOR UPDATE
+      TO authenticated
+      USING (bucket_id = 'care-plan-reports');
+  END IF;
 END
 $$;
 

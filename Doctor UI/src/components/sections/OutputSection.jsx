@@ -95,9 +95,12 @@ export function OutputSection() {
       if (result?.success) {
         setPdfUploaded(true);
         console.log('✅ PDF uploaded to Supabase successfully');
+      } else {
+        toast.error('Failed to save PDF to database. Please check console.');
       }
     } catch (err) {
       console.error('PDF upload failed:', err);
+      toast.error('PDF upload failed: ' + err.message);
     } finally {
       setPdfUploading(false);
     }
