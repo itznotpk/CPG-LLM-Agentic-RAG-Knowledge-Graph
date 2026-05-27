@@ -163,6 +163,8 @@ async def test_stage2_calls_search_ddx():
          patch("agent.clinical_stages._extract_symptom_phrase",
                new=AsyncMock(return_value=("palpitations, irregular pulse", False))), \
          patch("agent.clinical_stages._generate_condition_hypotheses",
+               new=AsyncMock(return_value=[])), \
+         patch("agent.clinical_stages._extract_cc_icd_hints",
                new=AsyncMock(return_value=[])):
         result = await stage_2_ddx(case, top_k=5, rerank=False)
 
@@ -183,6 +185,8 @@ async def test_stage2_handles_empty_ddx():
          patch("agent.clinical_stages._extract_symptom_phrase",
                new=AsyncMock(return_value=("palpitations", False))), \
          patch("agent.clinical_stages._generate_condition_hypotheses",
+               new=AsyncMock(return_value=[])), \
+         patch("agent.clinical_stages._extract_cc_icd_hints",
                new=AsyncMock(return_value=[])):
         result = await stage_2_ddx(case, rerank=False)
 

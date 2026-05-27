@@ -85,6 +85,91 @@ async def test_stage3_keeps_pregnancy_cpg_for_female():
     routed = [_ref("Heart-Disease-in-Pregnancy(2nd Edition)")]
 
     with patch("agent.clinical_stages.route_icd_to_cpgs", new=AsyncMock(return_value=routed)):
-        cpgs = await stage_3_route(ddx, patient_sex="F")
+        cpgs = await stage_3_route(ddx, patient_sex="F", clinical_context="pregnant female")
 
     assert [c.cpg_name for c in cpgs] == ["Heart-Disease-in-Pregnancy(2nd Edition)"]
+
+
+@pytest.mark.asyncio
+async def test_stage5_filters_referrals_by_demographics():
+    from agent.clinical_stages import stage_5_synthesize, DDxResult
+    from agent.models import PatientCase
+    from agent.graph_clinical import ReferralRecommendation
+    import json
+    
+    case_male_adult = PatientCase(
+        chief_complaint="Chest pain",
+        age=45,
+        sex="M",
+        history="",
+        comorbidities=[],
+        current_medications=[],
+        allergies=[],
+        vitals={},
+    )
+    
+    ddx = [DDxResult(code="BA03", title="Hypertensive crisis", similarity=0.9)]
+    cpgs = [_ref("Management of Hypertension")]
+    evidence = []
+    
+    mock_recs = [
+        ReferralRecommendation(
+            condition="Hypertension in Pregnancy",
+            specialty="Obstetrics",
+            urgency="urgent",
+            source_document="Diabetes in Pregnancy",
+        ),
+        ReferralRecommendation(
+            condition="Essential Hypertension",
+            specialty="Cardiology",
+            urgency="routine",
+            source_document="Management of Hypertension",
+        ),
+        ReferralRecommendation(
+            condition="Hypertension in Pediatric",
+            specialty="Paediatrics",
+            urgency="routine",
+            source_document="Paediatric Hypertension",
+        ),
+    ]
+    
+    mock_resp = AsyncMock()
+    mock_resp.choices = [
+        AsyncMock(message=AsyncMock(content=json.dumps({
+            "icd_primary": "BA03",
+            "icd_alternates": ["BA03.0"],
+            "diagnosis_justification": "Test justification",
+            "recommendations": [
+                {
+                    "intervention": "Rate control with beta-blocker",
+                    "type": "pharmacological",
+                    "evidence_grade": "Grade A, Level I",
+                    "cpg_source": "AF CPG §4.2",
+                    "rationale": "Reduces ventricular rate in AF",
+                    "contraindications_checked": ["severe bradycardia"],
+                }
+            ],
+            "monitoring": [
+                {"parameter": "heart rate", "schedule": "each visit", "target": "controlled"},
+            ],
+            "red_flags": ["syncope"],
+            "confidence": 0.85,
+            "unresolved_questions": [],
+        })))
+    ]
+    
+    with patch("agent.clinical_stages.openai.AsyncOpenAI") as mock_client_cls, \
+         patch("agent.graph_clinical.lookup_referrals", new=AsyncMock(return_value=mock_recs)):
+        
+        mock_client = AsyncMock()
+        mock_client.chat.completions.create = AsyncMock(return_value=mock_resp)
+        mock_client_cls.return_value = mock_client
+        
+        plan = await stage_5_synthesize(case_male_adult, ddx, cpgs, evidence)
+        
+    referral_interventions = [rec.intervention for rec in plan.recommendations if rec.type == "referral"]
+    
+    # Assert correct clinical filtering
+    assert any("Cardiology" in x for x in referral_interventions)
+    assert not any("Obstetrics" in x for x in referral_interventions)
+    assert not any("Paediatrics" in x for x in referral_interventions)

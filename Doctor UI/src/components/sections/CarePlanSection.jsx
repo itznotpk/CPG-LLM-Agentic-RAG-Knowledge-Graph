@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { getTodayUTC8 } from '../../utils/timezone';
 import {
   ClipboardList,
@@ -23,6 +23,7 @@ import {
   Pencil,
   Trash2,
   Plus,
+  Network,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -36,7 +37,104 @@ import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
-import { GraphNavigatorPanel } from './GraphNavigatorPanel';
+
+/* ============================================================
+   Graph-verified badge — folds Graph Navigator KG edges into the
+   Medications surface as per-drug verification stamps.
+   Source of edges: clinicalPlanResponse.graph_navigator_rules
+   (FIRST_LINE_FOR / SECOND_LINE_FOR / RECOMMENDED_FOR, CPG-scoped).
+   ============================================================ */
+const RELATION_LABEL = {
+  FIRST_LINE_FOR: '1st-line',
+  SECOND_LINE_FOR: '2nd-line',
+  RECOMMENDED_FOR: 'Recommended',
+};
+const RELATION_RANK = { FIRST_LINE_FOR: 0, SECOND_LINE_FOR: 1, RECOMMENDED_FOR: 2 };
+
+// Parser-error rows extracted from CPG tables — never match a real prescription.
+const PARSER_ERROR_DRUGS = new Set([
+  'pharmacological agent', 'pharmacological', 'drug', 'agent',
+  'pharmacological treatment', 'medication', 'medications',
+]);
+
+// Drug-class → keyword/suffix tokens used to recognise a specific molecule
+// (e.g., "Statin" matches "atorvastatin", "Ace Inhibitor" matches "lisinopril").
+const DRUG_CLASS_KEYWORDS = {
+  'ace inhibitor':                       ['pril'],
+  'angiotensin receptor blocker':        ['sartan'],
+  'arb':                                 ['sartan'],
+  'beta-blocker':                        ['olol', 'carvedilol', 'bisoprolol'],
+  'b-blocker':                           ['olol'],
+  'thiazide diuretic':                   ['thiazide', 'chlorthalidone', 'indapamide', 'hydrochloro'],
+  'thiazide diuretics':                  ['thiazide', 'chlorthalidone', 'indapamide', 'hydrochloro'],
+  'chlorthalidone':                      ['chlorthalidone'],
+  'dihydropyridine ccb':                 ['dipine'],
+  'long-acting calcium channel blocker': ['dipine', 'amlodipine', 'felodipine'],
+  'ccb':                                 ['dipine', 'diltiazem', 'verapamil', 'amlodipine'],
+  'calcium channel blocker':             ['dipine', 'diltiazem', 'verapamil'],
+  'k+ sparing diuretics':                ['spironolactone', 'amiloride', 'eplerenone'],
+  'dri':                                 ['aliskiren'],
+  'statin':                              ['statin'],
+  'pcsk9 inhibitor':                     ['alirocumab', 'evolocumab'],
+  'basal insulin':                       ['insulin glargine', 'insulin detemir', 'insulin degludec', 'lantus', 'tresiba', 'levemir'],
+  'metformin':                           ['metformin'],
+  'sglt2 inhibitor':                     ['flozin'],
+  'sglt2':                               ['flozin'],
+  'glp-1 receptor agonist':              ['glutide', 'tide'],
+  'glp-1':                               ['glutide'],
+  'dpp-4 inhibitor':                     ['gliptin'],
+  'sulfonylurea':                        ['gliclazide', 'glimepiride', 'glipizide', 'glibenclamide'],
+};
+
+function _matchRuleToMed(medName, ruleDrug) {
+  if (!medName || !ruleDrug) return false;
+  const n = String(medName).toLowerCase();
+  const d = String(ruleDrug).toLowerCase().trim();
+  if (!d || PARSER_ERROR_DRUGS.has(d)) return false;
+  // Direct substring match (≥4 chars to avoid false positives on "ccb", "arb")
+  if (d.length >= 4 && (n.includes(d) || d.includes(n))) return true;
+  // Class → keyword lookup
+  const kws = DRUG_CLASS_KEYWORDS[d] || [];
+  return kws.some((k) => n.includes(k));
+}
+
+/** Find the highest-precedence graph rule for a given medication name. */
+function pickBestRuleForMed(medName, rules) {
+  if (!medName || !Array.isArray(rules) || rules.length === 0) return null;
+  let best = null;
+  for (const r of rules) {
+    if (!_matchRuleToMed(medName, r?.drug)) continue;
+    if (best === null) { best = r; continue; }
+    const a = RELATION_RANK[r.relation] ?? 9;
+    const b = RELATION_RANK[best.relation] ?? 9;
+    if (a < b) best = r;
+  }
+  return best;
+}
+
+function GraphVerifiedBadge({ rule }) {
+  const { isDark } = useTheme();
+  if (!rule) return null;
+  const label = RELATION_LABEL[rule.relation] || 'Recommended';
+  const title = [
+    `Graph-verified: ${label} for ${rule.condition || 'condition'}`,
+    rule.evidence ? `\n\nEvidence: "${rule.evidence}"` : '',
+    rule.source_document ? `\nSource: ${rule.source_document}` : '',
+  ].join('');
+  return (
+    <span
+      title={title}
+      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-[9px] font-semibold tracking-wide ${
+        isDark
+          ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-700/40'
+          : 'bg-emerald-50 text-emerald-700 border border-emerald-300'
+      }`}
+    >
+      <Network className="w-2.5 h-2.5" strokeWidth={2.4} />
+      {label}
+    </span>
+  );
+}
 
 /* ============================================================
    Section card (collapsible) — used inside each tab
@@ -194,7 +292,7 @@ function ActionDropdown({ action, onChange }) {
   );
 }
 
-function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete }) {
+function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule }) {
   const { isDark } = useTheme();
   // originalAction = the category the med belongs to (determines content rendering)
   // action = the displayed action (may be overridden by user)
@@ -204,8 +302,9 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
         <ActionDropdown action={action} onChange={onActionChange} />
       </td>
       <td className="py-3 pr-4 align-top">
-        <div className={`font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
+        <div className={`flex items-center gap-2 flex-wrap font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
           <InlineEdit value={med.name} onChange={(v) => onFieldChange('name', v)} placeholder="Medication name" />
+          <GraphVerifiedBadge rule={graphRule} />
         </div>
         <div className={`mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           {originalAction === 'change' ? (
@@ -264,7 +363,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
     </tr>
   );
 }
-function MedicationsTable({ medications, dispatch }) {
+function MedicationsTable({ medications, dispatch, graphRules }) {
   const { isDark } = useTheme();
   const ordered = [
     ...(medications.stop || []).map((m) => ({ med: m, action: 'stop' })),
@@ -313,6 +412,7 @@ function MedicationsTable({ medications, dispatch }) {
                 onFieldChange={(field, value) => handleFieldChange(action, med.id, field, value)}
                 onActionChange={(newAction) => handleActionChange(action, med.id, newAction)}
                 onDelete={() => handleDelete(action, med.id)}
+                graphRule={pickBestRuleForMed(med.name, graphRules)}
               />
             ))}
           </tbody>
@@ -417,7 +517,7 @@ function ListRow({ bulletTone = 'ok', title, sub, tag, tagTone, noCollapse = fal
   );
 }
 
-function MedListRow({ bulletTone = 'ok', drugName, dose, description, tag, tagTone }) {
+function MedListRow({ bulletTone = 'ok', drugName, dose, description, tag, tagTone, graphRule }) {
   const { isDark } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
@@ -447,7 +547,10 @@ function MedListRow({ bulletTone = 'ok', drugName, dose, description, tag, tagTo
           <Check className="w-3 h-3" strokeWidth={2.4} />
         </div>
         <div className="flex-1 min-w-0">
-          <div className={`text-sm font-semibold leading-snug ${nameColor}`}>{drugName}</div>
+          <div className={`flex items-center gap-2 flex-wrap text-sm font-semibold leading-snug ${nameColor}`}>
+            <span>{drugName}</span>
+            <GraphVerifiedBadge rule={graphRule} />
+          </div>
           {dose && (
             <div className={`text-xs mt-0.5 leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
               {dose}
@@ -631,84 +734,393 @@ function TabBar({ tabs, active, onChange }) {
 }
 
 /* ============================================================
-   CPG Reference Card — tappable, expands to show evidence context
+   CPG Evidence Renderer Utilities
    ============================================================ */
-function CpgReferenceCard({ cpgRef, isDark }) {
-  const [open, setOpen] = useState(false);
-  const hasContext = Boolean(cpgRef?.context);
-  const hasOriginalText = Boolean(cpgRef?.originalText);
-  const canExpand = hasContext || hasOriginalText;
 
-  // Truncate long intervention names for the "Used by" line
-  const truncate = (s, max = 50) => s && s.length > max ? s.slice(0, max) + '…' : s;
+/** Parse and replace [Grade X] / [Level X] tokens with styled pill spans */
+function renderGradePills(text) {
+  if (!text) return null;
+  // Split on [Grade A/B/C] and [Level I/II-2/III] tokens
+  const parts = text.split(/(\[(?:Grade\s+[A-C]|Level\s+[I]{1,3}(?:-[23])?)\])/gi);
+  return parts.map((part, i) => {
+    const gradeMatch = part.match(/^\[Grade\s+([A-C])\]$/i);
+    const levelMatch = part.match(/^\[Level\s+(I{1,3}(?:-[23])?)\]$/i);
+    if (gradeMatch) {
+      const g = gradeMatch[1].toUpperCase();
+      const color =
+        g === 'A' ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30' :
+        g === 'B' ? 'bg-sky-500/15 text-sky-400 border-sky-500/30' :
+                    'bg-amber-500/15 text-amber-400 border-amber-500/30';
+      return (
+        <span key={i} className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[9px] font-bold font-mono tracking-wider mx-0.5 align-middle ${color}`}>
+          Grade {g}
+        </span>
+      );
+    }
+    if (levelMatch) {
+      const l = levelMatch[1].toUpperCase();
+      const isStrong = l === 'I';
+      const color = isStrong
+        ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/25'
+        : l === 'II' || l.startsWith('II')
+          ? 'bg-sky-500/10 text-sky-500 border-sky-500/25'
+          : 'bg-amber-500/10 text-amber-500 border-amber-500/25';
+      return (
+        <span key={i} className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[9px] font-mono tracking-wider mx-0.5 align-middle ${color}`}>
+          Level {l}
+        </span>
+      );
+    }
+    // Bold text (** **)
+    const boldParts = part.split(/(\*\*[^*]+\*\*)/g);
+    if (boldParts.length > 1) {
+      return boldParts.map((bp, j) => {
+        const bm = bp.match(/^\*\*([^*]+)\*\*$/);
+        return bm
+          ? <strong key={`${i}-${j}`} className="font-semibold">{bm[1]}</strong>
+          : <React.Fragment key={`${i}-${j}`}>{bp}</React.Fragment>;
+      });
+    }
+    return <React.Fragment key={i}>{part}</React.Fragment>;
+  });
+}
 
+/** Render a block of CPG text line-by-line with grade pills, bullets, and section headings */
+function CpgTextBlock({ text, isDark, muted = false }) {
+  if (!text) return null;
+  const lines = text.split('\n');
+  const baseText = muted
+    ? (isDark ? 'text-slate-400' : 'text-slate-500')
+    : (isDark ? 'text-slate-300' : 'text-slate-700');
+
+  // Detect recommendations block
+  let inRecsBlock = false;
+  const recLines = [];
+  const elements = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+
+    // Detect "Recommendations" heading
+    if (/^\*?\*?Recommendations?\*?\*?\s*:?\s*$/i.test(trimmed) || trimmed === '**Recommendations**') {
+      inRecsBlock = true;
+      // If there are pending rec lines from a prior iteration, flush them
+      if (recLines.length > 0) {
+        elements.push(
+          <RecommendationBox key={`recs-${i}`} lines={[...recLines]} isDark={isDark} />
+        );
+        recLines.length = 0;
+      }
+      continue;
+    }
+
+    // Lines starting with "- [Grade" belong to recs block
+    if (inRecsBlock && /^\s*-\s*\[(?:Grade|Level)/i.test(trimmed)) {
+      recLines.push(trimmed.replace(/^-\s*/, ''));
+      continue;
+    }
+
+    // Flush recs block when we hit a non-rec line
+    if (inRecsBlock && recLines.length > 0 && trimmed !== '') {
+      elements.push(
+        <RecommendationBox key={`recs-flush-${i}`} lines={[...recLines]} isDark={isDark} />
+      );
+      recLines.length = 0;
+      inRecsBlock = false;
+    }
+
+    if (trimmed === '') {
+      elements.push(<div key={i} className="h-2" />);
+      continue;
+    }
+
+    // H1 heading (#)
+    if (/^# /.test(trimmed)) {
+      elements.push(
+        <h3 key={i} className={`text-[11px] font-bold mt-3 mb-1 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+          {renderGradePills(trimmed.replace(/^#+\s*/, ''))}
+        </h3>
+      );
+      continue;
+    }
+    // H2 heading (##)
+    if (/^## /.test(trimmed)) {
+      elements.push(
+        <h4 key={i} className={`text-[10.5px] font-semibold mt-2 mb-0.5 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+          {renderGradePills(trimmed.replace(/^#+\s*/, ''))}
+        </h4>
+      );
+      continue;
+    }
+    // H3+ heading (###)
+    if (/^###/.test(trimmed)) {
+      elements.push(
+        <h5 key={i} className={`text-[10px] font-medium mt-1.5 mb-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          {renderGradePills(trimmed.replace(/^#+\s*/, ''))}
+        </h5>
+      );
+      continue;
+    }
+    // Bullet point
+    if (/^-\s/.test(trimmed)) {
+      elements.push(
+        <div key={i} className={`flex gap-1.5 mt-0.5 text-[11px] leading-relaxed ${baseText}`}>
+          <span className="mt-1 flex-shrink-0 w-1 h-1 rounded-full bg-current opacity-50" />
+          <span>{renderGradePills(trimmed.replace(/^-\s*/, ''))}</span>
+        </div>
+      );
+      continue;
+    }
+    // Normal paragraph line
+    elements.push(
+      <p key={i} className={`text-[11px] leading-relaxed ${baseText} ${i > 0 ? 'mt-0.5' : ''}`}>
+        {renderGradePills(trimmed)}
+      </p>
+    );
+  }
+
+  // Flush any remaining rec lines
+  if (recLines.length > 0) {
+    elements.push(
+      <RecommendationBox key="recs-final" lines={recLines} isDark={isDark} />
+    );
+  }
+
+  return <div>{elements}</div>;
+}
+
+/** Highlighted box for extracted Grade A/B recommendations */
+function RecommendationBox({ lines, isDark }) {
+  if (!lines || lines.length === 0) return null;
   return (
-    <div className={`rounded-lg border transition-all duration-200 overflow-hidden ${
-      isDark
-        ? 'bg-slate-800/30 border-slate-700/50 hover:border-[var(--accent-primary)]/40'
-        : 'bg-white border-slate-200 hover:border-[var(--accent-primary)]/40'
+    <div className={`mt-2 mb-2 rounded-lg border overflow-hidden ${
+      isDark ? 'border-emerald-500/20 bg-emerald-900/10' : 'border-emerald-500/20 bg-emerald-50/60'
     }`}>
-      {/* Header row — always visible */}
+      <div className={`px-2.5 py-1.5 flex items-center gap-1.5 border-b ${
+        isDark ? 'border-emerald-500/15 bg-emerald-900/20' : 'border-emerald-500/15 bg-emerald-50'
+      }`}>
+        <Check className="w-3 h-3 text-emerald-500" strokeWidth={2.5} />
+        <span className="text-[9px] font-bold uppercase tracking-wider text-emerald-500">Recommendations</span>
+      </div>
+      <div className="px-2.5 py-1.5 space-y-1">
+        {lines.map((line, i) => (
+          <div key={i} className={`text-[11px] leading-relaxed flex gap-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            <span className="flex-shrink-0 mt-0.5">→</span>
+            <span>{renderGradePills(line)}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/** A single collapsible evidence tier */
+function EvidenceTier({ icon, label, defaultOpen = false, children, isDark, accentColor = 'slate', badge }) {
+  const [open, setOpen] = useState(defaultOpen);
+  const colorMap = {
+    emerald: isDark ? 'text-emerald-400 hover:bg-emerald-900/20' : 'text-emerald-600 hover:bg-emerald-50',
+    sky:     isDark ? 'text-sky-400 hover:bg-sky-900/20'         : 'text-sky-600 hover:bg-sky-50',
+    slate:   isDark ? 'text-slate-400 hover:bg-slate-700/30'     : 'text-slate-500 hover:bg-slate-100',
+  };
+  const iconColor = colorMap[accentColor] || colorMap.slate;
+  return (
+    <div className={`rounded-lg border overflow-hidden ${
+      isDark ? 'border-white/8' : 'border-slate-200/80'
+    }`}>
       <button
-        onClick={() => canExpand && setOpen(v => !v)}
-        className={`w-full flex items-start gap-3 px-3.5 py-2.5 text-left transition-colors ${
-          canExpand ? 'cursor-pointer' : 'cursor-default'
+        onClick={() => setOpen(v => !v)}
+        className={`w-full flex items-center gap-2 px-3 py-2 text-left text-[11px] font-semibold transition-colors ${iconColor} ${
+          isDark ? 'bg-white/3 hover:bg-white/5' : 'bg-slate-50/80 hover:bg-slate-100'
         }`}
       >
-        <div className="flex-1 min-w-0">
-          {/* Display title: Full CPG Name — Section X.X.X */}
-          <span className={`text-xs font-medium leading-snug block ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
-            {cpgRef?.displayTitle || cpgRef?.title}
-          </span>
-
-          {/* Used by line — which recommendations cite this */}
-          {cpgRef?.usedBy?.length > 0 && (
-            <div className={`mt-1 text-[10px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-              <span className="font-medium">Used by: </span>
-              {cpgRef.usedBy.map((u, i) => (
-                <span key={i}>
-                  {truncate(u)}{i < cpgRef.usedBy.length - 1 ? ', ' : ''}
-                </span>
-              ))}
-            </div>
-          )}
-        </div>
-        {canExpand && (
-          <div className={`flex-shrink-0 mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            {open
-              ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} />
-              : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
-          </div>
+        <span className="text-[13px] leading-none">{icon}</span>
+        <span className="flex-1">{label}</span>
+        {badge && (
+          <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded ${
+            isDark ? 'bg-white/8 text-slate-500' : 'bg-slate-200 text-slate-400'
+          }`}>{badge}</span>
         )}
+        <span className={`flex-shrink-0 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
+          {open
+            ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} />
+            : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
+        </span>
       </button>
-
-      {/* Expandable context — clinical rationale and original CPG text */}
-      {open && canExpand && (
-        <div className={`px-3.5 pb-3.5 pt-2 border-t text-xs leading-relaxed space-y-3 ${
-          isDark
-            ? 'border-white/5'
-            : 'border-slate-100'
+      {open && (
+        <div className={`px-3 pt-2 pb-3 border-t ${
+          isDark ? 'border-white/5 bg-slate-900/30' : 'border-slate-100 bg-white'
         }`}>
-          {hasContext && (
-            <div>
-              <span className={`block font-semibold uppercase tracking-wider text-[9px] mb-1.5 ${isDark ? 'text-slate-500 font-mono' : 'text-slate-400 font-mono'}`}>Clinical Application</span>
-              <p className={isDark ? 'text-slate-300 italic pl-1.5 border-l-2 border-[var(--accent-primary)]/40' : 'text-slate-700 italic pl-1.5 border-l-2 border-[var(--accent-primary)]/40'}>{cpgRef.context}</p>
-            </div>
-          )}
-          {hasOriginalText && (
-            <div>
-              <span className={`block font-semibold uppercase tracking-wider text-[9px] mb-1.5 ${isDark ? 'text-slate-500 font-mono' : 'text-slate-400 font-mono'}`}>Original Guideline Context</span>
-              <div className={`p-3 rounded-lg border font-sans whitespace-pre-line leading-relaxed ${
-                isDark 
-                  ? 'bg-slate-900/60 border-slate-800/80 text-slate-300 shadow-inner' 
-                  : 'bg-slate-50 border-slate-150 text-slate-600 shadow-inner'
-              }`}>
-                {cpgRef.originalText}
-              </div>
-            </div>
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ============================================================
+   Source preview — truncated flat text with expand toggle.
+   If sectionNum is provided (e.g. '7.1.4'), seeks to that
+   subsection heading within the text so the preview starts
+   at the relevant paragraph, not the top of a larger chunk.
+   ============================================================ */
+function SourcePreview({ text, sectionNum, previewLimit = 600, isDark }) {
+  const [expanded, setExpanded] = useState(false);
+  if (!text) return null;
+
+  // Try to seek to the specific subsection within the text
+  let relevantText = text;
+  let seeked = false;
+  if (sectionNum && text.length > previewLimit) {
+    // Look for heading patterns like "7.1.4" or "7.1.4:" or "## 7.1.4"
+    const escapedNum = sectionNum.replace(/\./g, '\\.');
+    const patterns = [
+      new RegExp(`^#{1,4}\\s*(?:Section\\s*)?${escapedNum}[:\\s]`, 'im'),
+      new RegExp(`(?:^|\\n)\\s*${escapedNum}[.:\\s]`, 'i'),
+      new RegExp(`(?:^|\\n)\\s*(?:Section\\s*)?${escapedNum}\\b`, 'i'),
+    ];
+    for (const pat of patterns) {
+      const match = text.match(pat);
+      if (match && match.index != null && match.index > 0) {
+        relevantText = text.slice(match.index).trimStart();
+        seeked = true;
+        break;
+      }
+    }
+  }
+
+  const isLong = relevantText.length > previewLimit;
+  const displayText = expanded || !isLong ? relevantText : relevantText.slice(0, previewLimit);
+
+  return (
+    <div className={`px-3.5 pb-3 ${isDark ? 'bg-slate-900/20' : 'bg-slate-50/60'}`}>
+      <div className={`p-2.5 rounded-lg border text-[11px] leading-relaxed max-h-64 overflow-y-auto ${
+        isDark
+          ? 'bg-slate-900/50 border-white/5 text-slate-400'
+          : 'bg-white border-slate-200 text-slate-500'
+      }`}>
+        <CpgTextBlock text={displayText} isDark={isDark} muted={true} />
+        {isLong && !expanded && (
+          <span className="text-[10px] text-slate-500">{"\u2026"}</span>
+        )}
+      </div>
+      {(isLong || seeked) && (
+        <div className="flex gap-3 mt-1.5">
+          {isLong && (
+            <button
+              onClick={() => setExpanded(v => !v)}
+              className={`text-[10px] font-medium transition-colors ${
+                isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-400 hover:text-slate-600'
+              }`}
+            >
+              {expanded ? 'Show less' : `Show full text (${Math.round(relevantText.length / 1000)}k chars)`}
+            </button>
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+function CpgReferenceCard({ cpgRef, isDark }) {
+  const [sourceOpen, setSourceOpen] = useState(false);
+  const hasContext = Boolean(cpgRef?.context);
+  const hasMatchedClause = Boolean(cpgRef?.matchedClause);
+  const hasSectionContext = Boolean(cpgRef?.sectionContext);
+  const hasBroaderContext = Boolean(cpgRef?.broaderContext);
+  const hasLegacyText = !hasMatchedClause && Boolean(cpgRef?.originalText);
+
+  const legacyMatchedClause = React.useMemo(() => {
+    if (!hasLegacyText || !cpgRef?.originalText) return null;
+    const text = cpgRef.originalText;
+    const matchedMarker = 'Matched Clause:\n';
+    const matchedIdx = text.indexOf(matchedMarker);
+    if (matchedIdx !== -1) return text.slice(matchedIdx + matchedMarker.length).trim();
+    const hasParentMarker = text.includes('Parent Section Context:\n') || text.includes('Section Context:\n');
+    return hasParentMarker ? null : text;
+  }, [hasLegacyText, cpgRef?.originalText]);
+
+  const legacyBroaderContext = React.useMemo(() => {
+    if (!hasLegacyText || !cpgRef?.originalText) return null;
+    const text = cpgRef.originalText;
+    const matchedIdx = text.indexOf('Matched Clause:\n');
+    if (matchedIdx === -1) return null;
+    return text.slice(0, matchedIdx).trim() || null;
+  }, [hasLegacyText, cpgRef?.originalText]);
+
+  const hasAnySourceEffective = hasMatchedClause || Boolean(legacyMatchedClause) || Boolean(legacyBroaderContext) || hasSectionContext || hasBroaderContext;
+
+  // Section depth coloring — deeper sections get warmer accent
+  const sectionNum = cpgRef?.sectionNum || '';
+  const sectionDepth = sectionNum ? sectionNum.split('.').length : 0;
+  const accentBorder =
+    sectionDepth >= 3 ? 'border-l-emerald-500' :
+    sectionDepth === 2 ? 'border-l-sky-500' :
+                         'border-l-violet-500';
+  const sectionBadgeColor =
+    sectionDepth >= 3
+      ? (isDark ? 'bg-emerald-500/15 text-emerald-400 border-emerald-500/25' : 'bg-emerald-50 text-emerald-700 border-emerald-200')
+      : sectionDepth === 2
+        ? (isDark ? 'bg-sky-500/15 text-sky-400 border-sky-500/25' : 'bg-sky-50 text-sky-700 border-sky-200')
+        : (isDark ? 'bg-violet-500/15 text-violet-400 border-violet-500/25' : 'bg-violet-50 text-violet-700 border-violet-200');
+
+  return (
+    <div className={`rounded-lg border-l-[3px] border border-l-[3px] transition-all duration-200 overflow-hidden ${accentBorder} ${
+      isDark
+        ? 'bg-slate-800/30 border-slate-700/50'
+        : 'bg-white border-slate-200'
+    }`}>
+
+      {/* Header: Section badge + Intervention (primary content) */}
+      <div className="px-3.5 pt-3 pb-2.5">
+        {/* Section label */}
+        {cpgRef.section && (
+          <span className={`inline-block text-[10px] font-bold font-mono px-2 py-0.5 rounded border mb-1.5 ${sectionBadgeColor}`}>
+            Section {sectionNum}
+          </span>
+        )}
+
+        {/* Primary content: What this reference is used for */}
+        {cpgRef?.usedBy?.length > 0 && (
+          <div className="flex items-start gap-2 mt-1">
+            <Pill className={`w-3.5 h-3.5 flex-shrink-0 mt-0.5 ${isDark ? 'text-[var(--accent-primary)]' : 'text-[var(--accent-primary)]'}`} strokeWidth={1.8} />
+            <div className="flex-1 min-w-0">
+              {cpgRef.usedBy.map((u, i) => (
+                <span key={i} className={`text-[12px] font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                  {u}{i < cpgRef.usedBy.length - 1 ? ', ' : ''}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Verify Source — compact toggle */}
+      {hasAnySourceEffective && (() => {
+        const sourceText = cpgRef.matchedClause || legacyMatchedClause || cpgRef.originalText || '';
+        return (
+          <div className={`border-t ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
+            <button
+              onClick={() => setSourceOpen(v => !v)}
+              className={`w-full flex items-center gap-1.5 px-3.5 py-1.5 text-left transition-colors ${
+                isDark
+                  ? 'text-slate-600 hover:text-slate-400 hover:bg-white/3'
+                  : 'text-slate-400 hover:text-slate-500 hover:bg-slate-50'
+              }`}
+            >
+              <FileText className="w-3 h-3" strokeWidth={2} />
+              <span className="text-[10px] font-medium">
+                {sourceOpen ? 'Hide source' : 'Verify source'}
+              </span>
+              <span className="flex-1" />
+              {sourceOpen
+                ? <ChevronUp className="w-3 h-3" strokeWidth={2} />
+                : <ChevronDown className="w-3 h-3" strokeWidth={2} />}
+            </button>
+            {sourceOpen && <SourcePreview text={sourceText} sectionNum={cpgRef.sectionNum} isDark={isDark} />}
+          </div>
+        );
+      })()}
     </div>
   );
 }
@@ -758,6 +1170,8 @@ function CpgReferenceGroup({ group, isDark }) {
   );
 }
 
+
+
 /* ============================================================
    MAIN — Care Plan section (Tabbed layout)
    ============================================================ */
@@ -774,6 +1188,40 @@ function parseUnresolvedQuestion(q) {
     );
   }
   return <span className="block mb-2.5">{q.replace(/\*\*/g, '')}</span>;
+}
+
+/* Unresolved Questions — collapsible with first N visible */
+function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? qs : qs.slice(0, maxVisible);
+  const hasMore = qs.length > maxVisible;
+
+  return (
+    <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
+      <p className="text-amber-500 text-xs font-semibold mb-1.5 flex items-center gap-1.5">
+        <AlertCircle className="w-3.5 h-3.5" strokeWidth={2} />
+        Unresolved Questions
+        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded-full ${
+          isDark ? 'bg-amber-500/20 text-amber-400' : 'bg-amber-100 text-amber-700'
+        }`}>
+          {qs.length}
+        </span>
+      </p>
+      <ul className={`text-[11px] space-y-1.5 pl-3 list-disc leading-relaxed ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
+        {visible.map((q, i) => <li key={i}>{parseUnresolvedQuestion(q)}</li>)}
+      </ul>
+      {hasMore && (
+        <button
+          onClick={() => setExpanded(v => !v)}
+          className={`mt-2 text-[10px] font-semibold transition-colors ${
+            isDark ? 'text-amber-400 hover:text-amber-300' : 'text-amber-600 hover:text-amber-700'
+          }`}
+        >
+          {expanded ? 'Show fewer' : `Show all ${qs.length} questions`}
+        </button>
+      )}
+    </div>
+  );
 }
 
 export function CarePlanSection() {
@@ -883,53 +1331,56 @@ export function CarePlanSection() {
           <GlassCard className="p-4 border-l-4 border-[var(--accent-primary)] sticky top-4">
             <h3 className={`text-base font-semibold mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Reference Context</h3>
 
-            <div className="space-y-4">
-              <div>
-                <span className={`text-xs font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Confirmed Diagnosis</span>
-                {selectedDiagnoses.length > 0 ? (
-                  <div className="mt-1 space-y-2">
-                    {selectedDiagnoses.map((d) => (
-                      <div key={d.id} className="p-2 rounded bg-[var(--accent-primary)]/10">
-                        <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</p>
-                        {d.icdCode && (
-                          <p className={`text-xs ${isDark ? 'text-[var(--accent-primary)]' : 'text-blue-600'}`}>ICD-11: {d.icdCode}</p>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>None selected</p>
-                )}
+            <div className="space-y-3">
+              {/* Diagnosis + Allergies: compact 2-column grid */}
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Diagnosis</span>
+                  {selectedDiagnoses.length > 0 ? (
+                    <div className="mt-1 space-y-1.5">
+                      {selectedDiagnoses.map((d) => (
+                        <div key={d.id}>
+                          <p className={`text-sm font-bold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</p>
+                          {d.icdCode && (
+                            <span className={`text-[10px] font-mono ${isDark ? 'text-[var(--accent-primary)]' : 'text-blue-600'}`}>ICD-11: {d.icdCode}</span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className={`text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>None selected</p>
+                  )}
+                </div>
+                <div>
+                  <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Allergies</span>
+                  {allergiesList.length > 0 ? (
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {allergiesList.map((a, idx) => (
+                        <span key={idx} className="bg-red-100 text-red-700 border border-red-300 rounded-full px-2 py-0.5 text-[10px] font-semibold">{a}</span>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>None known</p>
+                  )}
+                </div>
               </div>
 
-              <div>
-                <span className={`text-xs font-medium mb-1 block ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Known Allergies</span>
-                {allergiesList.length > 0 ? (
-                  <div className="flex flex-wrap gap-1.5">
-                    {allergiesList.map((a, idx) => (
-                      <span key={idx} className="bg-red-100 text-red-700 border border-red-300 rounded-full px-2 py-0.5 text-xs font-semibold">{a}</span>
-                    ))}
-                  </div>
-                ) : (
-                  <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No known allergies</span>
-                )}
-              </div>
-
+              {/* Critical Vitals */}
               {(() => {
                 const v = vitals;
                 const abnormals = [];
-                if (v?.bpSystolic && parseInt(v.bpSystolic) > 140) abnormals.push({ label: 'SBP', value: `${v.bpSystolic} mmHg ↑`, color: 'text-red-500' });
-                if (v?.bpDiastolic && parseInt(v.bpDiastolic) > 90) abnormals.push({ label: 'DBP', value: `${v.bpDiastolic} mmHg ↑`, color: 'text-red-500' });
-                if (v?.hr && parseInt(v.hr) > 100) abnormals.push({ label: 'HR', value: `${v.hr} bpm ↑`, color: 'text-amber-500' });
-                if (v?.spo2 && parseInt(v.spo2) < 95) abnormals.push({ label: 'SpO₂', value: `${v.spo2}% ↓`, color: 'text-red-500' });
-                if (v?.temp && parseFloat(v.temp) > 37.5) abnormals.push({ label: 'Temp', value: `${v.temp} °C ↑`, color: 'text-amber-500' });
+                if (v?.bpSystolic && parseInt(v.bpSystolic) > 140) abnormals.push({ label: 'SBP', value: `${v.bpSystolic} mmHg \u2191`, color: 'text-red-500' });
+                if (v?.bpDiastolic && parseInt(v.bpDiastolic) > 90) abnormals.push({ label: 'DBP', value: `${v.bpDiastolic} mmHg \u2191`, color: 'text-red-500' });
+                if (v?.hr && parseInt(v.hr) > 100) abnormals.push({ label: 'HR', value: `${v.hr} bpm \u2191`, color: 'text-amber-500' });
+                if (v?.spo2 && parseInt(v.spo2) < 95) abnormals.push({ label: 'SpO\u2082', value: `${v.spo2}% \u2193`, color: 'text-red-500' });
+                if (v?.temp && parseFloat(v.temp) > 37.5) abnormals.push({ label: 'Temp', value: `${v.temp} \u00B0C \u2191`, color: 'text-amber-500' });
                 if (abnormals.length === 0) return null;
                 return (
                   <div>
-                    <span className={`text-xs font-medium mb-1 flex items-center gap-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <span className={`text-[10px] font-semibold uppercase tracking-wider flex items-center gap-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                       <TrendingUp className="w-3 h-3 text-red-400" strokeWidth={1.5} /> Critical Vitals
                     </span>
-                    <div className={`p-2 rounded-lg grid grid-cols-2 gap-x-3 gap-y-1 ${isDark ? 'bg-red-900/20 border border-red-500/20' : 'bg-red-50 border border-red-100'}`}>
+                    <div className={`mt-1 p-2 rounded-lg grid grid-cols-2 gap-x-3 gap-y-1 ${isDark ? 'bg-red-900/20 border border-red-500/20' : 'bg-red-50 border border-red-100'}`}>
                       {abnormals.map((a, i) => (
                         <div key={i} className="flex items-baseline gap-1">
                           <span className={`text-[10px] font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{a.label}</span>
@@ -941,6 +1392,7 @@ export function CarePlanSection() {
                 );
               })()}
 
+              {/* AI Reasoning Trace */}
               <PipelineProgress
                 pipelineEvents={state.pipelineEvents}
                 pipelineThinking={state.pipelineThinking}
@@ -951,13 +1403,9 @@ export function CarePlanSection() {
                 onToggle={() => setTraceCollapsed((prev) => !prev)}
               />
 
+              {/* Unresolved Questions — collapsible, shows first 3 */}
               {carePlan?.unresolvedQuestions?.length > 0 && (
-                <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
-                  <p className="text-amber-500 text-sm font-medium mb-1">⚠ Unresolved Questions</p>
-                  <ul className={`text-xs space-y-1 pl-3 list-disc ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
-                    {carePlan.unresolvedQuestions.map((q, i) => <li key={i}>{parseUnresolvedQuestion(q)}</li>)}
-                  </ul>
-                </div>
+                <UnresolvedQuestionsPanel qs={carePlan.unresolvedQuestions} maxVisible={3} isDark={isDark} />
               )}
             </div>
           </GlassCard>
@@ -970,7 +1418,6 @@ export function CarePlanSection() {
             acknowledged={safetyAcknowledged}
             onAcknowledge={() => setSafetyAcknowledged(true)}
           />
-          <GraphNavigatorPanel rules={graphNavigatorRules} />
 
           <TabBar tabs={tabs} active={tab} onChange={setTab} />
 
@@ -1006,6 +1453,7 @@ export function CarePlanSection() {
                           description={m.reason}
                           tag={ACTION_STYLES[effectiveAction]?.label || effectiveAction.toUpperCase()}
                           tagTone={tagToneMap[effectiveAction] || 'accent'}
+                          graphRule={pickBestRuleForMed(m.name, graphNavigatorRules)}
                         />
                       );
                     })}
@@ -1034,7 +1482,7 @@ export function CarePlanSection() {
           {/* ── MEDICATIONS ────────────────────────────────────── */}
           {tab === 'meds' && (
             <Section title="Medications" icon={Pill} count={medsCount}>
-              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} />
+              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} graphRules={graphNavigatorRules} />
             </Section>
           )}
 

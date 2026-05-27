@@ -40,10 +40,64 @@ def _make_openai_client(base_url: str, api_key: str, provider: str = "", **kwarg
 
 logger = logging.getLogger(__name__)
 
+
+# Drug-class matcher used by the post-Stage-5 coverage-gap detector. Mirrors
+# the JS DRUG_CLASS_KEYWORDS map in Doctor UI/src/components/sections/CarePlanSection.jsx
+# — keep the two in sync when adding classes.
+_PARSER_ERROR_DRUGS = {
+    "pharmacological agent", "pharmacological", "drug", "agent",
+    "pharmacological treatment", "medication", "medications",
+}
+
+_DRUG_CLASS_KEYWORDS: dict[str, list[str]] = {
+    "ace inhibitor": ["pril"],
+    "angiotensin receptor blocker": ["sartan"],
+    "arb": ["sartan"],
+    "beta-blocker": ["olol", "carvedilol", "bisoprolol"],
+    "b-blocker": ["olol"],
+    "thiazide diuretic": ["thiazide", "chlorthalidone", "indapamide", "hydrochloro"],
+    "thiazide diuretics": ["thiazide", "chlorthalidone", "indapamide", "hydrochloro"],
+    "chlorthalidone": ["chlorthalidone"],
+    "dihydropyridine ccb": ["dipine"],
+    "long-acting calcium channel blocker": ["dipine", "amlodipine", "felodipine"],
+    "ccb": ["dipine", "diltiazem", "verapamil", "amlodipine"],
+    "calcium channel blocker": ["dipine", "diltiazem", "verapamil"],
+    "k+ sparing diuretics": ["spironolactone", "amiloride", "eplerenone"],
+    "dri": ["aliskiren"],
+    "statin": ["statin"],
+    "pcsk9 inhibitor": ["alirocumab", "evolocumab"],
+    "basal insulin": ["insulin glargine", "insulin detemir", "insulin degludec",
+                       "lantus", "tresiba", "levemir"],
+    "metformin": ["metformin"],
+    "sglt2 inhibitor": ["flozin"],
+    "sglt2": ["flozin"],
+    "glp-1 receptor agonist": ["glutide", "tide"],
+    "glp-1": ["glutide"],
+    "dpp-4 inhibitor": ["gliptin"],
+    "sulfonylurea": ["gliclazide", "glimepiride", "glipizide", "glibenclamide"],
+}
+
+
+def _match_rule_to_med(med_name: str, rule_drug: str) -> bool:
+    """Return True if a prescribed med matches a KG drug name or drug class."""
+    if not med_name or not rule_drug:
+        return False
+    n = str(med_name).lower()
+    d = str(rule_drug).lower().strip()
+    if not d or d in _PARSER_ERROR_DRUGS:
+        return False
+    if len(d) >= 4 and (d in n or n in d):
+        return True
+    for kw in _DRUG_CLASS_KEYWORDS.get(d, []):
+        if kw in n:
+            return True
+    return False
+
 DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
 EXCLUSION_PENALTY_WEIGHT = 0.3       # λ — applied in ddx/search_ddx.py; defined here for central reference
 INCLUSION_BOOST_WEIGHT = 0.3         # mirrors ddx/search_ddx.py; weights the synonym-match addend
-CC_BOOST_WEIGHT = 0.15               # calibrated: min 0.10 works, 0.15 gives robust margin (see scripts/calibrate_cc_boost.py)
+CC_BOOST_WEIGHT = 0.15               # calibrated for INFERRED dx (CC_BOOST_WEIGHT × conf, see scripts/calibrate_cc_boost.py)
+CC_EXPLICIT_BOOST = 0.25             # flat boost when the clinician explicitly named the dx in CC/notes
 OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
 DDX_DISPLAY_FLOOR = 0.30
 SCORE_TERM_DISPLAY_FLOOR = 0.50
@@ -178,8 +232,9 @@ class DDxResult(BaseModel):
     matched_exclusion: str | None = None
     exclusion_similarity: float | None = None
     exclusion_penalty: float = 0.0
-    cc_boost: float = 0.0              # weighted CC boost (CC_BOOST_WEIGHT × cc_confidence)
+    cc_boost: float = 0.0              # weighted CC boost (CC_BOOST_WEIGHT × cc_confidence, or CC_EXPLICIT_BOOST when explicit)
     cc_confidence: float | None = None # raw LLM confidence from CC hint extraction (0.0-1.0)
+    cc_explicit: bool = False          # True when the clinician explicitly named this dx in CC/notes
     score_breakdown: ScoreBreakdown | None = None
     matched_cpg_title: str | None = None
     reasoning: list[str] = []
@@ -684,7 +739,6 @@ async def _extract_symptom_phrase(
         resp = await client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=80,
             temperature=0,
             **({"extra_body": extra_body} if extra_body else {}),
         )
@@ -733,17 +787,21 @@ async def _generate_condition_hypotheses(
     symptom-phrase query alone, i.e. prior behaviour.
     """
     prompt = (
-        "List the most likely diagnoses for this patient as named medical "
-        "conditions only — comma-separated, no numbering, no explanation, "
-        f"maximum {max_n} conditions.\n\n"
+        "You are an expert clinical diagnostician.\n"
+        "Analyze the patient presentation below and list the most likely diagnoses as complete, "
+        "fully-qualified named medical conditions only (e.g., 'Type 2 Diabetes Mellitus' instead of 'Type 2' "
+        "or 'Diabetes', 'Essential Hypertension' instead of 'Hypertension', 'Cardiovascular Disease' instead of 'CVD').\n"
+        "Rules:\n"
+        "- Return ONLY a comma-separated list of the conditions\n"
+        f"- Maximum {max_n} conditions\n"
+        "- No numbering, no bullets, no explanation, no conversational filler\n\n"
         f"Presentation: {notes}\n\n"
-        "Conditions:"
+        "Diagnoses:"
     )
     try:
         resp = await client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=120,
             temperature=0,
             **({"extra_body": extra_body} if extra_body else {}),
         )
@@ -762,7 +820,7 @@ async def _extract_cc_icd_hints(
     client: openai.AsyncOpenAI,
     model: str,
     extra_body: dict | None = None,
-    max_n: int = 3,
+    max_n: int = 6,
 ) -> list[dict]:
     """Extract high-confidence ICD-11 codes with per-code confidence from the
     chief complaint text alone.
@@ -782,25 +840,33 @@ async def _extract_cc_icd_hints(
     """
     prompt = (
         "You are a clinical coding expert.\n"
-        "Given ONLY the chief complaint below, identify the ICD-11 codes a doctor "
-        "would assign as the PRIMARY working diagnosis.\n"
+        "Given the clinician's notes below (chief complaint + HPI + PE + their own "
+        "diagnostic impressions), identify EVERY ICD-11 code a doctor would assign — "
+        "primary AND comorbid. Do not restrict to one 'primary' code.\n"
         "Rules:\n"
-        "- Return a JSON array of objects: [{\"code\": \"BA41.0\", \"confidence\": 0.92}]\n"
-        "- confidence is YOUR calibrated probability (0.0-1.0) that this CC implies this diagnosis:\n"
-        "    0.90+: CC explicitly names the diagnosis or textbook syndrome\n"
+        "- Return a JSON array of objects: "
+        "[{\"code\": \"BA41.0\", \"confidence\": 0.96, \"explicit\": true}]\n"
+        "- `explicit` is true ONLY when the clinician has literally named the diagnosis "
+        "in the notes (e.g. 'NSTEMI', 'newly diagnosed HFrEF', 'T2DM', 's/p PCI', "
+        "'GDM', 'AF') — i.e. the doctor wrote it themselves, you are not inferring it.\n"
+        "- When `explicit` is true, confidence MUST be >= 0.95 (the clinician's "
+        "assertion is the evidence; do not hedge).\n"
+        "- When `explicit` is false (you inferred the dx from symptoms/findings), "
+        "confidence is YOUR calibrated probability that the notes imply that dx:\n"
+        "    0.90+: textbook syndrome, no realistic competitor\n"
         "    0.70 : strongly suggests but one key finding ambiguous\n"
         "    0.50 : plausible but competing differentials\n"
-        "- Only include codes with confidence >= 0.40. Maximum 3 codes.\n"
-        "- If the CC is too vague for any confident code, return []\n"
+        "- Include EVERY explicit clinician-named dx (no max for explicit codes).\n"
+        "- For inferred dx, only include confidence >= 0.40. Combined total max 6 codes.\n"
+        "- If the notes contain no nameable dx and are too vague to infer, return [].\n"
         "- Return ONLY the JSON array. No explanation.\n\n"
-        f"Chief complaint: {cc}\n\n"
+        f"Clinician's notes: {cc}\n\n"
         "JSON:"
     )
     try:
         resp = await client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=120,
             temperature=0,
             **({"extra_body": extra_body} if extra_body else {}),
         )
@@ -1568,6 +1634,86 @@ SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
 # ---------------------------------------------------------------------------
 
 PRIOR_VISIT_SUMMARISER_PROMPT = _load_prompt("prior_visit_summariser.txt")
+REFERRAL_TRIGGER_GATE_PROMPT = _load_prompt("referral_trigger_gate.txt")
+
+
+async def gate_referral_triggers(
+    case: PatientCase,
+    candidates: list[dict],
+) -> dict[int, tuple[str, str]]:
+    """LLM evaluation of whether per-patient referral triggers are met.
+
+    Args:
+        case: the PatientCase (vitals, labs, severity_staging, comorbidities, history).
+        candidates: list of {"index": int, "specialty": str, "condition": str, "trigger": str}.
+
+    Returns:
+        dict mapping candidate index -> (status, reason). status in {"met", "not_met", "unknown"}.
+        Fail-open: returns {} on any error so caller falls back to conservative gating.
+    """
+    if not candidates or not REFERRAL_TRIGGER_GATE_PROMPT:
+        return {}
+
+    base_url = os.getenv("REFERRAL_GATE_BASE_URL") or os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key = os.getenv("REFERRAL_GATE_API_KEY") or os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
+    model = os.getenv("REFERRAL_GATE_MODEL", "xiaomimimo/MiMo-7B-RL")
+
+    patient_ctx = {
+        "age": getattr(case, "age", None),
+        "sex": getattr(case, "sex", None),
+        "vitals": getattr(case, "vitals", {}) or {},
+        "severity_staging": getattr(case, "severity_staging", {}) or {},
+        "comorbidities": getattr(case, "comorbidities", []) or [],
+        "current_medications": getattr(case, "current_medications", []) or [],
+        "history": (getattr(case, "history", "") or "")[:1500],
+        "chief_complaint": (getattr(case, "chief_complaint", "") or "")[:600],
+    }
+    user_payload = json.dumps(
+        {"patient": patient_ctx, "candidates": candidates},
+        ensure_ascii=False,
+    )
+    extra_body = (
+        {"chat_template_kwargs": {"enable_thinking": False}} if "mimo" in model.lower() else None
+    )
+
+    try:
+        client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": REFERRAL_TRIGGER_GATE_PROMPT},
+                {"role": "user", "content": user_payload},
+            ],
+            temperature=0.0,
+            max_tokens=900,
+            extra_body=extra_body,
+        )
+        raw = (resp.choices[0].message.content or "").strip()
+        if raw.startswith("```"):
+            raw = raw.strip("`")
+            if raw.startswith("json"):
+                raw = raw[4:].strip()
+        data = json.loads(raw)
+        out: dict[int, tuple[str, str]] = {}
+        for d in data.get("decisions", []) or []:
+            try:
+                idx = int(d.get("index"))
+            except (TypeError, ValueError):
+                continue
+            status = (d.get("status") or "unknown").lower()
+            if status not in ("met", "not_met", "unknown"):
+                status = "unknown"
+            reason = (d.get("reason") or "")[:200]
+            out[idx] = (status, reason)
+        logger.info("referral_trigger_gate: evaluated %d candidate(s); %d met, %d not_met, %d unknown",
+                    len(candidates),
+                    sum(1 for s, _ in out.values() if s == "met"),
+                    sum(1 for s, _ in out.values() if s == "not_met"),
+                    sum(1 for s, _ in out.values() if s == "unknown"))
+        return out
+    except Exception as exc:
+        logger.warning("referral_trigger_gate failed (%s); fail-open to conservative gating", exc)
+        return {}
 
 
 async def summarise_prior_visit(
@@ -2269,7 +2415,60 @@ Produce a TreatmentPlan JSON object matching this schema:
                     kg_inputs.append(title)
             kg_inputs.extend(case.comorbidities or [])
             kg_recs = await _lookup_referrals(kg_inputs) if kg_inputs else []
-            logger.info("stage_5 KG lookup: %d input(s) -> %d referral(s)", len(kg_inputs), len(kg_recs))
+
+            # Demographic safety filters & CPG alignment filters for referrals
+            filtered_recs = []
+            is_male = str(getattr(case, "sex", "")).upper() in ("M", "MALE")
+            is_adult = False
+            age = getattr(case, "age", None)
+            if age is not None:
+                try:
+                    is_adult = int(age) >= 18
+                except (TypeError, ValueError):
+                    pass
+
+            # Compile routed CPG slugs to ensure referrals align with matched CPGs
+            allowed_cpg_slugs = set()
+            for c in (_cpgs or []):
+                if getattr(c, "cpg_name", None):
+                    allowed_cpg_slugs.add(c.cpg_name.lower().strip())
+                if getattr(c, "title", None):
+                    allowed_cpg_slugs.add(c.title.lower().strip())
+
+            for rec in kg_recs:
+                cond_lower = (rec.condition or "").lower()
+                source_lower = (rec.source_document or "").lower().strip()
+                spec_lower = (rec.specialty or "").lower()
+
+                # CPG Routing check: Ensure referral originates from a CPG that was actually routed!
+                if allowed_cpg_slugs:
+                    is_routed = any(
+                        slug in source_lower or source_lower in slug
+                        for slug in allowed_cpg_slugs
+                        if slug
+                    )
+                    if not is_routed:
+                        logger.info("CPG Alignment Filter: Excluding referral from unrouted CPG '%s'", rec.source_document)
+                        continue
+                
+                # Male check: exclude pregnancy/obstetric/maternal/foetal/gdm referrals
+                if is_male:
+                    pregnancy_keywords = ["pregnancy", "gestational", "maternal", "obstetrics", "foetal", "fetal", "obstetrician", "gdm", "antenatal"]
+                    if any(kw in cond_lower or kw in source_lower or kw in spec_lower for kw in pregnancy_keywords):
+                        logger.info("Demographic Filter: Excluding pregnancy referral '%s' for male patient", rec.specialty)
+                        continue
+                
+                # Adult check: exclude paediatric/infant referrals
+                if is_adult:
+                    pediatric_keywords = ["paediatric", "pediatric", "child", "infant", "newborn", "paediatrician"]
+                    if any(kw in cond_lower or kw in source_lower or kw in spec_lower for kw in pediatric_keywords):
+                        logger.info("Demographic Filter: Excluding paediatric referral '%s' for adult patient", rec.specialty)
+                        continue
+
+                filtered_recs.append(rec)
+            kg_recs = filtered_recs
+
+            logger.info("stage_5 KG lookup: %d input(s) -> %d referral(s) (after demographic filters)", len(kg_inputs), len(kg_recs))
             for rec in kg_recs:
                 trig = f" (trigger: {rec.trigger})" if rec.trigger else ""
                 msg = (
@@ -2286,12 +2485,107 @@ Produce a TreatmentPlan JSON object matching this schema:
             for existing in plan.recommendations:
                 if existing.type == "referral":
                     seen_keys.add(("", (existing.intervention or "").lower()))
+            # Triggers we treat as "universal" — patient is presumed to meet them by
+            # virtue of having the condition (no per-patient gating needed).
+            _UNIVERSAL_TRIGGERS = {
+                "newly diagnosed", "new diagnosis", "at diagnosis", "on diagnosis",
+                "at initial assessment", "initial assessment", "baseline",
+            }
+            def _is_universal(trig: str | None, trig_list: list[str] | None) -> bool:
+                pool = []
+                if trig:
+                    pool.append(trig.strip().lower())
+                for t in (trig_list or []):
+                    if t:
+                        pool.append(t.strip().lower())
+                if not pool:
+                    return True  # no trigger field = always-applicable referral
+                return any(p in _UNIVERSAL_TRIGGERS for p in pool)
+
+            # First pass: classify each rec as universal vs triggered. Triggered ones
+            # are dispatched to an LLM gate that evaluates each trigger against the
+            # patient's vitals/labs/staging/history. The gate is fail-open: on any
+            # error, all triggered recs fall back to unresolved_questions (Option-1
+            # conservative behaviour).
+            triggered_candidates: list[dict] = []
+            triggered_meta: dict[int, tuple] = {}  # idx -> (rec, primary_trig, urgency_word)
+            universal_recs: list[tuple] = []  # (rec, urgency_word)
             for rec in kg_recs:
                 key = (rec.specialty.lower(), (rec.condition or "").lower())
                 if key in seen_keys:
                     continue
                 seen_keys.add(key)
                 urgency_word = (rec.urgency or "routine").lower()
+                trig_list = list(getattr(rec, "triggers", []) or [])
+                if _is_universal(rec.trigger, trig_list):
+                    universal_recs.append((rec, urgency_word))
+                    continue
+                primary_trig = (rec.trigger or (trig_list[0] if trig_list else "")).strip()
+                idx = len(triggered_candidates)
+                triggered_candidates.append({
+                    "index": idx,
+                    "specialty": rec.specialty,
+                    "condition": rec.condition,
+                    "trigger": primary_trig,
+                })
+                triggered_meta[idx] = (rec, primary_trig, urgency_word)
+
+            gate_decisions = await gate_referral_triggers(case, triggered_candidates) if triggered_candidates else {}
+
+            injected_count = 0
+            gated_count = 0
+            dropped_count = 0
+
+            for idx, (rec, primary_trig, urgency_word) in triggered_meta.items():
+                status, reason = gate_decisions.get(idx, ("unknown", ""))
+                if status == "met":
+                    intervention = (
+                        f"Refer to {rec.specialty} ({urgency_word}) — {rec.condition}"
+                    )
+                    if rec.trigger:
+                        intervention += f"; trigger: {rec.trigger}"
+                    rationale_base = (rec.evidence or "").strip() or (
+                        f"KG-sourced referral for {rec.condition}"
+                    )
+                    rationale = f"{rationale_base} [gate: {reason}]" if reason else rationale_base
+                    try:
+                        plan.recommendations.append(
+                            _Rec(
+                                intervention=intervention,
+                                type="referral",
+                                action=None,
+                                evidence_grade=None,
+                                cpg_source=(getattr(rec, "source_document", None) or getattr(rec, "cpg_source", None) or "Neo4j KG"),
+                                rationale=rationale[:480],
+                                contraindications_checked=[],
+                            )
+                        )
+                        injected_count += 1
+                        logger.info(
+                            "Referral GATE=met → injected: %s — %s (trigger=%r, reason=%r)",
+                            rec.specialty, rec.condition, primary_trig, reason,
+                        )
+                    except Exception as exc:
+                        logger.warning("Triggered referral injection failed: %s", exc)
+                elif status == "not_met":
+                    dropped_count += 1
+                    logger.info(
+                        "Referral GATE=not_met → dropped: %s — %s (trigger=%r, reason=%r)",
+                        rec.specialty, rec.condition, primary_trig, reason,
+                    )
+                else:  # unknown / missing
+                    question = (
+                        f"Consider {rec.specialty} referral ({urgency_word}) for {rec.condition} "
+                        f"IF: {primary_trig}"
+                    )
+                    plan.unresolved_questions.append(question[:480])
+                    gated_count += 1
+                    logger.info(
+                        "Referral GATE=unknown → unresolved_questions: %s — %s (trigger=%r)",
+                        rec.specialty, rec.condition, primary_trig,
+                    )
+
+            for rec, urgency_word in universal_recs:
                 intervention = (
                     f"Refer to {rec.specialty} ({urgency_word}) — {rec.condition}"
                 )
@@ -2312,11 +2606,12 @@ Produce a TreatmentPlan JSON object matching this schema:
                             contraindications_checked=[],
                         )
                     )
+                    injected_count += 1
                 except Exception as exc:
-                    logger.warning("KG referral injection failed (%s): %s", key, exc)
+                    logger.warning("KG referral injection failed (%s — %s): %s", rec.specialty, rec.condition, exc)
             logger.info(
-                "stage_5 coverage (KG): injected %d referral recommendation(s)",
-                len(seen_keys),
+                "stage_5 coverage (KG): %d injected (universal + gate=met), %d to unresolved_questions (gate=unknown), %d dropped (gate=not_met)",
+                injected_count, gated_count, dropped_count,
             )
         else:
             # Static-dict fallback (covers conditions not yet in the KG).
@@ -2334,5 +2629,64 @@ Produce a TreatmentPlan JSON object matching this schema:
                         "stage_5 coverage (dict fallback): missing required referral for %s — %s",
                         code, referral_required,
                     )
+
+    # Coverage-gap detector: for each routed condition with a FIRST_LINE_FOR
+    # rule in the KG, ensure the synthesised plan actually prescribes a med in
+    # one of those classes. If not, surface one actionable warning per
+    # uncovered condition. Single-question-per-condition; never fabricates a rx.
+    try:
+        prefer_flags = [
+            f for f in (flags or [])
+            if getattr(f, "flag_type", "") == "PREFER"
+            and getattr(f, "relation", "") == "FIRST_LINE_FOR"
+            and (getattr(f, "subject", "") or "").strip()
+            and (getattr(f, "object", "") or "").strip()
+        ]
+        if prefer_flags:
+            from collections import defaultdict
+            first_line_by_cond: dict[str, list[str]] = defaultdict(list)
+            for f in prefer_flags:
+                drug = f.subject.strip()
+                if drug.lower() in _PARSER_ERROR_DRUGS:
+                    continue
+                cond = f.object.strip()
+                if drug not in first_line_by_cond[cond]:
+                    first_line_by_cond[cond].append(drug)
+
+            med_names = [
+                (r.intervention or "")
+                for r in plan.recommendations
+                if (r.type or "").lower() == "medication"
+            ]
+            gap_count = 0
+            for cond, classes in first_line_by_cond.items():
+                if not classes:
+                    continue
+                covered = any(
+                    _match_rule_to_med(med, drug)
+                    for med in med_names
+                    for drug in classes
+                )
+                if covered:
+                    continue
+                classes_str = ", ".join(classes[:6])
+                question = (
+                    f"No 1st-line agent prescribed for {cond}. "
+                    f"Guideline 1st-line classes: {classes_str}. "
+                    "Consider adding one or document the reason for deferral."
+                )
+                plan.unresolved_questions.append(question[:480])
+                gap_count += 1
+                logger.info(
+                    "stage_5 coverage gap: %s missing 1st-line — alternatives: %s",
+                    cond, classes_str,
+                )
+            if gap_count:
+                logger.info(
+                    "stage_5 coverage gap: %d condition(s) missing 1st-line therapy",
+                    gap_count,
+                )
+    except Exception as exc:
+        logger.warning("coverage-gap detector failed (non-fatal): %s", exc)
 
     return plan

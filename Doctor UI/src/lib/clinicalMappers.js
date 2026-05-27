@@ -261,11 +261,22 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
     // Build clean display title
     const displayTitle = sectionLabel ? `${fullName} — ${sectionLabel}` : fullName;
 
-    // Look up original CPG text from synchronized evidence array by chunkId index (1-based index)
+    // Structured evidence tiers — each tier maps to a hierarchy level in the CPG chunk tree.
+    // matchedClause  = the exact CPG text the vector search matched (always available)
+    // sectionContext = the H2 subsection containing the clause (available for H3 hits)
+    // broaderContext = the H1 parent chapter (with gap marker where the H2 section was)
+    let matchedClause = null;
+    let sectionContext = null;
+    let broaderContext = null;
+    // Keep originalText as a backward-compat fallback for any other consumers
     let originalText = null;
     if (chunkId && Array.isArray(evidence) && chunkId > 0 && chunkId <= evidence.length) {
       const chunk = evidence[chunkId - 1];
       if (chunk) {
+        matchedClause = chunk.content || null;
+        sectionContext = chunk.section_content || null;
+        broaderContext = chunk.parent_content || null;
+        // Legacy flat string (backward compat)
         if (chunk.parent_content) {
           originalText = chunk.section_content
             ? `Section Context:\n${chunk.section_content}\n\nParent Section Context:\n${chunk.parent_content}\n\nMatched Clause:\n${chunk.content}`
@@ -287,6 +298,11 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
       // The rationale is the clinical reasoning — what the clinician needs to understand
       // WHY this evidence applies. The inline note (after " — ") is a brief LLM summary.
       context: rationale || null,
+      // Structured evidence tiers (new — used by the redesigned CpgReferenceCard)
+      matchedClause,
+      sectionContext,
+      broaderContext,
+      // Legacy flat string (backward compat)
       originalText: originalText,
       // Track which recommendation uses this ref
       usedBy: intervention ? [intervention] : [],

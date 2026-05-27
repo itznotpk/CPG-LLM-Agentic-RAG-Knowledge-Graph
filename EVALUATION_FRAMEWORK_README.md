@@ -656,14 +656,19 @@ You now have a complete evaluation framework:
 **Showcase Capability:** **9-section executable care plan (P1–P9) + dual-source safety flags (`source="llm"` + `source="graph"`) merged without dedup.** On the same vignette, Qmed returns a bulleted prose plan with page-level citations. Your system returns a structured plan with: action verbs on every med (`START` / `CHANGE` / `CONTINUE`), per-chunk citations (`§10.1.2.1 [chunk 4]`), a time-anchored monitoring schedule, a Safety Netting / Red Flags panel with numeric trip-wires, and a follow-up ladder with concrete dates. The Stage 6 hybrid safety critic surfaces *both* LLM-reasoned flags and KG-verified flags side-by-side on the same plan.
 **Score on:** plan structure completeness (P1–P9 sections present, binary per section), action-verb correctness on each med (START/CHANGE/CONTINUE), citation granularity (section + chunk vs page-only), monitoring-schedule timing-anchor presence, red-flag count with numeric thresholds, dual-source safety flag count.
 
-**Consult input (Doctor UI schema):**
-*   **Patient:** 62M
-*   **Vitals:** BP 128/76, HR 82, SpO2 97%, Weight 98kg, Temp 36.8°C, BMI 34
-*   **Labs:** HbA1c 8.4%, eGFR 58, K+ 4.4, LVEF 25% (echo today)
-*   **Conditions:** Heart Failure with reduced EF (newly diagnosed); Type 2 Diabetes Mellitus; Obesity
-*   **Current Medications:** Metformin 1g BD; Gliclazide MR 60mg OD
-*   **Allergies:** Nil known
-*   **Notes / Chief complaint:** "Newly diagnosed HFrEF on routine echo. Clinically stable, euvolemic, no dyspnoea at rest. Here for management plan."
+**Consult input (Doctor UI Step-1 schema — paste into the matching field):**
+*   **Patient card:** Name `Demo Case 8` · Age `62` · Sex `M`
+*   **Vitals:** BP `128/76` · HR `82` · SpO2 `97` · Weight `98` · Temp `36.8`  *(BMI 34 is auto-derived from weight + height; if height absent, mention "BMI 34" in Clinical Notes)*
+*   **Severity staging (+ Add stage):** HbA1c `8.4` · LVEF `25` · eGFR `58` · NYHA `II`
+*   **Comorbidities (chips):** `Heart failure with reduced EF` · `Type 2 Diabetes Mellitus` · `Obesity`
+*   **Current Medications (chips):** `Metformin 1g BD` · `Gliclazide MR 60mg OD`
+*   **Allergies (chips):** *(leave empty — "Nil known" renders by default)*
+*   **Clinical Notes (single CC/HPI/PE textarea):**
+    ```
+    CC: Newly diagnosed HFrEF on routine echo. Here for management plan.
+    HPI: Clinically stable, euvolemic, no dyspnoea at rest. NYHA II.
+    PE: Echo today LVEF 25%. K+ 4.4 mmol/L (no severity-staging slot — recorded here).
+    ```
 
 **Expected behaviour — the plan should render as 9 sections (this *is* the differentiator):**
 *   **P1 Clinical Summary** — patient one-liner + indication framing.
@@ -696,14 +701,21 @@ You now have a complete evaluation framework:
 **Showcase Capability:** **KG-sourced safety flags (`source="graph"`) that an LLM-only system structurally cannot produce.** The clinician volunteers extra meds in plain prose; the system must surface drug–drug interactions from Neo4j (`(:Drug)-[:INTERACTS_WITH {severity}]->(:Drug)`), not from text recall. Qmed will answer the triple-therapy question correctly but miss the in-prose interactions.
 **Score on:** count of KG-sourced flags (precision + recall vs ground truth), severity-tier correctness (CRITICAL/MAJOR/MINOR).
 
-**Consult input (Doctor UI schema):**
-*   **Patient:** 67F
-*   **Vitals:** BP 132/78, HR 72, SpO2 97%, Weight 64kg, Temp 36.7°C
-*   **Labs:** INR 2.4, eGFR 64, HbA1c 7.1%
-*   **Conditions:** Non-valvular Atrial Fibrillation (CHA2DS2-VASc 4); NSTEMI s/p primary PCI with DES yesterday; Type 2 Diabetes Mellitus; Oesophageal candidiasis (current)
-*   **Current Medications:** Warfarin 5mg OD; Amiodarone 200mg OD (since last year, for rate control); Metformin 1g BD; Sitagliptin 100mg OD; Fluconazole 100mg OD (day 9 of 14, for oesophageal candidiasis)
-*   **Allergies:** Nil known
-*   **Notes / Chief complaint:** "Post-PCI day 1. Need full antithrombotic plan and review of current medications."
+**Consult input (Doctor UI Step-1 schema — paste into the matching field):**
+*   **Patient card:** Name `Demo Case 9` · Age `67` · Sex `F`
+*   **Vitals:** BP `132/78` · HR `72` · SpO2 `97` · Weight `64` · Temp `36.7`
+*   **Severity staging (+ Add stage):** HbA1c `7.1` · eGFR `64`  *(no INR slot — see Clinical Notes)*
+*   **Comorbidities (chips):** `Non-valvular Atrial Fibrillation` · `NSTEMI s/p primary PCI with DES (yesterday)` · `Type 2 Diabetes Mellitus` · `Oesophageal candidiasis`
+*   **Current Medications (chips):** `Warfarin 5mg OD` · `Amiodarone 200mg OD` · `Metformin 1g BD` · `Sitagliptin 100mg OD` · `Fluconazole 100mg OD`
+*   **Allergies (chips):** *(empty)*
+*   **Clinical Notes (single CC/HPI/PE textarea):**
+    ```
+    CC: Post-PCI day 1. Need full antithrombotic plan and review of current medications.
+    HPI: NSTEMI s/p primary PCI with DES yesterday. AF with CHA2DS2-VASc 4.
+          Amiodarone running since last year for rate control. Fluconazole day 9 of 14
+          for oesophageal candidiasis.
+    PE / Labs: INR 2.4 today (no severity slot — recorded here).
+    ```
 
 **Expected behaviour — primary answer:**
 *   Triple therapy: keep as short as possible (1 week typical, up to 1 month if complex stent), then dual therapy (OAC + clopidogrel) to 12 months, then OAC alone.
@@ -729,16 +741,23 @@ You now have a complete evaluation framework:
 **Showcase Capability:** **KG-driven teratogen veto on a drug already in the current-meds list.** The patient was on losartan for pre-existing hypertension *before* the pregnancy was known; the chief complaint is GDM + raised BP at booking. The system must audit the existing med list against the patient's current state (pregnant) and surface the absolute contraindication from `(:Drug)-[:CONTRAINDICATED_WITH]->(:Condition)` — even though the clinician didn't ask about losartan. This is the *harder* check: vetoing a med the patient is actively taking, not one a clinician proposed.
 **Score on:** correct STOP action on losartan (binary), KG-sourced contraindication citation, sex-aware routing trace (female + pregnancy → Heart-Disease-in-Pregnancy CPG invoked), cross-CPG bridge on PPCM family history.
 
-**Consult input (Doctor UI schema):**
-*   **Patient:** 35F
-*   **Vitals:** BP 158/104 (confirmed on 2 readings 4h apart), HR 88, SpO2 98%, Weight 78kg (booking), Temp 36.8°C
-*   **Labs:** Fasting glucose 7.4 mmol/L, OGTT 2h 11.2, urinalysis no proteinuria, eGFR 102
-*   **Obstetric:** Primigravida, 30 weeks gestation by dates
-*   **Conditions:** Essential Hypertension (pre-existing, diagnosed 2 years ago); Gestational Diabetes Mellitus (newly diagnosed today)
-*   **Current Medications:** Losartan 50mg OD (started 2 years ago, before pregnancy)
-*   **Allergies:** Nil known
-*   **Family History:** Sister had peripartum cardiomyopathy
-*   **Notes / Chief complaint:** "Booking visit at 30 weeks (late booker). BP elevated today, GDM diagnosed on OGTT. No headache, no visual symptoms, no RUQ pain. Plan for HTN + GDM management."
+**Consult input (Doctor UI Step-1 schema — paste into the matching field):**
+*   **Patient card:** Name `Demo Case 10` · Age `35` · Sex `F`
+*   **Vitals:** BP `158/104` · HR `88` · SpO2 `98` · Weight `78` · Temp `36.8`  *(BP confirmed on 2 readings 4h apart — noted in Clinical Notes)*
+*   **Severity staging (+ Add stage):** eGFR `102` · WHO Pregnancy Risk Class `II`  *(no slots for OGTT/FBG/urinalysis/GA — see Clinical Notes)*
+*   **Comorbidities (chips):** `Essential Hypertension (pre-existing 2 years)` · `Gestational Diabetes Mellitus (newly diagnosed)` · `Pregnancy 30 weeks (primigravida)`
+*   **Current Medications (chips):** `Losartan 50mg OD`
+*   **Allergies (chips):** *(empty)*
+*   **Clinical Notes (single CC/HPI/PE textarea — obstetric/labs/family-history dumped here):**
+    ```
+    CC: Booking visit at 30 weeks (late booker). BP elevated; GDM diagnosed on OGTT.
+        Plan for HTN + GDM management.
+    HPI: Primigravida, 30 weeks gestation by dates. Losartan started 2 years ago,
+          before pregnancy. No headache, visual symptoms, or RUQ pain.
+    PE / Labs: BP 158/104 confirmed on 2 readings 4h apart. Fasting glucose 7.4 mmol/L,
+          OGTT 2h 11.2. Urinalysis: no proteinuria.
+    FHx: Sister had peripartum cardiomyopathy.
+    ```
 
 **Expected behaviour:**
 *   **STOP losartan immediately — KG-sourced veto on existing med:** P2 Medications must show `STOP Losartan 50mg OD — absolutely contraindicated in pregnancy (Category D: foetal renal dysgenesis, oligohydramnios, neonatal anuria). Continued exposure in 3rd trimester is the highest-risk window.` This is the differentiator — the system audits the *existing* med list against the patient's current state and surfaces a teratogen the clinician may have missed at booking.
@@ -758,14 +777,19 @@ You now have a complete evaluation framework:
 **Showcase Capability:** **Explicit conflict-surfacing between two CPGs that pull in opposite directions.** The ED CPG wants PDE5i as first-line; the Stable-CAD CPG mandates nitrate continuation; the system must name the conflict explicitly, not paper over it, and route the upstream decision (nitrate de-escalation) to cardiology. Qmed will give the correct contraindication but typically won't name it as a *guideline conflict* or articulate the upstream-decision pathway.
 **Score on:** explicit conflict naming (binary), KG-sourced contraindication citation, alternative-therapy completeness, correct cardiology-led deferral on nitrate review.
 
-**Consult input (Doctor UI schema):**
-*   **Patient:** 56M
-*   **Vitals:** BP 124/76, HR 64, SpO2 98%, Weight 78kg, Temp 36.6°C
-*   **Labs:** LDL 1.6 mmol/L, eGFR 88
-*   **Conditions:** Stable Coronary Artery Disease (PCI 18 months ago, angina-free since); Erectile Dysfunction (new complaint today)
-*   **Current Medications:** Isosorbide Mononitrate (ISMN) 60mg OD; Aspirin 100mg OD; Atorvastatin 40mg OD; Bisoprolol 5mg OD
-*   **Allergies:** Nil known
-*   **Notes / Chief complaint:** "Patient presents with erectile dysfunction affecting marital relationship. Requesting treatment options. Reports angina-free for 6 months."
+**Consult input (Doctor UI Step-1 schema — paste into the matching field):**
+*   **Patient card:** Name `Demo Case 11` · Age `56` · Sex `M`
+*   **Vitals:** BP `124/76` · HR `64` · SpO2 `98` · Weight `78` · Temp `36.6`
+*   **Severity staging (+ Add stage):** eGFR `88`  *(no LDL slot — see Clinical Notes)*
+*   **Comorbidities (chips):** `Stable Coronary Artery Disease (PCI 18 months ago)` · `Erectile Dysfunction (new)`
+*   **Current Medications (chips):** `Isosorbide Mononitrate 60mg OD` · `Aspirin 100mg OD` · `Atorvastatin 40mg OD` · `Bisoprolol 5mg OD`
+*   **Allergies (chips):** *(empty)*
+*   **Clinical Notes (single CC/HPI/PE textarea):**
+    ```
+    CC: Erectile dysfunction affecting marital relationship. Requesting treatment options.
+    HPI: PCI 18 months ago; angina-free for 6 months on current secondary-prevention regimen.
+    PE / Labs: LDL 1.6 mmol/L (no severity slot — recorded here).
+    ```
 
 **Expected behaviour:**
 *   **DO NOT PRESCRIBE PDE5i — KG-sourced absolute contraindication:** P8 Red Flags must include `PDE5i × long-acting nitrate = synergistic vasodilation, potentially fatal hypotension. No safe washout interval for ISMN 60mg OD (the 24h washout rule applies to GTN PRN only, not long-acting nitrate).` This flag must fire even though no PDE5i is currently in the med list — the system anticipates the obvious ED-CPG-default and pre-empts it.
@@ -784,15 +808,22 @@ You now have a complete evaluation framework:
 **Showcase Capability:** **5-CPG reconciliation with explicit priority-ordering, plus correct deferral on scope-edge questions the system should *not* answer.** This case forces the system to (a) merge five overlapping CPGs without contradiction, (b) refuse to compute a risk score itself (CPG retrieval, not calculation), (c) refuse to quote a bariatric remission percentage and route to bariatric MDT. Qmed will answer all five domains in parallel but typically won't name the priority order or refuse out-of-scope sub-questions.
 **Score on:** count of CPGs correctly invoked, explicit priority-ordering present, correct refusal-to-compute, refusal-to-quote-remission-%, bariatric referral threshold cited.
 
-**Consult input (Doctor UI schema):**
-*   **Patient:** 46M (Malay)
-*   **Vitals:** BP 148/94 (confirmed on 2 separate visits), HR 78, SpO2 98%, Weight 112kg, BMI 38.5, Temp 36.7°C
-*   **Labs:** HbA1c 9.2%, LDL 4.4 mmol/L, HDL 0.9, TG 2.4, eGFR 82, UACR 8 mg/g, fasting glucose 9.8
-*   **Conditions:** Type 2 Diabetes Mellitus (newly diagnosed); Hypertension (newly confirmed); Dyslipidaemia (newly noted); Obesity Class II
-*   **Current Medications:** Nil
-*   **Allergies:** Nil known
-*   **Social:** Non-smoker, occasional alcohol, sedentary office worker
-*   **Notes / Chief complaint:** "Comprehensive health screening. Multiple risk factors identified at this visit. Patient asking about CVD risk and whether bariatric surgery would cure his diabetes. Plan?"
+**Consult input (Doctor UI Step-1 schema — paste into the matching field):**
+*   **Patient card:** Name `Demo Case 12` · Age `46` · Sex `M`  *(ethnicity "Malay" has no field — note in Clinical Notes)*
+*   **Vitals:** BP `148/94` · HR `78` · SpO2 `98` · Weight `112` · Temp `36.7`  *(BMI 38.5 auto-derived; if height absent, state in Notes)*
+*   **Severity staging (+ Add stage):** HbA1c `9.2` · eGFR `82`  *(no slots for LDL/HDL/TG/UACR/FBG — see Clinical Notes)*
+*   **Comorbidities (chips):** `Type 2 Diabetes Mellitus (newly diagnosed)` · `Hypertension (newly confirmed)` · `Dyslipidaemia (newly noted)` · `Obesity Class II`
+*   **Current Medications (chips):** *(empty)*
+*   **Allergies (chips):** *(empty)*
+*   **Clinical Notes (single CC/HPI/PE textarea — ethnicity/social hx/extra labs dumped here):**
+    ```
+    CC: Comprehensive health screening. Multiple risk factors identified at this visit.
+        Patient asking about CVD risk and whether bariatric surgery would cure his diabetes.
+    HPI: Malay ethnicity. Non-smoker, occasional alcohol, sedentary office worker.
+          BP 148/94 confirmed on 2 separate visits. BMI 38.5.
+    PE / Labs: HbA1c 9.2%, LDL 4.4 mmol/L, HDL 0.9, TG 2.4, eGFR 82, UACR 8 mg/g,
+          fasting glucose 9.8 mmol/L.
+    ```
 
 **Expected behaviour:**
 *   **Cite all 5 CPGs explicitly** and name the convergence: "Five Malaysian CPGs apply — Obesity (2023), T2DM (6th Ed), Dyslipidaemia (6th Ed), Hypertension (5th Ed), Primary-Secondary CVD Prevention (2017). They converge on lifestyle, and diverge on pharmacotherapy priority order."
