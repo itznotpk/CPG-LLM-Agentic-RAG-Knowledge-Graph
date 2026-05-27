@@ -49,6 +49,54 @@ export const todaySchedule = [
       notes: 'Annual check-up, no acute complaints'
     }
   },
+  {
+    id: 'apt-003',
+    time: '10:00 AM',
+    patient: {
+      id: 'p-007',
+      name: 'Tan Wei Ming',
+      age: 28,
+      gender: 'Male',
+      nsn: '980310-14-2345',
+      photo: null
+    },
+    status: 'in-progress',
+    triage: {
+      vitals: {
+        bp: '118/76',
+        bpStatus: 'normal',
+        hr: 78,
+        temp: 38.1,
+        spo2: 99
+      },
+      chiefComplaint: 'Acute sore throat and fever for 2 days',
+      notes: 'Fever onset yesterday, difficulty swallowing'
+    }
+  },
+  {
+    id: 'apt-004',
+    time: '10:30 AM',
+    patient: {
+      id: 'p-008',
+      name: 'Fatimah binti Ismail',
+      age: 65,
+      gender: 'Female',
+      nsn: '610715-01-6789',
+      photo: null
+    },
+    status: 'in-progress',
+    triage: {
+      vitals: {
+        bp: '138/85',
+        bpStatus: 'normal',
+        hr: 68,
+        temp: 36.5,
+        spo2: 97
+      },
+      chiefComplaint: 'Chronic kidney disease review, blood pressure check',
+      notes: 'Routine nephropathy check, feeling well'
+    }
+  }
 ];
 
 export const patientRegistry = [

@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { formatDateUTC8 } from '../../utils/timezone';
 import {
   Search,
@@ -54,7 +55,12 @@ function downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay) {
 }
 
 // Helper component to display next review date from consultations
-function NextReviewDisplay({ patientNric, consultations, isDark, accent }) {
+function NextReviewDisplay({ patientNric, patientStatus, consultations, isDark, accent }) {
+  // Only show next review date for follow-up required patients
+  if (patientStatus !== 'follow-up') {
+    return <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>—</span>;
+  }
+
   const consultation = consultations[patientNric];
 
   // Not loaded yet - show dash
@@ -85,11 +91,47 @@ function NextReviewDisplay({ patientNric, consultations, isDark, accent }) {
     <div className="flex items-center justify-center gap-2">
       <Calendar className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
       <div>
-        <p className={`text-sm ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</p>
+        <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</p>
         <p className={`text-xs font-medium ${tcaDays <= 3 ? 'text-amber-500' : tcaDays < 0 ? 'text-red-500' : isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           {tcaDays < 0 ? `Overdue: ${Math.abs(tcaDays)} ${Math.abs(tcaDays) === 1 ? 'Day' : 'Days'}` : `TCA: ${tcaDays} ${tcaDays === 1 ? 'Day' : 'Days'}`}
         </p>
       </div>
+    </div>
+  );
+}
+
+// Helper component to display latest consultation date
+function LatestConsultDisplay({ patientNric, consultations, isDark }) {
+  const consultation = consultations[patientNric];
+
+  // Not loaded yet
+  if (consultation === undefined) {
+    return (
+      <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'} flex items-center justify-center gap-1.5`}>
+        <Loader2 className="w-3.5 h-3.5 animate-spin text-slate-400" />
+      </span>
+    );
+  }
+
+  // No consultation
+  if (!consultation || !consultation.consultationTime) {
+    return <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No visits</span>;
+  }
+
+  // Format date for display
+  const dateObj = new Date(consultation.consultationTime);
+  const formattedDate = dateObj.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
+
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</span>
+      <span className={`text-[10px] ${isDark ? 'text-slate-500' : 'text-slate-400'} mt-0.5`}>
+        {dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
+      </span>
     </div>
   );
 }
@@ -168,6 +210,7 @@ function ClinicalNotesDisplay({ patientNric, consultations, setConsultations, lo
 
 const MyPatients = ({ onViewChart, onNewPatient }) => {
   const { isDark, accent } = useTheme();
+  const location = useLocation();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all'); // all, active, discharged, follow-up
   const [patients, setPatients] = useState([]); // Only database patients
@@ -255,6 +298,43 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
     fetchPatients();
   }, [fetchPatients]);
 
+  // Handle automatic selection and expansion of patient based on navigation state (from Home tab follow-ups)
+  useEffect(() => {
+    const selectedNric = location.state?.selectPatientNric;
+    const requestedStatusFilter = location.state?.statusFilter;
+
+    if (!selectedNric) return;
+
+    if (searchTerm) {
+      setSearchTerm('');
+      return;
+    }
+
+    if (requestedStatusFilter && statusFilter !== requestedStatusFilter) {
+      setStatusFilter(requestedStatusFilter);
+      return;
+    }
+
+    if (!loading && patients.length > 0) {
+      const patientToSelect = patients.find(p => p.nsn === selectedNric);
+      if (patientToSelect) {
+        setSelectedPatient(patientToSelect);
+        refreshPatientConsultation(patientToSelect.nsn);
+        fetchPatientConsultations(patientToSelect.nsn);
+
+        // Clear router history state to prevent repeating selection on tab switches
+        window.history.replaceState({}, document.title);
+
+        // Smoothly scroll the expanded patient details into view
+        setTimeout(() => {
+          const detailElement = document.getElementById(`patient-detail-${patientToSelect.nsn}`);
+          const rowElement = document.getElementById(`patient-row-${patientToSelect.nsn}`);
+          (detailElement || rowElement)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 350);
+      }
+    }
+  }, [loading, patients, location.state, searchTerm, statusFilter]);
+
   // Fetch latest consultation for all patients to display Next Review dates and Diagnoses
   // Always fetch fresh data to ensure sync with database
   useEffect(() => {
@@ -320,14 +400,18 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
     return name.substring(0, 2).toUpperCase();
   };
 
-  // Get consistent color based on name
-  const getAvatarColor = (name) => {
-    if (!name) return avatarColors[0];
-    let hash = 0;
-    for (let i = 0; i < name.length; i++) {
-      hash = name.charCodeAt(i) + ((hash << 5) - hash);
+  // Get consistent color based on gender: Male (blue), Female (pink), default is teal
+  const getAvatarColor = (gender) => {
+    const isFemale = typeof gender === 'string' && gender.toLowerCase().startsWith('f');
+    const isMale = typeof gender === 'string' && gender.toLowerCase().startsWith('m');
+
+    if (isFemale) {
+      return 'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-200';
+    } else if (isMale) {
+      return 'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-200';
+    } else {
+      return 'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200';
     }
-    return avatarColors[Math.abs(hash) % avatarColors.length];
   };
 
   // Refresh consultation data for a specific patient (for dynamic sync)
@@ -360,8 +444,25 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
     }
   };
 
-  // Since we're fetching filtered data from Supabase, we just use patients directly
-  const filteredPatients = patients;
+  // Sort patients by latest consultation time (newest first), falling back to name
+  const sortedPatients = useMemo(() => {
+    let list = [...patients];
+    return list.sort((a, b) => {
+      const consultA = patientConsultations[a.nsn];
+      const consultB = patientConsultations[b.nsn];
+
+      const timeA = consultA?.consultationTime ? new Date(consultA.consultationTime).getTime() : 0;
+      const timeB = consultB?.consultationTime ? new Date(consultB.consultationTime).getTime() : 0;
+
+      if (timeA !== timeB) {
+        return timeB - timeA;
+      }
+      return (a.name || '').localeCompare(b.name || '');
+    });
+  }, [patients, patientConsultations]);
+
+  // Use sorted patient registry list
+  const filteredPatients = sortedPatients;
 
   const getStatusBadge = (status) => {
     const config = {
@@ -411,7 +512,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
           <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Your patient panel and clinical history</p>
         </div>
         <Button variant="primary" icon={UserPlus} onClick={onNewPatient}>
-          Walk-in Consult
+          New Patient
         </Button>
       </div>
 
@@ -441,9 +542,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
           <div className="flex items-center gap-2">
             {[
               { key: 'all', label: 'All' },
-              { key: 'active', label: 'Active' },
-              { key: 'follow-up', label: 'Follow-up' },
-              { key: 'discharged', label: 'Discharged' }
+              { key: 'follow-up', label: 'Follow-up Required' }
             ].map((tab) => (
               <button
                 key={tab.key}
@@ -466,14 +565,21 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
       {/* Patient List */}
       <GlassCard className="overflow-hidden" variant={isDark ? 'dark' : 'light'}>
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full table-fixed">
+            <colgroup>
+              <col className="w-12" />
+              <col className="w-[22%]" />
+              <col className="w-[16%]" />
+              <col className="w-[40%]" />
+              <col className="w-[18%]" />
+            </colgroup>
             <thead>
               <tr className={`border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
                 <th className="w-12 p-4"></th>
-                <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Patient</th>
-                <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Status</th>
-                <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Diagnoses</th>
-                <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Next Review (TCA)</th>
+                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Patient</th>
+                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Latest Consult</th>
+                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Diagnoses</th>
+                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Next Review (TCA)</th>
               </tr>
             </thead>
             <tbody>
@@ -522,6 +628,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
               {!loading && !error && filteredPatients.map((patient) => (
                 <React.Fragment key={patient.id}>
                   <tr
+                    id={`patient-row-${patient.nsn}`}
                     className={`border-b transition-colors
                       ${selectedPatient?.id === patient.id
                         ? isDark ? 'bg-[var(--accent-primary)]/10' : 'bg-[var(--accent-primary)]/5'
@@ -546,17 +653,21 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     </td>
                     <td className="p-4">
                       <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getAvatarColor(patient.name || '')} font-semibold text-sm`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getAvatarColor(patient.gender)} font-semibold text-sm`}>
                           {getInitials(patient.name || '')}
                         </div>
                         <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.name || 'Unknown'}</p>
                       </div>
                     </td>
                     <td className="p-4 text-center">
-                      {getStatusBadge(patient.status)}
+                      <LatestConsultDisplay
+                        patientNric={patient.nsn}
+                        consultations={patientConsultations}
+                        isDark={isDark}
+                      />
                     </td>
-                    <td className="p-4">
-                      <div className="min-w-[250px] max-w-[400px]">
+                    <td className="p-4 pl-28">
+                      <div className="min-w-0 max-w-[420px]">
                         {(() => {
                           // Get diagnoses ONLY from the latest consultation
                           const consultation = patientConsultations[patient.nsn];
@@ -584,6 +695,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     <td className="p-4 text-center">
                       <NextReviewDisplay
                         patientNric={patient.nsn}
+                        patientStatus={patient.status}
                         consultations={patientConsultations}
                         isDark={isDark}
                         accent={accent}
@@ -591,168 +703,222 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                     </td>
                   </tr>
 
-                  {/* Expandable Detail Row */}
+                  {/* Expandable Detail Row — Redesigned Premium Layout */}
                   {selectedPatient?.id === patient.id && (
                     <tr>
-                      <td colSpan="5" className={`p-0 ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
-                        <div className="p-6">
-                          <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-white'} border ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                            <h3 className={`text-base font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                              Patient details
-                            </h3>
+                      <td colSpan="5" className={`p-0 ${isDark ? 'bg-white/5' : 'bg-slate-50/80'}`}>
+                        <div id={`patient-detail-${patient.nsn}`} className="px-6 py-5">
 
-                            {/* Basic Info Grid */}
-                            <div className={`grid grid-cols-2 md:grid-cols-4 text-sm mb-6 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'} border rounded-xl overflow-hidden ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                              {[
-                                { label: 'Name', value: patient.name || '—', cls: '' },
-                                { label: 'NRIC', value: patient.nsn || '—', cls: 'ds-mono' },
-                                { label: 'Age', value: patient.age ? `${patient.age} years` : '—', cls: 'ds-numeric' },
-                                { label: 'Gender', value: patient.gender || '—', cls: '' },
-                              ].map(({ label, value, cls }) => (
-                                <div key={label} className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'}`}>
-                                  <p className="ds-eyebrow mb-1">{label}</p>
-                                  <p className={`font-medium text-sm ${cls} ${isDark ? 'text-white' : 'text-slate-800'}`}>{value}</p>
-                                </div>
-                              ))}
-                              <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'} md:border-t-0 ${isDark ? 'border-t border-white/10' : 'border-t border-slate-200'}`}>
-                                <p className="ds-eyebrow mb-1">Race</p>
-                                <p className={`font-medium text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.race || '—'}</p>
-                              </div>
-                              <div className={`px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'} md:border-t-0 ${isDark ? 'border-t border-white/10' : 'border-t border-slate-200'}`}>
-                                <p className="ds-eyebrow mb-1">Allergies</p>
-                                <p className={`font-medium text-sm ${patient.allergies ? 'text-red-500' : isDark ? 'text-white' : 'text-slate-800'}`}>
-                                  {patient.allergies
-                                    ? (Array.isArray(patient.allergies) ? patient.allergies.join(', ') : String(patient.allergies))
-                                    : 'No known allergies'}
-                                </p>
-                              </div>
-                              <div className={`col-span-2 px-4 py-3 ${isDark ? 'bg-white/3' : 'bg-white'} md:border-t-0 ${isDark ? 'border-t border-white/10' : 'border-t border-slate-200'}`}>
-                                <p className="ds-eyebrow mb-1">Comorbidities</p>
-                                <p className={`font-medium text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                  {patient.comorbidities && patient.comorbidities.length > 0
-                                    ? (Array.isArray(patient.comorbidities) ? patient.comorbidities.join(', ') : String(patient.comorbidities))
-                                    : 'None recorded'}
-                                </p>
-                              </div>
+                          {/* ═══ HEADER BAR: Avatar + Demographics + Badges ═══ */}
+                          <div className={`flex items-center gap-5 p-5 rounded-2xl mb-5 ${isDark ? 'bg-gradient-to-r from-white/[0.06] to-white/[0.02] border border-white/10' : 'bg-gradient-to-r from-white to-slate-50 border border-slate-200 shadow-sm'}`}>
+                            {/* Large Avatar */}
+                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${getAvatarColor(patient.gender)} font-bold text-xl flex-shrink-0 shadow-md`}>
+                              {getInitials(patient.name || '')}
                             </div>
 
-                            {/* Diagnoses */}
-                            <div className={`mb-6 pb-4 border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                              <p className="ds-eyebrow mb-3">Diagnoses / medical history (Past consultations & care plans)</p>
-                              {(() => {
-                                if (loadingHistory) {
-                                  return (
-                                    <div className="flex items-center gap-2 py-4">
-                                      <Loader2 className={`w-4 h-4 animate-spin ${accent.text}`} />
-                                      <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading history & care plans...</span>
-                                    </div>
-                                  );
-                                }
+                            {/* Name & Demographics */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-3 flex-wrap">
+                                <h3 className={`text-lg font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                  {patient.name || 'Unknown Patient'}
+                                </h3>
+                                {getStatusBadge(patient.status)}
+                              </div>
+                              <div className={`flex items-center gap-4 mt-1.5 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                <span className="flex items-center gap-1.5">
+                                  <FileText className="w-3.5 h-3.5" strokeWidth={1.5} />
+                                  {patient.nsn || '—'}
+                                </span>
+                                <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
+                                <span>{patient.age ? `${patient.age} yrs` : '—'}</span>
+                                <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
+                                <span>{patient.gender || '—'}</span>
+                                <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
+                                <span>{patient.race || '—'}</span>
+                              </div>
+                            </div>
+                          </div>
 
-                                if (selectedPatientConsultations.length > 0) {
-                                  const MAX_VISIBLE = 2;
-                                  const hasMore = selectedPatientConsultations.length > MAX_VISIBLE;
+                          {/* ═══ TWO-COLUMN BODY ═══ */}
+                          <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 gap-5" style={{ height: '520px' }}>
 
-                                  return (
-                                    <div>
-                                      {/* Scrollable container with max height */}
-                                      <div className={`space-y-3 ${hasMore ? 'max-h-60 overflow-y-auto pr-2' : ''}`} style={hasMore ? { scrollbarWidth: 'thin' } : {}}>
-                                        {selectedPatientConsultations.map((consult, index) => {
-                                          const dateObj = consult.consultationTime ? new Date(consult.consultationTime) : new Date(consult.createdAt || 0);
-                                          const dateToDisplay = dateObj ? dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' }) : 'Unknown Date';
-                                          const timeToDisplay = dateObj ? dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' }) : '';
-                                          const diagnoses = consult.diagnoses || [];
+                            {/* ─── LEFT COLUMN (50%) ─── */}
+                            <div className="lg:col-span-1 flex flex-col gap-5 min-h-0 overflow-hidden">
+                              {/* Comorbidities Tags */}
+                              <div className={`p-4 rounded-2xl ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
+                                <div className="flex items-center gap-2 mb-3">
+                                  <Activity className="w-4 h-4 text-violet-700" strokeWidth={1.8} />
+                                  <p className="text-xs font-bold uppercase tracking-wider text-violet-700">Comorbidities</p>
+                                </div>
+                                <div className="flex flex-wrap gap-2">
+                                  {patient.comorbidities && patient.comorbidities.length > 0 ? (
+                                    (Array.isArray(patient.comorbidities) ? patient.comorbidities : [String(patient.comorbidities)]).map((c, i) => (
+                                      <span key={i} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${isDark ? 'bg-violet-500/15 text-violet-300 border border-violet-500/20' : 'bg-violet-50 text-violet-700 border border-violet-200'}`}>
+                                        <span className="w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
+                                        {typeof c === 'object' ? c.name || JSON.stringify(c) : c}
+                                      </span>
+                                    ))
+                                  ) : (
+                                    <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No comorbidities recorded</span>
+                                  )}
+                                </div>
+                              </div>
 
-                                          return (
-                                            <div key={consult.id || index} className={`p-3 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-slate-200'} flex items-center justify-between gap-4 hover:border-[var(--accent-primary)]/40 transition-colors`}>
-                                              <div className="min-w-0">
-                                                <div className="flex items-center gap-2 flex-wrap">
-                                                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded bg-[var(--accent-primary)]/20 ${accent.text} uppercase tracking-wider`}>
-                                                    Consultation
-                                                  </span>
-                                                  <span className={`text-xs font-semibold ds-numeric ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                                                    {dateToDisplay} {timeToDisplay && `at ${timeToDisplay}`}
-                                                  </span>
+                              {/* Consultation History Timeline */}
+                              <div className={`p-4 rounded-2xl flex-1 flex flex-col min-h-0 overflow-hidden ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
+                                <div className="flex items-center justify-between mb-4">
+                                  <div className="flex items-center gap-2">
+                                    <History className="w-4 h-4 text-emerald-700" strokeWidth={1.8} />
+                                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Consultation History</p>
+                                  </div>
+                                  {selectedPatientConsultations.length > 0 && (
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-100 text-slate-500'}`}>
+                                      {selectedPatientConsultations.length} record{selectedPatientConsultations.length > 1 ? 's' : ''}
+                                    </span>
+                                  )}
+                                </div>
+
+                                {(() => {
+                                  if (loadingHistory) {
+                                    return (
+                                      <div className="flex items-center gap-2.5 py-6 justify-center">
+                                        <Loader2 className={`w-5 h-5 animate-spin ${accent.text}`} />
+                                        <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading consultation history...</span>
+                                      </div>
+                                    );
+                                  }
+
+                                  if (selectedPatientConsultations.length > 0) {
+                                    return (
+                                      <div className="relative flex-1 min-h-0 overflow-y-auto pr-1" style={{ scrollbarWidth: 'thin' }}>
+                                        {/* Timeline line */}
+                                        <div className={`absolute left-[11px] top-2 bottom-2 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+
+                                        <div className="space-y-3">
+                                          {selectedPatientConsultations.map((consult, index) => {
+                                            const dateObj = consult.consultationTime ? new Date(consult.consultationTime) : new Date(consult.createdAt || 0);
+                                            const dateToDisplay = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' });
+                                            const timeToDisplay = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' });
+                                            const diagnoses = consult.diagnoses || [];
+
+                                            return (
+                                              <div key={consult.id || index} className="flex gap-3 relative">
+                                                {/* Timeline dot */}
+                                                <div className={`w-[22px] h-[22px] rounded-full flex items-center justify-center flex-shrink-0 mt-3 z-10 ${index === 0 ? `bg-[var(--accent-primary)]/20 border-2 border-[var(--accent-primary)]` : isDark ? 'bg-white/10 border-2 border-white/20' : 'bg-slate-100 border-2 border-slate-300'}`}>
+                                                  <div className={`w-2 h-2 rounded-full ${index === 0 ? 'bg-[var(--accent-primary)]' : isDark ? 'bg-white/40' : 'bg-slate-400'}`} />
                                                 </div>
 
-                                                {/* Diagnoses for this specific consultation */}
-                                                <div className="mt-2 space-y-1">
+                                                {/* Consultation card */}
+                                                <div className={`flex-1 p-3.5 rounded-xl border transition-colors group ${isDark ? 'bg-white/[0.03] border-white/10 hover:border-[var(--accent-primary)]/30' : 'bg-slate-50/70 border-slate-200 hover:border-[var(--accent-primary)]/40'}`}>
+                                                  <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-2 flex-wrap">
+                                                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider ${index === 0 ? `bg-[var(--accent-primary)]/20 ${accent.text}` : isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-200 text-slate-500'}`}>
+                                                        {index === 0 ? 'Latest' : 'Consultation'}
+                                                      </span>
+                                                      <span className={`text-xs font-semibold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                                                        {dateToDisplay} at {timeToDisplay}
+                                                      </span>
+                                                    </div>
+                                                    <button
+                                                      title={consult.reportPdfUrl ? 'Download Care Plan PDF' : 'Download Diagnosis Report'}
+                                                      onClick={() => {
+                                                        if (consult.reportPdfUrl) {
+                                                          const fileName = `CarePlan_${(patient.name || 'Patient').replace(/\s+/g, '_')}_${dateToDisplay.replace(/\s+/g, '_')}.pdf`;
+                                                          downloadCarePlanPDF(consult.reportPdfUrl, fileName);
+                                                        } else {
+                                                          const firstDx = diagnoses[0] || 'No_Diagnosis';
+                                                          const dxName = typeof firstDx === 'object' ? firstDx.name : firstDx;
+                                                          downloadDiagnosisReport(dxName, patient, dateToDisplay, timeToDisplay);
+                                                        }
+                                                      }}
+                                                      className={`p-2 rounded-lg transition-all opacity-60 group-hover:opacity-100 ${isDark ? 'hover:bg-white/10 text-slate-400 hover:text-white' : 'hover:bg-slate-200 text-slate-400 hover:text-teal-600'} active:scale-90`}
+                                                    >
+                                                      <Download className="w-3.5 h-3.5" strokeWidth={2} />
+                                                    </button>
+                                                  </div>
                                                   {diagnoses.length > 0 ? (
-                                                    diagnoses.map((dx, i) => (
-                                                      <p key={i} className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-800'}`}>
-                                                        • <span className="font-medium">{typeof dx === 'object' ? dx.name : dx}</span>
-                                                        {typeof dx === 'object' && dx.icdCode && (
-                                                          <span className={`ml-2 text-xs font-mono px-1.5 py-0.5 rounded ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-200/80 text-slate-500'}`}>
-                                                            {dx.icdCode}
-                                                          </span>
-                                                        )}
-                                                      </p>
-                                                    ))
+                                                    <div className="mt-2 space-y-1">
+                                                      {diagnoses.map((dx, i) => (
+                                                        <p key={i} className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                                                          <span className="font-medium">{typeof dx === 'object' ? dx.name : dx}</span>
+                                                          {typeof dx === 'object' && dx.icdCode && (
+                                                            <span className={`ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded ${isDark ? 'bg-white/10 text-slate-500' : 'bg-slate-200/80 text-slate-500'}`}>
+                                                              {dx.icdCode}
+                                                            </span>
+                                                          )}
+                                                        </p>
+                                                      ))}
+                                                    </div>
                                                   ) : (
-                                                    <p className={`text-xs italic ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>• No specific diagnoses recorded</p>
+                                                    <p className={`text-xs mt-2 italic ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No diagnoses recorded</p>
                                                   )}
                                                 </div>
                                               </div>
-
-                                              {/* Download button for this specific care plan */}
-                                              <button
-                                                title={consult.reportPdfUrl ? 'Download Care Plan PDF' : 'Download Diagnosis Text Report'}
-                                                onClick={() => {
-                                                  if (consult.reportPdfUrl) {
-                                                    const fileName = `CarePlan_${(patient.name || 'Patient').replace(/\s+/g, '_')}_${dateToDisplay.replace(/\s+/g, '_')}.pdf`;
-                                                    downloadCarePlanPDF(consult.reportPdfUrl, fileName);
-                                                  } else {
-                                                    const firstDx = diagnoses[0] || 'No_Diagnosis';
-                                                    const dxName = typeof firstDx === 'object' ? firstDx.name : firstDx;
-                                                    downloadDiagnosisReport(dxName, patient, dateToDisplay, timeToDisplay);
-                                                  }
-                                                }}
-                                                className={`flex-shrink-0 p-2.5 rounded-xl transition-all shadow-sm flex items-center justify-center text-white bg-teal-600 hover:bg-teal-700 active:scale-95`}
-                                              >
-                                                <Download className="w-4 h-4" strokeWidth={2.5} />
-                                              </button>
-                                            </div>
-                                          );
-                                        })}
+                                            );
+                                          })}
+                                        </div>
                                       </div>
-
-                                      {/* Show count indicator if scrollable */}
-                                      {hasMore && (
-                                        <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                                          Showing all {selectedPatientConsultations.length} past consultations (scroll to view)
-                                        </p>
-                                      )}
-                                    </div>
-                                  );
-                                } else {
-                                  return (
-                                    <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                      No past consultations or care plans recorded
-                                    </p>
-                                  );
-                                }
-                              })()}
+                                    );
+                                  } else {
+                                    return (
+                                      <div className={`text-center py-8 rounded-xl ${isDark ? 'bg-white/[0.02]' : 'bg-slate-50'}`}>
+                                        <Stethoscope className={`w-8 h-8 mx-auto mb-2 ${isDark ? 'text-slate-600' : 'text-slate-300'}`} strokeWidth={1.2} />
+                                        <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No past consultations recorded</p>
+                                      </div>
+                                    );
+                                  }
+                                })()}
+                              </div>
                             </div>
 
-                            {/* Three-column grid for Vital Signs, Clinical Notes, Current Medications */}
-                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                              {/* Recent Vital Signs */}
-                              <div className={`p-4 rounded-xl border-l-2 border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/5 border border-[var(--accent-primary)]/20'}`}>
-                                <p className="ds-eyebrow mb-3">Recent vital signs</p>
-                                <Button
-                                  variant="primary"
-                                  size="sm"
-                                  icon={FileText}
-                                  onClick={() => onViewChart && onViewChart(patient)}
-                                >
-                                  View chart
-                                </Button>
+                            {/* ─── RIGHT COLUMN (50%) ─── */}
+                            <div className="lg:col-span-1 flex flex-col gap-5 min-h-0 overflow-hidden">
+
+                              {/* Allergies + Recent Vitals — Side by Side */}
+                              <div className="grid grid-cols-2 gap-4">
+                                {/* Allergies Box */}
+                                <div className={`p-4 rounded-2xl flex flex-col ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
+                                  <div className="flex items-center gap-2 mb-3">
+                                    <AlertTriangle className="w-4 h-4 text-red-500" strokeWidth={1.8} />
+                                    <p className="text-xs font-bold uppercase tracking-wider text-red-500">Allergies</p>
+                                  </div>
+                                  {patient.allergies ? (
+                                    <p className="text-sm font-semibold text-red-500 leading-snug">
+                                      {Array.isArray(patient.allergies) ? patient.allergies.join(', ') : String(patient.allergies)}
+                                    </p>
+                                  ) : (
+                                    <div className="flex items-center gap-1.5">
+                                      <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" strokeWidth={2} />
+                                      <p className={`text-xs font-medium ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>No known allergies</p>
+                                    </div>
+                                  )}
+                                </div>
+
+                                {/* Recent Vital Signs Box */}
+                                <div className={`p-4 rounded-2xl ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
+                                  <div className="flex items-center gap-2 mb-3">
+                                    <Activity className="w-4 h-4 text-amber-800" strokeWidth={1.8} />
+                                    <p className="text-xs font-bold uppercase tracking-wider text-amber-800">Recent Vitals</p>
+                                  </div>
+                                  <Button
+                                    variant="primary"
+                                    size="sm"
+                                    icon={FileText}
+                                    onClick={() => onViewChart && onViewChart(patient)}
+                                    className="!bg-amber-700 hover:!bg-amber-600 active:!bg-amber-800 focus:!ring-amber-600/50"
+                                  >
+                                    View chart
+                                  </Button>
+                                </div>
                               </div>
 
                               {/* Clinical Notes */}
-                              <div className={`p-4 rounded-xl border-l-2 border-blue-400 ${isDark ? 'bg-blue-500/5 border border-blue-500/20' : 'bg-blue-50/60 border border-blue-200'}`}>
-                                <p className="ds-eyebrow mb-3" style={{ color: 'rgb(59,130,246)' }}>Clinical notes</p>
-                                <div className="max-h-32 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
+                              <div className={`p-4 rounded-2xl ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
+                                <div className="flex items-center gap-2 mb-3">
+                                  <Stethoscope className="w-4 h-4 text-blue-500" strokeWidth={1.8} />
+                                  <p className="text-xs font-bold uppercase tracking-wider text-blue-500">Clinical Notes</p>
+                                </div>
+                                <div className="max-h-36 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
                                   <ClinicalNotesDisplay
                                     patientNric={patient.nsn}
                                     consultations={patientConsultations}
@@ -765,21 +931,25 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                               </div>
 
                               {/* Current Medications */}
-                              <div className={`p-4 rounded-xl border-l-2 border-amber-400 ${isDark ? 'bg-amber-500/5 border border-amber-500/20' : 'bg-amber-50/60 border border-amber-200'}`}>
-                                <p className="ds-eyebrow mb-3" style={{ color: 'rgb(245,158,11)' }}>Current medications</p>
-                                <div className="max-h-32 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
+                              <div className={`p-4 rounded-2xl flex-1 flex flex-col ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
+                                <div className="flex items-center gap-2 mb-3">
+                                  <Pill className="w-4 h-4 text-amber-500" strokeWidth={1.8} />
+                                  <p className="text-xs font-bold uppercase tracking-wider text-amber-500">Current Medications</p>
+                                </div>
+                                <div className="max-h-36 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
                                   {patient.currentMeds && patient.currentMeds.length > 0 ? (
-                                    <div className="space-y-1">
+                                    <div className="space-y-1.5">
                                       {patient.currentMeds.map((med, idx) => (
-                                        <p key={idx} className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                          • {typeof med === 'object'
+                                        <div key={idx} className={`flex items-start gap-2 text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                          <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-amber-500`} />
+                                          <span>{typeof med === 'object'
                                             ? `${med.name || med.medication || 'Unknown'} ${med.dose || ''} ${med.frequency || ''}`.trim()
-                                            : String(med)}
-                                        </p>
+                                            : String(med)}</span>
+                                        </div>
                                       ))}
                                     </div>
                                   ) : (
-                                    <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                    <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                                       No medications recorded
                                     </p>
                                   )}
@@ -787,6 +957,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                               </div>
                             </div>
                           </div>
+
                         </div>
                       </td>
                     </tr>
@@ -808,7 +979,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
             {/* Modal Header */}
             <div className={`flex items-center justify-between p-6 border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
               <div className="flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full ${getAvatarColor(historyPatient.name)} 
+                <div className={`w-12 h-12 rounded-full ${getAvatarColor(historyPatient.gender)}
                   flex items-center justify-center font-semibold`}>
                   {getInitials(historyPatient.name)}
                 </div>

@@ -254,7 +254,7 @@ code, kbd, samp, .ds-code, .ds-mono {
 
 /* Numeric / data display — used for vitals, dosages, ICD codes */
 .ds-numeric {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1, "zero" 1;
 }

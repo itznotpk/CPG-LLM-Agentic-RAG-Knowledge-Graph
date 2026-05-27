@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Clock,
   Play,
@@ -13,10 +14,12 @@ import {
   TrendingDown,
   Minus,
   FileCheck,
-  ArrowRight
+  ArrowRight,
+  Calendar,
+  Database
 } from 'lucide-react';
 import { todaySchedule, patientRegistry } from '../../data/scheduleData';
-import { getAllPatients } from '../../lib/supabase';
+import { getAllPatients, getAllPatientConsultations } from '../../lib/supabase';
 import { GlassCard } from '../shared/GlassCard';
 import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
@@ -37,7 +40,6 @@ const agenticImpact = {
   cpgAligned: { count: 12, total: 14 },
   citations: 38,
   referrals: { count: 3, cpgJustified: 3 },
-  // Yesterday baseline for trend calculation
   yesterday: {
     timeSavedMin: 39,
     cpgAlignedPct: 79,
@@ -46,18 +48,17 @@ const agenticImpact = {
   },
 };
 
-// Trend badge: shows ▲/▼/– delta vs yesterday
 const TrendBadge = ({ current, previous, suffix = '' }) => {
   const delta = current - previous;
   const pct = previous > 0 ? Math.round((delta / previous) * 100) : 0;
   if (delta === 0) return (
-    <span className="inline-flex items-center gap-0.5 text-[10px] font-medium text-slate-400">
+    <span className="inline-flex items-center gap-0.5 text-sm font-medium text-slate-400">
       <Minus className="w-3 h-3" strokeWidth={2} /> same as yesterday
     </span>
   );
   const up = delta > 0;
   return (
-    <span className={`inline-flex items-center gap-0.5 text-[10px] font-semibold ${up ? 'text-emerald-500' : 'text-rose-400'
+    <span className={`inline-flex items-center gap-0.5 text-sm font-semibold ${up ? 'text-emerald-500' : 'text-rose-400'
       }`}>
       {up
         ? <TrendingUp className="w-3 h-3" strokeWidth={2.5} />
@@ -71,9 +72,16 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const { isDark, accent } = useTheme();
   const { profile } = useAuth();
   const toast = useToast();
+  const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [schedule, setSchedule] = useState(todaySchedule);
   const [isScheduleExpanded, setIsScheduleExpanded] = useState(true);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('all');
+  const [upcomingFollowUps, setUpcomingFollowUps] = useState([]);
+  const [loadingFollowUps, setLoadingFollowUps] = useState(true);
+  const [isFollowUpsExpanded, setIsFollowUpsExpanded] = useState(true);
+  const [followUpSearchTerm, setFollowUpSearchTerm] = useState('');
 
   const avatarColors = [
     'bg-teal-100 text-teal-800',
@@ -106,6 +114,19 @@ const Home = ({ onStartConsult, onViewChart }) => {
     let hash = 0;
     for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
     return palette[Math.abs(hash) % palette.length];
+  };
+
+  const getPatientAvatarColor = (gender) => {
+    const isFemale = typeof gender === 'string' && gender.toLowerCase().startsWith('f');
+    const isMale = typeof gender === 'string' && gender.toLowerCase().startsWith('m');
+
+    if (isFemale) {
+      return 'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-200';
+    }
+    if (isMale) {
+      return 'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-200';
+    }
+    return 'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200';
   };
 
   const [patientRiskMap, setPatientRiskMap] = useState({});
@@ -143,6 +164,21 @@ const Home = ({ onStartConsult, onViewChart }) => {
     return schedule.find(a => isEmergency(a.patient.nsn));
   }, [schedule, patientRiskMap]);
 
+  // Filtered follow-up patients list
+  const filteredFollowUps = useMemo(() => {
+    if (!followUpSearchTerm.trim()) return upcomingFollowUps;
+    const term = followUpSearchTerm.toLowerCase();
+    return upcomingFollowUps.filter(item =>
+      item.name.toLowerCase().includes(term) ||
+      (item.nsn && item.nsn.toLowerCase().includes(term))
+    );
+  }, [upcomingFollowUps, followUpSearchTerm]);
+
+  // Active consultation (if any patient is currently in-progress)
+  const activeAppointment = useMemo(() => {
+    return schedule.find(a => a.status === 'in-progress');
+  }, [schedule]);
+
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [selectedTriage, setSelectedTriage] = useState(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
@@ -171,21 +207,164 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
   const getStatusBadge = (status) => {
     const styles = {
-      waiting: 'bg-amber-500/20 text-amber-600 border-amber-400/30',
-      'in-progress': 'bg-blue-500/20 text-blue-500 border-blue-400/30',
-      done: 'bg-emerald-500/20 text-emerald-600 border-emerald-400/30'
+      waiting: 'bg-amber-500/20 text-amber-600 border-amber-400/30 dark:text-amber-400',
+      'in-progress': 'bg-blue-500/20 text-blue-600 border-blue-400/30 dark:text-blue-400',
+      done: 'bg-emerald-500/20 text-emerald-600 border-emerald-400/30 dark:text-emerald-400'
     };
-    const labels = { waiting: 'Waiting', 'in-progress': 'In Consult', done: 'Completed' };
+    const labels = { waiting: 'Scheduled', 'in-progress': 'In Consult', done: 'Completed' };
     return (
-      <span className={`px-2 py-1 rounded-full text-xs font-medium border ${styles[status] || ''}`}>
+      <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${styles[status] || ''}`}>
         {labels[status] || status}
       </span>
     );
   };
 
+  // Helper to calculate initial/mock follow-ups from local registry
+  const getInitialFollowUps = () => {
+    return patientRegistry
+      .filter(p => p.status === 'follow-up' && p.nextReview)
+      .map(p => {
+        const reviewDate = new Date(p.nextReview);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        reviewDate.setHours(0, 0, 0, 0);
+        const tcaDays = Math.ceil((reviewDate - today) / (1000 * 60 * 60 * 24));
+        return {
+          id: p.id,
+          name: p.name,
+          nsn: p.nsn,
+          gender: p.gender,
+          age: p.age,
+          nextReview: p.nextReview,
+          tcaDays
+        };
+      })
+      .sort((a, b) => a.nextReview.localeCompare(b.nextReview));
+  };
+
+  const calculateTcaDays = (reviewDateStr) => {
+    const reviewDate = new Date(reviewDateStr);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    reviewDate.setHours(0, 0, 0, 0);
+    return Math.ceil((reviewDate - today) / (1000 * 60 * 60 * 24));
+  };
+
+  // Synchronize upcoming follow-up dates dynamically with the Patient database & consultations
+  useEffect(() => {
+    const loadLiveFollowUps = async () => {
+      setLoadingFollowUps(true);
+      try {
+        const { patients, error } = await getAllPatients({});
+        if (error || !patients) {
+          setUpcomingFollowUps(getInitialFollowUps());
+          setLoadingFollowUps(false);
+          return;
+        }
+
+        // Parallel fetch of latest consultations to capture nextReview follow-up dates
+        const results = await Promise.all(
+          patients.map(async (patient) => {
+            // ONLY select patients who are marked as requiring follow-up
+            if (patient.status !== 'follow-up') {
+              return null;
+            }
+
+            try {
+              const res = await getAllPatientConsultations(patient.nsn, 1);
+              if (res.consultations && res.consultations.length > 0) {
+                const consult = res.consultations[0];
+                if (consult.nextReview) {
+                  return {
+                    id: patient.id,
+                    name: patient.name,
+                    nsn: patient.nsn,
+                    gender: patient.gender,
+                    age: patient.age,
+                    nextReview: consult.nextReview,
+                    tcaDays: calculateTcaDays(consult.nextReview)
+                  };
+                }
+              }
+              if (patient.nextReview) {
+                return {
+                  id: patient.id,
+                  name: patient.name,
+                  nsn: patient.nsn,
+                  gender: patient.gender,
+                  age: patient.age,
+                  nextReview: patient.nextReview,
+                  tcaDays: calculateTcaDays(patient.nextReview)
+                };
+              }
+              return null;
+            } catch {
+              if (patient.nextReview) {
+                return {
+                  id: patient.id,
+                  name: patient.name,
+                  nsn: patient.nsn,
+                  gender: patient.gender,
+                  age: patient.age,
+                  nextReview: patient.nextReview,
+                  tcaDays: calculateTcaDays(patient.nextReview)
+                };
+              }
+              return null;
+            }
+          })
+        );
+
+        const filtered = results
+          .filter(r => r !== null)
+          .sort((a, b) => a.nextReview.localeCompare(b.nextReview));
+
+        if (filtered.length > 0) {
+          setUpcomingFollowUps(filtered);
+        } else {
+          setUpcomingFollowUps(getInitialFollowUps());
+        }
+      } catch (err) {
+        console.error('Error loading live follow-ups:', err);
+        setUpcomingFollowUps(getInitialFollowUps());
+      } finally {
+        setLoadingFollowUps(false);
+      }
+    };
+
+    loadLiveFollowUps();
+  }, []);
+
+  // Filter patient schedule based on search input and status tabs
   const filteredSchedule = useMemo(() => {
-    let filtered = [...schedule];
-    return filtered.sort((a, b) => a.time.localeCompare(b.time));
+    return schedule
+      .filter((appointment) => {
+        // Status filter
+        if (statusFilter !== 'all' && appointment.status !== statusFilter) {
+          return false;
+        }
+        // Search filter
+        if (searchTerm.trim() !== '') {
+          const query = searchTerm.toLowerCase();
+          const nameMatch = appointment.patient.name.toLowerCase().includes(query);
+          const chiefMatch = appointment.triage.chiefComplaint.toLowerCase().includes(query);
+          const ageMatch = appointment.patient.age.toString().includes(query);
+          const genderMatch = appointment.patient.gender.toLowerCase().startsWith(query);
+          return nameMatch || chiefMatch || ageMatch || genderMatch;
+        }
+        return true;
+      })
+      .sort((a, b) => a.time.localeCompare(b.time));
+  }, [schedule, statusFilter, searchTerm]);
+
+  // Compute schedule queue count statistics for filter badges
+  const counts = useMemo(() => {
+    return {
+      all: schedule.length,
+      waiting: schedule.filter(a => a.status === 'waiting').length,
+      'in-progress': schedule.filter(a => a.status === 'in-progress').length,
+      done: schedule.filter(a => a.status === 'done').length,
+    };
   }, [schedule]);
 
   const handleStartConsultClick = (appointment) => {
@@ -206,10 +385,19 @@ const Home = ({ onStartConsult, onViewChart }) => {
     setSelectedTriage(null);
   };
 
+  const handleFollowUpPatientClick = (patient) => {
+    navigate('/patients', {
+      state: {
+        selectPatientNric: patient.nsn,
+        statusFilter: 'follow-up'
+      }
+    });
+  };
+
   const cpgPct = Math.round((agenticImpact.cpgAligned.count / agenticImpact.cpgAligned.total) * 100);
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
@@ -261,8 +449,8 @@ const Home = ({ onStartConsult, onViewChart }) => {
                     key={notif.id}
                     onClick={() => setNotifications(prev => prev.map(n => n.id === notif.id ? { ...n, read: true } : n))}
                     className={`p-4 border-b cursor-pointer transition-colors
-                      ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-50 hover:bg-slate-50'}
-                      ${!notif.read ? (isDark ? 'bg-white/10' : 'bg-blue-50') : ''}`}
+                    ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-50 hover:bg-slate-50'}
+                    ${!notif.read ? (isDark ? 'bg-white/10' : 'bg-blue-50') : ''}`}
                   >
                     <div className="flex gap-3">
                       <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0
@@ -284,264 +472,437 @@ const Home = ({ onStartConsult, onViewChart }) => {
         </div>
       </div>
 
-      {/* Today's Pulse strip */}
-      <div>
-        <p className="ds-eyebrow mb-3">
-          Today's pulse
-        </p>
-        <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
-          <div className={`divide-y ${isDark ? 'divide-white/5' : 'divide-slate-100'}`}>
+      {/* Asymmetric 2-Column Responsive Dashboard Layout */}
+      <div className="flex flex-col lg:flex-row gap-6 items-start w-full">
+        {/* LEFT COLUMN: Main Queue Workspace & Live Sync Pulse Alerts (55% width) */}
+        <div className="w-full lg:w-[55%] space-y-6">
 
-            {/* Critical cue */}
-            {criticalPatient ? (
-              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-rose-500 ${isDark ? 'bg-rose-500/8' : 'bg-rose-50/70'}`}>
-                <div className="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0 animate-pulse" />
-                <div className="flex-1 min-w-0">
-                  <p className={`text-sm font-medium ${isDark ? 'text-rose-300' : 'text-rose-700'}`}>
-                    {criticalPatient.patient.name} needs you now
-                  </p>
-                  <p className={`text-xs mt-0.5 ${isDark ? 'text-rose-400/70' : 'text-rose-500/80'}`}>
-                    {criticalPatient.triage.chiefComplaint} · arrived {criticalPatient.time}
-                  </p>
-                </div>
-                <Button
-                  variant="danger"
-                  size="sm"
-                  icon={ArrowRight}
-                  iconPosition="right"
-                  onClick={() => handleStartConsultClick(criticalPatient)}
-                  className="flex-shrink-0"
+          {/* Patient Schedule Card */}
+          <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
+            {/* Header & Advanced Interactive Filter Panel */}
+            <div className={`px-5 py-4 border-b ${isDark ? 'border-white/10' : 'border-slate-100'} space-y-4`}>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <button
+                  onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
+                  aria-label="Toggle Schedule"
+                  className={`text-base font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg`}
                 >
-                  See now
-                </Button>
-              </div>
-            ) : (
-              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-emerald-500`}>
-                <div className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
-                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No critical patients at this time</p>
-              </div>
-            )}
+                  <Clock aria-hidden="true" className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
+                  Today's patients
+                  <ChevronDown aria-hidden="true" className={`w-4 h-4 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
+                </button>
 
-            {/* Overdue follow-ups cue */}
-            {overdueFollowUps.length > 0 && (
-              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-amber-400`}>
-                <div className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <p className={`text-sm font-medium ${isDark ? 'text-amber-300' : 'text-amber-700'}`}>
-                    {overdueFollowUps.length} follow-up{overdueFollowUps.length > 1 ? 's' : ''} overdue
-                  </p>
-                  <p className={`text-xs mt-0.5 truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    {overdueFollowUps.map(p => `${p.name.split(' ')[0]} (TCA ${p.tcaDays}d ago)`).join(', ')}
-                  </p>
+                {/* Instant Patient Search input */}
+                <div className="relative w-full sm:w-64">
+                  <input
+                    type="text"
+                    placeholder="Search patients..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className={`w-full pl-3 pr-8 py-1.5 rounded-lg text-xs border transition-all duration-200 outline-none
+                      ${isDark
+                        ? 'bg-slate-900/50 border-white/10 text-white placeholder-slate-500 focus:border-teal-500/50'
+                        : 'bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-teal-500/50'
+                      }`}
+                  />
+                  {searchTerm && (
+                    <button
+                      onClick={() => setSearchTerm('')}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-semibold"
+                    >
+                      ×
+                    </button>
+                  )}
                 </div>
               </div>
+
+              {/* Status Tab Pills with Counters */}
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                {[
+                  { id: 'all', label: 'All patients' },
+                  { id: 'waiting', label: 'Scheduled' },
+                  { id: 'in-progress', label: 'In consult' },
+                  { id: 'done', label: 'Completed' }
+                ].map((tab) => {
+                  const isActive = statusFilter === tab.id;
+                  const count = counts[tab.id];
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setStatusFilter(tab.id)}
+                      className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center gap-1.5 border
+                        ${isActive
+                          ? (isDark
+                            ? 'bg-teal-500/20 text-teal-400 border-teal-500/40 shadow-sm'
+                            : 'bg-teal-50 text-teal-700 border-teal-200 shadow-sm'
+                          )
+                          : (isDark
+                            ? 'bg-transparent border-transparent text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                            : 'bg-transparent border-transparent text-slate-600 hover:text-slate-800 hover:bg-slate-100'
+                          )
+                        }`}
+                    >
+                      {tab.label}
+                      <span className={`px-1.5 py-0.5 rounded-full text-[10px] leading-none font-bold
+                        ${isActive
+                          ? (isDark ? 'bg-teal-400/20 text-teal-300' : 'bg-teal-200/50 text-teal-800')
+                          : (isDark ? 'bg-slate-800 text-slate-500' : 'bg-slate-200/50 text-slate-500')
+                        }`}
+                      >
+                        {count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Patient Queue List */}
+            {isScheduleExpanded && (
+              <div className="divide-y divide-slate-100 dark:divide-white/5">
+                {filteredSchedule.length === 0 ? (
+                  <div className={`text-center py-12 px-5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    No patients match your search or filter criteria
+                  </div>
+                ) : filteredSchedule.map((appointment) => {
+                  const isPatientEmergency = isEmergency(appointment.patient.nsn);
+                  const isPatientHighRisk = isHighRisk(appointment.patient.nsn);
+
+                  return (
+                    <div
+                      key={appointment.id}
+                      className={`p-5 transition-all duration-300 hover-lift relative border-l-4
+                        ${appointment.status === 'in-progress' || appointment.status === 'waiting'
+                          ? 'border-l-teal-500 bg-teal-500/5 dark:bg-teal-500/2'
+                          : isPatientEmergency
+                            ? 'border-l-rose-500 bg-rose-500/5 dark:bg-rose-500/2'
+                            : isPatientHighRisk
+                              ? 'border-l-amber-500'
+                              : 'border-l-transparent'
+                        }
+                        ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}
+                      `}
+                    >
+                      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                        {/* Left Info Column */}
+                        <div className="flex items-start gap-4 flex-1 min-w-0">
+                          {/* Slot Time with live status light */}
+                          <div className="flex flex-col items-start min-w-[72px] flex-shrink-0 pt-1">
+                            <span className={`text-base font-semibold ds-numeric leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                              {appointment.time}
+                            </span>
+                            <div className="mt-2.5 flex items-center gap-1.5">
+                              {getStatusBadge(appointment.status)}
+                            </div>
+                          </div>
+
+                          {/* Patient main data block */}
+                          <div className="flex-1 min-w-0 flex items-start gap-3">
+                            <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 shadow-sm mt-0.5 ${getPatientAvatarColor(appointment.patient.gender)}`}>
+                              {getInitials(appointment.patient.name)}
+                            </div>
+
+                            <div className="flex-1 min-w-0 max-w-xl w-full">
+                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-2.5 w-full">
+                                <div className="min-w-0">
+                                  <div className="flex items-center gap-2 flex-wrap">
+                                    <h3 className={`font-semibold text-sm truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                      {appointment.patient.name}
+                                    </h3>
+                                    {isPatientEmergency && (
+                                      <span className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-rose-500/10 text-rose-500 border border-rose-500/20">
+                                        CRITICAL
+                                      </span>
+                                    )}
+                                    {isPatientHighRisk && (
+                                      <span className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                                        HIGH RISK
+                                      </span>
+                                    )}
+                                  </div>
+                                  <p className={`text-xs ds-numeric mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                    {appointment.patient.age} y/o · {appointment.patient.gender} · ID: {appointment.patient.nsn}
+                                  </p>
+                                </div>
+
+                                <div className="flex-shrink-0">
+                                  {(appointment.status === 'waiting' || appointment.status === 'in-progress') && (
+                                    <Button
+                                      variant="primary"
+                                      size="sm"
+                                      icon={Play}
+                                      onClick={() => handleStartConsultClick(appointment)}
+                                      className="min-w-[128px] justify-center"
+                                    >
+                                      Start consult
+                                    </Button>
+                                  )}
+                                  {appointment.status === 'done' && (
+                                    <span className={`px-4 py-1.5 rounded-lg text-xs text-center font-medium min-w-[128px] inline-block border
+                                      ${isDark
+                                        ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20'
+                                        : 'bg-emerald-50 text-emerald-600 border-emerald-100'}`}
+                                    >
+                                      Completed
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+
+                              {/* Stylized Complaint box - perfectly aligned to matching container width */}
+                              <div className={`px-3 py-2.5 rounded-lg border w-full ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/80 border-slate-100'}`}>
+                                <p className={`text-[10px] font-semibold tracking-wide uppercase ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Chief complaint</p>
+                                <p className={`text-sm font-medium mt-0.5 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                  {appointment.triage.chiefComplaint}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             )}
+          </GlassCard>
 
-            {/* Next up cue */}
-            {upcomingPatients.length > 0 && (
-              <div className={`flex items-center gap-4 px-5 py-3.5 border-l-2 border-blue-400`}>
-                <div className="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <p className={`text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                    Next {upcomingPatients.length === 1 ? 'up' : `${upcomingPatients.length}`}
-                  </p>
-                  <p className={`text-xs mt-0.5 truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                    {upcomingPatients.map(a => `${a.patient.name.split(' ')[0]} ${a.time} — ${a.triage.chiefComplaint}`).join(' · ')}
-                  </p>
-                </div>
-              </div>
-            )}
-
-          </div>
-        </GlassCard>
-      </div>
-
-      {/* Agentic RAG Impact row */}
-      <div>
-        <p className="ds-eyebrow mb-3">
-          Assistant impact today
-        </p>
-        <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
-          <div className={`grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
-
-            {/* Time reclaimed */}
-            <div className="p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-teal-500/15' : 'bg-teal-50'}`}>
-                  <Timer className={`w-3.5 h-3.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} strokeWidth={2} />
-                </span>
-                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Time reclaimed</span>
-              </div>
-              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
-                {agenticImpact.timeSavedMin}<span className={`text-lg font-medium ml-1 ${isDark ? 'text-teal-400/70' : 'text-teal-600/70'}`}>min</span>
-              </p>
-              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>vs ~8 min/plan manual</p>
-              <div className="mt-1.5">
-                <TrendBadge current={agenticImpact.timeSavedMin} previous={agenticImpact.yesterday.timeSavedMin} />
-              </div>
-            </div>
-
-            {/* CPG-aligned */}
-            <div className="p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-violet-500/15' : 'bg-violet-50'}`}>
-                  <FileCheck className={`w-3.5 h-3.5 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} strokeWidth={2} />
-                </span>
-                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>CPG-aligned</span>
-              </div>
-              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
-                {cpgPct}<span className={`text-lg font-medium ml-0.5 ${isDark ? 'text-violet-400/70' : 'text-violet-600/70'}`}>%</span>
-              </p>
-              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                {agenticImpact.cpgAligned.count} of {agenticImpact.cpgAligned.total} plans
-              </p>
-              <div className="mt-1.5">
-                <TrendBadge current={cpgPct} previous={agenticImpact.yesterday.cpgAlignedPct} />
-              </div>
-            </div>
-
-            {/* Citations issued */}
-            <div className="p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-sky-500/15' : 'bg-sky-50'}`}>
-                  <BookOpen className={`w-3.5 h-3.5 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} strokeWidth={2} />
-                </span>
-                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Citations issued</span>
-              </div>
-              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
-                {agenticImpact.citations}
-              </p>
-              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>evidence-backed decisions</p>
-              <div className="mt-1.5">
-                <TrendBadge current={agenticImpact.citations} previous={agenticImpact.yesterday.citations} />
-              </div>
-            </div>
-
-            {/* Referrals */}
-            <div className="p-5">
-              <div className="flex items-center gap-2 mb-4">
-                <span className={`p-1.5 rounded-lg ${isDark ? 'bg-amber-500/15' : 'bg-amber-50'}`}>
-                  <UserCheck className={`w-3.5 h-3.5 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} strokeWidth={2} />
-                </span>
-                <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Referrals</span>
-              </div>
-              <p className={`text-4xl font-bold ds-numeric leading-none ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>
-                {agenticImpact.referrals.count}
-              </p>
-              <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                all {agenticImpact.referrals.cpgJustified} CPG-justified
-              </p>
-              <div className="mt-1.5">
-                <TrendBadge current={agenticImpact.referrals.count} previous={agenticImpact.yesterday.referrals} />
-              </div>
-            </div>
-
-          </div>
-        </GlassCard>
-      </div>
-
-      {/* Schedule */}
-      <GlassCard className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
-        <div className={`flex items-center justify-between px-5 py-4 border-b ${isDark ? 'border-white/10' : 'border-slate-100'}`}>
-          <button
-            onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
-            aria-label="Toggle Schedule"
-            className={`text-base font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg`}
-          >
-            <Clock aria-hidden="true" className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
-            Today's patients
-            <ChevronDown aria-hidden="true" className={`w-4 h-4 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
-          </button>
         </div>
 
-        {isScheduleExpanded && (
-          <div className="space-y-0 divide-y divide-slate-100 dark:divide-white/5 px-5 py-3">
-            {filteredSchedule.length === 0 ? (
-              <div className={`text-center py-10 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                No appointments match the current filter
-              </div>
-            ) : filteredSchedule.map((appointment) => (
-              <div
-                key={appointment.id}
-                className={`py-4 border-l-2 pl-4 transition-colors border-l-transparent ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`}
-              >
-                <div className="flex items-start gap-4">
-                  {/* Time */}
-                  <div className="flex flex-col items-start min-w-[72px] flex-shrink-0">
-                    <span className={`text-base font-semibold ds-numeric leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.time}</span>
-                    <div className="mt-2">
-                      {getStatusBadge(appointment.status)}
-                    </div>
+        {/* RIGHT COLUMN: Sidebar Control Cockpit (45% width) - Dedicated to Assistant Impact stats */}
+        <div className="w-full lg:w-[45%] space-y-6">
+          {/* Follow-Up Patients (moved from left column) */}
+          <GlassCard className="p-5" variant={isDark ? 'dark' : 'light'}>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b pb-3 border-slate-100 dark:border-white/5">
+                <button
+                  onClick={() => setIsFollowUpsExpanded(!isFollowUpsExpanded)}
+                  aria-label="Toggle Follow-Ups"
+                  className="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg text-left"
+                >
+                  <div className={`p-1.5 rounded-lg ${isDark ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' : 'bg-amber-50 text-amber-600 border border-amber-100'}`}>
+                    <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
                   </div>
+                  <h3 className={`text-sm font-semibold flex items-center gap-1.5 ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                    Follow-Up Patients
+                    <ChevronDown aria-hidden="true" className={`w-3.5 h-3.5 transition-transform duration-200 ${isFollowUpsExpanded ? '' : '-rotate-90'}`} strokeWidth={1.8} />
+                  </h3>
+                </button>
 
-                  {/* Patient info */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className={`w-9 h-9 rounded-full flex items-center justify-center font-semibold text-sm flex-shrink-0 ${getAvatarColor(appointment.patient.name, isDark)}`}>
-                        {getInitials(appointment.patient.name)}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className={`font-medium text-sm truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.patient.name}</h3>
-                        </div>
-                        <p className={`text-xs ds-numeric ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                          {appointment.patient.age} y/o · {appointment.patient.gender}
-                        </p>
-                      </div>
-                    </div>
-                    <div className={`ml-12 px-3 py-2 rounded-lg ${isDark ? 'bg-black/20' : 'bg-white/60'}`}>
-                      <p className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Chief complaint</p>
-                      <p className={`text-sm font-medium mt-0.5 ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.triage.chiefComplaint}</p>
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="flex flex-col gap-2 ml-4 flex-shrink-0">
-                    <Button
-                      variant="secondary"
-                      size="sm"
-                      icon={Eye}
-                      onClick={() => handleQuickView(appointment)}
-                      className="min-w-[128px]"
+                {/* Compact Search Input for Follow-up Patients */}
+                <div className="relative w-32 sm:w-40 flex-shrink-0">
+                  <input
+                    type="text"
+                    placeholder="Search patients..."
+                    value={followUpSearchTerm}
+                    onChange={(e) => setFollowUpSearchTerm(e.target.value)}
+                    className={`w-full pl-2.5 pr-7 py-1 rounded-lg text-sm border transition-all duration-200 outline-none
+                      ${isDark
+                        ? 'bg-slate-900/50 border-white/10 text-white placeholder-slate-500 focus:border-teal-500/50'
+                        : 'bg-slate-50 border-slate-200 text-slate-800 placeholder-slate-400 focus:border-teal-500/50'
+                      }`}
+                  />
+                  {followUpSearchTerm && (
+                    <button
+                      onClick={() => setFollowUpSearchTerm('')}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 text-sm font-semibold"
                     >
-                      Quick view
-                    </Button>
-                    {appointment.status === 'waiting' && (
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        icon={Play}
-                        onClick={() => handleStartConsultClick(appointment)}
-                        className="min-w-[128px]"
-                      >
-                        Start consult
-                      </Button>
-                    )}
-                    {appointment.status === 'in-progress' && (
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        icon={ChevronRight}
-                        iconPosition="right"
-                        onClick={() => handleStartConsultClick(appointment)}
-                        className="min-w-[128px]"
-                      >
-                        Resume
-                      </Button>
-                    )}
-                    {appointment.status === 'done' && (
-                      <span className="px-4 py-2.5 rounded-lg text-sm text-emerald-600 bg-emerald-500/10 font-medium text-center min-w-[128px]">
-                        Completed
+                      ×
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {isFollowUpsExpanded && (
+                <>
+                  {loadingFollowUps ? (
+                    <div className="text-center py-8 text-sm text-slate-400 dark:text-slate-500 flex items-center justify-center gap-2">
+                      <span className="animate-spin border-2 border-t-teal-500 rounded-full w-4 h-4 border-slate-200 dark:border-slate-800"></span>
+                      Syncing follow-ups...
+                    </div>
+                  ) : filteredFollowUps.length === 0 ? (
+                    <div className={`text-center py-8 text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                      {followUpSearchTerm ? 'No matching follow-up patients' : 'No upcoming patient follow-ups'}
+                    </div>
+                  ) : (
+                    <div className="flex flex-col gap-3">
+                      {filteredFollowUps.map((item) => {
+                        const formattedReviewDate = new Date(item.nextReview).toLocaleDateString('en-GB', {
+                          day: '2-digit',
+                          month: 'short',
+                          year: 'numeric'
+                        });
+
+                        const isOverdue = item.tcaDays < 0;
+                        const isClose = item.tcaDays >= 0 && item.tcaDays <= 3;
+
+                        return (
+                          <button
+                            type="button"
+                            key={item.id || item.nsn}
+                            onClick={() => handleFollowUpPatientClick(item)}
+                            className={`p-3.5 rounded-xl border flex items-center justify-between gap-4 transition-all duration-200 hover-lift
+                              ${isDark
+                                ? 'bg-slate-900/30 border-white/5 hover:border-teal-500/20'
+                                : 'bg-slate-50/50 border-slate-100 hover:border-teal-500/20'
+                              } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-primary)]/40 text-left w-full`}
+                          >
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center gap-2.5">
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0 shadow-sm ${getPatientAvatarColor(item.gender)}`}>
+                                  {getInitials(item.name)}
+                                </div>
+                                <div className="min-w-0">
+                                  <h4 className={`font-semibold text-sm truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                    {item.name}
+                                  </h4>
+                                  <p className="text-sm text-slate-400 dark:text-slate-500 ds-numeric">
+                                    {item.age} y/o · {item.gender}
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="text-right flex-shrink-0 flex flex-col items-end gap-1.5">
+                              <span className={`text-sm font-bold ds-numeric leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                {formattedReviewDate}
+                              </span>
+                              {isOverdue ? (
+                                <span className="inline-flex px-2 py-0.5 rounded text-sm font-bold uppercase bg-rose-500/10 text-rose-500 border border-rose-500/20">
+                                  Overdue {Math.abs(item.tcaDays)}d
+                                </span>
+                              ) : isClose ? (
+                                <span className="inline-flex px-2 py-0.5 rounded text-sm font-bold uppercase bg-amber-500/10 text-amber-500 border border-amber-500/20">
+                                  In {item.tcaDays}d
+                                </span>
+                              ) : (
+                                <span className="inline-flex px-2 py-0.5 rounded text-sm font-bold uppercase bg-teal-500/10 text-teal-500 border border-teal-500/20">
+                                  TCA {item.tcaDays}d
+                                </span>
+                              )}
+                            </div>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </>
+              )}
+            </div>
+          </GlassCard>
+
+          {/* AI Assistant Impact Stats (2x2 Stats Dashboard Grid) */}
+          <div>
+            <div className="mb-2 flex items-center gap-2">
+              <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border ${isDark ? 'bg-teal-500/10 text-teal-400 border-teal-500/20' : 'bg-teal-50 text-teal-600 border-teal-100'}`}>
+                <Database className="h-4 w-4" strokeWidth={1.8} />
+              </span>
+              <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Assistant Impact Today</p>
+            </div>
+            <GlassCard className="p-4" variant={isDark ? 'dark' : 'light'}>
+              <div className="grid grid-cols-2 gap-3.5">
+                {/* Time Reclaimed */}
+                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                  ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
+                >
+                  <div className="flex items-center gap-1 text-base font-bold text-teal-500 uppercase tracking-wider">
+                    <Timer className="w-3 h-3" />
+                    Time Saved
+                  </div>
+                  <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
+                    <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                      {agenticImpact.timeSavedMin}<span className="text-sm font-semibold ml-0.5">m</span>
+                    </p>
+                    <span className="text-sm text-slate-400">vs 8m/plan manual</span>
+                  </div>
+                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
+                    <TrendBadge current={agenticImpact.timeSavedMin} previous={agenticImpact.yesterday.timeSavedMin} />
+                  </div>
+                </div>
+
+                {/* CPG Aligned with circular SVG progress ring */}
+                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                  ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
+                >
+                  <div className="flex items-center gap-1 text-base font-bold text-violet-500 uppercase tracking-wider">
+                    <FileCheck className="w-3 h-3" />
+                    CPG Align
+                  </div>
+                  <div className="mt-2 mb-1.5 flex items-center justify-between gap-1">
+                    <div className="flex items-baseline gap-1.5 flex-wrap">
+                      <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
+                        {cpgPct}%
+                      </p>
+                      <span className="text-sm text-slate-400">
+                        {agenticImpact.cpgAligned.count}/{agenticImpact.cpgAligned.total} plans
                       </span>
-                    )}
+                    </div>
+                    {/* Compact SVG Circular ring */}
+                    <div className="relative w-8 h-8 flex-shrink-0 flex items-center justify-center">
+                      <svg className="w-full h-full transform -rotate-90">
+                        <circle cx="16" cy="16" r="13" className="stroke-slate-200 dark:stroke-slate-800" strokeWidth="2.5" fill="transparent" />
+                        <circle
+                          cx="16"
+                          cy="16"
+                          r="13"
+                          className={isDark ? "stroke-violet-400" : "stroke-violet-500"}
+                          strokeWidth="2.5"
+                          fill="transparent"
+                          strokeDasharray={2 * Math.PI * 13}
+                          strokeDashoffset={2 * Math.PI * 13 * (1 - cpgPct / 100)}
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
+                    <TrendBadge current={cpgPct} previous={agenticImpact.yesterday.cpgAlignedPct} />
+                  </div>
+                </div>
+
+                {/* Citations Issued */}
+                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                  ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
+                >
+                  <div className="flex items-center gap-1 text-base font-bold text-sky-500 uppercase tracking-wider">
+                    <BookOpen className="w-3 h-3" />
+                    Citations
+                  </div>
+                  <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
+                    <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
+                      {agenticImpact.citations}
+                    </p>
+                    <span className="text-sm text-slate-400">evidence-backed</span>
+                  </div>
+                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
+                    <TrendBadge current={agenticImpact.citations} previous={agenticImpact.yesterday.citations} />
+                  </div>
+                </div>
+
+                {/* Referrals */}
+                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                  ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
+                >
+                  <div className="flex items-center gap-1 text-base font-bold text-amber-500 uppercase tracking-wider">
+                    <UserCheck className="w-3 h-3" />
+                    Referrals
+                  </div>
+                  <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
+                    <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>
+                      {agenticImpact.referrals.count}
+                    </p>
+                    <span className="text-sm text-slate-400">CPG justified</span>
+                  </div>
+                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
+                    <TrendBadge current={agenticImpact.referrals.count} previous={agenticImpact.yesterday.referrals} />
                   </div>
                 </div>
               </div>
-            ))}
+            </GlassCard>
           </div>
-        )}
-      </GlassCard>
+        </div>
+      </div>
 
+      {/* Patient Quick View Dialog Modal */}
       <PatientQuickView
         patient={selectedPatient}
         triage={selectedTriage}
