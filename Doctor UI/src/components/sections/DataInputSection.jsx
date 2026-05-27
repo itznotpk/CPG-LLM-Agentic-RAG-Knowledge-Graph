@@ -1118,18 +1118,6 @@ export function DataInputSection({ onViewChart }) {
                 </Button>
               </div>
 
-              {/* Secondary: register a new patient without a lookup */}
-              <div className={`mt-5 pt-5 border-t flex items-center justify-between gap-3 flex-wrap ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No NRIC on file?</span>
-                <button
-                  type="button"
-                  onClick={handleStartNewPatient}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-primary)] hover:underline"
-                >
-                  <UserPlus className="w-4 h-4" strokeWidth={1.5} />
-                  Register a New Patient
-                </button>
-              </div>
               </GlassCard>
 
             </div>
