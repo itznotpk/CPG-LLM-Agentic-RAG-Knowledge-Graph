@@ -4,6 +4,9 @@ import {
   sampleCarePlan,
 } from '../data/sampleData';
 import { runClinicalPlan, runDDxStream, resynthesizePlanStream, summarisePriorVisit } from '../lib/clinicalApi';
+// NOTE: generateCarePlanPDFBlob is no longer used — PDF upload now uses the DOM-captured blob
+// from generatePdfFromElement() in OutputSection, ensuring the Supabase PDF matches the
+// "Export PDF" output exactly.
 import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
 import {
   supabase,
@@ -19,7 +22,6 @@ import {
   writePriorVisitSummary,
   getLatestPriorVisitSummary,
 } from '../lib/supabase';
-import { generateCarePlanPDFBlob } from '../utils/pdfGenerator';
 import { getNowUTC8, getTodayUTC8 } from '../utils/timezone';
 
 // Always use Supabase for patient data
@@ -781,31 +783,10 @@ export function AppProvider({ children }) {
       }
     }
 
-    // Generate and upload care plan PDF to Supabase Storage
-    if (USE_SUPABASE && state.currentConsultationId && state.patient?.nsn) {
-      try {
-        const selectedIds = state.diagnosis?.selectedDiagnosisIds || [];
-        const selectedDiagnoses = (state.diagnosis?.differentials || []).filter(d => selectedIds.includes(d.id));
-        const pdfBlob = generateCarePlanPDFBlob({
-          patient: state.patient,
-          diagnosis: { ...state.diagnosis, differentials: selectedDiagnoses },
-          carePlan: state.carePlan,
-        });
-        const { success, url, error: pdfErr } = await uploadCarePlanPDF(
-          state.currentConsultationId,
-          state.patient.nsn,
-          pdfBlob
-        );
-        if (success && url) {
-          await updateConsultation(state.currentConsultationId, { reportPdfUrl: url });
-          console.log('✅ Care plan PDF stored:', url);
-        } else {
-          console.warn('⚠️ PDF upload failed:', pdfErr);
-        }
-      } catch (err) {
-        console.error('💥 Exception uploading care plan PDF:', err);
-      }
-    }
+    // NOTE: PDF upload is now deferred to Step 4 (OutputSection).
+    // The DOM-captured PDF from generatePdfFromElement() is uploaded via
+    // uploadFinalCarePlanPDF() to ensure Supabase stores the exact same
+    // PDF the clinician sees and downloads.
 
     // PRIOR-VISIT SUMMARISER — fires ONLY here, after the clinician has agreed
     // and finalised the care plan. Best-effort: never blocks the step transition.
@@ -843,6 +824,41 @@ export function AppProvider({ children }) {
     }
 
     dispatch({ type: 'SET_STEP', payload: 4 });
+  };
+
+  /**
+   * Upload a pre-generated PDF blob (from DOM capture) to Supabase Storage.
+   * Called from OutputSection after the FinalCarePlan `.paper` element is
+   * captured via html2canvas → jsPDF.  This ensures the stored PDF is
+   * byte-identical to the one the clinician downloads via "Export PDF".
+   *
+   * @param {Blob} pdfBlob - The PDF blob from generatePdfFromElement()
+   * @returns {Promise<{success: boolean, url: string|null}>}
+   */
+  const uploadFinalCarePlanPDF = async (pdfBlob) => {
+    if (!USE_SUPABASE || !state.currentConsultationId || !state.patient?.nsn) {
+      console.warn('⚠️ Cannot upload PDF — missing consultation ID or NRIC');
+      return { success: false, url: null };
+    }
+    try {
+      console.log('📤 Uploading DOM-captured care plan PDF to Supabase...');
+      const { success, url, error: pdfErr } = await uploadCarePlanPDF(
+        state.currentConsultationId,
+        state.patient.nsn,
+        pdfBlob,
+      );
+      if (success && url) {
+        await updateConsultation(state.currentConsultationId, { reportPdfUrl: url });
+        console.log('✅ Care plan PDF stored (DOM-captured):', url);
+        return { success: true, url };
+      } else {
+        console.warn('⚠️ PDF upload failed:', pdfErr);
+        return { success: false, url: null };
+      }
+    } catch (err) {
+      console.error('💥 Exception uploading care plan PDF:', err);
+      return { success: false, url: null };
+    }
   };
 
   const saveVitalsToDB = async () => {
@@ -917,6 +933,7 @@ export function AppProvider({ children }) {
     analyzeAssessment,
     confirmDiagnosis,
     finalizePlan,
+    uploadFinalCarePlanPDF,
     goToStep,
     updateCarePlanItem,
     updateMedication,

@@ -143,8 +143,6 @@ const Home = ({ onStartConsult, onViewChart }) => {
     return schedule.find(a => isEmergency(a.patient.nsn));
   }, [schedule, patientRiskMap]);
 
-  const [categoryFilter, setCategoryFilter] = useState('all');
-
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [selectedTriage, setSelectedTriage] = useState(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
@@ -187,10 +185,8 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
   const filteredSchedule = useMemo(() => {
     let filtered = [...schedule];
-    if (categoryFilter === 'emergency') filtered = filtered.filter(a => isEmergency(a.patient.nsn));
-    else if (categoryFilter === 'highRisk') filtered = filtered.filter(a => isHighRisk(a.patient.nsn) && !isEmergency(a.patient.nsn));
     return filtered.sort((a, b) => a.time.localeCompare(b.time));
-  }, [schedule, categoryFilter, patientRiskMap]);
+  }, [schedule]);
 
   const handleStartConsultClick = (appointment) => {
     setSchedule(prev => prev.map(a => a.id === appointment.id ? { ...a, status: 'in-progress' } : a));
@@ -456,26 +452,6 @@ const Home = ({ onStartConsult, onViewChart }) => {
             Today's patients
             <ChevronDown aria-hidden="true" className={`w-4 h-4 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
           </button>
-          {/* Filter pills */}
-          <div className="flex items-center gap-1.5">
-            {['all', 'emergency', 'highRisk'].map((f) => (
-              <button
-                key={f}
-                onClick={() => setCategoryFilter(f)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors
-                  ${categoryFilter === f
-                    ? f === 'emergency'
-                      ? 'bg-rose-500 text-white'
-                      : f === 'highRisk'
-                        ? 'bg-amber-500 text-white'
-                        : (isDark ? 'bg-white/20 text-white' : 'bg-slate-800 text-white')
-                    : isDark ? 'bg-white/5 text-slate-400 hover:bg-white/10' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
-                  }`}
-              >
-                {f === 'all' ? 'All' : f === 'emergency' ? 'Critical' : 'High risk'}
-              </button>
-            ))}
-          </div>
         </div>
 
         {isScheduleExpanded && (
@@ -487,24 +463,15 @@ const Home = ({ onStartConsult, onViewChart }) => {
             ) : filteredSchedule.map((appointment) => (
               <div
                 key={appointment.id}
-                className={`py-4 border-l-2 pl-4 transition-colors
-                  ${isEmergency(appointment.patient.nsn)
-                    ? 'border-l-rose-500 ' + (isDark ? 'bg-rose-500/5' : 'bg-rose-50/60')
-                    : isHighRisk(appointment.patient.nsn)
-                      ? 'border-l-amber-400 ' + (isDark ? 'bg-amber-500/5' : 'bg-amber-50/60')
-                      : 'border-l-transparent hover:' + (isDark ? 'bg-white/5' : 'bg-slate-50')
-                  }`}
+                className={`py-4 border-l-2 pl-4 transition-colors border-l-transparent ${isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`}
               >
                 <div className="flex items-start gap-4">
                   {/* Time */}
                   <div className="flex flex-col items-start min-w-[72px] flex-shrink-0">
                     <span className={`text-base font-semibold ds-numeric leading-none ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.time}</span>
-                    {isEmergency(appointment.patient.nsn) && (
-                      <span className={`mt-1.5 text-[10px] font-bold tracking-wider uppercase ${isDark ? 'text-rose-400' : 'text-rose-600'}`}>Critical</span>
-                    )}
-                    {!isEmergency(appointment.patient.nsn) && isHighRisk(appointment.patient.nsn) && (
-                      <span className={`mt-1.5 text-[10px] font-bold tracking-wider uppercase ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>High risk</span>
-                    )}
+                    <div className="mt-2">
+                      {getStatusBadge(appointment.status)}
+                    </div>
                   </div>
 
                   {/* Patient info */}
@@ -516,7 +483,6 @@ const Home = ({ onStartConsult, onViewChart }) => {
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
                           <h3 className={`font-medium text-sm truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{appointment.patient.name}</h3>
-                          {getStatusBadge(appointment.status)}
                         </div>
                         <p className={`text-xs ds-numeric ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                           {appointment.patient.age} y/o · {appointment.patient.gender}

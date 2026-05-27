@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useApp } from '../../context/AppContext';
+import { useToast } from '../shared/Notification';
 import { generatePdfFromElement } from '../../utils/htmlToPdf';
 import { FinalCarePlan } from './finalCarePlan/FinalCarePlan';
 import './finalCarePlan/finalCarePlan.css';
 
 export function OutputSection() {
-  const { state, resetApp, goToStep } = useApp();
+  const { state, resetApp, goToStep, uploadFinalCarePlanPDF } = useApp();
+  const toast = useToast();
   const {
     patient, patientData, carePlan, diagnosis, vitals,
     clinicalNotes, nextReviewDate, mpisData, currentUser,
@@ -13,6 +15,8 @@ export function OutputSection() {
   } = state;
 
   const fcpRef = useRef(null);
+  const [pdfUploaded, setPdfUploaded] = useState(false);
+  const [pdfUploading, setPdfUploading] = useState(false);
 
   // Patient: Step 4 uses `patient`, Step 3 uses `patientData` — accept either
   const resolvedPatient = patient ?? patientData ?? {};
@@ -70,17 +74,78 @@ export function OutputSection() {
     duration: consultationDuration || '—',
   };
 
-  const handleExportPDF = async () => {
+  // ── Shared helper: capture .paper DOM → PDF Blob ──────────────────────────
+  const capturePaperPdf = useCallback(async ({ download = false } = {}) => {
     const paperEl = fcpRef.current?.getPaperElement?.();
     if (!paperEl) {
-      console.warn('Paper element not found, cannot export PDF');
-      return;
+      console.warn('Paper element not found, cannot generate PDF');
+      return null;
     }
     const fileName = `CarePlan_${resolvedPatient?.name?.replace(/\s+/g, '_') || 'Patient'}_${new Date().toISOString().split('T')[0]}.pdf`;
-    await generatePdfFromElement(paperEl, { fileName, download: true });
+    const blob = await generatePdfFromElement(paperEl, { fileName, download });
+    return blob;
+  }, [resolvedPatient?.name]);
+
+  // ── Upload PDF blob to Supabase (idempotent — skips if already done) ──────
+  const uploadPdf = useCallback(async (blob) => {
+    if (!blob || pdfUploaded || pdfUploading) return;
+    setPdfUploading(true);
+    try {
+      const result = await uploadFinalCarePlanPDF(blob);
+      if (result?.success) {
+        setPdfUploaded(true);
+        console.log('✅ PDF uploaded to Supabase successfully');
+      }
+    } catch (err) {
+      console.error('PDF upload failed:', err);
+    } finally {
+      setPdfUploading(false);
+    }
+  }, [uploadFinalCarePlanPDF, pdfUploaded, pdfUploading]);
+
+  // ── Auto-upload on mount: capture DOM after render, upload to Supabase ────
+  useEffect(() => {
+    if (pdfUploaded || pdfUploading) return;
+
+    // Small delay to ensure the .paper DOM is fully rendered and styled
+    const timer = setTimeout(async () => {
+      try {
+        const blob = await capturePaperPdf({ download: false });
+        if (blob) {
+          await uploadPdf(blob);
+        }
+      } catch (err) {
+        console.error('Auto-upload PDF failed:', err);
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []); // Run once on mount
+
+  // ── "Export PDF" — download + upload (if not already uploaded) ─────────────
+  const handleExportPDF = async () => {
+    const blob = await capturePaperPdf({ download: true });
+    if (blob && !pdfUploaded) {
+      await uploadPdf(blob);
+    }
   };
+
   const handlePrint = () => window.print();
-  const handleNewAssessment = () => resetApp();
+
+  // ── "Approve Care Plan" — upload PDF (if needed), then reset ──────────────
+  const handleNewAssessment = async () => {
+    if (!pdfUploaded) {
+      try {
+        const blob = await capturePaperPdf({ download: false });
+        if (blob) await uploadPdf(blob);
+      } catch (err) {
+        console.error('Final PDF upload before reset failed:', err);
+      }
+    }
+    toast.success('Care plan successfully generated and saved to Supabase!');
+    resetApp();
+  };
+
   const handleBack = () => goToStep(3);
 
   if (!carePlan) return null;
@@ -101,7 +166,8 @@ export function OutputSection() {
       onPrint={handlePrint}
       onBack={handleBack}
       onNewAssessment={handleNewAssessment}
+      pdfUploaded={pdfUploaded}
+      pdfUploading={pdfUploading}
     />
   );
 }
-

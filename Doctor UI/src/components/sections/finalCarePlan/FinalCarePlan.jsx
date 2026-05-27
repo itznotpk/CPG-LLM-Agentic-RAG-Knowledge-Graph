@@ -387,6 +387,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   patient, diagnoses, carePlan: plan, allergies, vitals,
   clinicalNotes, provider, encounter, nextReviewDate,
   onExportPDF, onPrint, onBack, onNewAssessment,
+  pdfUploaded, pdfUploading,
 }, ref) {
   const [editing, setEditing] = useState(false);
   const paperRef = useRef(null);
@@ -659,6 +660,44 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
             <span>Send to EMR</span>
             <span className="meta">HL7 FHIR</span>
           </button>
+          {/* ── Supabase upload status ── */}
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 8,
+            padding: '8px 12px', borderRadius: 8, fontSize: 12,
+            marginTop: 4,
+            background: pdfUploaded
+              ? 'rgba(16,185,129,0.08)'
+              : pdfUploading
+                ? 'rgba(59,130,246,0.08)'
+                : 'rgba(100,116,139,0.06)',
+            border: `1px solid ${pdfUploaded
+              ? 'rgba(16,185,129,0.25)'
+              : pdfUploading
+                ? 'rgba(59,130,246,0.25)'
+                : 'rgba(100,116,139,0.15)'}`,
+            color: pdfUploaded
+              ? '#065f46'
+              : pdfUploading
+                ? '#1e40af'
+                : '#64748b',
+          }}>
+            {pdfUploading ? (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ animation: 'spin 1s linear infinite' }}><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+                <span style={{ fontWeight: 500 }}>Saving to records…</span>
+              </>
+            ) : pdfUploaded ? (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span style={{ fontWeight: 500 }}>Saved to patient records</span>
+              </>
+            ) : (
+              <>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span style={{ fontWeight: 500 }}>Pending upload</span>
+              </>
+            )}
+          </div>
           <button className="action-btn" disabled>
             <span className="icon-box">{fcpIcons.mail({})}</span>
             <span>Email to patient</span>

@@ -664,7 +664,8 @@ export const updateConsultation = async (consultationId, updates = {}) => {
  */
 export const uploadCarePlanPDF = async (consultationId, patientNric, pdfBlob) => {
   try {
-    const path = `${patientNric}/${consultationId}.pdf`;
+    const dateStr = new Date().toISOString().split('T')[0];
+    const path = `${patientNric}/CarePlan_${dateStr}_${consultationId}.pdf`;
     console.log('📤 Uploading care plan PDF:', path);
 
     const { error: uploadError } = await supabase.storage

@@ -474,14 +474,13 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Status</th>
                 <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Diagnoses</th>
                 <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Next Review (TCA)</th>
-                <th className={`text-center p-4 text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Risk</th>
               </tr>
             </thead>
             <tbody>
               {/* Loading State */}
               {loading && (
                 <tr>
-                  <td colSpan="6" className="p-8 text-center">
+                  <td colSpan="5" className="p-8 text-center">
                     <div className="flex flex-col items-center gap-3">
                       <Loader2 className={`w-8 h-8 animate-spin ${accent.text}`} strokeWidth={1.5} />
                       <p className={`${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading patients...</p>
@@ -493,7 +492,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
               {/* Error State */}
               {!loading && error && (
                 <tr>
-                  <td colSpan="6" className="p-8 text-center">
+                  <td colSpan="5" className="p-8 text-center">
                     <div className="flex flex-col items-center gap-3">
                       <AlertCircle className="w-8 h-8 text-red-500" strokeWidth={1.5} />
                       <p className="text-red-500">{error}</p>
@@ -508,7 +507,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
               {/* Empty State */}
               {!loading && !error && filteredPatients.length === 0 && (
                 <tr>
-                  <td colSpan="6" className="p-8 text-center">
+                  <td colSpan="5" className="p-8 text-center">
                     <div className="flex flex-col items-center gap-3">
                       <User className={`w-8 h-8 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} strokeWidth={1.5} />
                       <p className={`${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
@@ -557,7 +556,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                       {getStatusBadge(patient.status)}
                     </td>
                     <td className="p-4">
-                      <div className="max-w-[200px]">
+                      <div className="min-w-[250px] max-w-[400px]">
                         {(() => {
                           // Get diagnoses ONLY from the latest consultation
                           const consultation = patientConsultations[patient.nsn];
@@ -590,15 +589,12 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                         accent={accent}
                       />
                     </td>
-                    <td className="p-4 text-center">
-                      {getRiskBadge(patient.riskLevel)}
-                    </td>
                   </tr>
 
                   {/* Expandable Detail Row */}
                   {selectedPatient?.id === patient.id && (
                     <tr>
-                      <td colSpan="6" className={`p-0 ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
+                      <td colSpan="5" className={`p-0 ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
                         <div className="p-6">
                           <div className={`p-4 rounded-xl ${isDark ? 'bg-white/5' : 'bg-white'} border ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
                             <h3 className={`text-base font-semibold mb-4 ${isDark ? 'text-white' : 'text-slate-800'}`}>

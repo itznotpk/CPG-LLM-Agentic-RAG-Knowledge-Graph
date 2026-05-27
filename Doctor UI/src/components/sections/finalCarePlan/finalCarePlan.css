@@ -851,3 +851,9 @@ html, body {
 .density-compact .soap-content { padding-left: 36px; }
 .density-compact .tbl tbody td { padding: 7px 12px; }
 .density-compact .vitals .v { padding: 8px 12px; }
+
+/* Spinner animation for upload status */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
