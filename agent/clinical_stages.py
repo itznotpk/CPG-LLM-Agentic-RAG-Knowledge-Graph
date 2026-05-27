@@ -538,6 +538,11 @@ async def _llm_rerank_ddx(
                 f'       WHO exclusion: "{c.matched_exclusion}"'
                 f"  penalty: {c.exclusion_penalty:.3f}"
             )
+        if (c.cc_boost or 0.0) > 0:
+            if getattr(c, "cc_explicit", False):
+                lines.append("       clinician-named: explicit")
+            elif getattr(c, "cc_confidence", None) is not None:
+                lines.append(f"       cc-implied: {c.cc_confidence * 100:.0f}%")
         return "\n".join(lines)
 
     candidate_lines = "\n".join(_candidate_block(i, c) for i, c in enumerate(candidates))
@@ -911,7 +916,11 @@ async def _extract_cc_icd_hints(
                 and _re.match(r"^[A-Z]{1,2}[A-Z0-9]{1,3}(\.[A-Z0-9]{1,3})?$", code)
                 and 0.0 < conf <= 1.0
             ):
-                valid.append({"code": code, "confidence": round(conf, 3)})
+                valid.append({
+                    "code": code,
+                    "confidence": round(conf, 3),
+                    "explicit": bool(h.get("explicit", False)),
+                })
 
         logger.info("CC ICD hints: %s from CC: %r", valid, cc[:80])
         return valid
@@ -1006,11 +1015,11 @@ async def stage_2_ddx(
     cc_icd_hints = await _extract_cc_icd_hints(
         case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
     )
-    # Build a lookup: code -> confidence for pool injection
-    cc_confidence_map: dict[str, float] = {}
+    # Build a lookup: code -> hint dictionary for pool injection
+    cc_hints_map: dict[str, dict] = {}
     if cc_icd_hints:
         for hint in cc_icd_hints:
-            cc_confidence_map[hint["code"]] = hint["confidence"]
+            cc_hints_map[hint["code"]] = hint
         if emit is not None:
             detail_parts = [f'{h["code"]} ({h["confidence"]:.0%})' for h in cc_icd_hints]
             await emit("sub_step", {
@@ -1040,8 +1049,8 @@ async def stage_2_ddx(
 
     # Inject CC-hinted codes that are missing from the pool entirely.
     # We fetch them via search_ddx(code) to get the canonical DDx row with all fields.
-    if cc_confidence_map:
-        missing_codes = [c for c in cc_confidence_map if c not in pool]
+    if cc_hints_map:
+        missing_codes = [c for c in cc_hints_map if c not in pool]
         if missing_codes:
             fetch_results = await asyncio.gather(
                 *(search_ddx(code, top_k=5) for code in missing_codes),
@@ -1058,16 +1067,19 @@ async def stage_2_ddx(
                     logger.info("CC-boost: code %s not found in DDx index", hint_code)
 
         # Apply the dynamic CC boost as an additive field on pool entries.
-        # cc_boost = CC_BOOST_WEIGHT × confidence (e.g. 0.25 × 0.92 = 0.23)
+        # cc_boost = CC_EXPLICIT_BOOST if explicit else CC_BOOST_WEIGHT × confidence
         # This is stored as a field on the pool dict so DDxResult picks it up.
-        for code, conf in cc_confidence_map.items():
+        for code, hint in cc_hints_map.items():
             if code in pool:
-                boost_val = round(CC_BOOST_WEIGHT * conf, 4)
+                conf = hint["confidence"]
+                explicit = hint.get("explicit", False)
+                boost_val = CC_EXPLICIT_BOOST if explicit else round(CC_BOOST_WEIGHT * conf, 4)
                 pool[code]["cc_boost"] = boost_val
                 pool[code]["cc_confidence"] = conf
+                pool[code]["cc_explicit"] = explicit
                 logger.info(
-                    "CC-boost applied: %s confidence=%.2f → boost=+%.3f (weight=%.2f)",
-                    code, conf, boost_val, CC_BOOST_WEIGHT,
+                    "CC-boost applied: %s confidence=%.2f explicit=%s → boost=+%.3f",
+                    code, conf, explicit, boost_val,
                 )
 
     # Sort by (similarity + cc_boost) so CC-boosted codes surface to top-K for

@@ -22,6 +22,9 @@ Rules:
 - When you promote a specific code over a generic sibling on this basis, set override_reason="specificity_over_generic: <named disease> supported by <one patient finding>".
 - Do NOT promote a specific code if patient data is genuinely ambiguous — in that case, keep the generic code but lower its confidence to reflect the uncertainty.
 
+CLINICIAN-NAMED EXPLICIT CODES:
+If a code is marked clinician-named: explicit, do not demote it below the top-3 unless contradicted by patient context. These are direct assertions documented by the clinician and must be preserved at the top of the differential.
+
 PERTINENT NEGATIVE:
 For your TOP-RANKED code, the reasoning string must name ONE finding from this patient that argues AGAINST a close differential (e.g. "no chest pain argues against ACS"). This forces real discrimination, not pattern-match agreement with the math score.
 
