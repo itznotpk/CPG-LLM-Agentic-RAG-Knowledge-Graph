@@ -4,7 +4,7 @@ from unittest.mock import AsyncMock, patch
 
 from agent.clinical_workflow import run_resynthesize_streaming, WorkflowResult
 from agent.clinical_stages import DDxResult
-from agent.models import PatientCase, TreatmentPlan
+from agent.models import PatientCase, TreatmentPlan, SafetyReport
 
 
 @pytest.fixture
@@ -32,6 +32,15 @@ def mock_plan():
         ],
         confidence=0.88,
     )
+
+
+@pytest.fixture(autouse=True)
+def mock_safety_critic():
+    with patch("agent.safety_critic.run_safety_critic", AsyncMock(return_value=SafetyReport(flags=[], safe_to_proceed=True))), \
+         patch("agent.clinical_workflow.extract_candidate_drugs_from_chunks", AsyncMock(return_value=[])), \
+         patch("agent.clinical_workflow.clinical_graph_lookup", AsyncMock(return_value=[])), \
+         patch("agent.clinical_workflow.get_graph_constraints", AsyncMock(return_value=[])):
+        yield
 
 
 @pytest.mark.asyncio
@@ -70,7 +79,7 @@ async def test_resynth_skips_stage_2(minimal_case, selected_ddx, mock_plan):
     mock_s2.assert_not_called()
     stage_nums = {e[1].get("stage") for e in events if e[0] == "stage_update"}
     assert 2 not in stage_nums
-    assert {3, 4, 5}.issubset(stage_nums)
+    assert {3, 4, 5, 6}.issubset(stage_nums)
 
 
 @pytest.mark.asyncio

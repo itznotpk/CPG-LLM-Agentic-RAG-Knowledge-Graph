@@ -5,7 +5,7 @@ from unittest.mock import AsyncMock, patch, MagicMock
 
 from agent.clinical_workflow import run_clinical_workflow_streaming, WorkflowResult
 from agent.clinical_stages import DDxResult, _llm_rerank_ddx
-from agent.models import PatientCase, TreatmentPlan
+from agent.models import PatientCase, TreatmentPlan, SafetyReport
 
 
 @pytest.fixture
@@ -33,11 +33,20 @@ def mock_plan():
     )
 
 
+@pytest.fixture(autouse=True)
+def mock_safety_critic():
+    with patch("agent.safety_critic.run_safety_critic", AsyncMock(return_value=SafetyReport(flags=[], safe_to_proceed=True))), \
+         patch("agent.clinical_workflow.extract_candidate_drugs_from_chunks", AsyncMock(return_value=[])), \
+         patch("agent.clinical_workflow.clinical_graph_lookup", AsyncMock(return_value=[])), \
+         patch("agent.clinical_workflow.get_graph_constraints", AsyncMock(return_value=[])):
+        yield
+
+
 # ── Stage progress tests ──────────────────────────────────────────────────────
 
 @pytest.mark.asyncio
 async def test_streaming_emits_all_stage_events(minimal_case, mock_ddx, mock_plan):
-    """All 4 stages emit running + complete events."""
+    """All streaming stages emit running + complete events."""
     events = []
 
     async def collect(event_type, data):
@@ -51,7 +60,7 @@ async def test_streaming_emits_all_stage_events(minimal_case, mock_ddx, mock_pla
         await run_clinical_workflow_streaming(minimal_case, collect)
 
     updates = [e for e in events if e[0] == "stage_update"]
-    for stage_num in [2, 3, 4, 5]:
+    for stage_num in [2, 3, 4, 5, 6]:
         statuses = {e[1]["status"] for e in updates if e[1]["stage"] == stage_num}
         assert "running"  in statuses, f"Stage {stage_num} missing 'running'"
         assert "complete" in statuses, f"Stage {stage_num} missing 'complete'"
