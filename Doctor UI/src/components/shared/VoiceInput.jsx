@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Mic, MicOff, Volume2, VolumeX, Square, Play, Pause, Loader2, Cloud, CloudOff, FileText } from 'lucide-react';
+import { Mic, MicOff, Volume2, VolumeX, Square, Play, Pause, Loader2, Cloud, CloudOff, FileText, X } from 'lucide-react';
 import { Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -131,6 +131,7 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
   const streamRef = useRef(null);
   const timerRef = useRef(null);
   const hardStopRef = useRef(null);
+  const discardRecordingRef = useRef(false);
 
   // Clean up on unmount
   useEffect(() => {
@@ -166,12 +167,19 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
       const recorder = new MediaRecorder(stream, { mimeType });
       mediaRecorderRef.current = recorder;
       chunksRef.current = [];
+      discardRecordingRef.current = false;
 
       recorder.ondataavailable = (e) => {
         if (e.data.size > 0) chunksRef.current.push(e.data);
       };
 
       recorder.onstop = async () => {
+        if (discardRecordingRef.current) {
+          chunksRef.current = [];
+          discardRecordingRef.current = false;
+          return;
+        }
+
         const blob = new Blob(chunksRef.current, { type: mimeType });
         chunksRef.current = [];
 
@@ -274,6 +282,13 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
     setIsRecording(false);
   }, []);
 
+  const cancelRecording = useCallback(() => {
+    discardRecordingRef.current = true;
+    chunksRef.current = [];
+    setError('');
+    stopRecording(true);
+  }, [stopRecording]);
+
   const toggle = useCallback(() => {
     if (isRecording) {
       stopRecording();
@@ -344,6 +359,18 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
         >
           <Square className="w-3.5 h-3.5" fill="currentColor" />
           Stop
+        </button>
+        <button
+          onClick={cancelRecording}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+            isDark
+              ? 'border-white/20 text-slate-300 hover:bg-white/10'
+              : 'border-slate-300 text-slate-600 hover:bg-slate-50'
+          }`}
+          title="Cancel and discard this recording"
+        >
+          <X className="w-3.5 h-3.5" strokeWidth={2} />
+          Cancel
         </button>
       </div>
     );
