@@ -2603,7 +2603,7 @@ async def summarise_consultation(labeled_transcript: str) -> str:
                 {"role": "user", "content": labeled_transcript},
             ],
             temperature=0.1,
-            max_tokens=600,
+            max_tokens=1200,
         )
         summary = (resp.choices[0].message.content or "").strip()
         return summary
