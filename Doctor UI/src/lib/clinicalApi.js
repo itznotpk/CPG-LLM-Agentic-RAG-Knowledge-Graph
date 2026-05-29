@@ -251,7 +251,10 @@ export async function runClinicalPlanStream(
             else if (eventType === 'thinking_delta' && onThinkingChunk)  onThinkingChunk(payload);
             else if (eventType === 'sub_step'       && onSubStep)        onSubStep(payload);
             else if (eventType === 'safety_review'  && onSafetyReview)  onSafetyReview(payload);
-            else if (eventType === 'final_result')                        resolve(payload);
+            else if (eventType === 'final_result') {
+              if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
+              resolve(payload);
+            }
             else if (eventType === 'error')                               reject(new Error(payload.detail || 'Pipeline error'));
             else if (eventType === 'done')                                return; // resolve already called
           }
@@ -345,7 +348,10 @@ export async function resynthesizePlanStream(
             else if (eventType === 'sub_step'           && onSubStep)           onSubStep(payload);
             else if (eventType === 'clinician_override' && onClinicianOverride) onClinicianOverride(payload);
             else if (eventType === 'safety_review'      && onSafetyReview)     onSafetyReview(payload);
-            else if (eventType === 'final_result')                               resolve(payload);
+            else if (eventType === 'final_result') {
+              if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
+              resolve(payload);
+            }
             else if (eventType === 'error')                                      reject(new Error(payload.detail || 'Re-synthesis error'));
             else if (eventType === 'done')                                       return;
           }

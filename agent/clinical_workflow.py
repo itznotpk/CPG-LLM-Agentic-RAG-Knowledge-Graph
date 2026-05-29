@@ -501,7 +501,20 @@ async def run_clinical_workflow_streaming(
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
+    await emit("stage_update", {
+        "stage": 6, "name": "Safety Review",
+        "status": "running", "detail": "Running independent medication safety review...",
+    })
     safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
+    blocking_flags = [f for f in safety_report.flags if f.severity in ("CRITICAL", "MAJOR")]
+    await emit("stage_update", {
+        "stage": 6, "name": "Safety Review", "status": "complete",
+        "detail": (
+            f"{len(blocking_flags)} major safety concern(s) found"
+            if blocking_flags else "Safety review complete"
+        ),
+        "badge": "review required" if blocking_flags else "passed",
+    })
     await emit("safety_review", safety_report.model_dump())
 
     return WorkflowResult(
@@ -629,8 +642,21 @@ async def run_resynthesize_streaming(
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
+    await emit("stage_update", {
+        "stage": 6, "name": "Safety Review",
+        "status": "running", "detail": "Running independent medication safety review...",
+    })
     with _time_stage("stage_6_safety", timings):
         safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
+    blocking_flags = [f for f in safety_report.flags if f.severity in ("CRITICAL", "MAJOR")]
+    await emit("stage_update", {
+        "stage": 6, "name": "Safety Review", "status": "complete",
+        "detail": (
+            f"{len(blocking_flags)} major safety concern(s) found"
+            if blocking_flags else "Safety review complete"
+        ),
+        "badge": "review required" if blocking_flags else "passed",
+    })
     await emit("safety_review", safety_report.model_dump())
 
     return WorkflowResult(

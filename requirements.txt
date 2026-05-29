@@ -12,6 +12,11 @@ pydantic-ai-slim>=0.3.2
 pydantic-settings>=2.10.0
 
 # ------------------------------------------
+# Google Cloud
+# ------------------------------------------
+google-cloud-storage>=2.19.0  # GCS upload/delete for consultation audio (gcs_audio.py)
+
+# ------------------------------------------
 # LLM Providers
 # ------------------------------------------
 openai>=1.90.0              # OpenAI-compatible API client (used for OpenRouter & Gemini)

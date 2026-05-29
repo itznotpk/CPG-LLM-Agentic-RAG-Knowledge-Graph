@@ -693,6 +693,7 @@ export function AppProvider({ children }) {
       selectedDiagnoses.map((d) => d.icdCode),
     );
     dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 3 });
+    let planGenerated = false;
 
     try {
       const response = await resynthesizePlanStream(
@@ -723,14 +724,26 @@ export function AppProvider({ children }) {
         type: 'SET_PIPELINE_SUMMARY',
         payload: { elapsed_ms: response.elapsed_ms, ddxCount: selectedDiagnoses.length, cpgCount: response.cpgs_matched?.length || 0 },
       });
+      planGenerated = true;
       console.log('✅ Plan synthesis complete for confirmed diagnosis');
     } catch (err) {
       console.error('Plan synthesis failed:', err);
-      // Non-fatal: advance to Step 3 anyway so the clinician isn't stuck.
+      dispatch({
+        type: 'APPEND_PIPELINE_EVENT',
+        payload: {
+          stage: 6,
+          name: 'Safety Review',
+          status: 'error',
+          detail: err.message || 'Plan generation stopped before completion',
+          eventType: 'stage_update',
+        },
+      });
     }
 
     dispatch({ type: 'SET_GENERATING_PLAN', payload: false });
-    dispatch({ type: 'SET_STEP', payload: 3 });
+    if (planGenerated) {
+      dispatch({ type: 'SET_STEP', payload: 3 });
+    }
   };
 
   const finalizePlan = async () => {

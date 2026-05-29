@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Mic, MicOff, Volume2, VolumeX, Square, Play, Pause, Loader2, Cloud, CloudOff } from 'lucide-react';
+import { Mic, MicOff, Volume2, VolumeX, Square, Play, Pause, Loader2, Cloud, CloudOff, FileText, X } from 'lucide-react';
 import { Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -47,29 +47,105 @@ if (typeof document !== 'undefined' && !document.getElementById('waveform-keyfra
 }
 
 
+// ── Transcript Modal (consultation mode) ─────────────────────────────────
+function TranscriptModal({ turns, onClose, isDark }) {
+  if (!turns || turns.length === 0) return null;
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
+      onClick={onClose}
+    >
+      <div
+        className={`relative w-full max-w-lg mx-4 rounded-xl shadow-2xl border overflow-hidden ${
+          isDark ? 'bg-slate-900 border-white/10' : 'bg-white border-slate-200'
+        }`}
+        onClick={e => e.stopPropagation()}
+      >
+        <div className={`flex items-center justify-between px-4 py-3 border-b ${isDark ? 'border-white/10' : 'border-slate-100'}`}>
+          <span className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+            Consultation Transcript
+          </span>
+          <button
+            onClick={onClose}
+            className={`text-xs px-2 py-1 rounded ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-800'}`}
+          >
+            Close
+          </button>
+        </div>
+        <div className="p-4 max-h-96 overflow-y-auto space-y-2">
+          {turns.map((t, i) => (
+            <div key={i} className="flex gap-2">
+              <span className={`text-xs font-semibold shrink-0 w-14 pt-0.5 ${
+                t.speaker === 'Doctor'
+                  ? (isDark ? 'text-teal-400' : 'text-teal-600')
+                  : (isDark ? 'text-violet-400' : 'text-violet-600')
+              }`}>
+                {t.speaker}
+              </span>
+              <span className={`text-sm leading-snug ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                {t.text}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TranscriptLogButton({ onClick, isDark }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+        isDark
+          ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
+          : 'border-slate-300 text-slate-600 hover:bg-slate-50 hover:border-teal-300'
+      }`}
+      title="View consultation transcript log"
+    >
+      <FileText className="w-4 h-4" strokeWidth={1.5} />
+      Transcript Log
+    </button>
+  );
+}
+
+const CONSULTATION_MAX_SECONDS = 12 * 60; // 12 min hard cap
+const CONSULTATION_WARN_SECONDS = 10 * 60; // 10 min warning
+
 // ── Voice Input Button (Google Cloud STT via backend proxy) ───────────────
-export function VoiceInputButton({ onTranscript, disabled = false, className = '' }) {
+export function VoiceInputButton({ onTranscript, disabled = false, className = '', mode = 'dictate' }) {
   const { isDark } = useTheme();
   const [isRecording, setIsRecording] = useState(false);
   const [isTranscribing, setIsTranscribing] = useState(false);
   const [recordingDuration, setRecordingDuration] = useState(0);
   const [error, setError] = useState('');
 
+  // Consultation-mode extras
+  const [transcriptTurns, setTranscriptTurns] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [processingDone, setProcessingDone] = useState(false);
+
   const mediaRecorderRef = useRef(null);
   const chunksRef = useRef([]);
   const streamRef = useRef(null);
   const timerRef = useRef(null);
+  const hardStopRef = useRef(null);
+  const discardRecordingRef = useRef(false);
 
   // Clean up on unmount
   useEffect(() => {
     return () => {
       stopRecording(true);
       if (timerRef.current) clearInterval(timerRef.current);
+      if (hardStopRef.current) clearTimeout(hardStopRef.current);
     };
   }, []);
 
   const startRecording = useCallback(async () => {
     setError('');
+    setProcessingDone(false);
+    setTranscriptTurns(null);
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
@@ -91,13 +167,19 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
       const recorder = new MediaRecorder(stream, { mimeType });
       mediaRecorderRef.current = recorder;
       chunksRef.current = [];
+      discardRecordingRef.current = false;
 
       recorder.ondataavailable = (e) => {
         if (e.data.size > 0) chunksRef.current.push(e.data);
       };
 
       recorder.onstop = async () => {
-        // Assemble the Blob and send to backend
+        if (discardRecordingRef.current) {
+          chunksRef.current = [];
+          discardRecordingRef.current = false;
+          return;
+        }
+
         const blob = new Blob(chunksRef.current, { type: mimeType });
         chunksRef.current = [];
 
@@ -111,9 +193,14 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
           const formData = new FormData();
           formData.append('audio', blob, 'recording.webm');
 
-          const resp = await fetch(`${CLINICAL_API_BASE}/clinical/stt`, {
+          const endpoint = mode === 'consultation'
+            ? `${CLINICAL_API_BASE}/clinical/consultation/process`
+            : `${CLINICAL_API_BASE}/clinical/stt`;
+
+          const resp = await fetch(endpoint, {
             method: 'POST',
             body: formData,
+            // No timeout on fetch — longrunning poll can take 30–90 s
           });
 
           if (!resp.ok) {
@@ -122,10 +209,27 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
           }
 
           const data = await resp.json();
-          if (data.transcript && onTranscript) {
-            onTranscript(data.transcript);
-          } else if (!data.transcript) {
-            setError('No speech detected');
+
+          if (mode === 'consultation') {
+            // Store turns for optional transcript viewer
+            if (data.transcript && data.transcript.length > 0) {
+              setTranscriptTurns(data.transcript);
+            }
+            if (data.summary && onTranscript) {
+              onTranscript(data.summary);
+              setProcessingDone(true);
+              setTimeout(() => setProcessingDone(false), 3000);
+            } else if (data.transcript && data.transcript.length > 0) {
+              setError('Transcription succeeded but summary failed — check backend logs');
+            } else {
+              setError('No speech detected in recording');
+            }
+          } else {
+            if (data.transcript && onTranscript) {
+              onTranscript(data.transcript);
+            } else if (!data.transcript) {
+              setError('No speech detected');
+            }
           }
         } catch (err) {
           console.error('STT error:', err);
@@ -139,10 +243,16 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
       setIsRecording(true);
       setRecordingDuration(0);
 
-      // Duration timer
       timerRef.current = setInterval(() => {
         setRecordingDuration(d => d + 1);
       }, 1000);
+
+      // Hard stop at 12 min for consultation mode
+      if (mode === 'consultation') {
+        hardStopRef.current = setTimeout(() => {
+          stopRecording();
+        }, CONSULTATION_MAX_SECONDS * 1000);
+      }
     } catch (err) {
       console.error('Mic access error:', err);
       if (err.name === 'NotAllowedError') {
@@ -151,12 +261,16 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
         setError('Microphone not available');
       }
     }
-  }, [onTranscript]);
+  }, [onTranscript, mode]);
 
   const stopRecording = useCallback((silent = false) => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
       timerRef.current = null;
+    }
+    if (hardStopRef.current) {
+      clearTimeout(hardStopRef.current);
+      hardStopRef.current = null;
     }
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
@@ -167,6 +281,13 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
     }
     setIsRecording(false);
   }, []);
+
+  const cancelRecording = useCallback(() => {
+    discardRecordingRef.current = true;
+    chunksRef.current = [];
+    setError('');
+    stopRecording(true);
+  }, [stopRecording]);
 
   const toggle = useCallback(() => {
     if (isRecording) {
@@ -182,7 +303,9 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
     return `${m}:${sec.toString().padStart(2, '0')}`;
   };
 
-  // ── Transcribing state (spinner) ──
+  const isNearLimit = mode === 'consultation' && recordingDuration >= CONSULTATION_WARN_SECONDS;
+
+  // ── Transcribing / processing state (spinner) ──
   if (isTranscribing) {
     return (
       <div className={`flex items-center gap-2 ${className}`}>
@@ -191,8 +314,25 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
                  : 'border-teal-300 text-teal-700 bg-teal-50'
         }`}>
           <Loader2 className="w-4 h-4 animate-spin" />
-          <span>Transcribing…</span>
+          <span>
+            {mode === 'consultation'
+              ? 'Processing consultation… (this can take up to a minute)'
+              : 'Transcribing…'}
+          </span>
         </div>
+        {mode === 'consultation' && transcriptTurns && (
+          <button
+            onClick={() => setShowModal(true)}
+            className={`text-xs px-2 py-1 rounded border ${
+              isDark ? 'border-white/20 text-slate-400 hover:text-white' : 'border-slate-300 text-slate-500 hover:text-slate-800'
+            }`}
+          >
+            View Transcript
+          </button>
+        )}
+        {showModal && (
+          <TranscriptModal turns={transcriptTurns} onClose={() => setShowModal(false)} isDark={isDark} />
+        )}
       </div>
     );
   }
@@ -203,10 +343,13 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
       <div className={`flex items-center gap-2 ${className}`}>
         {/* Duration badge */}
         <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-sm font-medium ${
-          isDark ? 'border-red-500/30 text-red-400 bg-red-500/10' : 'border-red-200 text-red-600 bg-red-50'
+          isNearLimit
+            ? (isDark ? 'border-amber-500/40 text-amber-400 bg-amber-500/10' : 'border-amber-300 text-amber-700 bg-amber-50')
+            : (isDark ? 'border-red-500/30 text-red-400 bg-red-500/10' : 'border-red-200 text-red-600 bg-red-50')
         }`} style={{ animation: 'stt-pulse 2s ease-in-out infinite' }}>
           <WaveformBars isActive barCount={4} />
           <span className="tabular-nums">{formatDuration(recordingDuration)}</span>
+          {isNearLimit && <span className="text-xs opacity-75">limit soon</span>}
         </div>
 
         {/* Stop button */}
@@ -217,39 +360,85 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
           <Square className="w-3.5 h-3.5" fill="currentColor" />
           Stop
         </button>
+        <button
+          onClick={cancelRecording}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+            isDark
+              ? 'border-white/20 text-slate-300 hover:bg-white/10'
+              : 'border-slate-300 text-slate-600 hover:bg-slate-50'
+          }`}
+          title="Cancel and discard this recording"
+        >
+          <X className="w-3.5 h-3.5" strokeWidth={2} />
+          Cancel
+        </button>
+      </div>
+    );
+  }
+
+  // ── Done state (brief checkmark, consultation mode) ──
+  if (processingDone && mode === 'consultation') {
+    return (
+      <div className={`flex items-center gap-2 ${className}`}>
+        <div className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border text-sm font-medium ${
+          isDark ? 'border-emerald-500/30 text-emerald-400 bg-emerald-500/10' : 'border-emerald-200 text-emerald-700 bg-emerald-50'
+        }`}>
+          <span>&#10003; Summary added</span>
+        </div>
+        {transcriptTurns && (
+          <button
+            onClick={() => setShowModal(true)}
+            className={`text-xs px-2 py-1 rounded border ${
+              isDark ? 'border-white/20 text-slate-400 hover:text-white' : 'border-slate-300 text-slate-500 hover:text-slate-800'
+            }`}
+          >
+            View Transcript
+          </button>
+        )}
+        {showModal && (
+          <TranscriptModal turns={transcriptTurns} onClose={() => setShowModal(false)} isDark={isDark} />
+        )}
       </div>
     );
   }
 
   // ── Idle state (start button) ──
   return (
-    <div className="relative">
-      <button
-        onClick={toggle}
-        disabled={disabled}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ${
-          isDark
-            ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
-            : 'border-slate-300 text-slate-600 hover:bg-teal-50 hover:border-teal-300'
-        } disabled:opacity-40 disabled:cursor-not-allowed`}
-        title="Record voice note (Google Cloud STT)"
-      >
-        <Mic className="w-4 h-4" strokeWidth={1.5} />
-        <Cloud className="w-3 h-3 opacity-50" strokeWidth={1.5} />
-        Dictate
-      </button>
+    <div className={`flex items-center gap-2 ${className}`}>
+      <div className="relative">
+        <button
+          onClick={toggle}
+          disabled={disabled}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ${
+            isDark
+              ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
+              : 'border-slate-300 text-slate-600 hover:bg-teal-50 hover:border-teal-300'
+          } disabled:opacity-40 disabled:cursor-not-allowed`}
+          title={mode === 'consultation' ? 'Record consultation (Google Cloud STT + Gemini summary)' : 'Record voice note (Google Cloud STT)'}
+        >
+          <Mic className="w-4 h-4" strokeWidth={1.5} />
+          <Cloud className="w-3 h-3 opacity-50" strokeWidth={1.5} />
+          {mode === 'consultation' ? 'Record Consult' : 'Dictate'}
+        </button>
 
-      {/* Error tooltip */}
-      {error && (
-        <div className={`absolute top-full left-0 mt-2 p-2 rounded-lg shadow-lg border text-xs z-20 max-w-[240px] ${
-          isDark ? 'bg-slate-800/95 border-red-500/30 text-red-400' : 'bg-white border-red-200 text-red-600'
-        }`}>
-          {error}
-          <button
-            onClick={() => setError('')}
-            className="ml-2 underline opacity-70 hover:opacity-100"
-          >dismiss</button>
-        </div>
+        {/* Error tooltip */}
+        {error && (
+          <div className={`absolute top-full left-0 mt-2 p-2 rounded-lg shadow-lg border text-xs z-20 max-w-[240px] ${
+            isDark ? 'bg-slate-800/95 border-red-500/30 text-red-400' : 'bg-white border-red-200 text-red-600'
+          }`}>
+            {error}
+            <button
+              onClick={() => setError('')}
+              className="ml-2 underline opacity-70 hover:opacity-100"
+            >dismiss</button>
+          </div>
+        )}
+      </div>
+      {mode === 'consultation' && transcriptTurns && (
+        <TranscriptLogButton onClick={() => setShowModal(true)} isDark={isDark} />
+      )}
+      {showModal && (
+        <TranscriptModal turns={transcriptTurns} onClose={() => setShowModal(false)} isDark={isDark} />
       )}
     </div>
   );

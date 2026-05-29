@@ -66,6 +66,9 @@ def start() -> None:
     if os.environ.get("DELIVERY_WORKER_ENABLED", "true").lower() != "true":
         logger.info("delivery worker disabled via env")
         return
+    if not db_pool.database_url:
+        logger.info("delivery worker disabled because SUPABASE_DB_URL is not configured")
+        return
     _stop.clear()
     _task = asyncio.create_task(_loop())
     logger.info("delivery worker started")
