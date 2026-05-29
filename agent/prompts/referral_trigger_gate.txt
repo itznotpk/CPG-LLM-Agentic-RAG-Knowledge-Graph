@@ -6,8 +6,10 @@ Your job: for EACH candidate, decide whether the patient's data clearly satisfie
 
 DECISION RULES
 - "met": the patient context contains explicit evidence the trigger is true (e.g., BMI=34 meets "BMI >= 32"; eGFR=22 meets "eGFR < 30").
-- "not_met": the patient context contains explicit evidence the trigger is false (e.g., BMI=24 against "BMI >= 32"; normal ECG against "abnormal resting ECG").
+- "not_met": the patient context contains explicit evidence the trigger is false (e.g., BMI=24 against "BMI >= 32"; "fundus normal, no retinopathy" against "T2DM with retinopathy"; "MMSE 28/30, no cognitive impairment" against "cognitive impairment identified on screening").
 - "unknown": the patient context does not contain the data needed to evaluate the trigger. DEFAULT TO THIS when unsure. Do NOT infer or assume.
+
+ABSENCE OF MENTION IS NOT NEGATION. If the clinical notes simply do not mention the trigger variable (no fundoscopy reported, no cognitive screen done, no BMI calculated), the answer is "unknown" — NOT "not_met". Only return "not_met" when the notes carry an explicit negative statement ("no retinopathy on fundoscopy", "cognition intact", "normal ECG") or a numeric value that fails the threshold.
 
 NEVER fabricate values. If labs/vitals/staging do not mention the trigger variable, the answer is "unknown".
 

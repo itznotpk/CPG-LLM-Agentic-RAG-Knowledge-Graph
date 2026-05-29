@@ -182,6 +182,21 @@ class WorkflowResult:
     evidence: list[ChunkResult] = field(default_factory=list)
 
 
+def _derive_bmi(case: PatientCase) -> None:
+    """Derive BMI from weight (kg) + height (cm) when missing, in-place on vitals."""
+    v = case.vitals or {}
+    if "bmi" in v or not v.get("weight") or not v.get("height"):
+        return
+    try:
+        w = float(v["weight"])
+        h_m = float(v["height"]) / 100
+        if h_m > 0:
+            v["bmi"] = round(w / (h_m * h_m), 1)
+            case.vitals = v
+    except (TypeError, ValueError):
+        pass
+
+
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     """
     Run the full clinical workflow for a patient case.
@@ -200,6 +215,8 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     t0 = time.monotonic()
     errors: list[str] = []
     timings: dict[str, float] = {}
+
+    _derive_bmi(case)
 
     # Stage 2 — DDx
     try:
@@ -347,6 +364,8 @@ async def run_clinical_workflow_streaming(
     """
     t0 = time.monotonic()
     errors: list[str] = []
+
+    _derive_bmi(case)
 
     # Stage 2 — DDx
     await emit("stage_update", {

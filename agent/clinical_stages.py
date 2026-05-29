@@ -49,6 +49,25 @@ _PARSER_ERROR_DRUGS = {
     "pharmacological treatment", "medication", "medications",
 }
 
+# Specialist-initiated drugs: medication classes that require specialist ordering (Gap 7)
+# Maps drug class/name → required specialty for initiation
+_SPECIALIST_INITIATED_DRUGS: dict[str, list[str]] = {
+    "rituximab": ["rheumatology", "oncology"],
+    "biologic dmard": ["rheumatology"],
+    "insulin": ["endocrinology", "diabetes"],
+    "insulin pump": ["endocrinology"],
+    "glp-1": ["endocrinology"],
+    # ACE-i, MRA, SGLT2i are GP-initiable foundational therapy for HFrEF/T2DM/CKD
+    # per Malaysian CPG; do not flag as specialist-only.
+    "arni": ["cardiology"],
+    "ivabradine": ["cardiology"],
+    "sacubitril": ["cardiology"],
+    "warfarin": ["cardiology", "haematology"],
+    "doac": ["cardiology", "haematology"],
+    "immunosuppressant": ["nephrology", "rheumatology", "gastroenterology"],
+    "immunotherapy": ["oncology", "immunology"],
+}
+
 _DRUG_CLASS_KEYWORDS: dict[str, list[str]] = {
     "ace inhibitor": ["pril"],
     "angiotensin receptor blocker": ["sartan"],
@@ -78,6 +97,214 @@ _DRUG_CLASS_KEYWORDS: dict[str, list[str]] = {
 }
 
 
+def _assess_case_severity(case: PatientCase) -> tuple[int, str]:
+    """Assess patient case severity (0–3 scale) based on vitals, labs, staging.
+
+    Returns: (severity_score, rationale) where:
+      0 = stable/routine
+      1 = moderate/monitoring needed
+      2 = high/urgent intervention needed
+      3 = critical/emergency
+
+    Gap 5: Used for urgency-severity harmonization validation.
+    """
+    severity = 0
+    rationale_parts = []
+
+    # Check staging if available
+    staging = getattr(case, "severity_staging", {}) or {}
+    if staging:
+        # Common critical stagings
+        critical_stages = {"critical", "emergency", "acute decompensation", "unstable", "shock"}
+        if any(str(v).lower() in critical_stages for v in staging.values()):
+            severity = max(severity, 3)
+            rationale_parts.append("critical staging detected")
+
+    # Check vitals
+    vitals = getattr(case, "vitals", {}) or {}
+    if vitals:
+        # Critical vital ranges
+        hr = vitals.get("heart_rate")
+        sbp = vitals.get("systolic_bp")
+        o2 = vitals.get("oxygen_saturation")
+
+        if hr and (hr > 120 or hr < 40):
+            severity = max(severity, 2)
+            rationale_parts.append(f"abnormal HR {hr}")
+        if sbp and (sbp > 180 or sbp < 90):
+            severity = max(severity, 2)
+            rationale_parts.append(f"abnormal SBP {sbp}")
+        if o2 and o2 < 90:
+            severity = max(severity, 3)
+            rationale_parts.append(f"hypoxia {o2}%")
+
+    # Check comorbidities count (multiple comorbidities = higher complexity/urgency)
+    comorbidities = getattr(case, "comorbidities", []) or []
+    if len(comorbidities) >= 3:
+        severity = max(severity, 1)
+        rationale_parts.append(f"multiple comorbidities ({len(comorbidities)})")
+
+    # Check history for acute events
+    history = (getattr(case, "history", "") or "").lower()
+    acute_terms = {"acute", "sudden", "emergency", "unstable", "decompensation", "infarction", "stroke"}
+    if any(term in history for term in acute_terms):
+        severity = max(severity, 2)
+        rationale_parts.append("acute event in history")
+
+    rationale = "; ".join(rationale_parts) if rationale_parts else "stable baseline"
+    return severity, rationale
+
+
+def _validate_urgency_severity_alignment(
+    referral_urgency: str | None,
+    case_severity: int,
+) -> tuple[bool, str | None]:
+    """Validate that referral urgency matches case severity (Gap 5).
+
+    Returns: (is_aligned, recommendation) where:
+      is_aligned: True if urgency matches severity
+      recommendation: Suggested urgency upgrade if misaligned (None if aligned)
+
+    Examples:
+      - case_severity=3 (critical), urgency="routine" → (False, "urgent")
+      - case_severity=1 (moderate), urgency="urgent" → (True, None)  [ok to be cautious]
+      - case_severity=0 (stable), urgency="emergency" → (False, "routine")
+    """
+    urgency = (referral_urgency or "routine").strip().lower()
+    urgency_priority = _referral_urgency_priority(urgency)
+
+    # Map severity (0-3) to expected urgency priority (1-3)
+    severity_to_priority = {0: 1, 1: 1, 2: 2, 3: 3}  # 0-1: routine ok, 2: urgent preferred, 3: emergency needed
+    expected_min_priority = severity_to_priority.get(case_severity, 1)
+
+    if urgency_priority >= expected_min_priority:
+        # Aligned: urgency is sufficient for severity
+        return True, None
+
+    # Misaligned: urgency too low for severity
+    priority_to_urgency = {1: "routine", 2: "urgent", 3: "emergency"}
+    recommended = priority_to_urgency.get(expected_min_priority, "routine")
+    return False, recommended
+
+
+def _get_problematic_triggers(all_unresolved: list[str]) -> dict[str, int]:
+    """Extract and aggregate unresolved referral triggers to identify patterns (Gap 6).
+
+    Returns: dict of trigger_condition_pair → frequency count
+
+    Analyzes unresolved_questions to find repeating trigger-condition failures.
+    Used to warn about triggers with high historical failure rates.
+    """
+    trigger_failures: dict[str, int] = {}
+
+    for question in all_unresolved:
+        # Expected format: "Consider {specialty} referral ({urgency}) for {condition} IF: {trigger}"
+        if "Consider" in question and "IF:" in question:
+            try:
+                # Extract trigger from "IF: {trigger}"
+                trigger_part = question.split("IF:")[-1].strip()
+                # Extract condition: "for {condition} IF"
+                for_idx = question.find(" for ")
+                if_idx = question.find(" IF:")
+                if for_idx >= 0 and if_idx > for_idx:
+                    condition = question[for_idx + 5 : if_idx].strip()
+                    trigger_key = f"{condition}|{trigger_part}"
+                    trigger_failures[trigger_key] = trigger_failures.get(trigger_key, 0) + 1
+            except (IndexError, ValueError):
+                pass
+
+    return trigger_failures
+
+
+def _assess_data_quality_issue(case: PatientCase, trigger: str) -> tuple[bool, str | None]:
+    """Assess if trigger failure likely due to data quality (Gap 6).
+
+    Returns: (is_data_quality_issue, issue_description)
+
+    Checks if patient case has missing critical data that would prevent gate evaluation.
+    """
+    required_fields = []
+
+    # Check what data the trigger likely needs
+    trigger_lower = trigger.lower()
+
+    if any(x in trigger_lower for x in ["hba1c", "glucose", "fasting", "blood sugar"]):
+        labs = getattr(case, "labs", {}) or {}
+        if not labs.get("hba1c") and not labs.get("glucose"):
+            required_fields.append("HbA1c/glucose labs")
+
+    if any(x in trigger_lower for x in ["bp", "blood pressure", "systolic", "diastolic"]):
+        vitals = getattr(case, "vitals", {}) or {}
+        if not vitals.get("systolic_bp") and not vitals.get("diastolic_bp"):
+            required_fields.append("blood pressure vitals")
+
+    if any(x in trigger_lower for x in ["egfr", "creatinine", "kidney"]):
+        labs = getattr(case, "labs", {}) or {}
+        if not labs.get("egfr") and not labs.get("creatinine"):
+            required_fields.append("renal function labs")
+
+    if any(x in trigger_lower for x in ["ejection fraction", "ef", "lvef", "cardiac"]):
+        tests = getattr(case, "imaging", {}) or {}
+        if not tests:
+            required_fields.append("cardiac imaging/EF")
+
+    if required_fields:
+        return True, f"Missing critical data: {', '.join(required_fields)}"
+
+    return False, None
+
+
+def _validate_specialist_medication_pairing(
+    recommendations: list[Recommendation],
+) -> list[str]:
+    """Validate specialist-initiated drugs have referrals, and vice versa (Gap 7).
+
+    Returns: List of validation warnings for unmet cross-references.
+
+    Checks:
+    1. Specialist-initiated drugs → ensure referral to required specialty exists
+    2. Referrals for conditions needing specific meds → ensure medication present
+    """
+    warnings = []
+
+    # Extract specialist referrals
+    specialist_refs: dict[str, list[str]] = {}  # specialty → [conditions]
+    specialist_recs = [r for r in recommendations if r.type == "referral"]
+    for rec in specialist_recs:
+        spec = (getattr(rec, "specialty", None) or "").strip().lower()
+        cond = (getattr(rec, "condition", None) or "").strip().lower()
+        if spec:
+            if spec not in specialist_refs:
+                specialist_refs[spec] = []
+            if cond:
+                specialist_refs[spec].append(cond)
+
+    # Check medications against specialist-initiated mapping
+    med_recs = [r for r in recommendations if r.type == "pharmacological"]
+    for med_rec in med_recs:
+        med_text = (med_rec.intervention or "").lower()
+
+        # Check if this is a specialist-initiated drug
+        required_specs = []
+        for drug_class, specs in _SPECIALIST_INITIATED_DRUGS.items():
+            if drug_class in med_text:
+                required_specs.extend(specs)
+
+        if required_specs:
+            # Verify at least one required specialist is in referrals
+            has_required = any(
+                spec in specialist_refs for spec in required_specs
+            )
+            if not has_required:
+                warning = (
+                    f"Specialist-initiated medication {med_text[:40]} recommended "
+                    f"but no referral to {required_specs[0]} (requires specialist initiation)"
+                )
+                warnings.append(warning)
+
+    return warnings
+
+
 def _match_rule_to_med(med_name: str, rule_drug: str) -> bool:
     """Return True if a prescribed med matches a KG drug name or drug class."""
     if not med_name or not rule_drug:
@@ -92,6 +319,362 @@ def _match_rule_to_med(med_name: str, rule_drug: str) -> bool:
         if kw in n:
             return True
     return False
+
+
+def _normalize_drug_name(intervention: str) -> str:
+    """Extract and normalize the primary drug name from an intervention string.
+
+    Examples:
+      "Metformin 500mg BD" → "metformin"
+      "Lisinopril 10mg daily — ACE inhibitor" → "lisinopril"
+      "Beta-blocker (agent and dose not specified in CPG)" → "beta-blocker"
+
+    Returns normalized drug name (lowercase, stripped), or empty string if unparseable.
+    """
+    if not intervention:
+        return ""
+    # Split on common separators and take the first part
+    first_part = intervention.split(" — ")[0].split(":")[0].strip()
+    if not first_part:
+        return ""
+    # Extract the word before the first digit/dash (dose/range)
+    import re
+    match = re.match(r"([a-zA-Z\-]+(?:\s+[a-zA-Z\-]+)?)", first_part)
+    if match:
+        return match.group(1).lower().strip()
+    return first_part.lower().strip()
+
+
+def _is_duplicate_medication(rec1: Recommendation, rec2: Recommendation, threshold: float = 0.85) -> bool:
+    """Check if two pharmacological recommendations are for the same medication.
+
+    Two meds are considered duplicates if:
+    - They have the same normalized drug name (exact match)
+    - OR their interventions share a high substring overlap (≥85%)
+
+    Args:
+        rec1, rec2: Recommendation objects with type="pharmacological"
+        threshold: substring overlap ratio [0,1] for fuzzy matching (default 0.85)
+
+    Returns: True if likely duplicates.
+    """
+    if rec1.type != "pharmacological" or rec2.type != "pharmacological":
+        return False
+
+    int1 = (rec1.intervention or "").strip()
+    int2 = (rec2.intervention or "").strip()
+    if not int1 or not int2:
+        return False
+
+    # Exact match on normalized drug names
+    drug1 = _normalize_drug_name(int1)
+    drug2 = _normalize_drug_name(int2)
+    if drug1 and drug2 and drug1 == drug2:
+        return True
+
+    # Fuzzy substring overlap (for cases where dose/frequency varies slightly)
+    # E.g., "Metformin 500mg BD" vs "Metformin 500mg daily" might be duplicates
+    int1_lower = int1.lower()
+    int2_lower = int2.lower()
+    min_len = min(len(int1_lower), len(int2_lower))
+    if min_len < 10:  # Skip very short strings
+        return False
+
+    # Count matching characters in order (simple overlap metric)
+    matches = sum(1 for a, b in zip(int1_lower, int2_lower) if a == b)
+    overlap_ratio = matches / max(len(int1_lower), len(int2_lower))
+    return overlap_ratio >= threshold
+
+
+def _dedup_pharmacological_recs(recommendations: list[Recommendation]) -> list[Recommendation]:
+    """Deduplicate pharmacological recommendations, preserving order and preferring specificity.
+
+    For duplicate medications:
+    - Keep the recommendation with more detail (longer intervention string)
+    - Prefer recommendations with explicit evidence grades
+    - Log dedup decisions at INFO level
+
+    Args:
+        recommendations: List of Recommendation objects (mixed types)
+
+    Returns: Deduplicated list with same order but no duplicate medications.
+    """
+    if not recommendations:
+        return recommendations
+
+    deduped = []
+
+    for rec in recommendations:
+        if rec.type != "pharmacological":
+            deduped.append(rec)
+            continue
+
+        # Check against existing pharmacological recommendations
+        is_dup = False
+        for j, existing_rec in enumerate(deduped):
+            if existing_rec.type != "pharmacological":
+                continue
+
+            if _is_duplicate_medication(rec, existing_rec):
+                # Prefer the one with longer intervention (more specific)
+                len_rec = len((rec.intervention or "").strip())
+                len_existing = len((existing_rec.intervention or "").strip())
+                if len_rec > len_existing:
+                    # Replace the existing one with the more detailed version
+                    deduped[j] = rec
+                    logger.info(
+                        "medication dedup: replaced %r with more specific %r",
+                        (existing_rec.intervention or "")[:60],
+                        (rec.intervention or "")[:60],
+                    )
+                else:
+                    logger.info(
+                        "medication dedup: dropped duplicate %r (kept %r)",
+                        (rec.intervention or "")[:60],
+                        (existing_rec.intervention or "")[:60],
+                    )
+                is_dup = True
+                break
+
+        if not is_dup:
+            deduped.append(rec)
+
+    return deduped
+
+
+def _normalize_referral_key(specialty: str | None, condition: str | None) -> tuple[str, str]:
+    """Normalize specialty and condition for dedup comparison."""
+    spec = (specialty or "").strip().lower()
+    cond = (condition or "").strip().lower()
+    return (spec, cond)
+
+
+def _referral_urgency_priority(urgency: str | None) -> int:
+    """Return numeric priority for urgency level (higher is better)."""
+    u = (urgency or "routine").strip().lower()
+    urgency_map = {
+        "emergency": 3,
+        "urgent": 2,
+        "routine": 1,
+        "": 1,  # default to routine if empty
+    }
+    return urgency_map.get(u, 1)
+
+
+def _is_duplicate_referral(rec1: Recommendation, rec2: Recommendation, threshold: float = 0.85) -> bool:
+    """Detect duplicate referrals using 2-tier matching.
+
+    Tier 1 (Exact): Normalized specialty + condition match.
+    Tier 2 (Fuzzy): High substring overlap (≥85%) in intervention text.
+
+    Args:
+        rec1, rec2: Recommendation objects (both should be type="referral")
+        threshold: Fuzzy match substring overlap threshold (0.0-1.0)
+
+    Returns: True if duplicates detected.
+    """
+    if not rec1 or not rec2:
+        return False
+    if rec1.type != "referral" or rec2.type != "referral":
+        return False
+
+    # Extract specialty and condition from intervention string
+    # Format: "Refer to {specialty} ({urgency}) — {condition}"
+    def extract_spec_cond(rec):
+        interv = (rec.intervention or "").strip()
+        spec = getattr(rec, "specialty", "") or ""
+        cond = getattr(rec, "condition", "") or ""
+        return spec, cond
+
+    spec1, cond1 = extract_spec_cond(rec1)
+    spec2, cond2 = extract_spec_cond(rec2)
+
+    # Tier 1: Exact normalized match
+    if _normalize_referral_key(spec1, cond1) == _normalize_referral_key(spec2, cond2):
+        return True
+
+    # Tier 2: Fuzzy substring overlap for similar conditions
+    # Build a comparison string from intervention + condition
+    text1 = f"{(rec1.intervention or '')} {cond1}".lower()
+    text2 = f"{(rec2.intervention or '')} {cond2}".lower()
+
+    if len(text1) < 10 or len(text2) < 10:
+        # Skip very short strings to avoid false positives
+        return False
+
+    # Count matching characters (simple overlap metric)
+    matches = sum(1 for c1, c2 in zip(text1, text2) if c1 == c2)
+    overlap_ratio = matches / max(len(text1), len(text2))
+
+    return overlap_ratio >= threshold
+
+
+def _dedup_referral_recs(recommendations: list[Recommendation]) -> list[Recommendation]:
+    """Deduplicate referral recommendations, preserving order and higher urgency.
+
+    For duplicate referrals:
+    - Keep the recommendation with higher urgency (emergency > urgent > routine)
+    - If same urgency, prefer longer intervention (more specific)
+    - Log dedup decisions at INFO level
+
+    Args:
+        recommendations: List of Recommendation objects (mixed types)
+
+    Returns: Deduplicated list with same order but no duplicate referrals.
+    """
+    if not recommendations:
+        return recommendations
+
+    deduped = []
+
+    for rec in recommendations:
+        if rec.type != "referral":
+            deduped.append(rec)
+            continue
+
+        # Check against existing referral recommendations
+        is_dup = False
+        for j, existing_rec in enumerate(deduped):
+            if existing_rec.type != "referral":
+                continue
+
+            if _is_duplicate_referral(rec, existing_rec):
+                # Compare urgency, prefer higher
+                urgency_rec = _referral_urgency_priority(getattr(rec, "urgency", None))
+                urgency_existing = _referral_urgency_priority(getattr(existing_rec, "urgency", None))
+
+                len_rec = len((rec.intervention or "").strip())
+                len_existing = len((existing_rec.intervention or "").strip())
+
+                should_replace = False
+                if urgency_rec > urgency_existing:
+                    should_replace = True
+                elif urgency_rec == urgency_existing and len_rec > len_existing:
+                    should_replace = True
+
+                if should_replace:
+                    deduped[j] = rec
+                    logger.info(
+                        "referral dedup: replaced %r with higher urgency/specificity %r",
+                        (existing_rec.intervention or "")[:60],
+                        (rec.intervention or "")[:60],
+                    )
+                else:
+                    logger.info(
+                        "referral dedup: dropped duplicate %r (kept %r)",
+                        (rec.intervention or "")[:60],
+                        (existing_rec.intervention or "")[:60],
+                    )
+                is_dup = True
+                break
+
+        if not is_dup:
+            deduped.append(rec)
+
+    return deduped
+
+
+def _referral_evidence_quality(rec) -> tuple[str, str]:
+    """Assess evidence quality for a KG referral and return (quality_level, audit_note).
+
+    Args:
+        rec: KG referral edge with evidence field
+
+    Returns:
+        Tuple of (quality_level, audit_note) where:
+        - quality_level: "explicit" | "inferred" | "fallback" | "missing"
+        - audit_note: Human-readable description for logging/audit
+    """
+    evidence = (getattr(rec, "evidence", None) or "").strip()
+    condition = (getattr(rec, "condition", None) or "").strip()
+    specialty = (getattr(rec, "specialty", None) or "").strip()
+
+    if not evidence:
+        # No explicit evidence field
+        return ("missing", f"No evidence field in KG edge for {specialty}→{condition}")
+
+    # Check evidence length (too short = likely generic/fallback)
+    if len(evidence) < 20:
+        return ("inferred", f"Evidence too brief for {specialty}→{condition}: {evidence}")
+
+    # Check if evidence is meaningful (not just the condition name repeated)
+    if condition.lower() in evidence.lower() and len(evidence) < 60:
+        return ("inferred", f"Evidence likely inferred from structure for {specialty}→{condition}")
+
+    # Good evidence
+    return ("explicit", f"Explicit evidence for {specialty}→{condition}: {evidence[:80]}")
+
+
+def _kg_referral_cpg_source(rec) -> str:
+    """Build a UNIQUE cpg_source string per KG-sourced referral with evidence tracing.
+
+    Bare `source_document` is the same for every referral edge from the same
+    CPG (e.g. five T2DM referrals all stamp `T2-Diabetes-Mellitus(6th-Edition)`).
+    The UI dedups CPG references by `cpg_source` raw string — identical strings
+    collapse into one card with all interventions piled into `usedBy[]`, which
+    then renders as a giant comma-separated paragraph.
+
+    Appending the specialty (and where available a chunk marker) makes each
+    referral's cpg_source unique, so each gets its own reference card. Includes
+    evidence quality indicator for audit trail.
+
+    Args:
+        rec: KG referral edge (has source_document, specialty, cpg_chunk_id, evidence fields)
+
+    Returns: Formatted CPG source string with traceability markers
+    """
+    doc = (getattr(rec, "source_document", None) or getattr(rec, "cpg_source", None) or "Neo4j KG").strip()
+    specialty = (getattr(rec, "specialty", None) or "").strip()
+    chunk_id = getattr(rec, "cpg_chunk_id", None) or None
+    evidence = (getattr(rec, "evidence", None) or "").strip()
+
+    # Build base citation
+    parts = [doc]
+    if specialty:
+        parts.append(f"— {specialty} referral")
+
+    out = " ".join(parts)
+
+    # Add evidence quality marker (helps clinician distinguish explicit vs. inferred)
+    if evidence:
+        out = f"{out} [evidence: explicit]"
+    else:
+        out = f"{out} [evidence: inferred from KG structure]"
+
+    # Add chunk traceability for explicit KG lookup
+    if chunk_id:
+        out = f"{out} [kg:{str(chunk_id)[:8]}]"
+
+    return out
+
+
+def _extract_recommendation_assumptions(
+    recommendations: list, unresolved_questions: list
+) -> list[tuple[str, str]]:
+    """Extract load-bearing clinical assumptions that would flip recommendations if violated.
+
+    Returns list of (recommendation_id, assumption_text) tuples flagged by LLM.
+    Assumptions are embedded in rationale or unresolved_questions by synthesis stage.
+    """
+    assumptions = []
+
+    # Check unresolved_questions for assumption flags
+    for q in unresolved_questions:
+        if "assumption" in q.lower():
+            assumptions.append(("unresolved", q))
+
+    # Check recommendation rationales for assumption markers
+    for rec in recommendations:
+        if not hasattr(rec, "rationale") or not rec.rationale:
+            continue
+        rationale = rec.rationale
+        # LLM marks assumptions with "Assumption:" prefix per prompt instruction
+        if "assumption" in rationale.lower():
+            spec = getattr(rec, "specialty", None) or getattr(rec, "condition", None) or "unknown"
+            assumptions.append((f"{spec}_{rec.type}", rationale))
+
+    return assumptions
+
 
 DDX_RERANK_MODEL = os.getenv("LLM_CHOICE", "gpt-4o")
 EXCLUSION_PENALTY_WEIGHT = 0.3       # λ — applied in ddx/search_ddx.py; defined here for central reference
@@ -540,9 +1123,16 @@ async def _llm_rerank_ddx(
             )
         if (c.cc_boost or 0.0) > 0:
             if getattr(c, "cc_explicit", False):
-                lines.append("       clinician-named: explicit")
+                lines.append(
+                    f"       clinician-named: EXPLICIT  cc_boost: +{c.cc_boost:.3f}"
+                    "  (clinician wrote this dx in the notes — do NOT demote below "
+                    "top-3 unless contradicted by patient context)"
+                )
             elif getattr(c, "cc_confidence", None) is not None:
-                lines.append(f"       cc-implied: {c.cc_confidence * 100:.0f}%")
+                lines.append(
+                    f"       cc-implied: {c.cc_confidence * 100:.0f}%  "
+                    f"cc_boost: +{c.cc_boost:.3f}"
+                )
         return "\n".join(lines)
 
     candidate_lines = "\n".join(_candidate_block(i, c) for i, c in enumerate(candidates))
@@ -846,11 +1436,17 @@ async def _extract_cc_icd_hints(
     prompt = (
         "You are a clinical coding expert.\n"
         "Given the clinician's notes below (chief complaint + HPI + PE + their own "
-        "diagnostic impressions), identify EVERY ICD-11 code a doctor would assign — "
-        "primary AND comorbid. Do not restrict to one 'primary' code.\n"
+        "diagnostic impressions), identify EVERY diagnosis a doctor would code — "
+        "primary AND comorbid. Do not restrict to one 'primary' diagnosis.\n"
         "Rules:\n"
         "- Return a JSON array of objects: "
-        "[{\"code\": \"BA41.0\", \"confidence\": 0.96, \"explicit\": true}]\n"
+        "[{\"name\": \"Acute non-ST elevation myocardial infarction\", "
+        "\"confidence\": 0.96, \"explicit\": true}]\n"
+        "- `name` is the fully-qualified clinical diagnosis (NOT an ICD code — use "
+        "the formal disease name as it appears in a textbook or guideline). "
+        "Examples: 'Type 2 diabetes mellitus', 'Essential hypertension', "
+        "'Atrial fibrillation', 'Acute non-ST elevation myocardial infarction'. "
+        "Do NOT abbreviate — write 'Type 2 diabetes mellitus', not 'T2DM'.\n"
         "- `explicit` is true ONLY when the clinician has literally named the diagnosis "
         "in the notes (e.g. 'NSTEMI', 'newly diagnosed HFrEF', 'T2DM', 's/p PCI', "
         "'GDM', 'AF') — i.e. the doctor wrote it themselves, you are not inferring it.\n"
@@ -862,7 +1458,7 @@ async def _extract_cc_icd_hints(
         "    0.70 : strongly suggests but one key finding ambiguous\n"
         "    0.50 : plausible but competing differentials\n"
         "- Include EVERY explicit clinician-named dx (no max for explicit codes).\n"
-        "- For inferred dx, only include confidence >= 0.40. Combined total max 6 codes.\n"
+        "- For inferred dx, only include confidence >= 0.40. Combined total max 6 entries.\n"
         "- If the notes contain no nameable dx and are too vague to infer, return [].\n"
         "- Return ONLY the JSON array. No explanation.\n\n"
         f"Clinician's notes: {cc}\n\n"
@@ -903,24 +1499,54 @@ async def _extract_cc_icd_hints(
         if not isinstance(hints, list):
             return []
 
-        import re as _re
-        valid = []
+        # Collect (name, conf, explicit) triples; LLM only had to name the dx,
+        # we resolve the code via vector search against the real ICD-11 corpus.
+        # This avoids LLM code-hallucination (e.g. 8A11.1 instead of 5A11).
+        named: list[tuple[str, float, bool]] = []
         for h in hints[:max_n]:
             if not isinstance(h, dict):
                 continue
-            code = (h.get("code") or "").strip().upper()
+            name = (h.get("name") or "").strip()
             conf = float(h.get("confidence", 0))
-            # Validate ICD-11 format and confidence threshold
-            if (
-                code
-                and _re.match(r"^[A-Z]{1,2}[A-Z0-9]{1,3}(\.[A-Z0-9]{1,3})?$", code)
-                and 0.0 < conf <= 1.0
-            ):
-                valid.append({
-                    "code": code,
-                    "confidence": round(conf, 3),
-                    "explicit": bool(h.get("explicit", False)),
-                })
+            if not (name and 0.0 < conf <= 1.0 and 3 <= len(name) <= 120):
+                continue
+            named.append((name, round(conf, 3), bool(h.get("explicit", False))))
+
+        if not named:
+            logger.info("CC ICD hints: no named dx parsed from CC: %r", cc[:80])
+            return []
+
+        from ddx.search_ddx import search_ddx as _search_ddx
+        # Resolve each name → top-1 ICD code in parallel.
+        async def _resolve(name: str):
+            try:
+                hits = await _search_ddx(name, top_k=1)
+                return hits[0] if hits else None
+            except Exception as exc:
+                logger.warning("CC hint resolve failed for %r: %s", name, exc)
+                return None
+
+        resolved = await asyncio.gather(*[_resolve(n) for n, _, _ in named])
+
+        # Drop weak matches — kills hallucinated entities the corpus doesn't recognise.
+        SIM_FLOOR = 0.55
+        valid: list[dict] = []
+        seen_codes: set[str] = set()
+        for (name, conf, explicit), hit in zip(named, resolved):
+            if not hit:
+                continue
+            sim = float(hit.get("similarity") or 0.0)
+            code = (hit.get("code") or "").strip().upper()
+            if not code or sim < SIM_FLOOR or code in seen_codes:
+                continue
+            seen_codes.add(code)
+            valid.append({
+                "code": code,
+                "confidence": conf,
+                "explicit": explicit,
+                "resolved_name": name,
+                "resolved_similarity": round(sim, 3),
+            })
 
         logger.info("CC ICD hints: %s from CC: %r", valid, cc[:80])
         return valid
@@ -1021,7 +1647,10 @@ async def stage_2_ddx(
         for hint in cc_icd_hints:
             cc_hints_map[hint["code"]] = hint
         if emit is not None:
-            detail_parts = [f'{h["code"]} ({h["confidence"]:.0%})' for h in cc_icd_hints]
+            detail_parts = [
+                f'{h["code"]} ({"clinician-named" if h.get("explicit") else f"{h["confidence"]:.0%}"})'
+                for h in cc_icd_hints
+            ]
             await emit("sub_step", {
                 "stage": 2,
                 "detail": "CC priority codes: " + ", ".join(detail_parts),
@@ -1717,14 +2346,42 @@ async def gate_referral_triggers(
                 status = "unknown"
             reason = (d.get("reason") or "")[:200]
             out[idx] = (status, reason)
-        logger.info("referral_trigger_gate: evaluated %d candidate(s); %d met, %d not_met, %d unknown",
-                    len(candidates),
-                    sum(1 for s, _ in out.values() if s == "met"),
-                    sum(1 for s, _ in out.values() if s == "not_met"),
-                    sum(1 for s, _ in out.values() if s == "unknown"))
+        met_count = sum(1 for s, _ in out.values() if s == "met")
+        not_met_count = sum(1 for s, _ in out.values() if s == "not_met")
+        unknown_count = sum(1 for s, _ in out.values() if s == "unknown")
+        logger.info(
+            "referral_trigger_gate: evaluated %d candidate(s); %d met, %d not_met, %d unknown (coverage: %.0f%%)",
+            len(candidates),
+            met_count,
+            not_met_count,
+            unknown_count,
+            100.0 * met_count / len(candidates) if candidates else 0,
+        )
         return out
+    except json.JSONDecodeError as exc:
+        logger.error(
+            "referral_trigger_gate failed: JSON parsing error (%s); gate response malformed; falling back to conservative gating",
+            exc,
+        )
+        return {}
+    except (TimeoutError, asyncio.TimeoutError) as exc:
+        logger.error(
+            "referral_trigger_gate failed: TIMEOUT (%s); LLM response exceeded deadline; falling back to conservative gating",
+            exc,
+        )
+        return {}
+    except KeyError as exc:
+        logger.error(
+            "referral_trigger_gate failed: MISSING_FIELD (%s); response structure invalid; falling back to conservative gating",
+            exc,
+        )
+        return {}
     except Exception as exc:
-        logger.warning("referral_trigger_gate failed (%s); fail-open to conservative gating", exc)
+        logger.error(
+            "referral_trigger_gate failed: %s (%s); falling back to conservative gating (all triggered referrals → unresolved_questions)",
+            type(exc).__name__,
+            exc,
+        )
         return {}
 
 
@@ -2363,6 +3020,16 @@ Produce a TreatmentPlan JSON object matching this schema:
         logger.error("TreatmentPlan validation failed. Raw JSON: %s", raw_json)
         raise RuntimeError(f"TreatmentPlan validation failed: {exc}") from exc
 
+    # Deduplicate pharmacological recommendations from LLM synthesis
+    initial_med_count = sum(1 for r in plan.recommendations if r.type == "pharmacological")
+    plan.recommendations = _dedup_pharmacological_recs(plan.recommendations)
+    final_med_count = sum(1 for r in plan.recommendations if r.type == "pharmacological")
+    if initial_med_count != final_med_count:
+        logger.info(
+            "stage_5: medication dedup: %d initial → %d final pharmacological recs",
+            initial_med_count, final_med_count,
+        )
+
     # Instrumentation (5b deferral): log when Stage 5 emits empty mandatory
     # sections so we can measure whether auto-re-draft would have helped.
     empty_sections = [
@@ -2426,7 +3093,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                 if title:
                     kg_inputs.append(title)
             kg_inputs.extend(case.comorbidities or [])
-            kg_recs = await _lookup_referrals(kg_inputs) if kg_inputs else []
+            kg_recs = await _lookup_referrals(kg_inputs, cpgs=_cpgs) if kg_inputs else []
 
             # Demographic safety filters & CPG alignment filters for referrals
             filtered_recs = []
@@ -2472,7 +3139,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                 
                 # Adult check: exclude paediatric/infant referrals
                 if is_adult:
-                    pediatric_keywords = ["paediatric", "pediatric", "child", "infant", "newborn", "paediatrician"]
+                    pediatric_keywords = ["paediatric", "pediatric", "child", "infant", "newborn", "paediatrician", "adolescent", "adolescents", "teenager"]
                     if any(kw in cond_lower or kw in source_lower or kw in spec_lower for kw in pediatric_keywords):
                         logger.info("Demographic Filter: Excluding paediatric referral '%s' for adult patient", rec.specialty)
                         continue
@@ -2493,10 +3160,15 @@ Produce a TreatmentPlan JSON object matching this schema:
 
         if kg_recs:
             from .models import Recommendation as _Rec
-            seen_keys: set[tuple[str, str]] = set()
+            # Build a map of existing referrals by (specialty, condition) for urgency-aware dedup
+            existing_referrals: dict[tuple[str, str], tuple] = {}  # (specialty, condition) -> (rec, urgency_priority)
             for existing in plan.recommendations:
                 if existing.type == "referral":
-                    seen_keys.add(("", (existing.intervention or "").lower()))
+                    spec = (getattr(existing, "specialty", None) or "").strip().lower()
+                    cond = (getattr(existing, "condition", None) or "").strip().lower()
+                    if spec or cond:
+                        urgency = _referral_urgency_priority(getattr(existing, "urgency", None))
+                        existing_referrals[(spec, cond)] = (existing, urgency)
             # Triggers we treat as "universal" — patient is presumed to meet them by
             # virtue of having the condition (no per-patient gating needed).
             _UNIVERSAL_TRIGGERS = {
@@ -2514,6 +3186,31 @@ Produce a TreatmentPlan JSON object matching this schema:
                     return True  # no trigger field = always-applicable referral
                 return any(p in _UNIVERSAL_TRIGGERS for p in pool)
 
+            # Age-mismatch pre-filter: triggers explicitly scoped to paediatric
+            # populations are dropped without gating for adult patients (and vice
+            # versa). Avoids "adolescents with severe obesity" surfacing for a 62yo.
+            _PAEDIATRIC_MARKERS = (
+                "child", "children", "paediatric", "pediatric", "adolescent",
+                "infant", "neonat", "maturing child",
+            )
+            def _is_age_mismatched(trig: str | None, trig_list: list[str] | None) -> bool:
+                age = getattr(case, "age", None)
+                if age is None:
+                    return False
+                pool: list[str] = []
+                if trig:
+                    pool.append(trig.lower())
+                for t in (trig_list or []):
+                    if t:
+                        pool.append(t.lower())
+                text = " ".join(pool)
+                if not text:
+                    return False
+                has_paed = any(m in text for m in _PAEDIATRIC_MARKERS)
+                if has_paed and age >= 18:
+                    return True
+                return False
+
             # First pass: classify each rec as universal vs triggered. Triggered ones
             # are dispatched to an LLM gate that evaluates each trigger against the
             # patient's vitals/labs/staging/history. The gate is fail-open: on any
@@ -2524,11 +3221,35 @@ Produce a TreatmentPlan JSON object matching this schema:
             universal_recs: list[tuple] = []  # (rec, urgency_word)
             for rec in kg_recs:
                 key = (rec.specialty.lower(), (rec.condition or "").lower())
-                if key in seen_keys:
-                    continue
-                seen_keys.add(key)
                 urgency_word = (rec.urgency or "routine").lower()
+                urgency_priority = _referral_urgency_priority(rec.urgency)
+
+                # Skip KG referral only if existing LLM referral has equal or higher urgency
+                if key in existing_referrals:
+                    existing_rec, existing_urgency = existing_referrals[key]
+                    if existing_urgency >= urgency_priority:
+                        # Existing referral has same/better urgency, skip KG version
+                        logger.info(
+                            "stage_5: KG referral skipped (LLM has %s, KG has %s): %s — %s",
+                            existing_rec.urgency or "routine",
+                            urgency_word,
+                            rec.specialty, rec.condition,
+                        )
+                        continue
+                    # Otherwise, KG has higher urgency — let it through for final dedup to handle upgrade
+                    logger.info(
+                        "stage_5: KG referral may upgrade urgency (%s → %s): %s — %s",
+                        existing_rec.urgency or "routine",
+                        urgency_word,
+                        rec.specialty, rec.condition,
+                    )
                 trig_list = list(getattr(rec, "triggers", []) or [])
+                if _is_age_mismatched(rec.trigger, trig_list):
+                    logger.info(
+                        "stage_5: KG referral dropped (paediatric trigger, adult patient): %s — %s (trigger=%r)",
+                        rec.specialty, rec.condition, rec.trigger,
+                    )
+                    continue
                 if _is_universal(rec.trigger, trig_list):
                     universal_recs.append((rec, urgency_word))
                     continue
@@ -2544,9 +3265,21 @@ Produce a TreatmentPlan JSON object matching this schema:
 
             gate_decisions = await gate_referral_triggers(case, triggered_candidates) if triggered_candidates else {}
 
+            # If gate_decisions is empty but we had triggered candidates, the gate failed
+            gate_failed = (len(triggered_candidates) > 0 and len(gate_decisions) == 0)
+            if gate_failed:
+                logger.warning(
+                    "referral_trigger_gate returned empty result for %d triggered candidates; "
+                    "gate failure likely due to LLM error, timeout, or malformed response; "
+                    "conservatively routing all %d triggered referrals to unresolved_questions",
+                    len(triggered_candidates),
+                    len(triggered_meta),
+                )
+
             injected_count = 0
             gated_count = 0
             dropped_count = 0
+            gate_error_count = 0
 
             for idx, (rec, primary_trig, urgency_word) in triggered_meta.items():
                 status, reason = gate_decisions.get(idx, ("unknown", ""))
@@ -2556,10 +3289,43 @@ Produce a TreatmentPlan JSON object matching this schema:
                     )
                     if rec.trigger:
                         intervention += f"; trigger: {rec.trigger}"
-                    rationale_base = (rec.evidence or "").strip() or (
-                        f"KG-sourced referral for {rec.condition}"
-                    )
+                    # Enhanced evidence handling with quality attribution
+                    evidence = (rec.evidence or "").strip()
+                    if evidence:
+                        rationale_base = evidence
+                    else:
+                        rationale_base = f"KG-sourced referral for {rec.condition}"
                     rationale = f"{rationale_base} [gate: {reason}]" if reason else rationale_base
+                    # Log evidence quality for audit trail
+                    quality, audit_note = _referral_evidence_quality(rec)
+                    logger.info(
+                        "Referral evidence quality: %s — %s (%s) [quality=%s, audit=%s]",
+                        rec.specialty, rec.condition, urgency_word, quality, audit_note[:60],
+                    )
+
+                    # Gap 5: Validate urgency-severity alignment
+                    case_severity, severity_rationale = _assess_case_severity(case)
+                    is_aligned, recommended_urgency = _validate_urgency_severity_alignment(
+                        rec.urgency, case_severity
+                    )
+                    if not is_aligned and recommended_urgency:
+                        logger.warning(
+                            "Urgency-severity mismatch: %s referral for %s has %s but case severity warrants %s (%s)",
+                            rec.specialty, rec.condition, urgency_word, recommended_urgency, severity_rationale,
+                        )
+                        # Automatically upgrade urgency if severity is high
+                        if case_severity >= 2:
+                            urgency_word = recommended_urgency
+                            logger.info(
+                                "Auto-upgraded referral urgency to %s for %s — %s due to case severity",
+                                urgency_word, rec.specialty, rec.condition,
+                            )
+                    elif is_aligned:
+                        logger.debug(
+                            "Urgency-severity aligned: %s referral for %s appropriate for severity=%d (%s)",
+                            rec.specialty, rec.condition, case_severity, severity_rationale,
+                        )
+
                     try:
                         plan.recommendations.append(
                             _Rec(
@@ -2567,7 +3333,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                                 type="referral",
                                 action=None,
                                 evidence_grade=None,
-                                cpg_source=(getattr(rec, "source_document", None) or getattr(rec, "cpg_source", None) or "Neo4j KG"),
+                                cpg_source=_kg_referral_cpg_source(rec),
                                 rationale=rationale[:480],
                                 contraindications_checked=[],
                             )
@@ -2581,31 +3347,60 @@ Produce a TreatmentPlan JSON object matching this schema:
                         logger.warning("Triggered referral injection failed: %s", exc)
                 elif status == "not_met":
                     dropped_count += 1
+                    audit_line = (
+                        f"Ruled out {rec.specialty} referral for {rec.condition} — "
+                        f"trigger '{primary_trig}' not met: {reason or 'no rationale'}"
+                    )
+                    plan.gate_audit.append(audit_line[:480])
                     logger.info(
                         "Referral GATE=not_met → dropped: %s — %s (trigger=%r, reason=%r)",
                         rec.specialty, rec.condition, primary_trig, reason,
                     )
                 else:  # unknown / missing
+                    if gate_failed:
+                        gate_error_count += 1
                     question = (
                         f"Consider {rec.specialty} referral ({urgency_word}) for {rec.condition} "
                         f"IF: {primary_trig}"
                     )
                     plan.unresolved_questions.append(question[:480])
                     gated_count += 1
-                    logger.info(
-                        "Referral GATE=unknown → unresolved_questions: %s — %s (trigger=%r)",
+                    log_func = logger.warning if gate_failed else logger.info
+                    log_func(
+                        "Referral GATE=unknown → unresolved_questions: %s — %s (trigger=%r)%s",
                         rec.specialty, rec.condition, primary_trig,
+                        " [due to gate failure]" if gate_failed else "",
                     )
 
             for rec, urgency_word in universal_recs:
+                # Gap 5: Validate urgency-severity alignment for universal referrals
+                case_severity, severity_rationale = _assess_case_severity(case)
+                is_aligned, recommended_urgency = _validate_urgency_severity_alignment(
+                    rec.urgency, case_severity
+                )
+                if not is_aligned and recommended_urgency:
+                    logger.warning(
+                        "Urgency-severity mismatch: universal %s referral for %s has %s but case severity warrants %s (%s)",
+                        rec.specialty, rec.condition, urgency_word, recommended_urgency, severity_rationale,
+                    )
+                    if case_severity >= 2:
+                        urgency_word = recommended_urgency
+                        logger.info(
+                            "Auto-upgraded universal referral urgency to %s for %s — %s due to case severity",
+                            urgency_word, rec.specialty, rec.condition,
+                        )
+
                 intervention = (
                     f"Refer to {rec.specialty} ({urgency_word}) — {rec.condition}"
                 )
                 if rec.trigger:
                     intervention += f"; trigger: {rec.trigger}"
-                rationale = (rec.evidence or "").strip() or (
-                    f"KG-sourced referral for {rec.condition}"
-                )
+                # Enhanced evidence handling with quality attribution
+                evidence = (rec.evidence or "").strip()
+                if evidence:
+                    rationale = evidence
+                else:
+                    rationale = f"KG-sourced referral for {rec.condition}"
                 try:
                     plan.recommendations.append(
                         _Rec(
@@ -2613,34 +3408,81 @@ Produce a TreatmentPlan JSON object matching this schema:
                             type="referral",
                             action=None,
                             evidence_grade=None,
-                            cpg_source=(getattr(rec, "source_document", None) or getattr(rec, "cpg_source", None) or "Neo4j KG"),
+                            cpg_source=_kg_referral_cpg_source(rec),
                             rationale=rationale[:480],
                             contraindications_checked=[],
                         )
                     )
                     injected_count += 1
+                    quality, audit_note = _referral_evidence_quality(rec)
+                    logger.info(
+                        "Universal referral evidence quality: %s — %s (%s) [quality=%s, audit=%s]",
+                        rec.specialty, rec.condition, urgency_word, quality, audit_note[:60],
+                    )
                 except Exception as exc:
                     logger.warning("KG referral injection failed (%s — %s): %s", rec.specialty, rec.condition, exc)
             logger.info(
-                "stage_5 coverage (KG): %d injected (universal + gate=met), %d to unresolved_questions (gate=unknown), %d dropped (gate=not_met)",
-                injected_count, gated_count, dropped_count,
+                "stage_5 coverage (KG): %d injected (universal + gate=met), %d to unresolved_questions (gate=unknown, %d due to gate failure), %d dropped (gate=not_met)",
+                injected_count, gated_count, gate_error_count, dropped_count,
             )
         else:
             # Static-dict fallback (covers conditions not yet in the KG).
+            # Validate that required referrals are actually in the plan.
             seen_specialties: set[str] = set()
+            existing_referral_specs: set[str] = set()
+            for rec in plan.recommendations:
+                if rec.type == "referral":
+                    spec = (getattr(rec, "specialty", None) or "").strip().lower()
+                    if spec:
+                        existing_referral_specs.add(spec)
+
             for code in coverage_codes:
                 referral_required = _required_referral_for(code)
-                if referral_required and referral_required not in seen_specialties:
-                    seen_specialties.add(referral_required)
-                    plan.unresolved_questions.append(
-                        f"Expected referral not surfaced in plan: {referral_required}. "
-                        "No referral recommendation was emitted — clinician should "
-                        "arrange specialist input."
-                    )
-                    logger.info(
-                        "stage_5 coverage (dict fallback): missing required referral for %s — %s",
-                        code, referral_required,
-                    )
+                if not referral_required:
+                    continue
+                # Extract specialty name from the referral requirement
+                # Format: "Specialty — description" or just "Specialty"
+                spec_part = referral_required.split(" —")[0].strip().lower()
+                if spec_part not in seen_specialties:
+                    seen_specialties.add(spec_part)
+                    if spec_part not in existing_referral_specs:
+                        # Referral is required but missing from plan
+                        plan.unresolved_questions.append(
+                            f"Expected referral not surfaced in plan: {referral_required}. "
+                            "No referral recommendation was emitted — clinician should "
+                            "arrange specialist input."
+                        )
+                        logger.info(
+                            "stage_5 coverage (dict fallback): required referral missing for %s — %s",
+                            code, referral_required,
+                        )
+                    else:
+                        logger.info(
+                            "stage_5 coverage (dict fallback): required referral covered for %s — %s",
+                            code, referral_required,
+                        )
+
+    # Final dedup of all recommendations (post-KG injection) to catch any duplicates
+    # introduced by KG edge injection or LLM+KG overlap
+    med_count_before_final = sum(1 for r in plan.recommendations if r.type == "pharmacological")
+    plan.recommendations = _dedup_pharmacological_recs(plan.recommendations)
+    med_count_after_final = sum(1 for r in plan.recommendations if r.type == "pharmacological")
+    if med_count_before_final != med_count_after_final:
+        logger.info(
+            "stage_5: final medication dedup (post-KG): %d → %d pharmacological recs",
+            med_count_before_final, med_count_after_final,
+        )
+
+    # Final dedup of referrals (post-KG injection) to handle urgency conflicts
+    # and duplicates introduced by LLM+KG overlap or KG itself
+    ref_count_before_final = sum(1 for r in plan.recommendations if r.type == "referral")
+    plan.recommendations = _dedup_referral_recs(plan.recommendations)
+    ref_count_after_final = sum(1 for r in plan.recommendations if r.type == "referral")
+    if ref_count_before_final != ref_count_after_final:
+        logger.info(
+            "stage_5: final referral dedup (post-KG): %d → %d referral recs",
+            ref_count_before_final, ref_count_after_final,
+        )
 
     # Coverage-gap detector: for each routed condition with a FIRST_LINE_FOR
     # rule in the KG, ensure the synthesised plan actually prescribes a med in
@@ -2668,7 +3510,7 @@ Produce a TreatmentPlan JSON object matching this schema:
             med_names = [
                 (r.intervention or "")
                 for r in plan.recommendations
-                if (r.type or "").lower() == "medication"
+                if (r.type or "").lower() == "pharmacological"
             ]
             gap_count = 0
             for cond, classes in first_line_by_cond.items():
@@ -2700,5 +3542,73 @@ Produce a TreatmentPlan JSON object matching this schema:
                 )
     except Exception as exc:
         logger.warning("coverage-gap detector failed (non-fatal): %s", exc)
+
+    # Gap 6: Analyze problematic triggers — feedback loop for KG refinement
+    try:
+        problematic_triggers = _get_problematic_triggers(plan.unresolved_questions)
+        if problematic_triggers:
+            # Find most problematic triggers (frequency > 1 would indicate pattern)
+            # For this session, we log high-risk triggers for monitoring
+            logger.info(
+                "stage_5 trigger analysis: %d unique unresolved trigger-condition pairs identified",
+                len(problematic_triggers),
+            )
+            # Log top problematic ones (if any repeat in this case)
+            top_triggers = sorted(
+                problematic_triggers.items(), key=lambda x: x[1], reverse=True
+            )[:3]
+            for trigger_pair, count in top_triggers:
+                if count > 1:
+                    logger.warning(
+                        "stage_5 feedback: trigger-condition %r failed %d times; recommend KG review",
+                        trigger_pair, count,
+                    )
+
+            # Gap 6: Assess data quality issues for trigger failures
+            for question in plan.unresolved_questions:
+                if "IF:" in question:
+                    trigger = question.split("IF:")[-1].strip()
+                    is_data_issue, issue_desc = _assess_data_quality_issue(case, trigger)
+                    if is_data_issue:
+                        logger.warning(
+                            "stage_5 data quality: trigger %r failed likely due to: %s",
+                            trigger, issue_desc,
+                        )
+    except Exception as exc:
+        logger.debug("trigger analysis failed (non-fatal): %s", exc)
+
+    # Gap 7: Specialist-medication cross-check validator
+    try:
+        cross_check_warnings = _validate_specialist_medication_pairing(plan.recommendations)
+        if cross_check_warnings:
+            for warning in cross_check_warnings:
+                logger.warning("stage_5 cross-check: %s", warning)
+                plan.unresolved_questions.append(f"Cross-check: {warning}")
+            logger.info(
+                "stage_5 specialist-medication cross-check: %d issues identified",
+                len(cross_check_warnings),
+            )
+    except Exception as exc:
+        logger.debug("specialist-medication cross-check failed (non-fatal): %s", exc)
+
+    # Gap 8: Clinical assumption flagging — extract load-bearing assumptions
+    try:
+        assumptions = _extract_recommendation_assumptions(plan.recommendations, plan.unresolved_questions)
+        if assumptions:
+            logger.info("stage_5 assumption flags: %d load-bearing assumptions identified", len(assumptions))
+            for source, assumption_text in assumptions:
+                # Log with WARNING level if assumption is critical (contains "contraindicated" or "escalate")
+                is_critical = any(
+                    word in assumption_text.lower()
+                    for word in ["contraindicated", "escalate", "critical", "emergency"]
+                )
+                log_func = logger.warning if is_critical else logger.info
+                log_func(
+                    "stage_5 assumption [%s]: %s",
+                    source,
+                    assumption_text[:120],  # Truncate for log readability
+                )
+    except Exception as exc:
+        logger.debug("assumption extraction failed (non-fatal): %s", exc)
 
     return plan

@@ -234,12 +234,23 @@ export function DiagnosisSection() {
                   )}
                   {/* .pc — font-weight 700, tabular-nums, var(--slate-900) */}
                   {pct != null && (
-                    <span
-                      className="font-mono text-sm shrink-0"
-                      style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums', color: isDark ? '#f1f5f9' : 'var(--slate-900)' }}
-                    >
-                      {pct}%
-                    </span>
+                    <>
+                      <span
+                        className="font-mono text-sm shrink-0"
+                        style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums', color: isDark ? '#f1f5f9' : 'var(--slate-900)' }}
+                      >
+                        {pct}%
+                      </span>
+                      <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
+                        pct >= 70
+                          ? (isDark ? 'bg-emerald-500/20 text-emerald-300' : 'bg-emerald-100 text-emerald-700')
+                          : pct >= 40
+                          ? (isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-700')
+                          : (isDark ? 'bg-slate-500/20 text-slate-300' : 'bg-slate-100 text-slate-600')
+                      }`}>
+                        {pct >= 70 ? 'High' : pct >= 40 ? 'Moderate' : 'Low'}
+                      </span>
+                    </>
                   )}
                 </div>
 
@@ -286,7 +297,21 @@ export function DiagnosisSection() {
                   </div>
                 )}
 
-                {/* Row 3: clinical override reason, if any — only shown when selected */}
+                {/* Row 3: Clinical reasoning — always visible to show *why* AI picked this */}
+                {diff.reasoning && (
+                  <div className={`mt-2 px-3 py-2 rounded-lg border text-xs leading-relaxed ${
+                    isDark ? 'bg-blue-950/15 text-blue-300 border-blue-500/15'
+                           : 'bg-blue-50/50 text-blue-800 border-blue-100'
+                  }`}>
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <BrainCircuit className="w-3.5 h-3.5 shrink-0 text-blue-400 dark:text-blue-300" strokeWidth={2} />
+                      <span className="font-semibold text-[10px] text-blue-500 dark:text-blue-300 uppercase tracking-wide">Reasoning</span>
+                    </div>
+                    <p className={isDark ? 'text-blue-200/80' : 'text-blue-700'}>{diff.reasoning}</p>
+                  </div>
+                )}
+
+                {/* Row 4: clinical override reason, if any — only shown when selected */}
                 {isSelected && diff.overrideReason && (
                   <div className={`mt-2 flex flex-col gap-1.5 text-xs p-2.5 rounded-lg border leading-relaxed ${
                     isDark ? 'bg-amber-950/20 text-amber-300 border-amber-500/10' 

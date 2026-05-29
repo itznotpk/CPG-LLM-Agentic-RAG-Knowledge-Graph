@@ -309,6 +309,7 @@ class TreatmentPlan(BaseModel):
     follow_up: List[str] = Field(default_factory=list, description="Follow-up timeline, reassessment criteria, and outcome-based actions")
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")
     unresolved_questions: List[str] = Field(default_factory=list, description="Clinical questions that could not be resolved from available evidence")
+    gate_audit: List[str] = Field(default_factory=list, description="Referrals evaluated and ruled out by the trigger gate, with reasoning — for clinician transparency")
 
     @model_validator(mode="after")
     def actionable_or_unresolved(self) -> "TreatmentPlan":
@@ -330,8 +331,8 @@ class TreatmentPlan(BaseModel):
 
 # Safety Critic Models
 class SafetyFlag(BaseModel):
-    title: Optional[str] = Field(
-        None,
+    title: str = Field(
+        ...,
         description="Short clinician-facing headline, e.g. 'enalapril + spironolactone - hyperkalemia interaction caution'",
     )
     severity: Literal["CRITICAL", "MAJOR", "MODERATE"]

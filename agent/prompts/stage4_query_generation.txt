@@ -97,4 +97,7 @@ Reference the current severity class to retrieve the appropriate review interval
 Example without staging: "heart failure follow-up review interval reassessment schedule"
 Example with staging:    "heart failure NYHA III follow-up review 2 weeks 4 weeks reassessment criteria early review"
 
+DOMAIN PRIORITY WHEN MULTIPLE DOMAINS COMPETE:
+If severity_staging includes renal/hepatic dysfunction, prioritize Domain 4 (Dose Adjustment) to capture critical safety constraints. If severity_staging includes critical vitals (SBP <90, O2 <85%), prioritize Domain 5 (Escalation & Referral) to surface urgent escalation thresholds. Otherwise, prioritize Domain 1 (Pharmacotherapy) first — start therapy before adjusting doses.
+
 Return a JSON array of exactly 7 strings. No domain labels inside the strings. No markdown. No preamble.

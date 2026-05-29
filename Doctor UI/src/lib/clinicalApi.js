@@ -28,6 +28,9 @@ function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, st
         ...(vitals.spo2        ? { spo2: Number(vitals.spo2) }         : {}),
         ...(vitals.weight      ? { weight: Number(vitals.weight) }     : {}),
         ...(vitals.height      ? { height: Number(vitals.height) }     : {}),
+        ...(vitals.weight && vitals.height
+            ? { bmi: +(Number(vitals.weight) / ((Number(vitals.height) / 100) ** 2)).toFixed(1) }
+            : {}),
       } : {},
       severity_staging: stagingData || {},
       ...(structuredComorbidities?.length ? { staged_comorbidities: structuredComorbidities } : {}),

@@ -24,6 +24,7 @@ import {
   Trash2,
   Plus,
   Network,
+  X,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -1022,8 +1023,7 @@ function SourcePreview({ text, sectionNum, previewLimit = 600, isDark }) {
   );
 }
 
-function CpgReferenceCard({ cpgRef, isDark }) {
-  const [sourceOpen, setSourceOpen] = useState(false);
+function CpgReferenceCard({ cpgRef, isDark, onOpenSource }) {
   const hasContext = Boolean(cpgRef?.context);
   const hasMatchedClause = Boolean(cpgRef?.matchedClause);
   const hasSectionContext = Boolean(cpgRef?.sectionContext);
@@ -1095,37 +1095,29 @@ function CpgReferenceCard({ cpgRef, isDark }) {
         )}
       </div>
 
-      {/* Verify Source — compact toggle */}
-      {hasAnySourceEffective && (() => {
-        const sourceText = cpgRef.matchedClause || legacyMatchedClause || cpgRef.originalText || '';
-        return (
-          <div className={`border-t ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
-            <button
-              onClick={() => setSourceOpen(v => !v)}
-              className={`w-full flex items-center gap-1.5 px-3.5 py-1.5 text-left transition-colors ${
-                isDark
-                  ? 'text-slate-600 hover:text-slate-400 hover:bg-white/3'
-                  : 'text-slate-400 hover:text-slate-500 hover:bg-slate-50'
-              }`}
-            >
-              <FileText className="w-3 h-3" strokeWidth={2} />
-              <span className="text-[10px] font-medium">
-                {sourceOpen ? 'Hide source' : 'Verify source'}
-              </span>
-              <span className="flex-1" />
-              {sourceOpen
-                ? <ChevronUp className="w-3 h-3" strokeWidth={2} />
-                : <ChevronDown className="w-3 h-3" strokeWidth={2} />}
-            </button>
-            {sourceOpen && <SourcePreview text={sourceText} sectionNum={cpgRef.sectionNum} isDark={isDark} />}
-          </div>
-        );
-      })()}
+      {/* Verify Source — opens side drawer with full chunk */}
+      {hasAnySourceEffective && (
+        <div className={`border-t ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
+          <button
+            onClick={() => onOpenSource?.({ ...cpgRef, legacyMatchedClause, legacyBroaderContext })}
+            className={`w-full flex items-center gap-1.5 px-3.5 py-1.5 text-left transition-colors ${
+              isDark
+                ? 'text-slate-500 hover:text-slate-300 hover:bg-white/3'
+                : 'text-slate-400 hover:text-slate-600 hover:bg-slate-50'
+            }`}
+          >
+            <FileText className="w-3 h-3" strokeWidth={2} />
+            <span className="text-[10px] font-medium">View source chunk</span>
+            <span className="flex-1" />
+            <ArrowRight className="w-3 h-3" strokeWidth={2} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
-function CpgReferenceGroup({ group, isDark }) {
+function CpgReferenceGroup({ group, isDark, onOpenSource }) {
   const [open, setOpen] = useState(true);
   const count = group.refs.length;
 
@@ -1162,7 +1154,7 @@ function CpgReferenceGroup({ group, isDark }) {
       {open && (
         <div className={`flex flex-col gap-1.5 p-3 ${isDark ? 'bg-slate-900/30' : 'bg-slate-50/50'}`}>
           {group.refs.map((ref, idx) => (
-            <CpgReferenceCard key={idx} cpgRef={ref} isDark={isDark} />
+            <CpgReferenceCard key={idx} cpgRef={ref} isDark={isDark} onOpenSource={onOpenSource} />
           ))}
         </div>
       )}
@@ -1171,6 +1163,139 @@ function CpgReferenceGroup({ group, isDark }) {
 }
 
 
+
+/* ── Side drawer: full CPG chunk with section context ── */
+function CpgReferenceDrawer({ cpgRef, onClose, isDark }) {
+  useEffect(() => {
+    if (!cpgRef) return;
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [cpgRef, onClose]);
+
+  if (!cpgRef) return null;
+
+  const matched = cpgRef.matchedClause || cpgRef.legacyMatchedClause || '';
+  const section = cpgRef.sectionContext || '';
+  const parent = cpgRef.broaderContext || cpgRef.legacyBroaderContext || '';
+  const fallback = !matched && !section && !parent ? (cpgRef.originalText || '') : '';
+
+  return (
+    <>
+      <div
+        onClick={onClose}
+        className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[1px]"
+      />
+      <aside
+        role="dialog"
+        aria-label="CPG source chunk"
+        className={`fixed top-0 right-0 z-50 h-full w-full max-w-[560px] shadow-2xl flex flex-col border-l ${
+          isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200'
+        }`}
+      >
+        {/* Header */}
+        <div className={`flex items-start gap-3 px-5 py-4 border-b ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
+          <BookOpen className="w-4 h-4 mt-1 flex-shrink-0 text-[var(--accent-primary)]" strokeWidth={1.8} />
+          <div className="flex-1 min-w-0">
+            <div className={`text-[11px] font-mono ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              {cpgRef.cpgShortName || cpgRef.cpgName || 'CPG'}{cpgRef.sectionNum ? ` § ${cpgRef.sectionNum}` : ''}
+            </div>
+            <div className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+              {cpgRef.cpgFullName || cpgRef.cpgName || 'Source chunk'}
+            </div>
+            {cpgRef.section && (
+              <div className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                {cpgRef.section}
+              </div>
+            )}
+          </div>
+          <button
+            onClick={onClose}
+            aria-label="Close"
+            className={`p-1.5 rounded-md transition-colors ${
+              isDark ? 'text-slate-400 hover:bg-slate-800 hover:text-slate-200' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-700'
+            }`}
+          >
+            <X className="w-4 h-4" strokeWidth={2} />
+          </button>
+        </div>
+
+        {/* Used-by chips */}
+        {cpgRef.usedBy?.length > 0 && (
+          <div className={`px-5 py-3 border-b ${isDark ? 'border-slate-800 bg-slate-900/60' : 'border-slate-100 bg-slate-50/60'}`}>
+            <div className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              Used by
+            </div>
+            <div className="flex flex-wrap gap-1.5">
+              {cpgRef.usedBy.map((u, i) => (
+                <span
+                  key={i}
+                  className={`text-[11px] px-2 py-0.5 rounded-md border ${
+                    isDark ? 'bg-slate-800 text-slate-300 border-slate-700' : 'bg-white text-slate-700 border-slate-200'
+                  }`}
+                >
+                  {u}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Body — chunk content */}
+        <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
+          {matched && (
+            <div>
+              <div className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 text-[var(--accent-primary)]`}>
+                Matched clause
+              </div>
+              <div className={`p-3 rounded-lg border text-[12.5px] leading-relaxed ${
+                isDark ? 'bg-slate-800/60 border-slate-700 text-slate-200' : 'bg-emerald-50/40 border-emerald-200 text-slate-800'
+              }`}>
+                <CpgTextBlock text={matched} isDark={isDark} />
+              </div>
+            </div>
+          )}
+          {section && (
+            <div>
+              <div className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                Section context
+              </div>
+              <div className={`p-3 rounded-lg border text-[12px] leading-relaxed ${
+                isDark ? 'bg-slate-900/40 border-slate-800 text-slate-300' : 'bg-white border-slate-200 text-slate-600'
+              }`}>
+                <CpgTextBlock text={section} isDark={isDark} muted />
+              </div>
+            </div>
+          )}
+          {parent && (
+            <div>
+              <div className={`text-[10px] font-semibold uppercase tracking-wider mb-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                Parent section
+              </div>
+              <div className={`p-3 rounded-lg border text-[12px] leading-relaxed ${
+                isDark ? 'bg-slate-900/40 border-slate-800 text-slate-400' : 'bg-white border-slate-200 text-slate-500'
+              }`}>
+                <CpgTextBlock text={parent} isDark={isDark} muted />
+              </div>
+            </div>
+          )}
+          {fallback && (
+            <div className={`p-3 rounded-lg border text-[12px] leading-relaxed ${
+              isDark ? 'bg-slate-900/40 border-slate-800 text-slate-300' : 'bg-white border-slate-200 text-slate-600'
+            }`}>
+              <CpgTextBlock text={fallback} isDark={isDark} muted />
+            </div>
+          )}
+          {!matched && !section && !parent && !fallback && (
+            <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+              No chunk content available for this reference.
+            </p>
+          )}
+        </div>
+      </aside>
+    </>
+  );
+}
 
 /* ============================================================
    MAIN — Care Plan section (Tabbed layout)
@@ -1240,6 +1365,7 @@ export function CarePlanSection() {
   const [traceCollapsed, setTraceCollapsed] = useState(true);
   const [safetyAcknowledged, setSafetyAcknowledged] = useState(false);
   const [tab, setTab] = useState('overview');
+  const [drawerRef, setDrawerRef] = useState(null);
 
   const safetyBlocksApprove = safetyReport && !safetyReport.safe_to_proceed && !safetyAcknowledged;
 
@@ -1558,7 +1684,7 @@ export function CarePlanSection() {
               )}
               <div className="flex flex-col gap-3">
                 {(carePlan.cpgReferenceGroups || []).map((group, idx) => (
-                  <CpgReferenceGroup key={idx} group={group} isDark={isDark} />
+                  <CpgReferenceGroup key={idx} group={group} isDark={isDark} onOpenSource={setDrawerRef} />
                 ))}
                 {refsCount === 0 && (
                   <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
@@ -1602,6 +1728,8 @@ export function CarePlanSection() {
       {workflowStatus !== WORKFLOW_STATES.APPROVED && (
         <p className="text-center text-sm text-slate-500">Approve the care plan above to generate report</p>
       )}
+
+      <CpgReferenceDrawer cpgRef={drawerRef} onClose={() => setDrawerRef(null)} isDark={isDark} />
     </div>
   );
 }

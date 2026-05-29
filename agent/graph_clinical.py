@@ -733,8 +733,35 @@ class ReferralRecommendation:
     icd_hint: Optional[str] = None
 
 
+async def _fetch_routed_chunk_ids_for_referrals(document_ids: List[str]) -> set:
+    """Return the chunk_ids belonging to the routed CPG document_ids.
+
+    Duplicated locally (rather than imported from graph_navigator) to avoid the
+    circular import — graph_navigator imports from this module. Fail-open:
+    returns an empty set on any DB error, which the caller treats as "no scope
+    filter applied" rather than as "drop everything".
+    """
+    if not document_ids:
+        return set()
+    try:
+        from .db_utils import db_pool
+        async with db_pool.acquire() as conn:
+            rows = await conn.fetch(
+                "SELECT id::text AS chunk_id FROM chunks WHERE document_id::text = ANY($1)",
+                [str(d) for d in document_ids],
+            )
+        return {r["chunk_id"] for r in rows}
+    except Exception as exc:
+        logger.warning(
+            "_fetch_routed_chunk_ids_for_referrals failed (non-fatal, no scope filter applied): %s",
+            exc,
+        )
+        return set()
+
+
 async def lookup_referrals(
     condition_names: List[str],
+    cpgs: list | None = None,
 ) -> List[ReferralRecommendation]:
     """Resolve referral edges in Neo4j for a patient's conditions.
 
@@ -744,6 +771,11 @@ async def lookup_referrals(
 
     Args:
         condition_names: free-text condition strings (DDx titles + comorbidities).
+        cpgs: when provided, restricts referrals to edges sourced from a routed
+            CPG's chunks. Mirrors the scope filter in
+            `graph_navigator.get_graph_constraints` for PREFER edges — kills
+            cross-CPG drift (e.g. a HTN referral edge sourced from the AF CPG's
+            secondary-prevention section firing when AF was not routed).
 
     Returns:
         Deduplicated list of ReferralRecommendation, one per (specialty, condition).
@@ -787,6 +819,14 @@ async def lookup_referrals(
                 expanded.append(full)
     names = expanded
 
+    # Build the routed-chunk scope up front so we can fail-open if PG is down.
+    routed_chunk_ids: set = set()
+    if cpgs:
+        doc_ids: list[str] = []
+        for c in cpgs:
+            doc_ids.extend(getattr(c, "document_ids", None) or [])
+        routed_chunk_ids = await _fetch_routed_chunk_ids_for_referrals(doc_ids)
+
     cypher = """
     UNWIND $names AS raw
     WITH toLower(raw) AS needle
@@ -803,7 +843,9 @@ async def lookup_referrals(
       coalesce(r.evidence, '') AS evidence,
       coalesce(r.evidence_list, []) AS evidence_list,
       coalesce(r.source_document, '') AS source_document,
-      r.icd_hint AS icd_hint
+      r.icd_hint AS icd_hint,
+      r.cpg_chunk_id AS cpg_chunk_id,
+      coalesce(r.cpg_chunk_ids, []) AS cpg_chunk_ids
     """
     try:
         session_ctx = await _get_neo4j_session()
@@ -813,6 +855,18 @@ async def lookup_referrals(
     except Exception as exc:
         logger.warning("lookup_referrals failed: %s", exc)
         return []
+
+    raw_count = len(records)
+    if routed_chunk_ids:
+        records = [
+            rec for rec in records
+            if (rec.get("cpg_chunk_id") in routed_chunk_ids)
+            or any(cid in routed_chunk_ids for cid in (rec.get("cpg_chunk_ids") or []))
+        ]
+        logger.info(
+            "lookup_referrals: chunk-scope filter %d -> %d records (routed_chunks=%d)",
+            raw_count, len(records), len(routed_chunk_ids),
+        )
 
     # Dedup by (specialty, condition); collapse multi-edge records by upgrading
     # urgency (urgent > routine > consider).

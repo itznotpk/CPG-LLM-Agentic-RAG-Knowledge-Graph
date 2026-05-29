@@ -355,6 +355,43 @@ red_flags list — MUST be populated if escalation or danger criteria appear in 
   If no escalation chunk was retrieved, add to unresolved_questions:
     "Escalation criteria not retrieved."
 
+ASSUMPTION FLAGGING — CRITICAL FOR CLINICAL SAFETY:
+
+For EVERY recommendation, identify load-bearing assumptions that would flip the recommendation if wrong.
+A load-bearing assumption is:
+  - A patient-specific fact you are inferring that was NOT explicitly stated in the case
+  - A fact that, if different, would change the recommendation from safe→contraindicated OR routine→urgent
+  - NOT obvious baseline facts (e.g. "patient is alive" does not need flagging)
+
+LOAD-BEARING ASSUMPTIONS TO ALWAYS CHECK:
+  - Organ function (kidney, liver) — is eGFR, creatinine, or LFTs assumed normal? If so, flag it.
+  - Allergies — does the recommendation assume no cross-reactivity to stated allergies? Flag the assumption.
+  - Concurrent medications — does it assume no drug-drug interaction? Flag relevant interactions.
+  - Baseline stability — for referrals/monitoring, assume stable baseline? Flag if trending data not present.
+  - Pregnancy/lactation status — any hormonal therapy assumes non-pregnant/non-lactating? Flag it.
+  - Specific values not provided — if dose assumes "typical" body weight, renal function, or age range, flag it.
+
+EXAMPLE ASSUMPTIONS:
+  Recommendation: "ACE inhibitor [dose] for HFrEF"
+  Load-bearing assumptions:
+    - eGFR >30 mL/min (recommendation contraindicated if eGFR <30)
+    - K+ <5.5 mEq/L (ACE inhibitor raises K+; higher risk if elevated at baseline)
+    - Not on NSAID (increases hyperkalemia and renal injury risk with ACE-i)
+  Recommendation: "Routine Cardiology"
+  Load-bearing assumption:
+    - eGFR stable (not acutely declining); if eGFR dropping >30% in 2 weeks, escalate to urgent
+
+INSTRUCTION: For EACH recommendation in your output, ADD a concise assumptions comment in the rationale or
+as a separate unresolved_questions entry ONLY if an assumption is LOAD-BEARING (would flip the recommendation
+if violated). Do NOT flag trivial or obvious assumptions (e.g. "assumes patient can swallow tablets").
+
+Format: "Assumption: [assumption fact]. If [violated condition], recommendation changes to [new action]."
+Examples:
+  "Assumption: eGFR >30 mL/min. If eGFR <30, ACE-inhibitor contraindicated — consider specialist review."
+  "Assumption: No concurrent NSAIDs. If NSAID started, escalate K+ monitoring and consider alternative."
+
+---
+
 SYNTHESIS RULES:
 
 1. recommendations — one Recommendation object per distinct clinical action supported by evidence.
