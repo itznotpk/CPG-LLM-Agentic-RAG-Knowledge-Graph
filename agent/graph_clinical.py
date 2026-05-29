@@ -310,6 +310,35 @@ _DRUG_CLASS_EXPANSION: Dict[str, List[str]] = {
 }
 
 
+def _expand_comorbidities_with_aliases(comorbidities: List[str]) -> List[str]:
+    """Strip parenthetical/qualifier text so KG nodes with canonical names match.
+
+    Case-10 sends `"Pregnancy 30 weeks (primigravida)"` but the KG node is
+    `name_normalised="pregnancy"`. The Cypher `IN` clause requires exact
+    equality on `_norm`, so the raw string never matches. We keep the
+    original AND emit a stripped variant: drop `(...)`, then a base-term
+    variant containing only the leading noun phrase before any number/qualifier.
+    """
+    if not comorbidities:
+        return []
+    import re
+    out: List[str] = []
+    seen: set = set()
+    for c in comorbidities:
+        if not c:
+            continue
+        for variant in {
+            c,
+            re.sub(r"\s*\(.*?\)\s*", " ", c).strip(),
+            re.split(r"\s+\d", c, maxsplit=1)[0].strip(),
+        }:
+            key = variant.lower()
+            if variant and key not in seen:
+                out.append(variant)
+                seen.add(key)
+    return out
+
+
 def _expand_drugs_with_classes(drugs: List[str]) -> List[str]:
     """Append class names to drug list for KG class-level edge matching.
 
@@ -375,7 +404,7 @@ async def _query_comorbidity_flags(
     result = await session.run(
         cypher,
         candidates=_norm_list(expanded),
-        comorbidities=_norm_list(comorbidities),
+        comorbidities=_norm_list(_expand_comorbidities_with_aliases(comorbidities)),
     )
     flags = []
     async for record in result:

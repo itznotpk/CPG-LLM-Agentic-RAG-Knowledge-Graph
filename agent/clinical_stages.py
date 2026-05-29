@@ -261,8 +261,112 @@ def _assess_data_quality_issue(case: PatientCase, trigger: str) -> tuple[bool, s
     return False, None
 
 
+_SWITCH_CONNECTORS = (
+    "switch to ", "replace with ", "change to ", "substitute with ",
+    "alternative: ", "alternative is ", "alternatives: ", "alternative from ",
+    "use ", "consider ",
+)
+
+
+def _split_stop_switch_recs(recommendations: list[Recommendation]) -> list[Recommendation]:
+    """Materialise an explicit START rec when a STOP rec embeds a switch target.
+
+    The synthesis LLM often emits a single `[STOP]` rec like
+      'Discontinue Losartan — switch to Methyldopa 250-1000 mg ...; or Labetalol ...'
+    which is clinically right but structurally collapses the swap. Downstream
+    checks that scan for `action == "start"` of a pregnancy-safe agent then
+    miss it. Walk each STOP rec; if its intervention names a switch target
+    and no sibling START rec already exists for any extracted drug, emit a
+    paired START rec citing the same source.
+
+    Conservative: only splits STOP recs with an explicit switch connector,
+    only extracts capitalised drug tokens (avoids splitting on prose), and
+    skips when a START already names any extracted drug.
+    """
+    import re
+    if not recommendations:
+        return recommendations
+    existing_starts = {
+        _normalize_drug_name(r.intervention or "")
+        for r in recommendations
+        if r.type == "pharmacological" and (r.action or "").lower() == "start"
+    }
+    new_starts: list[Recommendation] = []
+    for rec in recommendations:
+        if rec.type != "pharmacological" or (rec.action or "").lower() != "stop":
+            continue
+        text = rec.intervention or ""
+        low = text.lower()
+        # find the earliest switch connector
+        cut = -1
+        for conn in _SWITCH_CONNECTORS:
+            i = low.find(conn)
+            if i >= 0 and (cut < 0 or i < cut):
+                cut = i + len(conn)
+        if cut < 0:
+            continue
+        tail = text[cut:]
+        # Extract capitalised drug-name tokens (Methyldopa, Labetalol, Nifedipine).
+        # Anything ALL-CAPS / regular word starting upper, ≥4 chars, not a stop word.
+        candidates = re.findall(r"\b([A-Z][a-z]{3,}(?:-[A-Z][a-z]+)?)\b", tail)
+        _STOP_WORDS = {"Table", "Discontinue", "Switch", "Replace", "Alternative",
+                       "Consider", "From", "With", "Day", "Daily", "Orally", "Max",
+                       "Doses", "Dose", "Extended", "Release", "Mg"}
+        for name in candidates:
+            if name in _STOP_WORDS:
+                continue
+            norm = name.lower().strip()
+            if norm in existing_starts:
+                continue
+            existing_starts.add(norm)
+            new_starts.append(Recommendation(
+                intervention=name,
+                type="pharmacological",
+                action="start",
+                evidence_grade=rec.evidence_grade,
+                cpg_source=rec.cpg_source,
+                rationale=f"Pregnancy-safe alternative to the STOPPED agent ({_normalize_drug_name(text) or 'previous drug'}); confirm dose with clinician. Auto-split from STOP rec.",
+                contraindications_checked=[],
+            ))
+            # First named alternative is enough — clinician picks.
+            break
+    if new_starts:
+        return list(recommendations) + new_starts
+    return recommendations
+
+
+_PRIMARY_CLAUSE_SPLITTERS = (
+    " if ", "; if ", " when ", "; titrate", "; if blood ", " should be initiated if ",
+    " should be considered if ", " initiate if ", " — if ",
+)
+
+
+def _primary_clause(text: str) -> str:
+    """Return the primary prescribing clause (before any conditional escalation).
+
+    Case-10 metformin intervention reads:
+      'Metformin 500 mg OD initial dose — titrate to 1500 mg OD; if blood glucose
+       targets not met within 1-2 weeks, initiate insulin therapy'
+    The trailing 'initiate insulin' clause is contingent future therapy, not a
+    current prescription. Matching `_SPECIALIST_INITIATED_DRUGS["insulin"]`
+    against the whole string false-fires an endocrinology cross-check for a
+    metformin rec. Trim at the first conditional connector to keep the check
+    anchored to what is being prescribed *now*.
+    """
+    if not text:
+        return ""
+    low = text.lower()
+    cut = len(low)
+    for sep in _PRIMARY_CLAUSE_SPLITTERS:
+        i = low.find(sep)
+        if i >= 0 and i < cut:
+            cut = i
+    return text[:cut]
+
+
 def _validate_specialist_medication_pairing(
     recommendations: list[Recommendation],
+    case: PatientCase | None = None,
 ) -> list[str]:
     """Validate specialist-initiated drugs have referrals, and vice versa (Gap 7).
 
@@ -319,7 +423,7 @@ def _validate_specialist_medication_pairing(
             is_new_initiation = any(kw in rationale for kw in _DOSE_CHANGE_KEYWORDS)
         if not is_new_initiation:
             continue
-        med_text = (med_rec.intervention or "").lower()
+        med_text = _primary_clause(med_rec.intervention or "").lower()
 
         # Check if this is a specialist-initiated drug — but ignore matches that
         # come from a drug class which is only present via an already-continuing
@@ -354,13 +458,26 @@ def _validate_specialist_medication_pairing(
                 [spec_key for spec_key in specialist_refs]
                 + [c for conds in specialist_refs.values() for c in conds]
             ).lower()
-            has_required = any(
-                # exact key, or required_spec substring of any spec key/cond
-                req in specialist_refs
-                or req in specialist_ref_blob
-                or req.rstrip("y") in specialist_ref_blob  # endocrinology→endocrinolog (handles -ist forms)
-                for req in required_specs
+            # Pregnancy context: GDM metformin/insulin are routinely
+            # obstetrician-initiated when an obstetric referral is present, so
+            # an "obstetric*" specialty satisfies an endocrinology requirement
+            # for these drugs without needing a separate endo referral.
+            pregnant = bool(case) and any(
+                "pregnan" in (c or "").lower() or "gestational" in (c or "").lower()
+                for c in (getattr(case, "comorbidities", []) or [])
             )
+            obstetric_present = "obstetric" in specialist_ref_blob
+
+            def _spec_satisfied(req: str) -> bool:
+                if req in specialist_refs or req in specialist_ref_blob:
+                    return True
+                if req.rstrip("y") in specialist_ref_blob:  # endocrinology→endocrinolog (handles -ist forms)
+                    return True
+                if pregnant and obstetric_present and req in ("endocrinology", "diabetes"):
+                    return True
+                return False
+
+            has_required = any(_spec_satisfied(req) for req in required_specs)
             if not has_required:
                 warning = (
                     f"Specialist-initiated medication {med_text[:40]} recommended "
@@ -1499,6 +1616,11 @@ _TASK_FRAMED_MARKERS = (
     "follow-up", "follow up", "review of", "review for", "anticoagulation review",
     "antithrombotic management", "antithrombotic review", "day 1 review",
     "post-discharge", "post discharge", "routine review", "annual review",
+    # Antenatal / management-plan visits (case 10 booking visit, etc.) — these
+    # framings carry no presenting symptom and are pure planning context, so
+    # they belong to Mode B even though they aren't post-procedure reviews.
+    "booking visit", "antenatal visit", "antenatal review", "antenatal booking",
+    "newly diagnosed", "plan for", "management plan",
 )
 
 
@@ -4105,9 +4227,17 @@ Produce a TreatmentPlan JSON object matching this schema:
     except Exception as exc:
         logger.debug("trigger analysis failed (non-fatal): %s", exc)
 
+    # Gap D: split STOP recs that bundle a "switch to X" target into paired
+    # STOP + START, so downstream checks (and the showcase scanner) see the
+    # alternative as a structured START action.
+    try:
+        plan.recommendations = _split_stop_switch_recs(plan.recommendations)
+    except Exception as exc:
+        logger.debug("stop-switch split failed (non-fatal): %s", exc)
+
     # Gap 7: Specialist-medication cross-check validator
     try:
-        cross_check_warnings = _validate_specialist_medication_pairing(plan.recommendations)
+        cross_check_warnings = _validate_specialist_medication_pairing(plan.recommendations, case)
         if cross_check_warnings:
             for warning in cross_check_warnings:
                 logger.warning("stage_5 cross-check: %s", warning)

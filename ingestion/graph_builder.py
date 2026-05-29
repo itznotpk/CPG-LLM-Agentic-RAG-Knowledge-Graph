@@ -451,6 +451,8 @@ RELATION TYPES (use exactly as written):
 
 RELATION GUIDANCE:
 - CONTRAINDICATED_WITH: absolute contraindication only - the text explicitly says "do not use", "contraindicated", "avoid in all cases"
+    * The OBJECT must be an explicit noun phrase from the evidence sentence (e.g. "contraindicated in pregnancy", "do not use with warfarin", "avoid in severe renal impairment"). If the sentence says only "X is contraindicated" or "X is contraindicated or unacceptable" with NO explicit "with/in/for/during <noun>" complement, DO NOT EMIT this triple — and DO NOT substitute the chunk's section heading as the object. A bare "contraindicated" verb without a stated complement is uninformative.
+    * "Initiating-trigger" pattern blocker: when a bullet/clause appears inside a list of triggers for starting a DIFFERENT drug — e.g. "Insulin should be initiated when: ... metformin is contraindicated or unacceptable ..." — the contraindicated drug is a PRECONDITION, not the subject of an edge. Do not emit CONTRAINDICATED_WITH (or any negative edge) for that drug from inside such a list. The only triple to extract from such a bullet is one about the drug being INITIATED (insulin here), not about the precondition drug.
 - INTERACTS_WITH: pharmacokinetic or pharmacodynamic interaction that requires attention but is not an absolute contraindication
 - CROSS_REACTS_WITH: allergen cross-reactivity between two substances
 - REQUIRES_DOSE_ADJUSTMENT: a dose change is needed under a specific condition (renal, hepatic, age, weight)
@@ -506,6 +508,18 @@ Return format:
             # "Asthma | + | - | + | + | + | +" — a long-standing extractor
             # defect previously mitigated downstream in graph_navigator.
             _table_row_noise = re.compile(r"(?:\|\s*[+\-]{1,3}\$?\s*){3,}")
+            # Gap G guard: a CONTRAINDICATED_WITH triple is only meaningful when the
+            # evidence sentence carries an explicit complement (with/in/for/during/co-
+            # prescrib(e)/contraindication-to <noun>) tying the verb to a stated
+            # object. Bare clauses like "metformin is contraindicated or unacceptable"
+            # (which appear as preconditions for OTHER drugs being initiated) get the
+            # object hallucinated from the section heading downstream. Drop them.
+            _contra_complement_re = re.compile(
+                r"\bcontraindicat\w*\s+(?:with|in|for|during|to|when|if)\b|"
+                r"\bdo not (?:use|co-prescrib\w*|combine|administer)\s+with\b|"
+                r"\bavoid (?:in|with|during|co-administ\w*)\b",
+                re.IGNORECASE,
+            )
             valid_triples = []
             for t in triples:
                 if not isinstance(t, dict):
@@ -516,6 +530,18 @@ Return format:
                     continue
                 if t.get("relation") not in self.CLINICAL_RELATION_TYPES:
                     t["relation"] = "OTHER"
+                # Gap G post-check: drop CONTRAINDICATED_WITH whose evidence has no
+                # explicit "contraindicated <prep> <object>" complement. Section-anchor
+                # object hallucination is the dominant failure mode for this edge type.
+                if t.get("relation") == "CONTRAINDICATED_WITH":
+                    ev = str(t.get("evidence") or "")
+                    if not _contra_complement_re.search(ev):
+                        logger.warning(
+                            "Dropped CONTRAINDICATED_WITH (no complement in evidence): "
+                            "%s -> %s | ev=%r",
+                            t.get("subject"), t.get("object"), ev[:140],
+                        )
+                        continue
                 # Enforce controlled vocabulary - reject LLM hallucinations
                 if t.get("severity") not in valid_severities:
                     t["severity"] = None
@@ -887,10 +913,45 @@ Return format:
             if chunk.index < len(embedded_chunks) - 1:
                 await asyncio.sleep(0.3)
         
+        # Gap G internal-contradiction guard: within this CPG, if the same
+        # (subject, object) pair appears as BOTH CONTRAINDICATED_WITH and any
+        # positive treat/indicate/recommend edge, warn at ingest time so a
+        # human reviews before commit. Almost always indicates a section-anchor
+        # object hallucination on the negative edge (case-10 metformin × GDM
+        # is the canonical example).
+        _POSITIVE_RELS = {"RECOMMENDED_FOR", "INDICATED_FOR", "FIRST_LINE_FOR",
+                          "SECOND_LINE_FOR", "TREATS"}
+        contra_keys: dict[tuple[str, str], list[dict]] = {}
+        positive_keys: dict[tuple[str, str], list[dict]] = {}
+        for t in all_triples:
+            key = (
+                (t.get("subject") or "").strip().lower(),
+                (t.get("object") or "").strip().lower(),
+            )
+            if not key[0] or not key[1]:
+                continue
+            rel = t.get("relation")
+            if rel == "CONTRAINDICATED_WITH":
+                contra_keys.setdefault(key, []).append(t)
+            elif rel in _POSITIVE_RELS:
+                positive_keys.setdefault(key, []).append(t)
+        for key, contra_triples in contra_keys.items():
+            if key in positive_keys:
+                ct = contra_triples[0]
+                pt = positive_keys[key][0]
+                logger.warning(
+                    "CONTRADICTION (review before commit): %s × %s has "
+                    "CONTRAINDICATED_WITH AND %s in same CPG %r. "
+                    "Neg evidence: %r (chunk=%s). Pos evidence: %r (chunk=%s).",
+                    key[0], key[1], pt.get("relation"), document_title,
+                    (ct.get("evidence") or "")[:160], ct.get("cpg_chunk_id"),
+                    (pt.get("evidence") or "")[:160], pt.get("cpg_chunk_id"),
+                )
+
         # Write all triples to Neo4j
         if all_triples:
             await self._write_triples_to_neo4j(all_triples, document_title)
-        
+
         logger.info(f"Relationship graph built: {len(all_triples)} triples, types: {rel_counts}")
         
         return {
