@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../shared/Notification';
 import { generatePdfFromElement } from '../../utils/htmlToPdf';
 import { FinalCarePlan } from './finalCarePlan/FinalCarePlan';
+import { enqueueDelivery, getDeliveryStatus } from '../../lib/clinicalApi';
 import './finalCarePlan/finalCarePlan.css';
 
 export function OutputSection() {
@@ -19,6 +20,7 @@ export function OutputSection() {
   const fcpRef = useRef(null);
   const [pdfUploaded, setPdfUploaded] = useState(false);
   const [pdfUploading, setPdfUploading] = useState(false);
+  const [delivery, setDelivery] = useState(null);
 
   // Patient: Step 4 uses `patient`, Step 3 uses `patientData` — accept either
   const resolvedPatient = patient ?? patientData ?? {};
@@ -59,10 +61,10 @@ export function OutputSection() {
     mmcNo: authProfile.license_number || '—',
     clinic: authProfile.facility || 'Clinic',
   } : {
-    name: 'Dr. Aiman Halim',
-    role: 'Family Medicine Specialist',
-    mmcNo: 'MMC-48921',
-    clinic: 'Klinik Kesihatan Bandar Bukit Damansara',
+    name: 'Unknown Provider',
+    role: '—',
+    mmcNo: '—',
+    clinic: '—',
   };
 
   const now = new Date();
@@ -151,6 +153,29 @@ export function OutputSection() {
 
   const handleBack = () => goToStep(3);
 
+  const handleSendToPatient = async () => {
+    if (!consultationId) return;
+    try {
+      const job = await enqueueDelivery(consultationId);
+      setDelivery(job);
+    } catch (err) {
+      toast.error('Could not queue delivery: ' + err.message);
+    }
+  };
+
+  // Poll for status while job is in a non-terminal state
+  useEffect(() => {
+    if (!delivery || !consultationId) return;
+    if (delivery.status === 'sent' || delivery.status === 'failed') return;
+    const t = setInterval(async () => {
+      const s = await getDeliveryStatus(consultationId);
+      if (s) setDelivery(s);
+    }, 3000);
+    return () => clearInterval(t);
+  }, [delivery, consultationId]);
+
+  const canSendToPatient = !!(resolvedPatient?.email_consent_at) && pdfUploaded;
+
   if (!carePlan) return null;
 
   return (
@@ -171,6 +196,9 @@ export function OutputSection() {
       onNewAssessment={handleNewAssessment}
       pdfUploaded={pdfUploaded}
       pdfUploading={pdfUploading}
+      onSendToPatient={handleSendToPatient}
+      deliveryStatus={delivery}
+      canSendToPatient={canSendToPatient}
     />
   );
 }

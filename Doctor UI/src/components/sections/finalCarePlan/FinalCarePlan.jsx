@@ -570,6 +570,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   clinicalNotes, provider, encounter, nextReviewDate,
   onExportPDF, onPrint, onBack, onNewAssessment,
   pdfUploaded, pdfUploading,
+  onSendToPatient, deliveryStatus, canSendToPatient,
 }, ref) {
   const [editing, setEditing] = useState(false);
   const { isDark } = useTheme();
@@ -911,10 +912,44 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
               </>
             )}
           </div>
-          <button className="action-btn" disabled>
+          <button
+            className="action-btn"
+            onClick={onSendToPatient}
+            disabled={!canSendToPatient || deliveryStatus?.status === 'sending' || deliveryStatus?.status === 'sent'}
+            title={!canSendToPatient ? 'Patient has not consented to email delivery' : undefined}
+          >
             <span className="icon-box">{fcpIcons.mail({})}</span>
-            <span>Email to patient</span>
+            <span>
+              {deliveryStatus?.status === 'sending' ? 'Sending…'
+                : deliveryStatus?.status === 'sent' ? 'Sent'
+                : 'Send to patient'}
+            </span>
           </button>
+          {deliveryStatus && (
+            <div style={{
+              display: 'flex', alignItems: 'center', gap: 8,
+              padding: '6px 12px', borderRadius: 8, fontSize: 12, marginTop: 4,
+              background: deliveryStatus.status === 'sent'
+                ? 'rgba(16,185,129,0.08)'
+                : deliveryStatus.status === 'failed'
+                  ? 'rgba(239,68,68,0.08)'
+                  : 'rgba(59,130,246,0.08)',
+              border: `1px solid ${deliveryStatus.status === 'sent'
+                ? 'rgba(16,185,129,0.25)'
+                : deliveryStatus.status === 'failed'
+                  ? 'rgba(239,68,68,0.25)'
+                  : 'rgba(59,130,246,0.25)'}`,
+              color: deliveryStatus.status === 'sent' ? '#065f46'
+                : deliveryStatus.status === 'failed' ? '#991b1b'
+                : '#1e40af',
+            }}>
+              <span style={{ fontWeight: 500 }}>
+                {deliveryStatus.status === 'sent' ? 'Email delivered'
+                  : deliveryStatus.status === 'failed' ? `Failed: ${deliveryStatus.error || 'error'}`
+                  : 'Queued for delivery'}
+              </span>
+            </div>
+          )}
           <button className="action-btn" disabled>
             <span className="icon-box">{fcpIcons.share({})}</span>
             <span>Share with team</span>

@@ -3,7 +3,7 @@ import { X, CheckCircle, Activity, Heart, Wind, Droplets, Thermometer, Zap, Came
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useRPPGStream } from '../../hooks/useRPPGStream';
-import { supabase } from '../../lib/supabase';
+import { saveRPPGVitals } from '../../lib/supabase';
 
 function VitalRow({ label, value, unit }) {
   const hasValue = value != null && Number(value) !== 0;
@@ -75,19 +75,7 @@ export function RPPGScanModal({ onClose }) {
     // Save one row to live_vitals with patient info
     const nric = state.patient?.nsn;
     if (nric) {
-      await supabase.from('live_vitals').insert({
-        patient_nric:    nric,
-        consultation_id: state.currentConsultationId || null,
-        source:          'rppg',
-        hr:              payload.hr          ? Number(payload.hr)          : null,
-        spo2:            payload.spo2        ? Number(payload.spo2)        : null,
-        sbp:             payload.bpSystolic  ? Number(payload.bpSystolic)  : null,
-        dbp:             payload.bpDiastolic ? Number(payload.bpDiastolic) : null,
-        rr:              payload.rr          ? Number(payload.rr)          : null,
-        temp:            payload.temp        ? Number(payload.temp)        : null,
-        quality:         quality             ? +quality.toFixed(1)         : null,
-        updated_at:      new Date().toISOString(),
-      });
+      await saveRPPGVitals({ nric, consultationId: state.currentConsultationId, vitals: payload, quality });
     }
 
     setApplying(false);

@@ -267,6 +267,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
                 comorbidities=case.comorbidities,
                 allergies=case.allergies,
                 patient_params=build_patient_params(case),
+                patient_age=case.age,
             )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:
@@ -448,6 +449,7 @@ async def run_clinical_workflow_streaming(
             comorbidities=case.comorbidities,
             allergies=case.allergies,
             patient_params=build_patient_params(case),
+            patient_age=case.age,
         )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:
@@ -571,6 +573,7 @@ async def run_resynthesize_streaming(
             comorbidities=case.comorbidities,
             allergies=case.allergies,
             patient_params=build_patient_params(case),
+            patient_age=case.age,
         )
         logger.info("KG lookup: %d flags", len(kg_flags))
     except Exception as e:

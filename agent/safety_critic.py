@@ -150,6 +150,7 @@ async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[Safety
                 comorbidities=case.comorbidities,
                 allergies=case.allergies,
                 patient_params=build_patient_params(case),
+                patient_age=case.age,
             )
             out: list[SafetyFlag] = []
             for cf in kg_flags:

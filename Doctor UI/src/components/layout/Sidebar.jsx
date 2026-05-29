@@ -27,7 +27,7 @@ const navItems = [
   { id: 'dashboard', label: 'Home', icon: LayoutDashboard },
   { id: 'patients', label: 'My Patients', icon: Users },
   { id: 'consultation', label: 'Consultation', icon: Stethoscope },
-  { id: 'analytics', label: 'Performance Monitoring', icon: BarChart3 },
+  { id: 'analytics', label: 'Clinical Performance', icon: BarChart3 },
   { id: 'settings', label: 'Settings', icon: Settings },
 ];
 

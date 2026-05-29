@@ -69,15 +69,50 @@ class DatabasePool:
 # Global database pool instance
 db_pool = DatabasePool()
 
+# Supabase pool — separate DB used for Doctor UI tables (patients, consultations,
+# delivery_jobs). Initialized only if SUPABASE_DB_URL is set; otherwise stays None
+# and any caller that needs it must check first.
+class _SupabasePool(DatabasePool):
+    def __init__(self):
+        self.database_url = os.getenv("SUPABASE_DB_URL")
+        self.pool: Optional[Pool] = None
+
+    async def initialize(self):
+        if not self.database_url:
+            logger.warning("SUPABASE_DB_URL not set — Supabase pool disabled")
+            return
+        if not self.pool:
+            self.pool = await asyncpg.create_pool(
+                self.database_url,
+                min_size=1,
+                max_size=5,
+                max_inactive_connection_lifetime=300,
+                command_timeout=60,
+            )
+            logger.info("Supabase connection pool initialized")
+
+
+supabase_pool = _SupabasePool()
+
 
 async def initialize_database():
     """Initialize database connection pool."""
     await db_pool.initialize()
 
 
+async def initialize_supabase_db():
+    """Initialize Supabase connection pool (no-op if SUPABASE_DB_URL unset)."""
+    await supabase_pool.initialize()
+
+
 async def close_database():
     """Close database connection pool."""
     await db_pool.close()
+
+
+async def close_supabase_db():
+    """Close Supabase connection pool."""
+    await supabase_pool.close()
 
 
 # Session Management Functions

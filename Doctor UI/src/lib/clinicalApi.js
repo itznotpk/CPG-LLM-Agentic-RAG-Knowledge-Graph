@@ -351,3 +351,18 @@ export async function resynthesizePlanStream(
     pump();
   });
 }
+
+export async function enqueueDelivery(consultationId) {
+  const r = await fetch(`${CLINICAL_API_BASE}/delivery/enqueue`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ consultation_id: consultationId }),
+  });
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+export async function getDeliveryStatus(consultationId) {
+  const r = await fetch(`${CLINICAL_API_BASE}/delivery/status/${consultationId}`);
+  return r.ok ? r.json() : null;
+}

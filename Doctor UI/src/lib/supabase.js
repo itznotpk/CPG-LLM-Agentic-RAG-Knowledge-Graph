@@ -639,7 +639,8 @@ export const updateConsultation = async (consultationId, updates = {}) => {
         p_referrals: updates.referrals || null,
         p_lifestyle_goals: updates.lifestyleGoals || null,
         p_cpg_references: updates.cpgReferences || null,
-        p_report_pdf_url: updates.reportPdfUrl || null
+        p_report_pdf_url: updates.reportPdfUrl || null,
+        p_safety_flags: updates.safetyFlags || null
       });
 
     if (error) {
@@ -891,11 +892,59 @@ export const getLatestPriorVisitSummary = async (patientNric) => {
   }
 };
 
+export const saveRPPGVitals = async ({ nric, consultationId, vitals, quality }) => {
+  const { hr, bpSystolic, bpDiastolic, spo2, rr, temp } = vitals;
+  const { error } = await supabase.from('live_vitals').insert({
+    patient_nric:    nric,
+    consultation_id: consultationId || null,
+    source:          'rppg',
+    hr:              hr    ? Number(hr)    : null,
+    spo2:            spo2  ? Number(spo2)  : null,
+    sbp:             bpSystolic  ? Number(bpSystolic)  : null,
+    dbp:             bpDiastolic ? Number(bpDiastolic) : null,
+    rr:              rr    ? Number(rr)    : null,
+    temp:            temp  ? Number(temp)  : null,
+    quality:         quality != null ? +Number(quality).toFixed(1) : null,
+    updated_at:      new Date().toISOString(),
+  });
+  return { error };
+};
+
 // Export types for TypeScript users (these work as documentation in JS too)
 /**
  * @typedef {import('@supabase/supabase-js').User} User
  * @typedef {import('@supabase/supabase-js').Session} Session
  * @typedef {import('@supabase/supabase-js').AuthChangeEvent} AuthChangeEvent
  */
+
+/**
+ * Update patient email and email delivery consent.
+ * Stamps email_consent_at = now() when consented = true; clears it when false.
+ * @param {string} nric
+ * @param {{ email: string, consented: boolean, preferredLanguage?: string }} opts
+ */
+export const updatePatientDeliveryPrefs = async (nric, { email, consented, preferredLanguage }) => {
+  try {
+    const updates = {
+      email: email || null,
+      email_consent_at: consented ? new Date().toISOString() : null,
+    };
+    if (preferredLanguage) updates.preferred_language = preferredLanguage;
+
+    const { error } = await supabase
+      .from('patients')
+      .update(updates)
+      .eq('nric', nric);
+
+    if (error) {
+      console.error('Error updating patient delivery prefs:', error);
+      return { success: false, error };
+    }
+    return { success: true, error: null };
+  } catch (err) {
+    console.error('Exception updating patient delivery prefs:', err);
+    return { success: false, error: err };
+  }
+};
 
 export default supabase;

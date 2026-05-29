@@ -1,29 +1,26 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import {
-  BarChart3,
-  TrendingUp,
-  Clock,
-  CheckCircle2,
-  XCircle,
-  FileText,
-  Brain,
-  Activity,
-  ChevronDown,
-  RefreshCw,
   BookOpen,
   Stethoscope,
   AlertTriangle,
-  Timer,
   FileCheck,
   UserCheck,
   Search,
-  Filter,
-  Terminal,
-  RefreshCw as RefreshIcon,
+  ShieldAlert,
+  TrendingUp,
+  Activity,
+  Clock,
+  ChevronRight,
 } from 'lucide-react';
-import { GlassCard as Card, Badge, Button } from '../shared';
+import { GlassCard as Card } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 import { supabase } from '../../lib/supabase';
+import { safeJson } from '../../lib/helpers';
+
+function getSeverityOrder(s) {
+  const m = { CRITICAL: 0, MAJOR: 1, MODERATE: 2, MINOR: 3 };
+  return m[(s || '').toUpperCase()] ?? 4;
+}
 
 // ---------------------------------------------------------------------------
 // Sub-components
@@ -31,15 +28,14 @@ import { supabase } from '../../lib/supabase';
 
 function MetricCard({ icon: Icon, label, value, sub, color, isDark }) {
   const colorMap = {
-    teal:   { bg: isDark ? 'bg-teal-500/15'   : 'bg-teal-50',   text: isDark ? 'text-teal-400'   : 'text-teal-600'   },
-    violet: { bg: isDark ? 'bg-violet-500/15'  : 'bg-violet-50', text: isDark ? 'text-violet-400' : 'text-violet-600' },
-    sky:    { bg: isDark ? 'bg-sky-500/15'     : 'bg-sky-50',    text: isDark ? 'text-sky-400'    : 'text-sky-600'    },
-    amber:  { bg: isDark ? 'bg-amber-500/15'   : 'bg-amber-50',  text: isDark ? 'text-amber-400'  : 'text-amber-600'  },
-    emerald:{ bg: isDark ? 'bg-emerald-500/15' : 'bg-emerald-50',text: isDark ? 'text-emerald-400': 'text-emerald-600' },
-    blue:   { bg: isDark ? 'bg-blue-500/15'    : 'bg-blue-50',   text: isDark ? 'text-blue-400'   : 'text-blue-600'   },
+    teal:    { bg: isDark ? 'bg-teal-500/15'    : 'bg-teal-50',    text: isDark ? 'text-teal-400'    : 'text-teal-600'    },
+    violet:  { bg: isDark ? 'bg-violet-500/15'  : 'bg-violet-50',  text: isDark ? 'text-violet-400'  : 'text-violet-600'  },
+    sky:     { bg: isDark ? 'bg-sky-500/15'     : 'bg-sky-50',     text: isDark ? 'text-sky-400'     : 'text-sky-600'     },
+    amber:   { bg: isDark ? 'bg-amber-500/15'   : 'bg-amber-50',   text: isDark ? 'text-amber-400'   : 'text-amber-600'   },
+    emerald: { bg: isDark ? 'bg-emerald-500/15' : 'bg-emerald-50', text: isDark ? 'text-emerald-400' : 'text-emerald-600' },
+    red:     { bg: isDark ? 'bg-red-500/15'     : 'bg-red-50',     text: isDark ? 'text-red-400'     : 'text-red-500'     },
   };
   const c = colorMap[color] || colorMap.teal;
-
   return (
     <div className="p-5">
       <div className="flex items-center gap-2 mb-3">
@@ -62,11 +58,43 @@ function ProgressBar({ value, max = 100, color = 'primary', isDark }) {
     violet: 'bg-violet-500',
     sky: 'bg-sky-500',
     amber: 'bg-amber-500',
+    red: 'bg-red-500',
   }[color] || 'bg-[var(--accent-primary)]';
-
   return (
     <div className={`w-full rounded-full h-1.5 overflow-hidden ${isDark ? 'bg-white/10' : 'bg-slate-200'}`}>
       <div className={`h-full rounded-full transition-all duration-500 ${colorClass}`} style={{ width: `${pct}%` }} />
+    </div>
+  );
+}
+
+function SeverityBadge({ severity, isDark }) {
+  const s = (severity || '').toUpperCase();
+  const map = {
+    CRITICAL: 'bg-red-500/15 text-red-500 border-red-400/30',
+    MAJOR:    'bg-amber-500/15 text-amber-600 border-amber-400/30',
+    MODERATE: 'bg-yellow-500/15 text-yellow-600 border-yellow-400/30',
+    MINOR:    isDark ? 'bg-slate-500/15 text-slate-400 border-slate-500/20' : 'bg-slate-100 text-slate-500 border-slate-200',
+  };
+  return (
+    <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold border ${map[s] || map.MINOR}`}>
+      {s || 'UNKNOWN'}
+    </span>
+  );
+}
+
+// Mini sparkline — 7 bars
+function Sparkline({ data, isDark }) {
+  const max = Math.max(...data, 1);
+  return (
+    <div className="flex items-end gap-0.5 h-8">
+      {data.map((v, i) => (
+        <div
+          key={i}
+          title={`${v} consults`}
+          className={`flex-1 rounded-sm transition-all ${isDark ? 'bg-teal-400/70' : 'bg-teal-500/70'}`}
+          style={{ height: `${Math.max((v / max) * 100, 8)}%` }}
+        />
+      ))}
     </div>
   );
 }
@@ -77,242 +105,216 @@ function ProgressBar({ value, max = 100, color = 'primary', isDark }) {
 
 export function DashboardSection() {
   const { isDark, accent } = useTheme();
-  const [logFilter, setLogFilter] = useState('all'); // all, accepted, modified
+  const [logFilter, setLogFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
-  
   const [loading, setLoading] = useState(true);
-  const [summaryMetrics, setSummaryMetrics] = useState({
-    timeSavedTotal: 0,
+
+  const [metrics, setMetrics] = useState({
+    consultsToday: 0,
+    consults30d: 0,
     cpgAligned: { count: 0, total: 1 },
-    citationsIssued: 0,
-    referrals: { count: 0, cpgJustified: 0 },
-    consultationsToday: 0,
-    avgTimePerConsult: 4.0,
-    acceptanceRate: 92, // Still mocked (no field in DB yet)
+    referrals: { total: 0, emergency: 0, urgent: 0, routine: 0 },
+    safetyFlags: { total: 0, critical: 0, major: 0 },
+    uniqueCpgs: 0,
   });
+  const [weekSparkline, setWeekSparkline] = useState(Array(7).fill(0));
   const [consultationLog, setConsultationLog] = useState([]);
   const [topDiagnoses, setTopDiagnoses] = useState([]);
   const [cpgSectionsUsed, setCpgSectionsUsed] = useState([]);
-  
-  // RAG Debugger State
-  const [systemLogs, setSystemLogs] = useState([]);
-  const [isFetchingLogs, setIsFetchingLogs] = useState(false);
-  const [autoRefreshLogs, setAutoRefreshLogs] = useState(true);
-  
-  const fetchLogs = async () => {
-    try {
-      setIsFetchingLogs(true);
-      const BASE_URL = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
-      const res = await fetch(`${BASE_URL}/system/logs?lines=100`);
-      if (res.ok) {
-        const data = await res.json();
-        setSystemLogs(data.logs || []);
-      }
-    } catch (err) {
-      console.error('Failed to fetch backend logs', err);
-    } finally {
-      setIsFetchingLogs(false);
-    }
-  };
+  const [safetyFlagList, setSafetyFlagList] = useState([]); // aggregated across all consults
+  const [referralBreakdown, setReferralBreakdown] = useState([]); // [{specialty, count, urgency}]
 
-  const fetchData = async (showLoadingState = true) => {
+  const fetchData = async (showLoading = true) => {
     try {
-      if (showLoadingState) setLoading(true);
-      // Fetch consultations from the last 30 days
+      if (showLoading) setLoading(true);
+
       const thirtyDaysAgo = new Date();
       thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-      
-      const { data: consultsData, error: consultsError } = await supabase
+
+      const { data: consultsData, error } = await supabase
         .from('consultations')
         .select('*')
         .gte('created_at', thirtyDaysAgo.toISOString())
         .order('created_at', { ascending: false });
-        
-      if (consultsError) throw consultsError;
-      
-      // Fetch all patients to map NRIC -> Name
-      const { data: patientsData, error: patientsError } = await supabase
+
+      if (error) throw error;
+
+      const { data: patientsData } = await supabase
         .from('patients')
         .select('nric, full_name');
-        
-      if (patientsError) throw patientsError;
-      
+
       const patientMap = {};
-      patientsData.forEach(p => { patientMap[p.nric] = p.full_name; });
-      
-      // --- Process Metrics ---
-      let todayCount = 0;
-      let totalTimeSaved = 0;
+      (patientsData || []).forEach(p => { patientMap[p.nric] = p.full_name; });
+
+      const todayStr = new Date().toISOString().split('T')[0];
+
+      // Build day-bucket map for the last 7 days
+      const dayBuckets = {};
+      for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+        dayBuckets[d.toISOString().split('T')[0]] = 0;
+      }
+
+      let consultsToday = 0;
       let cpgAlignedCount = 0;
       let citationsTotal = 0;
-      let referralsCount = 0;
-      let referralsJustified = 0;
-      
-      const todayStr = new Date().toISOString().split('T')[0];
-      
+      let referralTotal = 0, refEmergency = 0, refUrgent = 0, refRoutine = 0;
+      let flagTotal = 0, flagCritical = 0, flagMajor = 0;
       const dxMap = {};
       const cpgMap = {};
+      const cpgSet = new Set();
+      const specialtyMap = {};
+      const allFlags = [];
       const newLogs = [];
-      
+
       (consultsData || []).forEach(c => {
-        const isToday = c.created_at.startsWith(todayStr);
-        if (isToday) todayCount++;
-        
-        // Mock time saved: ~4 mins per consult (since this isn't recorded in DB)
-        const timeSaved = 4;
-        if (isToday) totalTimeSaved += timeSaved;
-        
-        // Parse CPG References
-        let cpgCount = 0;
-        let cpgRefs = [];
-        try {
-           cpgRefs = typeof c.cpg_references === 'string' ? JSON.parse(c.cpg_references) : (c.cpg_references || []);
-        } catch(e) {}
-        
-        if (Array.isArray(cpgRefs) && cpgRefs.length > 0) {
+        const dayKey = c.created_at.split('T')[0];
+        if (dayBuckets.hasOwnProperty(dayKey)) dayBuckets[dayKey]++;
+        if (dayKey === todayStr) consultsToday++;
+
+        // CPG references
+        const cpgRefs = safeJson(c.cpg_references);
+        if (cpgRefs.length > 0) {
           cpgAlignedCount++;
-          cpgCount = cpgRefs.length;
-          citationsTotal += cpgCount;
-          
+          citationsTotal += cpgRefs.length;
           cpgRefs.forEach(ref => {
             const section = ref.section || ref.title || ref.name || 'General Guideline';
             cpgMap[section] = (cpgMap[section] || 0) + 1;
+            const doc = ref.document || ref.source || section;
+            cpgSet.add(doc);
           });
         }
-        
-        // Parse Referrals
-        let refs = [];
-        try {
-           refs = typeof c.referrals === 'string' ? JSON.parse(c.referrals) : (c.referrals || []);
-        } catch(e) {}
-        
-        if (Array.isArray(refs) && refs.length > 0) {
-           referralsCount++;
-           if (cpgCount > 0) referralsJustified++;
-        }
-        
-        // Parse Diagnoses
-        let dxs = [];
-        try {
-          dxs = typeof c.diagnoses === 'string' ? JSON.parse(c.diagnoses) : (c.diagnoses || []);
-        } catch(e) {}
-        
+
+        // Safety flags
+        const flags = safeJson(c.safety_flags);
+        flags.forEach(f => {
+          const sev = (f.severity || '').toUpperCase();
+          flagTotal++;
+          if (sev === 'CRITICAL') flagCritical++;
+          if (sev === 'MAJOR') flagMajor++;
+          if (sev === 'CRITICAL' || sev === 'MAJOR') {
+            allFlags.push({
+              severity: sev,
+              title: f.title || f.flag || 'Safety concern',
+              detail: f.detail || f.description || '',
+              patient: patientMap[c.patient_nric] || 'Patient',
+              date: dayKey,
+            });
+          }
+        });
+
+        // Referrals
+        const refs = safeJson(c.referrals);
+        refs.forEach(r => {
+          referralTotal++;
+          const urg = (r.urgency || '').toLowerCase();
+          if (urg === 'emergency') refEmergency++;
+          else if (urg === 'urgent') refUrgent++;
+          else refRoutine++;
+
+          const spec = r.specialty || r.referral_to || r.type || 'Unspecified';
+          if (!specialtyMap[spec]) specialtyMap[spec] = { count: 0, emergency: 0, urgent: 0, routine: 0 };
+          specialtyMap[spec].count++;
+          if (urg === 'emergency') specialtyMap[spec].emergency++;
+          else if (urg === 'urgent') specialtyMap[spec].urgent++;
+          else specialtyMap[spec].routine++;
+        });
+
+        // Diagnoses
+        const dxs = safeJson(c.diagnoses);
         let ddxStr = 'Pending';
-        if (Array.isArray(dxs) && dxs.length > 0) {
-          const firstDx = typeof dxs[0] === 'string' ? dxs[0] : (dxs[0].condition || dxs[0].name || dxs[0].diagnosis || 'Unknown');
-          ddxStr = firstDx;
+        if (dxs.length > 0) {
+          const first = dxs[0];
+          ddxStr = typeof first === 'string' ? first : (first.condition || first.name || first.diagnosis || 'Unknown');
           dxs.forEach(dx => {
             const name = typeof dx === 'string' ? dx : (dx.condition || dx.name || dx.diagnosis || 'Unknown');
-            if (name && name !== 'Unknown') {
-              dxMap[name] = (dxMap[name] || 0) + 1;
-            }
+            if (name && name !== 'Unknown') dxMap[name] = (dxMap[name] || 0) + 1;
           });
         }
-        
-        // Extract text cleanly from clinical notes
+
         let complaintText = 'No notes';
         if (c.clinical_notes) {
-          complaintText = c.clinical_notes.replace(/<[^>]*>?/gm, '').substring(0, 50);
-          if (c.clinical_notes.length > 50) complaintText += '...';
+          complaintText = c.clinical_notes.replace(/<[^>]*>?/gm, '').substring(0, 60);
+          if (c.clinical_notes.length > 60) complaintText += '…';
         }
-        
+
         newLogs.push({
           id: c.id,
           patient: patientMap[c.patient_nric] || 'Unknown Patient',
           complaint: complaintText,
           ddx: ddxStr,
-          cpgCitations: cpgCount,
-          outcome: 'accepted', // Mocked as we don't have tracking for this yet
-          timeSaved: timeSaved,
-          date: new Date(c.created_at).toLocaleString('en-MY', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })
+          cpgCitations: cpgRefs.length,
+          flagCount: flags.length,
+          hasCritical: flags.some(f => (f.severity || '').toUpperCase() === 'CRITICAL'),
+          referralCount: refs.length,
+          date: c.created_at,
+          dayKey,
         });
       });
-      
-      const totalConsults = Math.max(consultsData.length, 1);
-      
-      // Sort and select top Diagnoses
-      const topDxList = Object.entries(dxMap)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 5)
-        .map(([name, count]) => ({
-          name,
-          count,
-          pct: Math.round((count / totalConsults) * 100)
-        }));
-        
-      // Sort and select top CPG sections
-      const topCpgList = Object.entries(cpgMap)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 5)
-        .map(([section, hits]) => ({
-          section,
-          hits
-        }));
-        
-      setSummaryMetrics({
-        timeSavedTotal: totalTimeSaved,
-        cpgAligned: { count: cpgAlignedCount, total: totalConsults },
-        citationsIssued: citationsTotal,
-        referrals: { count: referralsCount, cpgJustified: referralsJustified },
-        consultationsToday: todayCount,
-        avgTimePerConsult: 4.0,
-        acceptanceRate: 92, // Mocked 
+
+      const total30d = Math.max(consultsData.length, 1);
+
+      setMetrics({
+        consultsToday,
+        consults30d: consultsData.length,
+        cpgAligned: { count: cpgAlignedCount, total: total30d },
+        referrals: { total: referralTotal, emergency: refEmergency, urgent: refUrgent, routine: refRoutine },
+        safetyFlags: { total: flagTotal, critical: flagCritical, major: flagMajor },
+        uniqueCpgs: cpgSet.size,
       });
-      
+
+      setWeekSparkline(Object.values(dayBuckets));
+
       setConsultationLog(newLogs);
-      setTopDiagnoses(topDxList);
-      setCpgSectionsUsed(topCpgList);
-      
+
+      setTopDiagnoses(
+        Object.entries(dxMap)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 5)
+          .map(([name, count]) => ({ name, count, pct: Math.round((count / total30d) * 100) }))
+      );
+
+      setCpgSectionsUsed(
+        Object.entries(cpgMap)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 5)
+          .map(([section, hits]) => ({ section, hits }))
+      );
+
+      setSafetyFlagList(
+        allFlags.sort((a, b) => getSeverityOrder(a.severity) - getSeverityOrder(b.severity)).slice(0, 20)
+      );
+
+      setReferralBreakdown(
+        Object.entries(specialtyMap)
+          .sort((a, b) => b[1].count - a[1].count)
+          .slice(0, 6)
+          .map(([specialty, counts]) => ({ specialty, ...counts }))
+      );
+
     } catch (err) {
-      console.error('Error fetching dashboard data:', err);
+      console.error('Dashboard fetch error:', err);
     } finally {
-      if (showLoadingState) setLoading(false);
+      if (showLoading) setLoading(false);
     }
   };
 
-  // Fetch initial data on mount and subscribe to realtime updates
   useEffect(() => {
     fetchData(true);
-    fetchLogs();
-    
-    // Subscribe to schema changes in Supabase
     const channel = supabase
-      .channel('schema-db-changes')
-      .on(
-        'postgres_changes',
-        { event: '*', schema: 'public', table: 'consultations' },
-        (payload) => {
-          console.log('Realtime change received in Performance Monitoring dashboard:', payload);
-          fetchData(false);
-        }
-      )
+      .channel('dashboard-changes')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'consultations' }, () => fetchData(false))
       .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+    return () => supabase.removeChannel(channel);
   }, []);
 
-  // Control the automatic log fetching interval
-  useEffect(() => {
-    let intervalId;
-    if (autoRefreshLogs) {
-      // Initial fetch when enabling
-      fetchLogs();
-      intervalId = setInterval(() => {
-        fetchLogs();
-      }, 4000);
-    }
-    return () => {
-      if (intervalId) clearInterval(intervalId);
-    };
-  }, [autoRefreshLogs]);
-
-  const cpgPct = Math.round((summaryMetrics.cpgAligned.count / summaryMetrics.cpgAligned.total) * 100);
+  const cpgPct = Math.round((metrics.cpgAligned.count / metrics.cpgAligned.total) * 100);
 
   const filteredLog = useMemo(() => {
     let list = [...consultationLog];
-    if (logFilter !== 'all') list = list.filter(c => c.outcome === logFilter);
+    if (logFilter === 'flagged') list = list.filter(c => c.flagCount > 0);
+    if (logFilter === 'referred') list = list.filter(c => c.referralCount > 0);
     if (searchTerm) {
       const q = searchTerm.toLowerCase();
       list = list.filter(c => c.patient.toLowerCase().includes(q) || c.ddx.toLowerCase().includes(q));
@@ -320,48 +322,144 @@ export function DashboardSection() {
     return list;
   }, [logFilter, searchTerm, consultationLog]);
 
+  const divider = `border-b md:border-b-0 md:border-r ${isDark ? 'border-white/10' : 'border-slate-200'}`;
+
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <div className="flex items-center justify-between">
+      <div className="flex items-start justify-between">
+        <div>
           <h1 className={`text-3xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            Performance Monitoring
+            Clinical Performance
           </h1>
-          {loading && <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'} animate-pulse`}>Syncing with database...</span>}
+          <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+            AI-assisted consultations · last 30 days
+          </p>
         </div>
-        <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-          How the Agentic RAG pipeline is supporting your consultations today
-        </p>
+        {loading && <span className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'} animate-pulse`}>Syncing…</span>}
       </div>
 
-      {/* ── Summary Metrics (mirrors Home's 4 cards + 2 extra) ────────── */}
-      <div>
-        <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-          Today's Impact
-        </p>
-        <Card className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
-          <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
-            <MetricCard icon={Timer}     label="Time Reclaimed"   value={<>{summaryMetrics.timeSavedTotal}<span className="text-lg font-medium ml-0.5 opacity-70">min</span></>} sub={`~${summaryMetrics.avgTimePerConsult} min/consult`} color="teal"    isDark={isDark} />
-            <MetricCard icon={FileCheck} label="CPG Aligned"      value={<>{cpgPct}<span className="text-lg font-medium ml-0.5 opacity-70">%</span></>} sub={`${summaryMetrics.cpgAligned.count} of ${summaryMetrics.cpgAligned.total} plans`} color="violet"  isDark={isDark} />
-            <MetricCard icon={BookOpen}  label="Citations Issued"  value={summaryMetrics.citationsIssued}  sub="evidence-backed decisions"   color="sky"     isDark={isDark} />
-            <MetricCard icon={UserCheck} label="Referrals"         value={summaryMetrics.referrals.count}  sub={`${summaryMetrics.referrals.cpgJustified} CPG-justified`} color="amber"   isDark={isDark} />
-            <MetricCard icon={Stethoscope} label="Consultations"   value={summaryMetrics.consultationsToday} sub="completed today" color="emerald" isDark={isDark} />
-            <MetricCard icon={CheckCircle2} label="Acceptance Rate" value={<>{summaryMetrics.acceptanceRate}<span className="text-lg font-medium ml-0.5 opacity-70">%</span></>} sub="AI recommendations" color="blue"    isDark={isDark} />
+      {/* ── Row 1: Core metrics ─────────────────────────────────────── */}
+      <Card className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
+        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 divide-y md:divide-y-0 md:divide-x ${isDark ? 'divide-white/10' : 'divide-slate-200'}`}>
+          {/* Consultations today + sparkline */}
+          <div className="p-5 lg:col-span-1">
+            <div className="flex items-center gap-2 mb-3">
+              <span className={`p-1.5 rounded-lg ${isDark ? 'bg-teal-500/15' : 'bg-teal-50'}`}>
+                <Stethoscope className={`w-3.5 h-3.5 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} strokeWidth={2} />
+              </span>
+              <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Consultations</span>
+            </div>
+            <p className={`text-3xl font-bold ds-numeric leading-none ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>{metrics.consultsToday}</p>
+            <p className={`text-xs mt-1.5 mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{metrics.consults30d} in last 30 days</p>
+            <Sparkline data={weekSparkline} isDark={isDark} />
+            <p className={`text-[9px] mt-1 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>7-day trend</p>
           </div>
-        </Card>
-      </div>
 
-      {/* ── Two-column: Top Diagnoses + CPG Sections Referenced ───────── */}
+          <MetricCard icon={FileCheck}    label="CPG Aligned"      value={<>{cpgPct}<span className="text-lg font-medium ml-0.5 opacity-70">%</span></>}           sub={`${metrics.cpgAligned.count} of ${metrics.cpgAligned.total} plans`}  color="violet"  isDark={isDark} />
+          <MetricCard icon={BookOpen}     label="CPG Citations"    value={metrics.cpgAligned.count > 0 ? Math.round(metrics.cpgAligned.count > 0 ? (metrics.cpgAligned.total > 0 ? metrics.uniqueCpgs : 0) : 0) : 0} sub={`${metrics.uniqueCpgs} unique guidelines cited`} color="sky" isDark={isDark} />
+          <MetricCard icon={UserCheck}    label="Referrals"        value={metrics.referrals.total}        sub={`${metrics.referrals.emergency} emergency · ${metrics.referrals.urgent} urgent`}     color="amber"   isDark={isDark} />
+          <MetricCard icon={ShieldAlert}  label="Safety Flags"     value={metrics.safetyFlags.total}      sub={`${metrics.safetyFlags.critical} critical · ${metrics.safetyFlags.major} major`}      color={metrics.safetyFlags.critical > 0 ? 'red' : 'emerald'} isDark={isDark} />
+          <MetricCard icon={Activity}     label="Avg CPG Cites"    value={metrics.consults30d > 0 ? (Math.round((metrics.cpgAligned.count / metrics.consults30d) * 10) / 10).toFixed(1) : '—'}  sub="citations per consult"  color="teal" isDark={isDark} />
+        </div>
+      </Card>
+
+      {/* ── Row 2: Safety Flags + Referral Breakdown ───────────────── */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Top Diagnoses */}
+        {/* Safety Flags */}
         <div>
           <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            Top Diagnoses (AI-assisted)
+            Critical &amp; Major Safety Flags
+          </p>
+          <Card className="overflow-hidden" variant={isDark ? 'dark' : 'light'}>
+            {safetyFlagList.length === 0 ? (
+              <div className={`p-6 text-center text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                No critical or major flags in this period
+              </div>
+            ) : (
+              <div className="divide-y divide-transparent">
+                {safetyFlagList.slice(0, 8).map((f, i) => (
+                  <div key={i} className={`flex items-start gap-3 px-4 py-3 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
+                    <div className="pt-0.5 flex-shrink-0">
+                      <SeverityBadge severity={f.severity} isDark={isDark} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className={`text-sm font-medium truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{f.title}</p>
+                      {f.detail && <p className={`text-xs mt-0.5 line-clamp-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{f.detail}</p>}
+                    </div>
+                    <span className={`text-[10px] shrink-0 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>{f.patient}</span>
+                  </div>
+                ))}
+                {safetyFlagList.length > 8 && (
+                  <div className={`px-4 py-2 text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    +{safetyFlagList.length - 8} more flags — review full log below
+                  </div>
+                )}
+              </div>
+            )}
+          </Card>
+        </div>
+
+        {/* Referral Breakdown */}
+        <div>
+          <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            Referral Overview
+          </p>
+          <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
+            {/* Urgency summary */}
+            <div className={`flex gap-4 mb-5 pb-4 border-b ${isDark ? 'border-white/10' : 'border-slate-100'}`}>
+              {[
+                { label: 'Emergency', count: metrics.referrals.emergency, color: 'text-red-500' },
+                { label: 'Urgent',    count: metrics.referrals.urgent,    color: isDark ? 'text-amber-400' : 'text-amber-600' },
+                { label: 'Routine',   count: metrics.referrals.routine,   color: isDark ? 'text-teal-400'  : 'text-teal-600'  },
+              ].map(u => (
+                <div key={u.label} className="flex-1 text-center">
+                  <p className={`text-2xl font-bold ds-numeric ${u.color}`}>{u.count}</p>
+                  <p className={`text-[10px] uppercase tracking-wide mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{u.label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Top specialties */}
+            {referralBreakdown.length === 0 ? (
+              <p className={`text-sm text-center ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No referrals in this period</p>
+            ) : (
+              <div className="space-y-3">
+                {referralBreakdown.map(r => (
+                  <div key={r.specialty}>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{r.specialty}</span>
+                      <div className="flex items-center gap-2">
+                        {r.emergency > 0 && <span className="text-[10px] text-red-500 font-semibold">{r.emergency}🔴</span>}
+                        {r.urgent    > 0 && <span className={`text-[10px] font-semibold ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>{r.urgent}⚠</span>}
+                        <span className={`text-xs ds-numeric ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{r.count} total</span>
+                      </div>
+                    </div>
+                    <ProgressBar
+                      value={r.count}
+                      max={referralBreakdown[0].count}
+                      color={r.emergency > 0 ? 'red' : r.urgent > 0 ? 'amber' : 'teal'}
+                      isDark={isDark}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </Card>
+        </div>
+      </div>
+
+      {/* ── Row 3: Top Diagnoses + CPG Sections ────────────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div>
+          <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            Top Diagnoses (AI-assisted, 30 days)
           </p>
           <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
             <div className="space-y-4">
-              {topDiagnoses.map((dx, i) => (
+              {topDiagnoses.length === 0
+                ? <p className={`text-sm text-center ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No diagnosis data</p>
+                : topDiagnoses.map((dx, i) => (
                 <div key={dx.name}>
                   <div className="flex items-center justify-between mb-1.5">
                     <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{dx.name}</span>
@@ -374,14 +472,15 @@ export function DashboardSection() {
           </Card>
         </div>
 
-        {/* CPG Sections Referenced */}
         <div>
           <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
             CPG Sections Referenced
           </p>
           <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
             <div className="space-y-3">
-              {cpgSectionsUsed.map((s) => (
+              {cpgSectionsUsed.length === 0
+                ? <p className={`text-sm text-center ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No CPG data</p>
+                : cpgSectionsUsed.map(s => (
                 <div key={s.section} className={`flex items-center justify-between py-2 border-b last:border-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
                   <div className="flex items-center gap-2.5">
                     <BookOpen className={`w-3.5 h-3.5 flex-shrink-0 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} strokeWidth={1.5} />
@@ -397,13 +496,12 @@ export function DashboardSection() {
         </div>
       </div>
 
-      {/* ── Consultation Log ──────────────────────────────────────────── */}
+      {/* ── Consultation Log ────────────────────────────────────────── */}
       <div>
         <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
           Consultation Log
         </p>
         <Card className="overflow-hidden" variant={isDark ? 'dark' : 'light'}>
-          {/* Toolbar */}
           <div className={`flex flex-wrap items-center gap-3 p-4 border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
             <div className="flex-1 relative min-w-[200px]">
               <Search className={`absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`} strokeWidth={1.5} />
@@ -419,9 +517,9 @@ export function DashboardSection() {
             </div>
             <div className="flex items-center gap-1.5">
               {[
-                { key: 'all', label: 'All' },
-                { key: 'accepted', label: 'Accepted' },
-                { key: 'modified', label: 'Modified' },
+                { key: 'all',      label: 'All' },
+                { key: 'flagged',  label: 'Safety Flagged' },
+                { key: 'referred', label: 'Referred' },
               ].map(f => (
                 <button
                   key={f.key}
@@ -438,12 +536,11 @@ export function DashboardSection() {
             </div>
           </div>
 
-          {/* Table */}
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className={`border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                  {['Time', 'Patient', 'Chief Complaint', 'AI Diagnosis', 'CPG Cites', 'Saved', 'Outcome'].map(h => (
+                  {['Date', 'Patient', 'Chief Complaint', 'AI Diagnosis', 'CPG Cites', 'Flags', 'Referrals'].map(h => (
                     <th key={h} className={`text-left px-4 py-3 text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{h}</th>
                   ))}
                 </tr>
@@ -458,118 +555,45 @@ export function DashboardSection() {
                 ) : (
                   filteredLog.map(c => (
                     <tr key={c.id} className={`border-b last:border-0 transition-colors ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-100 hover:bg-slate-50'}`}>
-                      <td className={`px-4 py-3 ds-numeric whitespace-nowrap ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                        {c.date.split(' ')[1]}
+                      <td className={`px-4 py-3 ds-numeric whitespace-nowrap text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                        {new Date(c.date).toLocaleDateString('en-MY', { day: '2-digit', month: 'short' })}
+                        {' '}
+                        <span className="opacity-60">{new Date(c.date).toLocaleTimeString('en-MY', { hour: '2-digit', minute: '2-digit' })}</span>
                       </td>
                       <td className={`px-4 py-3 font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{c.patient}</td>
-                      <td className={`px-4 py-3 max-w-[200px] truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.complaint}</td>
-                      <td className={`px-4 py-3 font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{c.ddx}</td>
+                      <td className={`px-4 py-3 max-w-[180px] truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.complaint}</td>
+                      <td className={`px-4 py-3 font-medium max-w-[200px] truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{c.ddx}</td>
                       <td className="px-4 py-3">
                         <span className={`inline-flex items-center gap-1 text-xs ds-numeric ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
                           <BookOpen className="w-3 h-3" strokeWidth={2} />
                           {c.cpgCitations}
                         </span>
                       </td>
-                      <td className={`px-4 py-3 ds-numeric ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
-                        {c.timeSaved}m
+                      <td className="px-4 py-3">
+                        {c.flagCount > 0 ? (
+                          <span className={`inline-flex items-center gap-1 text-xs font-medium ${c.hasCritical ? 'text-red-500' : isDark ? 'text-amber-400' : 'text-amber-600'}`}>
+                            <AlertTriangle className="w-3 h-3" strokeWidth={2} />
+                            {c.flagCount}
+                          </span>
+                        ) : (
+                          <span className={`text-xs ${isDark ? 'text-slate-600' : 'text-slate-300'}`}>—</span>
+                        )}
                       </td>
                       <td className="px-4 py-3">
-                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium border
-                          ${c.outcome === 'accepted'
-                            ? 'bg-emerald-500/15 text-emerald-600 border-emerald-400/30'
-                            : 'bg-amber-500/15 text-amber-600 border-amber-400/30'}`}>
-                          {c.outcome === 'accepted' ? <CheckCircle2 className="w-3 h-3" strokeWidth={2} /> : <AlertTriangle className="w-3 h-3" strokeWidth={2} />}
-                          {c.outcome === 'accepted' ? 'Accepted' : 'Modified'}
-                        </span>
+                        {c.referralCount > 0 ? (
+                          <span className={`inline-flex items-center gap-1 text-xs font-medium ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
+                            <ChevronRight className="w-3 h-3" strokeWidth={2} />
+                            {c.referralCount}
+                          </span>
+                        ) : (
+                          <span className={`text-xs ${isDark ? 'text-slate-600' : 'text-slate-300'}`}>—</span>
+                        )}
                       </td>
                     </tr>
                   ))
                 )}
               </tbody>
             </table>
-          </div>
-        </Card>
-      </div>
-
-      {/* ── RAG Pipeline Debugging ───────────────────── */}
-      <div>
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-3">
-            <p className={`text-[10px] font-semibold uppercase tracking-widest ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-              RAG Pipeline Debugging
-            </p>
-            {/* Realtime database / logs status pill */}
-            <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] font-medium border
-              ${autoRefreshLogs 
-                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' 
-                : 'bg-slate-500/10 text-slate-400 border-slate-500/20'}`}>
-              <span className={`relative flex h-1.5 w-1.5 ${autoRefreshLogs ? 'block' : 'hidden'}`}>
-                <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              </span>
-              {!autoRefreshLogs && <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />}
-              {autoRefreshLogs ? 'Real-time Streaming' : 'Live Paused'}
-            </span>
-          </div>
-          <div className="flex items-center gap-3">
-            <label className={`flex items-center gap-2 cursor-pointer select-none text-xs ${isDark ? 'text-slate-400 hover:text-white' : 'text-slate-500 hover:text-slate-800'} transition-colors`}>
-              <input
-                type="checkbox"
-                checked={autoRefreshLogs}
-                onChange={(e) => setAutoRefreshLogs(e.target.checked)}
-                className="sr-only peer"
-              />
-              <span className="relative w-8 h-4 bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-emerald-500"></span>
-              <span>Auto-refresh</span>
-            </label>
-            <div className={`w-[1px] h-4 ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              icon={RefreshIcon} 
-              onClick={fetchLogs} 
-              className={isFetchingLogs ? 'animate-spin' : ''}
-            >
-              Refresh Logs
-            </Button>
-          </div>
-        </div>
-        <Card className="overflow-hidden bg-slate-950 border-slate-800" variant="dark">
-          <div className="flex items-center gap-2 p-3 border-b border-white/10 bg-slate-900/50">
-            <Terminal className="w-4 h-4 text-slate-400" />
-            <span className="text-xs font-mono text-slate-400">agent.log — Backend Traces</span>
-          </div>
-          <div className="p-4 h-[400px] overflow-y-auto font-mono text-xs leading-relaxed flex flex-col gap-1.5 custom-scrollbar">
-            {systemLogs.length === 0 ? (
-              <div className="text-slate-500 italic">No logs available. Ensure the backend is running.</div>
-            ) : (
-              systemLogs.map((log, i) => {
-                // Parse standard python log format: "2026-05-12 16:10:22,000 - agent.api - INFO - Message"
-                const match = log.match(/^([\d-]+\s[\d:,]+)\s-\s([^\s]+)\s-\s([A-Z]+)\s-\s(.*)/);
-                if (!match) return <div key={i} className="text-slate-300 break-words">{log}</div>;
-                
-                const [_, time, module, level, msg] = match;
-                
-                let levelColor = 'text-slate-400 bg-slate-800/50';
-                if (level === 'INFO') levelColor = 'text-blue-400 bg-blue-900/20';
-                if (level === 'ERROR') levelColor = 'text-red-400 bg-red-900/20';
-                if (level === 'WARNING') levelColor = 'text-amber-400 bg-amber-900/20';
-                if (level === 'DEBUG') levelColor = 'text-emerald-400 bg-emerald-900/20';
-
-                return (
-                  <div key={i} className="flex items-start gap-3 hover:bg-white/5 p-1 rounded transition-colors group">
-                    <span className="text-slate-600 shrink-0 whitespace-nowrap">{time.split(',')[0]}</span>
-                    <span className={`px-1.5 py-0.5 rounded-[4px] text-[10px] font-bold shrink-0 ${levelColor}`}>
-                      {level}
-                    </span>
-                    <span className="text-slate-500 shrink-0 w-24 truncate" title={module}>[{module}]</span>
-                    <span className={`break-words ${level === 'ERROR' ? 'text-red-300' : 'text-slate-300'}`}>
-                      {msg}
-                    </span>
-                  </div>
-                );
-              })
-            )}
           </div>
         </Card>
       </div>

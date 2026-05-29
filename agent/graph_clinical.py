@@ -601,12 +601,64 @@ async def lookup_referrals(condition_names: List[str]) -> List[ReferralHit]:
 # Public API
 # ---------------------------------------------------------------------------
 
+# CPG source_document substrings that indicate paediatric-only guidance.
+# Flags whose source matches any of these are dropped for adult patients
+# (case.age >= 18) so paediatric-CPG evidence doesn't surface as a
+# contraindication or interaction warning for an unrelated adult plan.
+_PAEDIATRIC_SOURCE_MARKERS = (
+    "children", "paediatric", "pediatric", "adolescent",
+    "neonat", "infant",
+)
+
+
+def _is_paediatric_source(source_document: Optional[str]) -> bool:
+    if not source_document:
+        return False
+    s = source_document.lower()
+    return any(m in s for m in _PAEDIATRIC_SOURCE_MARKERS)
+
+
+def _flag_is_paediatric_scoped(flag: "ClinicalFlag") -> bool:
+    """True if the flag itself (source OR trigger OR evidence) is paediatric-scoped.
+
+    Catches two cases:
+    1. Whole CPG is paediatric (source_document e.g. "Hypertension-in-Children").
+    2. Adult CPG contains a paediatric sub-chapter (e.g. Hypertension CPG §7
+       "Hypertension in Special Groups — Children"). Here source_document is
+       adult-named but the trigger/evidence text is paediatric.
+
+    Distinguished from "mentions children incidentally" by requiring the
+    paediatric marker to dominate the scope phrase (e.g. "in children",
+    "paediatric patients", "adolescents with"). A passing mention like
+    "data also exists for children" should not trip this.
+    """
+    if _is_paediatric_source(flag.source_document):
+        return True
+    # Trigger field is typically a scope phrase like "in CKD Stage 4" or
+    # "in children with obesity" — a paediatric marker here is decisive.
+    trig = (flag.trigger or "").lower()
+    if any(m in trig for m in _PAEDIATRIC_SOURCE_MARKERS):
+        return True
+    # Evidence text: require a stronger pattern (marker + scoping preposition)
+    # so the filter does not over-fire on mentions like "common in adults and
+    # also occurs in children".
+    evid = " ".join(flag.evidence_list or [flag.evidence or ""]).lower()
+    scoping_patterns = (
+        "in children", "in paediatric", "in pediatric", "in adolescent",
+        "for children", "for paediatric", "for pediatric",
+        "paediatric patient", "pediatric patient",
+        "hypertension in children", "hypertension in special groups",
+    )
+    return any(p in evid for p in scoping_patterns)
+
+
 async def clinical_graph_lookup(
     patient_meds: Optional[List[str]] = None,
     candidate_drugs: Optional[List[str]] = None,
     comorbidities: Optional[List[str]] = None,
     allergies: Optional[List[str]] = None,
     patient_params: Optional[Dict[str, Any]] = None,
+    patient_age: Optional[int] = None,
 ) -> List[ClinicalFlag]:
     """
     Run structured Cypher queries against the KG and return clinical flags.
@@ -652,6 +704,22 @@ async def clinical_graph_lookup(
                     all_flags.extend(flags)
                 except Exception as e:
                     logger.warning(f"Graph query {qname} failed: {e}")
+
+            # Adult-patient paediatric-source filter: a flag sourced from a
+            # paediatric-only CPG (e.g. "Hypertension in Children") should not
+            # surface for an adult plan. Without this, the synthesis LLM sees
+            # paediatric evidence and emits unresolved-question commentary
+            # ("interaction flags cite hypertension CPG guidance for children;
+            # relevance uncertain"). Drop here at the KG layer.
+            if isinstance(patient_age, (int, float)) and patient_age >= 18:
+                pre_count = len(all_flags)
+                all_flags = [f for f in all_flags if not _flag_is_paediatric_scoped(f)]
+                dropped = pre_count - len(all_flags)
+                if dropped:
+                    logger.info(
+                        "clinical_graph_lookup: dropped %d paediatric-source flag(s) for adult patient (age=%s)",
+                        dropped, patient_age,
+                    )
 
             # Deduplicate by (flag_type, subject, object)
             seen = set()

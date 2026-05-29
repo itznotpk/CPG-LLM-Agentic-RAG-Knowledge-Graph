@@ -1594,7 +1594,7 @@ export function CarePlanSection() {
 
                 <Section title="Red Flags" icon={AlertCircle} count={carePlan.redFlags?.length || 0} kind="red-flags">
                   <div>
-                    {(carePlan.redFlags || []).map((f, i) => <RedFlagRow key={i} text={f} />)}
+                    {(carePlan.redFlags || []).map((f, i) => <RedFlagRow key={f || i} text={f} />)}
                   </div>
                 </Section>
               </div>
@@ -1668,7 +1668,7 @@ export function CarePlanSection() {
               </Section>
               <Section title="Red Flags — Return Immediately" icon={AlertCircle} count={carePlan.redFlags?.length || 0} kind="red-flags">
                 <div>
-                  {(carePlan.redFlags || []).map((f, i) => <RedFlagRow key={i} text={f} />)}
+                  {(carePlan.redFlags || []).map((f, i) => <RedFlagRow key={f || i} text={f} />)}
                 </div>
               </Section>
             </>

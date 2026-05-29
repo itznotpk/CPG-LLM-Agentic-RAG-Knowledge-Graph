@@ -19,8 +19,11 @@ import uvicorn
 from dotenv import load_dotenv
 
 from .agent import rag_agent, AgentDependencies
+from .delivery_worker import start as start_delivery_worker, stop as stop_delivery_worker
 from .db_utils import (
     initialize_database,
+    initialize_supabase_db,
+    close_supabase_db,
     close_database,
     create_session,
     get_session,
@@ -215,6 +218,11 @@ async def lifespan(app: FastAPI):
         logger.info("Initializing database...")
         await asyncio.wait_for(initialize_database(), timeout=15.0)
         logger.info("Database initialized")
+
+        try:
+            await asyncio.wait_for(initialize_supabase_db(), timeout=15.0)
+        except Exception as se:
+            logger.warning(f"Supabase pool init failed (delivery disabled): {se}")
         
         # Initialize graph database (Optional - don't crash if it fails)
         try:
@@ -235,7 +243,8 @@ async def lifespan(app: FastAPI):
             logger.warning("Graph database connection failed - searching will fall back to vector search only")
         
         logger.info("Agentic RAG API startup complete")
-        
+        start_delivery_worker()
+
     except asyncio.TimeoutError:
         logger.error("Startup timed out during database initialization")
         # Don't raise, let the app start in a degraded state if possible
@@ -250,6 +259,8 @@ async def lifespan(app: FastAPI):
     logger.info("Shutting down agentic RAG API...")
 
     try:
+        await stop_delivery_worker()
+        await close_supabase_db()
         await close_database()
         await close_graph()
         logger.info("Connections closed")
@@ -1307,6 +1318,66 @@ async def get_session_info(session_id: str):
     except Exception as e:
         logger.error(f"Session retrieval failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ─── Delivery endpoints ───────────────────────────────────────────────────────
+
+class DeliveryEnqueueRequest(_BaseModel):
+    consultation_id: int
+
+
+@app.post("/delivery/enqueue")
+async def delivery_enqueue(body: DeliveryEnqueueRequest):
+    """Enqueue a care-plan delivery job for the given consultation."""
+    from .db_utils import db_pool as _pool
+    try:
+        async with _pool.acquire() as conn:
+            rows = await conn.fetch(
+                "SELECT * FROM enqueue_delivery_job($1::integer)",
+                body.consultation_id,
+            )
+        if not rows:
+            raise HTTPException(status_code=400, detail="enqueue returned no row")
+        row = rows[0]
+        return {"job_id": str(row["job_id"]), "status": row["status"], "recipient": row["recipient"]}
+    except Exception as exc:
+        msg = str(exc)
+        if "no email" in msg or "no_email" in msg:
+            raise HTTPException(status_code=400, detail="patient has no email on file")
+        if "not consented" in msg or "no_consent" in msg:
+            raise HTTPException(status_code=400, detail="patient has not consented to email delivery")
+        if "not found" in msg:
+            raise HTTPException(status_code=404, detail=msg)
+        logger.error("delivery enqueue error: %s", exc)
+        raise HTTPException(status_code=500, detail=msg)
+
+
+@app.get("/delivery/status/{consultation_id}")
+async def delivery_status(consultation_id: int):
+    """Return the latest delivery job for a consultation."""
+    from .db_utils import db_pool as _pool
+    async with _pool.acquire() as conn:
+        row = await conn.fetchrow(
+            """
+            SELECT id, status, message_id, error, attempts, created_at, delivered_at
+              FROM delivery_jobs
+             WHERE consultation_id = $1
+             ORDER BY created_at DESC
+             LIMIT 1
+            """,
+            consultation_id,
+        )
+    if not row:
+        return None
+    return {
+        "job_id": str(row["id"]),
+        "status": row["status"],
+        "message_id": row["message_id"],
+        "error": row["error"],
+        "attempts": row["attempts"],
+        "created_at": row["created_at"].isoformat() if row["created_at"] else None,
+        "delivered_at": row["delivered_at"].isoformat() if row["delivered_at"] else None,
+    }
 
 
 # Exception handlers

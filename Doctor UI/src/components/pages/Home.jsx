@@ -19,7 +19,8 @@ import {
   Database
 } from 'lucide-react';
 import { todaySchedule, patientRegistry } from '../../data/scheduleData';
-import { getAllPatients, getAllPatientConsultations } from '../../lib/supabase';
+import { supabase, getAllPatients, getAllPatientConsultations } from '../../lib/supabase';
+import { safeJson, getInitials, getAvatarColor, getPatientAvatarColor } from '../../lib/helpers';
 import { GlassCard } from '../shared/GlassCard';
 import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
@@ -27,26 +28,7 @@ import { useToast } from '../shared/Notification';
 import { useAuth } from '../../context/AuthContext';
 import PatientQuickView from '../shared/PatientQuickView';
 
-const sampleNotifications = [
-  { id: 1, type: 'urgent', title: 'Critical Lab Result', message: 'Wong Kin Meng - HbA1c at 8.5%', time: '5 min ago', read: false },
-  { id: 2, type: 'alert', title: 'Appointment Reminder', message: 'Siti Nurhaliza scheduled in 30 minutes', time: '10 min ago', read: false },
-  { id: 3, type: 'info', title: 'MPIS Sync Complete', message: 'Patient records successfully updated', time: '1 hour ago', read: true },
-  { id: 4, type: 'success', title: 'Care Plan Approved', message: 'Siti Nurhaliza care plan approved by specialist', time: '2 hours ago', read: true },
-];
 
-// Static impact metrics (in production: derived from care-plan pipeline)
-const agenticImpact = {
-  timeSavedMin: 47,
-  cpgAligned: { count: 12, total: 14 },
-  citations: 38,
-  referrals: { count: 3, cpgJustified: 3 },
-  yesterday: {
-    timeSavedMin: 39,
-    cpgAlignedPct: 79,
-    citations: 31,
-    referrals: 3,
-  },
-};
 
 const TrendBadge = ({ current, previous, suffix = '' }) => {
   const delta = current - previous;
@@ -83,51 +65,50 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const [isFollowUpsExpanded, setIsFollowUpsExpanded] = useState(true);
   const [followUpSearchTerm, setFollowUpSearchTerm] = useState('');
 
-  const avatarColors = [
-    'bg-teal-100 text-teal-800',
-    'bg-slate-200 text-slate-800',
-    'bg-sky-100 text-sky-800',
-    'bg-amber-100 text-amber-800',
-    'bg-rose-100 text-rose-800',
-    'bg-indigo-100 text-indigo-800',
-  ];
-  const darkAvatarColors = [
-    'bg-teal-900/50 text-teal-200',
-    'bg-slate-800 text-slate-200',
-    'bg-sky-900/50 text-sky-200',
-    'bg-amber-900/50 text-amber-200',
-    'bg-rose-900/50 text-rose-200',
-    'bg-indigo-900/50 text-indigo-200',
-  ];
 
-  const getInitials = (name) => {
-    if (!name) return 'P';
-    const parts = name.split(' ');
-    return parts.length >= 2
-      ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
-      : name.substring(0, 2).toUpperCase();
-  };
+  const [impact, setImpact] = useState({
+    timeSavedMin: 0,
+    cpgAligned: { count: 0, total: 1 },
+    citations: 0,
+    referrals: 0,
+    yesterday: { timeSavedMin: 0, cpgAlignedPct: 0, citations: 0, referrals: 0 },
+  });
 
-  const getAvatarColor = (name, dark) => {
-    const palette = dark ? darkAvatarColors : avatarColors;
-    if (!name) return palette[0];
-    let hash = 0;
-    for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
-    return palette[Math.abs(hash) % palette.length];
-  };
+  useEffect(() => {
+    const fetchImpact = async () => {
+      const todayStr = new Date().toISOString().split('T')[0];
+      const yesterdayStr = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+      const twoDaysAgo = new Date(Date.now() - 2 * 86400000).toISOString();
 
-  const getPatientAvatarColor = (gender) => {
-    const isFemale = typeof gender === 'string' && gender.toLowerCase().startsWith('f');
-    const isMale = typeof gender === 'string' && gender.toLowerCase().startsWith('m');
+      const { data } = await supabase
+        .from('consultations')
+        .select('created_at, cpg_references, referrals')
+        .gte('created_at', twoDaysAgo)
+        .order('created_at', { ascending: false });
 
-    if (isFemale) {
-      return 'bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-200';
-    }
-    if (isMale) {
-      return 'bg-sky-100 text-sky-800 dark:bg-sky-900/50 dark:text-sky-200';
-    }
-    return 'bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-200';
-  };
+      if (!data) return;
+
+      const compute = (rows) => {
+        let cpgCount = 0, cites = 0, refs = 0;
+        rows.forEach(c => {
+          const cpgRefs = safeJson(c.cpg_references);
+          if (cpgRefs.length > 0) { cpgCount++; cites += cpgRefs.length; }
+          refs += safeJson(c.referrals).length;
+        });
+        const total = rows.length;
+        return { timeSavedMin: total * 8, cpgAligned: { count: cpgCount, total: Math.max(total, 1) }, citations: cites, referrals: refs };
+      };
+
+      const todayRows = data.filter(c => c.created_at.startsWith(todayStr));
+      const yestRows  = data.filter(c => c.created_at.startsWith(yesterdayStr));
+      const t = compute(todayRows);
+      const y = compute(yestRows);
+      const yPct = Math.round((y.cpgAligned.count / y.cpgAligned.total) * 100);
+
+      setImpact({ ...t, yesterday: { timeSavedMin: y.timeSavedMin, cpgAlignedPct: yPct, citations: y.citations, referrals: y.referrals } });
+    };
+    fetchImpact();
+  }, []);
 
   const [patientRiskMap, setPatientRiskMap] = useState({});
 
@@ -142,14 +123,6 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const getRiskLevel = (nric) => patientRiskMap[nric] || 'low';
   const isEmergency = (nric) => getRiskLevel(nric) === 'critical';
   const isHighRisk = (nric) => getRiskLevel(nric) === 'high';
-
-  // Overdue follow-ups from registry (tcaDays ≤ 5 and status=follow-up, not on today's schedule)
-  const overdueFollowUps = useMemo(() => {
-    const scheduledNsns = new Set(todaySchedule.map(a => a.patient.nsn));
-    return patientRegistry.filter(
-      p => p.status === 'follow-up' && p.tcaDays != null && p.tcaDays <= 5 && !scheduledNsns.has(p.nsn)
-    );
-  }, []);
 
   // Next two scheduled patients still waiting
   const upcomingPatients = useMemo(() => {
@@ -184,7 +157,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
   const [showNotifications, setShowNotifications] = useState(false);
-  const [notifications, setNotifications] = useState(sampleNotifications);
+  const [notifications, setNotifications] = useState([]);
   const unreadCount = notifications.filter(n => !n.read).length;
 
   useEffect(() => {
@@ -394,7 +367,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
     });
   };
 
-  const cpgPct = Math.round((agenticImpact.cpgAligned.count / agenticImpact.cpgAligned.total) * 100);
+  const cpgPct = Math.round((impact.cpgAligned.count / impact.cpgAligned.total) * 100);
 
   return (
     <div className="space-y-6">
@@ -444,7 +417,11 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 </div>
               </div>
               <div className="max-h-80 overflow-y-auto">
-                {notifications.map((notif) => (
+                {notifications.length === 0 ? (
+                  <div className={`px-4 py-8 text-center text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    No notifications
+                  </div>
+                ) : notifications.map((notif) => (
                   <div
                     key={notif.id}
                     onClick={() => setNotifications(prev => prev.map(n => n.id === notif.id ? { ...n, read: true } : n))}
@@ -811,12 +788,12 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   </div>
                   <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
                     <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
-                      {agenticImpact.timeSavedMin}<span className="text-sm font-semibold ml-0.5">m</span>
+                      {impact.timeSavedMin}<span className="text-sm font-semibold ml-0.5">m</span>
                     </p>
                     <span className="text-sm text-slate-400">vs 8m/plan manual</span>
                   </div>
                   <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={agenticImpact.timeSavedMin} previous={agenticImpact.yesterday.timeSavedMin} />
+                    <TrendBadge current={impact.timeSavedMin} previous={impact.yesterday.timeSavedMin} />
                   </div>
                 </div>
 
@@ -834,7 +811,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                         {cpgPct}%
                       </p>
                       <span className="text-sm text-slate-400">
-                        {agenticImpact.cpgAligned.count}/{agenticImpact.cpgAligned.total} plans
+                        {impact.cpgAligned.count}/{impact.cpgAligned.total} plans
                       </span>
                     </div>
                     {/* Compact SVG Circular ring */}
@@ -855,7 +832,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                     </div>
                   </div>
                   <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={cpgPct} previous={agenticImpact.yesterday.cpgAlignedPct} />
+                    <TrendBadge current={cpgPct} previous={impact.yesterday.cpgAlignedPct} />
                   </div>
                 </div>
 
@@ -869,12 +846,12 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   </div>
                   <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
                     <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
-                      {agenticImpact.citations}
+                      {impact.citations}
                     </p>
                     <span className="text-sm text-slate-400">evidence-backed</span>
                   </div>
                   <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={agenticImpact.citations} previous={agenticImpact.yesterday.citations} />
+                    <TrendBadge current={impact.citations} previous={impact.yesterday.citations} />
                   </div>
                 </div>
 
@@ -888,12 +865,12 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   </div>
                   <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
                     <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>
-                      {agenticImpact.referrals.count}
+                      {impact.referrals}
                     </p>
                     <span className="text-sm text-slate-400">CPG justified</span>
                   </div>
                   <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={agenticImpact.referrals.count} previous={agenticImpact.yesterday.referrals} />
+                    <TrendBadge current={impact.referrals} previous={impact.yesterday.referrals} />
                   </div>
                 </div>
               </div>

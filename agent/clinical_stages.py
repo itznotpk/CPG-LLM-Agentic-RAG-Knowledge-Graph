@@ -461,15 +461,37 @@ def _referral_urgency_priority(urgency: str | None) -> int:
     return urgency_map.get(u, 1)
 
 
-def _is_duplicate_referral(rec1: Recommendation, rec2: Recommendation, threshold: float = 0.85) -> bool:
+_REFERRAL_STOPWORDS = frozenset({
+    "with", "and", "or", "for", "of", "the", "a", "an", "to", "in", "on",
+    "refer", "referral", "consider", "due", "secondary", "primary",
+    "patient", "patients", "mellitus",  # T2DM ↔ "Type 2 Diabetes Mellitus" tokenises differently
+})
+
+
+def _referral_tokens(spec: str, cond: str, intervention: str) -> set[str]:
+    """Tokenise a referral into a stopword-filtered, alpha-only set.
+
+    Used by Tier-2 dedup so that word-order/conjunction variants collapse:
+    "Ophthalmology for Obesity with T2DM" vs "Ophthalmology for T2DM with Obesity and Retinopathy"
+    both contribute {ophthalmology, obesity, t2dm, ...}.
+    """
+    import re
+    blob = f"{spec} {cond} {intervention}".lower()
+    raw = re.findall(r"[a-z0-9]+", blob)
+    return {t for t in raw if len(t) > 2 and t not in _REFERRAL_STOPWORDS}
+
+
+def _is_duplicate_referral(rec1: Recommendation, rec2: Recommendation, threshold: float = 0.6) -> bool:
     """Detect duplicate referrals using 2-tier matching.
 
     Tier 1 (Exact): Normalized specialty + condition match.
-    Tier 2 (Fuzzy): High substring overlap (≥85%) in intervention text.
+    Tier 2 (Token-set Jaccard): Same specialty + Jaccard(tokens) >= threshold.
+    Replaces the prior positional char-zip overlap, which silently failed on
+    word-reordered conditions and was sensitive to length differences.
 
     Args:
         rec1, rec2: Recommendation objects (both should be type="referral")
-        threshold: Fuzzy match substring overlap threshold (0.0-1.0)
+        threshold: Jaccard similarity threshold on the token sets (0.0-1.0)
 
     Returns: True if duplicates detected.
     """
@@ -478,35 +500,28 @@ def _is_duplicate_referral(rec1: Recommendation, rec2: Recommendation, threshold
     if rec1.type != "referral" or rec2.type != "referral":
         return False
 
-    # Extract specialty and condition from intervention string
-    # Format: "Refer to {specialty} ({urgency}) — {condition}"
-    def extract_spec_cond(rec):
-        interv = (rec.intervention or "").strip()
-        spec = getattr(rec, "specialty", "") or ""
-        cond = getattr(rec, "condition", "") or ""
-        return spec, cond
-
-    spec1, cond1 = extract_spec_cond(rec1)
-    spec2, cond2 = extract_spec_cond(rec2)
+    spec1 = (getattr(rec1, "specialty", "") or "").strip()
+    cond1 = (getattr(rec1, "condition", "") or "").strip()
+    spec2 = (getattr(rec2, "specialty", "") or "").strip()
+    cond2 = (getattr(rec2, "condition", "") or "").strip()
 
     # Tier 1: Exact normalized match
     if _normalize_referral_key(spec1, cond1) == _normalize_referral_key(spec2, cond2):
         return True
 
-    # Tier 2: Fuzzy substring overlap for similar conditions
-    # Build a comparison string from intervention + condition
-    text1 = f"{(rec1.intervention or '')} {cond1}".lower()
-    text2 = f"{(rec2.intervention or '')} {cond2}".lower()
-
-    if len(text1) < 10 or len(text2) < 10:
-        # Skip very short strings to avoid false positives
+    # Tier 2 requires same specialty — different specialties are never dups even
+    # if the conditions overlap (e.g. Cardiology vs Nephrology for CKD+HF).
+    if spec1.lower().strip() != spec2.lower().strip():
         return False
 
-    # Count matching characters (simple overlap metric)
-    matches = sum(1 for c1, c2 in zip(text1, text2) if c1 == c2)
-    overlap_ratio = matches / max(len(text1), len(text2))
-
-    return overlap_ratio >= threshold
+    toks1 = _referral_tokens(spec1, cond1, rec1.intervention or "")
+    toks2 = _referral_tokens(spec2, cond2, rec2.intervention or "")
+    if len(toks1) < 2 or len(toks2) < 2:
+        return False
+    inter = toks1 & toks2
+    union = toks1 | toks2
+    jaccard = len(inter) / len(union) if union else 0.0
+    return jaccard >= threshold
 
 
 def _dedup_referral_recs(recommendations: list[Recommendation]) -> list[Recommendation]:
@@ -3280,6 +3295,15 @@ Produce a TreatmentPlan JSON object matching this schema:
             gated_count = 0
             dropped_count = 0
             gate_error_count = 0
+            # Track unique unknown-gate referrals by (specialty, condition_norm) so
+            # near-duplicate KG edges (e.g. 3 Ophthalmology edges for the same
+            # patient) don't each spawn a "Consider X IF Y" entry in
+            # unresolved_questions. First occurrence keeps the actionable IF line;
+            # subsequent occurrences only append to gate_audit.
+            unknown_seen_keys: set[tuple[str, str]] = set()
+            # Same for not_met — KG can emit multiple edges that all resolve to the
+            # same specialty+condition; one gate_audit line is enough.
+            notmet_seen_keys: set[tuple[str, str]] = set()
 
             for idx, (rec, primary_trig, urgency_word) in triggered_meta.items():
                 status, reason = gate_decisions.get(idx, ("unknown", ""))
@@ -3347,11 +3371,14 @@ Produce a TreatmentPlan JSON object matching this schema:
                         logger.warning("Triggered referral injection failed: %s", exc)
                 elif status == "not_met":
                     dropped_count += 1
-                    audit_line = (
-                        f"Ruled out {rec.specialty} referral for {rec.condition} — "
-                        f"trigger '{primary_trig}' not met: {reason or 'no rationale'}"
-                    )
-                    plan.gate_audit.append(audit_line[:480])
+                    nm_key = _normalize_referral_key(rec.specialty, rec.condition)
+                    if nm_key not in notmet_seen_keys:
+                        notmet_seen_keys.add(nm_key)
+                        audit_line = (
+                            f"Ruled out {rec.specialty} referral for {rec.condition} — "
+                            f"trigger '{primary_trig}' not met: {reason or 'no rationale'}"
+                        )
+                        plan.gate_audit.append(audit_line[:480])
                     logger.info(
                         "Referral GATE=not_met → dropped: %s — %s (trigger=%r, reason=%r)",
                         rec.specialty, rec.condition, primary_trig, reason,
@@ -3359,11 +3386,21 @@ Produce a TreatmentPlan JSON object matching this schema:
                 else:  # unknown / missing
                     if gate_failed:
                         gate_error_count += 1
-                    question = (
-                        f"Consider {rec.specialty} referral ({urgency_word}) for {rec.condition} "
-                        f"IF: {primary_trig}"
-                    )
-                    plan.unresolved_questions.append(question[:480])
+                    uk_key = _normalize_referral_key(rec.specialty, rec.condition)
+                    # All unknown referrals route to gate_audit only — never to
+                    # unresolved_questions. The "Awaiting data for X" line carries
+                    # the same actionable info (specialty + condition + trigger
+                    # value to obtain) more concisely, and keeps unresolved_questions
+                    # focused on synthesis-level open issues rather than gate noise.
+                    # Dedupe by (specialty, condition_norm) so near-duplicate KG
+                    # edges don't fan out into N audit lines.
+                    if uk_key not in unknown_seen_keys:
+                        unknown_seen_keys.add(uk_key)
+                        audit_line = (
+                            f"Awaiting data for {rec.specialty} referral — {rec.condition}: "
+                            f"trigger '{primary_trig}' unverified ({reason or 'no data in notes'})"
+                        )
+                        plan.gate_audit.append(audit_line[:480])
                     gated_count += 1
                     log_func = logger.warning if gate_failed else logger.info
                     log_func(

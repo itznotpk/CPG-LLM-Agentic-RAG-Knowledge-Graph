@@ -189,14 +189,3 @@ export const patientRegistry = [
   }
 ];
 
-export const dashboardStats = {
-  totalAppointments: 2,
-  patientsWaiting: 2,
-  patientsInProgress: 0,
-  patientsDone: 0,
-};
-
-export const recentActivity = [
-  { id: 1, action: 'Care plan generated', patient: 'Tan Wei Ming', time: '2 days ago', type: 'plan' },
-  { id: 2, action: 'Follow-up scheduled', patient: 'Fatimah binti Ismail', time: '2 days ago', type: 'schedule' },
-];

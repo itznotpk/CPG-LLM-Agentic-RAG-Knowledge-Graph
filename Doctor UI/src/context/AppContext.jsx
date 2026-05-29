@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useReducer, useEffect, useRef } from 'react';
+import React, { createContext, useContext, useState, useReducer, useEffect, useRef, useMemo } from 'react';
 import {
   sampleDiagnosis,
   sampleCarePlan,
@@ -789,6 +789,15 @@ export function AppProvider({ children }) {
         const referrals = state.carePlan?.disposition?.referrals || null;
         const lifestyleGoals = state.carePlan?.lifestyle || null;
         const cpgReferences = state.carePlan?.cpgReferences || null;
+        const safetyFlags = state.safetyReport?.flags?.length
+          ? state.safetyReport.flags.map(f => ({
+              severity: f.severity,
+              title: f.title,
+              detail: f.detail,
+              flag_type: f.flag_type,
+              source: f.source,
+            }))
+          : null;
 
         console.log('📅 Syncing Care Plan data to consultation:', state.currentConsultationId, 'TCA:', state.nextReviewDate);
         const tcaResult = await updateConsultation(state.currentConsultationId, {
@@ -800,7 +809,8 @@ export function AppProvider({ children }) {
           patientEducation,
           referrals,
           lifestyleGoals,
-          cpgReferences
+          cpgReferences,
+          safetyFlags
         });
 
         if (tcaResult.success) {
@@ -955,7 +965,7 @@ export function AppProvider({ children }) {
     return null;
   };
 
-  const value = {
+  const value = useMemo(() => ({
     state,
     dispatch,
     pipelineEvents:   state.pipelineEvents,
@@ -975,7 +985,7 @@ export function AppProvider({ children }) {
     resetApp,
     calculateBMI,
     saveVitalsToDB,
-  };
+  }), [state]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

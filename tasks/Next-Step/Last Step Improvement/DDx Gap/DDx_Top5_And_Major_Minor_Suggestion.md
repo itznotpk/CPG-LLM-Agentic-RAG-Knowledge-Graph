@@ -171,7 +171,7 @@ Progress:
 - [ ] Unit test for cascade behaviour
 - [ ] case08 returns CPGs respecting Major allotment
 
-### P3 — T2.3 + T2.4: Quality floor + Stage 5 synthesis hand-off
+### P3 — T2.3 + T2.4 + T2.5: Quality floor + Stage 5 synthesis hand-off + under-fill telemetry
 
 - Track: T2
 - Deliverable:
@@ -179,9 +179,13 @@ Progress:
     `ref.score >= SEMANTIC_SCOPE_THRESHOLD`
   - `major_code` propagated to Stage 5 and surfaced in the synthesis prompt as
     "Primary diagnosis"
+  - **NEW (T2.5)** — when the quality floor drops a Major or Minor CPG, emit a
+    `stage3_quality_drop` SSE event and surface a per-tier "under-evidenced"
+    badge in the Doctor UI plan view
 - Files: `agent/clinical_stages.py` (guard inside the per-code fill loop, gated by
-  per-code rank ≥ 2; Stage 5 prompt builder), `agent/prompts/stage5_synthesis.txt`
-  (add Primary / Co-considerations framing)
+  per-code rank ≥ 2; Stage 5 prompt builder; T2.5 emit), `agent/prompts/stage5_synthesis.txt`
+  (add Primary / Co-considerations framing),
+  `Doctor UI/src/components/clinical/CarePlanSection.jsx` (T2.5 badge render)
 - Exit gate:
   - synthetic case where Major has 1 strong + 2 weak CPGs and 0 minors returns 1
     (not 3) — unit test
@@ -189,6 +193,11 @@ Progress:
     (not 5) — unit test
   - case08 still fills 5 slots when all candidates clear the floor
   - case08 Stage 5 prompt mentions Major code by name as primary diagnosis
+  - **T2.5**: synthetic Major-under-fill case emits a `stage3_quality_drop` event
+    with `{tier: "major", code, expected_slots: 3, actual_slots: 1}` — visible in
+    the trace JSON — unit test
+  - **T2.5**: UI renders a "Primary diagnosis backed by 1 CPG only — consider
+    alternatives" badge when the event fires — Storybook or manual walkthrough
 
 Progress:
 - [ ] Per-code-rank guard implemented
@@ -197,6 +206,17 @@ Progress:
 - [ ] case08 fill unchanged (all candidates above floor)
 - [ ] Stage 5 prompt updated with Major framing
 - [ ] `STAGE3_TAIL_SLOT_THRESHOLD` constant added if calibration diverges from 0.32
+- [ ] **T2.5** `stage3_quality_drop` SSE event emitted on under-fill
+- [ ] **T2.5** UI badge renders on quality-drop event (with copy reviewed)
+
+### T2.5 — Why this matters
+
+Without surfacing under-fill, the system silently degrades from "Major backed by
+3 CPGs" to "Major backed by 1 CPG" whenever the quality floor (T2.3) trims weak
+candidates. The clinician sees no difference in the UI — they assume the routing
+went as planned. For a Major diagnosis (the one driving the plan) this is a
+quiet safety issue, not just a cosmetic one. The badge cost is trivial (one SSE
+event field + one conditional render); the clinician value is high.
 
 ### P4 — T1.1 + T1.2: Surface top-5 + SSE handshake (with Major flag)
 
@@ -465,12 +485,41 @@ allotment (total CPG quota lifts to 5 + n_expanded_picks, capped at 7 or 8).
   default, what telemetry signal triggers a one-time tooltip to teach the
   feature to clinicians with polymorbid patients?
 
+## Chunk budget (measured 2026-05-29)
+
+Stage 5 currently consumes **~58k tokens** on case 8 (26 chunks) against
+`mimo-v2.5-pro` (128k context window) — **~46% utilisation, ~54% headroom**.
+This sets a hard ceiling on how aggressively the Top-5 plan can fan out chunks.
+
+| Constant | Value | Rationale |
+|---|---|---|
+| `STAGE3_MAX_CPGS` | 5 | Was 3. T2 allocation table caps every row at 5. |
+| `STAGE4_CHUNKS_PER_CPG_MAJOR` | 4 | Major has 3 CPGs about the *same* dx → heavy overlap; 4 chunks each is enough. |
+| `STAGE4_CHUNKS_PER_CPG_MINOR` | 4 | **Matches Major.** Originally proposed at 6 (different conditions need more chunks), but headroom on mimo-v2.5-pro is borderline (~46% used); keeping Minor=4 holds worst case ≈ 55k tokens (~43% of ctx). Bump to 6 only if Stage 5 ever moves to a ≥256k-ctx model. |
+| `STAGE4_CHUNK_BUDGET_CEILING` | 30 | Safety brake. Warn loudly if exceeded — never reached in normal operation. |
+
+Worst-case prompt size projections (current `mimo-v2.5-pro`, 128k ctx):
+
+| Scenario | Chunks | Approx tokens | % of ctx |
+|---|---|---|---|
+| 1 major only `(3, [])` | 12 | ~50k | 39% |
+| **1 major + 2 minor `(3, [1,1])`** ⭐ | 20 | ~55k | 43% |
+| 1 major + 4 minor `(1, [1,1,1,1])` | 20 | ~55k | 43% |
+| Today's case 8 baseline (no plan applied) | 26 | ~58k | 46% |
+
+**Model-aware guardrail (must implement in P0):** at startup, check
+`os.environ["STAGE5_LLM_CHOICE"]` against a known-context table. If the model's
+context window is ≤32k, abort and log; this plan assumes ≥128k. Required because
+today's baseline (58k) already exceeds 32k — silently switching Stage 5 to a
+small-context model would corrupt synthesis without throwing.
+
 ## Risks & open questions
 
-- **Stage 5 synthesis context budget.** Five CPGs ≈ 1.5× current chunk volume. Verify
-  Stage 4 retrieval `top_k` per CPG still fits the synthesis prompt under MiMo /
-  Gemini Flash limits before P1 lands. If it doesn't, drop per-CPG chunk count
-  proportionally before bumping the CPG quota.
+- **Stage 5 synthesis context budget.** Measured at ~58k tokens / 128k ctx today
+  (46% used). The Top-5 plan keeps worst case under ~55k tokens by capping Minor
+  CPGs at 4 chunks each. If `STAGE5_LLM_CHOICE` ever switches to a model with
+  ≤64k ctx, re-run the measurement (`scripts/run_eval_case_08.py` + the temp
+  `STAGE5_PROMPT_SIZE` logger) before shipping.
 - **Quality-floor calibration.** 0.32 is calibrated for the D2 semantic-scope fallback
   fork, not for per-code-rank≥2 admission. P3 may need a separate constant
   (`STAGE3_TAIL_SLOT_THRESHOLD`).
