@@ -1,5 +1,24 @@
 # DDx Top-5 Suggestion + Clinician-Driven CPG Routing
 
+## Status: 🟢 GREEN — adopt as written (T2.5 SSE event pending)
+
+Validated 2026-05-29 against case 8 (single-comorbidity) and case 9 (NSTEMI + AF + T2DM + PCI + warfarin/amiodarone/fluconazole triple interaction):
+
+| Gate | Result |
+|---|---|
+| Stage 5 prompt size on case 8 | 58k tok / 128k ctx (46%) — under ceiling |
+| Stage 5 prompt size on case 9 (heavier) | 56k tok / 128k ctx (44%) — under ceiling |
+| Top-5 covers distinct disease families | ✅ after Gap 6 (SPECIFICITY + DISTINCT-DISEASE prompt rules) + `_collapse_sibling_clusters` deterministic safety net |
+| Multi-comorbidity surfaced in top-5 | ✅ case 9 top-5 includes NSTEMI + T2DM + AF concurrently |
+| Specialist-med cross-check noise | ✅ action-gated + continuing-token suppression (Residual 1) |
+| AF coverage gap (1st-line agent) | ✅ `current_medications` now counted (Residual 2) |
+| Gate-audit per-CPG cap | ✅ `MAX_AUDIT_PER_CPG = 2` keeps tail short |
+
+**Adoption decision:** the constants in the [Chunk budget table](#chunk-budget-measured-2026-05-29)
+(STAGE3_MAX_CPGS=5, STAGE4_CHUNKS_PER_CPG_MAJOR=4, MINOR=4, BUDGET_CEILING=30)
+are cleared to ship. T1/T2.1–T2.4/T3 backend gating is in place. **T2.5 quality-drop SSE event remains the one outstanding deliverable** before flipping the
+status to fully green — see P3.
+
 ## Context
 
 Stage 3 routing currently caps at 3 CPGs (`top_k_cpgs=3`) drawn from the top 2 DDx codes

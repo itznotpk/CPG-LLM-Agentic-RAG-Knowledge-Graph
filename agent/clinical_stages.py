@@ -3726,6 +3726,11 @@ Produce a TreatmentPlan JSON object matching this schema:
                 for r in plan.recommendations
                 if (r.type or "").lower() == "pharmacological"
             ]
+            # Residual 2: coverage check must also count drugs the patient is
+            # already on. Otherwise a continuing rate-control agent (e.g.
+            # amiodarone for AF) that the plan didn't re-emit as an explicit
+            # [CONTINUE] rec gets falsely flagged as "no 1st-line prescribed".
+            med_names.extend(case.current_medications or [])
             gap_count = 0
             for cond, classes in first_line_by_cond.items():
                 if not classes:
