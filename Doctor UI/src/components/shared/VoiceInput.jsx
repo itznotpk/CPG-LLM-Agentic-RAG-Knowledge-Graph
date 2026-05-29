@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Mic, MicOff, Volume2, VolumeX, Square, Play, Pause, Loader2, Cloud, CloudOff } from 'lucide-react';
+import { Mic, MicOff, Volume2, VolumeX, Square, Play, Pause, Loader2, Cloud, CloudOff, FileText } from 'lucide-react';
 import { Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -90,6 +90,23 @@ function TranscriptModal({ turns, onClose, isDark }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function TranscriptLogButton({ onClick, isDark }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+        isDark
+          ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
+          : 'border-slate-300 text-slate-600 hover:bg-slate-50 hover:border-teal-300'
+      }`}
+      title="View consultation transcript log"
+    >
+      <FileText className="w-4 h-4" strokeWidth={1.5} />
+      Transcript Log
+    </button>
   );
 }
 
@@ -352,7 +369,7 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
           </button>
         )}
         {showModal && (
-          <TranscriptModal turns={transcriptTurns} onClose={() => { setShowModal(false); setTranscriptTurns(null); }} isDark={isDark} />
+          <TranscriptModal turns={transcriptTurns} onClose={() => setShowModal(false)} isDark={isDark} />
         )}
       </div>
     );
@@ -360,33 +377,41 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
 
   // ── Idle state (start button) ──
   return (
-    <div className="relative">
-      <button
-        onClick={toggle}
-        disabled={disabled}
-        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ${
-          isDark
-            ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
-            : 'border-slate-300 text-slate-600 hover:bg-teal-50 hover:border-teal-300'
-        } disabled:opacity-40 disabled:cursor-not-allowed`}
-        title={mode === 'consultation' ? 'Record consultation (Google Cloud STT + Gemini summary)' : 'Record voice note (Google Cloud STT)'}
-      >
-        <Mic className="w-4 h-4" strokeWidth={1.5} />
-        <Cloud className="w-3 h-3 opacity-50" strokeWidth={1.5} />
-        {mode === 'consultation' ? 'Record Consult' : 'Dictate'}
-      </button>
+    <div className={`flex items-center gap-2 ${className}`}>
+      <div className="relative">
+        <button
+          onClick={toggle}
+          disabled={disabled}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ${
+            isDark
+              ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
+              : 'border-slate-300 text-slate-600 hover:bg-teal-50 hover:border-teal-300'
+          } disabled:opacity-40 disabled:cursor-not-allowed`}
+          title={mode === 'consultation' ? 'Record consultation (Google Cloud STT + Gemini summary)' : 'Record voice note (Google Cloud STT)'}
+        >
+          <Mic className="w-4 h-4" strokeWidth={1.5} />
+          <Cloud className="w-3 h-3 opacity-50" strokeWidth={1.5} />
+          {mode === 'consultation' ? 'Record Consult' : 'Dictate'}
+        </button>
 
-      {/* Error tooltip */}
-      {error && (
-        <div className={`absolute top-full left-0 mt-2 p-2 rounded-lg shadow-lg border text-xs z-20 max-w-[240px] ${
-          isDark ? 'bg-slate-800/95 border-red-500/30 text-red-400' : 'bg-white border-red-200 text-red-600'
-        }`}>
-          {error}
-          <button
-            onClick={() => setError('')}
-            className="ml-2 underline opacity-70 hover:opacity-100"
-          >dismiss</button>
-        </div>
+        {/* Error tooltip */}
+        {error && (
+          <div className={`absolute top-full left-0 mt-2 p-2 rounded-lg shadow-lg border text-xs z-20 max-w-[240px] ${
+            isDark ? 'bg-slate-800/95 border-red-500/30 text-red-400' : 'bg-white border-red-200 text-red-600'
+          }`}>
+            {error}
+            <button
+              onClick={() => setError('')}
+              className="ml-2 underline opacity-70 hover:opacity-100"
+            >dismiss</button>
+          </div>
+        )}
+      </div>
+      {mode === 'consultation' && transcriptTurns && (
+        <TranscriptLogButton onClick={() => setShowModal(true)} isDark={isDark} />
+      )}
+      {showModal && (
+        <TranscriptModal turns={transcriptTurns} onClose={() => setShowModal(false)} isDark={isDark} />
       )}
     </div>
   );
