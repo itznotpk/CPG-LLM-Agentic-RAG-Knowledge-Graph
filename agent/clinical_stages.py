@@ -94,6 +94,13 @@ _DRUG_CLASS_KEYWORDS: dict[str, list[str]] = {
     "glp-1": ["glutide"],
     "dpp-4 inhibitor": ["gliptin"],
     "sulfonylurea": ["gliclazide", "glimepiride", "glipizide", "glibenclamide"],
+    "antiarrhythmic": ["amiodarone", "flecainide", "propafenone", "sotalol",
+                       "dronedarone", "digoxin", "digitalis"],
+    "antiarrhythmic medication": ["amiodarone", "flecainide", "propafenone", "sotalol",
+                                  "dronedarone", "digoxin", "digitalis"],
+    "class iii antiarrhythmic": ["amiodarone", "sotalol", "dronedarone"],
+    "rate control": ["bisoprolol", "metoprolol", "atenolol", "diltiazem", "verapamil", "digoxin"],
+    "rhythm control": ["amiodarone", "flecainide", "propafenone", "sotalol", "dronedarone"],
 }
 
 
@@ -279,16 +286,59 @@ def _validate_specialist_medication_pairing(
             if cond:
                 specialist_refs[spec].append(cond)
 
-    # Check medications against specialist-initiated mapping
+    # Check medications against specialist-initiated mapping.
+    # Only flag NEW initiations (action='start'). A drug the patient is already
+    # taking (action='continue') was presumably initiated by a specialist on a
+    # prior visit; flagging it here just creates noise without surfacing any
+    # new risk. action='stop' and 'contraindicated' obviously need no referral.
+    # action='change' is treated as a new initiation only when the change is to
+    # dose/agent (heuristic: presence of "increase"/"decrease"/"titrate"/"switch"
+    # in rationale) — otherwise it's effectively a continue.
+    _NEW_INITIATION_ACTIONS = {"start"}
+    _DOSE_CHANGE_KEYWORDS = ("increase", "decrease", "titrate", "switch", "uptitrate", "down-titrate")
     med_recs = [r for r in recommendations if r.type == "pharmacological"]
+
+    # Residual 1: a drug counted as "already continuing" if any OTHER pharmacological
+    # rec in the same plan has action='continue' and names it. A combined START
+    # like "warfarin + aspirin + clopidogrel" then only flags the truly NEW
+    # component(s) — warfarin is silenced because a parallel [CONTINUE] Warfarin
+    # rec proves it was already specialist-initiated on a prior visit.
+    continuing_tokens: set[str] = set()
+    for r in med_recs:
+        if (getattr(r, "action", None) or "").lower().strip() == "continue":
+            for tok in (r.intervention or "").lower().replace(",", " ").replace("+", " ").split():
+                tok = tok.strip(" .;:()[]")
+                if len(tok) >= 4 and tok.isalpha():
+                    continuing_tokens.add(tok)
+
     for med_rec in med_recs:
+        action = (getattr(med_rec, "action", None) or "").lower().strip()
+        rationale = (getattr(med_rec, "rationale", None) or "").lower()
+        is_new_initiation = action in _NEW_INITIATION_ACTIONS
+        if not is_new_initiation and action == "change":
+            is_new_initiation = any(kw in rationale for kw in _DOSE_CHANGE_KEYWORDS)
+        if not is_new_initiation:
+            continue
         med_text = (med_rec.intervention or "").lower()
 
-        # Check if this is a specialist-initiated drug
+        # Check if this is a specialist-initiated drug — but ignore matches that
+        # come from a drug class which is only present via an already-continuing
+        # token (residual 1). Build the list of trigger classes whose match in
+        # med_text is exclusively due to a continuing-token substring.
         required_specs = []
         for drug_class, specs in _SPECIALIST_INITIATED_DRUGS.items():
-            if drug_class in med_text:
-                required_specs.extend(specs)
+            if drug_class not in med_text:
+                continue
+            # If the drug_class name itself is a continuing token, skip.
+            if drug_class in continuing_tokens:
+                continue
+            # If the only occurrence of drug_class in med_text is inside a
+            # continuing-token name (e.g. "warfarin" continuing → skip warfarin
+            # cross-check on a triple-therapy START), skip.
+            class_token = drug_class.split()[0]
+            if class_token in continuing_tokens and class_token == drug_class:
+                continue
+            required_specs.extend(specs)
 
         if required_specs:
             # Verify at least one required specialist is in referrals
@@ -1061,6 +1111,38 @@ def _forced_rerank_spec(candidates: list[DDxResult]) -> list[dict] | None:
     return out or None
 
 
+def _collapse_sibling_clusters(reranked: list[DDxResult]) -> list[DDxResult]:
+    """Demote sibling-cluster duplicates (same 4-char ICD-11 stem) below distinct-family codes.
+
+    Deterministic safety net for the DISTINCT-DISEASE PREFERENCE rule in the
+    Stage-2 prompt — the LLM sometimes still keeps two BA41.x or BC81.x variants
+    inside the top-5. We keep the FIRST occurrence of each stem in place (LLM
+    already picked its preferred representative), and push later same-stem
+    siblings to the tail so genuinely distinct comorbidities can populate top-5.
+    """
+    if not reranked:
+        return reranked
+    seen_stems: set[str] = set()
+    primaries: list[DDxResult] = []
+    siblings: list[DDxResult] = []
+    for r in reranked:
+        code = (getattr(r, "code", "") or "").strip()
+        stem = code[:4] if len(code) >= 4 else code
+        if stem and stem in seen_stems:
+            siblings.append(r)
+        else:
+            if stem:
+                seen_stems.add(stem)
+            primaries.append(r)
+    if not siblings:
+        return reranked
+    logger.info(
+        "DDx sibling-cluster collapse: demoted %d same-stem sibling(s) below distinct families",
+        len(siblings),
+    )
+    return primaries + siblings
+
+
 async def _llm_rerank_ddx(
     case: PatientCase,
     candidates: list[DDxResult],
@@ -1300,6 +1382,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
             exclusion_overrides,
         )
 
+        reranked = _collapse_sibling_clusters(reranked)
         logger.info("DDx re-ranked %d candidates via %s", len(reranked), active_model)
         return reranked
 
@@ -1336,11 +1419,24 @@ async def _extract_symptom_phrase(
     # Concise prompt without few-shot examples — MiMo follows direct instructions
     # better than imitating examples (which it can confuse with the expected output format).
     prompt = (
-        "Rewrite these clinical notes as a single short phrase (max 15 words) "
-        "containing ONLY the primary symptom, its anatomical location or radiation, "
-        "character, and duration. Exclude age, sex, history, comorbidities, "
-        "medications, and vital signs. Output the phrase only — no preamble, no quotes, "
-        "no explanation.\n\n"
+        "Rewrite these clinical notes as a single short phrase (max 15 words) for "
+        "differential-diagnosis vector search.\n\n"
+        "Choose the framing that best fits the notes:\n"
+        "  (A) SYMPTOM-FRAMED visit (patient presents with a complaint): output the "
+        "primary symptom + anatomical location/radiation + character + duration. "
+        "Example: 'crushing central chest pain radiating to left arm, 2 hours'.\n"
+        "  (B) TASK-FRAMED visit (post-procedure review, medication review, follow-up, "
+        "or any consult with no presenting symptom): output the clinical management "
+        "context — the procedure/condition driving the visit. "
+        "Examples: 'post-PCI day 1 antithrombotic management for NSTEMI with AF', "
+        "'post-operative anticoagulation review', 'newly diagnosed heart failure "
+        "with reduced ejection fraction'.\n\n"
+        "Rules for both modes:\n"
+        "  - Exclude age, sex, vital signs, and unrelated comorbidities unless they "
+        "are the visit's reason.\n"
+        "  - NEVER return 'no symptom', 'asymptomatic', 'n/a', or empty — for "
+        "task-framed visits use mode (B) instead.\n"
+        "  - Output the phrase only — no preamble, no quotes, no explanation.\n\n"
         f"Notes: {notes}\n\n"
         "Phrase:"
     )
@@ -3226,6 +3322,55 @@ Produce a TreatmentPlan JSON object matching this schema:
                     return True
                 return False
 
+            # Qualifier negation pre-filter. Parses comorbidities for explicit
+            # negation patterns ("non-<X>", "<X>-negative", "without <X>") and
+            # drops triggers requiring the negated qualifier.
+            # Example: comorbidity "Non-valvular Atrial Fibrillation" → negated={"valvular"};
+            # any trigger mentioning "valvular" against an AF-related condition drops.
+            # Generic — not case-specific. Covers HER2-negative, non-diabetic CKD,
+            # non-pregnant, etc.
+            import re as _re
+            _NEG_PATTERNS = (
+                _re.compile(r"\bnon[\s-]([a-z]+)", _re.IGNORECASE),
+                _re.compile(r"\b([a-z]+)[\s-]negative\b", _re.IGNORECASE),
+                _re.compile(r"\bwithout\s+([a-z]+)", _re.IGNORECASE),
+            )
+            _negated_qualifiers: set[str] = set()
+            for _co in (getattr(case, "comorbidities", None) or []):
+                _co_text = _co if isinstance(_co, str) else getattr(_co, "name", "") or ""
+                for _pat in _NEG_PATTERNS:
+                    for _m in _pat.finditer(_co_text):
+                        _q = _m.group(1).lower().strip()
+                        # Skip non-clinical stopwords that the patterns can accidentally
+                        # capture (e.g. "non-smoker" → "smoker" is not a qualifier we want
+                        # to use as a trigger blacklist).
+                        if _q and len(_q) >= 4 and _q not in {"smoker", "drinker"}:
+                            _negated_qualifiers.add(_q)
+            if _negated_qualifiers:
+                logger.info(
+                    "stage_5: negated qualifiers from comorbidities: %s",
+                    sorted(_negated_qualifiers),
+                )
+
+            def _is_qualifier_mismatched(trig: str | None, trig_list: list[str] | None) -> bool:
+                if not _negated_qualifiers:
+                    return False
+                pool: list[str] = []
+                if trig:
+                    pool.append(trig.lower())
+                for t in (trig_list or []):
+                    if t:
+                        pool.append(t.lower())
+                text = " ".join(pool)
+                if not text:
+                    return False
+                # Require the qualifier to appear as a whole word, not a substring,
+                # to avoid e.g. "valvular" matching inside an unrelated drug name.
+                for q in _negated_qualifiers:
+                    if _re.search(rf"\b{_re.escape(q)}\b", text):
+                        return True
+                return False
+
             # First pass: classify each rec as universal vs triggered. Triggered ones
             # are dispatched to an LLM gate that evaluates each trigger against the
             # patient's vitals/labs/staging/history. The gate is fail-open: on any
@@ -3262,6 +3407,12 @@ Produce a TreatmentPlan JSON object matching this schema:
                 if _is_age_mismatched(rec.trigger, trig_list):
                     logger.info(
                         "stage_5: KG referral dropped (paediatric trigger, adult patient): %s — %s (trigger=%r)",
+                        rec.specialty, rec.condition, rec.trigger,
+                    )
+                    continue
+                if _is_qualifier_mismatched(rec.trigger, trig_list):
+                    logger.info(
+                        "stage_5: KG referral dropped (qualifier mismatch with comorbidity negation): %s — %s (trigger=%r)",
                         rec.specialty, rec.condition, rec.trigger,
                     )
                     continue
@@ -3304,6 +3455,32 @@ Produce a TreatmentPlan JSON object matching this schema:
             # Same for not_met — KG can emit multiple edges that all resolve to the
             # same specialty+condition; one gate_audit line is enough.
             notmet_seen_keys: set[tuple[str, str]] = set()
+            # Gap 8: per-source-CPG cap on audit lines. A single CPG covering a
+            # broad comorbidity (e.g. T2DM) can fan out into 7+ different
+            # (specialty, condition) gate failures; collectively they swamp the
+            # audit panel with noise unrelated to the visit's chief complaint.
+            # Cap at MAX_AUDIT_PER_CPG entries per source_document; once exceeded,
+            # append a single summarising line instead of every individual edge.
+            MAX_AUDIT_PER_CPG = 2
+            audit_per_cpg: dict[str, int] = {}
+            audit_overflow_logged: set[str] = set()
+
+            def _audit_source(_rec) -> str:
+                return (getattr(_rec, "source_document", None)
+                        or getattr(_rec, "source", None)
+                        or "unknown").strip()
+
+            def _append_audit(line: str, _rec) -> None:
+                src = _audit_source(_rec)
+                count = audit_per_cpg.get(src, 0)
+                if count < MAX_AUDIT_PER_CPG:
+                    plan.gate_audit.append(line[:480])
+                    audit_per_cpg[src] = count + 1
+                elif src not in audit_overflow_logged:
+                    audit_overflow_logged.add(src)
+                    plan.gate_audit.append(
+                        f"(+ further referral triggers from {src} suppressed — review CPG directly if needed)"[:480]
+                    )
 
             for idx, (rec, primary_trig, urgency_word) in triggered_meta.items():
                 status, reason = gate_decisions.get(idx, ("unknown", ""))
@@ -3378,7 +3555,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                             f"Ruled out {rec.specialty} referral for {rec.condition} — "
                             f"trigger '{primary_trig}' not met: {reason or 'no rationale'}"
                         )
-                        plan.gate_audit.append(audit_line[:480])
+                        _append_audit(audit_line, rec)
                     logger.info(
                         "Referral GATE=not_met → dropped: %s — %s (trigger=%r, reason=%r)",
                         rec.specialty, rec.condition, primary_trig, reason,
@@ -3400,7 +3577,7 @@ Produce a TreatmentPlan JSON object matching this schema:
                             f"Awaiting data for {rec.specialty} referral — {rec.condition}: "
                             f"trigger '{primary_trig}' unverified ({reason or 'no data in notes'})"
                         )
-                        plan.gate_audit.append(audit_line[:480])
+                        _append_audit(audit_line, rec)
                     gated_count += 1
                     log_func = logger.warning if gate_failed else logger.info
                     log_func(

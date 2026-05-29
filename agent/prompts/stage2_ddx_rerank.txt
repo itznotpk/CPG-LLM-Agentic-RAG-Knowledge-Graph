@@ -22,6 +22,13 @@ Rules:
 - When you promote a specific code over a generic sibling on this basis, set override_reason="specificity_over_generic: <named disease> supported by <one patient finding>".
 - Do NOT promote a specific code if patient data is genuinely ambiguous — in that case, keep the generic code but lower its confidence to reflect the uncertainty.
 
+DISTINCT-DISEASE PREFERENCE (avoid sibling-cluster crowding):
+The top-5 should represent distinct clinical entities, not multiple ICD-11 variants of the same disease. Vector search tends to return a family of closely-related codes (parent + children + "unspecified" sibling + "subsequent episode" sibling) for one strong hit, which then crowds out genuine comorbidities that belong in the differential.
+Rules:
+- Treat codes that share their first 4-character ICD-11 stem (e.g. BA41.1 / BA41 / BA41.Z / BA42.1 are all "acute MI" family) as ONE conceptual slot. Keep the MOST SPECIFIC of them per the SPECIFICITY PREFERENCE rule above, and DEMOTE the others below any candidate representing a distinct disease family — even if those distinct candidates have a lower math_rank.
+- A code that is the patient's named comorbidity (e.g. BC81.3 for AF in a patient with documented AF) MUST appear in the top-5 even if it would otherwise be pushed out by sibling crowding.
+- When you demote a same-family sibling on this basis, set override_reason="sibling_cluster: kept <retained code> as family representative".
+
 CLINICIAN-NAMED EXPLICIT CODES (HIGHEST AUTHORITY):
 If a candidate is marked `clinician-named: EXPLICIT`, the clinician has literally written that diagnosis in their own notes. This is a direct documented assertion — NOT an inference from symptoms — and outranks vector_score, symptom_match, and your own probabilistic reasoning.
 Rules:

@@ -29,6 +29,39 @@ bradycardia, or structural heart disease). Common offenders to recognise:
   - Antiemetics: ondansetron, droperidol, metoclopramide
   - Methadone, hydroxychloroquine, chloroquine, pentamidine
 
+BLEEDING-RISK CALIBRATION — apply when an anticoagulant (warfarin, DOAC,
+LMWH, UFH) is in the plan or current_medications. Calibrate severity by the
+*compounded* risk, not the individual drug pair:
+
+  CRITICAL when ANY of these are true:
+    - Warfarin + a strong CYP2C9 inhibitor (azole antifungals: fluconazole,
+      voriconazole, miconazole; metronidazole; trimethoprim-sulfamethoxazole;
+      amiodarone) when INR is at upper therapeutic edge (≥ target high) or
+      already supratherapeutic. Rationale: INR can climb to >5 in days; major
+      haemorrhage risk.
+    - Anticoagulant + new antiplatelet during a triple-therapy overlap window
+      (OAC + aspirin + P2Y12 inhibitor) in elderly (≥65), CKD eGFR<60, prior
+      bleed, or low body weight (<60 kg). Rationale: triple therapy >1 month
+      in these contexts has a documented major-bleed rate >10%/year.
+    - DOAC + strong dual CYP3A4 + P-gp inhibitor/inducer combination
+      (ketoconazole, ritonavir, rifampin, carbamazepine) — drug level
+      swing is dangerous in either direction.
+
+  MAJOR when CRITICAL criteria are not met but:
+    - Warfarin + a moderate CYP2C9 inhibitor (single inhibitor only, INR
+      within target, no supratherapeutic reading).
+    - Anticoagulant + new antiplatelet without the triple-therapy or risk-
+      enrichment context above.
+    - Warfarin + enzyme inducer (rifampin, carbamazepine, St John's Wort)
+      — subtherapeutic INR risk, thrombosis.
+
+  MODERATE: routine monitoring/dose adjustment only (e.g. warfarin + a single
+  mild interactor with stable INR history).
+
+Do NOT downgrade CRITICAL to MAJOR because the plan also says "monitor INR
+closely" — monitoring does not change the underlying severity of the
+interaction. The INDEPENDENT CROSS-CHECK RULE below also applies here.
+
 ELDERLY (AGE ≥65) — apply Beers Criteria and STOPP/START reasoning. Flag
 potentially-inappropriate medications: long-acting benzodiazepines, first-gen
 antihistamines (diphenhydramine, chlorpheniramine), TCAs, glibenclamide,

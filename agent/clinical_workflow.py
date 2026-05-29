@@ -32,6 +32,7 @@ async def route_comorbidities(
     patient_sex: str | None = None,
     emit=None,
     staged_comorbidities: list[StagedComorbidity] | None = None,
+    clinical_context: str | None = None,
 ) -> list[CPGDocRef]:
     """Map free-text and structured comorbidities to additional CPG documents.
 
@@ -39,12 +40,24 @@ async def route_comorbidities(
     we bypass search_ddx entirely (short-circuit). Free-text comorbidities
     fall back to vector similarity search (search_ddx) with a 0.55 threshold.
     Deduplicated against existing_cpgs. Sex-incompatible CPGs are dropped.
+    Pregnancy CPGs are also dropped when neither clinical_context nor the
+    comorbidity list contains pregnancy/obstetric keywords — mirrors the
+    filter applied in stage_3_route so the two paths can't disagree.
     """
     from ddx.search_ddx import search_ddx
-    from .clinical_stages import sex_incompatible_reason
+    from .clinical_stages import sex_incompatible_reason, pregnancy_context_missing_reason
     additional: list[CPGDocRef] = []
     existing_names = {c.cpg_name for c in existing_cpgs}
     sex_excluded: set[str] = set()
+    # Combined pregnancy-context text: stage_3 only sees the symptom text,
+    # but pregnancy may be named in the structured comorbidity list itself
+    # (e.g. "Pregnancy 30 weeks"). Merge both sources so a CPG is only blocked
+    # when the patient is genuinely non-obstetric.
+    _preg_context_text = " ".join(
+        [clinical_context or ""]
+        + [c for c in (comorbidities or []) if c]
+        + [(sc.label or "") for sc in (staged_comorbidities or []) if sc and sc.label]
+    )
 
     # Merge staged and legacy comorbidities, deduplicating by normalized label name
     items_to_process: list[tuple[str, str | None]] = []
@@ -119,11 +132,13 @@ async def route_comorbidities(
                     )
                     continue
                 reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
+                if reason is None:
+                    reason = pregnancy_context_missing_reason(ref.cpg_name, _preg_context_text)
                 if reason is not None:
                     if ref.cpg_name not in sex_excluded:
                         sex_excluded.add(ref.cpg_name)
                         logger.info(
-                            "Comorbidity sex-filter excluded %s (via %r): %s",
+                            "Comorbidity sex/preg-filter excluded %s (via %r): %s",
                             ref.cpg_name, condition, reason,
                         )
                         if emit:
@@ -236,7 +251,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
                                        clinical_context=_build_symptom_text(case),
                                        patient_sex=case.sex)
         with _time_stage("stage_3_route_comorbidities", timings):
-            extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, staged_comorbidities=case.staged_comorbidities)
+            extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, staged_comorbidities=case.staged_comorbidities, clinical_context=_build_symptom_text(case))
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
         logger.info("Stage 3 Routing: %d CPGs matched: %s",
@@ -399,7 +414,7 @@ async def run_clinical_workflow_streaming(
         cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit,
                                    clinical_context=_build_symptom_text(case),
                                    patient_sex=case.sex)
-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit, staged_comorbidities=case.staged_comorbidities)
+        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit, staged_comorbidities=case.staged_comorbidities, clinical_context=_build_symptom_text(case))
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
             for c in extra_cpgs:
