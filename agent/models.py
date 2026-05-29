@@ -215,6 +215,24 @@ class AgentContext(BaseModel):
 
 
 # Clinical Workflow Models
+
+class StageError(BaseModel):
+    """Structured error from a pipeline stage."""
+    stage: str                          # e.g. "Stage 2 DDx", "Stage 4 Retrieval"
+    error_type: str                     # exception class name
+    message: str
+    recoverable: bool                   # True = pipeline continued with degraded output
+
+    @classmethod
+    def from_exc(cls, stage: str, exc: Exception, recoverable: bool) -> "StageError":
+        return cls(
+            stage=stage,
+            error_type=type(exc).__name__,
+            message=str(exc),
+            recoverable=recoverable,
+        )
+
+
 class StagedComorbidity(BaseModel):
     """Structured comorbidity entry — supersedes free-text strings.
     Frontend submits this when the clinician picks from a dropdown."""
@@ -408,5 +426,7 @@ class HealthStatus(BaseModel):
     database: bool
     graph_database: bool
     llm_connection: bool
+    llm_synthesis: Literal["ok", "degraded", "unknown"] = "unknown"
+    llm_safety: Literal["ok", "degraded", "unknown"] = "unknown"
     version: str
     timestamp: datetime

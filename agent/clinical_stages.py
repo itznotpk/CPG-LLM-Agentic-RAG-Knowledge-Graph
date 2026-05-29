@@ -341,9 +341,25 @@ def _validate_specialist_medication_pairing(
             required_specs.extend(specs)
 
         if required_specs:
-            # Verify at least one required specialist is in referrals
+            # Verify at least one required specialist is in referrals. Match
+            # by substring rather than equality — clinicians often store
+            # combined-team specialty strings like
+            #   "obstetrician and endocrinologist/diabetologist"
+            # which equality-match would miss for required_spec="endocrinology"
+            # even though endocrinology IS represented in the referral team.
+            # Use a token-based check: required spec name appears as substring
+            # in any referral specialty, OR a referral specialty key appears
+            # in any condition string (covers "Refer to ENDO for ..." patterns).
+            specialist_ref_blob = " | ".join(
+                [spec_key for spec_key in specialist_refs]
+                + [c for conds in specialist_refs.values() for c in conds]
+            ).lower()
             has_required = any(
-                spec in specialist_refs for spec in required_specs
+                # exact key, or required_spec substring of any spec key/cond
+                req in specialist_refs
+                or req in specialist_ref_blob
+                or req.rstrip("y") in specialist_ref_blob  # endocrinology→endocrinolog (handles -ist forms)
+                for req in required_specs
             )
             if not has_required:
                 warning = (
@@ -750,6 +766,87 @@ OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
 DDX_DISPLAY_FLOOR = 0.30
 SCORE_TERM_DISPLAY_FLOOR = 0.50
 RERANK_DISAGREEMENT_DELTA = 2
+
+# Fixed seed for Stage-2 LLM calls (symptom phrase, condition hypotheses, CC hints).
+# Stabilises the DDx vector-search candidate pool across reruns on Mode B
+# (task-framed) visits where slight phrasing variance otherwise drops the
+# correct named-disease code out of the pool entirely. Honoured by
+# OpenAI-compatible servers (vLLM, mimo); ignored silently elsewhere.
+DDX_DETERMINISTIC_SEED = int(os.getenv("DDX_DETERMINISTIC_SEED", "42"))
+
+# Regex disease→canonical-name map for the deterministic CC-hint fallback.
+# Augments (does NOT replace) `_extract_cc_icd_hints`: even when the LLM call
+# drops a named diagnosis on a Mode-B (task-framed) visit, any of these aliases
+# literally present in chief_complaint / history / comorbidities / meds resolves
+# to a canonical disease name and forces the code into the candidate pool.
+# Keep the alias side lowercase; word-boundary matched on combined case text.
+# Treat injected hints as effectively explicit (confidence 0.90, explicit=True)
+# since the alias was literally written by the clinician.
+_DISEASE_ALIAS_MAP: dict[str, str] = {
+    # Cardiology — ACS / IHD
+    "nstemi": "Acute non-ST elevation myocardial infarction",
+    "non-st elevation myocardial infarction": "Acute non-ST elevation myocardial infarction",
+    "non-st-elevation myocardial infarction": "Acute non-ST elevation myocardial infarction",
+    "stemi": "Acute ST elevation myocardial infarction",
+    "st elevation myocardial infarction": "Acute ST elevation myocardial infarction",
+    "acute coronary syndrome": "Acute coronary syndrome",
+    "acs": "Acute coronary syndrome",
+    "unstable angina": "Unstable angina",
+    "stable angina": "Stable angina",
+    "coronary artery disease": "Coronary artery disease",
+    "ischaemic heart disease": "Ischaemic heart disease",
+    "ischemic heart disease": "Ischaemic heart disease",
+    # Cardiology — rhythm / failure
+    "atrial fibrillation": "Atrial fibrillation",
+    "afib": "Atrial fibrillation",
+    "non-valvular atrial fibrillation": "Atrial fibrillation",
+    "non-valvular af": "Atrial fibrillation",
+    "atrial flutter": "Atrial flutter",
+    "heart failure": "Heart failure",
+    "hfref": "Heart failure with reduced ejection fraction",
+    "hfpef": "Heart failure with preserved ejection fraction",
+    "congestive heart failure": "Congestive heart failure",
+    "chf": "Congestive heart failure",
+    # Endocrine
+    "type 2 diabetes mellitus": "Type 2 diabetes mellitus",
+    "type 2 diabetes": "Type 2 diabetes mellitus",
+    "t2dm": "Type 2 diabetes mellitus",
+    "type 1 diabetes mellitus": "Type 1 diabetes mellitus",
+    "t1dm": "Type 1 diabetes mellitus",
+    "gestational diabetes": "Gestational diabetes mellitus",
+    "gdm": "Gestational diabetes mellitus",
+    "hypothyroidism": "Hypothyroidism",
+    "hyperthyroidism": "Hyperthyroidism",
+    # Hypertension / vascular
+    "essential hypertension": "Essential hypertension",
+    "hypertension": "Essential hypertension",
+    "stroke": "Stroke",
+    "ischaemic stroke": "Cerebral infarction",
+    "ischemic stroke": "Cerebral infarction",
+    "tia": "Transient ischaemic attack",
+    "transient ischaemic attack": "Transient ischaemic attack",
+    # Respiratory
+    "copd": "Chronic obstructive pulmonary disease",
+    "chronic obstructive pulmonary disease": "Chronic obstructive pulmonary disease",
+    "asthma": "Asthma",
+    "pulmonary embolism": "Pulmonary embolism",
+    "pe": "Pulmonary embolism",
+    # Renal / GI / Liver
+    "chronic kidney disease": "Chronic kidney disease",
+    "ckd": "Chronic kidney disease",
+    "end stage renal disease": "End stage renal disease",
+    "esrd": "End stage renal disease",
+    "cirrhosis": "Cirrhosis of liver",
+    # Mental health
+    "major depressive disorder": "Major depressive disorder",
+    "depression": "Major depressive disorder",
+    "anxiety disorder": "Anxiety disorder",
+    # Infections / can't-miss
+    "sepsis": "Sepsis",
+    "meningitis": "Meningitis",
+    "oesophageal candidiasis": "Candidiasis of oesophagus",
+    "esophageal candidiasis": "Candidiasis of oesophagus",
+}
 ScoreRouteMethod = Literal[
     "exact",
     "sibling",
@@ -1396,11 +1493,74 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
         return candidates
 
 
+_TASK_FRAMED_MARKERS = (
+    "post-pci", "post pci", "post-cabg", "post cabg", "post-op", "post op",
+    "post-operative", "post operative", "medication review", "med review",
+    "follow-up", "follow up", "review of", "review for", "anticoagulation review",
+    "antithrombotic management", "antithrombotic review", "day 1 review",
+    "post-discharge", "post discharge", "routine review", "annual review",
+)
+
+
+def _is_task_framed(notes: str) -> bool:
+    """Cheap regex check for Mode-B (task-framed) visits.
+
+    Returns True when the notes contain a procedural/review marker. Used to
+    bypass the LLM symptom extractor in favour of deterministic phrase
+    assembly from `case.history` + comorbidities, which is reproducible.
+    """
+    if not notes:
+        return False
+    n = notes.lower()
+    return any(m in n for m in _TASK_FRAMED_MARKERS)
+
+
+def _assemble_task_framed_phrase(case: PatientCase) -> str:
+    """Deterministic Mode-B phrase: matched aliases + procedure marker + comorbidities.
+
+    Skips the LLM entirely. Reads the same text the regex disease-hint fallback
+    scans and stitches a stable short phrase. Always returns the same string
+    for the same case, eliminating Mode-B drift between reruns.
+    """
+    text = " ".join([
+        case.chief_complaint or "",
+        case.history or "",
+        ", ".join(case.comorbidities or []),
+    ]).lower()
+    procedure = next((m.replace("-", " ") for m in _TASK_FRAMED_MARKERS if m in text), "follow-up")
+    diseases: list[str] = []
+    seen: set[str] = set()
+    for alias, canonical in _DISEASE_ALIAS_MAP.items():
+        if canonical in seen:
+            continue
+        if alias in text:
+            diseases.append(canonical)
+            seen.add(canonical)
+        if len(diseases) >= 4:
+            break
+    if diseases:
+        phrase = f"{procedure} for {', '.join(diseases)}"
+    else:
+        phrase = f"{procedure} {(case.chief_complaint or '').strip()}"
+    phrase = " ".join(phrase.split()[:15])
+    return phrase or (case.chief_complaint or "follow-up")
+
+
+_PHRASE_CACHE: dict[str, tuple[str, bool]] = {}
+
+
+def _phrase_cache_key(notes: str, model: str) -> str:
+    import hashlib
+    h = hashlib.sha1(f"{model}::{notes}".encode("utf-8")).hexdigest()
+    return h
+
+
 async def _extract_symptom_phrase(
     notes: str,
     client: openai.AsyncOpenAI,
     model: str,
     extra_body: dict | None = None,
+    case: PatientCase | None = None,
 ) -> tuple[str, bool]:
     """Compress clinical notes to a symptom-focused query string for DDx vector search.
 
@@ -1440,12 +1600,30 @@ async def _extract_symptom_phrase(
         f"Notes: {notes}\n\n"
         "Phrase:"
     )
+    # D — cache check (eliminates per-rerun jitter even when `seed` is ignored).
+    cache_key = _phrase_cache_key(notes, model)
+    if cache_key in _PHRASE_CACHE:
+        cached = _PHRASE_CACHE[cache_key]
+        logger.info("Symptom extraction cache HIT: key=%s → %r", cache_key[:8], cached[0])
+        return cached
+
+    # A — Mode-B rule-based bypass. Task-framed visits have no symptom to
+    # extract; the LLM has to invent procedural prose which is non-deterministic
+    # AND embeds poorly into ICD-11 disease space. Assemble deterministically.
+    if case is not None and _is_task_framed(notes):
+        phrase = _assemble_task_framed_phrase(case)
+        logger.info("Symptom extraction: Mode-B rule-based bypass → %r", phrase)
+        result = (phrase, False)
+        _PHRASE_CACHE[cache_key] = result
+        return result
+
     logger.info("Symptom extraction starting: model=%s notes_len=%d", model, len(notes))
     try:
         resp = await client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
+            seed=DDX_DETERMINISTIC_SEED,
             **({"extra_body": extra_body} if extra_body else {}),
         )
         phrase = resp.choices[0].message.content.strip().strip('"').strip("'").rstrip(".")
@@ -1470,7 +1648,9 @@ async def _extract_symptom_phrase(
             return notes, True
 
         logger.info("Symptom extraction OK: %r → %r (%d words)", notes[:60], phrase, len(phrase.split()))
-        return phrase, False
+        result = (phrase, False)
+        _PHRASE_CACHE[cache_key] = result
+        return result
     except Exception as exc:
         logger.warning("Symptom extraction FAILED (%s) — falling back to raw notes", exc)
         return notes, True
@@ -1509,6 +1689,7 @@ async def _generate_condition_hypotheses(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
+            seed=DDX_DETERMINISTIC_SEED,
             **({"extra_body": extra_body} if extra_body else {}),
         )
         txt = (resp.choices[0].message.content or "").strip()
@@ -1580,6 +1761,7 @@ async def _extract_cc_icd_hints(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
+            seed=DDX_DETERMINISTIC_SEED,
             **({"extra_body": extra_body} if extra_body else {}),
         )
         txt = (resp.choices[0].message.content or "").strip()
@@ -1666,6 +1848,76 @@ async def _extract_cc_icd_hints(
         return []
 
 
+async def _regex_disease_hints(case: PatientCase) -> list[dict]:
+    """Deterministic disease-name → ICD code resolver. Augments `_extract_cc_icd_hints`.
+
+    Scans chief_complaint + history + comorbidities + current_medications for
+    aliases in `_DISEASE_ALIAS_MAP` and resolves each canonical name to its
+    top-1 ICD code via `search_ddx`. Output shape matches `_extract_cc_icd_hints`
+    so callers can merge both lists transparently.
+
+    Why this exists: on Mode-B (task-framed) visits the LLM symptom/hint
+    extractors occasionally drop a literally-written diagnosis (e.g. "NSTEMI")
+    from their output, knocking the right code out of the vector pool. A regex
+    on the raw text guarantees the named code is always represented.
+    """
+    text_parts = [
+        case.chief_complaint or "",
+        case.history or "",
+        ", ".join(case.comorbidities or []),
+        ", ".join(case.current_medications or []),
+    ]
+    blob = " ".join(text_parts).lower()
+    if not blob.strip():
+        return []
+    import re as _re
+    matched: list[str] = []
+    seen_names: set[str] = set()
+    for alias, canonical in _DISEASE_ALIAS_MAP.items():
+        if canonical in seen_names:
+            continue
+        pattern = r"\b" + _re.escape(alias) + r"\b"
+        if _re.search(pattern, blob):
+            matched.append(canonical)
+            seen_names.add(canonical)
+    if not matched:
+        return []
+
+    from ddx.search_ddx import search_ddx as _search_ddx
+    async def _resolve(name: str):
+        try:
+            hits = await _search_ddx(name, top_k=1)
+            return hits[0] if hits else None
+        except Exception as exc:
+            logger.warning("Regex hint resolve failed for %r: %s", name, exc)
+            return None
+    resolved = await asyncio.gather(*[_resolve(n) for n in matched])
+
+    SIM_FLOOR = 0.55
+    out: list[dict] = []
+    seen_codes: set[str] = set()
+    for name, hit in zip(matched, resolved):
+        if not hit:
+            continue
+        sim = float(hit.get("similarity") or 0.0)
+        code = (hit.get("code") or "").strip().upper()
+        if not code or sim < SIM_FLOOR or code in seen_codes:
+            continue
+        seen_codes.add(code)
+        out.append({
+            "code": code,
+            "confidence": 0.90,
+            "explicit": True,
+            "resolved_name": name,
+            "resolved_similarity": round(sim, 3),
+            "source": "regex_fallback",
+        })
+    if out:
+        logger.info("Regex disease hints: %d code(s) injected — %s",
+                    len(out), [(h["code"], h["resolved_name"]) for h in out])
+    return out
+
+
 async def stage_2_ddx(
     case: PatientCase,
     top_k: int = 5,
@@ -1707,7 +1959,8 @@ async def stage_2_ddx(
         {"chat_template_kwargs": {"enable_thinking": False}} if "mimo" in extraction_model.lower() else None
     )
     query, extraction_fell_back = await _extract_symptom_phrase(
-        case.chief_complaint, client, extraction_model, extra_body=extraction_extra_body
+        case.chief_complaint, client, extraction_model,
+        extra_body=extraction_extra_body, case=case,
     )
 
     if emit is not None:
@@ -1757,6 +2010,26 @@ async def stage_2_ddx(
     if cc_icd_hints:
         for hint in cc_icd_hints:
             cc_hints_map[hint["code"]] = hint
+
+    # Deterministic regex fallback — augments (does NOT replace) the LLM CC
+    # hints above. LLM-derived hints win on key collisions; regex codes only
+    # fill in what the LLM missed. Stabilises the candidate pool across reruns
+    # on Mode-B (task-framed) visits where the LLM extractor occasionally drops
+    # literally-written diagnoses (NSTEMI, AF, T2DM) from its output.
+    regex_hints = await _regex_disease_hints(case)
+    regex_added: list[str] = []
+    for hint in regex_hints:
+        if hint["code"] not in cc_hints_map:
+            cc_hints_map[hint["code"]] = hint
+            regex_added.append(hint["code"])
+    if regex_added and emit is not None:
+        await emit("sub_step", {
+            "stage": 2,
+            "detail": "Regex-injected codes (fallback): " + ", ".join(regex_added),
+            "badge": "CC-boost",
+        })
+
+    if cc_icd_hints:
         if emit is not None:
             detail_parts = [
                 f'{h["code"]} ({"clinician-named" if h.get("explicit") else f"{h["confidence"]:.0%}"})'

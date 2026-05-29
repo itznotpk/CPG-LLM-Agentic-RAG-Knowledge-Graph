@@ -278,19 +278,84 @@ async def _query_drug_interactions(
     return flags
 
 
+# Drug → class-name expansion for safety lookups. The KG often defines
+# contraindication / dose-adjustment edges at the CLASS level (Angiotensin
+# Receptor Blocker, Statin, ACE Inhibitor, DOAC) rather than per agent —
+# so a patient on "Losartan" needs to also match an edge keyed on
+# "Angiotensin Receptor Blocker". Keys are lowercase substrings; if any key
+# appears in the drug name, its associated class names get appended to the
+# candidate list. Driven by case-10 (Losartan + Pregnancy) but applies to
+# any pregnancy / CKD / hepatic-failure class-level edge in the KG.
+_DRUG_CLASS_EXPANSION: Dict[str, List[str]] = {
+    # ARB family — losartan, valsartan, irbesartan, candesartan, telmisartan, olmesartan, eprosartan, azilsartan
+    "sartan": ["Angiotensin Receptor Blocker", "ARB"],
+    # ACE inhibitors — *pril
+    "pril": ["Angiotensin-Converting Enzyme Inhibitor", "ACE Inhibitor", "ACE-I"],
+    # Statins — atorvastatin, rosuvastatin, simvastatin, pravastatin, lovastatin, pitavastatin, fluvastatin
+    "statin": ["Statin", "HMG-CoA Reductase Inhibitor"],
+    # DOACs — dabigatran, rivaroxaban, apixaban, edoxaban
+    "dabigatran": ["Direct Oral Anticoagulant", "DOAC"],
+    "rivaroxaban": ["Direct Oral Anticoagulant", "DOAC", "Factor Xa Inhibitor"],
+    "apixaban": ["Direct Oral Anticoagulant", "DOAC", "Factor Xa Inhibitor"],
+    "edoxaban": ["Direct Oral Anticoagulant", "DOAC", "Factor Xa Inhibitor"],
+    # Beta-blockers — atenolol, bisoprolol, metoprolol, propranolol, carvedilol, labetalol, nebivolol
+    "olol": ["Beta Blocker", "Beta-Blocker"],
+    # Sulfonylureas (neonatal hypoglycaemia in pregnancy)
+    "gliclazide": ["Sulfonylurea"],
+    "glimepiride": ["Sulfonylurea"],
+    "glipizide": ["Sulfonylurea"],
+    "glibenclamide": ["Sulfonylurea"],
+    # SGLT2-i — *flozin
+    "flozin": ["SGLT2 Inhibitor", "SGLT2-I"],
+}
+
+
+def _expand_drugs_with_classes(drugs: List[str]) -> List[str]:
+    """Append class names to drug list for KG class-level edge matching.
+
+    Returns the input drugs unchanged plus every class name whose key matches
+    a substring of any drug name. Order-preserving; original drug names always
+    appear first so exact-name edges still win when both exist.
+    """
+    if not drugs:
+        return []
+    out: List[str] = list(drugs)
+    seen_lower = {d.lower().strip() for d in out}
+    for drug in drugs:
+        dn = (drug or "").lower()
+        for key, class_names in _DRUG_CLASS_EXPANSION.items():
+            if key in dn:
+                for cls in class_names:
+                    if cls.lower() not in seen_lower:
+                        out.append(cls)
+                        seen_lower.add(cls.lower())
+    return out
+
+
 async def _query_comorbidity_flags(
     session,
     candidate_drugs: List[str],
     comorbidities: List[str],
+    patient_meds: Optional[List[str]] = None,
 ) -> List[ClinicalFlag]:
     """
     Query 2: Comorbidity-related dose adjustments and monitoring.
 
     Finds drugs that REQUIRE_MONITORING, are CONTRAINDICATED_WITH, or
     have specific dosing for a patient's existing conditions.
+
+    The candidate set is the union of `candidate_drugs` (drugs proposed in
+    CPG evidence) AND `patient_meds` (drugs the patient is already on),
+    both expanded with their class names via `_expand_drugs_with_classes`.
+    Without patient_meds, an already-prescribed teratogen (case-10 losartan
+    in pregnancy) would never be checked against comorbidities — the CPG
+    candidate-drugs list is anchored to the recommended regimen and may not
+    mention the existing drug at all.
     """
-    if not candidate_drugs or not comorbidities:
+    pool = list(candidate_drugs or []) + list(patient_meds or [])
+    if not pool or not comorbidities:
         return []
+    expanded = _expand_drugs_with_classes(pool)
 
     cypher = """
     MATCH (d)-[r:REQUIRES_MONITORING|CONTRAINDICATED_WITH|HAS_DOSAGE|REQUIRES_DOSE_ADJUSTMENT]->(c)
@@ -309,7 +374,7 @@ async def _query_comorbidity_flags(
     """
     result = await session.run(
         cypher,
-        candidates=_norm_list(candidate_drugs),
+        candidates=_norm_list(expanded),
         comorbidities=_norm_list(comorbidities),
     )
     flags = []
@@ -694,7 +759,9 @@ async def clinical_graph_lookup(
             # is a simple index-backed Cypher and completes in <10 ms.
             query_funcs = [
                 ("drug_interactions", _query_drug_interactions, [session, patient_meds, candidate_drugs]),
-                ("comorbidity_flags", _query_comorbidity_flags, [session, candidate_drugs, comorbidities]),
+                # Pass patient_meds in addition to candidate_drugs so existing-med×comorbidity
+                # contraindications (case-10 losartan × pregnancy) actually fire.
+                ("comorbidity_flags", _query_comorbidity_flags, [session, candidate_drugs, comorbidities, patient_meds]),
                 ("allergy_cross", _query_allergy_cross_reactivity, [session, candidate_drugs, allergies]),
             ]
 

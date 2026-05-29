@@ -704,6 +704,7 @@ export function AppProvider({ children }) {
         state.severityStaging || {},
         undefined,
         (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
+        state.currentConsultationId,
       );
 
       const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);

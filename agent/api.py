@@ -15,6 +15,9 @@ from fastapi import FastAPI, HTTPException, Request, Depends
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
+from contextvars import ContextVar
+
+_request_id_var: ContextVar[str] = ContextVar("request_id", default="")
 import uvicorn
 from dotenv import load_dotenv
 
@@ -51,6 +54,7 @@ from pydantic import BaseModel as _BaseModel
 class ClinicalPlanRequest(_BaseModel):
     case: PatientCase
     session_id: str | None = None
+    consultation_id: int | None = None  # Supabase row id; tags SSE log entries
 
 
 class SelectedDiagnosis(_BaseModel):
@@ -70,7 +74,7 @@ class ClinicalPlanResponse(_BaseModel):
     ddx: list[dict]
     cpgs_matched: list[str]
     elapsed_ms: float
-    stage_errors: list[str] = []
+    stage_errors: list[dict] = []
     graph_navigator_rules: list[dict] = []
     safety_report: SafetyReport | None = None
     cpg_references: list[str] = []  # Derived from recommendations/monitoring citations
@@ -184,6 +188,7 @@ from .tools import (
     GraphSearchInput,
     HybridSearchInput
 )
+from .offline_log import log_sse_event, log_failed_job
 
 # Load environment variables
 load_dotenv(override=True)
@@ -275,6 +280,15 @@ app = FastAPI(
     version="0.1.0",
     lifespan=lifespan,
 )
+
+@app.middleware("http")
+async def _correlation_id_middleware(request: Request, call_next):
+    rid = request.headers.get("X-Request-ID") or str(uuid.uuid4())
+    _request_id_var.set(rid)
+    response = await call_next(request)
+    response.headers["X-Request-ID"] = rid
+    return response
+
 
 # Add middleware with flexible CORS
 app.add_middleware(
@@ -651,32 +665,64 @@ async def execute_agent(
         return error_response, [], fallback_sources
 
 
+async def _probe_llm(base_url: str | None, api_key: str | None, model: str, timeout: float = 2.0) -> bool:
+    """Send a minimal completion to check reachability. Returns True if the provider responds."""
+    if not base_url or not api_key:
+        return False
+    try:
+        import httpx
+        async with httpx.AsyncClient(timeout=timeout) as client:
+            resp = await client.post(
+                base_url.rstrip("/") + "/chat/completions",
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                json={"model": model, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 1},
+            )
+        return resp.status_code < 500
+    except Exception:
+        return False
+
+
 # API Endpoints
 @app.get("/health", response_model=HealthStatus)
 async def health_check():
     """Health check endpoint."""
     try:
-        # Test database connections
-        db_status = await test_connection()
-        graph_status = await test_graph_connection()
-        
-        # Determine overall status
-        if db_status and graph_status:
+        db_status, graph_status = await asyncio.gather(
+            test_connection(), test_graph_connection()
+        )
+
+        synthesis_ok, safety_ok = await asyncio.gather(
+            _probe_llm(
+                os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
+                os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
+                os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
+            ),
+            _probe_llm(
+                os.getenv("SAFETY_CRITIC_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
+                os.getenv("SAFETY_CRITIC_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
+                os.getenv("SAFETY_CRITIC_MODEL") or os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
+            ),
+        )
+
+        llm_ok = synthesis_ok and safety_ok
+        if db_status and graph_status and llm_ok:
             status = "healthy"
-        elif db_status or graph_status:
+        elif db_status:
             status = "degraded"
         else:
             status = "unhealthy"
-        
+
         return HealthStatus(
             status=status,
             database=db_status,
             graph_database=graph_status,
-            llm_connection=True,  # Assume OK if we can respond
+            llm_connection=llm_ok,
+            llm_synthesis="ok" if synthesis_ok else "degraded",
+            llm_safety="ok" if safety_ok else "degraded",
             version="0.1.0",
             timestamp=datetime.now()
         )
-        
+
     except Exception as e:
         logger.error(f"Health check failed: {e}")
         raise HTTPException(status_code=500, detail="Health check failed")
@@ -724,7 +770,7 @@ async def clinical_plan(request: ClinicalPlanRequest):
             ddx=[d.model_dump() for d in result.ddx],
             cpgs_matched=[c.cpg_name for c in result.cpgs],
             elapsed_ms=result.elapsed_ms,
-            stage_errors=result.stage_errors,
+            stage_errors=[e.model_dump() for e in result.stage_errors],
             graph_navigator_rules=result.graph_navigator_rules,
             safety_report=result.safety_report,
             cpg_references=_derive_cpg_references(result.treatment_plan),
@@ -733,9 +779,11 @@ async def clinical_plan(request: ClinicalPlanRequest):
         )
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
+        log_failed_job("clinical_plan", request.case, str(e), request_id=_request_id_var.get())
         raise HTTPException(status_code=500, detail=str(e))
     except Exception as e:
         logger.error("Clinical plan endpoint failed: %s", e)
+        log_failed_job("clinical_plan", request.case, str(e), request_id=_request_id_var.get())
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -798,7 +846,7 @@ _SSE_HEADERS = {
 _SSE_DONE = object()
 
 
-async def _sse_stream(request: Request, producer, log_label: str) -> StreamingResponse:
+async def _sse_stream(request: Request, producer, log_label: str, consultation_id=None) -> StreamingResponse:
     """
     Run `producer(emit)` and stream its events as SSE.
 
@@ -808,6 +856,7 @@ async def _sse_stream(request: Request, producer, log_label: str) -> StreamingRe
     queue: asyncio.Queue = asyncio.Queue(maxsize=_SSE_QUEUE_MAX)
 
     async def emit(event_type: str, data: dict) -> None:
+        log_sse_event(consultation_id, event_type, data, request_id=_request_id_var.get())
         await queue.put((event_type, data))
 
     async def run_producer() -> None:
@@ -881,24 +930,31 @@ async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
     from .clinical_workflow import run_clinical_workflow_streaming
 
     async def producer(emit):
-        result = await run_clinical_workflow_streaming(payload.case, emit)
+        from .db_utils import save_pipeline_timings
+        try:
+            result = await run_clinical_workflow_streaming(payload.case, emit)
+        except Exception as e:
+            log_failed_job("clinical_plan_stream", payload.case, str(e), request_id=_request_id_var.get())
+            raise
         final = ClinicalPlanResponse(
             treatment_plan=result.treatment_plan,
             ddx=[d.model_dump() for d in result.ddx],
             cpgs_matched=[c.cpg_name for c in result.cpgs],
             elapsed_ms=result.elapsed_ms,
-            stage_errors=result.stage_errors,
+            stage_errors=[e.model_dump() for e in result.stage_errors],
             graph_navigator_rules=result.graph_navigator_rules,
             safety_report=result.safety_report,
             cpg_references=_derive_cpg_references(result.treatment_plan),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
             evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
-        # safety_review was already emitted inside the workflow; final_result
-        # is intentionally last so the UI can gate rendering on safety arrival.
         await emit("final_result", final.model_dump())
+        if payload.consultation_id:
+            await save_pipeline_timings(
+                payload.consultation_id, result.stage_timings, _request_id_var.get()
+            )
 
-    return await _sse_stream(request, producer, "clinical_plan_stream")
+    return await _sse_stream(request, producer, "clinical_plan_stream", consultation_id=payload.consultation_id)
 
 
 @app.post("/clinical/plan/ddx/stream")
@@ -925,6 +981,7 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
     from .clinical_stages import DDxResult
 
     async def producer(emit):
+        from .db_utils import save_pipeline_timings
         selected_ddx = [
             DDxResult(
                 code=d.code,
@@ -934,13 +991,17 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             )
             for d in payload.selected_diagnoses
         ]
-        result = await run_resynthesize_streaming(payload.case, selected_ddx, emit)
+        try:
+            result = await run_resynthesize_streaming(payload.case, selected_ddx, emit)
+        except Exception as e:
+            log_failed_job("clinical_resynthesize_stream", payload.case, str(e), request_id=_request_id_var.get())
+            raise
         final = ClinicalPlanResponse(
             treatment_plan=result.treatment_plan,
             ddx=[d.model_dump() for d in result.ddx],
             cpgs_matched=[c.cpg_name for c in result.cpgs],
             elapsed_ms=result.elapsed_ms,
-            stage_errors=result.stage_errors,
+            stage_errors=[e.model_dump() for e in result.stage_errors],
             graph_navigator_rules=result.graph_navigator_rules,
             safety_report=result.safety_report,
             cpg_references=_derive_cpg_references(result.treatment_plan),
@@ -948,8 +1009,12 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
         await emit("final_result", final.model_dump())
+        if payload.consultation_id:
+            await save_pipeline_timings(
+                payload.consultation_id, result.stage_timings, _request_id_var.get()
+            )
 
-    return await _sse_stream(request, producer, "clinical_resynthesize_stream")
+    return await _sse_stream(request, producer, "clinical_resynthesize_stream", consultation_id=payload.consultation_id)
 
 
 @app.post("/chat/stream")

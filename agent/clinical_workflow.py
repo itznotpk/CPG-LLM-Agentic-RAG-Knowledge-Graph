@@ -7,7 +7,7 @@ import logging
 import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
-from .models import PatientCase, TreatmentPlan, SafetyReport, StagedComorbidity, ChunkResult
+from .models import PatientCase, TreatmentPlan, SafetyReport, StagedComorbidity, ChunkResult, StageError
 from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
@@ -190,7 +190,7 @@ class WorkflowResult:
     ddx: list[DDxResult]
     cpgs: list[CPGDocRef]
     elapsed_ms: float
-    stage_errors: list[str] = field(default_factory=list)
+    stage_errors: list[StageError] = field(default_factory=list)
     safety_report: SafetyReport | None = None
     graph_navigator_rules: list[dict] = field(default_factory=list)
     stage_timings: dict[str, float] = field(default_factory=dict)
@@ -228,7 +228,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         with degraded output rather than crashing.
     """
     t0 = time.monotonic()
-    errors: list[str] = []
+    errors: list[StageError] = []
     timings: dict[str, float] = {}
 
     _derive_bmi(case)
@@ -241,7 +241,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
                     len(ddx), ddx[0].code if ddx else "none")
     except Exception as e:
         logger.error("Stage 2 DDx failed: %s", e)
-        errors.append(f"Stage 2 DDx: {e}")
+        errors.append(StageError.from_exc("Stage 2 DDx", e, recoverable=True))
         ddx = []
 
     # Stage 3 — Route
@@ -258,7 +258,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
                     len(cpgs), [c.cpg_name for c in cpgs])
     except Exception as e:
         logger.error("Stage 3 Routing failed: %s", e)
-        errors.append(f"Stage 3 Routing: {e}")
+        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
         cpgs = []
 
     # Stage 4 — Retrieve
@@ -268,7 +268,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         logger.info("Stage 4 Retrieval: %d evidence chunks", len(evidence))
     except Exception as e:
         logger.error("Stage 4 Retrieval failed: %s", e)
-        errors.append(f"Stage 4 Retrieval: {e}")
+        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
         evidence = []
 
     # KG lookup — runs between Stage 4 and Stage 5, fail-open
@@ -379,7 +379,7 @@ async def run_clinical_workflow_streaming(
     Same error-handling contract as run_clinical_workflow.
     """
     t0 = time.monotonic()
-    errors: list[str] = []
+    errors: list[StageError] = []
 
     _derive_bmi(case)
 
@@ -399,7 +399,7 @@ async def run_clinical_workflow_streaming(
         logger.info("Stage 2 DDx: %d candidates. Top: %s", len(ddx), top)
     except Exception as e:
         logger.error("Stage 2 DDx failed: %s", e)
-        errors.append(f"Stage 2 DDx: {e}")
+        errors.append(StageError.from_exc("Stage 2 DDx", e, recoverable=True))
         await emit("stage_update", {
             "stage": 2, "name": "DDx Analysis", "status": "error", "detail": str(e),
         })
@@ -428,7 +428,7 @@ async def run_clinical_workflow_streaming(
         logger.info("Stage 3 Routing: %d CPGs: %s", len(cpgs), names)
     except Exception as e:
         logger.error("Stage 3 Routing failed: %s", e)
-        errors.append(f"Stage 3 Routing: {e}")
+        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "error", "detail": str(e),
         })
@@ -448,7 +448,7 @@ async def run_clinical_workflow_streaming(
         logger.info("Stage 4 Retrieval: %d chunks", len(evidence))
     except Exception as e:
         logger.error("Stage 4 Retrieval failed: %s", e)
-        errors.append(f"Stage 4 Retrieval: {e}")
+        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
         await emit("stage_update", {
             "stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e),
         })
@@ -530,7 +530,8 @@ async def run_resynthesize_streaming(
     Stage 5 failure propagates (unrecoverable).
     """
     t0 = time.monotonic()
-    errors: list[str] = []
+    errors: list[StageError] = []
+    timings: dict[str, float] = {}
 
     # Signal the override to the UI — must be the first event
     await emit("clinician_override", {
@@ -544,9 +545,10 @@ async def run_resynthesize_streaming(
         "detail": f"Routing {len(selected_ddx)} clinician-selected code(s)…",
     })
     try:
-        cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit,
-                                   clinical_context=_build_symptom_text(case),
-                                   patient_sex=case.sex)
+        with _time_stage("stage_3_route", timings):
+            cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit,
+                                       clinical_context=_build_symptom_text(case),
+                                       patient_sex=case.sex)
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",
@@ -556,7 +558,7 @@ async def run_resynthesize_streaming(
         logger.info("Re-synth Stage 3 Routing: %d CPGs: %s", len(cpgs), names)
     except Exception as e:
         logger.error("Re-synth Stage 3 failed: %s", e)
-        errors.append(f"Stage 3 Routing: {e}")
+        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
         await emit("stage_update", {"stage": 3, "name": "CPG Routing", "status": "error", "detail": str(e)})
         cpgs = []
 
@@ -566,7 +568,8 @@ async def run_resynthesize_streaming(
         "status": "running", "detail": "Retrieving guideline evidence for selected diagnosis…",
     })
     try:
-        evidence = await stage_4_retrieve(case, selected_ddx, cpgs, emit=emit)
+        with _time_stage("stage_4_retrieve", timings):
+            evidence = await stage_4_retrieve(case, selected_ddx, cpgs, emit=emit)
         await emit("stage_update", {
             "stage": 4, "name": "Evidence Retrieval", "status": "complete",
             "detail": f"{len(evidence)} evidence chunks retrieved",
@@ -574,7 +577,7 @@ async def run_resynthesize_streaming(
         logger.info("Re-synth Stage 4 Retrieval: %d chunks", len(evidence))
     except Exception as e:
         logger.error("Re-synth Stage 4 failed: %s", e)
-        errors.append(f"Stage 4 Retrieval: {e}")
+        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
         await emit("stage_update", {"stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e)})
         evidence = []
 
@@ -614,7 +617,8 @@ async def run_resynthesize_streaming(
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan for confirmed diagnosis…",
     })
-    treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
+    with _time_stage("stage_5_synthesize", timings):
+        treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",
@@ -625,7 +629,8 @@ async def run_resynthesize_streaming(
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
-    safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
+    with _time_stage("stage_6_safety", timings):
+        safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
     await emit("safety_review", safety_report.model_dump())
 
     return WorkflowResult(
@@ -636,5 +641,6 @@ async def run_resynthesize_streaming(
         stage_errors=errors,
         safety_report=safety_report,
         graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
+        stage_timings=timings,
         evidence=evidence,
     )

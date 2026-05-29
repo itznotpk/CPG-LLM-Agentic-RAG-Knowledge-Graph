@@ -1,8 +1,9 @@
 const CLINICAL_API_BASE = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
 // ─── shared helper ────────────────────────────────────────────────────────────
-function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities) {
+function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities, consultationId) {
   return {
+    ...(consultationId != null ? { consultation_id: consultationId } : {}),
     case: {
       chief_complaint: clinicalNotes || patientState.chiefComplaint || '',
       history: patientState.history || null,
@@ -198,8 +199,9 @@ export async function runClinicalPlanStream(
   stagingData,
   structuredComorbidities,
   onSafetyReview,
+  consultationId,
 ) {
-  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
+  const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities, consultationId);
 
   const response = await fetch(`${CLINICAL_API_BASE}/clinical/plan/stream`, {
     method: 'POST',
@@ -285,10 +287,12 @@ export async function resynthesizePlanStream(
   stagingData,
   structuredComorbidities,
   onSafetyReview,
+  consultationId,
 ) {
   const BASE_URL = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
   const body = {
+    ...(consultationId != null ? { consultation_id: consultationId } : {}),
     case: buildClinicalPlanBody(
       patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities,
     ).case,

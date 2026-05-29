@@ -115,6 +115,27 @@ async def close_supabase_db():
     await supabase_pool.close()
 
 
+async def save_pipeline_timings(
+    consultation_id: int,
+    timings: dict[str, float],
+    request_id: str = "",
+) -> None:
+    """Persist stage timings + request_id to the consultations row. Best-effort."""
+    pool = supabase_pool._pool
+    if pool is None:
+        return
+    try:
+        async with pool.acquire() as conn:
+            await conn.execute(
+                "SELECT update_consultation($1::integer, p_pipeline_timings => $2::jsonb, p_request_id => $3)",
+                consultation_id,
+                json.dumps(timings),
+                request_id or None,
+            )
+    except Exception as exc:
+        logger.warning("save_pipeline_timings failed (non-fatal): %s", exc)
+
+
 # Session Management Functions
 async def create_session(
     user_id: Optional[str] = None,
