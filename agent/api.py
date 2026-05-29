@@ -1300,6 +1300,274 @@ async def speech_to_text(request: Request):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# ── Consultation recording → GCS → diarize → summarize ────────────────────
+@app.post("/clinical/consultation/process")
+async def process_consultation(request: Request):
+    """
+    Accept a consultation audio recording, upload to GCS, diarize via Google
+    Cloud STT longrunningrecognize (2-speaker), then summarize via Gemini Flash.
+
+    Audio is deleted from GCS in a finally block — no PHI persists.
+    Returns { transcript: [...], summary: str, confidence: float, duration_seconds: int }.
+    If LLM summarization fails, summary is null and the transcript is still returned (200).
+    """
+    import asyncio
+    import httpx
+    from .clinical_stages import summarise_consultation
+    from .gcs_audio import upload_consultation_audio, delete_consultation_audio
+
+    api_key = os.getenv("GOOGLE_CLOUD_STT_API_KEY")
+    if not api_key:
+        raise HTTPException(status_code=500, detail="GOOGLE_CLOUD_STT_API_KEY not configured")
+
+    bucket = os.getenv("GCS_CONSULTATION_BUCKET")
+    if not bucket:
+        raise HTTPException(status_code=500, detail="GCS_CONSULTATION_BUCKET not configured")
+
+    # ── Read audio (same multipart / raw-body logic as /clinical/stt) ────────
+    content_type = request.headers.get("content-type", "")
+    if "multipart" in content_type:
+        form = await request.form()
+        audio_file = form.get("audio")
+        if not audio_file:
+            raise HTTPException(status_code=400, detail="No 'audio' field in form data")
+        audio_bytes = await audio_file.read()
+        file_content_type = getattr(audio_file, "content_type", "audio/webm")
+    else:
+        audio_bytes = await request.body()
+        file_content_type = content_type or "audio/webm"
+
+    if not audio_bytes or len(audio_bytes) < 100:
+        raise HTTPException(status_code=400, detail="Audio data too small or empty")
+
+    audio_size = len(audio_bytes)
+
+    # ── Encoding map (identical to /clinical/stt) ────────────────────────────
+    encoding_map = {
+        "audio/webm":  "WEBM_OPUS",
+        "audio/ogg":   "OGG_OPUS",
+        "audio/wav":   "LINEAR16",
+        "audio/x-wav": "LINEAR16",
+        "audio/mp4":   "MP4",
+        "audio/mpeg":  "MP3",
+    }
+    gcloud_encoding = "WEBM_OPUS"
+    for mime, enc in encoding_map.items():
+        if mime in file_content_type.lower():
+            gcloud_encoding = enc
+            break
+    sample_rate = 48000 if "OPUS" in gcloud_encoding else 16000
+
+    # ── Upload to GCS ─────────────────────────────────────────────────────────
+    try:
+        gs_uri, object_key = upload_consultation_audio(audio_bytes, file_content_type)
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    except Exception as e:
+        logger.error("GCS upload failed: %s", e)
+        raise HTTPException(status_code=502, detail=f"GCS upload failed: {e}")
+
+    # ── Everything below is wrapped in try/finally to guarantee GCS cleanup ──
+    result_data = None
+    operation_name = None
+    try:
+        payload = {
+            "config": {
+                "encoding": gcloud_encoding,
+                "sampleRateHertz": sample_rate,
+                "languageCode": "en-US",
+                "enableAutomaticPunctuation": True,
+                "model": "latest_long",
+                "useEnhanced": True,
+                "diarizationConfig": {
+                    "enableSpeakerDiarization": True,
+                    "minSpeakerCount": 2,
+                    "maxSpeakerCount": 2,
+                },
+                "speechContexts": [{
+                    "phrases": [
+                        "HPI", "CC", "PE", "ROS", "PMH", "PSH",
+                        "NYHA", "LVEF", "eGFR", "HbA1c", "CKD",
+                        "systolic", "diastolic", "mmHg", "bpm",
+                        "hypertension", "diabetes", "diaphoresis",
+                        "dyspnea", "tachycardia", "bradycardia",
+                        "murmur", "edema", "crackles", "wheezing",
+                        "metformin", "atorvastatin", "amlodipine",
+                        "lisinopril", "aspirin", "clopidogrel",
+                        "T2DM", "HTN", "CKD", "AF", "COPD",
+                    ],
+                    "boost": 15,
+                }],
+            },
+            "audio": {"uri": gs_uri},  # gs:// URI — no base64 size limit
+        }
+
+        # ── Get OAuth Bearer token from ADC so Speech presents its service
+        #    agent identity to GCS (API-key calls present "anonymous caller").
+        #    x-goog-user-project is required for user ADC credentials to select
+        #    the billing/quota project for the Speech API call.
+        try:
+            import google.auth
+            import google.auth.transport.requests as ga_requests
+            adc_creds, adc_project = google.auth.default(
+                scopes=["https://www.googleapis.com/auth/cloud-platform"]
+            )
+            adc_creds.refresh(ga_requests.Request())
+            bearer_token = adc_creds.token
+            quota_project = (
+                getattr(adc_creds, "_quota_project_id", None)
+                or adc_project
+                or os.getenv("GOOGLE_CLOUD_PROJECT", "")
+            )
+        except Exception as e:
+            logger.error("Failed to obtain ADC token for Speech: %s", e)
+            raise HTTPException(status_code=500, detail=f"ADC token error: {e}")
+
+        speech_headers = {
+            "Authorization": f"Bearer {bearer_token}",
+            "Content-Type": "application/json",
+            "x-goog-user-project": quota_project,
+        }
+        long_running_url = "https://speech.googleapis.com/v1/speech:longrunningrecognize"
+
+        try:
+            async with httpx.AsyncClient(timeout=60.0) as client:
+                resp = await client.post(long_running_url, json=payload, headers=speech_headers)
+
+            if resp.status_code != 200:
+                detail = resp.text[:500]
+                logger.error("Google LongRunning STT error %s: %s", resp.status_code, detail)
+                raise HTTPException(status_code=502, detail=f"Google STT error: {detail}")
+
+            operation = resp.json()
+            operation_name = operation.get("name")
+            if not operation_name:
+                raise HTTPException(status_code=502, detail="Google STT did not return an operation name")
+
+        except HTTPException:
+            raise
+        except httpx.TimeoutException:
+            raise HTTPException(status_code=504, detail="Google STT longrunningrecognize timed out")
+        except Exception as e:
+            logger.error("Consultation STT submit error: %s", e)
+            raise HTTPException(status_code=500, detail=str(e))
+
+        # ── Poll until done (3 s intervals, 10 min hard timeout) ─────────────
+        poll_url = f"https://speech.googleapis.com/v1/operations/{operation_name}"
+        max_wait_seconds = 600  # 10 min — covers 10-min recordings with headroom
+        poll_interval = 3
+        elapsed = 0
+
+        try:
+            async with httpx.AsyncClient(timeout=15.0) as poll_client:
+                while elapsed < max_wait_seconds:
+                    await asyncio.sleep(poll_interval)
+                    elapsed += poll_interval
+                    poll_resp = await poll_client.get(poll_url, headers=speech_headers)
+                    if poll_resp.status_code != 200:
+                        logger.warning("Consultation STT poll HTTP %s", poll_resp.status_code)
+                        continue
+                    op = poll_resp.json()
+                    if op.get("done"):
+                        if "error" in op:
+                            raise HTTPException(
+                                status_code=502,
+                                detail=f"Google STT operation failed: {op['error']}",
+                            )
+                        result_data = op.get("response", {})
+                        break
+
+            if result_data is None:
+                raise HTTPException(status_code=504, detail="Google STT operation timed out after 10 minutes")
+
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error("Consultation STT poll error: %s", e)
+            raise HTTPException(status_code=500, detail=str(e))
+
+        # ── Parse diarized result ─────────────────────────────────────────────
+        results = result_data.get("results", [])
+        confidence_sum = 0.0
+        confidence_count = 0
+        for r in results:
+            alts = r.get("alternatives", [])
+            if alts and alts[0].get("confidence"):
+                confidence_sum += alts[0]["confidence"]
+                confidence_count += 1
+        avg_confidence = round(confidence_sum / confidence_count, 3) if confidence_count > 0 else 0.0
+
+        # With diarization the last result carries the full word list with speakerTag
+        word_list = []
+        for r in reversed(results):
+            alts = r.get("alternatives", [])
+            if alts:
+                words = alts[0].get("words", [])
+                if words:
+                    word_list = words
+                    break
+
+        if not word_list:
+            # No word-level data — fall back to flat transcript, label as Doctor
+            flat = " ".join(
+                alts[0].get("transcript", "")
+                for r in results
+                for alts in [r.get("alternatives", [])]
+                if alts
+            ).strip()
+            transcript_turns = [{"speaker": "Doctor", "text": flat}] if flat else []
+            labeled_str = f"Doctor: {flat}" if flat else ""
+        else:
+            turns: list[dict] = []
+            current_tag = word_list[0].get("speakerTag", 1)
+            current_words: list[str] = []
+            for w in word_list:
+                tag = w.get("speakerTag", current_tag)
+                word = w.get("word", "")
+                if tag == current_tag:
+                    current_words.append(word)
+                else:
+                    turns.append({"tag": current_tag, "text": " ".join(current_words)})
+                    current_tag = tag
+                    current_words = [word]
+            if current_words:
+                turns.append({"tag": current_tag, "text": " ".join(current_words)})
+
+            first_tag = turns[0]["tag"] if turns else 1
+            tag_to_label: dict[int, str] = {first_tag: "Doctor"}
+            transcript_turns = []
+            labeled_lines = []
+            for t in turns:
+                label = tag_to_label.setdefault(t["tag"], "Patient")
+                transcript_turns.append({"speaker": label, "text": t["text"]})
+                labeled_lines.append(f"{label}: {t['text']}")
+            labeled_str = "\n".join(labeled_lines)
+
+        # Estimate duration (~15 KB/s for WEBM_OPUS 48 kHz)
+        duration_seconds = max(1, audio_size // 15_000)
+
+        # ── Summarize via Gemini Flash ────────────────────────────────────────
+        summary = None
+        if labeled_str:
+            try:
+                summary = await summarise_consultation(labeled_str)
+            except Exception as e:
+                logger.warning("summarise_consultation raised unexpectedly: %s", e)
+                summary = None
+
+        return {
+            "transcript": transcript_turns,
+            "summary": summary or None,
+            "confidence": avg_confidence,
+            "duration_seconds": duration_seconds,
+        }
+
+    finally:
+        # Always delete the GCS blob — gcs_audio.delete_consultation_audio
+        # logs a warning on failure and never raises.
+        delete_consultation_audio(object_key)
+
+
 # Documents endpoint removed - use vector_search or graph_search instead
 
 

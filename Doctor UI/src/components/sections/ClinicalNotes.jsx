@@ -29,7 +29,7 @@ export function ClinicalNotes() {
   };
 
   const handleVoiceTranscript = (transcript) => {
-    const next = clinicalNotes ? clinicalNotes + ' ' + transcript : transcript;
+    const next = clinicalNotes ? clinicalNotes + '\n\n' + transcript : transcript;
     persist(next);
   };
 
@@ -65,7 +65,7 @@ export function ClinicalNotes() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <VoiceInputButton onTranscript={handleVoiceTranscript} />
+          <VoiceInputButton mode="consultation" onTranscript={handleVoiceTranscript} />
           <button
             onClick={handleSampleFill}
             className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors ${

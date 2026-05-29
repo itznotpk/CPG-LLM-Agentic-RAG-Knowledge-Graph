@@ -2387,6 +2387,7 @@ SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
 
 PRIOR_VISIT_SUMMARISER_PROMPT = _load_prompt("prior_visit_summariser.txt")
 REFERRAL_TRIGGER_GATE_PROMPT = _load_prompt("referral_trigger_gate.txt")
+CONSULTATION_SUMMARISER_PROMPT = _load_prompt("consultation_summariser.txt")
 
 
 async def gate_referral_triggers(
@@ -2574,6 +2575,41 @@ async def summarise_prior_visit(
     except Exception as e:
         logger.warning("prior_visit_summariser failed (%s); using fallback", e)
         return fallback
+
+
+async def summarise_consultation(labeled_transcript: str) -> str:
+    """Summarise a diarized Doctor/Patient transcript into SOAP-style clinical notes.
+
+    Uses CONSULTATION_SUMMARY_MODEL env var (default gemini-2.0-flash) via
+    the Gemini AI Studio OpenAI-compatible endpoint.
+    Falls back to an empty string on LLM failure so the caller can still
+    return the raw transcript without losing the diarization work.
+    """
+    if not CONSULTATION_SUMMARISER_PROMPT:
+        logger.warning("summarise_consultation: prompt file missing; returning empty summary")
+        return ""
+
+    base_url = os.getenv("GEMINI_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
+    model = os.getenv("CONSULTATION_SUMMARY_MODEL", "gemini-2.0-flash")
+
+    client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
+
+    try:
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": CONSULTATION_SUMMARISER_PROMPT},
+                {"role": "user", "content": labeled_transcript},
+            ],
+            temperature=0.1,
+            max_tokens=600,
+        )
+        summary = (resp.choices[0].message.content or "").strip()
+        return summary
+    except Exception as e:
+        logger.warning("summarise_consultation failed (%s); returning empty summary", e)
+        return ""
 
 
 _CURRENT_YEAR = 2026
