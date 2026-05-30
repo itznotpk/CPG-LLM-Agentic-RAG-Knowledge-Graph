@@ -790,7 +790,7 @@ export function AppProvider({ children }) {
     }
   };
 
-  const finalizePlan = async () => {
+  const finalizePlan = async ({ safetyOverride = null } = {}) => {
     // Sync medications from care plan to database
     console.log('🔄 Finalizing plan, current state:', {
       patientNric: state.patient.nsn,
@@ -868,7 +868,15 @@ export function AppProvider({ children }) {
           referrals,
           lifestyleGoals,
           cpgReferences,
-          safetyFlags
+          safetyFlags,
+          // Stage-6 verdict + override audit trail. acknowledgement is only
+          // meaningful when the critic blocked the plan (safe_to_proceed=false).
+          safeToProceed: typeof state.safetyReport?.safe_to_proceed === 'boolean'
+            ? state.safetyReport.safe_to_proceed
+            : null,
+          safetyAcknowledged: safetyOverride ? safetyOverride.acknowledged : null,
+          safetyAcknowledgedBy: safetyOverride?.acknowledged ? safetyOverride.by : null,
+          safetyAcknowledgedAt: safetyOverride?.acknowledged ? safetyOverride.at : null
         });
 
         if (tcaResult.success) {

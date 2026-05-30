@@ -640,7 +640,11 @@ export const updateConsultation = async (consultationId, updates = {}) => {
         p_lifestyle_goals: updates.lifestyleGoals || null,
         p_cpg_references: updates.cpgReferences || null,
         p_report_pdf_url: updates.reportPdfUrl || null,
-        p_safety_flags: updates.safetyFlags || null
+        p_safety_flags: updates.safetyFlags || null,
+        p_safe_to_proceed: typeof updates.safeToProceed === 'boolean' ? updates.safeToProceed : null,
+        p_safety_acknowledged: typeof updates.safetyAcknowledged === 'boolean' ? updates.safetyAcknowledged : null,
+        p_safety_acknowledged_by: updates.safetyAcknowledgedBy || null,
+        p_safety_acknowledged_at: updates.safetyAcknowledgedAt || null
       });
 
     if (error) {

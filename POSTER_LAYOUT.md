@@ -668,128 +668,186 @@ red/amber (`#dc2626` / `#f59e0b`) is reserved for safety/blocking nodes only.
 > amber = the safety-critic agent. This split *is* the thesis ("LLM only where reasoning
 > is needed, deterministic everywhere it can be"), so keep the colours distinct in print.
 
-## D0 — Detailed Design (master, comprehensive)
+## D0 — Detailed Design (master, process-flow)
 
-The single compiled "everything in one frame" chart — the direct analogue of the
-reference poster's **Detailed Design** panel. Each module carries its **Processes**
-(purple) and **Implementation Details** (blue); **green pills are data artifacts** that
-flow between modules; amber diamonds are the two decision branches (scope refusal, safety
-block); slate cylinders are the data stores. 🤖 = LLM reasoning step · ⚙ = deterministic
-(only the Stage 6 safety critic is a true *agent*).
-D1–D6 below are the zoomed-in views of individual regions of this same design.
+The compiled "everything in one frame" chart — the analogue of the reference's **Detailed
+Design** panel, but **process-first**: every box shows *what transforms into what*, not the
+tech stack (no "Implementation Details" nodes — a judge doesn't care that it's React or a
+terminal). **Colour legend:** teal containers = the 8 stages · **purple pills = a process
+step** · **green pills = data the system produces (with its exact form)** · ＋ = separate
+fields merging into one object · amber diamonds = decision branches · red = a stop ·
+**slate cylinders = the databases this flow reads from / writes to**.
+**🤖 = an AI step · ⚙ = deterministic** (only Stage 6 is a true *agent*). *(ICD-11 = the
+World Health Organization's standard catalogue of diagnosis codes.)* The two grounding
+stores — the **vector store** (Stages 2 & 4) and the **knowledge graph** (Stages 4.5 & 6) —
+are pre-built **offline** by the CPG ingestion pipeline (**D3**); the live flow only reads
+them.
 
 ```mermaid
 flowchart TB
-    subgraph ING["⓪ CPG Ingestion · offline build 🤖"]
-        PI["Processes:<br/>• Hierarchical chunking H1→H3<br/>• 🤖 LLM triple extraction → KG<br/>• Relation guardrails (4 layers)"]
-        II["Implementation:<br/>Bedrock Titan 1536-d · pgvector · Neo4j"]
-        PI --- II
+    SB[("Patient database<br/>patients · consultations · prior-visit summaries")]:::store
+
+    subgraph PREP["Pre-Consultation Prep · returning patient ONLY · read-only sidecar"]
+        direction TB
+        PR1["last-visit summary + current meds<br/>+ age / sex / conditions"]:::step
+        PR2["🤖 Prep AI"]:::step
+        PR3["3-line brief: what changed ·<br/>medication watch-outs · what to ask today"]:::step
+        PR4(["Briefing card shown to clinician BEFORE the consult<br/>— informs only · NEVER enters the diagnostic pipeline"]):::art
+        PR1 --> PR2 --> PR3 --> PR4
     end
+    SB -. last visit .-> PR1
 
-    subgraph M1["① Clinical Intake"]
-        P1["Processes:<br/>• NRIC lookup / patient register<br/>• Contactless vitals (rPPG)<br/>• Structured history · meds · allergies<br/>• 🤖 Step-0 prep brief (returning pt)"]
-        I1["Implementation:<br/>React Doctor UI · Terminal CLI<br/>Supabase · rPPG · Gemini Flash"]
-        P1 --- I1
+    subgraph M1["Stage 1 · Clinical Intake — assemble one patient picture"]
+        direction TB
+        L1["Look up patient"]:::step
+        V1["Contactless vitals (face-camera) + manual<br/>→ heart rate · blood pressure · blood-oxygen"]:::step
+        H1["History + Medications + Allergies"]:::step
+        N1["Voice consult → speech-to-text (2-speaker)<br/>→ 🤖 AI writes structured clinical notes (SOAP)"]:::step
+        B1["height + weight → BMI"]:::step
+        MRG((＋)):::merge
+        L1 --> MRG
+        V1 --> MRG
+        H1 --> MRG
+        N1 --> MRG
+        B1 --> MRG
     end
+    SB -. last visit .-> M1
 
-    A1(["PatientCase JSON + BMI"]):::art
+    PC(["Patient Case — one structured object<br/>vitals · history · meds · allergies · notes · BMI · last visit"]):::art
+    MRG --> PC
 
-    subgraph M2["② Diagnostic Reasoning · Stage 2 🤖"]
-        P2["Processes:<br/>• Symptom → ICD-11 vector search<br/>• LLM rerank (specificity + distinct-disease)<br/>• Clinician-named CC boost<br/>• Sibling-cluster collapse"]
-        I2["Implementation:<br/>pgvector ivfflat · 3,914 ICD-11 codes<br/>Bedrock Titan 1536-d · LLM rerank"]
-        P2 --- I2
+    subgraph M2["Stage 2 · Diagnostic Reasoning"]
+        direction TB
+        E2["🤖 Pull symptom phrases from notes"]:::step
+        EM2["Turn each phrase into a meaning-vector"]:::step
+        VS2["Match against 3,914 ICD-11 codes<br/>→ closest candidates"]:::step
+        CC2["Clinician-named diagnosis →<br/>resolve to its ICD-11 code → boost it"]:::step
+        RR2["🤖 AI re-ranks → merges near-duplicates"]:::step
+        E2 --> EM2 --> VS2 --> RR2
+        CC2 --> RR2
     end
+    PC --> M2
+    DDX(["Clinician-approved ICD-11 diagnoses (ranked)"]):::art
+    RR2 --> DDX
 
-    A2(["DDx shortlist · ranked ICD-11"]):::art
-
-    subgraph M3["③ Scope Routing · Stage 3 ⚙"]
-        P3["Processes:<br/>• Deterministic D1–D6 ladder<br/>• exact→sibling→ancestor→semantic<br/>• Sex / paediatric CPG filter<br/>• First-class out-of-scope refusal"]
-        I3["Implementation:<br/>Rule ladder · pgvector scope_embedding<br/>SEMANTIC_SCOPE_THRESHOLD 0.32"]
-        P3 --- I3
+    subgraph M3["Stage 3 · Scope Routing — ⚙ deterministic"]
+        direction TB
+        R3["6-step ladder: exact match → nearby code →<br/>broader category → related topic"]:::step
+        F3["sex / child-vs-adult guideline filter<br/>(from patient profile)"]:::step
+        R3 --> F3
     end
+    DDX --> M3
+    DEC1{"Covered by<br/>our guidelines?"}:::dec
+    F3 --> DEC1
+    STOP1(["Graceful stop — declare out-of-scope<br/>NO fabricated plan"]):::stop
+    DEC1 -- no --> STOP1
+    CPG(["Matched guideline set"]):::art
+    DEC1 -- yes --> CPG
 
-    D1q{"In scope?"}:::dec
-    STOPN(["Graceful stop<br/>no fabricated plan"]):::stop
-
-    subgraph M4["④ Evidence Retrieval · Stage 4 🤖"]
-        P4["Processes:<br/>• 🤖 LLM multi-query generation<br/>• Scoped pgvector retrieval<br/>• H3→H2→H1 hierarchical prefetch<br/>• Evidence-grade tagging"]
-        I4["Implementation:<br/>pgvector scoped to routed CPGs<br/>ESC / USPSTF / SIGN50 kept separate"]
-        P4 --- I4
+    subgraph M4["Stage 4 · Evidence Retrieval"]
+        direction TB
+        Q4["🤖 AI writes targeted search queries"]:::step
+        RET4["Retrieve passages — only from the matched<br/>guidelines + surrounding section context"]:::step
+        Q4 --> RET4
     end
+    CPG --> M4
+    CHUNKS(["Evidence-graded guideline passages"]):::art
+    RET4 --> CHUNKS
 
-    A3(["Scoped CPG chunks · evidence-graded"]):::art
-
-    subgraph M45["⑤ KG Injection · Stage 4.5 ⚙"]
-        P45["Processes:<br/>• Prefer Y / avoid X edge lookup<br/>• Drug-class expansion (ARB, statin…)<br/>• Comorbidity-string aliasing"]
-        I45["Implementation:<br/>Neo4j Cypher · routed-chunk scope filter"]
-        P45 --- I45
+    subgraph M45["Stage 4.5 · Knowledge-Graph Injection — ⚙ deterministic"]
+        direction TB
+        X45["expand drug classes + match conditions<br/>(incl. patient's current meds)"]:::step
+        E45["graph lookup → prefer / avoid drugs"]:::step
+        X45 --> E45
     end
+    CHUNKS --> M45
+    KGC(["Prefer / avoid drug constraints"]):::art
+    E45 --> KGC
 
-    A4(["KG constraints · prefer / avoid"]):::art
-
-    subgraph M5["⑥ Plan Synthesis · Stage 5 🤖"]
-        P5["Processes:<br/>• 9-section executable TreatmentPlan<br/>• Medication & referral dedup<br/>• Coverage-gap + specialist cross-check<br/>• Assumption flagging"]
-        I5["Implementation:<br/>MiMo v2.5 Pro 128k · post-synth validators"]
-        P5 --- I5
+    subgraph M5["Stage 5 · Plan Synthesis"]
+        direction TB
+        S5["🤖 AI drafts the 9-section care plan"]:::step
+        V5["automated checks: de-duplicate · coverage gaps ·<br/>specialist cross-check · flag assumptions"]:::step
+        S5 --> V5
     end
+    KGC --> M5
+    CHUNKS -. guideline evidence .-> M5
+    PC -. patient + last visit .-> M5
+    PLAN(["Draft care plan · 9 sections"]):::art
+    V5 --> PLAN
 
-    A5(["Draft TreatmentPlan · 9 sections"]):::art
-
-    subgraph M6["⑦ Adversarial Safety-Critic AGENT · Stage 6 🤖⚙"]
-        P6["Processes:<br/>• 🤖 LLM pharmacist critic (DDI · allergy · dose)<br/>• ⚙ Neo4j KG structural verify<br/>• Merge WITHOUT dedup<br/>• Block on CRITICAL / MAJOR"]
-        I6["Implementation:<br/>Gemini Flash ∥ Neo4j · asyncio.gather"]
-        P6 --- I6
+    subgraph M6["Stage 6 · Adversarial Safety Critic — the one true AGENT"]
+        direction TB
+        G6{"run both<br/>in parallel"}:::dec
+        L6["🤖 AI pharmacist critic<br/>drug interactions · allergies · kidney/liver dosing"]:::step
+        K6["⚙ Knowledge-graph cross-check"]:::step
+        MG6["combine both flag lists →<br/>any CRITICAL / MAJOR blocks sign-off"]:::step
+        G6 --> L6 --> MG6
+        G6 --> K6 --> MG6
     end
+    PLAN --> M6
+    PC -. allergies · current meds · renal/hepatic .-> M6
+    DEC2{"Safe to<br/>proceed?"}:::dec
+    MG6 --> DEC2
+    BLOCK1(["Approve DISABLED · red banner lists CRITICAL /<br/>MAJOR flags + safer alternatives (source-tagged)"]):::stop
+    DEC2 -- no --> BLOCK1
 
-    D2q{"safe_to_proceed?"}:::dec
-    BLOCKN(["BLOCK sign-off<br/>surface flags"]):::stop
-
-    subgraph M7["⑧ Delivery & Continuity"]
-        P7["Processes:<br/>• SSE stream to clinician UI<br/>• Override → re-synthesis<br/>• PDF export → Gmail delivery<br/>• 🤖 Prior-visit summariser"]
-        I7["Implementation:<br/>SSE · Supabase · Gmail SMTP · MiMo"]
-        P7 --- I7
+    subgraph M7["Stage 7 · Delivery & Continuity"]
+        direction TB
+        UI7["Live-stream plan to clinician"]:::step
+        OV7["clinician override → re-synthesise (AI re-runs)"]:::step
+        EDIT7["clinician edits the plan inline — esp. Medications<br/>(add · edit dose · start / stop / change · delete) →<br/>records the FINALIZED prescription for this visit"]:::step
+        PDF7["sign-off → PDF → email to patient"]:::step
+        PVS7["🤖 AI summarises this visit →<br/>compact record for next time"]:::step
+        UI7 --> OV7
+        UI7 --> EDIT7 --> PDF7 --> PVS7
     end
+    DEC2 -- "yes · safety report shown" --> M7
+    BLOCK1 -. revise plan / re-synthesise .-> M5
+    BLOCK1 -- "clinician accepts responsibility → Approve unlocks" --> M7
+    OV7 -. re-synth .-> M5
+    PVS7 == write summary ==> SB
+    SB == feeds NEXT visit's intake + Prep ==> M1
 
-    SIGNED(["Signed care plan + patient PDF"]):::art
+    %% --- Grounding knowledge stores · built OFFLINE by the D3 ingestion pipeline ---
+    VDB[("Guideline + ICD-11 vector store<br/>Postgres + pgvector · 3,914 codes + CPG passages")]:::store
+    KG[("Clinical knowledge graph<br/>Neo4j · drug ⇄ condition relationships")]:::store
+    VDB -. ICD-11 codes .-> M2
+    VDB -. guideline passages .-> M4
+    KG -. prefer / avoid links .-> M45
+    KG -. safety cross-check .-> M6
 
-    PG[("Postgres + pgvector<br/>ICD-11 + CPG chunks")]:::store
-    NEO[("Neo4j Aura KG<br/>drug · condition · parameter")]:::store
-    SB[("Supabase<br/>patients · consultations")]:::store
-
-    M1 --> A1 --> M2 --> A2 --> M3 --> D1q
-    D1q -- no --> STOPN
-    D1q -- yes --> M4 --> A3 --> M45 --> A4 --> M5 --> A5 --> M6 --> D2q
-    D2q -- no --> BLOCKN
-    D2q -- yes --> M7 --> SIGNED
-
-    ING --> PG
-    ING --> NEO
-    PG -. embeddings / chunks .-> M2
-    PG -. scope / retrieval .-> M3
-    PG -. scoped chunks .-> M4
-    NEO -. prefer / avoid .-> M45
-    NEO -. structural verify .-> M6
-    M1 <-. patient I/O .-> SB
-    M7 -. timings · summary · plan .-> SB
-    SB -. prior-visit context .-> M1
-
-    classDef proc fill:#ede9fe,stroke:#7c3aed,color:#4c1d95;
-    classDef impl fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a;
-    classDef art fill:#d1fae5,stroke:#10b981,color:#065f46;
+    classDef step fill:#8b5cf6,stroke:#6d28d9,color:#ffffff;
+    classDef art fill:#10b981,stroke:#047857,color:#ffffff;
     classDef store fill:#f1f5f9,stroke:#64748b,color:#334155;
-    classDef dec fill:#fffbeb,stroke:#f59e0b,color:#92400e;
-    classDef stop fill:#fef2f2,stroke:#dc2626,color:#991b1b;
-    class PI,P1,P2,P3,P4,P45,P5,P6,P7 proc;
-    class II,I1,I2,I3,I4,I45,I5,I6,I7 impl;
+    classDef dec fill:#fef3c7,stroke:#f59e0b,color:#92400e;
+    classDef stop fill:#fee2e2,stroke:#dc2626,color:#991b1b;
+    classDef merge fill:#fde68a,stroke:#d97706,color:#78350f;
+
+    style PREP fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M1 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M2 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M3 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M4 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M45 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M5 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
+    style M6 fill:#fffbeb,stroke:#d97706,color:#92400e;
+    style M7 fill:#f0fdfa,stroke:#0d9488,color:#0f766e;
 ```
 
-> **Reading it:** offline ingestion (⓪) builds the two stores once; a live consultation
-> then runs left-to-right ①→⑧ with a green artifact handed off at every boundary, exactly
-> like the reference's `Document Logs → Extracted Data → Analysed Data` chain. The two
-> amber diamonds are ClearPath's distinctive branches the reference's drone flow has no
-> analogue for: **scope refusal** (decline rather than fabricate) and the **safety block**
-> (never sign off on a CRITICAL/MAJOR plan). For an A0 print, render this **landscape and
-> wide** as its own full-width band; use D1–D6 for the smaller per-panel insets.
+> **The flows judges actually ask about, now explicit:**
+> 1. **Intake → one patient picture:** lookup + rPPG/manual vitals + history/meds/allergies +
+>    voice→speech-to-text→🤖 SOAP notes + BMI all **＋-merge into a single structured
+>    PatientCase** — that one object is what every downstream stage consumes.
+> 2. **Symptom → diagnosis (the data forms):** free-text notes → **🤖 extracted symptom
+>    phrase** → **meaning-vector** → **matched against 3,914 ICD-11 codes** → re-rank
+>    → **a ranked list of named ICD-11 diagnoses** (codes, not prose).
+> 3. **Continuity loop:** at sign-off the system **summarises the visit into a compact record**
+>    (bold ⇒ arrows), which feeds *both* the next visit's intake (folded into the PatientCase)
+>    **and** the read-only **Prep sidecar** — which briefs the clinician *before* the consult
+>    and never enters the diagnostic pipeline.
+>
+> Render **landscape, full-width**; D1–D6 are zoomed insets of individual regions.
 
 ## D1 — Pipeline Overview (for §05)
 
