@@ -107,17 +107,20 @@ red/amber accent reserved **only** for safety-flag content so it reads as "dange
 
 ## 01 — Introduction
 
-Short paragraph, mirror the reference's "what + why":
+Short paragraph, mirror the reference's "what + why". Lead with the bold hook line, then
+the body — moats carried in **bold** so they read at 2 m:
 
-> Authoritative medical guidelines are only useful if they can be referenced inside a
-> standard 10-minute consultation. ClearPath turns massive static CPG PDFs into a
-> contextual, real-time routing engine — audited by an adversarial safety critic —
-> that streams an evidence-graded specialist second opinion to isolated rural clinics
-> in **under a minute**. It shifts guideline use from active, high-friction PDF search
-> to passive, intelligent decision support.
+> **An authoritative guideline only helps if it opens inside a 10-minute consultation.**
+> ClearPath collapses Malaysia's static MoH Clinical Practice Guidelines (CPGs) into a
+> **real-time, patient-aware routing engine** — every recommendation **evidence-graded**,
+> **traceable to its source chunk**, and **independently vetted by an adversarial
+> safety-critic agent** before the clinician ever sees it. To isolated primary care it
+> streams a **specialist-grade second opinion in under a minute**, turning high-friction
+> PDF search into passive decision support that **will not sign off on an unsafe plan**.
 
 Pull-keywords to bold (like the reference bolds "efficiency"/"safety"):
-**deterministic**, **auditable**, **evidence-graded**, **safety-critic**, **rural**.
+**patient-first**, **deterministically scoped**, **evidence-graded**, **traceable**,
+**adversarial safety-critic**, **refuses unsafe plans**.
 
 ### Where ClearPath sits — competitive landscape (embed in Introduction)
 
@@ -128,11 +131,13 @@ that positions ClearPath against the two named clinical competitors —
 research tool) — plus general LLMs as the floor. Keep it visual: a small benchmark
 table + a one-line "their ceiling vs our moat".
 
-**One-line framing for the poster:**
-> General LLMs hallucinate citations; NotebookLM summarises documents but never decides;
-> Qmed cites guidelines but can't tell you *why*, can't see the patient as a structured
-> object, and can't run an independent safety pass. ClearPath is the only system that is
-> **patient-first, deterministically scoped, and adversarially safety-audited**.
+**One-line framing for the poster** (set the three rebuttals in a row, then land the moat):
+> Generative AI **fabricates citations**. NotebookLM summarises documents but **never
+> decides**. Qmed cites guidelines but can't tell you **why**, can't see the patient as a
+> **structured object**, and can't run an **independent safety pass**. ClearPath is the
+> only system that is **patient-first, deterministically scoped, and adversarially
+> safety-audited** — three capabilities a pure-retrieval tool cannot reach without
+> rebuilding its pipeline.
 
 **Benchmark table** (reproduce a trimmed version of the 5-system table):
 
@@ -355,17 +360,42 @@ Bullet list (reference style):
 
 ---
 
-## 04 — Impact / Sustainability (SDG mapping)
+## 04 — Impact / Sustainability
 
-Reference maps to SDG 8/9/12. For a clinical AI tool, lead with **SDG 3
-(Good Health & Well-being)** and **SDG 10 (Reduced Inequalities)**:
+Triple-bottom-line impact in **glanceable phrases** (poster format — no sentences).
+Use three tight columns; reserve the row beneath for the SDG badges.
 
-- **Health equity:** specialist-grade decision support reaches doctor-less rural clinics.
-- **Clinician time:** "with patients, not paperwork" — UI tile estimates **8 min saved
-  per consultation**.
-- **Patient safety:** structural ADE/DDI/teratogen catches in pharmacist-vacant clinics.
-- **Scalable software:** zero marginal hardware cost; deploys to tablet/desktop or a
-  standalone terminal.
+**💰 Economic**
+- Zero marginal hardware — runs on clinics' existing tablets/desktops
+- ~8 min saved/consult → more patients seen, same staff
+- Software scales at near-zero cost — one pipeline, every clinic
+- Averts costly preventable-ADE admissions
+
+**🤝 Social**
+- Specialist second opinion reaches **doctor-less rural clinics** (45.6% w/o resident doctor)
+- Structural teratogen / DDI / ADE catches where **no pharmacist is on site**
+- Closes the urban–rural care gap — same CPG-grounded guidance everywhere
+- "With patients, not paperwork" — attention back on the patient
+
+**🌱 Environmental**
+- **Paperless** care plans — digital PDF delivery, no printed guideline binders
+- **No new device footprint** — reuses existing clinic hardware (avoids e-waste)
+- Lightweight deploy vs shipping/maintaining physical kit to remote sites
+
+### The 3 SDGs that genuinely fit ClearPath
+
+Pick the three it actually moves the needle on — don't pad with reflex green goals.
+
+| SDG | Why it's a real fit for ClearPath |
+|---|---|
+| **3 · Good Health & Well-being** | CPG-grounded support + dual-source safety critic → safer care, fewer preventable harms. **The core mission.** |
+| **10 · Reduced Inequalities** | Specialist-grade guidance to isolated rural clinics → closes the urban–rural care divide. |
+| **9 · Industry, Innovation & Infrastructure** | Offline-resilient, fail-open digital-health infrastructure built for low-resource settings. |
+
+> **Honest scoping note:** environmental SDGs (12/13) are a *weak* fit for a clinical AI
+> tool — the green wins above are real but modest, so they stay as the Environmental
+> column, **not** a fourth SDG badge. A clinical-safety judge rewards focus (SDG 3/10/9)
+> over a padded SDG wall.
 
 ---
 
@@ -400,17 +430,20 @@ Intake → DDx (ICD-11) → Route (D1–D6) ──out-of-scope?──► gracefu
 Reuse the 7-stage ASCII diagram from the README (Stages 2→6 + KG inject + UI), but
 **redrawn as clean boxes**. Label each stage with its one-line job and the file/engine:
 
-| Stage | Job | Engine |
-|---|---|---|
-| **2 · DDx** | Symptom → ICD-11 differential | pgvector over 3,914 codes + LLM rerank |
-| **3 · Route** | Scope to verified CPGs | Deterministic D1–D6 ladder |
-| **4 · Retrieve** | Pull evidence-graded chunks | Scoped pgvector + hierarchical prefetch |
-| **4.5 · KG inject** | "prefer Y / avoid X" edges | Neo4j Cypher |
-| **5 · Synthesize** | 9-section care plan | LLM + 8-layer validator chain |
-| **6 · Critic** | Independent safety audit | LLM pharmacist ‖ Neo4j verifier |
+| Stage | Job | Engine | Type |
+|---|---|---|---|
+| **2 · DDx** | Symptom → ICD-11 differential | pgvector over 3,914 codes + LLM rerank | 🤖 **LLM step** (rerank over deterministic vector pass) |
+| **3 · Route** | Scope to verified CPGs | Deterministic D1–D6 ladder | ⚙ **Deterministic** |
+| **4 · Retrieve** | Pull evidence-graded chunks | LLM query-gen + scoped pgvector (H3→H2→H1 prefetch) | 🤖 **LLM step** (LLM writes the queries) |
+| **4.5 · KG inject** | "prefer Y / avoid X" edges | Neo4j Cypher | ⚙ **Deterministic** (graph lookup) |
+| **5 · Synthesize** | 9-section care plan | LLM + post-synthesis validator chain | 🤖 **LLM step** |
+| **6 · Critic** | Independent safety audit | LLM pharmacist ‖ Neo4j verifier | 🤖⚙ **Hybrid — the one true *agent*** (LLM critic with veto ∥ deterministic KG) |
 
-Caption: *Hybrid deterministic + agentic — deterministic wherever possible, LLMs only
-for grounded reasoning, all streamed live over SSE.*
+Caption: *Hybrid deterministic + agentic — deterministic wherever possible (routing,
+KG lookup), LLMs only for grounded reasoning (DDx rerank, query-gen, synthesis, the
+critic's pharmacist arm). 🤖 marks the four LLM reasoning steps; everything else is
+rule- or graph-based. Only the safety critic is an **agent** in the strict sense (an
+independent reviewer that can block sign-off). All streamed live over SSE.*
 
 ---
 
@@ -421,8 +454,9 @@ Logo strip + one-liners (you already have the README badges):
 - **Backend:** Python 3.11 · FastAPI · Server-Sent Events (single streaming contract).
 - **Data:** PostgreSQL + **pgvector** (ICD-11 + CPG chunk embeddings) · **Neo4j Aura**
   (drug/condition/parameter knowledge graph).
-- **Models:** MiMo v2.5 Pro (DDx rerank + synthesis, 128k ctx) · Gemini 2.5 Flash
-  (safety critic + prep brief) · Bedrock Titan (1536-dim embeddings).
+- **Models:** MiMo v2.5 Pro (DDx rerank + synthesis + prior-visit summariser, 128k ctx) ·
+  Gemini 2.5 Flash (safety critic + returning-patient prep brief) · Bedrock Titan
+  (1536-dim embeddings).
 - **Frontend:** React 18 + Vite + Tailwind (Doctor UI) · Supabase (patient CRUD,
   realtime metrics) · terminal CLI driver sharing the same SSE stream.
 - **Delivery:** deterministic Gmail care-plan PDF (no LLM in the loop).
@@ -441,6 +475,12 @@ relation-extraction guardrails that keep false "contraindicated" edges out.
 **(B) Consultation wizard (Doctor UI, 4 steps):**
 `Input → Diagnosis → CarePlan → Output`, each streaming its SSE pipeline trace, with
 one-click clinician **override → re-synthesis**.
+
+**(C) Returning-patient longitudinal loop (see diagram D6):** for a known NRIC, a
+read-only **"Step 0" prep brief** (Gemini Flash LLM step) renders *before* the wizard, and
+at sign-off a **prior-visit summariser** (MiMo LLM step) compresses the visit into a
+5-field record that feeds the *next* consultation. This is the concrete realisation of the
+"patient-first, longitudinal" moat — two LLM steps that sit outside the Stage 2–6 pipeline.
 
 Screenshot real surfaces here (you have them in `assets/`):
 `clearpath_landing.png`, `doctor_ui_dashboard.png`, `clinical_cli_terminal.png`,
@@ -469,28 +509,58 @@ structural edge the same paragraph never mentioned. Both fire — the clinician 
 
 ---
 
-## 06 — Evaluation (replaces reference's "Prediction Accuracy" SOH/RUL charts)
+## 06 — Testing Results & Evaluation (replaces reference's "Testing Results" panel)
 
-The reference shows MAE/MSE/RMSE tables for SOH & RUL prediction. ClearPath's
-equivalent is **pipeline correctness + determinism**, not regression error. Two panels:
+The reference's Testing Results panel shows ML charts (RF decision boundary, Battery-RUL
+trend) and two headline accuracies (84% / 87.5%). ClearPath's honest analogue is **not a
+regression metric** — it's **reproducibility, structural correctness, and a caught
+teratogen**. Mirror the reference's four-column results grid, then the big-number callout
+strip. **Every number below is real and capturable from a live run; the aspirational
+benchmark numbers are fenced into their own clearly-labelled box at the end.**
 
-**(A) Reproducibility / Determinism harness** (`scripts/rerun_stability.py`) — this is
-real, measurable, and your strongest empirical story:
-- Rerun one case N≥10× → report **top-K stability**, **expected-code presence rate**,
-  **same-plan rate**, wall-time variance.
-- Mode A (symptom-framed) ~100% stable pre-fix; **Mode B (task-framed) stabilised to
-  100%** only after the 4-layer determinism stack (seed-pin → regex alias → phrase
-  cache → rule-based bypass).
-- Print the actual JSON gate output from a real run (`tasks/eval_runs/stability_case9_*.json`).
+**Quadrant 1 — Reproducibility / Determinism** *(the strongest empirical story; analogue of "Crash Analysis")*
+- `scripts/rerun_stability.py --case 9 --n 10` → **top-1 stability**, top-3/top-5 Jaccard,
+  **same-plan rate**, med/ref count μ±σ, wall-time μ±σ.
+- Mode A (symptom-framed) ~100% stable pre-fix; **Mode B (task-framed) → 100%** only after
+  the 4-layer determinism stack (seed-pin → regex alias → phrase cache → rule-based bypass).
+- **Show the real JSON gate** from `tasks/eval_runs/stability_case9_*.json` (this is your
+  RF-decision-boundary equivalent — a real artifact, not a mock).
 
-**(B) Plan-structure completeness** across eval cases 8–12 — verify all 9 sections
-populate, dual-source flag merge works, multi-CPG scenarios handled.
+**Quadrant 2 — Plan correctness & structure** *(analogue of "Predictive Maintenance")*
+- **9/9 sections populate** across eval cases 8–12 (`scripts/run_eval_case_08..12.py`).
+- Dual-source flag merge verified; multi-CPG scenarios handled; coverage-gap + specialist
+  cross-check fire correctly (and never fabricate a prescription).
+- Output: per-case `_summary.md` + `_trace.json` under `tasks/eval_runs/`.
 
-> ⚠️ **ASPIRATIONAL — do NOT print as results:** accuracy 87%, CoT depth 6.2, clinician
-> confidence 4.3/5 (from `EVALUATION_FRAMEWORK_README.md`, not yet measured). Also note
-> that file's stale claims: corpus is **Malaysian MoH CPGs** (not AHA/ESC) and there is
-> **no UpToDate integration**. If you want headline accuracy numbers, capture them first
-> or label the panel "Evaluation Targets".
+**Quadrant 3 — Safety catch & scope refusal** *(the hero result; analogue of "Fault Detection")*
+- **Case-10 dual-catch:** CRITICAL `[llm]` Losartan teratogen **+** 2× MAJOR `[graph]`
+  ARB×Pregnancy → `safe_to_proceed = False`. Two independent graders, both fired.
+- **Scope refusal:** `probe_d2_semantic_scope.py` (5 in-scope + 6 orphan cases) → orphans
+  correctly emit `out_of_scope`, gap around `SEMANTIC_SCOPE_THRESHOLD` preserved.
+- (Renders as the Safety-Critic Showcase card / diagram **D5**.)
+
+**Quadrant 4 — System robustness & live surfaces** *(analogue of "Website System")*
+- **~250+ pytest tests, coverage gate ≥80%** (CI-enforced via `pytest.ini`).
+- **Sub-minute end-to-end** — real `pipeline_timings` persisted per consultation.
+- 5-layer offline resilience + fail-open everywhere (see Determinism/Reliability panel).
+- Live screenshots from `assets/`: dashboard, CLI terminal, safety-flag card.
+
+**Big-number callout strip (real — mirror the reference's two stat tiles):**
+
+| Metric | Value | Source |
+|---|---|---|
+| **Same-plan reproducibility** (Mode B, post-fix) | **100%** | `rerun_stability.py` |
+| **Plan-section completeness** | **9 / 9** | eval cases 8–12 |
+| **End-to-end latency** | **< 60 s** | `pipeline_timings` |
+| **Test coverage gate** | **≥ 80%** | `pytest.ini` |
+
+> ⚠️ **Targets — NOT yet measured (keep in a separate, clearly-labelled box):** accuracy
+> 87%, CoT depth 6.2, clinician confidence 4.3/5 are *aspirational* targets from
+> `EVALUATION_FRAMEWORK_README.md`, pending the clinician-scoring protocol — **do not print
+> them as results.** Two factual corrections vs that doc: the corpus is **Malaysian MoH
+> CPGs** (not AHA/ESC) and there is **no UpToDate integration**. Lead the panel with the
+> four real callouts above; if you show the targets at all, title that sub-box
+> *"Evaluation Targets (capture pending)"* so a judge can never mistake them for findings.
 
 ---
 
@@ -507,15 +577,15 @@ the **safety-flag surface** — show a real `SafetyReport` card:
 
 ---
 
-## Determinism / Reliability (small panel)
+## Determinism / Reliability (detail behind Testing-Results Quadrant 4)
 
-The "it won't silently break" story — analogue of the reference's PCB stress tests:
+The "it won't silently break" story — analogue of the reference's PCB stress tests.
+Expands the robustness callouts from §06 with the engineering depth:
 - **5-layer offline resilience:** rotating SSE event log, append-only failed-job log +
   replay, X-Request-ID correlation across every log line & DB row, per-stage timings
   persisted, LLM health probe on `/health`.
 - **Fail-open everywhere:** PG down → no filter (not drop-all); KG down → empty edges;
-  neither blocks synthesis.
-- **~250+ pytest tests**, coverage gate ≥80%.
+  neither blocks synthesis — a flaky rural link never silently drops a safety concern.
 
 ---
 
@@ -585,28 +655,170 @@ a Graphviz alternative for the architecture is given at the end if you prefer DO
 Set a high export scale (≥3×) so the A0 print stays crisp. Brand teal is `#0d9488`;
 red/amber (`#dc2626` / `#f59e0b`) is reserved for safety/blocking nodes only.
 
+> **LLM-step vs deterministic legend (used across D0–D6, verified against the code):**
+> **🤖 = LLM reasoning step** — a single LLM call inside the deterministic orchestration,
+> *not* an autonomous agent. In the core pipeline: Stage 2 DDx rerank, Stage 4 query-gen,
+> Stage 5 synthesis, and the Stage 6 pharmacist-critic call. Three more LLM steps sit
+> *outside* Stage 2–6: the prior-visit summariser (MiMo), the prep-brief LLM (Gemini
+> Flash), and the offline ingestion triple-extractor (D3). **⚙ = deterministic**
+> (rule/vector/graph, no LLM) — Stage 3 D1–D6 routing, Stage 4.5 KG inject (Neo4j Cypher),
+> and the Stage 6 KG-verify arm. **The one component that genuinely earns the noun
+> "agent" is the Stage 6 safety critic** — an independent adversarial reviewer with veto
+> power over sign-off (the classic critic pattern). Teal = LLM step, cyan = deterministic,
+> amber = the safety-critic agent. This split *is* the thesis ("LLM only where reasoning
+> is needed, deterministic everywhere it can be"), so keep the colours distinct in print.
+
+## D0 — Detailed Design (master, comprehensive)
+
+The single compiled "everything in one frame" chart — the direct analogue of the
+reference poster's **Detailed Design** panel. Each module carries its **Processes**
+(purple) and **Implementation Details** (blue); **green pills are data artifacts** that
+flow between modules; amber diamonds are the two decision branches (scope refusal, safety
+block); slate cylinders are the data stores. 🤖 = LLM reasoning step · ⚙ = deterministic
+(only the Stage 6 safety critic is a true *agent*).
+D1–D6 below are the zoomed-in views of individual regions of this same design.
+
+```mermaid
+flowchart TB
+    subgraph ING["⓪ CPG Ingestion · offline build 🤖"]
+        PI["Processes:<br/>• Hierarchical chunking H1→H3<br/>• 🤖 LLM triple extraction → KG<br/>• Relation guardrails (4 layers)"]
+        II["Implementation:<br/>Bedrock Titan 1536-d · pgvector · Neo4j"]
+        PI --- II
+    end
+
+    subgraph M1["① Clinical Intake"]
+        P1["Processes:<br/>• NRIC lookup / patient register<br/>• Contactless vitals (rPPG)<br/>• Structured history · meds · allergies<br/>• 🤖 Step-0 prep brief (returning pt)"]
+        I1["Implementation:<br/>React Doctor UI · Terminal CLI<br/>Supabase · rPPG · Gemini Flash"]
+        P1 --- I1
+    end
+
+    A1(["PatientCase JSON + BMI"]):::art
+
+    subgraph M2["② Diagnostic Reasoning · Stage 2 🤖"]
+        P2["Processes:<br/>• Symptom → ICD-11 vector search<br/>• LLM rerank (specificity + distinct-disease)<br/>• Clinician-named CC boost<br/>• Sibling-cluster collapse"]
+        I2["Implementation:<br/>pgvector ivfflat · 3,914 ICD-11 codes<br/>Bedrock Titan 1536-d · LLM rerank"]
+        P2 --- I2
+    end
+
+    A2(["DDx shortlist · ranked ICD-11"]):::art
+
+    subgraph M3["③ Scope Routing · Stage 3 ⚙"]
+        P3["Processes:<br/>• Deterministic D1–D6 ladder<br/>• exact→sibling→ancestor→semantic<br/>• Sex / paediatric CPG filter<br/>• First-class out-of-scope refusal"]
+        I3["Implementation:<br/>Rule ladder · pgvector scope_embedding<br/>SEMANTIC_SCOPE_THRESHOLD 0.32"]
+        P3 --- I3
+    end
+
+    D1q{"In scope?"}:::dec
+    STOPN(["Graceful stop<br/>no fabricated plan"]):::stop
+
+    subgraph M4["④ Evidence Retrieval · Stage 4 🤖"]
+        P4["Processes:<br/>• 🤖 LLM multi-query generation<br/>• Scoped pgvector retrieval<br/>• H3→H2→H1 hierarchical prefetch<br/>• Evidence-grade tagging"]
+        I4["Implementation:<br/>pgvector scoped to routed CPGs<br/>ESC / USPSTF / SIGN50 kept separate"]
+        P4 --- I4
+    end
+
+    A3(["Scoped CPG chunks · evidence-graded"]):::art
+
+    subgraph M45["⑤ KG Injection · Stage 4.5 ⚙"]
+        P45["Processes:<br/>• Prefer Y / avoid X edge lookup<br/>• Drug-class expansion (ARB, statin…)<br/>• Comorbidity-string aliasing"]
+        I45["Implementation:<br/>Neo4j Cypher · routed-chunk scope filter"]
+        P45 --- I45
+    end
+
+    A4(["KG constraints · prefer / avoid"]):::art
+
+    subgraph M5["⑥ Plan Synthesis · Stage 5 🤖"]
+        P5["Processes:<br/>• 9-section executable TreatmentPlan<br/>• Medication & referral dedup<br/>• Coverage-gap + specialist cross-check<br/>• Assumption flagging"]
+        I5["Implementation:<br/>MiMo v2.5 Pro 128k · post-synth validators"]
+        P5 --- I5
+    end
+
+    A5(["Draft TreatmentPlan · 9 sections"]):::art
+
+    subgraph M6["⑦ Adversarial Safety-Critic AGENT · Stage 6 🤖⚙"]
+        P6["Processes:<br/>• 🤖 LLM pharmacist critic (DDI · allergy · dose)<br/>• ⚙ Neo4j KG structural verify<br/>• Merge WITHOUT dedup<br/>• Block on CRITICAL / MAJOR"]
+        I6["Implementation:<br/>Gemini Flash ∥ Neo4j · asyncio.gather"]
+        P6 --- I6
+    end
+
+    D2q{"safe_to_proceed?"}:::dec
+    BLOCKN(["BLOCK sign-off<br/>surface flags"]):::stop
+
+    subgraph M7["⑧ Delivery & Continuity"]
+        P7["Processes:<br/>• SSE stream to clinician UI<br/>• Override → re-synthesis<br/>• PDF export → Gmail delivery<br/>• 🤖 Prior-visit summariser"]
+        I7["Implementation:<br/>SSE · Supabase · Gmail SMTP · MiMo"]
+        P7 --- I7
+    end
+
+    SIGNED(["Signed care plan + patient PDF"]):::art
+
+    PG[("Postgres + pgvector<br/>ICD-11 + CPG chunks")]:::store
+    NEO[("Neo4j Aura KG<br/>drug · condition · parameter")]:::store
+    SB[("Supabase<br/>patients · consultations")]:::store
+
+    M1 --> A1 --> M2 --> A2 --> M3 --> D1q
+    D1q -- no --> STOPN
+    D1q -- yes --> M4 --> A3 --> M45 --> A4 --> M5 --> A5 --> M6 --> D2q
+    D2q -- no --> BLOCKN
+    D2q -- yes --> M7 --> SIGNED
+
+    ING --> PG
+    ING --> NEO
+    PG -. embeddings / chunks .-> M2
+    PG -. scope / retrieval .-> M3
+    PG -. scoped chunks .-> M4
+    NEO -. prefer / avoid .-> M45
+    NEO -. structural verify .-> M6
+    M1 <-. patient I/O .-> SB
+    M7 -. timings · summary · plan .-> SB
+    SB -. prior-visit context .-> M1
+
+    classDef proc fill:#ede9fe,stroke:#7c3aed,color:#4c1d95;
+    classDef impl fill:#dbeafe,stroke:#3b82f6,color:#1e3a8a;
+    classDef art fill:#d1fae5,stroke:#10b981,color:#065f46;
+    classDef store fill:#f1f5f9,stroke:#64748b,color:#334155;
+    classDef dec fill:#fffbeb,stroke:#f59e0b,color:#92400e;
+    classDef stop fill:#fef2f2,stroke:#dc2626,color:#991b1b;
+    class PI,P1,P2,P3,P4,P45,P5,P6,P7 proc;
+    class II,I1,I2,I3,I4,I45,I5,I6,I7 impl;
+```
+
+> **Reading it:** offline ingestion (⓪) builds the two stores once; a live consultation
+> then runs left-to-right ①→⑧ with a green artifact handed off at every boundary, exactly
+> like the reference's `Document Logs → Extracted Data → Analysed Data` chain. The two
+> amber diamonds are ClearPath's distinctive branches the reference's drone flow has no
+> analogue for: **scope refusal** (decline rather than fabricate) and the **safety block**
+> (never sign off on a CRITICAL/MAJOR plan). For an A0 print, render this **landscape and
+> wide** as its own full-width band; use D1–D6 for the smaller per-panel insets.
+
 ## D1 — Pipeline Overview (for §05)
 
 The happy path plus the two decision branches that make ClearPath distinctive
 (out-of-scope stop, and the safety block).
 
+🤖 = LLM reasoning step · ⚙ = deterministic (the safety critic is the one true agent).
+
 ```mermaid
 flowchart TD
-    A([Patient Intake]) --> B[DDx · ICD-11 differential]
-    B --> C{Route · D1–D6 ladder}
+    A([Patient Intake]) --> B["🤖 DDx · ICD-11 differential"]
+    B --> C{"⚙ Route · D1–D6 ladder"}
     C -- out of scope --> Z([Graceful stop · no fabricated plan])
-    C -- in scope --> D[Retrieve · scoped CPG chunks]
-    D --> E[KG inject · prefer / avoid edges]
-    E --> F[Synthesize · 9-section care plan]
-    F --> G{{Safety Critic · LLM ∥ KG in parallel}}
+    C -- in scope --> D["🤖 Retrieve · LLM query-gen + scoped CPG chunks"]
+    D --> E["⚙ KG inject · prefer / avoid edges"]
+    E --> F["🤖 Synthesize · 9-section care plan"]
+    F --> G{{"🤖⚙ Safety Critic · LLM ∥ KG in parallel"}}
     G -- any CRITICAL/MAJOR --> H[/BLOCK sign-off · surface flags/]
     G -- safe_to_proceed --> I[Stream to clinician UI]
     I --> J{Clinician override?}
     J -- yes --> F
     J -- no --> K([Sign off · optional PDF delivery])
 
+    classDef agent fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
+    classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
     classDef stop fill:#fef2f2,stroke:#dc2626,color:#991b1b;
     classDef ok fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
+    class B,D,F agent;
+    class C,E det;
     class Z,H stop;
     class I,K ok;
 ```
@@ -618,18 +830,18 @@ The headline diagram. Each stage carries its job + engine. Grounding sources
 
 ```mermaid
 flowchart TB
-    subgraph Intake["Stage 1 · Intake"]
+    subgraph Intake["Stage 1 · Intake — ⚙ deterministic"]
         S1[PatientCase JSON + derived BMI<br/>vitals · history · allergies · meds · prior-visit]
     end
 
-    subgraph Pipeline["Hybrid deterministic + agentic pipeline"]
+    subgraph Pipeline["Hybrid pipeline — 🤖 LLM step · ⚙ deterministic"]
         direction TB
-        S2[Stage 2 · DDx<br/>symptom → ICD-11 · pgvector 3,914 codes + LLM rerank]
-        S3[Stage 3 · Route<br/>deterministic D1–D6 scope ladder]
-        S4[Stage 4 · Retrieve<br/>scoped pgvector + H3→H2→H1 prefetch]
-        S45[Stage 4.5 · KG inject<br/>prefer Y / avoid X edges]
-        S5[Stage 5 · Synthesize<br/>9-section plan + 8-layer validator chain]
-        S6{{Stage 6 · Safety Critic<br/>LLM pharmacist ∥ Neo4j verifier}}
+        S2["🤖 Stage 2 · DDx<br/>symptom → ICD-11 · pgvector 3,914 codes ⚙ + LLM rerank"]
+        S3["⚙ Stage 3 · Route<br/>deterministic D1–D6 scope ladder"]
+        S4["🤖 Stage 4 · Retrieve<br/>LLM query-gen + scoped pgvector ⚙ · H3→H2→H1 prefetch"]
+        S45["⚙ Stage 4.5 · KG inject<br/>Neo4j Cypher · prefer Y / avoid X edges"]
+        S5["🤖 Stage 5 · Synthesize<br/>LLM 9-section plan + post-synthesis validators"]
+        S6{{"🤖⚙ Stage 6 · Safety Critic<br/>LLM pharmacist ∥ Neo4j verifier"}}
         S2 --> S3 --> S4 --> S45 --> S5 --> S6
     end
 
@@ -646,15 +858,21 @@ flowchart TB
     S6 --> UI[Live Clinician UI · SSE stream<br/>React Doctor UI + terminal CLI]
     UI -. override → re-synth .-> S5
 
+    classDef agent fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
     classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
-    classDef llm fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
     classDef crit fill:#fffbeb,stroke:#f59e0b,color:#92400e;
     classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
-    class S3 det;
-    class S2,S4,S45,S5 llm;
+    class S1,S3,S45 det;
+    class S2,S4,S5 agent;
     class S6 crit;
     class PG,KG store;
 ```
+
+> **Why the colours moved (accuracy fix):** Stage 4.5 KG inject is **deterministic
+> Neo4j Cypher**, not an LLM step — it's now cyan with Stage 3, not teal. Stages 2/4/5
+> are teal because each makes a real LLM call (rerank · query-gen · synthesis). Stage 6
+> stays amber because it is genuinely hybrid: an LLM pharmacist arm **and** a
+> deterministic KG-verify arm, run together via `asyncio.gather`.
 
 ## D3 — CPG Ingestion Pipeline (Methodology A)
 
@@ -662,9 +880,9 @@ How a static CPG PDF becomes queryable — the offline build step behind the cor
 
 ```mermaid
 flowchart LR
-    A[CPG markdown] --> B[Chunker<br/>hierarchical H1→H3]
-    B --> C[Embeddings<br/>Bedrock Titan 1536-dim]
-    B --> D[Graph builder<br/>LLM triple extraction]
+    A[CPG markdown] --> B["⚙ Chunker<br/>hierarchical H1→H3"]
+    B --> C["⚙ Embeddings<br/>Bedrock Titan 1536-dim"]
+    B --> D["🤖 Graph builder<br/>LLM triple extraction"]
     C --> E[("pgvector<br/>chunk store")]
     D --> F{Relation guardrails<br/>complement rule · trigger blocker<br/>regex check · contradiction guard}
     F -- pass --> G[("Neo4j KG<br/>drug/condition edges")]
@@ -698,8 +916,8 @@ Sequence-style view making the "two graders, merged without dedup" point visual.
 ```mermaid
 flowchart TB
     P[Drafted TreatmentPlan<br/>STOP Losartan · START Methyldopa / Metformin / aspirin] --> G{asyncio.gather}
-    G --> L[LLM pharmacist critic<br/>reasoning · allergy · DDI · renal/hepatic dosing]
-    G --> K[Neo4j KG verifier<br/>structural Cypher on final plan]
+    G --> L["🤖 LLM pharmacist critic<br/>reasoning · allergy · DDI · renal/hepatic dosing"]
+    G --> K["⚙ Neo4j KG verifier<br/>structural Cypher on final plan"]
     L --> M[Merge WITHOUT dedup]
     K --> M
     M --> R[SafetyReport · 3 flags<br/>CRITICAL/llm Losartan teratogen<br/>MAJOR/graph ARB × Pregnancy ×2]
@@ -713,6 +931,49 @@ flowchart TB
     class B,R block;
 ```
 
+## D6 — Returning-patient longitudinal loop (the two "memory" LLM steps)
+
+The Stage 2–6 pipeline is **stateless per consultation** — but two *additional* LLM steps,
+outside that pipeline, give ClearPath its longitudinal memory (Moat 4/5). They never run
+during a first visit. Show this as a separate panel so judges see the patient is a
+persistent object, not a fresh prompt each time.
+
+🤖 = LLM reasoning step. Both fail-open — a summariser/brief failure never blocks care.
+
+```mermaid
+flowchart TB
+    subgraph V1["Visit N — full consultation"]
+        P1[Stage 2–6 pipeline] --> F1[finalizePlan · clinician signs off]
+        F1 --> SUM["🤖 Prior-visit summariser · MiMo<br/>5-field PriorVisitSummary<br/>visit_date · prior_dx · plan · labs Δ · what changed"]
+    end
+
+    SUM -->|"RPC update_prior_visit_summary_bypass"| DB[("Supabase<br/>prior_visit_summary")]
+
+    subgraph V2["Visit N+1 — returning patient"]
+        K[Clinician keys NRIC] --> LOAD["syncMPIS<br/>get_latest_prior_visit_summary"]
+        LOAD --> PREP["🤖 Prep-brief LLM · Step 0 · Gemini Flash<br/>3 fields ≤120 chars<br/>since_last_visit · med_flags · ask_today"]
+        PREP --> CARD[/PrepBriefCard · read-only<br/>never touches Stage 2–6/]
+        LOAD -. prior_visit injected .-> PIPE["Stage 4 query-gen + Stage 5 synthesis<br/>of the new consultation"]
+    end
+
+    DB --> LOAD
+
+    classDef agent fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
+    classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
+    classDef ro fill:#eef2ff,stroke:#6366f1,color:#3730a3;
+    class SUM,PREP agent;
+    class DB store;
+    class CARD ro;
+```
+
+> **Two distinct jobs, two models (verified):** the **summariser** (MiMo) *compresses* a
+> finished visit into a lean carry-forward record; the **prep-brief LLM** (Gemini Flash)
+> *expands* that record into a 3-line "what to ask today" the moment a returning NRIC is
+> keyed. The prep brief is strictly read-only — it produces no DDx input and is gated on
+> `mpisFound && prior_visit`, so it never fires for a first-time patient. The summary it
+> reads is ALSO injected into Stage 4/5 of the live consultation, which is how "the system
+> remembers this patient" becomes concrete on the poster.
+
 ## Graphviz (DOT) alternative for the architecture
 
 If you'd rather render with Graphviz (`dot -Tpng -Gdpi=300 arch.dot -o arch.png`):
@@ -723,13 +984,14 @@ digraph clearpath {
     node [shape=box, style="rounded,filled", fontname="Helvetica", color="#0d9488", fillcolor="#f0fdfa"];
     edge [fontname="Helvetica", fontsize=10];
 
-    s1 [label="Stage 1 · Intake\nPatientCase + BMI"];
-    s2 [label="Stage 2 · DDx\npgvector + LLM rerank"];
-    s3 [label="Stage 3 · Route\nD1–D6 deterministic", color="#0891b2", fillcolor="#ecfeff"];
-    s4 [label="Stage 4 · Retrieve\nscoped pgvector + prefetch"];
-    s45 [label="Stage 4.5 · KG inject\nprefer / avoid edges"];
-    s5 [label="Stage 5 · Synthesize\n9-section + validators"];
-    s6 [label="Stage 6 · Safety Critic\nLLM ∥ KG", color="#f59e0b", fillcolor="#fffbeb", shape=hexagon];
+    // teal fill = 🤖 LLM step; cyan fill = ⚙ deterministic; amber = safety-critic agent
+    s1 [label="Stage 1 · Intake ⚙\nPatientCase + BMI", color="#0891b2", fillcolor="#ecfeff"];
+    s2 [label="Stage 2 · DDx 🤖\npgvector + LLM rerank"];
+    s3 [label="Stage 3 · Route ⚙\nD1–D6 deterministic", color="#0891b2", fillcolor="#ecfeff"];
+    s4 [label="Stage 4 · Retrieve 🤖\nLLM query-gen + scoped pgvector"];
+    s45 [label="Stage 4.5 · KG inject ⚙\nNeo4j Cypher · prefer / avoid edges", color="#0891b2", fillcolor="#ecfeff"];
+    s5 [label="Stage 5 · Synthesize 🤖\n9-section + validators"];
+    s6 [label="Stage 6 · Safety Critic 🤖⚙\nLLM ∥ KG", color="#f59e0b", fillcolor="#fffbeb", shape=hexagon];
     ui [label="Clinician UI · SSE\nReact + CLI"];
 
     pg [label="Postgres + pgvector", shape=cylinder, color="#64748b", fillcolor="#f8fafc"];
@@ -746,7 +1008,7 @@ digraph clearpath {
 
 | Tool | Command / route | Best for |
 |---|---|---|
-| mermaid.live | paste → Export PNG/SVG, scale 3× | quickest, all D1–D5 |
+| mermaid.live | paste → Export PNG/SVG, scale 3× | quickest, all D0–D6 |
 | Mermaid CLI | `mmdc -i d.mmd -o d.svg -s 3` | batch export, version-controlled |
 | Graphviz | `dot -Tpng -Gdpi=300 arch.dot -o arch.png` | the architecture DOT above |
 | GitHub | renders ```mermaid blocks inline | preview before exporting |
