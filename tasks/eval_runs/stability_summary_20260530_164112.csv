@@ -1,4 +1,0 @@
-case_id,n_runs,top1_stable,top1_value,top3_jaccard,top5_jaccard,same_plan_rate,plan_text_jaccard,med_count_mean,med_count_stdev,referral_count_mean,referral_count_stdev,safety_flag_jaccard,wall_mean_s,wall_stdev_s,wall_min_s,wall_max_s,overall_pass
-8,3,True,BD11.2,0.667,1.0,0.333,0.387,5.67,0.58,0.0,0.0,1.0,146.6,35.0,123.0,186.8,False
-9,3,False,BA41.1/BC81.3Y,1.0,0.778,0.333,0.325,9.33,0.58,0.0,0.0,1.0,153.3,7.6,145.0,160.0,False
-10,3,True,JB42.Y,1.0,1.0,0.333,0.451,4.67,1.15,0.0,0.0,1.0,127.9,22.9,107.0,152.4,False
