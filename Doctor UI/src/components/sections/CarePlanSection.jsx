@@ -36,6 +36,7 @@ import {
 } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+import { useAuth } from '../../context/AuthContext';
 import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
 
@@ -1352,6 +1353,8 @@ function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
 export function CarePlanSection() {
   const { state, dispatch, finalizePlan, goToStep } = useApp();
   const { isDark } = useTheme();
+  const { user, profile } = useAuth();
+  const clinicianName = profile?.full_name || user?.email || 'Unknown clinician';
   const { carePlan, patientData, diagnosis, mpisData, vitals, safetyReport, clinicalPlanResponse } = state;
   const graphNavigatorRules = clinicalPlanResponse?.graph_navigator_rules || [];
 
@@ -1364,6 +1367,7 @@ export function CarePlanSection() {
   const [workflowHistory, setWorkflowHistory] = useState([]);
   const [traceCollapsed, setTraceCollapsed] = useState(true);
   const [safetyAcknowledged, setSafetyAcknowledged] = useState(false);
+  const [safetyAckAt, setSafetyAckAt] = useState(null);
   const [tab, setTab] = useState('overview');
   const [drawerRef, setDrawerRef] = useState(null);
 
@@ -1376,14 +1380,14 @@ export function CarePlanSection() {
   const handleStatusChange = (newStatus, comment) => {
     setWorkflowStatus(newStatus);
     setWorkflowHistory((prev) => [
-      { status: newStatus, action: newStatus === WORKFLOW_STATES.REVIEWED ? 'Marked as Reviewed' : 'Approved', user: 'Dr. Current User', timestamp: new Date().toLocaleString(), comment },
+      { status: newStatus, action: newStatus === WORKFLOW_STATES.REVIEWED ? 'Marked as Reviewed' : 'Approved', user: clinicianName, timestamp: new Date().toLocaleString(), comment },
       ...prev,
     ]);
   };
   const handleReject = (comment) => {
     setWorkflowStatus(WORKFLOW_STATES.DRAFT);
     setWorkflowHistory((prev) => [
-      { status: WORKFLOW_STATES.DRAFT, action: 'Sent back for revision', user: 'Dr. Current User', timestamp: new Date().toLocaleString(), comment },
+      { status: WORKFLOW_STATES.DRAFT, action: 'Sent back for revision', user: clinicianName, timestamp: new Date().toLocaleString(), comment },
       ...prev,
     ]);
   };
@@ -1542,7 +1546,7 @@ export function CarePlanSection() {
           <SafetyReviewBanner
             report={safetyReport}
             acknowledged={safetyAcknowledged}
-            onAcknowledge={() => setSafetyAcknowledged(true)}
+            onAcknowledge={() => { setSafetyAcknowledged(true); setSafetyAckAt(new Date().toISOString()); }}
           />
 
           <TabBar tabs={tabs} active={tab} onChange={setTab} />
@@ -1716,7 +1720,11 @@ export function CarePlanSection() {
           variant="primary"
           size="lg"
           icon={Check}
-          onClick={finalizePlan}
+          onClick={() => finalizePlan({
+            safetyOverride: safetyReport && !safetyReport.safe_to_proceed
+              ? { acknowledged: safetyAcknowledged, by: clinicianName, at: safetyAckAt }
+              : null,
+          })}
           disabled={workflowStatus !== WORKFLOW_STATES.APPROVED}
           glow={workflowStatus === WORKFLOW_STATES.APPROVED}
           className="min-w-[250px]"
