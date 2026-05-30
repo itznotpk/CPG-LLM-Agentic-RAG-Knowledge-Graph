@@ -253,17 +253,29 @@ async def _run_one_case(case_id: str, n: int, url: str, expected: list[str]) -> 
     case, stream_case = _load_case_runner(case_id)
     print(f"\n[stability] === case={case_id} n={n} url={url} expected={expected or '(none)'} ===")
     runs: list[dict] = []
+    skipped: list[dict] = []
     for i in range(1, n + 1):
         print(f"[stability] case {case_id} run {i}/{n} starting …")
         t0 = time.monotonic()
-        _events, final = await stream_case(url)
+        try:
+            _events, final = await stream_case(url)
+        except Exception as exc:
+            elapsed = time.monotonic() - t0
+            print(f"[stability] case {case_id} run {i} FAILED after {elapsed:.1f}s: {type(exc).__name__}: {exc} — skipping run")
+            skipped.append({"run": i, "error": f"{type(exc).__name__}: {exc}", "elapsed": elapsed})
+            continue
         elapsed = time.monotonic() - t0
         if not final:
-            print(f"[stability] case {case_id} run {i} returned no final_result — aborting case")
-            return {"case_id": case_id, "error": "no_final_result", "completed_runs": len(runs)}
+            print(f"[stability] case {case_id} run {i} returned no final_result — skipping run")
+            skipped.append({"run": i, "error": "no_final_result", "elapsed": elapsed})
+            continue
         top5 = _top_codes(final, 5)
         print(f"[stability] case {case_id} run {i} OK in {elapsed:.1f}s top5={top5}")
         runs.append({"run": i, "wall_seconds": elapsed, "top5": top5, "final": final})
+
+    if not runs:
+        print(f"[stability] case {case_id}: all runs failed — no metrics")
+        return {"case_id": case_id, "error": "all_runs_failed", "skipped": skipped}
 
     metrics = _compute_metrics(runs, expected)
     extras = _aggregate_extras(runs)
@@ -303,6 +315,7 @@ async def _run_one_case(case_id: str, n: int, url: str, expected: list[str]) -> 
         "gate": gate,
         "per_run_top5": [r["top5"] for r in runs],
         "per_run_wall_seconds": [r["wall_seconds"] for r in runs],
+        "skipped_runs": skipped,
         "summary_row": summary_row,
     }
 
@@ -339,7 +352,11 @@ async def main() -> int:
     summary_rows = []
     for idx, cid in enumerate(case_ids):
         exp = expected if idx == 0 else []
-        rep = await _run_one_case(cid, args.n, url, exp)
+        try:
+            rep = await _run_one_case(cid, args.n, url, exp)
+        except Exception as exc:
+            print(f"[stability] case {cid} crashed: {type(exc).__name__}: {exc} — continuing to next case")
+            rep = {"case_id": cid, "error": f"{type(exc).__name__}: {exc}"}
         all_reports.append(rep)
         if "summary_row" in rep:
             summary_rows.append(rep["summary_row"])

@@ -61,14 +61,13 @@ the cut-first panels (SDG, references) are pushed to the bottom corners.
 ```
 ┌──────────────────────────────────────────────────────────────────────┐
 │  HEADER BANNER: Title • Tagline • Team • Supervisors • UM + MHNexus    │
+├───────────────┬──────────────────────────┬───────────────────────────┤
+│ 01 Intro      │  02 Problem → Capability │ Competitive moats (5)     │
+│ (thesis line) │  (3 bottlenecks)         │ + benchmark strip         │
 ├───────────────┴──────────────────────────┴───────────────────────────┤
-│  01 Intro (thesis line)  +  Competitive moats (5) + benchmark strip   │
-├──────────────────────────────────────────────────────────────────────┤
-│  FULL-WIDTH: Stat ⟷ Problem ⟷ Answer  (3 linked rows — the spine)     │
+│  ★ FULL-WIDTH HERO: Decision & Reasoning Matrix (Case-10) ★           │
+│     boldest border on the poster — the dual-catch is the thesis       │
 ├───────────────────────────────────┬──────────────────────────────────┤
-│  ★ HERO: Decision & Reasoning Matrix (Case-10) ★  │ By-the-numbers    │
-│     boldest border — the dual-catch is the thesis │ (<1 min, 3,914…)  │
-├───────────────────────────────────┼──────────────────────────────────┤
 │  Safety-Critic Showcase           │  05 Pipeline Overview (flowchart) │
 │  (dual-source flag card)          │                                   │
 ├───────────────────────────────────┴──────────────────────────────────┤
@@ -78,15 +77,10 @@ the cut-first panels (SDG, references) are pushed to the bottom corners.
 │ (DETERMINISM  │  (UI + CLI screenshots)  │ (clinical + AI)           │
 │  is headline) │                          │                           │
 ├───────────────┼──────────────────────────┼───────────────────────────┤
-│ Tech stack    │  08 Conclusion           │ 04 Impact + References     │
-│               │  (3 achievements)        │ (cut-first if tight)       │
+│ Tech stack +  │  08 Conclusion           │ 04 Impact + References     │
+│ Data stats    │  (3 achievements)        │ (cut-first if tight)       │
 └───────────────┴──────────────────────────┴───────────────────────────┘
 ```
-
-The fused **Stat ⟷ Problem ⟷ Answer** band is now a full-width spine directly under the
-intro — it does the work the reference poster split across two panels, but linked, so a
-judge reads each problem and its number together. "By-the-numbers" (solution/scale
-figures) sits beside the hero, kept *out* of the problem band on purpose.
 
 > Changed from a literal copy of the BMS template: the hero matrix moves **up** to the
 > top third, the safety card sits directly beneath it as visual proof, and SDG +
@@ -225,6 +219,121 @@ move `< 1 min` end-to-end latency and the corpus scale (**3,914 ICD-11 codes**,
 strip beside the Architecture or atop the Evaluation panel — they're *credibility/results*
 figures, not problem-framing figures. Keeping them out of this band is what makes the
 stat→problem→answer link read cleanly.
+
+### Moat Bank — reverse-engineerable `stat → need → moat` candidates
+
+The 3-row spine above uses the three strongest moats. But you only ship 3 rows, and two
+of them still need a sourced stat — so build a **bank of candidate rows** and pick the
+three where (a) the moat is real *and* (b) a credible stat actually exists to anchor it.
+**Selection rule:** a moat is only poster-worthy if you can find a real number for its
+need. A brilliant capability with no sourceable stat is a *feature*, not a *row* — demote
+it to the architecture/guardrails panel instead.
+
+Every moat below is a **genuine, shipped capability** (traced to `README.md` / `CLAUDE.md`).
+The stat column says *what kind of number to hunt and where* — **never invent it.**
+
+| # | ClearPath moat (real capability) | The need / problem it proves | Stat to source (type → where to look) | Sourceability |
+|---|---|---|---|---|
+| **A** | **Full-traceability CoT** — visible DDx shortlist, D1–D6 routing trace, rejected CPGs, dual-source flag provenance | Clinicians won't trust (or can't be medico-legally accountable for) black-box AI they can't audit | Clinician distrust of black-box clinical AI; % who require explainability to adopt → surveys (JAMA/BMJ digital-health, MMA position papers) | **High** — lots of published trust/explainability surveys |
+| **B** | **Scope-refusal gate** — answers *"this case belongs to no CPG"* and declines instead of fabricating | Overconfident LLMs hallucinate plausible wrong answers → patient harm | Medical-LLM hallucination / fabrication rate on out-of-scope queries → published LLM-in-medicine eval papers | **High** — hallucination-rate studies are common |
+| **C** | **Determinism / reproducibility** — seed-pin + deterministic routing → same input, same plan | Non-reproducible advice is un-auditable and erodes trust; same patient must get the same answer | Run-to-run variance of vanilla LLMs on identical clinical prompts → cite your *own* determinism harness as the contrast (this is your real metric) | **High** — you can MEASURE the contrast yourself |
+| **D** | **Evidence-graded, citation-pinned recs** — every rec stamped MoH grade + `CPG §x [chunk N]` | Unverifiable AI assertions can't be acted on safely; defensive-medicine/medico-legal need for sources | % of general-LLM medical answers with fabricated/unverifiable citations → LLM citation-accuracy studies | **High** |
+| **E** | **KG structural safety (DDI / teratogen / renal-dose)** — catches harm no retrieved paragraph mentions | Pharmacist-vacant clinics miss drug–drug / drug–condition interactions → preventable ADEs | Preventable-ADE burden; DDI prevalence in polypharmacy → WHO *Medication Without Harm*, ADE-epidemiology papers *(this is spine row 3)* | **High** |
+| **F** | **Offline resilience** — rotating logs, failed-job replay, fail-open everywhere | Rural clinics have unreliable power/connectivity; a flaky link must not drop a safety concern | Rural East-Malaysia internet/electricity reliability or clinic downtime → MCMC / MoH rural-infrastructure reports | **Medium** — MY-specific figures harder to find |
+| **G** | **Sub-minute latency in the consult window** — full pipeline < 1 min | Public-clinic consults are short and patient load is crushing; advice must fit the window | Mean primary-care consult duration / daily patient load in MY *Klinik Kesihatan* → MoH health-facts, primary-care workload studies | **Medium-High** |
+| **H** | **9-section executable plan** — action-tagged orders, not prose | Cognitive load of extracting an order list from prose under time pressure raises error risk | Documentation burden / time on paperwork / EHR cognitive-load → clinician-burnout & time-motion studies | **High** — burnout/documentation stats abound |
+| **I** | **Patient-first longitudinal memory** — typed patient object + prior-visit summary persists across visits | Fragmented rural records → repeated history-taking, continuity-of-care gaps | Continuity-of-care impact on outcomes, or time lost re-taking history → primary-care continuity literature | **Medium** |
+| **J** | **Multilingual care-plan delivery (en / ms / zh)** — localized patient cover, kept in sync | Language barriers in multi-ethnic MY population → poor comprehension & adherence | % MY population with limited English health-literacy; language-barrier → adherence impact → DOSM census, health-literacy surveys | **Medium-High** — DOSM language data is solid |
+| **K** | **Clinician override + instant re-synthesis** — human stays the decision-maker | Automation bias: clinicians over-trust AI and miss errors when they can't easily override | Automation-bias error rates in clinical decision support → CDS automation-bias studies | **Medium** |
+
+**How to use this bank:**
+- **Anchor rows (pick 3 for the spine):** the strongest *stat-supported* trio is most
+  likely **A (traceability)** or **B (scope-refusal)** + **E (medication safety)** +
+  **G (consult-window) or H (documentation burden)**. These all have abundant, credible,
+  citable literature — you won't be stuck hunting a number that doesn't exist.
+- **Keep 1–2 as backups** in case a stat search dead-ends — swap a Medium-sourceability
+  row (F, I, K) out for a High one rather than printing a number you can't cite.
+- **The rest still appear on the poster** — just in the Architecture, Safety/Guardrails,
+  or Conclusion panels as capabilities, not as a stat-anchored need row. A moat doesn't
+  have to carry a statistic to earn wall space; it only needs a stat to anchor the
+  *problem-framing* band.
+
+> **Strategic note:** your example (full-traceability CoT, row A) is one of the *best*
+> reversals precisely because "clinicians distrust black-box AI" is one of the most
+> heavily-surveyed claims in digital-health — you will find a citable number in minutes.
+> Contrast that with row F (offline resilience): a true and differentiating moat, but the
+> MY-specific reliability stat is harder to pin down — so it's a backup, not an anchor.
+
+### ★★ Game-Winning Moats — the only 5 that beat BOTH Qmed *and* NotebookLM
+
+**Filter applied:** a moat is "game-winning" only if `EVALUATION_FRAMEWORK_README.md`
+documents it as **structural** against *both* named clinical competitors — something they
+would have to **rebuild, not reprompt**, to match. By that test exactly **five** of the
+bank qualify (they are the doc's Moats 1–5). Rows C, D, F, G, J, K do **not** make the
+cut — see the **parity traps** warning below before you put any of them on a stat row.
+
+Ranked by poster impact (a clinical-safety judge weights *prevented patient harm*
+highest), each with its one-line kill-shot vs each competitor:
+
+| Rank | Game-winning moat | Kills Qmed because… | Kills NotebookLM because… |
+|---|---|---|---|
+| **#1** | **Dual-source safety critic** (KG + LLM, merged) — *Moat 2 / bank E* | single grounding source: surfaces a DDI **only if** the retrieved paragraph names the pair — misses teratogens on existing meds | pure RAG, **no drug ontology, no typed contraindication edges, no second grader** — a textbook DDI absent from the notebook is invisible |
+| **#2** | **ICD-anchored routing + first-class refusal** — *Moat 1 / bank B* | **no diagnostic-scope layer** — always synthesises from whatever it pulled; a 56 M with pregnancy-overlap symptoms still gets a confident obstetric paragraph | generic doc-chatbot — **no ICD, no sex-exclusion, no notion of clinical applicability**; paraphrases any chunk on demand |
+| **#3** | **Auditable per-stage decision trace** (typed CoT events) — *Moat 5 / bank A* | shows the verdict + page cite but the **reasoning is opaque** — no DDx shortlist, no routing rejections, no why | shows a source panel but **no decision logic** — reasoning hidden inside the final paragraph |
+| **#4** | **Schema-constrained executable 9-section plan** — *Moat 3 / bank H* | returns **long-form prose** — clinician must re-read and mentally extract the order list under time pressure | conversational paragraphs with footnotes — **no clinical structure**, can't render as a checklist or diff vs prior visit |
+| **#5** | **Patient-first, longitudinal intake** (typed `PatientCase` + rPPG + prior-visit loop) — *Moat 4 / bank I* | **stateless chat** — no allergy field, no current-med list, no prior visit; allergies are at best a sentence the LLM may miss | **notebook chat** — no vitals, no patient schema, no longitudinal memory; every consult starts from zero context |
+
+> ⛔ **Parity traps — do NOT frame these as competitor wins** (the doc lists them as
+> table-stakes, and one is an outright loss):
+> - **Grounded citations** — all three cite; NotebookLM's side-panel UX is arguably *best*. **Parity.**
+> - **Multi-CPG retrieval in one answer** — Qmed does it too. **Parity.**
+> - **Streaming output** — all three stream tokens; your edge is *what* streams (Moat 5), not *that* it streams. **Parity.**
+> - **Speed** — ClearPath **18–22 s vs Qmed 16–20 s**: you are *slightly slower*. Claiming a speed win invites an easy rebuttal. Sell "fits the 10-min window," never "faster than Qmed."
+
+**Spine recommendation:** the three rows of the `stat → need → moat` band should be the
+**top 3 game-winners** — #1 (safety), #2 (refusal), #3 (auditability) — because they're
+the most defensible *and* the most safety-weighted. #4 and #5 still appear on the poster
+(in the plan-renderer screenshot and the intake/architecture panels) but don't need to
+carry a stat row. This keeps the spine, the hero matrix, and the moats panel all telling
+**one coherent story: a system that refuses to be confidently wrong.**
+
+### Stat-hunting kit — concrete queries + named sources for the top 3
+
+Real, findable literature for the three anchor rows. **Pull the exact figure from the
+source and cite the source — do not print my paraphrase as the number.**
+
+**Row #1 — Dual-source safety critic → need: preventable medication harm in pharmacist-vacant clinics**
+- Search: `WHO Medication Without Harm preventable medication-related harm 50%`
+- Search: `Hodkinson prevalence medication errors systematic review BMC Medicine 2020`
+- Search: `medication error prevalence primary care Malaysia Klinik Kesihatan`
+- Strong named anchors: **WHO *Medication Without Harm*** (3rd Global Patient Safety
+  Challenge — global medication-harm burden, large share avoidable); **Hodkinson et al.,
+  *BMC Medicine* 2020** (medication-error prevalence / proportion severe). A MY-specific
+  primary-care medication-error study is the ideal local anchor if you can find one.
+
+**Row #2 — Scope-refusal → need: LLMs answer confidently when they should decline**
+- Search: `large language model hallucination rate clinical question fabricated`
+- Search: `ChatGPT fabricated references medical accuracy study`
+- Search: `medical LLM safety inappropriate confident answer out-of-scope`
+- Strong named anchors: published **medical-LLM evaluation papers** reporting
+  fabricated-citation / inaccurate-answer rates (commonly cited in the tens-of-percent
+  range). This row pairs perfectly with your **scope-refusal demo** — show the stat, then
+  show ClearPath emitting `out_of_scope` instead.
+
+**Row #3 — Auditable trace → need: clinicians won't adopt / can't be accountable for black-box AI**
+- Search: `physician trust AI explainability barrier adoption survey`
+- Search: `AMA augmented intelligence physician survey clinician concerns`
+- Search: `clinician requirement explainable AI clinical decision support npj Digital Medicine`
+- Strong named anchors: **AMA Augmented-Intelligence physician surveys** (clinician
+  adoption concerns, incl. transparency/oversight); **npj Digital Medicine / BMJ Health &
+  Care Informatics** explainability-in-clinical-AI surveys. The number you want is
+  "% of clinicians citing lack of transparency/explainability as a barrier to trusting AI."
+
+> If a search for any anchor row dead-ends, **swap in #4 (documentation-burden /
+> consult-length: Sinsky 2016 *Annals of Internal Medicine*; Irving 2017 *BMJ Open* on
+> international consultation length) or #5 (continuity-of-care: Pereira Gray 2018 *BMJ
+> Open* "Continuity of care … a matter of life and death?")** — both are game-winners
+> with famously well-cited stats. Never downgrade to a parity-trap row to fill the gap.
 
 ---
 
