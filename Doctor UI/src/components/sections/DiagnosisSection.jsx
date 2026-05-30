@@ -1,27 +1,21 @@
 import React from 'react';
 import {
-  Brain,
   AlertCircle,
   CheckCircle,
   ArrowLeft,
   Sparkles,
   Target,
-  Check,
-  BrainCircuit,
-  ChevronRight,
 } from 'lucide-react';
 import {
   GlassCard,
   Button,
   Badge,
-  RiskBadge,
-  CodeBadge,
+  TierSegmentedControl,
 } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
 import { PlanGenerationProcess } from './PlanGenerationProcess';
-import { DDxSelectionPanel } from './DDxSelectionPanel';
 
 const OVERRIDE_KEY_MAP = {
   'red_flag_cant_miss': "Red Flag (Can't Miss)",
@@ -49,7 +43,7 @@ function parseOverrideReason(reason) {
 }
 
 export function DiagnosisSection() {
-  const { state, confirmDiagnosis, goToStep, selectDiagnosis } = useApp();
+  const { state, confirmDiagnosis, goToStep } = useApp();
   const { isDark } = useTheme();
   const { diagnosis, isGeneratingPlan } = state;
   const [traceCollapsed, setTraceCollapsed] = React.useState(true);
@@ -59,11 +53,20 @@ export function DiagnosisSection() {
   // Keep differentials in their final LLM re-ranked order from the backend
   const sortedDifferentials = [...diagnosis.differentials];
 
-  // Get the selected diagnoses (or default to highest probability)
-  const selectedIds = diagnosis.selectedDiagnosisIds?.length > 0
-    ? diagnosis.selectedDiagnosisIds
-    : [sortedDifferentials[0]?.id].filter(Boolean);
-  const selectedDiagnoses = sortedDifferentials.filter((d) => selectedIds.includes(d.id));
+  const [tiers, setTiers] = React.useState(() =>
+    Object.fromEntries(sortedDifferentials.map((d) => [d.icdCode, 'off']))
+  );
+
+  React.useEffect(() => {
+    setTiers(Object.fromEntries(sortedDifferentials.map((d) => [d.icdCode, 'off'])));
+  }, [diagnosis]);
+
+  const selectedCodes = Object.entries(tiers)
+    .filter(([, tier]) => tier !== 'off')
+    .map(([code]) => code);
+  const majorCode = Object.entries(tiers).find(([, tier]) => tier === 'major')?.[0] || null;
+  const selectedDiagnoses = sortedDifferentials.filter((d) => selectedCodes.includes(d.icdCode));
+  const canConfirm = !!majorCode && !isGeneratingPlan;
 
   // Detect if clinician selection differs from AI routing set (top-2 DDx codes)
   const aiTopCodes = new Set(
@@ -71,23 +74,50 @@ export function DiagnosisSection() {
   );
   const willResynth = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
 
-  const handleConfirm = () => {
-    confirmDiagnosis();
+  const [confirmError, setConfirmError] = React.useState(null);
+  const handleConfirm = async () => {
+    if (!majorCode) return;
+    setConfirmError(null);
+    try {
+      await confirmDiagnosis({ selectedCodes, majorCode });
+    } catch (err) {
+      // confirmDiagnosis swallows most errors internally and resets the
+      // loading state, leaving the user stranded on this page. Show whatever
+      // surfaces here as a banner so the failure isn't silent.
+      console.error('confirmDiagnosis threw:', err);
+      setConfirmError(err?.message || 'Failed to generate the care plan. Check the API server and try again.');
+    }
+  };
+
+  // Tap the card itself to cycle Off → Minor → Major → Off. Pill / hint
+  // button onClick handlers stop propagation so a direct pill click still
+  // sets the exact state without re-cycling.
+  const cycleTier = (code) => {
+    const current = tiers[code] || 'off';
+    const next = current === 'off' ? 'minor' : current === 'minor' ? 'major' : 'off';
+    setTier(code, next);
   };
 
   // P5: clinician picks Major + (0–4) Minors via the segmented tier panel.
   // The override is routed through the same confirmDiagnosis path so all the
   // downstream DB save / risk calculation / plan generation logic still fires.
-  const handleTierConfirm = ({ selected_codes, major_code }) => {
-    confirmDiagnosis({ selectedCodes: selected_codes, majorCode: major_code });
-  };
-
   const handleBack = () => {
     goToStep(1);
   };
 
-  const handleSelectDiagnosis = (diagnosisId) => {
-    selectDiagnosis(diagnosisId);
+  const setTier = (code, nextTier) => {
+    setTiers((prev) => {
+      const updated = { ...prev };
+      if (nextTier === 'major') {
+        for (const [existingCode, tier] of Object.entries(updated)) {
+          if (existingCode !== code && tier === 'major') {
+            updated[existingCode] = 'minor';
+          }
+        }
+      }
+      updated[code] = nextTier;
+      return updated;
+    });
   };
 
   if (isGeneratingPlan) {
@@ -127,8 +157,10 @@ export function DiagnosisSection() {
             size="sm"
             icon={isGeneratingPlan ? null : CheckCircle}
             loading={isGeneratingPlan}
+            disabled={!canConfirm}
             onClick={handleConfirm}
-            glow={!isGeneratingPlan}
+            glow={canConfirm}
+            title={canConfirm ? undefined : 'Mark one diagnosis as Major to continue'}
           >
             {isGeneratingPlan ? 'Generating…' : 'Confirm'}
           </Button>
@@ -159,23 +191,29 @@ export function DiagnosisSection() {
         ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
                  : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
         <AlertCircle className="w-4 h-4 shrink-0" strokeWidth={1.5} />
-        <span>Clinical correlation required. You may select multiple diagnoses from the list below.</span>
+        <span>Click any diagnosis card to cycle Off → Minor → Major. Mark exactly one as Major before Confirm.</span>
       </div>
 
-      {/* DDx tier-selection panel: clinician marks one diagnosis as Major and
-          optional others as Minor. Renders only when the backend has emitted
-          the ddx_suggestion payload (new flow); otherwise falls back to the
-          legacy multi-select card below. */}
-      {state.ddxSuggestion?.candidates?.length > 0 && (
-        <DDxSelectionPanel
-          candidates={state.ddxSuggestion.candidates}
-          headlessDefault={{
-            major: state.ddxSuggestion.headless_default_major,
-            minors: state.ddxSuggestion.headless_default_minors || [],
-          }}
-          onConfirm={handleTierConfirm}
-          disabled={isGeneratingPlan}
-        />
+      {confirmError && (
+        <div className={`flex items-start gap-2 text-sm px-4 py-3 rounded-lg
+          ${isDark ? 'bg-rose-900/30 text-rose-200 border border-rose-500/30'
+                   : 'bg-rose-50    text-rose-800 border border-rose-200'}`}>
+          <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={1.5} />
+          <div className="flex-1">
+            <div className="font-semibold mb-1">Confirm failed — care plan could not be generated</div>
+            <div className="text-xs">{confirmError}</div>
+            <div className="text-[11px] mt-1 opacity-75">
+              Check the API server is running on <code>localhost:8058</code> and look in the browser console for details.
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setConfirmError(null)}
+            className="text-xs underline opacity-80 hover:opacity-100"
+          >
+            dismiss
+          </button>
+        </div>
       )}
 
       {/* Differential Diagnosis - Selectable */}
@@ -198,8 +236,12 @@ export function DiagnosisSection() {
 
         <div className="space-y-3">
           {sortedDifferentials.map((diff, idx) => {
-            const isSelected = selectedIds.includes(diff.id);
+            const tier = tiers[diff.icdCode] || 'off';
+            const isSelected = tier !== 'off';
+            const isMajor = tier === 'major';
             const isTopSuggestion = idx === 0;
+            const isMajorHint = state.ddxSuggestion?.headless_default_major === diff.icdCode;
+            const isMinorHint = state.ddxSuggestion?.headless_default_minors?.includes(diff.icdCode);
             // probability is already 0–100 (mapped from final_score*100 or similarity*100 in clinicalMappers.js)
             const pct = diff.probability != null ? Math.round(diff.probability) : null;
 
@@ -217,20 +259,33 @@ export function DiagnosisSection() {
             }[diff.risk] ?? 'bg-amber-500';
 
             return (
-              <button
+              <div
                 key={diff.id}
-                onClick={() => handleSelectDiagnosis(diff.id)}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 border-2 ${
+                role="button"
+                tabIndex={isGeneratingPlan ? -1 : 0}
+                onClick={() => !isGeneratingPlan && cycleTier(diff.icdCode)}
+                onKeyDown={(e) => {
+                  if (isGeneratingPlan) return;
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    cycleTier(diff.icdCode);
+                  }
+                }}
+                aria-pressed={isSelected}
+                aria-label={`${diff.name} — current tier ${tier}. Click to cycle Off, Minor, Major.`}
+                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 border-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] ${
                   isSelected
-                    ? `border-[var(--accent-primary)] ${isDark ? 'bg-[var(--accent-primary)]/15 shadow-[0_0_0_1px_var(--accent-primary)]' : 'bg-[var(--accent-primary)]/8 shadow-[0_0_0_1px_var(--accent-primary)]'}`
+                    ? isMajor
+                      ? `${isDark ? 'border-amber-400/80 bg-amber-500/10 shadow-[0_0_0_1px_rgba(251,191,36,0.45)]' : 'border-amber-400 bg-amber-50 shadow-[0_0_0_1px_rgba(245,158,11,0.35)]'}`
+                      : `${isDark ? 'border-sky-400/70 bg-sky-500/10 shadow-[0_0_0_1px_rgba(56,189,248,0.35)]' : 'border-sky-300 bg-sky-50 shadow-[0_0_0_1px_rgba(14,165,233,0.25)]'}`
                     : `border-transparent ${isDark ? 'hover:bg-white/5 hover:border-white/10' : 'hover:bg-slate-50 hover:border-slate-200'}`
-                }`}
+                } ${isGeneratingPlan ? 'cursor-not-allowed opacity-70' : ''}`}
               >
                 {/* Row 1: name · ICD · badges · percentage — matches 19-probability.html .head */}
                 <div className="flex items-center gap-2 mb-1.5">
                   {/* Selected checkmark / index number */}
                   {isSelected ? (
-                    <span className="w-5 h-5 rounded-full bg-[var(--accent-primary)] flex items-center justify-center shrink-0">
+                    <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${isMajor ? 'bg-amber-500' : 'bg-sky-500'}`}>
                       <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l3 3 5-5" />
                       </svg>
@@ -247,6 +302,16 @@ export function DiagnosisSection() {
                   >
                     {diff.name}
                   </span>
+                  {isMajor && (
+                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-700'}`}>
+                      Major
+                    </span>
+                  )}
+                  {tier === 'minor' && (
+                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${isDark ? 'bg-sky-500/20 text-sky-300' : 'bg-sky-100 text-sky-700'}`}>
+                      Minor
+                    </span>
+                  )}
                   <span className={`text-[11px] font-mono shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                     ICD-11 · {diff.icdCode}
                   </span>
@@ -276,6 +341,38 @@ export function DiagnosisSection() {
                       </span>
                     </>
                   )}
+                </div>
+
+                <div
+                  className="flex flex-wrap items-center justify-between gap-2 mb-2"
+                  onClick={(e) => e.stopPropagation()}
+                  onKeyDown={(e) => e.stopPropagation()}
+                >
+                  {(isMajorHint || isMinorHint) ? (
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setTier(diff.icdCode, isMajorHint ? 'major' : 'minor');
+                      }}
+                      className={`inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border transition-colors ${
+                        isMajorHint
+                          ? (isDark ? 'border-amber-400/60 text-amber-200 hover:bg-amber-500/10' : 'border-amber-300 text-amber-700 hover:bg-amber-50')
+                          : (isDark ? 'border-sky-400/60 text-sky-200 hover:bg-sky-500/10' : 'border-sky-300 text-sky-700 hover:bg-sky-50')
+                      }`}
+                    >
+                      <Sparkles className="w-3 h-3" />
+                      {isMajorHint ? 'System suggests Major' : 'System suggests Minor'}
+                    </button>
+                  ) : (
+                    <span />
+                  )}
+                  <TierSegmentedControl
+                    value={tier}
+                    onChange={(next) => setTier(diff.icdCode, next)}
+                    disabled={isGeneratingPlan}
+                    ariaLabel={`Tier for ${diff.icdCode} ${diff.name}`}
+                  />
                 </div>
 
                 {/* Row 1.5: rank-deviation indication (post-rerank tracking) */}
@@ -321,19 +418,10 @@ export function DiagnosisSection() {
                   </div>
                 )}
 
-                {/* Row 3: Clinical reasoning — always visible to show *why* AI picked this */}
-                {diff.reasoning && (
-                  <div className={`mt-2 px-3 py-2 rounded-lg border text-xs leading-relaxed ${
-                    isDark ? 'bg-blue-950/15 text-blue-300 border-blue-500/15'
-                           : 'bg-blue-50/50 text-blue-800 border-blue-100'
-                  }`}>
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <BrainCircuit className="w-3.5 h-3.5 shrink-0 text-blue-400 dark:text-blue-300" strokeWidth={2} />
-                      <span className="font-semibold text-[10px] text-blue-500 dark:text-blue-300 uppercase tracking-wide">Reasoning</span>
-                    </div>
-                    <p className={isDark ? 'text-blue-200/80' : 'text-blue-700'}>{diff.reasoning}</p>
-                  </div>
-                )}
+                {/* Row 3: Clinical reasoning — intentionally hidden on the card.
+                     The full score breakdown stays available in the AI Reasoning
+                     Trace panel on the left; under each DDx card we keep only the
+                     percentage / tier / override-reason so the card stays scannable. */}
 
                 {/* Row 4: clinical override reason, if any — only shown when selected */}
                 {isSelected && diff.overrideReason && (
@@ -360,7 +448,7 @@ export function DiagnosisSection() {
                     </div>
                   </div>
                 )}
-              </button>
+              </div>
             );
           })}
         </div>

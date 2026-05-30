@@ -322,6 +322,124 @@ Progress:
 - [ ] Coverage diff appended to report
 - [ ] Telemetry counters reviewed
 
+## P7 — First live eval pass: case 11 + case 12 results (2026-05-31)
+
+Both cases ran end-to-end through the new Major/Minor pipeline against the live
+local API (`localhost:8058`). The traces are saved as
+`tasks/eval_runs/case11_20260531_004134_summary.md` and
+`tasks/eval_runs/case12_20260531_010528_summary.md`.
+
+### Results table
+
+| Case | Major (auto-pick) | DDx ranking | CPGs returned | Allocation under-fill | Safety / refusals | Verdict |
+|---|---|---|---|---|---|---|
+| **Case 11** Stable CAD + ED | `MF41` (symptom code) | ❌ symptom code beat the actual ED disease code | ✅ 5/5 (2 from DDx + 3 from comorbidity channel — PCI, Stable-CAD, NSTE-ACS, CVD Prevention, ED CPG) | Major MF41 → 1 (expected 3); Minor BA52.Z → 1 (expected 2). Cascade exhausted with nothing left to give | ✅ PDE5i flagged contraindicated; urology + cardiology referrals; alternative ED options offered | **Pass — plan correct despite DDx mis-rank; comorbidity channel rescued the CPG coverage** |
+| **Case 12** Full Metabolic Syndrome | `5A11` (T2DM) | ✅ correct disease code at rank 1 | ⚠️ 4/5 — **Hypertension (5th Edition) CPG missed** despite HTN being a declared comorbidity | Major 5A11 → 1 (expected 3); Minor 5C80.2 → 1 (expected 2). Cascade exhausted | ✅ refused CVD-risk %; ✅ refused bariatric remission %; ✅ Asian bariatric threshold cited; ✅ priority-ordered plan | **Pass with one routing gap — HTN CPG missing** |
+
+### What this tells us
+
+- **Allocation math is correct in both cases.** The 1-major-only path hits the
+  3-cap; the 1+1 path *targets* 5 (n_minor=1 → `(3, [2])`) but the headless
+  Major and Minor codes happened to map to only 1 CPG each in the corpus, so
+  the cascade exhausted at 2.
+- **`stage3_quality_drop` SSE event fired as designed** in both cases, naming
+  the under-fill explicitly. T2.5 is doing real work.
+- **The hard problems live upstream of Stage 3.** Case 11's miss is a Stage 2
+  ranking quality issue (symptom-code-over-disease-code). Case 12's miss is a
+  comorbidity-routing reach issue (declared HTN didn't route to the HTN CPG).
+
+### Follow-ups that land in this same task
+
+Two mitigations agreed and tracked here (not deferred to T4):
+
+1. **Chapter-21 demotion** — push Chapter 21 ("Symptoms, signs and clinical
+   findings, not elsewhere classified") codes below disease codes in Stage 2
+   rerank when a similarly-scored disease code exists. Prevents `MF41` from
+   out-ranking the actual ED disease code.
+2. **Under-fill fallback to unselected DDx ranks** — when ≥2 codes are
+   selected and the Major/Minor allotment can't be filled by the existing
+   cascade (because the selected codes are exhausted), walk down the unselected
+   DDx ranks (3 → 4 → 5) and pull their best-scoring CPG to top up the budget.
+   Subject to the same quality floor and CPG-name dedup. Aim: when ≥2 codes
+   are picked, return 5 CPGs whenever the corpus supports it.
+
+Progress (P7):
+
+- [x] Case 11 dry-run validated
+- [x] Case 11 live run executed and summary captured
+- [x] Case 12 dry-run validated
+- [x] Case 12 live run executed and summary captured
+- [x] Both cases scored against expected behaviours
+- [ ] Chapter-21 demotion implemented + tested  (see Follow-up 1 below)
+- [ ] Under-fill fallback to unselected DDx ranks implemented + tested  (see Follow-up 2)
+- [ ] Case 11 re-run after both fixes — expect `5C80` / `MF40` rank-1
+- [ ] Case 12 re-run after both fixes — expect 5 CPGs incl. Hypertension
+
+### Follow-up 1 — Chapter-21 demotion (Stage 2)
+
+- **Where:** `agent/clinical_stages.py` after `_llm_rerank_ddx` returns.
+  Optional prompt clarifier in `agent/prompts/stage2_ddx_rerank.txt`.
+- **Rule:** if a Chapter 21 candidate (ICD-11 code starts with `M`) sits at
+  rank R, and a non-Chapter-21 disease candidate at rank R+k (k ≥ 1) has
+  `similarity >= chapter21.similarity − CHAPTER21_DEMOTION_TOLERANCE` (default
+  0.05), swap them so the disease code outranks the symptom code. Apply
+  pairwise, top-down, until no more swaps are needed.
+- **Why not just the prompt:** prompt alone is unreliable across cases (the
+  LLM already had a SPECIFICITY rule and still placed MF41 at rank 1). A
+  deterministic post-rerank step is the safety net.
+- **Exit gate:** synthetic case where Chapter 21 sym-code and a Chapter 1-15
+  disease code score within 0.05 of each other returns the disease code at
+  rank 1. Case 11 re-run lifts `5C80.0` or an ED disease code above `MF41`.
+
+### Follow-up 2 — Under-fill messaging (no cross-code padding)
+
+**Spec clarified after the first eval pass: quality > quantity.** The
+allotment ceiling (3 for n_selected=1, 5 for n_selected≥2) is a *maximum*, not
+a target. Under-fill must NOT be padded by pulling CPGs from unselected DDx
+ranks or from codes unrelated to the clinician's selection. If the
+clinician-picked codes cannot fill their allotment with related, quality
+matches, the slot stays empty and the trace says so explicitly.
+
+- **Where:** `agent/clinical_stages.py::stage_3_route` — sharpen the T2.5
+  telemetry rather than adding a Pass 3 cross-code fallback.
+- **Rule:**
+    - **Pass 1 (allotment fill)** and **Pass 2 (same-code cascade)** stay as
+      they are — Major-first, then Minors, capped at 3 per code, quality floor
+      `SEMANTIC_SCOPE_THRESHOLD` on per-code rank ≥ 2.
+    - **Pass 3 (cross-code padding) is explicitly NOT introduced.** No
+      scraping from unselected DDx codes; no relaxing the quality floor to
+      hit a numeric target.
+    - **`stage3_quality_drop` events differentiate three states per code:**
+      - `actual_slots == expected_slots` → not emitted (normal)
+      - `0 < actual_slots < expected_slots` → emit existing message
+        *"<tier> <code> backed by N CPG (expected M)"* with `badge:
+        "under_evidenced"`
+      - `actual_slots == 0` → emit a stronger message
+        *"<tier> <code>: no CPG found in scope"* with `badge:
+        "no_cpg_found"` so the clinician sees a clear out-of-scope signal,
+        not just a small number
+    - When **every** selected code has `actual_slots == 0`, emit the existing
+      `out_of_scope` sub-step at the top level (mirrors current behaviour for
+      the legacy single-code path).
+- **Why this is the right call:**
+    - Padding with unrelated CPGs would have hidden the real signal — case 12
+      *should* surface "Hypertension CPG didn't route" loudly so the
+      clinician knows the gap exists, rather than silently being topped up
+      from a tangential ICD code.
+    - Routing quality is the symptom; Stage 2 ranking + comorbidity-routing
+      reach (Follow-up 1, plus T4 Option A) are the cures.
+- **Exit gate:**
+    - Case 11 re-run: with Major MF40 (after chapter-21 demotion lifts a
+      disease code into rank 1) and a Minor, routing returns ≤ allotment, and
+      any zero-CPG code surfaces a `no_cpg_found` badge in the trace.
+    - Case 12 re-run: if Hypertension still doesn't route via the selected
+      codes, the trace clearly says so on the relevant code rather than
+      back-filling. Hypertension is then expected to land via the
+      comorbidity-routing improvements (T4 / dedicated follow-up), not via
+      this under-fill path.
+    - Synthetic case where every selected code routes to 0 CPGs: top-level
+      `out_of_scope` event fires; no CPGs returned.
+
 ## T4 — Capacity-of-5 mitigations (SUGGESTION ONLY — not in this task's scope)
 
 > Status: **three alternative proposals for a follow-up task**. Do not implement

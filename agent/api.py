@@ -12,7 +12,7 @@ from datetime import datetime
 import uuid
 
 from fastapi import FastAPI, HTTPException, Request, Depends
-from fastapi.responses import StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
 from contextvars import ContextVar
@@ -75,6 +75,10 @@ class ResynthesizeRequest(_BaseModel):
     # Optional for backward-compat: when None, falls back to (a) the diagnosis whose
     # tier=="major", else (b) the first entry of selected_diagnoses.
     major_code: str | None = None
+    # Supabase consultation row id; tags the SSE log + pipeline timings so the
+    # re-synth run is associated with the same consultation as the initial DDx run.
+    # Optional — older callers may not send it.
+    consultation_id: int | None = None
 
 
 class ClinicalPlanResponse(_BaseModel):
@@ -1769,14 +1773,23 @@ async def delivery_status(consultation_id: int):
 # Exception handlers
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
-    """Global exception handler."""
-    logger.error(f"Unhandled exception: {exc}")
-    
-    return ErrorResponse(
+    """Global exception handler.
+
+    Returns a real `JSONResponse` instead of a bare Pydantic model — FastAPI
+    needs a `Response` here, not the model, otherwise it tries to *call* the
+    model and raises `TypeError: 'ErrorResponse' object is not callable`,
+    masking whatever real error fired in the first place.
+
+    `exc_info=True` logs the traceback so the actual root-cause line shows up
+    in the uvicorn console rather than just the one-liner.
+    """
+    logger.error("Unhandled exception on %s %s: %s", request.method, request.url.path, exc, exc_info=True)
+    payload = ErrorResponse(
         error=str(exc),
         error_type=type(exc).__name__,
-        request_id=str(uuid.uuid4())
+        request_id=str(uuid.uuid4()),
     )
+    return JSONResponse(status_code=500, content=payload.model_dump())
 
 
 # Development server

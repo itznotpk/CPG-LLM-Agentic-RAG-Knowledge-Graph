@@ -1074,10 +1074,13 @@ class ScoreBreakdown(BaseModel):
 
     @model_validator(mode="after")
     def validate_final_score(self) -> "ScoreBreakdown":
-        expected = self.base_similarity + self.inclusion_match + self.cc_boost - self.exclusion_penalty
+        # CC-boost is no longer in the math formula — it stays on the breakdown
+        # purely as a soft signal that downstream stages (LLM rerank prompt,
+        # trace badge) consume separately. final_score = base + incl − excl.
+        expected = self.base_similarity + self.inclusion_match - self.exclusion_penalty
         if abs(self.final_score - expected) > 0.001:
             raise ValueError(
-                "final_score must equal base_similarity + inclusion_match + cc_boost - exclusion_penalty"
+                "final_score must equal base_similarity + inclusion_match - exclusion_penalty"
             )
         return self
 
@@ -1133,11 +1136,14 @@ def build_score_breakdown(
     # final past 1.0. exclusion_penalty is already weighted upstream.
     raw_inclusion = float(result.inclusion_similarity or 0.0)
     inclusion_match = round(INCLUSION_BOOST_WEIGHT * raw_inclusion, 4)
-    # CC boost — already pre-weighted (CC_BOOST_WEIGHT × raw confidence) upstream
-    cc_boost = round(float(result.cc_boost or 0.0), 4)
+    # CC-boost — STILL EXTRACTED upstream and exposed to the LLM rerank prompt
+    # as a soft signal, but no longer enters the math formula. The clinician-
+    # facing breakdown is the simpler `base + inclusion − exclusion`. To revert,
+    # change `final_score` below to `base + inclusion + cc_boost − exclusion`.
+    cc_boost = round(float(result.cc_boost or 0.0), 4)  # preserved for trace transparency only
     cc_boost_raw = result.cc_confidence  # preserve the unweighted LLM confidence for display
     exclusion_penalty = float(result.exclusion_penalty or 0.0)
-    final_score = round(base_similarity + inclusion_match + cc_boost - exclusion_penalty, 4)
+    final_score = round(base_similarity + inclusion_match - exclusion_penalty, 4)
 
     # Phrase is shown when the underlying MATCH (raw cosine) is strong — not the
     # weighted addend (which is always < the floor after weighting).
@@ -2276,6 +2282,12 @@ async def stage_2_ddx(
     if rerank and results:
         results = await _llm_rerank_ddx(case, results, emit=emit)
 
+    # Deterministic safety net: push Chapter 21 (symptoms / signs / findings)
+    # codes below similarly-scored disease codes. Backstops case-11-style
+    # mis-ranks where the LLM left `MF41` (symptom complaint) above the actual
+    # disease code at near-identical score. Runs whether or not LLM rerank ran.
+    results = _demote_chapter21_codes(results)
+
     top = results[:top_k]
     # Attach the numeric score breakdown now (base / inclusion / exclusion / final)
     # so the streamed top-5 already shows "why this rank". route_method stays None
@@ -2469,6 +2481,71 @@ def _case_cpg_priority(ref: CPGDocRef, ddx: list[DDxResult], clinical_context: s
         "semantic_scope": 0,
     }.get(ref.match_type, 0)
     return ref.score, route_tie_break, ref.cpg_name
+
+
+# ---------------------------------------------------------------------------
+# Chapter-21 (symptoms / signs / findings) demotion safety net
+# ---------------------------------------------------------------------------
+# ICD-11 Chapter 21 — "Symptoms, signs or clinical findings, not elsewhere
+# classified" — uses stem codes prefixed with `M`. These describe complaints
+# (e.g. MF41 "Symptom or complaint of male sexual function") rather than
+# diseases. Stage 2 vector search and the LLM rerank sometimes leave a
+# Chapter 21 candidate at rank 1 even when a similarly-scored disease code
+# exists below — which lands the wrong "Major" code in the Major/Minor flow.
+# This deterministic pairwise-swap pass is a safety net under the prompt's
+# SPECIFICITY rule. It only fires when a disease candidate sits within
+# CHAPTER21_DEMOTION_TOLERANCE of the symptom code's score, so a strongly
+# scored symptom isn't yielded to a weakly scored disease code.
+
+CHAPTER21_DEMOTION_TOLERANCE = float(os.getenv("CHAPTER21_DEMOTION_TOLERANCE", "0.05"))
+
+
+def _is_chapter_21_code(code: str | None) -> bool:
+    """ICD-11 Chapter 21 (Symptoms / signs / findings) stem codes start with `M`."""
+    if not code:
+        return False
+    return code[0].upper() == "M"
+
+
+def _demote_chapter21_codes(results: list[DDxResult]) -> list[DDxResult]:
+    """Push Chapter 21 (symptoms / signs / findings) codes below similarly-
+    scored disease codes via pairwise top-down swaps until stable.
+
+    A swap fires only when the disease code's score is within
+    `CHAPTER21_DEMOTION_TOLERANCE` of the Chapter 21 code above it — so a
+    strongly-scored Chapter 21 code (e.g. when the symptom *is* the diagnosis,
+    such as a vague presentation with no candidate disease close by) keeps its
+    rank.
+    """
+    if not results:
+        return results
+    ordered = list(results)
+    # Bounded outer loop — at worst we do O(n²) swaps to fully sort.
+    for _ in range(len(ordered)):
+        swapped = False
+        for i in range(len(ordered) - 1):
+            top, below = ordered[i], ordered[i + 1]
+            if not _is_chapter_21_code(top.code):
+                continue
+            if _is_chapter_21_code(below.code):
+                continue
+            top_score = top.final_score if top.final_score is not None else top.similarity
+            below_score = below.final_score if below.final_score is not None else below.similarity
+            if top_score is None or below_score is None:
+                continue
+            if (top_score - below_score) <= CHAPTER21_DEMOTION_TOLERANCE:
+                ordered[i], ordered[i + 1] = below, top
+                # Record the demotion reason on the symptom code for trace
+                # transparency. If it already has an override_reason, append.
+                gap = top_score - below_score
+                tag = f"chapter21_demotion: yielded to {below.code} (Δ={gap:.3f})"
+                top.override_reason = (
+                    f"{top.override_reason}; {tag}" if top.override_reason else tag
+                )
+                swapped = True
+        if not swapped:
+            break
+    return ordered
 
 
 # ---------------------------------------------------------------------------
@@ -2806,14 +2883,22 @@ async def stage_3_route(
             })
             for d in drop_events:
                 tier_label = "Primary" if d["tier"] == "major" else "Co-consideration"
-                detail = (
-                    f"{tier_label} {d['code']} backed by {d['actual_slots']} CPG"
-                    f"{'s' if d['actual_slots'] != 1 else ''} (expected {d['expected_slots']})"
-                )
+                if d["actual_slots"] == 0:
+                    # No CPG matched this code at all. Differentiate from a
+                    # partial under-fill so the clinician sees a clear scope
+                    # signal in the trace, not just a small number.
+                    detail = f"{tier_label} {d['code']}: no CPG found in scope"
+                    badge = "no_cpg_found"
+                else:
+                    detail = (
+                        f"{tier_label} {d['code']} backed by {d['actual_slots']} CPG"
+                        f"{'s' if d['actual_slots'] != 1 else ''} (expected {d['expected_slots']})"
+                    )
+                    badge = "under_evidenced"
                 await emit("sub_step", {
                     "stage": 3,
                     "detail": detail,
-                    "badge": "under_evidenced",
+                    "badge": badge,
                     "status": "complete",
                 })
 

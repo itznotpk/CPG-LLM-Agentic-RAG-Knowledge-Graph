@@ -23,8 +23,10 @@ from agent.clinical_stages import (
     _allocate_major_minor,
     _auto_select_codes,
     _build_symptom_text,
+    _demote_chapter21_codes,
     _generate_retrieval_queries,
     _format_evidence,
+    _is_chapter_21_code,
     _llm_rerank_ddx,
     stage_2_ddx,
     stage_3_route,
@@ -261,6 +263,61 @@ async def test_stage3_caps_at_top_k_cpgs():
 
 
 # ---------------------------------------------------------------------------
+# Chapter-21 demotion safety net (Stage 2 post-rerank)
+# ---------------------------------------------------------------------------
+
+def _ddx(code: str, score: float) -> DDxResult:
+    return DDxResult(code=code, title=code, similarity=score, final_score=score)
+
+
+def test_is_chapter_21_code_basics():
+    assert _is_chapter_21_code("MF41") is True
+    assert _is_chapter_21_code("MD90") is True
+    assert _is_chapter_21_code("ma00") is True  # case-insensitive
+    assert _is_chapter_21_code("5A11") is False
+    assert _is_chapter_21_code("BA00") is False
+    assert _is_chapter_21_code("") is False
+    assert _is_chapter_21_code(None) is False
+
+
+def test_demote_chapter21_swaps_when_within_tolerance():
+    """Case-11-style: MF41 at rank 1, BA52.Z at rank 2 within 0.05 tolerance → swap."""
+    ddx = [_ddx("MF41", 0.955), _ddx("BA52.Z", 0.946), _ddx("5C80.0", 0.864)]
+    out = _demote_chapter21_codes(ddx)
+    codes = [r.code for r in out]
+    assert codes[0] == "BA52.Z", f"Disease code should win rank 1, got {codes}"
+    assert codes[1] == "MF41"
+    # The swap records a demotion reason on the symptom code.
+    mf41 = next(r for r in out if r.code == "MF41")
+    assert mf41.override_reason and "chapter21_demotion" in mf41.override_reason
+
+
+def test_demote_chapter21_keeps_strongly_scored_symptom():
+    """Symptom-code score far above any disease code → stays at rank 1."""
+    ddx = [_ddx("MF41", 0.97), _ddx("BA52.Z", 0.50), _ddx("5C80.0", 0.40)]
+    out = _demote_chapter21_codes(ddx)
+    assert out[0].code == "MF41"
+
+
+def test_demote_chapter21_handles_all_chapter21():
+    """No disease code in the candidate list → no-op."""
+    ddx = [_ddx("MF41", 0.9), _ddx("MD90", 0.8), _ddx("MG22", 0.7)]
+    out = _demote_chapter21_codes(ddx)
+    assert [r.code for r in out] == ["MF41", "MD90", "MG22"]
+
+
+def test_demote_chapter21_handles_no_chapter21():
+    """No M-prefix codes → list returned unchanged."""
+    ddx = [_ddx("5A11", 0.9), _ddx("BA00", 0.85), _ddx("5C80.0", 0.7)]
+    out = _demote_chapter21_codes(ddx)
+    assert [r.code for r in out] == ["5A11", "BA00", "5C80.0"]
+
+
+def test_demote_chapter21_empty_input():
+    assert _demote_chapter21_codes([]) == []
+
+
+# ---------------------------------------------------------------------------
 # Major/Minor allocation + auto-select + new stage_3_route flow
 # ---------------------------------------------------------------------------
 
@@ -455,6 +512,66 @@ async def test_stage3_major_code_must_be_in_selected_codes():
             selected_codes=["A", "B"],
             major_code="C",  # not in selection
         )
+
+
+@pytest.mark.asyncio
+async def test_stage3_no_cpg_found_badge_when_code_routes_to_zero():
+    """A selected code that matches zero CPGs emits a `no_cpg_found` sub-step
+    so the trace shows a clear out-of-scope signal instead of a small number."""
+    ddx = [_make_ddx(code="MAJ"), _make_ddx(code="MIN")]
+    events: list[tuple[str, dict]] = []
+
+    async def emit(event_type, data):
+        events.append((event_type, data))
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        if code == "MAJ":
+            return [_make_cpg(cpg_name="MAJ_HIT", doc_ids=["m"])]
+        return []  # MIN routes to zero CPGs
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        await stage_3_route(
+            ddx,
+            selected_codes=["MAJ", "MIN"],
+            major_code="MAJ",
+            emit=emit,
+        )
+
+    no_cpg_events = [d for et, d in events if et == "sub_step" and d.get("badge") == "no_cpg_found"]
+    assert any("MIN" in d.get("detail", "") for d in no_cpg_events), (
+        f"Expected a no_cpg_found sub-step for MIN, got: {[d.get('detail') for d in no_cpg_events]}"
+    )
+
+
+@pytest.mark.asyncio
+async def test_stage3_does_not_pad_from_unselected_ddx_codes():
+    """Spec: when selected codes can't fill the quota, slots stay empty —
+    no scraping from unselected DDx codes to hit a numeric target."""
+    # Three DDx codes; only the top two are selected as Major/Minor.
+    ddx = [_make_ddx(code="MAJ"), _make_ddx(code="MIN"), _make_ddx(code="OTHER")]
+    routed_codes: list[str] = []
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        routed_codes.append(code)
+        if code == "MAJ":
+            return [_make_cpg(cpg_name="MAJ_HIT", doc_ids=["m"])]
+        if code == "MIN":
+            return [_make_cpg(cpg_name="MIN_HIT", doc_ids=["n"])]
+        # OTHER has plenty available — but must not be routed.
+        return [_make_cpg(cpg_name=f"OTHER_{i}", doc_ids=[f"o{i}"]) for i in range(5)]
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        result = await stage_3_route(
+            ddx,
+            selected_codes=["MAJ", "MIN"],
+            major_code="MAJ",
+        )
+
+    names = [r.cpg_name for r in result]
+    assert "OTHER_0" not in names, f"Unselected code OTHER must not back-fill, got {names}"
+    assert "OTHER" not in routed_codes, "Stage 3 must not even route unselected codes"
+    # Quality holds: 2 CPGs from the two selected codes is the honest answer.
+    assert sorted(names) == ["MAJ_HIT", "MIN_HIT"]
 
 
 # ---------------------------------------------------------------------------
@@ -831,7 +948,9 @@ async def test_rerank_uses_configured_model(minimal_case):
         # Model resolution mirrors clinical_stages: STAGE2 override (e.g. mimo) wins, else DDX_RERANK_MODEL
         expected_model = os.getenv("STAGE2_LLM_CHOICE") or DDX_RERANK_MODEL
         assert call_kwargs["model"] == expected_model
-        assert call_kwargs["temperature"] == 1
+        # Rerank now runs at temperature=0 with a fixed seed for determinism —
+        # was temperature=1 (sampling) before the deterministic-seed switch.
+        assert call_kwargs["temperature"] == 0
         # Bumped 4000 → 8000 so mimo's reasoning + JSON output both fit; at 4000 the
         # reasoning model frequently exhausted the budget and returned empty content.
         assert call_kwargs["max_tokens"] == 8000

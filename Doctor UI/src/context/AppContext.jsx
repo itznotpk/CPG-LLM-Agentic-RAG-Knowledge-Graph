@@ -782,6 +782,11 @@ export function AppProvider({ children }) {
           eventType: 'stage_update',
         },
       });
+      // Re-throw so the caller can show a visible banner — silent failure
+      // here leaves the clinician stranded on the diagnosis page wondering
+      // why nothing happened.
+      dispatch({ type: 'SET_GENERATING_PLAN', payload: false });
+      throw err;
     }
 
     dispatch({ type: 'SET_GENERATING_PLAN', payload: false });

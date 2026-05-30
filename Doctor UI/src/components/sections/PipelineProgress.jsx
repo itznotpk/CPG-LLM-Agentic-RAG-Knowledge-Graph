@@ -109,14 +109,13 @@ function DDxCandidateTable({ candidates, isDark }) {
               )}
             </div>
 
-            {/* Row 2: score breakdown */}
+            {/* Row 2: score breakdown — CC-boost is no longer in the math formula;
+                 it stays available as a soft signal to the LLM rerank (separately
+                 surfaced via the clinician-named badge / override_reason below). */}
             <div className={`mt-1 font-mono text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
               <span title="base vector similarity">base {fmt(sb.base_similarity)}</span>
               <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
                 {'  + incl '}{fmt(incl, true)}
-              </span>
-              <span className={ccBoost > 0 ? 'text-sky-400' : 'opacity-40'} title={ccRaw != null ? `CC confidence: ${Math.round(ccRaw * 100)}%` : 'CC hint boost'}>
-                {'  + CC '}{fmt(ccBoost, true)}
               </span>
               <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
                 {'  − excl '}{fmt(excl)}
@@ -124,6 +123,14 @@ function DDxCandidateTable({ candidates, isDark }) {
               <span className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                 {'  = '}{fmt(sb.final_score)}
               </span>
+              {ccBoost > 0 && (
+                <span
+                  className="ml-2 inline-flex items-center gap-1 text-[10px] text-sky-400"
+                  title={ccRaw != null ? `Clinician named this diagnosis (CC confidence ${Math.round(ccRaw * 100)}%) — used by LLM rerank only, not in math` : 'Clinician-named — used by LLM rerank only, not in math'}
+                >
+                  · clinician-named (LLM signal)
+                </span>
+              )}
             </div>
 
             {/* Row 3: override reason, if the AI re-ranked against the math order */}

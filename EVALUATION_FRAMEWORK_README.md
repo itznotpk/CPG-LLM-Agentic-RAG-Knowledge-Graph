@@ -799,6 +799,16 @@ You now have a complete evaluation framework:
 *   **Refer:** cardiology (nitrate review) + urology/sexual medicine (ED workup).
 *   **Assumption flag:** "Plan assumes patient has not already obtained PDE5i over-the-counter. Counsel explicitly on the contraindication; if exposure has occurred, screen for hypotensive symptoms."
 
+**Live-run result (last executed 2026-05-31, trace: `tasks/eval_runs/case11_20260531_004134_summary.md`):**
+
+| Axis | Result |
+|---|---|
+| **DDx** | ❌ Rank-1 = `MF41` (Chapter 21 symptom code, "male sexual function complaint") instead of the specific disease code (`MF40.0` / `5C80`). Chapter-21 demotion safety net has since been added in `agent/clinical_stages.py::_demote_chapter21_codes`; this case should be re-run to confirm. |
+| **CPGs matched** | ✅ 5/5 — Percutaneous-Coronary-Intervention, Stable-Coronary-Artery-Disease (2nd Edition), NSTE-ACS (3rd Edition), Primary-Secondary-Prevention-of-CVD (2017), Erectile-Dysfunction (2024). Of these, 3 were rescued via the comorbidity-routing channel. |
+| **Safety** | ✅ PDE5i flagged contraindicated against ISMN 60mg OD; urology referral surfaced; alternative non-PDE5i ED options (vacuum device, intracavernosal/intraurethral alprostadil) named. |
+| **Under-fill telemetry (T2.5)** | Major `MF41` backed by 1 CPG (allotment 3); Minor `BA52.Z` backed by 1 CPG (allotment 2). Cascade exhausted with nothing more to give from the selected codes. |
+| **Verdict** | **Pass — plan correct despite DDx mis-rank.** The comorbidity-routing channel rescued the CPG coverage even though the headless Major (`MF41`) is a vague symptom code. |
+
 ---
 
 ---
@@ -837,6 +847,18 @@ You now have a complete evaluation framework:
 *   **Refuse-to-quote on sub-question 2 (bariatric remission %):** "Do not quote a single remission percentage. T2DM remission post-bariatric surgery is well-documented but varies by procedure (sleeve vs RYGB), T2DM duration, beta-cell reserve, and surgeon volume. The patient meets Asian referral threshold — defer specific prognosis to the bariatric MDT consultation."
 *   **Continuing plan:** start statin + ACE-I + metformin + GLP-1 RA *while* awaiting bariatric review (months-long wait); do not delay pharmacotherapy.
 *   **Uncertainty flag:** GLP-1 RA vs SGLT2i first-line — both CPG-supported; preference depends on weight-loss priority (GLP-1 RA superior) vs cardiorenal protection (SGLT2i if CKD develops). Individualise.
+
+**Live-run result (last executed 2026-05-31, trace: `tasks/eval_runs/case12_20260531_010528_summary.md`):**
+
+| Axis | Result |
+|---|---|
+| **DDx** | ✅ Rank-1 = `5A11` (Type 2 diabetes mellitus) — correct Major. |
+| **CPGs matched** | ⚠️ **4/5** — Hypertension (5th Edition) CPG **missed** even though "Hypertension (newly confirmed)" is a declared comorbidity. The four routed: T2-Diabetes-Mellitus (6th Ed), Dyslipidaemia (6th Ed), Obesity-Management (2023), Primary-Secondary-Prevention-of-CVD (2017). HTN guidance still reached the plan via the T2DM CPG's HTN-management section, but the dedicated Hypertension CPG would have given richer BP-target-by-context detail. |
+| **Refusals** | ✅ Refused to compute a CVD risk %; ✅ refused to invent a single bariatric T2DM remission %; defers prognosis to bariatric MDT. |
+| **Priority order** | ✅ Lifestyle → metformin → SGLT2i/GLP-1 RA → high-intensity statin → ACE-I/ARB → bariatric referral. |
+| **Bariatric threshold** | ✅ Asian BMI ≥37.5 + ≥1 comorbidity cited explicitly (patient: BMI 38.5 + T2DM + HTN + dyslipidaemia). |
+| **Under-fill telemetry (T2.5)** | Major `5A11` backed by 1 CPG (allotment 3); Minor `5C80.2` backed by 1 CPG (allotment 2). Cascade exhausted within the selected codes. |
+| **Verdict** | **Pass with one routing gap — Hypertension (5th Edition) CPG missing.** Comorbidity-routing reach is a separate follow-up; the Major/Minor allocation itself is correct. |
 
 ---
 
