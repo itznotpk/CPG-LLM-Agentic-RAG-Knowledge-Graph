@@ -1,5 +1,6 @@
 import React from 'react';
-import { Brain, Activity, UserPlus, X, Database, Heart, BarChart2, Wind, Scale, Thermometer, Loader2 } from 'lucide-react';
+import { Brain, Activity, UserPlus, X, Database, Heart, BarChart2, Wind, Scale, Thermometer, Loader2, ClipboardList, Pill, HelpCircle } from 'lucide-react';
+import { getPrepBrief } from '../../lib/clinicalApi';
 import { ClinicalNotes } from './ClinicalNotes';
 import { PipelineProgress } from './PipelineProgress';
 import { VitalsGrid } from './VitalsGrid';
@@ -959,6 +960,51 @@ function StatusStrip({ mpisChecked, vitals, clinicalNotes, isDark, onAnalyze }) 
   );
 }
 
+// ── Pre-consultation Prep Brief ────────────────────────────────────────────
+function PrepBriefCard({ brief, loading }) {
+  const { isDark } = useTheme();
+
+  if (loading) {
+    return (
+      <div className={`rounded-xl border px-4 py-3 flex items-center gap-3 ${
+        isDark ? 'bg-slate-800/60 border-slate-700' : 'bg-amber-50 border-amber-200'
+      }`}>
+        <Loader2 size={14} className="animate-spin text-amber-500 shrink-0" />
+        <span className={`text-xs ${isDark ? 'text-slate-400' : 'text-amber-700'}`}>Preparing pre-visit brief…</span>
+      </div>
+    );
+  }
+
+  if (!brief) return null;
+
+  const rows = [
+    { icon: ClipboardList, label: 'Since last visit', value: brief.since_last_visit, color: 'text-sky-500' },
+    { icon: Pill,          label: 'Medications',      value: brief.med_flags,        color: 'text-violet-500' },
+    { icon: HelpCircle,    label: 'Ask today',         value: brief.ask_today,        color: 'text-amber-500' },
+  ].filter(r => r.value);
+
+  if (rows.length === 0) return null;
+
+  return (
+    <div className={`rounded-xl border px-4 py-3 space-y-2 ${
+      isDark ? 'bg-slate-800/60 border-slate-700' : 'bg-amber-50 border-amber-200'
+    }`}>
+      <p className={`text-[10px] font-semibold uppercase tracking-widest mb-2 ${isDark ? 'text-slate-500' : 'text-amber-600'}`}>
+        Pre-visit brief
+      </p>
+      {rows.map(({ icon: Icon, label, value, color }) => (
+        <div key={label} className="flex items-start gap-2">
+          <Icon size={13} className={`${color} shrink-0 mt-0.5`} />
+          <p className={`text-xs leading-snug ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+            <span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'} mr-1`}>{label}:</span>
+            {value}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function DataInputSection({ onViewChart }) {
   const { state, dispatch, syncMPIS, analyzeAssessment, saveVitalsToDB } = useApp();
   const { isDark } = useTheme();
@@ -969,6 +1015,8 @@ export function DataInputSection({ onViewChart }) {
   const [mpisChecked, setMpisChecked] = React.useState(false);
   const [mpisFound, setMpisFound] = React.useState(false);
   const [isChartModalOpen, setIsChartModalOpen] = React.useState(false);
+  const [prepBrief, setPrepBrief] = React.useState(null);
+  const [prepBriefLoading, setPrepBriefLoading] = React.useState(false);
 
   // Auto-populate NRIC when navigating from Home page's Start Consult
   React.useEffect(() => {
@@ -976,6 +1024,30 @@ export function DataInputSection({ onViewChart }) {
       setNsn(patient.nsn);
     }
   }, [patient?.nsn]);
+
+  // Fetch prep brief when a returning patient with a prior visit is loaded.
+  // Clear unconditionally first so a previous patient's brief never lingers.
+  React.useEffect(() => {
+    setPrepBrief(null);
+    setPrepBriefLoading(false);
+    const priorVisit = state.priorVisit;
+    if (!mpisFound || !mpisChecked || !priorVisit || !patient) return;
+    setPrepBriefLoading(true);
+    getPrepBrief({
+      patientNric: patient.nsn,
+      priorVisit,
+      currentMedications: mpisData?.currentMeds || [],
+      patientAge: patient.age || null,
+      patientSex: patient.gender || null,
+      comorbidities: mpisData?.comorbidities || [],
+    }).then(result => {
+      setPrepBrief(result);
+    }).catch(() => {
+      setPrepBrief(null);
+    }).finally(() => {
+      setPrepBriefLoading(false);
+    });
+  }, [mpisFound, mpisChecked, state.priorVisit?.visit_date, patient?.nsn]);
 
   // NRIC format validation: accepts both xxxxxx-xx-xxxx and xxxxxxxxxxxx (12 digits)
   const validateNRIC = (nric) => {
@@ -1178,12 +1250,15 @@ export function DataInputSection({ onViewChart }) {
           {/* Step 2: Show auto-filled or manual entry */}
           {mpisChecked && (
             mpisFound ? (
-              <PatientInfoCard
-                patient={patient}
-                mpisData={mpisData}
-                onClear={handleClear}
-                onViewChart={() => setIsChartModalOpen(true)}
-              />
+              <>
+                <PatientInfoCard
+                  patient={patient}
+                  mpisData={mpisData}
+                  onClear={handleClear}
+                  onViewChart={() => setIsChartModalOpen(true)}
+                />
+                {state.priorVisit && <PrepBriefCard brief={prepBrief} loading={prepBriefLoading} />}
+              </>
             ) : (
               <NewPatientForm
                 nsn={patient?.nsn || nsn}

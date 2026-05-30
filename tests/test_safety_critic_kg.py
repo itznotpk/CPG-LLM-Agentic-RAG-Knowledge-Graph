@@ -56,9 +56,15 @@ def test_kg_flag_maps_to_graph_sourced_safety_flag():
     assert "Bleeding risk" in sf.detail
 
 
-def test_kg_flag_monitoring_is_skipped():
+def test_kg_flag_monitoring_maps_to_dose_flag():
+    """MONITORING edges are surfaced as 'dose'-category graph flags (no dedicated
+    monitoring flag_type exists). Reflects the pharmacist-vacant-clinic policy of
+    surfacing every concern; previously these were dropped."""
     cf = ClinicalFlag(flag_type="MONITORING", subject="Warfarin", object="INR", relation="REQUIRES_MONITORING")
-    assert _kg_flag_to_safety(cf, drug_idx_map={"warfarin": 0}, pharm_recommendation_indices=[0]) is None
+    sf = _kg_flag_to_safety(cf, drug_idx_map={"warfarin": 0}, pharm_recommendation_indices=[0])
+    assert sf is not None
+    assert sf.flag_type == "dose"
+    assert sf.source == "graph"
 
 
 # --- _kg_verify_plan integration (mocked KG) --------------------------------
@@ -126,7 +132,7 @@ async def test_run_safety_critic_merges_llm_and_kg_flags():
     }
     mock_resp = MagicMock()
     mock_resp.choices = [MagicMock()]
-    mock_resp.choices[0].message = MagicMock(content='{"flags":[{"severity":"MODERATE","recommendation_index":0,"flag_type":"drug_interaction","detail":"Warfarin requires INR monitoring (LLM-suggested).","suggested_alternative":null}],"safe_to_proceed":true,"reviewer_notes":null}')
+    mock_resp.choices[0].message = MagicMock(content='{"flags":[{"title":"warfarin - INR monitoring","severity":"MODERATE","recommendation_index":0,"flag_type":"drug_interaction","detail":"Warfarin requires INR monitoring (LLM-suggested).","suggested_alternative":null}],"safe_to_proceed":true,"reviewer_notes":null}')
 
     fake_client = MagicMock()
     fake_client.chat.completions.create = AsyncMock(return_value=mock_resp)

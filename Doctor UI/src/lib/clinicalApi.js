@@ -362,11 +362,11 @@ export async function resynthesizePlanStream(
   });
 }
 
-export async function enqueueDelivery(consultationId) {
+export async function enqueueDelivery(consultationId, clinicianName = null) {
   const r = await fetch(`${CLINICAL_API_BASE}/delivery/enqueue`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ consultation_id: consultationId }),
+    body: JSON.stringify({ consultation_id: consultationId, clinician_name: clinicianName }),
   });
   if (!r.ok) throw new Error(await r.text());
   return r.json();
@@ -375,4 +375,21 @@ export async function enqueueDelivery(consultationId) {
 export async function getDeliveryStatus(consultationId) {
   const r = await fetch(`${CLINICAL_API_BASE}/delivery/status/${consultationId}`);
   return r.ok ? r.json() : null;
+}
+
+export async function getPrepBrief({ priorVisit, currentMedications, patientAge, patientSex, comorbidities, patientNric }) {
+  const r = await fetch(`${CLINICAL_API_BASE}/clinical/prep-brief`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      patient_nric: patientNric,
+      prior_visit: priorVisit,
+      current_medications: currentMedications || [],
+      patient_age: patientAge || null,
+      patient_sex: patientSex || null,
+      comorbidities: comorbidities || [],
+    }),
+  });
+  if (!r.ok) return null;
+  return r.json();
 }

@@ -78,6 +78,7 @@ def _make_job_row(**overrides):
         email_consent_at=datetime.now(timezone.utc),
         consultation_date="2026-05-29",
         report_pdf_url="https://example.com/plan.pdf",
+        clinician_name="Dr. Lim Wei",
     )
     base.update(overrides)
     return base
@@ -140,6 +141,33 @@ async def test_send_email_happy_path(smtp_server):
              if p.get_content_type() == "application/pdf"]
     assert parts, "No PDF attachment"
     assert parts[0].get_filename() == "care_plan.pdf"
+
+
+@pytest.mark.asyncio
+async def test_email_has_html_alternative(smtp_server):
+    """Email must carry a formatted HTML alternative alongside the plaintext body."""
+    handler = smtp_server
+    row = _make_job_row()
+    pool, conn = _make_pool_mock(row)
+    jid = uuid.uuid4()
+
+    with patch("agent.delivery.db_pool", pool):
+        with patch("agent.delivery._fetch_pdf", AsyncMock(return_value=FIXTURE_PDF)):
+            await deliver_care_plan(jid)
+
+    assert len(handler.messages) == 1
+    parsed = email.message_from_bytes(handler.messages[0])
+    html_parts = [p for p in parsed.walk() if p.get_content_type() == "text/html"]
+    text_parts = [p for p in parsed.walk() if p.get_content_type() == "text/plain"]
+    assert html_parts, "No HTML alternative part"
+    assert text_parts, "Plaintext fallback should still be present"
+
+    html = html_parts[0].get_payload(decode=True).decode("utf-8")
+    assert "Alice Tan" in html          # personalised greeting
+    assert "2026-05-29" in html         # consultation date
+    assert "Dr. Lim Wei" in html        # signed by the logged-in clinician
+    # PDF attachment still present alongside the new multipart/alternative
+    assert any(p.get_content_type() == "application/pdf" for p in parsed.walk())
 
 
 @pytest.mark.asyncio

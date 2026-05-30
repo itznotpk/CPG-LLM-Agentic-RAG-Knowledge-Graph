@@ -819,6 +819,38 @@ async def summarise_prior(request: SummarisePriorRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+class PrepBriefRequest(_BaseModel):
+    patient_nric: str
+    prior_visit: dict
+    current_medications: list = []
+    patient_age: Optional[int] = None
+    patient_sex: Optional[str] = None
+    comorbidities: list = []
+
+
+@app.post("/clinical/prep-brief")
+async def prep_brief(request: PrepBriefRequest):
+    """30-second pre-consultation briefing for returning patients.
+
+    Returns 3 bullets: since_last_visit, med_flags, ask_today.
+    Only call when prior_visit is non-null (returning patients only).
+    """
+    from .clinical_stages import generate_prep_brief
+
+    try:
+        brief = await generate_prep_brief(
+            prior_visit=request.prior_visit,
+            current_medications=request.current_medications,
+            patient_age=request.patient_age,
+            patient_sex=request.patient_sex,
+            comorbidities=request.comorbidities,
+        )
+        return brief
+    except Exception as e:
+        logger.error("prep-brief failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 # ---------------------------------------------------------------------------
 # Shared SSE plumbing for clinical streaming endpoints.
 #
@@ -1657,6 +1689,7 @@ async def get_session_info(session_id: str):
 
 class DeliveryEnqueueRequest(_BaseModel):
     consultation_id: int
+    clinician_name: Optional[str] = None
 
 
 @app.post("/delivery/enqueue")
@@ -1666,8 +1699,9 @@ async def delivery_enqueue(body: DeliveryEnqueueRequest):
     try:
         async with _pool.acquire() as conn:
             rows = await conn.fetch(
-                "SELECT * FROM enqueue_delivery_job($1::integer)",
+                "SELECT * FROM enqueue_delivery_job($1::integer, $2::text)",
                 body.consultation_id,
+                body.clinician_name,
             )
         if not rows:
             raise HTTPException(status_code=400, detail="enqueue returned no row")

@@ -70,11 +70,13 @@ async def test_procedure_scope_fires_after_d1_exhausted():
 
 
 # ---------------------------------------------------------------------------
-# 2. procedure_scope skipped when D1 structural match found
+# 2. procedure_scope is MERGED (not skipped) even when a D1/exact match is found
+#    — procedure-only CPGs with no icd11_scope must still surface alongside the
+#    disease match (see _with_procedure_refs in routing.py).
 # ---------------------------------------------------------------------------
 
 @pytest.mark.asyncio
-async def test_procedure_scope_skipped_on_d1_match():
+async def test_procedure_scope_merged_on_d1_match():
     doc = _row(id="doc-exact", title="AF CPG", icd11_scope=["BC81.3"], cpg_name="AF-CPG")
 
     mock_conn = AsyncMock()
@@ -84,11 +86,12 @@ async def test_procedure_scope_skipped_on_d1_match():
         mock_pool.acquire.return_value.__aenter__ = AsyncMock(return_value=mock_conn)
         mock_pool.acquire.return_value.__aexit__ = AsyncMock(return_value=False)
 
-        with patch("agent.routing._procedure_scope_match", new=AsyncMock()) as mock_proc:
+        # Return empty so the merge no-ops gracefully; we only assert it was consulted.
+        with patch("agent.routing._procedure_scope_match", new=AsyncMock(return_value=[])) as mock_proc:
             from agent.routing import route_icd_to_cpgs
             results = await route_icd_to_cpgs("BC81.3", procedure_tags=["pre_op_assessment"])
 
-    mock_proc.assert_not_awaited()
+    mock_proc.assert_awaited()
     assert results[0].match_type == "exact"
 
 

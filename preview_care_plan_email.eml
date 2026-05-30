@@ -1,0 +1,108 @@
+From: ClearPath <chinpeikang@gmail.com>
+To: alice@example.com
+Subject: Care Plan =?utf-8?b?4oCU?= 2026-05-29
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============6429236559743022263=="
+
+--===============6429236559743022263==
+Content-Type: multipart/alternative;
+ boundary="===============3422724012475672784=="
+
+--===============3422724012475672784==
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Dear Alice Tan,
+
+Please find your care plan from your consultation on 2026-05-29 attached.
+If you have questions, contact the clinic. Do not reply to this email.
+
+— Dr. Lim Wei
+
+--===============3422724012475672784==
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+<!DOCTYPE html>
+<html lang=3D"en">
+<head>
+<meta charset=3D"utf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.0">
+</head>
+<body style=3D"margin:0;padding:0;background-color:#f4f5f7;font-family:-apple=
+-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#1f2933;">
+<span style=3D"display:none;max-height:0;overflow:hidden;opacity:0;">Your car=
+e plan is attached as a PDF.</span>
+<table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cellspacing=3D"=
+0" style=3D"background-color:#f4f5f7;padding:24px 0;">
+  <tr>
+    <td align=3D"center">
+      <table role=3D"presentation" width=3D"600" cellpadding=3D"0" cellspacin=
+g=3D"0" style=3D"max-width:600px;width:100%;background-color:#ffffff;border-r=
+adius:12px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.08);">
+        <tr>
+          <td style=3D"background-color:#0f766e;padding:24px 32px;">
+            <span style=3D"color:#ffffff;font-size:18px;font-weight:600;lette=
+r-spacing:0.2px;">Sunrise Family Clinic</span>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"padding:32px 32px 8px 32px;">
+            <p style=3D"margin:0 0 16px 0;font-size:16px;">Dear Alice Tan,</p>
+            <p style=3D"margin:0 0 20px 0;font-size:15px;line-height:1.6;colo=
+r:#3e4c59;">Please find your care plan from your consultation on <strong>2026=
+-05-29</strong> attached to this email as a PDF.</p>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"padding:0 32px 24px 32px;">
+            <table role=3D"presentation" width=3D"100%" cellpadding=3D"0" cel=
+lspacing=3D"0" style=3D"background-color:#f0fdfa;border:1px solid #99f6e4;bor=
+der-radius:8px;">
+              <tr>
+                <td style=3D"padding:16px 20px;">
+                  <p style=3D"margin:0 0 4px 0;font-size:14px;font-weight:600=
+;color:#0f766e;">=F0=9F=93=8E Attached: your care plan (PDF)</p>
+                  <p style=3D"margin:0;font-size:13px;line-height:1.5;color:#=
+3e4c59;">Open the attachment to view your full care plan, medications, and fo=
+llow-up instructions.</p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"padding:0 32px 8px 32px;">
+            <p style=3D"margin:0 0 20px 0;font-size:14px;line-height:1.6;colo=
+r:#3e4c59;">If you have any questions about your care plan, please contact th=
+e clinic.</p>
+            <p style=3D"margin:0;font-size:14px;color:#1f2933;">Warm regards,=
+<br><strong>Dr. Lim Wei</strong></p>
+          </td>
+        </tr>
+        <tr>
+          <td style=3D"padding:24px 32px;border-top:1px solid #e4e7eb;">
+            <p style=3D"margin:0;font-size:12px;line-height:1.5;color:#9aa5b1=
+;">This is an automated message =E2=80=94 please do not reply to this email.<=
+/p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+
+--===============3422724012475672784==--
+
+--===============6429236559743022263==
+Content-Type: application/pdf
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="care_plan.pdf"
+MIME-Version: 1.0
+
+JVBERi0xLjQgZGVtbw==
+
+--===============6429236559743022263==--

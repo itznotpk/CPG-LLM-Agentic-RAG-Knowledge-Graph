@@ -192,7 +192,7 @@ async def test_workflow_records_stage_errors():
         from agent.clinical_workflow import run_clinical_workflow
         result = await run_clinical_workflow(case)
         assert len(result.stage_errors) == 1
-        assert "Stage 2 DDx" in result.stage_errors[0]
+        assert result.stage_errors[0].stage == "Stage 2 DDx"
 
 
 # ---------------------------------------------------------------------------

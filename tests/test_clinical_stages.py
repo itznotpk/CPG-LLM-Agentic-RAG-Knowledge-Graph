@@ -159,10 +159,15 @@ async def test_stage2_calls_search_ddx():
 
     # Mock extraction so the test is deterministic and never hits the LLM
     # (extraction now succeeds and may rephrase/recapitalise the notes).
+    # _regex_disease_hints also calls search_ddx to resolve comorbidity aliases
+    # ("hypertension"/"diabetes" in _make_case); mock it out alongside
+    # _extract_cc_icd_hints so this test isolates the main symptom-vector path.
     with patch("ddx.search_ddx.search_ddx", new=AsyncMock(return_value=raw_results)) as mock_ddx, \
          patch("agent.clinical_stages._extract_symptom_phrase",
                new=AsyncMock(return_value=("palpitations, irregular pulse", False))), \
          patch("agent.clinical_stages._generate_condition_hypotheses",
+               new=AsyncMock(return_value=[])), \
+         patch("agent.clinical_stages._regex_disease_hints",
                new=AsyncMock(return_value=[])), \
          patch("agent.clinical_stages._extract_cc_icd_hints",
                new=AsyncMock(return_value=[])):

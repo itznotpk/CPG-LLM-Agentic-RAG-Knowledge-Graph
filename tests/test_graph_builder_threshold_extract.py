@@ -67,11 +67,14 @@ async def test_threshold_between_requires_value2(gb):
 
 @pytest.mark.asyncio
 async def test_threshold_bad_op_dropped(gb):
+    # Evidence must satisfy the CONTRAINDICATED_WITH complement guard so the triple
+    # survives long enough for the threshold_op normalization under test to run.
     raw = [{"subject": "X", "subject_type": "Drug", "relation": "CONTRAINDICATED_WITH",
-            "object": "Y", "object_type": "Condition", "evidence": "e",
+            "object": "Y", "object_type": "Condition",
+            "evidence": "X is contraindicated in Y over age 75",
             "threshold_param": "age", "threshold_op": "over", "threshold_value": 75}]
     out = await _run(gb, raw)
-    assert out[0]["threshold_op"] is None
+    assert out[0]["threshold_op"] is None  # 'over' is non-canonical → normalized to None
 
 
 @pytest.mark.asyncio

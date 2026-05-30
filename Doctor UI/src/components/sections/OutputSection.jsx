@@ -156,7 +156,9 @@ export function OutputSection() {
   const handleSendToPatient = async () => {
     if (!consultationId) return;
     try {
-      const job = await enqueueDelivery(consultationId);
+      // Sign the email with the logged-in clinician (current session).
+      const clinicianName = authProfile?.full_name || null;
+      const job = await enqueueDelivery(consultationId, clinicianName);
       setDelivery(job);
     } catch (err) {
       toast.error('Could not queue delivery: ' + err.message);

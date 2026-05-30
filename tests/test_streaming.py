@@ -116,7 +116,7 @@ async def test_streaming_stage_error_emits_error_status(minimal_case, mock_plan)
 
     error_ev = [e for e in events if e[0] == "stage_update" and e[1]["status"] == "error"]
     assert len(error_ev) == 1 and error_ev[0][1]["stage"] == 2
-    assert "Stage 2 DDx" in result.stage_errors[0]
+    assert result.stage_errors[0].stage == "Stage 2 DDx"
 
 
 # ── Thinking token streaming tests ───────────────────────────────────────────

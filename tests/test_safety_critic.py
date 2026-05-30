@@ -72,6 +72,7 @@ def _mock_client(json_payload: dict):
 
 def test_safety_flag_validates():
     flag = SafetyFlag(
+        title="verapamil + metoprolol - AV-nodal depression",
         severity="MAJOR",
         recommendation_index=0,
         flag_type="drug_interaction",
@@ -86,6 +87,7 @@ def test_safety_flag_validates():
 def test_safety_flag_rejects_unknown_severity():
     with pytest.raises(ValidationError):
         SafetyFlag(
+            title="bad severity flag",
             severity="LOW",
             recommendation_index=0,
             flag_type="drug_interaction",
@@ -103,6 +105,7 @@ async def test_safety_report_safe_to_proceed_invariant():
     llm_payload = {
         "flags": [
             {
+                "title": "verapamil + metoprolol - AV-nodal suppression",
                 "severity": "MAJOR",
                 "recommendation_index": 0,
                 "flag_type": "drug_interaction",
@@ -127,6 +130,7 @@ async def test_safety_critic_returns_flag_on_known_interaction():
     llm_payload = {
         "flags": [
             {
+                "title": "verapamil + metoprolol - AV-nodal depression",
                 "severity": "MAJOR",
                 "recommendation_index": 0,
                 "flag_type": "drug_interaction",

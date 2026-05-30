@@ -2781,6 +2781,7 @@ SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
 # ---------------------------------------------------------------------------
 
 PRIOR_VISIT_SUMMARISER_PROMPT = _load_prompt("prior_visit_summariser.txt")
+PREP_BRIEF_PROMPT = _load_prompt("prep_brief.txt")
 REFERRAL_TRIGGER_GATE_PROMPT = _load_prompt("referral_trigger_gate.txt")
 CONSULTATION_SUMMARISER_PROMPT = _load_prompt("consultation_summariser.txt")
 
@@ -4270,3 +4271,74 @@ Produce a TreatmentPlan JSON object matching this schema:
         logger.debug("assumption extraction failed (non-fatal): %s", exc)
 
     return plan
+
+
+# ---------------------------------------------------------------------------
+# Pre-consultation prep brief (returning patients only)
+# ---------------------------------------------------------------------------
+
+async def generate_prep_brief(
+    prior_visit: dict,
+    current_medications: list,
+    patient_age: int | None,
+    patient_sex: str | None,
+    comorbidities: list[str] | None,
+) -> dict:
+    """Generate a 3-bullet pre-consultation briefing for a returning patient.
+
+    Returns dict with keys: since_last_visit, med_flags, ask_today.
+    Falls back to a minimal dict on LLM failure — never raises.
+    """
+    base_url = os.getenv("PREP_BRIEF_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL")
+    api_key  = os.getenv("PREP_BRIEF_LLM_API_KEY")  or os.getenv("GEMINI_API_KEY")
+    model    = os.getenv("PREP_BRIEF_LLM_MODEL", "gemini-2.5-flash")
+
+    fallback = {
+        "since_last_visit": prior_visit.get("what_changed") or "Prior visit data available — review chart.",
+        "med_flags": None,
+        "ask_today": (prior_visit.get("prior_plan_summary") or "")[:120] or None,
+    }
+
+    if not PREP_BRIEF_PROMPT:
+        return fallback
+
+    payload = json.dumps({
+        "prior_visit": prior_visit,
+        "current_medications": current_medications or [],
+        "patient": {
+            "age": patient_age,
+            "sex": patient_sex,
+            "comorbidities": comorbidities or [],
+        },
+    }, ensure_ascii=False)
+
+    client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
+    try:
+        resp = await client.chat.completions.create(
+            model=model,
+            messages=[
+                {"role": "system", "content": PREP_BRIEF_PROMPT},
+                {"role": "user",   "content": payload},
+            ],
+            temperature=0.1,
+            max_tokens=200,
+        )
+        raw = (resp.choices[0].message.content or "").strip()
+        if raw.startswith("```"):
+            raw = raw.strip("`")
+            if raw.startswith("json"):
+                raw = raw[4:].strip()
+        data = json.loads(raw)
+        # Enforce caps
+        for k in ("since_last_visit", "med_flags", "ask_today"):
+            v = data.get(k)
+            if isinstance(v, str) and len(v) > 120:
+                data[k] = v[:120].rstrip()
+        return {
+            "since_last_visit": data.get("since_last_visit") or fallback["since_last_visit"],
+            "med_flags":        data.get("med_flags"),
+            "ask_today":        data.get("ask_today"),
+        }
+    except Exception as exc:
+        logger.warning("prep_brief LLM failed (%s); returning fallback", exc)
+        return fallback

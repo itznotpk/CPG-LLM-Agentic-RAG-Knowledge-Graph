@@ -12,10 +12,21 @@ from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
+import agent.clinical_stages as clinical_stages
 from agent.clinical_stages import _extract_symptom_phrase
 from agent.clinical_workflow import route_comorbidities
 from agent.routing import CPGDocRef
 from agent.models import StagedComorbidity
+
+
+@pytest.fixture(autouse=True)
+def _clear_phrase_cache():
+    """_extract_symptom_phrase memoizes on (model, notes). These tests reuse the
+    same notes+model across cases, so a result cached by one test would leak into
+    the next. Clear before/after each test for isolation."""
+    clinical_stages._PHRASE_CACHE.clear()
+    yield
+    clinical_stages._PHRASE_CACHE.clear()
 
 
 # ---------------------------------------------------------------------------

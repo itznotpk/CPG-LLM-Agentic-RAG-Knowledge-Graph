@@ -131,5 +131,5 @@ async def test_resynth_stage3_failure_continues(minimal_case, selected_ddx, mock
 
     error_events = [e for e in events if e[0] == "stage_update" and e[1].get("status") == "error"]
     assert any(e[1]["stage"] == 3 for e in error_events)
-    assert "Stage 3 Routing" in result.stage_errors[0]
+    assert result.stage_errors[0].stage == "Stage 3 Routing"
     assert result.treatment_plan.icd_primary == "BC81.3"
