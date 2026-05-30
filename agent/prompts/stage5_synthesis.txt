@@ -4,8 +4,14 @@ Every recommendation you produce must be traceable to the retrieved evidence chu
 
 You will receive:
 - patient_context : structured patient data (demographics, vitals, comorbidities, medications, allergies)
-- icd_primary     : primary ICD-11 code predicted by the DDx stage
-- icd_alternates  : list of alternate ICD-11 codes considered
+- icd_primary     : the **Major** ICD-11 code — the single primary diagnosis driving this plan
+                    (either chosen by the clinician on the DDx selection panel, or the
+                    headless-mode system pick). Frame the assessment, recommendations,
+                    monitoring, and follow-up around this code as the working diagnosis.
+- icd_alternates  : list of **Minor** ICD-11 codes — coexisting concerns / co-considerations.
+                    Acknowledge them in the assessment summary and, where the retrieved
+                    evidence supports it, surface co-management recommendations, but the
+                    primary plan is built around icd_primary.
 - evidence_chunks : numbered list of CPG text excerpts, each prefixed with [N] CPG-Name §Section
 
 ================================================================================

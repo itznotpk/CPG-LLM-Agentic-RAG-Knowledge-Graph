@@ -18,6 +18,10 @@ from agent.clinical_stages import (
     DDxResult,
     DDX_RERANK_MODEL,
     PromptOversizeError,
+    STAGE3_HEADLESS_GAP,
+    STAGE3_MAX_CPGS,
+    _allocate_major_minor,
+    _auto_select_codes,
     _build_symptom_text,
     _generate_retrieval_queries,
     _format_evidence,
@@ -254,6 +258,203 @@ async def test_stage3_caps_at_top_k_cpgs():
         result = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3)
 
     assert len(result) == 3
+
+
+# ---------------------------------------------------------------------------
+# Major/Minor allocation + auto-select + new stage_3_route flow
+# ---------------------------------------------------------------------------
+
+def test_allocate_major_minor_table():
+    """The allocation table must match the spec exactly."""
+    assert _allocate_major_minor(0) == (3, [])
+    assert _allocate_major_minor(1) == (3, [2])
+    assert _allocate_major_minor(2) == (3, [1, 1])
+    assert _allocate_major_minor(3) == (2, [1, 1, 1])
+    assert _allocate_major_minor(4) == (1, [1, 1, 1, 1])
+
+
+def test_allocate_major_minor_rejects_out_of_range():
+    with pytest.raises(ValueError):
+        _allocate_major_minor(-1)
+    with pytest.raises(ValueError):
+        _allocate_major_minor(STAGE3_MAX_CPGS)  # 5 minors would mean 6 total codes
+
+
+def test_auto_select_empty_ddx():
+    assert _auto_select_codes([]) == ([], None)
+
+
+def test_auto_select_single_code():
+    ddx = [DDxResult(code="A", title="A", similarity=0.9)]
+    selected, major = _auto_select_codes(ddx)
+    assert selected == ["A"]
+    assert major == "A"
+
+
+def test_auto_select_large_gap_picks_only_rank1():
+    """Probability gap >= STAGE3_HEADLESS_GAP → rank-1 alone as Major."""
+    ddx = [
+        DDxResult(code="A", title="A", similarity=0.9),
+        DDxResult(code="B", title="B", similarity=0.9 - STAGE3_HEADLESS_GAP - 0.01),
+    ]
+    selected, major = _auto_select_codes(ddx)
+    assert selected == ["A"]
+    assert major == "A"
+
+
+def test_auto_select_small_gap_picks_two_with_major_rank1():
+    """Probability gap < STAGE3_HEADLESS_GAP → rank-1 Major + rank-2 Minor."""
+    ddx = [
+        DDxResult(code="A", title="A", similarity=0.85),
+        DDxResult(code="B", title="B", similarity=0.85 - STAGE3_HEADLESS_GAP + 0.01),
+    ]
+    selected, major = _auto_select_codes(ddx)
+    assert selected == ["A", "B"]
+    assert major == "A"
+
+
+@pytest.mark.asyncio
+async def test_stage3_major_minor_allocation_3_plus_2():
+    """selected_codes=[Major, Minor] with full availability → 3 Major + 2 Minor."""
+    ddx = [_make_ddx(code="MAJ"), _make_ddx(code="MIN")]
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        return [
+            _make_cpg(cpg_name=f"{code}_CPG_{i}", doc_ids=[f"{code}-{i}"])
+            for i in range(5)
+        ]
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        result = await stage_3_route(
+            ddx,
+            selected_codes=["MAJ", "MIN"],
+            major_code="MAJ",
+        )
+
+    names = [r.cpg_name for r in result]
+    maj_count = sum(1 for n in names if n.startswith("MAJ_"))
+    min_count = sum(1 for n in names if n.startswith("MIN_"))
+    assert maj_count == 3, f"Major should get 3 slots, got {maj_count}: {names}"
+    assert min_count == 2, f"Minor should get 2 slots, got {min_count}: {names}"
+    assert len(result) == 5
+
+
+@pytest.mark.asyncio
+async def test_stage3_single_major_capped_at_3():
+    """Single-code selection always caps at 3 CPGs."""
+    ddx = [_make_ddx(code="ONLY")]
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        return [_make_cpg(cpg_name=f"CPG_{i}", doc_ids=[f"d-{i}"]) for i in range(6)]
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        result = await stage_3_route(
+            ddx,
+            selected_codes=["ONLY"],
+            major_code="ONLY",
+        )
+
+    assert len(result) == 3
+
+
+@pytest.mark.asyncio
+async def test_stage3_quality_floor_blocks_weak_secondary_cpgs():
+    """A code's 1st CPG always returns; 2nd/3rd need score >= 0.32."""
+    ddx = [_make_ddx(code="MAJ")]
+
+    def _weak_cpg(name: str, score: float) -> CPGDocRef:
+        return CPGDocRef(
+            cpg_name=name, document_id="d", document_ids=["d"],
+            title=name, match_type="ancestor_d2", score=score, matched_scope="MAJ",
+        )
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        return [
+            _make_cpg(cpg_name="STRONG", doc_ids=["s"]),  # score 1.0 (default)
+            _weak_cpg("WEAK1", 0.10),
+            _weak_cpg("WEAK2", 0.20),
+        ]
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        result = await stage_3_route(
+            ddx,
+            selected_codes=["MAJ"],
+            major_code="MAJ",
+        )
+
+    # Only the strong CPG survives the per-code-rank quality floor.
+    assert [r.cpg_name for r in result] == ["STRONG"]
+
+
+@pytest.mark.asyncio
+async def test_stage3_cascade_when_major_underfills():
+    """Major has only 1 CPG → 2 leftover slots cascade to Minor (subject to its cap)."""
+    ddx = [_make_ddx(code="MAJ"), _make_ddx(code="MIN")]
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        if code == "MAJ":
+            return [_make_cpg(cpg_name="MAJ_ONLY", doc_ids=["m"])]
+        return [
+            _make_cpg(cpg_name=f"MIN_CPG_{i}", doc_ids=[f"min-{i}"]) for i in range(5)
+        ]
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        result = await stage_3_route(
+            ddx,
+            selected_codes=["MAJ", "MIN"],
+            major_code="MAJ",
+        )
+
+    names = [r.cpg_name for r in result]
+    # Major has 1; Minor's allotment is 2, then 2 cascaded leftover slots fill to its 3-cap.
+    assert names[0] == "MAJ_ONLY"
+    min_count = sum(1 for n in names if n.startswith("MIN_CPG_"))
+    assert min_count == 3, f"Minor should cascade to 3 (its per-code cap), got {min_count}"
+    assert len(result) == 4  # 1 + 3, fewer than the 5-quota because Major only had 1
+
+
+@pytest.mark.asyncio
+async def test_stage3_emits_quality_drop_event_when_major_underfills():
+    """When the Major allotment can't be filled, a stage3_quality_drop event fires."""
+    ddx = [_make_ddx(code="MAJ")]
+    events: list[tuple[str, dict]] = []
+
+    async def emit(event_type, data):
+        events.append((event_type, data))
+
+    async def mock_route(code, top_k=3, procedure_tags=None):
+        # Only 1 CPG available; Major expected 3 slots → 2-slot under-fill.
+        return [_make_cpg(cpg_name="LONELY", doc_ids=["x"])]
+
+    with patch("agent.clinical_stages.route_icd_to_cpgs", side_effect=mock_route):
+        await stage_3_route(
+            ddx,
+            selected_codes=["MAJ"],
+            major_code="MAJ",
+            emit=emit,
+        )
+
+    drop_events = [d for et, d in events if et == "stage3_quality_drop"]
+    assert len(drop_events) == 1
+    drops = drop_events[0]["drops"]
+    assert any(
+        d["tier"] == "major" and d["code"] == "MAJ"
+        and d["expected_slots"] == 3 and d["actual_slots"] == 1
+        for d in drops
+    )
+
+
+@pytest.mark.asyncio
+async def test_stage3_major_code_must_be_in_selected_codes():
+    """Defensive: major_code outside selected_codes raises before any DB calls."""
+    ddx = [_make_ddx(code="A"), _make_ddx(code="B")]
+
+    with pytest.raises(ValueError):
+        await stage_3_route(
+            ddx,
+            selected_codes=["A", "B"],
+            major_code="C",  # not in selection
+        )
 
 
 # ---------------------------------------------------------------------------

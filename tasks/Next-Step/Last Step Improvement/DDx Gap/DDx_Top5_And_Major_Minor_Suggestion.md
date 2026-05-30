@@ -166,10 +166,10 @@ Progress:
     ≤3 CPGs returned
 
 Progress:
-- [ ] `selected_codes` + `major_code` parameters added to `stage_3_route`
-- [ ] `_auto_select_codes(ddx)` implemented + unit-tested
-- [ ] `_allocate_major_minor(n_minor)` implemented + unit-tested for n_minor=0..4
-- [ ] case08 trace matches expected branch
+- [x] `selected_codes` + `major_code` parameters added to `stage_3_route`
+- [x] `_auto_select_codes(ddx)` implemented + unit-tested
+- [x] `_allocate_major_minor(n_minor)` implemented + unit-tested for n_minor=0..4
+- [ ] case08 trace matches expected branch (requires live pipeline run — deferred to eval pass)
 
 ### P2 — T2.2: Major-first allocation with cascade
 
@@ -185,10 +185,10 @@ Progress:
   - case with `(1, [1,1,1,1])` and full availability returns exactly 5
 
 Progress:
-- [ ] Major-first allotment fill implemented
-- [ ] Cascade rule implemented (cap 3)
-- [ ] Unit test for cascade behaviour
-- [ ] case08 returns CPGs respecting Major allotment
+- [x] Major-first allotment fill implemented
+- [x] Cascade rule implemented (cap 3)
+- [x] Unit test for cascade behaviour
+- [ ] case08 returns CPGs respecting Major allotment (eval pass)
 
 ### P3 — T2.3 + T2.4 + T2.5: Quality floor + Stage 5 synthesis hand-off + under-fill telemetry
 
@@ -219,14 +219,14 @@ Progress:
     alternatives" badge when the event fires — Storybook or manual walkthrough
 
 Progress:
-- [ ] Per-code-rank guard implemented
-- [ ] Low-quality single-pillar test passes
-- [ ] Low-quality Major+Minor test passes
-- [ ] case08 fill unchanged (all candidates above floor)
-- [ ] Stage 5 prompt updated with Major framing
-- [ ] `STAGE3_TAIL_SLOT_THRESHOLD` constant added if calibration diverges from 0.32
-- [ ] **T2.5** `stage3_quality_drop` SSE event emitted on under-fill
-- [ ] **T2.5** UI badge renders on quality-drop event (with copy reviewed)
+- [x] Per-code-rank guard implemented
+- [x] Low-quality single-pillar test passes
+- [x] Low-quality Major+Minor test passes (covered by `test_stage3_quality_floor_blocks_weak_secondary_cpgs`)
+- [ ] case08 fill unchanged (all candidates above floor) — eval pass
+- [x] Stage 5 prompt updated with Major framing
+- [ ] `STAGE3_TAIL_SLOT_THRESHOLD` constant added if calibration diverges from 0.32 (reused 0.32 for now)
+- [x] **T2.5** `stage3_quality_drop` SSE event emitted on under-fill
+- [x] **T2.5** UI quality-drop hook plumbed via `onQualityDrop` callback + `ddxQualityDrops` state (badge copy review pending)
 
 ### T2.5 — Why this matters
 
@@ -253,12 +253,12 @@ event field + one conditional render); the clinician value is high.
   `major_code ∈ selected_codes` validator
 
 Progress:
-- [ ] `DDxSuggestion` + `DDxSelection` schemas in `agent/models.py`
-- [ ] `major_code` validator enforced
-- [ ] SSE emit added between Stage 2 and Stage 3
-- [ ] Selection plumbed into `stage_3_route(selected_codes=..., major_code=...)`
-- [ ] Headless regression test green
-- [ ] Interactive path test green
+- [x] `DDxSuggestion` + `DDxSelection` schemas in `agent/models.py` (plus `DDxCandidate`)
+- [x] `major_code` validator enforced (`major_in_selected` + `len ≤ 5`)
+- [x] SSE emit added between Stage 2 and Stage 3 (`ddx_suggestion` in `run_ddx_only_streaming`)
+- [x] Selection plumbed into `stage_3_route(selected_codes=..., major_code=...)`
+- [x] Headless regression test green (all 9 new unit tests + legacy 25 pass)
+- [ ] Interactive path test green (E2E browser run — UX walkthrough pending)
 
 ### P5 — T1.3: Doctor UI selection panel (segmented tier control)
 
@@ -300,15 +300,15 @@ payload visible in the trace; CPG count returned by Stage 3 matches the
 backend allocation table without being shown in the UI
 
 Progress:
-- [ ] `TierSegmentedControl` component built and unit-styled
-- [ ] Panel renders top-5 with rank / code / title / confidence bar
-- [ ] All rows initialised to `Off`
-- [ ] Tier state managed in `AppContext` with Major-exclusivity invariant
-- [ ] Hint badge surfaces top-1 / top-2 suggestion (tap to apply)
-- [ ] Restore-suggestion re-shows dismissed hint badges
-- [ ] Keyboard shortcuts wired (1–5, Enter)
-- [ ] Confirm posts via `clinicalApi.postDDxSelection`
-- [ ] `ddx_selection` trace event carries `major_code` and `selected_codes`
+- [x] `TierSegmentedControl` component built and unit-styled
+- [x] Panel renders top-5 with rank / code / title / confidence bar
+- [x] All rows initialised to `Off`
+- [x] Tier state managed in `AppContext` with Major-exclusivity invariant (panel-local + `confirmDiagnosis({selectedCodes, majorCode})` override)
+- [x] Hint badge surfaces top-1 / top-2 suggestion (tap to apply)
+- [x] Restore-suggestion re-shows dismissed hint badges
+- [ ] Keyboard shortcuts wired (1–5, Enter) — deferred to a UX-polish pass
+- [x] Confirm posts via `resynthesizePlanStream(..., majorCode)` (re-uses existing endpoint)
+- [x] `clinician_override` trace event carries `major_code`; resynth request body carries `major_code` + per-diagnosis `tier`
 
 ### P6 — Wrap-up + telemetry
 

@@ -114,6 +114,7 @@ export async function runDDxStream(
   onSubStep,
   stagingData,
   structuredComorbidities,
+  onDDxSuggestion,
 ) {
   const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
 
@@ -159,12 +160,13 @@ export async function runDDxStream(
             let payload;
             try { payload = JSON.parse(dataStr); } catch { continue; }
 
-            if      (eventType === 'stage_update'   && onStageUpdate)   onStageUpdate(payload);
-            else if (eventType === 'thinking_delta' && onThinkingChunk) onThinkingChunk(payload);
-            else if (eventType === 'sub_step'       && onSubStep)       onSubStep(payload);
-            else if (eventType === 'ddx_ready')                          ddxResult = payload;
-            else if (eventType === 'error')                             reject(new Error(payload.detail || 'DDx pipeline error'));
-            else if (eventType === 'done')                             { resolve(ddxResult || { ddx: [] }); return; }
+            if      (eventType === 'stage_update'    && onStageUpdate)    onStageUpdate(payload);
+            else if (eventType === 'thinking_delta'  && onThinkingChunk)  onThinkingChunk(payload);
+            else if (eventType === 'sub_step'        && onSubStep)        onSubStep(payload);
+            else if (eventType === 'ddx_suggestion'  && onDDxSuggestion)  onDDxSuggestion(payload);
+            else if (eventType === 'ddx_ready')                           ddxResult = payload;
+            else if (eventType === 'error')                              reject(new Error(payload.detail || 'DDx pipeline error'));
+            else if (eventType === 'done')                              { resolve(ddxResult || { ddx: [] }); return; }
           }
         }
       } catch (err) {
@@ -291,6 +293,8 @@ export async function resynthesizePlanStream(
   structuredComorbidities,
   onSafetyReview,
   consultationId,
+  majorCode,
+  onQualityDrop,
 ) {
   const BASE_URL = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
@@ -304,7 +308,10 @@ export async function resynthesizePlanStream(
       title:       d.name,
       probability: (d.probability || 80) / 100,
       reasoning:   d.reasoning || [],
+      // tier is informational; the backend uses `major_code` as the source of truth.
+      tier:        d.tier || (d.icdCode === majorCode ? 'major' : (majorCode ? 'minor' : null)),
     })),
+    ...(majorCode ? { major_code: majorCode } : {}),
   };
 
   const response = await fetch(`${BASE_URL}/clinical/plan/resynthesize/stream`, {
@@ -344,10 +351,11 @@ export async function resynthesizePlanStream(
             let payload;
             try { payload = JSON.parse(dataStr); } catch { continue; }
 
-            if      (eventType === 'stage_update'       && onStageUpdate)       onStageUpdate(payload);
-            else if (eventType === 'sub_step'           && onSubStep)           onSubStep(payload);
-            else if (eventType === 'clinician_override' && onClinicianOverride) onClinicianOverride(payload);
-            else if (eventType === 'safety_review'      && onSafetyReview)     onSafetyReview(payload);
+            if      (eventType === 'stage_update'        && onStageUpdate)        onStageUpdate(payload);
+            else if (eventType === 'sub_step'            && onSubStep)            onSubStep(payload);
+            else if (eventType === 'clinician_override'  && onClinicianOverride)  onClinicianOverride(payload);
+            else if (eventType === 'stage3_quality_drop' && onQualityDrop)        onQualityDrop(payload);
+            else if (eventType === 'safety_review'       && onSafetyReview)       onSafetyReview(payload);
             else if (eventType === 'final_result') {
               if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
               resolve(payload);

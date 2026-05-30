@@ -216,6 +216,60 @@ class AgentContext(BaseModel):
 
 # Clinical Workflow Models
 
+class DDxCandidate(BaseModel):
+    """One ranked DDx candidate surfaced to the clinician for tier selection."""
+
+    rank: int = Field(..., ge=1, description="1-based rank from Stage 2 rerank")
+    code: str = Field(..., description="ICD-11 code")
+    title: str = Field(..., description="Code title / disease name")
+    probability: float = Field(..., ge=0.0, le=1.0, description="Stage 2 similarity score (0–1)")
+    reasoning: List[str] = Field(default_factory=list, description="Per-candidate rationale lines")
+    suggested_tier: Optional[Literal["major", "minor"]] = Field(
+        None,
+        description="System hint: 'major' for rank-1, 'minor' for rank-2 when within STAGE3_HEADLESS_GAP; None otherwise",
+    )
+
+
+class DDxSuggestion(BaseModel):
+    """Payload of the `ddx_suggestion` SSE event — top-5 DDx surfaced for clinician
+    Major/Minor selection between Stage 2 and Stage 3."""
+
+    candidates: List[DDxCandidate] = Field(..., description="Top-N ranked DDx candidates")
+    headless_default_major: Optional[str] = Field(
+        None,
+        description="ICD code the headless rule would pick as Major if the clinician doesn't choose",
+    )
+    headless_default_minors: List[str] = Field(
+        default_factory=list,
+        description="ICD codes the headless rule would route as Minor (empty when single-code default)",
+    )
+
+
+class DDxSelection(BaseModel):
+    """Clinician selection payload — posted back via `ddx_selection` / the
+    resynthesize request body. Drives Stage 3 Major/Minor allocation."""
+
+    selected_codes: List[str] = Field(
+        ...,
+        min_length=1,
+        description="ICD-11 codes the clinician picked as Major or Minor (1–5)",
+    )
+    major_code: str = Field(..., description="The single Major code — must appear in selected_codes")
+
+    @model_validator(mode="after")
+    def major_in_selected(self) -> "DDxSelection":
+        if self.major_code not in self.selected_codes:
+            raise ValueError(
+                f"major_code {self.major_code!r} must appear in selected_codes "
+                f"{self.selected_codes!r}"
+            )
+        if len(self.selected_codes) > 5:
+            raise ValueError(
+                f"selected_codes may contain at most 5 entries (got {len(self.selected_codes)})"
+            )
+        return self
+
+
 class StageError(BaseModel):
     """Structured error from a pipeline stage."""
     stage: str                          # e.g. "Stage 2 DDx", "Stage 4 Retrieval"

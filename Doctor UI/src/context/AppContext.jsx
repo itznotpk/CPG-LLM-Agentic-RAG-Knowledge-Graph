@@ -73,8 +73,10 @@ const initialState = {
   pipelineEvents: [],      // ordered log: [...stage_updates, ...sub_steps]
   pipelineThinking: {},    // { [nodeName: string]: string }  accumulated thinking text
   pipelineSummary: null,   // { elapsed_ms, ddxCount, cpgCount, chunkCount } set on final_result
-  resynthOverride: null,   // { codes: string[] } set when clinician override runs
+  resynthOverride: null,   // { codes: string[], major_code: string } set when clinician override runs
   safetyReport: null,      // SafetyReport | null — set on safety_review SSE event
+  ddxSuggestion: null,     // DDxSuggestion payload (top-5 candidates + headless default) — captured before tier selection
+  ddxQualityDrops: [],     // [{tier, code, expected_slots, actual_slots}] from stage3_quality_drop SSE
 };
 
 // Snapshot persistence intentionally disabled — refreshes start from a clean
@@ -250,6 +252,12 @@ function appReducer(state, action) {
     }
     case 'SET_RESYNTH_OVERRIDE':
       return { ...state, resynthOverride: action.payload };
+    case 'SET_DDX_SUGGESTION':
+      return { ...state, ddxSuggestion: action.payload };
+    case 'SET_DDX_QUALITY_DROPS':
+      return { ...state, ddxQualityDrops: action.payload || [] };
+    case 'APPEND_DDX_QUALITY_DROP':
+      return { ...state, ddxQualityDrops: [...(state.ddxQualityDrops || []), action.payload] };
     case 'SET_SAFETY_REPORT':
       return { ...state, safetyReport: action.payload };
     case 'APPEND_THINKING_CHUNK': {
@@ -557,6 +565,11 @@ export function AppProvider({ children }) {
         },
         state.severityStaging || {},
         undefined, // structuredComorbidities — not used in this call path
+        (ddxSuggestion) => {
+          // Capture the Major/Minor scaffolding so the DDxSelectionPanel can render
+          // hint badges (system-suggested Major / co-primary) without re-deriving them.
+          dispatch({ type: 'SET_DDX_SUGGESTION', payload: ddxSuggestion });
+        },
       );
 
       const diagnosis = mapDdxToDiagnosis(ddx, []); // no CPGs yet — routing runs on confirm
@@ -603,16 +616,39 @@ export function AppProvider({ children }) {
     }
   };
 
-  const confirmDiagnosis = async () => {
+  const confirmDiagnosis = async (options = {}) => {
     dispatch({ type: 'SET_GENERATING_PLAN', payload: true });
 
-    // Get selected diagnoses
-    const selectedIds = state.diagnosis?.selectedDiagnosisIds?.length > 0
-      ? state.diagnosis.selectedDiagnosisIds
-      : [state.diagnosis?.differentials?.[0]?.id].filter(Boolean);
-    const selectedDiagnoses = state.diagnosis?.differentials?.filter(
-      (d) => selectedIds.includes(d.id)
-    ) || [];
+    // Get selected diagnoses. Override path: when the DDxSelectionPanel posts
+    // {selected_codes, major_code}, prefer those over the legacy multi-select.
+    const overrideCodes = Array.isArray(options.selectedCodes) ? options.selectedCodes : null;
+    const overrideMajor = options.majorCode || null;
+
+    let selectedDiagnoses;
+    if (overrideCodes && overrideCodes.length) {
+      const codeSet = new Set(overrideCodes);
+      selectedDiagnoses = (state.diagnosis?.differentials || []).filter((d) => codeSet.has(d.icdCode));
+      // Order Major first so downstream (Stage 5 framing) treats it as primary.
+      if (overrideMajor) {
+        selectedDiagnoses.sort((a, b) =>
+          (a.icdCode === overrideMajor ? -1 : 0) - (b.icdCode === overrideMajor ? -1 : 0)
+        );
+      }
+    } else {
+      const selectedIds = state.diagnosis?.selectedDiagnosisIds?.length > 0
+        ? state.diagnosis.selectedDiagnosisIds
+        : [state.diagnosis?.differentials?.[0]?.id].filter(Boolean);
+      selectedDiagnoses = state.diagnosis?.differentials?.filter(
+        (d) => selectedIds.includes(d.id)
+      ) || [];
+    }
+    // Tag each diagnosis with its tier so resynthesize sends both `tier` and `major_code`.
+    if (overrideMajor) {
+      selectedDiagnoses = selectedDiagnoses.map((d) => ({
+        ...d,
+        tier: d.icdCode === overrideMajor ? 'major' : 'minor',
+      }));
+    }
 
     // Save to database - include diagnoses and TCA date
     if (USE_SUPABASE && state.currentConsultationId) {
@@ -696,6 +732,8 @@ export function AppProvider({ children }) {
     let planGenerated = false;
 
     try {
+      // Reset quality-drop accumulator each time a fresh routing pass starts.
+      dispatch({ type: 'SET_DDX_QUALITY_DROPS', payload: [] });
       const response = await resynthesizePlanStream(
         { ...state.patient, priorVisit: state.priorVisit }, state.vitals, state.clinicalNotes, state.mpisData,
         selectedDiagnoses,
@@ -706,6 +744,12 @@ export function AppProvider({ children }) {
         undefined,
         (safetyReport) => dispatch({ type: 'SET_SAFETY_REPORT', payload: safetyReport }),
         state.currentConsultationId,
+        overrideMajor,
+        (qualityDropEvent) => {
+          // T2.5: capture under-fill events so the care-plan view can surface them.
+          const drops = qualityDropEvent?.drops || [];
+          drops.forEach((d) => dispatch({ type: 'APPEND_DDX_QUALITY_DROP', payload: d }));
+        },
       );
 
       const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);
@@ -986,6 +1030,8 @@ export function AppProvider({ children }) {
     pipelineSummary:  state.pipelineSummary,
     pipelineThinking: state.pipelineThinking,
     resynthOverride:  state.resynthOverride,
+    ddxSuggestion:    state.ddxSuggestion,
+    ddxQualityDrops:  state.ddxQualityDrops,
     loadDemoData,
     syncMPIS,
     analyzeAssessment,
