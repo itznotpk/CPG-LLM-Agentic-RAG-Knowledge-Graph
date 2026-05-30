@@ -879,6 +879,7 @@ EXCLUSION_PENALTY_WEIGHT = 0.3       # λ — applied in ddx/search_ddx.py; defi
 INCLUSION_BOOST_WEIGHT = 0.3         # mirrors ddx/search_ddx.py; weights the synonym-match addend
 CC_BOOST_WEIGHT = 0.15               # calibrated for INFERRED dx (CC_BOOST_WEIGHT × conf, see scripts/calibrate_cc_boost.py)
 CC_EXPLICIT_BOOST = 0.25             # flat boost when the clinician explicitly named the dx in CC/notes
+CC_TIE_BREAK_EPSILON = 0.10          # when top-2 cc_explicit candidates final_scores are within this delta, force deterministic order (Fix B)
 OUT_OF_SCOPE_INCL_THRESHOLD = 0.3
 DDX_DISPLAY_FLOOR = 0.30
 SCORE_TERM_DISPLAY_FLOOR = 0.50
@@ -1484,7 +1485,8 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
             stream = await client.chat.completions.create(
                 model=active_model,
                 messages=messages,
-                temperature=1,
+                temperature=0,
+                seed=DDX_DETERMINISTIC_SEED,
                 max_tokens=4000,
                 stream=True,
             )
@@ -1514,7 +1516,8 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
             resp = await client.chat.completions.create(
                 model=active_model,
                 messages=messages,
-                temperature=1,
+                temperature=0,
+                seed=DDX_DETERMINISTIC_SEED,
                 max_tokens=8000,
             )
             raw_content = resp.choices[0].message.content
@@ -1597,6 +1600,29 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
         )
 
         reranked = _collapse_sibling_clusters(reranked)
+
+        # Fix B — deterministic tie-breaker on co-equal-primary top-2.
+        # When the top-2 are both clinician-named (cc_explicit) AND their final_scores
+        # are within CC_TIE_BREAK_EPSILON, the LLM rerank's choice is dominated by
+        # sampling noise (Gemini has no seed; even at temp=0 short structured outputs
+        # can flip). Force (final_score DESC, code ASC) on those two slots so the
+        # rank is reproducible. Preserves rerank's judgement when scores diverge.
+        if len(reranked) >= 2:
+            a, b = reranked[0], reranked[1]
+            if (
+                getattr(a, "cc_explicit", False)
+                and getattr(b, "cc_explicit", False)
+                and abs((a.final_score or 0.0) - (b.final_score or 0.0)) < CC_TIE_BREAK_EPSILON
+            ):
+                ordered = sorted([a, b], key=lambda r: (-(r.final_score or 0.0), r.code or ""))
+                if ordered[0].code != a.code:
+                    logger.info(
+                        "Fix-B tie-break: top-2 within %.2f (cc_explicit both) — "
+                        "swapped %s ↔ %s for deterministic order",
+                        CC_TIE_BREAK_EPSILON, a.code, b.code,
+                    )
+                reranked[0], reranked[1] = ordered[0], ordered[1]
+
         logger.info("DDx re-ranked %d candidates via %s", len(reranked), active_model)
         return reranked
 
