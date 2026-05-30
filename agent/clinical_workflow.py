@@ -8,7 +8,16 @@ import time
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from .models import PatientCase, TreatmentPlan, SafetyReport, StagedComorbidity, ChunkResult, StageError
-from .clinical_stages import DDxResult, _build_symptom_text, stage_2_ddx, stage_3_route, stage_4_retrieve, stage_5_synthesize  # noqa: F401 (stage_2_ddx imported for test patching)
+from .clinical_stages import (  # noqa: F401 (stage_2_ddx imported for test patching)
+    DDxResult,
+    STAGE3_HEADLESS_GAP,
+    _auto_select_codes,
+    _build_symptom_text,
+    stage_2_ddx,
+    stage_3_route,
+    stage_4_retrieve,
+    stage_5_synthesize,
+)
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
 from .routing import CPGDocRef, route_icd_to_cpgs
@@ -169,6 +178,29 @@ def _nav_flag_to_dict(f) -> dict:
     }
 
 
+def _build_ddx_suggestion(ddx: list[DDxResult]) -> dict:
+    """Build the `ddx_suggestion` SSE payload — top-5 DDx with the headless
+    default Major/Minor tagging so the UI can show a "system suggests" hint."""
+    selected, major = _auto_select_codes(ddx)
+    suggested = {code: ("major" if code == major else "minor") for code in selected}
+    return {
+        "candidates": [
+            {
+                "rank": i + 1,
+                "code": d.code,
+                "title": d.title,
+                "probability": float(d.similarity or 0.0),
+                "reasoning": list(d.reasoning or []),
+                "suggested_tier": suggested.get(d.code),
+            }
+            for i, d in enumerate(ddx[:5])
+        ],
+        "headless_default_major": major,
+        "headless_default_minors": [c for c in selected if c != major],
+        "headless_gap_threshold": STAGE3_HEADLESS_GAP,
+    }
+
+
 @contextmanager
 def _time_stage(name: str, timings: dict[str, float]):
     start = time.monotonic()
@@ -244,12 +276,17 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         errors.append(StageError.from_exc("Stage 2 DDx", e, recoverable=True))
         ddx = []
 
-    # Stage 3 — Route
+    # Stage 3 — Route (headless: auto-select Major / Minor from rank-1/2 gap)
     try:
+        auto_selected, auto_major = _auto_select_codes(ddx)
         with _time_stage("stage_3_route", timings):
-            cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3,
-                                       clinical_context=_build_symptom_text(case),
-                                       patient_sex=case.sex)
+            cpgs = await stage_3_route(
+                ddx,
+                selected_codes=auto_selected or None,
+                major_code=auto_major,
+                clinical_context=_build_symptom_text(case),
+                patient_sex=case.sex,
+            )
         with _time_stage("stage_3_route_comorbidities", timings):
             extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, staged_comorbidities=case.staged_comorbidities, clinical_context=_build_symptom_text(case))
         if extra_cpgs:
@@ -362,7 +399,11 @@ async def run_ddx_only_streaming(
         })
         ddx = []
 
-    # Terminal event: hand the candidates to the UI gate. Pipeline pauses here.
+    # Surface the Major/Minor tier-selection scaffolding alongside the raw DDx.
+    # `ddx_suggestion` is the structured payload the new Doctor UI listens for;
+    # `ddx_ready` is kept for back-compat with the legacy override panel.
+    if ddx:
+        await emit("ddx_suggestion", _build_ddx_suggestion(ddx))
     await emit("ddx_ready", {"ddx": [d.model_dump() for d in ddx]})
     return ddx
 
@@ -411,9 +452,15 @@ async def run_clinical_workflow_streaming(
         "status": "running", "detail": "Matching ICD codes to clinical guidelines…"
     })
     try:
-        cpgs = await stage_3_route(ddx, top_k_codes=2, top_k_cpgs=3, emit=emit,
-                                   clinical_context=_build_symptom_text(case),
-                                   patient_sex=case.sex)
+        auto_selected, auto_major = _auto_select_codes(ddx)
+        cpgs = await stage_3_route(
+            ddx,
+            selected_codes=auto_selected or None,
+            major_code=auto_major,
+            emit=emit,
+            clinical_context=_build_symptom_text(case),
+            patient_sex=case.sex,
+        )
         extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit, staged_comorbidities=case.staged_comorbidities, clinical_context=_build_symptom_text(case))
         if extra_cpgs:
             cpgs = cpgs + extra_cpgs
@@ -533,6 +580,7 @@ async def run_resynthesize_streaming(
     case: PatientCase,
     selected_ddx: list[DDxResult],
     emit,
+    major_code: str | None = None,
 ) -> WorkflowResult:
     """
     Re-run Stages 3–5 with clinician-selected diagnoses.
@@ -541,27 +589,58 @@ async def run_resynthesize_streaming(
     Emits a clinician_override event first so the UI can show what changed.
     Same fault-tolerance contract as run_clinical_workflow_streaming for stages 3–4.
     Stage 5 failure propagates (unrecoverable).
+
+    `major_code` is the single primary diagnosis (must be in selected_ddx). When None,
+    falls back to selected_ddx[0] for backward compatibility with older callers.
+    `selected_ddx` is reordered so the Major code is index 0 — Stage 5 prompt then
+    frames `icd_primary` correctly without any prompt edits.
     """
     t0 = time.monotonic()
     errors: list[StageError] = []
     timings: dict[str, float] = {}
 
+    # Resolve Major and reorder selected_ddx so the Major code is index 0 — this
+    # makes Stage 5's `icd_primary = ddx[0].code` automatically pick the right one.
+    if major_code is None and selected_ddx:
+        major_code = selected_ddx[0].code
+    if major_code is not None:
+        major_idx = next((i for i, d in enumerate(selected_ddx) if d.code == major_code), None)
+        if major_idx is None:
+            logger.warning(
+                "Resynth: major_code %s not found in selected_ddx; defaulting to selected_ddx[0]",
+                major_code,
+            )
+            major_code = selected_ddx[0].code if selected_ddx else None
+        elif major_idx != 0:
+            selected_ddx = [selected_ddx[major_idx]] + [d for i, d in enumerate(selected_ddx) if i != major_idx]
+
+    selected_codes = [d.code for d in selected_ddx]
+
     # Signal the override to the UI — must be the first event
     await emit("clinician_override", {
         "codes": [f"{d.code} {d.title}" for d in selected_ddx],
+        "major_code": major_code,
     })
 
     # Stage 3 — Route using clinician codes
     await emit("stage_update", {
         "stage": 3, "name": "CPG Routing",
         "status": "running",
-        "detail": f"Routing {len(selected_ddx)} clinician-selected code(s)…",
+        "detail": (
+            f"Routing {len(selected_ddx)} clinician-selected code(s); "
+            f"major={major_code}"
+        ),
     })
     try:
         with _time_stage("stage_3_route", timings):
-            cpgs = await stage_3_route(selected_ddx, top_k_codes=len(selected_ddx), top_k_cpgs=3, emit=emit,
-                                       clinical_context=_build_symptom_text(case),
-                                       patient_sex=case.sex)
+            cpgs = await stage_3_route(
+                selected_ddx,
+                selected_codes=selected_codes or None,
+                major_code=major_code,
+                emit=emit,
+                clinical_context=_build_symptom_text(case),
+                patient_sex=case.sex,
+            )
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",

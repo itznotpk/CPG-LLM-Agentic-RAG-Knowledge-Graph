@@ -21,6 +21,7 @@ import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { PipelineProgress } from './PipelineProgress';
 import { PlanGenerationProcess } from './PlanGenerationProcess';
+import { DDxSelectionPanel } from './DDxSelectionPanel';
 
 const OVERRIDE_KEY_MAP = {
   'red_flag_cant_miss': "Red Flag (Can't Miss)",
@@ -72,6 +73,13 @@ export function DiagnosisSection() {
 
   const handleConfirm = () => {
     confirmDiagnosis();
+  };
+
+  // P5: clinician picks Major + (0–4) Minors via the segmented tier panel.
+  // The override is routed through the same confirmDiagnosis path so all the
+  // downstream DB save / risk calculation / plan generation logic still fires.
+  const handleTierConfirm = ({ selected_codes, major_code }) => {
+    confirmDiagnosis({ selectedCodes: selected_codes, majorCode: major_code });
   };
 
   const handleBack = () => {
@@ -153,6 +161,22 @@ export function DiagnosisSection() {
         <AlertCircle className="w-4 h-4 shrink-0" strokeWidth={1.5} />
         <span>Clinical correlation required. You may select multiple diagnoses from the list below.</span>
       </div>
+
+      {/* DDx tier-selection panel: clinician marks one diagnosis as Major and
+          optional others as Minor. Renders only when the backend has emitted
+          the ddx_suggestion payload (new flow); otherwise falls back to the
+          legacy multi-select card below. */}
+      {state.ddxSuggestion?.candidates?.length > 0 && (
+        <DDxSelectionPanel
+          candidates={state.ddxSuggestion.candidates}
+          headlessDefault={{
+            major: state.ddxSuggestion.headless_default_major,
+            minors: state.ddxSuggestion.headless_default_minors || [],
+          }}
+          onConfirm={handleTierConfirm}
+          disabled={isGeneratingPlan}
+        />
+      )}
 
       {/* Differential Diagnosis - Selectable */}
       <GlassCard className="p-6">

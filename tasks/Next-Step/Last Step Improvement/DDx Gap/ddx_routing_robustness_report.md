@@ -174,3 +174,72 @@ Not done yet:
 - D4 unit tests were not added/run in this pass.
 - Smoke 5 was not run.
 - No Neon writes, embeddings, chunks, or migrations were run.
+
+---
+
+## Appendix — Major / Minor CPG allocation (T1–T3, P1–P5 landed 2026-05-30)
+
+Companion task: [DDx_Top5_And_Major_Minor_Suggestion.md](DDx_Top5_And_Major_Minor_Suggestion.md).
+
+### What landed
+
+Backend (`agent/clinical_stages.py`, `agent/clinical_workflow.py`, `agent/api.py`, `agent/models.py`, `agent/prompts/stage5_synthesis.txt`):
+
+- **Allocation table** materialised as `_allocate_major_minor(n_minor)`:
+  `(3,[])`, `(3,[2])`, `(3,[1,1])`, `(2,[1,1,1])`, `(1,[1,1,1,1])`. Unit-tested.
+- **Headless auto-select** as `_auto_select_codes(ddx) -> (selected, major)` —
+  rank-1 alone when `prob_rank1 − prob_rank2 ≥ STAGE3_HEADLESS_GAP` (default 0.15,
+  env-configurable), otherwise rank-1 Major + rank-2 Minor. Unit-tested.
+- **`stage_3_route(selected_codes=…, major_code=…)`** — new signature with full
+  backward compatibility for `top_k_codes` / `top_k_cpgs`. Major-first allotment
+  fill, leftover-slot cascade (cap 3 per code), and per-code-rank quality floor
+  (rank-1 always returned; rank ≥ 2 require `score ≥ SEMANTIC_SCOPE_THRESHOLD`).
+- **`stage3_quality_drop` SSE event** — emits `{tier, code, expected_slots,
+  actual_slots}` whenever a Major or Minor under-fills, so the UI can flag
+  "under-evidenced primary diagnosis".
+- **Stage 5 framing** — `run_resynthesize_streaming` reorders `selected_ddx` so
+  the Major code is index 0 → Stage 5's `icd_primary` automatically maps to the
+  primary diagnosis. Prompt header clarifier added so the LLM treats
+  `icd_primary` as the Major and `icd_alternates` as Minor co-considerations.
+- **Wire-level types** — `DDxCandidate`, `DDxSuggestion`, `DDxSelection` added
+  to `agent/models.py`. `ResynthesizeRequest` carries optional `major_code`;
+  `SelectedDiagnosis` carries optional `tier`. Validators enforce
+  `major_code ∈ selected_codes` and `len(selected_codes) ≤ 5`.
+
+Doctor UI (`Doctor UI/src/...`):
+
+- New `shared/TierSegmentedControl.jsx` — three-state pill (`Off / Minor /
+  Major`), Major-exclusivity enforced silently in the parent.
+- New `sections/DDxSelectionPanel.jsx` — top-5 cards with confidence bar,
+  hint badges (system-suggested Major / co-primary), Restore-suggestions link,
+  Confirm disabled until exactly one Major is set. Does NOT display the
+  allocation math (3 / 3+2 / 3+1+1 / …) — that's backend implementation
+  detail.
+- `context/AppContext.jsx` — captures `ddx_suggestion` and
+  `stage3_quality_drop` events; `confirmDiagnosis` accepts
+  `{selectedCodes, majorCode}` overrides and forwards both downstream.
+- `lib/clinicalApi.js` — `runDDxStream` surfaces `ddx_suggestion`;
+  `resynthesizePlanStream` accepts `majorCode` + `onQualityDrop` and sends the
+  `major_code` field in the request body.
+- `sections/DiagnosisSection.jsx` — renders `DDxSelectionPanel` above the
+  legacy multi-select card; routes Confirm through the new selection path.
+
+### Tests
+
+`tests/test_clinical_stages.py` gained 9 new cases covering the allocation
+table edges, headless auto-select branches, the 3+2 split, single-code cap,
+quality floor blocking weak secondary CPGs, leftover-slot cascade, the
+`stage3_quality_drop` SSE event payload, and the `major_code ∈ selected_codes`
+validator. All pass alongside the 70+ existing tests (one unrelated
+pre-existing failure in `test_rerank_uses_configured_model` re Stage 2
+temperature config, untouched by this work).
+
+### Not in this delivery
+
+- T4 ("Three-channel routing" / "Show more" / DDx cap > 5) remains suggestion-only.
+- P6 eval re-runs against case08/case09/case10 with the new pipeline still
+  need to be executed end-to-end; the chunk-budget headroom logged on
+  2026-05-29 (46% / 44%) is the existing rationale for shipping at quota 5.
+- `STAGE3_TAIL_SLOT_THRESHOLD` constant not split out from
+  `SEMANTIC_SCOPE_THRESHOLD` — reused 0.32 as the per-code-rank floor; revisit
+  if eval data shows the threshold needs to diverge.

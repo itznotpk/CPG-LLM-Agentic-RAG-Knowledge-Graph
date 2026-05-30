@@ -27,7 +27,7 @@ from pydantic import model_validator
 from .db_utils import db_pool
 from .graph_clinical import ClinicalFlag, format_flags_for_prompt
 from .models import ChunkResult, PatientCase, PriorVisitSummary, Recommendation, TreatmentPlan
-from .routing import CPGDocRef, route_icd_to_cpgs
+from .routing import CPGDocRef, SEMANTIC_SCOPE_THRESHOLD, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
 from .providers import make_vertex_client
 
@@ -2471,25 +2471,195 @@ def _case_cpg_priority(ref: CPGDocRef, ddx: list[DDxResult], clinical_context: s
     return ref.score, route_tie_break, ref.cpg_name
 
 
+# ---------------------------------------------------------------------------
+# Major / Minor allocation helpers (T1–T3 in DDx_Top5_And_Major_Minor_Suggestion.md)
+# ---------------------------------------------------------------------------
+
+# Total CPG slots that Stage 3 may return after Major/Minor allocation.
+# Single-code (Major only) keeps the historical cap of 3 to stay focused; once
+# any Minor is picked, the quota lifts to 5 so each tier gets at least one slot.
+STAGE3_MAX_CPGS = 5
+
+# Headless auto-select rule. If the gap between rank-1 and rank-2 DDx codes is
+# below this, treat rank-2 as a co-primary and route it as Minor; else route
+# rank-1 alone. Default chosen against the existing eval traces — adjust via env
+# `STAGE3_HEADLESS_GAP` if calibration changes.
+STAGE3_HEADLESS_GAP = float(os.getenv("STAGE3_HEADLESS_GAP", "0.15"))
+
+
+def _allocate_major_minor(n_minor: int) -> tuple[int, list[int]]:
+    """Return `(major_allot, minor_allots)` per the T2 allocation table.
+
+    Major code stays at 3 while 0–2 minors are picked, drops to 2 with 3 minors,
+    and to 1 only in the all-five "worst case." Minor codes are always
+    guaranteed at least 1 slot. Formula:
+        major_allot   = max(1, min(3, 5 − n_minor))
+        minor_allots  = `n_minor` copies of 1 (since 5 − major_allot ≤ n_minor
+                        for n_minor ≤ 4 except n_minor=1 which gets the leftover 2)
+
+    Concretely:
+        n_minor=0 → (3, [])               total 3   (single-pillar)
+        n_minor=1 → (3, [2])              total 5   (rank-1 minor gets 2)
+        n_minor=2 → (3, [1, 1])           total 5
+        n_minor=3 → (2, [1, 1, 1])        total 5
+        n_minor=4 → (1, [1, 1, 1, 1])     total 5   (worst case)
+
+    Args:
+        n_minor: count of Minor-tier codes (0..4).
+    Returns:
+        (major_allot, minor_allots) where len(minor_allots) == n_minor.
+    """
+    if n_minor < 0:
+        raise ValueError(f"n_minor must be ≥ 0, got {n_minor}")
+    if n_minor > STAGE3_MAX_CPGS - 1:
+        raise ValueError(
+            f"n_minor must be ≤ {STAGE3_MAX_CPGS - 1} (got {n_minor}); "
+            "Stage 2 caps DDx at 5 codes (1 major + 4 minors)"
+        )
+
+    if n_minor == 0:
+        return 3, []
+
+    major_allot = max(1, min(3, STAGE3_MAX_CPGS - n_minor))
+    remaining = STAGE3_MAX_CPGS - major_allot
+    # Distribute remaining evenly to minors. For n_minor ∈ [2..4] remaining // n_minor == 1.
+    # For n_minor == 1, remaining is 2 so the single minor takes both leftover slots.
+    base = remaining // n_minor
+    extra = remaining - base * n_minor
+    minor_allots = [base + (1 if i < extra else 0) for i in range(n_minor)]
+    return major_allot, minor_allots
+
+
+def _auto_select_codes(ddx: list[DDxResult]) -> tuple[list[str], str | None]:
+    """Headless default policy — applies only when no clinician selection is supplied.
+
+    Returns `(selected_codes, major_code)`:
+      - rank-1 alone as Major when `prob_rank1 − prob_rank2 >= STAGE3_HEADLESS_GAP`
+        (or only one candidate exists)
+      - rank-1 Major + rank-2 Minor otherwise
+
+    Returns `([], None)` for an empty DDx — caller treats this as out-of-scope
+    rather than silently routing nothing.
+    """
+    if not ddx:
+        return [], None
+
+    rank1 = ddx[0]
+    if len(ddx) == 1:
+        return [rank1.code], rank1.code
+
+    rank2 = ddx[1]
+    gap = float(rank1.similarity) - float(rank2.similarity)
+    if gap >= STAGE3_HEADLESS_GAP:
+        return [rank1.code], rank1.code
+    return [rank1.code, rank2.code], rank1.code
+
+
 async def stage_3_route(
     ddx: list[DDxResult],
-    top_k_codes: int = 2,
-    top_k_cpgs: int = 3,
-    emit=None,                      # async callable | None
-    clinical_context: str | None = None,  # free-text query for procedure-scope routing
-    patient_sex: str | None = None,       # "M"/"F"/"other"/None — drops sex-incompatible CPGs
+    top_k_codes: int | None = None,         # legacy — kept for backward-compat callers
+    top_k_cpgs: int | None = None,          # legacy — kept for backward-compat callers
+    emit=None,                              # async callable | None
+    clinical_context: str | None = None,    # free-text query for procedure-scope routing
+    patient_sex: str | None = None,         # "M"/"F"/"other"/None — drops sex-incompatible CPGs
+    selected_codes: list[str] | None = None,  # Major + Minor codes the clinician picked
+    major_code: str | None = None,          # exactly one of selected_codes (the primary dx)
 ) -> list[CPGDocRef]:
-    """Map the top DDx ICD-11 codes to CPG document sets."""
+    """Map DDx codes to CPG document sets using Major / Minor allocation.
+
+    Selection resolution order:
+      1. `selected_codes` + `major_code` from the clinician (or upstream wrapper)
+      2. legacy `top_k_codes` — first N codes of `ddx` with ddx[0] auto-marked Major
+      3. headless default — `_auto_select_codes(ddx)` (top-2 if gap < 0.15 else top-1)
+
+    Allocation table (`_allocate_major_minor(n_minor)`):
+        n_minor=0 → Major 3                  total 3
+        n_minor=1 → Major 3 + Minor 2        total 5
+        n_minor=2 → Major 3 + Minor [1,1]    total 5
+        n_minor=3 → Major 2 + Minor [1,1,1]  total 5
+        n_minor=4 → Major 1 + Minor [1,1,1,1] total 5
+
+    Quality floor (T2.3): each code's #1 CPG is always returned; its 2nd or 3rd
+    CPG is admitted only if `ref.score >= SEMANTIC_SCOPE_THRESHOLD`. A code's #1
+    CPG is *never* filtered — the clinician picked the code, so respect them.
+
+    Cascade (T2.2): if a code under-fills its allotment (fewer matching CPGs than
+    slots, or 2nd/3rd CPGs blocked by the floor), the unused slots cascade to the
+    next under-filled code in selection order (Major first, then Minors), capped
+    at 3 CPGs per code.
+
+    T2.5: when the quality floor or under-availability drops a code below its
+    expected allotment, emit a `stage3_quality_drop` event so the UI can flag
+    "under-evidenced primary diagnosis" to the clinician.
+    """
     procedure_tags = _extract_procedure_tags(clinical_context or "")
-    all_refs: dict[str, CPGDocRef] = {}
     excluded_names: set[str] = set()
-    route_fetch_k = max(top_k_cpgs, 10)
 
-    for result in ddx[:top_k_codes]:
-        refs = await route_icd_to_cpgs(result.code, top_k=route_fetch_k, procedure_tags=procedure_tags or None)
+    # --- Step 1: resolve which codes to route and which is Major ---
+    if selected_codes is not None and major_code is not None:
+        if major_code not in selected_codes:
+            raise ValueError(
+                f"major_code {major_code!r} must be one of selected_codes {selected_codes!r}"
+            )
+        chosen = list(selected_codes)
+        chosen_major = major_code
+        selection_source = "clinician"
+    elif top_k_codes is not None:
+        # Legacy path: treat ddx[0] as Major and ddx[1..top_k_codes-1] as Minors
+        sliced = ddx[: max(1, top_k_codes)]
+        chosen = [r.code for r in sliced]
+        chosen_major = chosen[0] if chosen else None
+        selection_source = "legacy_top_k"
+    else:
+        chosen, chosen_major = _auto_select_codes(ddx)
+        selection_source = "headless_auto"
 
-        # Drop CPGs biologically incompatible with the patient's sex before they
-        # can become the primary match or feed retrieval.
+    if not chosen or chosen_major is None:
+        if emit:
+            await emit("sub_step", {
+                "stage": 3,
+                "detail": "No DDx codes available to route",
+                "badge": "out_of_scope",
+                "status": "complete",
+            })
+        return []
+
+    # Cap selection to 5 (the allocation table's domain). Drop overflow with a
+    # warning rather than raising — the upstream UI is the authoritative gate.
+    if len(chosen) > STAGE3_MAX_CPGS:
+        logger.warning(
+            "Stage 3 selection of %d codes exceeds STAGE3_MAX_CPGS=%d; dropping tail",
+            len(chosen), STAGE3_MAX_CPGS,
+        )
+        chosen = chosen[:STAGE3_MAX_CPGS]
+        if chosen_major not in chosen:
+            # Pull Major back in if it landed in the dropped tail
+            chosen = [chosen_major] + [c for c in chosen if c != chosen_major][: STAGE3_MAX_CPGS - 1]
+
+    # Build the ordered list: Major first, then Minors in selection order.
+    minor_codes = [c for c in chosen if c != chosen_major]
+    ordered_codes = [chosen_major] + minor_codes
+    n_minor = len(minor_codes)
+    major_allot, minor_allots = _allocate_major_minor(n_minor)
+    allotments = {chosen_major: major_allot}
+    for code, allot in zip(minor_codes, minor_allots):
+        allotments[code] = allot
+
+    logger.info(
+        "Stage 3 selection: source=%s major=%s minors=%s allotments=%s",
+        selection_source, chosen_major, minor_codes,
+        {c: allotments[c] for c in ordered_codes},
+    )
+
+    # --- Step 2: per-code routing + sex / pregnancy filter ---
+    # ddx_index lets _case_cpg_priority keep its existing tie-break behaviour.
+    ddx_index = {r.code: r for r in ddx}
+    ranked_by_code: dict[str, list[CPGDocRef]] = {}
+    route_fetch_k = max(STAGE3_MAX_CPGS, 10)
+
+    for code in ordered_codes:
+        refs = await route_icd_to_cpgs(code, top_k=route_fetch_k, procedure_tags=procedure_tags or None)
+
         compat_refs: list[CPGDocRef] = []
         for ref in refs:
             reason = sex_incompatible_reason(ref.cpg_name, patient_sex)
@@ -2509,23 +2679,101 @@ async def stage_3_route(
                 continue
             compat_refs.append(ref)
 
-        if compat_refs:
-            compat_refs.sort(
-                key=lambda ref: _case_cpg_priority(ref, ddx[:top_k_codes], clinical_context),
-                reverse=True,
-            )
+        # Rank within this code by the existing priority (semantic score + match-type tiebreak).
+        compat_refs.sort(
+            key=lambda ref: _case_cpg_priority(ref, ddx, clinical_context),
+            reverse=True,
+        )
+
+        # Update the DDx result's score_breakdown / matched_cpg_title from its own #1 match.
+        if compat_refs and code in ddx_index:
+            result = ddx_index[code]
             primary_ref = compat_refs[0]
             result.score_breakdown = build_score_breakdown(
                 result,
                 route_method=primary_ref.match_type,
             )
             result.matched_cpg_title = primary_ref.title
-        for ref in compat_refs:
-            if ref.cpg_name not in all_refs:
-                all_refs[ref.cpg_name] = ref
 
-    if not all_refs:
-        out_of_scope = build_out_of_scope_info(ddx[:top_k_codes])
+        ranked_by_code[code] = compat_refs
+
+    # --- Step 3: Major-first allotment fill with quality floor and cascade ---
+    chosen_refs: list[CPGDocRef] = []
+    chosen_names: set[str] = set()
+    per_code_picked: dict[str, int] = {c: 0 for c in ordered_codes}
+    drop_events: list[dict] = []
+
+    def _pull_from_code(code: str, slots: int) -> int:
+        """Take up to `slots` CPGs from `code`'s ranked list under the quality
+        floor and per-code 3-cap. Returns slots actually filled."""
+        if slots <= 0:
+            return 0
+        per_code_cap = 3  # T2.3 per-code cap
+        remaining_cap = per_code_cap - per_code_picked[code]
+        target = min(slots, remaining_cap)
+        if target <= 0:
+            return 0
+
+        filled = 0
+        for ref in ranked_by_code.get(code, []):
+            if filled >= target:
+                break
+            if ref.cpg_name in chosen_names:
+                continue
+            per_code_rank = per_code_picked[code] + 1  # 1-based per-code rank
+            # Quality floor: first CPG always admitted; 2nd/3rd need to clear threshold.
+            if per_code_rank >= 2 and ref.score < SEMANTIC_SCOPE_THRESHOLD:
+                logger.info(
+                    "Stage 3 quality-floor blocked %s for code %s (rank %d, score %.3f < %.3f)",
+                    ref.cpg_name, code, per_code_rank, ref.score, SEMANTIC_SCOPE_THRESHOLD,
+                )
+                continue
+            chosen_refs.append(ref)
+            chosen_names.add(ref.cpg_name)
+            per_code_picked[code] += 1
+            filled += 1
+        return filled
+
+    # Pass 1 — give each code its own allotment in selection order (Major first).
+    for code in ordered_codes:
+        _pull_from_code(code, allotments[code])
+
+    # Pass 2 — cascade unfilled slots to under-filled codes (Major first, then Minors).
+    while True:
+        used = sum(per_code_picked.values())
+        budget = STAGE3_MAX_CPGS if n_minor > 0 else 3
+        leftover = budget - used
+        if leftover <= 0:
+            break
+        progressed = False
+        for code in ordered_codes:
+            if per_code_picked[code] >= 3:
+                continue
+            taken = _pull_from_code(code, 1)
+            if taken:
+                progressed = True
+                leftover -= 1
+                if leftover <= 0:
+                    break
+        if not progressed:
+            break  # nothing left to cascade
+
+    # T2.5 — record under-fills so the UI can surface them.
+    for code in ordered_codes:
+        expected = allotments[code]
+        actual = per_code_picked[code]
+        if actual < expected:
+            tier = "major" if code == chosen_major else "minor"
+            drop_events.append({
+                "tier": tier,
+                "code": code,
+                "expected_slots": expected,
+                "actual_slots": actual,
+            })
+
+    # --- Step 4: out-of-scope, telemetry, and tail accounting ---
+    if not chosen_refs:
+        out_of_scope = build_out_of_scope_info([ddx_index[c] for c in ordered_codes if c in ddx_index])
         if out_of_scope:
             logger.info(
                 "Stage 3 out_of_scope: max_inclusion_score=%.3f candidates=%s",
@@ -2541,21 +2789,35 @@ async def stage_3_route(
                     "data": out_of_scope.model_dump(),
                 })
 
-    ranked_refs = sorted(
-        all_refs.values(),
-        key=lambda ref: _case_cpg_priority(ref, ddx[:top_k_codes], clinical_context),
-        reverse=True,
-    )[:top_k_cpgs]
     if emit:
-        for ref in ranked_refs:
+        for ref in chosen_refs:
             await emit("sub_step", {
                 "stage": 3,
                 "detail": f"{ref.cpg_name}",
                 "badge": ref.match_type,
                 "status": "complete",
             })
+        if drop_events:
+            await emit("stage3_quality_drop", {
+                "stage": 3,
+                "drops": drop_events,
+                "major_code": chosen_major,
+                "selection_source": selection_source,
+            })
+            for d in drop_events:
+                tier_label = "Primary" if d["tier"] == "major" else "Co-consideration"
+                detail = (
+                    f"{tier_label} {d['code']} backed by {d['actual_slots']} CPG"
+                    f"{'s' if d['actual_slots'] != 1 else ''} (expected {d['expected_slots']})"
+                )
+                await emit("sub_step", {
+                    "stage": 3,
+                    "detail": detail,
+                    "badge": "under_evidenced",
+                    "status": "complete",
+                })
 
-    # After routing is resolved, any candidate still without a route_method
+    # After routing is resolved, any DDx candidate still without a route_method
     # (stage-2 numeric-only breakdown, never matched a CPG) is out_of_scope.
     for result in ddx:
         if result.score_breakdown is None or result.score_breakdown.route_method is None:
@@ -2564,7 +2826,13 @@ async def stage_3_route(
                 route_method="out_of_scope",
             )
 
-    return ranked_refs
+    # Honour the legacy `top_k_cpgs` cap when explicitly passed — keeps existing
+    # tests (and any older callers that wanted a tight 3-CPG return) working.
+    # New callers should leave top_k_cpgs=None and let the allocation table decide.
+    if top_k_cpgs is not None and len(chosen_refs) > top_k_cpgs:
+        chosen_refs = chosen_refs[:top_k_cpgs]
+
+    return chosen_refs
 
 
 # ---------------------------------------------------------------------------

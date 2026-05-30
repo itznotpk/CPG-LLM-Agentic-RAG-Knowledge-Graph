@@ -62,11 +62,19 @@ class SelectedDiagnosis(_BaseModel):
     title: str
     probability: float = 0.9
     reasoning: list[str] = []
+    # Tier — "major" for the single primary diagnosis, "minor" for co-considerations.
+    # Optional for backward-compat: when omitted, the first diagnosis is treated as Major
+    # and the rest as Minor.
+    tier: str | None = None
 
 
 class ResynthesizeRequest(_BaseModel):
     case: PatientCase
     selected_diagnoses: list[SelectedDiagnosis]
+    # Explicit Major code — must equal one of selected_diagnoses[*].code.
+    # Optional for backward-compat: when None, falls back to (a) the diagnosis whose
+    # tier=="major", else (b) the first entry of selected_diagnoses.
+    major_code: str | None = None
 
 
 class ClinicalPlanResponse(_BaseModel):
@@ -1023,8 +1031,19 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             )
             for d in payload.selected_diagnoses
         ]
+        # Resolve Major: explicit payload.major_code wins; else the entry
+        # tagged tier=="major"; else the first selected diagnosis.
+        major_code = payload.major_code
+        if major_code is None:
+            tagged = next(
+                (d.code for d in payload.selected_diagnoses if (d.tier or "").lower() == "major"),
+                None,
+            )
+            major_code = tagged or (selected_ddx[0].code if selected_ddx else None)
         try:
-            result = await run_resynthesize_streaming(payload.case, selected_ddx, emit)
+            result = await run_resynthesize_streaming(
+                payload.case, selected_ddx, emit, major_code=major_code,
+            )
         except Exception as e:
             log_failed_job("clinical_resynthesize_stream", payload.case, str(e), request_id=_request_id_var.get())
             raise
