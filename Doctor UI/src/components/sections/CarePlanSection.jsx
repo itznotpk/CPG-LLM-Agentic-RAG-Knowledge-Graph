@@ -161,7 +161,7 @@ function Section({ title, icon: Icon, children, defaultOpen = true, rightAction,
           </div>
           <h3 className={`text-base font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{title}</h3>
           {count != null && (
-            <span className={`text-[11px] font-mono px-2 py-0.5 rounded-full ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-100 text-slate-500'}`}>{count}</span>
+            <span className={`text-[11px] font-sans px-2 py-0.5 rounded-full ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-100 text-slate-500'}`}>{count}</span>
           )}
         </div>
         <div className="flex items-center gap-2">
@@ -356,7 +356,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
       </td>
       <td className="py-3 align-top w-[140px]">
         <div className="flex items-start justify-between">
-          <span className={`text-[11px] font-mono ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{med.cpgRef || ''}</span>
+          <span className={`text-[11px] font-sans ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{med.cpgRef || ''}</span>
           <button
             onClick={onDelete}
             className={`p-1 rounded-md opacity-0 group-hover/row:opacity-100 transition-all flex-shrink-0 ml-1
@@ -671,7 +671,7 @@ function FollowUpItem({ timeline, body, isDark }) {
   return (
     <div className="relative py-2">
       <div className={`absolute -left-[18px] top-3 w-3 h-3 rounded-full border-2 ${isDark ? 'bg-slate-900 border-[var(--accent-primary)]' : 'bg-white border-[var(--accent-primary)]'}`} />
-      <div className="text-[11px] font-mono font-semibold uppercase tracking-wider text-[var(--accent-primary)]">{timeline}</div>
+      <div className="text-[11px] font-sans font-semibold uppercase tracking-wider text-[var(--accent-primary)]">{timeline}</div>
       {body && (
         <p className={`text-sm leading-relaxed mt-0.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{body}</p>
       )}
@@ -682,7 +682,6 @@ function FollowUpItem({ timeline, body, isDark }) {
 function FollowUpBlock({ followUp }) {
   const { isDark } = useTheme();
   const { state, dispatch } = useApp();
-  const currentStatus = state.patientStatus || 'active';
   const nextReviewDate = state.nextReviewDate || '';
 
   const items = Array.isArray(followUp) ? followUp : followUp ? [followUp] : [];
@@ -692,15 +691,9 @@ function FollowUpBlock({ followUp }) {
     return !earliest || d < earliest ? d : earliest;
   }, null);
 
-  const statusOptions = [
-    { value: 'active', label: 'Active' },
-    { value: 'follow-up', label: 'Follow-up' },
-    { value: 'discharged', label: 'Discharged' },
-  ];
-
   const parseInstruction = (text) => {
     const source = String(text || '').replace(/\s+/g, ' ').trim();
-    const dashMatch = source.match(/\s+(?:-|—|–|â€”|Ã¢â‚¬â€)\s+/);
+    const dashMatch = source.match(/\s+(?:-|—|–|â€”|Ã¢â‚¬â€ )\s+/);
     if (dashMatch?.index != null) {
       return {
         timeline: source.slice(0, dashMatch.index).trim(),
@@ -710,6 +703,16 @@ function FollowUpBlock({ followUp }) {
     const colonIdx = source.indexOf(':');
     if (colonIdx === -1) return { timeline: '—', body: text };
     return { timeline: source.slice(0, colonIdx).trim(), body: source.slice(colonIdx + 1).trim() };
+  };
+
+  const handleDateChange = (e) => {
+    const date = e.target.value;
+    dispatch({ type: 'SET_NEXT_REVIEW_DATE', payload: date });
+    if (date) {
+      dispatch({ type: 'SET_PATIENT_STATUS', payload: 'follow-up' });
+    } else {
+      dispatch({ type: 'SET_PATIENT_STATUS', payload: null });
+    }
   };
 
   return (
@@ -731,35 +734,15 @@ function FollowUpBlock({ followUp }) {
         </div>
         <input
           type="date"
-          value={nextReviewDate || suggestedDate || ''}
-          onChange={(e) => dispatch({ type: 'SET_NEXT_REVIEW_DATE', payload: e.target.value })}
+          value={nextReviewDate}
+          onChange={handleDateChange}
           min={getTodayUTC8()}
           className={`w-full px-3 py-2 rounded-lg border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/40
             ${isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white border-slate-200 text-slate-800'}`}
         />
         {suggestedDate && !nextReviewDate && (
-          <p className="text-[11px] mt-1.5 text-[var(--accent-primary)]/80">Suggested from CPG follow-up plan — adjust as needed</p>
+          <p className="text-[11px] mt-1.5 text-[var(--accent-primary)]/80">Suggested from CPG: {suggestedDate} — adjust as needed</p>
         )}
-        <div className={`mt-4 text-[10px] font-bold uppercase tracking-wider mb-1.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Patient Status</div>
-        <div className="flex gap-1.5">
-          {statusOptions.map((opt) => {
-            const active = currentStatus === opt.value;
-            return (
-              <button
-                key={opt.value}
-                onClick={() => dispatch({ type: 'SET_PATIENT_STATUS', payload: opt.value })}
-                className={`flex-1 px-2 py-1.5 text-xs font-semibold rounded-lg border transition-colors
-                  ${active
-                    ? 'bg-[var(--accent-primary)] text-white border-[var(--accent-primary)]'
-                    : isDark
-                      ? 'bg-white/5 border-white/10 text-slate-400 hover:bg-white/10'
-                      : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}
-              >
-                {opt.label}
-              </button>
-            );
-          })}
-        </div>
       </div>
     </div>
   );
@@ -785,7 +768,7 @@ function TabBar({ tabs, active, onChange }) {
           >
             {t.label}
             {t.count != null && (
-              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full
+              <span className={`text-[10px] font-sans px-1.5 py-0.5 rounded-full
                 ${on
                   ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)]'
                   : (isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-200 text-slate-600')}`}>
@@ -818,7 +801,7 @@ function renderGradePills(text) {
         g === 'B' ? 'bg-sky-500/15 text-sky-400 border-sky-500/30' :
                     'bg-amber-500/15 text-amber-400 border-amber-500/30';
       return (
-        <span key={i} className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[9px] font-bold font-mono tracking-wider mx-0.5 align-middle ${color}`}>
+        <span key={i} className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[9px] font-bold font-sans tracking-wider mx-0.5 align-middle ${color}`}>
           Grade {g}
         </span>
       );
@@ -832,7 +815,7 @@ function renderGradePills(text) {
           ? 'bg-sky-500/10 text-sky-500 border-sky-500/25'
           : 'bg-amber-500/10 text-amber-500 border-amber-500/25';
       return (
-        <span key={i} className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[9px] font-mono tracking-wider mx-0.5 align-middle ${color}`}>
+        <span key={i} className={`inline-flex items-center px-1.5 py-0.5 rounded border text-[9px] font-sans tracking-wider mx-0.5 align-middle ${color}`}>
           Level {l}
         </span>
       );
@@ -1003,7 +986,7 @@ function EvidenceTier({ icon, label, defaultOpen = false, children, isDark, acce
         <span className="text-[13px] leading-none">{icon}</span>
         <span className="flex-1">{label}</span>
         {badge && (
-          <span className={`text-[9px] font-bold font-mono px-1.5 py-0.5 rounded ${
+          <span className={`text-[9px] font-bold font-sans px-1.5 py-0.5 rounded ${
             isDark ? 'bg-white/8 text-slate-500' : 'bg-slate-200 text-slate-400'
           }`}>{badge}</span>
         )}
@@ -1140,7 +1123,7 @@ function CpgReferenceCard({ cpgRef, isDark, onOpenSource }) {
       <div className="px-3.5 pt-3 pb-2.5">
         {/* Section label */}
         {cpgRef.section && (
-          <span className={`inline-block text-[10px] font-bold font-mono px-2 py-0.5 rounded border mb-1.5 ${sectionBadgeColor}`}>
+          <span className={`inline-block text-[10px] font-bold font-sans px-2 py-0.5 rounded border mb-1.5 ${sectionBadgeColor}`}>
             Section {sectionNum}
           </span>
         )}
@@ -1262,7 +1245,7 @@ function CpgReferenceDrawer({ cpgRef, onClose, isDark }) {
         <div className={`flex items-start gap-3 px-5 py-4 border-b ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
           <BookOpen className="w-4 h-4 mt-1 flex-shrink-0 text-[var(--accent-primary)]" strokeWidth={1.8} />
           <div className="flex-1 min-w-0">
-            <div className={`text-[11px] font-mono ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+            <div className={`text-[11px] font-sans ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
               {cpgRef.cpgShortName || cpgRef.cpgName || 'CPG'}{cpgRef.sectionNum ? ` § ${cpgRef.sectionNum}` : ''}
             </div>
             <div className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
@@ -1423,7 +1406,7 @@ function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
       <p className="text-amber-500 text-xs font-semibold mb-1.5 flex items-center gap-1.5">
         <AlertCircle className="w-3.5 h-3.5" strokeWidth={2} />
         Unresolved Questions
-        <span className={`font-mono text-[10px] px-1.5 py-0.5 rounded-full ${
+        <span className={`font-sans text-[10px] px-1.5 py-0.5 rounded-full ${
           isDark ? 'bg-amber-500/20 text-amber-400' : 'bg-amber-100 text-amber-700'
         }`}>
           {qs.length}
@@ -1598,7 +1581,7 @@ export function CarePlanSection() {
                         <div key={d.id}>
                           <p className={`text-sm font-bold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</p>
                           {d.icdCode && (
-                            <span className={`text-[10px] font-mono ${isDark ? 'text-[var(--accent-primary)]' : 'text-blue-600'}`}>ICD-11: {d.icdCode}</span>
+                            <span className={`text-[10px] font-sans ${isDark ? 'text-[var(--accent-primary)]' : 'text-blue-600'}`}>ICD-11: {d.icdCode}</span>
                           )}
                         </div>
                       ))}

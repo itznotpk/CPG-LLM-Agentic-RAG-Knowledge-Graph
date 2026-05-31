@@ -38,6 +38,13 @@ Rules:
 - A `cc-implied: NN%` marker (no EXPLICIT label) is a softer prior — treat as a thumb on the scale, not a hard rule.
 - When you keep an explicit code at or near its math_rank, no override_reason is needed. When you demote an explicit code OUT of the top-3, you MUST set `override_reason="explicit_contradicted: <the specific patient finding that contradicts it>"`.
 
+SEVERITY-STAGING / KEY-LAB DISCRIMINATION:
+The "Severity staging / key labs" line carries the numeric values that distinguish near-identical sibling codes. You MUST use them to pick the correct specific sibling, not vector similarity:
+- LVEF (left ventricular ejection fraction) selects the heart-failure subtype: LVEF ≤ 40% → reduced ejection fraction (HFrEF); 41–49% → mid-range (HFmrEF); ≥ 50% → preserved (HFpEF). Rank the matching subtype above the other two siblings; do NOT rank "preserved" above "reduced" when LVEF is low.
+- eGFR selects the CKD stage (≥90 G1, 60–89 G2, 45–59 G3a, 30–44 G3b, 15–29 G4, <15 G5). Keep only the stage matching eGFR; demote the off-by-one-stage siblings.
+- HbA1c, NYHA, INR and similar values likewise confirm or downgrade the relevant candidate.
+When you reorder siblings on a staging value, set override_reason="staging_discriminator: <value> selects <code>".
+
 PERTINENT NEGATIVE:
 For your TOP-RANKED code, the reasoning string must name ONE finding from this patient that argues AGAINST a close differential (e.g. "no chest pain argues against ACS"). This forces real discrimination, not pattern-match agreement with the math score.
 

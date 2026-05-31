@@ -18,7 +18,7 @@ import openai
 from pydantic import ValidationError
 
 from .models import PatientCase, TreatmentPlan, SafetyFlag, SafetyReport  # noqa: F401 re-export
-from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, build_patient_params, _norm as _kg_norm
+from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, build_patient_params, _norm as _kg_norm, _DRUG_CLASS_EXPANSION
 from .providers import make_vertex_client
 
 logger = logging.getLogger(__name__)
@@ -107,6 +107,16 @@ def _kg_flag_to_safety(
         else:
             detail = f"{detail} Threshold: {rule_str} (patient value unknown)."
 
+    # Provenance: keep the KG relationship + originating CPG so the flag can be
+    # cited in the references list, mirroring the navigator-rule "Interaction
+    # graph — …" style instead of disappearing into prose.
+    graph_citation = None
+    if cf.source_document:
+        graph_citation = (
+            f"Interaction graph — {cf.source_document} "
+            f"({cf.subject} {relation_pretty} {cf.object})"
+        )
+
     return SafetyFlag(
         title=f"{cf.subject} - {relation_pretty} caution",
         severity=severity,
@@ -115,6 +125,9 @@ def _kg_flag_to_safety(
         detail=detail,
         suggested_alternative=None,
         source="graph",
+        kg_relation=cf.relation,
+        source_document=cf.source_document or None,
+        graph_citation=graph_citation,
     )
 
 
@@ -144,19 +157,74 @@ async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[Safety
             drug_idx_map = await match_plan_drugs(interventions)
             if not drug_idx_map:
                 return []
+            # Canonicalise the current-med list to KG Drug names. case.current_medications
+            # are verbose free-text ("Gliclazide MR 60mg OD") whose _norm form
+            # ("gliclazide mr 60mg od") never equals a Drug node's name_normalised
+            # ("gliclazide") — so drug–drug interactions anchored on an existing med
+            # (warfarin×fluconazole, gliclazide×dapagliflozin) could never fire. Resolve
+            # them to canonical names first; fall back to the raw list if nothing matches.
+            pm_idx_map = await match_plan_drugs(case.current_medications or [])
+            patient_med_names = list(pm_idx_map.keys()) or (case.current_medications or [])
             kg_flags = await clinical_graph_lookup(
-                patient_meds=case.current_medications,
+                patient_meds=patient_med_names,
                 candidate_drugs=list(drug_idx_map.keys()),
                 comorbidities=case.comorbidities,
                 allergies=case.allergies,
                 patient_params=build_patient_params(case),
                 patient_age=case.age,
             )
-            out: list[SafetyFlag] = []
+            # Dedupe agent-vs-class: a class-level edge ("Sulfonylurea") and the
+            # specific agent ("Gliclazide") can both flag the same (object, flag_type).
+            # Keep the specific agent and drop the drug-class duplicate — it carries no
+            # extra information for this patient. We identify class names from the
+            # expansion map rather than plan-drug membership, because match_plan_drugs
+            # may key an agent as "gliclazide mr" while the flag subject is "Gliclazide".
+            class_norms = {
+                _kg_norm(c) for vals in _DRUG_CLASS_EXPANSION.values() for c in vals
+            }
+            grouped: dict[tuple, list] = {}
             for cf in kg_flags:
+                grouped.setdefault((cf.flag_type, _kg_norm(cf.object)), []).append(cf)
+            deduped: list = []
+            for group in grouped.values():
+                if len(group) > 1:
+                    specific = [c for c in group if _kg_norm(c.subject) not in class_norms]
+                    deduped.extend(specific or group)
+                else:
+                    deduped.extend(group)
+
+            out: list[SafetyFlag] = []
+            for cf in deduped:
                 sf = _kg_flag_to_safety(cf, drug_idx_map, pharm_recommendation_indices)
-                if sf is not None:
-                    out.append(sf)
+                if sf is None:
+                    continue
+                # Anchor the flag to the pharm rec whose intervention text actually
+                # names the subject drug. The drug_idx_map key lookup in
+                # _kg_flag_to_safety silently falls back to rec 0 when a node name
+                # ("Gliclazide") doesn't key-match an alias ("gliclazide mr"),
+                # mis-attributing the flag to an unrelated drug and breaking the
+                # action-awareness below. A direct substring match is robust to that.
+                subj = (cf.subject or "").lower()
+                for local_i, iv in enumerate(interventions):
+                    if subj and subj in iv.lower():
+                        sf.recommendation_index = pharm_recommendation_indices[local_i]
+                        break
+                # Action-awareness: when the plan already discontinues / contraindicates
+                # the flagged drug, an interaction on it can no longer occur (drop it),
+                # and a contraindication/dose flag is no longer an unaddressed risk —
+                # reframe it as supporting evidence for the discontinuation rather than
+                # a fresh alarm.
+                action = ""
+                if 0 <= sf.recommendation_index < len(plan.recommendations):
+                    action = (plan.recommendations[sf.recommendation_index].action or "").lower()
+                if action in ("stop", "contraindicated"):
+                    if sf.flag_type == "drug_interaction":
+                        continue
+                    sf.detail = (
+                        f"{sf.detail} Plan already discontinues this drug — "
+                        "flag supports that decision."
+                    )
+                out.append(sf)
             logger.info(
                 "KG verify: %d graph-sourced safety flags from %d KG flags (plan drugs: %d)",
                 len(out), len(kg_flags), len(drug_idx_map),

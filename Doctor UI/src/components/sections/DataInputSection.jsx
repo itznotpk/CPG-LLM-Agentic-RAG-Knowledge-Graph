@@ -396,7 +396,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
         </div>
         <div className="flex-1 min-w-0">
           <h3 className={`text-base font-semibold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient?.name || '—'}</h3>
-          <p className={`text-xs font-mono mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          <p className={`text-xs font-sans mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
             {patient?.nsn}
             {patient?.age && <> · {patient.age} {patient.gender === 'Male' ? 'M' : patient.gender === 'Female' ? 'F' : patient.gender || ''}</>}
             {mpisData?.race && <> · {mpisData.race}</>}
@@ -589,7 +589,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
                   </>
                 )}
               </span>
-              <span className={`ds-mono text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              <span className={`ds-numeric text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 {[med.dose, med.frequency].filter(Boolean).join(' · ')}
               </span>
             </div>
@@ -746,7 +746,7 @@ function NewPatientForm({ nsn, onClear }) {
           <p className={`text-base font-semibold leading-tight ${patient?.name ? (isDark ? 'text-white' : 'text-slate-800') : (isDark ? 'text-slate-500' : 'text-slate-400')}`}>
             {patient?.name || 'New patient'}
           </p>
-          <p className={`text-xs font-mono mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+          <p className={`text-xs font-sans mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
             {nsn || '—'}
             {patient?.age && <> · {patient.age} yrs</>}
             {patient?.gender && <> · {patient.gender === 'Male' ? 'M' : patient.gender === 'Female' ? 'F' : patient.gender}</>}
@@ -860,7 +860,7 @@ function NewPatientForm({ nsn, onClear }) {
                 {med.name}
                 <button onClick={() => setMeds(p => p.filter((_, i) => i !== idx))} className={`ml-2 text-xs font-normal ${isDark ? 'text-slate-500 hover:text-red-400' : 'text-slate-400 hover:text-red-500'}`}>remove</button>
               </span>
-              <span className={`ds-mono text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+              <span className={`ds-numeric text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                 {[med.dose, med.frequency].filter(Boolean).join(' · ')}
               </span>
             </div>

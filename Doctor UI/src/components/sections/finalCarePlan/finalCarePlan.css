@@ -49,7 +49,7 @@ html, body {
 }
 .fcp-eyebrow .status .dot { width: 6px; height: 6px; border-radius: 50%; background: #10b981; }
 .fcp-eyebrow .doc-id {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   color: var(--fg-muted);
   margin-left: auto;
@@ -128,7 +128,7 @@ html, body {
 }
 .doc-meta {
   text-align: right;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   color: var(--fg-muted);
   line-height: 1.6;
@@ -172,7 +172,7 @@ html, body {
 .patient-banner .field-sub {
   font-size: 10.5px;
   color: var(--fg-muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   margin-top: 0px;
 }
 
@@ -295,7 +295,7 @@ html, body {
   margin-bottom: 4px;
 }
 .vitals .v-val {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 600;
   color: var(--fg-primary);
@@ -319,7 +319,7 @@ html, body {
 }
 .dx-item:last-child { border-bottom: 0; }
 .dx-item .dx-num {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 13px;
   color: var(--fg-muted);
   font-weight: 700;
@@ -331,7 +331,7 @@ html, body {
   color: var(--fg-primary);
 }
 .dx-item .dx-icd {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   color: var(--accent-primary);
   background: var(--primary-50);
@@ -363,7 +363,7 @@ html, body {
   left: -40px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 700;
   color: var(--accent-primary);
@@ -385,7 +385,7 @@ html, body {
 }
 .plan-h4 .count {
   margin-left: auto;
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   color: var(--fg-muted);
 }
@@ -414,7 +414,7 @@ html, body {
 .tbl tbody tr:last-child td { border-bottom: 0; }
 .tbl .name { font-weight: 600; color: var(--fg-primary); }
 .tbl .meta {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   color: var(--fg-muted);
   margin-top: 2px;
@@ -429,7 +429,7 @@ html, body {
   max-width: 44ch;
 }
 .tbl .cpg {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   color: var(--fg-muted);
   white-space: nowrap;
@@ -586,7 +586,7 @@ html, body {
 }
 .tca-row .tca-list .tca-li:last-child { border-bottom: 0; }
 .tca-row .tca-list .when {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 11px;
   font-weight: 700;
   color: var(--accent-primary);
@@ -689,7 +689,7 @@ html, body {
 }
 .sig-info dt { color: var(--fg-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 .sig-info dd { margin: 0; color: var(--fg-primary); font-weight: 600; }
-.sig-info dd.mono { font-family: var(--font-mono); }
+.sig-info dd.mono { font-family: var(--font-sans); }
 
 /* Footer */
 .doc-footer {
@@ -819,7 +819,7 @@ html, body {
   font-weight: 600;
 }
 .kpi-mini .kmi .v {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 18px;
   font-weight: 600;
   color: var(--fg-primary);
@@ -840,7 +840,7 @@ html, body {
   border-left-color: var(--accent-primary);
 }
 .toc-link .toc-letter {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-weight: 700;
   color: var(--accent-primary);
   margin-right: 8px;

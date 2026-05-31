@@ -385,6 +385,17 @@ recommendations array MUST cover all applicable types below:
       1. Use the class name as the drug, but append "(agent and dose not specified in CPG)"
          e.g. "Beta-blocker (agent and dose not specified in CPG) — post-MI secondary prevention"
       2. Add an unresolved_questions entry: "Specific [class] agent and dose not stated in retrieved evidence — clinician to select."
+    DEFERRED / SPECIALIST-INITIATED AGENTS: if a drug has LIMITED or UNCERTAIN safety
+    evidence in this patient's severity stratum (e.g. a novel agent at the severe end of
+    a staging band such as GLP-1 RA in severe HFrEF with LVEF ≤ 30%), OR the evidence
+    states it requires specialist initiation, do NOT present it as a routine clinician-led
+    action="start". Instead you MUST:
+      1. Frame the intervention as deferred — e.g. "GLP-1 RA (e.g. semaglutide) — DEFER:
+         specialist-initiated; limited safety data in severe HFrEF (LVEF 25%), cardiology
+         to weigh in before initiation".
+      2. Emit the matching type="referral" Recommendation to the initiating specialty.
+      3. Add an unresolved_questions entry naming the deferred drug and the missing-evidence
+         reason. Keep the established first-line, evidence-backed agents as action="start".
 
   type="investigation"
     Tests and imaging required before or during treatment. EMIT ONE Recommendation

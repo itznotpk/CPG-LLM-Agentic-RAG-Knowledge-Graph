@@ -118,7 +118,7 @@ export function DDxSelectionPanel({
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
                   <Badge variant="default" className="text-xs">#{c.rank}</Badge>
-                  <span className="font-mono text-sm text-slate-200">{c.code}</span>
+                  <span className="font-sans text-sm text-slate-200">{c.code}</span>
                   <span className="text-sm text-slate-100 truncate" title={c.title}>
                     {c.title}
                   </span>
@@ -130,7 +130,7 @@ export function DDxSelectionPanel({
                       style={{ width: `${Math.min(100, Math.max(0, probabilityPct))}%` }}
                     />
                   </div>
-                  <span className="text-xs text-slate-300 font-mono">{probabilityPct}%</span>
+                  <span className="text-xs text-slate-300 font-sans">{probabilityPct}%</span>
                 </div>
                 {(showMajorHint || showMinorHint) && (
                   <div className="mt-2 flex items-center gap-2">

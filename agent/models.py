@@ -416,6 +416,12 @@ class SafetyFlag(BaseModel):
     # "graph" = deterministic Neo4j KG verification of the final plan (hybrid Agent 1
     #   addition). UI may render a "graph-verified" badge for these.
     source: Literal["llm", "graph"] = "llm"
+    # Provenance for graph-sourced flags (None for llm flags): the KG relationship
+    # type, the originating CPG, and a ready-made citation string for the references
+    # list (mirrors the navigator-rule "Interaction graph — …" style).
+    kg_relation: Optional[str] = None
+    source_document: Optional[str] = None
+    graph_citation: Optional[str] = None
 
     @model_validator(mode="before")
     @classmethod

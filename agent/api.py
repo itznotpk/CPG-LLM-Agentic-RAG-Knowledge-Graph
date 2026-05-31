@@ -161,7 +161,7 @@ def _parse_follow_up(items: list[str]) -> list[dict]:
     return out
 
 
-def _derive_cpg_references(plan: TreatmentPlan) -> list[str]:
+def _derive_cpg_references(plan: TreatmentPlan, safety_flags: list | None = None) -> list[str]:
     """Collect unique CPG citation strings from a TreatmentPlan for the UI's
     collapsible references section. Order preserved by first appearance so the
     primary CPG (cited most prominently) sorts to the top.
@@ -170,6 +170,10 @@ def _derive_cpg_references(plan: TreatmentPlan) -> list[str]:
     (e.g. 'No specific CPG chunk retrieved for ACS management…') are excluded —
     they are evidence-gap disclosures that belong in unresolved_questions, not
     in the references list.
+
+    Graph-sourced safety flags contribute their provenance as "Interaction graph —
+    …" entries (same style as navigator rules), so the KG relationships that drive
+    the dual-source safety critic are cited rather than buried in flag prose.
     """
     seen: list[str] = []
     seen_set: set[str] = set()
@@ -190,6 +194,12 @@ def _derive_cpg_references(plan: TreatmentPlan) -> list[str]:
         if ref and not ref.lower().startswith("no specific cpg") and ref not in seen_set:
             seen_set.add(ref)
             seen.append(ref)
+    for f in safety_flags or []:
+        cite = getattr(f, "graph_citation", None) if not isinstance(f, dict) else f.get("graph_citation")
+        cite = (cite or "").strip()
+        if cite and cite not in seen_set:
+            seen_set.add(cite)
+            seen.append(cite)
     return seen
 
 from .tools import (
@@ -785,7 +795,7 @@ async def clinical_plan(request: ClinicalPlanRequest):
             stage_errors=[e.model_dump() for e in result.stage_errors],
             graph_navigator_rules=result.graph_navigator_rules,
             safety_report=result.safety_report,
-            cpg_references=_derive_cpg_references(result.treatment_plan),
+            cpg_references=_derive_cpg_references(result.treatment_plan, getattr(result.safety_report, "flags", None)),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
             evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
@@ -988,7 +998,7 @@ async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
             stage_errors=[e.model_dump() for e in result.stage_errors],
             graph_navigator_rules=result.graph_navigator_rules,
             safety_report=result.safety_report,
-            cpg_references=_derive_cpg_references(result.treatment_plan),
+            cpg_references=_derive_cpg_references(result.treatment_plan, getattr(result.safety_report, "flags", None)),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
             evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
@@ -1059,7 +1069,7 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             stage_errors=[e.model_dump() for e in result.stage_errors],
             graph_navigator_rules=result.graph_navigator_rules,
             safety_report=result.safety_report,
-            cpg_references=_derive_cpg_references(result.treatment_plan),
+            cpg_references=_derive_cpg_references(result.treatment_plan, getattr(result.safety_report, "flags", None)),
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
             evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )

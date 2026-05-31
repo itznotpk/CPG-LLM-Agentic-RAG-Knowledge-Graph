@@ -31,9 +31,9 @@ function CpgRoutingTelemetry({ selectedDiagnoses, uniqueCpgNames, isDark }) {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse" />
-            <span className={`text-[10px] font-mono tracking-wider ${isDark ? 'text-teal-300' : 'text-teal-700'} uppercase font-bold`}>CPG Registry Scanner</span>
+            <span className={`text-[10px] font-sans tracking-wider ${isDark ? 'text-teal-300' : 'text-teal-700'} uppercase font-bold`}>CPG Registry Scanner</span>
           </div>
-          <span className="text-[9px] font-mono text-slate-500">Registry: v2.5</span>
+          <span className="text-[9px] font-sans text-slate-500">Registry: v2.5</span>
         </div>
 
         {/* Visual climb flowchart */}
@@ -41,13 +41,13 @@ function CpgRoutingTelemetry({ selectedDiagnoses, uniqueCpgNames, isDark }) {
           {diags.map((diag, idx) => (
             <div key={idx} className={`p-3 rounded-lg border text-xs ${isDark ? 'bg-slate-950/40 border-white/5' : 'bg-white border-slate-100 shadow-sm'}`}>
               <div className="flex items-center justify-between mb-1.5">
-                <span className="font-semibold text-[var(--accent-primary)] font-mono">{diag.icdCode}</span>
-                <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-mono ${isDark ? 'bg-teal-500/10 text-teal-300' : 'bg-teal-50 text-teal-700 border border-teal-100'}`}>Active Router</span>
+                <span className="font-semibold text-[var(--accent-primary)] font-sans">{diag.icdCode}</span>
+                <span className={`text-[9px] px-1.5 py-0.5 rounded-full font-sans ${isDark ? 'bg-teal-500/10 text-teal-300' : 'bg-teal-50 text-teal-700 border border-teal-100'}`}>Active Router</span>
               </div>
               <p className={`font-semibold mb-2.5 truncate ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{diag.name}</p>
               
               {/* Timeline diagram */}
-              <div className="flex items-center gap-2 text-[9px] font-mono text-slate-500 pt-2 border-t border-slate-100/5 dark:border-white/5 flex-wrap">
+              <div className="flex items-center gap-2 text-[9px] font-sans text-slate-500 pt-2 border-t border-slate-100/5 dark:border-white/5 flex-wrap">
                 <span className="text-emerald-400">✓ ICD Valid</span>
                 <span className="text-slate-400">➔</span>
                 <span className="text-emerald-400">✓ Parent Code Resolved</span>
@@ -76,7 +76,7 @@ function CpgRoutingTelemetry({ selectedDiagnoses, uniqueCpgNames, isDark }) {
         </div>
       ) : (
         <div className={`p-3.5 rounded-xl border text-xs text-center ${isDark ? 'bg-slate-900/20 border-white/5' : 'bg-slate-50 border-slate-200'}`}>
-          <p className="text-slate-500 font-mono">Querying Malaysian CPG database index...</p>
+          <p className="text-slate-500 font-sans">Querying Malaysian CPG database index...</p>
         </div>
       )}
     </div>
@@ -104,15 +104,15 @@ function RetrievalTelemetry({ pipelineEvents, isDark }) {
       {/* Metrics Dashboard */}
       <div className="grid grid-cols-3 gap-3">
         <div className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/60 border-blue-500/20' : 'bg-blue-50/30 border-blue-200'}`}>
-          <div className={`text-lg font-bold font-mono ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{totalQueries}</div>
+          <div className={`text-lg font-bold font-sans ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{totalQueries}</div>
           <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">Queries Run</div>
         </div>
         <div className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/60 border-blue-500/20' : 'bg-blue-50/30 border-blue-200'}`}>
-          <div className={`text-lg font-bold font-mono ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{chunkDisplay}</div>
+          <div className={`text-lg font-bold font-sans ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{chunkDisplay}</div>
           <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">Chunks Found</div>
         </div>
         <div className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/60 border-blue-500/20' : 'bg-blue-50/30 border-blue-200'}`}>
-          <div className={`text-lg font-bold font-mono ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>&gt;0.72</div>
+          <div className={`text-lg font-bold font-sans ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>&gt;0.72</div>
           <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">Cosine Sim</div>
         </div>
       </div>
@@ -121,12 +121,12 @@ function RetrievalTelemetry({ pipelineEvents, isDark }) {
       <div className={`p-4 rounded-xl border ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50 border-slate-200'}`}>
         <div className="flex justify-between items-center mb-2">
           <span className={`text-xs font-bold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>RAG Match Quality Index</span>
-          <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full">Optimal</span>
+          <span className="text-[10px] font-sans text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full">Optimal</span>
         </div>
         <div className="h-2.5 rounded-full overflow-hidden bg-slate-200 dark:bg-white/10 relative">
           <div className="absolute top-0 bottom-0 left-[75%] right-[5%] bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" />
         </div>
-        <div className="flex justify-between items-center text-[9px] font-mono text-slate-500 mt-2">
+        <div className="flex justify-between items-center text-[9px] font-sans text-slate-500 mt-2">
           <span>Min Cutoff (0.72)</span>
           <span className="text-blue-400 font-bold">Mean Match (0.88)</span>
           <span>Max Match (1.00)</span>
@@ -134,7 +134,7 @@ function RetrievalTelemetry({ pipelineEvents, isDark }) {
       </div>
 
       {/* RAG DB status console */}
-      <div className="p-3.5 rounded-xl border bg-slate-950 border-white/5 font-mono text-[10px] leading-relaxed text-slate-400 shadow-inner">
+      <div className="p-3.5 rounded-xl border bg-slate-950 border-white/5 font-sans text-[10px] leading-relaxed text-slate-400 shadow-inner">
         <div className="text-blue-400 mb-1.5 font-bold flex items-center gap-1.5">
           <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping" />
           RAG_INDEXER_LOGS
@@ -174,9 +174,9 @@ function SynthesisTelemetry({ isDark }) {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full bg-violet-500 animate-ping" />
-            <span className={`text-[10px] font-mono tracking-wider ${isDark ? 'text-violet-300' : 'text-violet-700'} uppercase font-bold`}>Care Plan Compiler</span>
+            <span className={`text-[10px] font-sans tracking-wider ${isDark ? 'text-violet-300' : 'text-violet-700'} uppercase font-bold`}>Care Plan Compiler</span>
           </div>
-          <span className="text-[9px] font-mono text-violet-400 font-bold bg-violet-500/10 px-2 py-0.5 rounded-full">Compiling</span>
+          <span className="text-[9px] font-sans text-violet-400 font-bold bg-violet-500/10 px-2 py-0.5 rounded-full">Compiling</span>
         </div>
 
         <div className="space-y-3.5">
@@ -189,11 +189,11 @@ function SynthesisTelemetry({ isDark }) {
               <div key={idx} className="flex items-start gap-3 text-xs transition-all duration-300">
                 <div className="mt-0.5 shrink-0">
                   {isDone ? (
-                    <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/40 text-emerald-400 font-mono text-[10px] font-bold">✓</div>
+                    <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/40 text-emerald-400 font-sans text-[10px] font-bold">✓</div>
                   ) : isActive ? (
                     <Loader2 className="w-4 h-4 text-violet-400 animate-spin" strokeWidth={2.5} />
                   ) : (
-                    <div className="w-4 h-4 rounded-full bg-slate-900/40 border border-slate-700/50 flex items-center justify-center text-slate-600 font-mono text-[9px]">○</div>
+                    <div className="w-4 h-4 rounded-full bg-slate-900/40 border border-slate-700/50 flex items-center justify-center text-slate-600 font-sans text-[9px]">○</div>
                   )}
                 </div>
                 <div className="min-w-0">
@@ -242,9 +242,9 @@ function SafetyReviewTelemetry({ safetyReport, isDark }) {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <div className={`w-2.5 h-2.5 rounded-full ${criticalCount > 0 ? 'bg-rose-500' : isDone ? 'bg-emerald-500 animate-pulse' : 'bg-rose-400 animate-pulse'}`} />
-            <span className={`text-[10px] font-mono tracking-wider ${isDark ? 'text-rose-300' : 'text-rose-700'} uppercase font-bold`}>Safety Guardrails</span>
+            <span className={`text-[10px] font-sans tracking-wider ${isDark ? 'text-rose-300' : 'text-rose-700'} uppercase font-bold`}>Safety Guardrails</span>
           </div>
-          <span className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-full ${
+          <span className={`text-[9px] font-sans font-bold px-2 py-0.5 rounded-full ${
             isDone 
               ? (criticalCount > 0 ? 'bg-rose-500/20 text-rose-300' : 'bg-emerald-500/20 text-emerald-300')
               : 'bg-rose-500/10 text-rose-400'
@@ -258,7 +258,7 @@ function SafetyReviewTelemetry({ safetyReport, isDark }) {
               isDark ? 'bg-slate-950/40 border-white/5' : 'bg-white border-slate-100 shadow-sm'
             }`}>
               <span className={`font-semibold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{check.name}</span>
-              <span className={`font-mono text-[10px] font-bold ${
+              <span className={`font-sans text-[10px] font-bold ${
                 isDone 
                   ? 'text-emerald-400' 
                   : 'text-rose-400 animate-pulse'
@@ -565,7 +565,7 @@ function LiveActivity({ events, isDark }) {
                   <Icon className={`w-4 h-4 ${isDark ? colorSet.darkText : colorSet.text}`} strokeWidth={1.8} />
                 </div>
                 <div className="min-w-0">
-                  <span className={`text-[9px] font-bold tracking-wider uppercase font-mono ${
+                  <span className={`text-[9px] font-bold tracking-wider uppercase font-sans ${
                     isDark ? colorSet.darkText : colorSet.text
                   }`}>
                     Stage {event.stage} · {stageColor}
@@ -579,7 +579,7 @@ function LiveActivity({ events, isDark }) {
               </div>
 
               {event.badge && (
-                <span className={`shrink-0 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full ${
+                <span className={`shrink-0 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full ${
                   event.badge.includes('new') 
                     ? (isDark ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border border-emerald-200')
                     : (isDark ? 'bg-white/5 text-slate-400 border border-white/10' : 'bg-slate-50 text-slate-600 border border-slate-200')
@@ -649,7 +649,7 @@ export function PlanGenerationProcess({
               <Icon className={`w-4.5 h-4.5 ${iconTone}`} strokeWidth={1.8} />
             </div>
             <div>
-              <span className={`text-[9px] uppercase font-bold tracking-wider ${iconTone} font-mono`}>
+              <span className={`text-[9px] uppercase font-bold tracking-wider ${iconTone} font-sans`}>
                 Active Phase: Stage {activeStage.stage}
               </span>
               <h4 className={`text-sm font-bold -mt-0.5 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>

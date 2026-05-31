@@ -292,7 +292,7 @@ export function DiagnosisSection() {
                       </svg>
                     </span>
                   ) : (
-                    <span className={`font-mono text-xs font-semibold shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    <span className={`font-sans text-xs font-semibold shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                       {String(idx + 1).padStart(2, '0')}
                     </span>
                   )}
@@ -313,7 +313,7 @@ export function DiagnosisSection() {
                       Minor
                     </span>
                   )}
-                  <span className={`text-[11px] font-mono shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  <span className={`text-[11px] font-sans shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                     ICD-11 · {diff.icdCode}
                   </span>
                   <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${riskDotColor}`} />
@@ -401,7 +401,7 @@ export function DiagnosisSection() {
                       </button>
 
                       {isExpanded && hasRankDelta && (
-                        <div className="flex items-center gap-1.5 mt-1.5 text-[11px] font-mono">
+                        <div className="flex items-center gap-1.5 mt-1.5 text-[11px] font-sans">
                           <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>Reranked:</span>
                           <span className={`px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 ${
                             diff.rankDelta > 0
@@ -459,7 +459,7 @@ export function DiagnosisSection() {
                            : 'bg-amber-50/50 text-amber-800 border-amber-100'
                   }`}>
                     <div className="flex items-center gap-1.5 mb-0.5">
-                      <span className="shrink-0 font-bold font-mono text-[9px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded uppercase">Clinical Override</span>
+                      <span className="shrink-0 font-bold font-sans text-[9px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded uppercase">Clinical Override</span>
                     </div>
                     <div className="space-y-1 pl-1">
                       {parseOverrideReason(diff.overrideReason).map((item, idx) => (

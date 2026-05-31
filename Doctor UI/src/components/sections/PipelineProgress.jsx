@@ -76,6 +76,14 @@ function DDxCandidateTable({ candidates, isDark }) {
 
   return (
     <div className="mt-2 space-y-1.5">
+      {/* Legend: the list is ordered by the AI's clinical rank, which deliberately
+          differs from the raw math/evidence score below each card — the AI reweights
+          candidates against patient context, so #1 can carry a lower evidence score
+          than a card beneath it. Spelling this out stops the order looking "broken". */}
+      <div className={`font-sans text-[10px] leading-snug ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+        Ordered by AI clinical rank. The <span className="font-semibold">evidence</span> score is
+        the raw retrieval signal — the AI may rank against it using patient context.
+      </div>
       {candidates.map((c, i) => {
         const sb = c.score_breakdown || {};
         const mathRank = c.math_rank;
@@ -98,11 +106,11 @@ function DDxCandidateTable({ candidates, isDark }) {
           >
             {/* Row 1: rank, code, title, before→after */}
             <div className="flex items-center gap-2">
-              <span className="font-mono font-bold text-slate-400 shrink-0">#{aiRank}</span>
-              <span className="font-mono text-[var(--accent-primary)] shrink-0">{c.code}</span>
+              <span className="font-sans font-bold text-slate-400 shrink-0">#{aiRank}</span>
+              <span className="font-sans text-[var(--accent-primary)] shrink-0">{c.code}</span>
               <span className={`truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.title}</span>
               {mathRank != null && (
-                <span className="ml-auto shrink-0 font-mono text-[11px] text-slate-500">
+                <span className="ml-auto shrink-0 font-sans text-[11px] text-slate-500">
                   math #{mathRank} → AI #{aiRank}{' '}
                   <span className={`font-bold ${arrowColor}`}>{arrow}</span>
                 </span>
@@ -112,7 +120,7 @@ function DDxCandidateTable({ candidates, isDark }) {
             {/* Row 2: score breakdown — CC-boost is no longer in the math formula;
                  it stays available as a soft signal to the LLM rerank (separately
                  surfaced via the clinician-named badge / override_reason below). */}
-            <div className={`mt-1 font-mono text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+            <div className={`mt-1 font-sans text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
               <span title="base vector similarity">base {fmt(sb.base_similarity)}</span>
               <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
                 {'  + incl '}{fmt(incl, true)}
@@ -120,8 +128,11 @@ function DDxCandidateTable({ candidates, isDark }) {
               <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
                 {'  − excl '}{fmt(excl)}
               </span>
-              <span className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
-                {'  = '}{fmt(sb.final_score)}
+              <span
+                className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}
+                title="Evidence (math) score — base + inclusion − exclusion. The list order is the AI clinical rank, which can differ from this."
+              >
+                {'  = evidence '}{fmt(sb.final_score)}
               </span>
               {ccBoost > 0 && (
                 <span
@@ -191,7 +202,7 @@ function ThinkingDropdown({ text, isStreaming }) {
   return (
     <div
       ref={scrollRef}
-      className="mt-2 max-h-44 overflow-y-auto rounded-lg p-3 text-xs font-mono leading-relaxed
+      className="mt-2 max-h-44 overflow-y-auto rounded-lg p-3 text-xs font-sans leading-relaxed
         bg-[var(--accent-primary)]/5 text-slate-300 border border-[var(--accent-primary)]/20"
     >
       {text}
@@ -370,7 +381,7 @@ export function PipelineProgress({
                           const matchColor = sub.badge ? (MATCH_TYPE_COLORS[sub.badge] || MATCH_TYPE_COLORS.semantic) : null;
                           return (
                             <div key={i} className="flex items-center gap-2">
-                              <span className="text-slate-600 font-mono text-xs shrink-0">{connector}</span>
+                              <span className="text-slate-600 font-sans text-xs shrink-0">{connector}</span>
                               <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                                 {sub.detail}
                               </span>

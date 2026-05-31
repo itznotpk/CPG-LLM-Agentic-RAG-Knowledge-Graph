@@ -141,7 +141,7 @@ export function VitalsGrid() {
                         BMI
                       </label>
                       <div className={`flex items-center gap-2 px-3 py-2 rounded-lg ${isDark ? 'bg-[var(--accent-primary)]/15 border border-[var(--accent-primary)]/20' : 'bg-teal-50 border border-teal-200'}`}>
-                        <span className={`text-sm font-semibold ds-mono ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                        <span className={`text-sm font-semibold ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>
                           {bmi || '—'}
                         </span>
                         {bmiCategory && (

@@ -1428,6 +1428,11 @@ async def _llm_rerank_ddx(
         c.math_rank = i + 1
 
     vitals_str = json.dumps(case.vitals) if case.vitals else "none"
+    severity_str = (
+        json.dumps(case.severity_staging)
+        if getattr(case, "severity_staging", None)
+        else "none"
+    )
 
     def _candidate_block(i: int, c: DDxResult) -> str:
         n = i + 1
@@ -1474,6 +1479,7 @@ async def _llm_rerank_ddx(
 - Current medications: {", ".join(case.current_medications) or "none"}
 - Allergies: {", ".join(case.allergies) or "none"}
 - Vitals: {vitals_str}
+- Severity staging / key labs: {severity_str}
 
 Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
 {candidate_lines}"""
@@ -1837,10 +1843,19 @@ async def _generate_condition_hypotheses(
     """
     prompt = (
         "You are an expert clinical diagnostician.\n"
-        "Analyze the patient presentation below and list the most likely diagnoses as complete, "
-        "fully-qualified named medical conditions only (e.g., 'Type 2 Diabetes Mellitus' instead of 'Type 2' "
-        "or 'Diabetes', 'Essential Hypertension' instead of 'Hypertension', 'Cardiovascular Disease' instead of 'CVD').\n"
-        "Rules:\n"
+        "List the named medical conditions that are DIRECTLY SUPPORTED by the patient "
+        "presentation below as complete, fully-qualified medical conditions (e.g., "
+        "'Type 2 Diabetes Mellitus' instead of 'Type 2' or 'Diabetes', 'Cardiovascular "
+        "Disease' instead of 'CVD').\n"
+        "Grounding rules (CRITICAL — prevents hallucinated comorbidities):\n"
+        "- Include a condition ONLY when the notes name it, OR a symptom/finding/lab/"
+        "medication/vital in the notes directly implies it. Each condition must trace "
+        "to something written below.\n"
+        "- Do NOT add common co-travelling comorbidities that are not evidenced here "
+        "(e.g. do NOT add 'Essential Hypertension' just because the patient has heart "
+        "failure or diabetes — only if a high BP reading or anti-hypertensive is present).\n"
+        "- Prefer fewer, well-grounded conditions over a long speculative list.\n"
+        "Output rules:\n"
         "- Return ONLY a comma-separated list of the conditions\n"
         f"- Maximum {max_n} conditions\n"
         "- No numbering, no bullets, no explanation, no conversational filler\n\n"
@@ -2033,15 +2048,23 @@ async def _regex_disease_hints(case: PatientCase) -> list[dict]:
     blob = " ".join(text_parts).lower()
     if not blob.strip():
         return []
+    # Only the chief complaint carries the clinician's literal naming of the
+    # reason-for-visit. A disease that appears only in the comorbidity list is a
+    # documented background condition — high-confidence, but NOT "clinician-named
+    # explicit". Marking those explicit lets a comorbidity (e.g. T2DM) claim the
+    # same top-3/pin-to-#1 authority as the actual chief-complaint dx (HFrEF),
+    # so we scope `explicit` to chief-complaint matches only.
+    cc_blob = (case.chief_complaint or "").lower()
     import re as _re
-    matched: list[str] = []
+    matched: list[tuple[str, bool]] = []
     seen_names: set[str] = set()
     for alias, canonical in _DISEASE_ALIAS_MAP.items():
         if canonical in seen_names:
             continue
         pattern = r"\b" + _re.escape(alias) + r"\b"
         if _re.search(pattern, blob):
-            matched.append(canonical)
+            in_cc = bool(_re.search(pattern, cc_blob))
+            matched.append((canonical, in_cc))
             seen_names.add(canonical)
     if not matched:
         return []
@@ -2054,12 +2077,12 @@ async def _regex_disease_hints(case: PatientCase) -> list[dict]:
         except Exception as exc:
             logger.warning("Regex hint resolve failed for %r: %s", name, exc)
             return None
-    resolved = await asyncio.gather(*[_resolve(n) for n in matched])
+    resolved = await asyncio.gather(*[_resolve(n) for n, _ in matched])
 
     SIM_FLOOR = 0.55
     out: list[dict] = []
     seen_codes: set[str] = set()
-    for name, hit in zip(matched, resolved):
+    for (name, in_cc), hit in zip(matched, resolved):
         if not hit:
             continue
         sim = float(hit.get("similarity") or 0.0)
@@ -2069,8 +2092,10 @@ async def _regex_disease_hints(case: PatientCase) -> list[dict]:
         seen_codes.add(code)
         out.append({
             "code": code,
-            "confidence": 0.90,
-            "explicit": True,
+            # Chief-complaint match → clinician-named (explicit, conf 0.95).
+            # Chart/comorbidity-only match → high-confidence inferred (explicit=False).
+            "confidence": 0.95 if in_cc else 0.90,
+            "explicit": in_cc,
             "resolved_name": name,
             "resolved_similarity": round(sim, 3),
             "source": "regex_fallback",
@@ -2296,6 +2321,11 @@ async def stage_2_ddx(
     # mis-ranks where the LLM left `MF41` (symptom complaint) above the actual
     # disease code at near-identical score. Runs whether or not LLM rerank ran.
     results = _demote_chapter21_codes(results)
+
+    # Deterministic guarantee: a clinician-named chief-complaint dx owns #1, so a
+    # boosted comorbidity can't steal the "AI top pick" slot (runs after all other
+    # reordering so it has the final word on the primary).
+    results = _pin_chief_complaint_primary(results)
 
     top = results[:top_k]
     # Attach the numeric score breakdown now (base / inclusion / exclusion / final)
@@ -2555,6 +2585,47 @@ def _demote_chapter21_codes(results: list[DDxResult]) -> list[DDxResult]:
         if not swapped:
             break
     return ordered
+
+
+def _pin_chief_complaint_primary(results: list[DDxResult]) -> list[DDxResult]:
+    """Guarantee a clinician-named (cc_explicit) diagnosis occupies rank #1.
+
+    The LLM reranker's CLINICIAN-NAMED rule only promises explicit codes land in
+    the *top-3* (see stage2_ddx_rerank.txt). That lets a high-inclusion comorbidity
+    (e.g. "other specified essential hypertension", boosted by a WHO inclusion-term
+    match) outrank the actual chief-complaint diagnosis and grab the UI "AI top pick"
+    badge while the named dx sits at #2/#3. This deterministic post-pass lifts the
+    highest-ranked explicit code to #1.
+
+    Two guards preserve legitimate exceptions:
+      - A can't-miss red-flag promotion at #1 (override_reason="red_flag_cant_miss…")
+        outranks everything and is left in place.
+      - If #1 is already explicit, nothing changes.
+    """
+    if len(results) < 2:
+        return results
+    top = results[0]
+    if (top.override_reason or "").startswith("red_flag_cant_miss"):
+        return results
+    if getattr(top, "cc_explicit", False):
+        return results
+    idx = next(
+        (i for i, r in enumerate(results) if getattr(r, "cc_explicit", False)),
+        None,
+    )
+    if idx is None:
+        return results
+    promoted = results.pop(idx)
+    tag = "cc_explicit_primary: clinician-named chief-complaint dx pinned to #1"
+    promoted.override_reason = (
+        f"{promoted.override_reason}; {tag}" if promoted.override_reason else tag
+    )
+    results.insert(0, promoted)
+    logger.info(
+        "CC-primary pin: promoted explicit %s to #1 (was rank %d, displaced %s)",
+        promoted.code, idx + 1, top.code,
+    )
+    return results
 
 
 # ---------------------------------------------------------------------------
@@ -3193,7 +3264,15 @@ async def gate_referral_triggers(
 
     base_url = os.getenv("REFERRAL_GATE_BASE_URL") or os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("REFERRAL_GATE_API_KEY") or os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("REFERRAL_GATE_MODEL", "xiaomimimo/MiMo-7B-RL")
+    # Default must track the base_url chain above — the configured STAGE5/LLM
+    # endpoint serves mimo-v2.5-pro, not the bare "xiaomimimo/MiMo-7B-RL" id
+    # (which that endpoint rejects with 400 "Not supported model", failing the
+    # gate and dumping every triggered referral into unresolved_questions).
+    model = (
+        os.getenv("REFERRAL_GATE_MODEL")
+        or os.getenv("STAGE5_LLM_CHOICE")
+        or os.getenv("LLM_CHOICE", "mimo-v2.5-pro")
+    )
 
     patient_ctx = {
         "age": getattr(case, "age", None),
@@ -3296,7 +3375,14 @@ async def summarise_prior_visit(
     """
     base_url = os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("PRIOR_VISIT_SUMMARISER_MODEL", "xiaomimimo/MiMo-7B-RL")
+    # Same rationale as referral_trigger_gate: align the default with the
+    # endpoint the base_url chain resolves to (mimo-v2.5-pro), not an id the
+    # configured server does not serve.
+    model = (
+        os.getenv("PRIOR_VISIT_SUMMARISER_MODEL")
+        or os.getenv("STAGE5_LLM_CHOICE")
+        or os.getenv("LLM_CHOICE", "mimo-v2.5-pro")
+    )
 
     fallback = PriorVisitSummary(
         visit_date=consultation_date,
