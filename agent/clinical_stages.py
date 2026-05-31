@@ -892,6 +892,15 @@ RERANK_DISAGREEMENT_DELTA = 2
 # OpenAI-compatible servers (vLLM, mimo); ignored silently elsewhere.
 DDX_DETERMINISTIC_SEED = int(os.getenv("DDX_DETERMINISTIC_SEED", "42"))
 
+
+def _seed_kwargs(model: str | None) -> dict:
+    """Return `{"seed": ...}` for OpenAI-compat backends that accept seed,
+    `{}` for Gemini (which 400s on unknown `seed` field via its OpenAI-compat layer).
+    """
+    if model and "gemini" in model.lower():
+        return {}
+    return {"seed": DDX_DETERMINISTIC_SEED}
+
 # Regex disease→canonical-name map for the deterministic CC-hint fallback.
 # Augments (does NOT replace) `_extract_cc_icd_hints`: even when the LLM call
 # drops a named diagnosis on a Mode-B (task-framed) visit, any of these aliases
@@ -1492,7 +1501,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=0,
-                seed=DDX_DETERMINISTIC_SEED,
+                **_seed_kwargs(active_model),
                 max_tokens=4000,
                 stream=True,
             )
@@ -1523,7 +1532,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=0,
-                seed=DDX_DETERMINISTIC_SEED,
+                **_seed_kwargs(active_model),
                 max_tokens=8000,
             )
             raw_content = resp.choices[0].message.content
@@ -1777,7 +1786,7 @@ async def _extract_symptom_phrase(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
-            seed=DDX_DETERMINISTIC_SEED,
+            **_seed_kwargs(model),
             **({"extra_body": extra_body} if extra_body else {}),
         )
         phrase = resp.choices[0].message.content.strip().strip('"').strip("'").rstrip(".")
@@ -1843,7 +1852,7 @@ async def _generate_condition_hypotheses(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
-            seed=DDX_DETERMINISTIC_SEED,
+            **_seed_kwargs(model),
             **({"extra_body": extra_body} if extra_body else {}),
         )
         txt = (resp.choices[0].message.content or "").strip()
@@ -1915,7 +1924,7 @@ async def _extract_cc_icd_hints(
             model=model,
             messages=[{"role": "user", "content": prompt}],
             temperature=0,
-            seed=DDX_DETERMINISTIC_SEED,
+            **_seed_kwargs(model),
             **({"extra_body": extra_body} if extra_body else {}),
         )
         txt = (resp.choices[0].message.content or "").strip()

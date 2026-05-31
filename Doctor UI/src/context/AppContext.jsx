@@ -236,6 +236,55 @@ function appReducer(state, action) {
         },
       };
     }
+    case 'APPLY_SAFETY_DECISIONS': {
+      // Dynamic mutation of carePlan.medications driven by the safety banner's
+      // per-flag decisions: { [flagKey]: { decision, drugs?, alternative?, reason? } }
+      // Matches by case-insensitive substring on med.name — works for any
+      // drug list (no hard-coded mapping) so new drug additions don't need
+      // a code change.
+      const { decisions } = action.payload || {};
+      if (!decisions || !state.carePlan?.medications) return state;
+
+      const meds = { ...state.carePlan.medications };
+      const sections = Object.keys(meds);
+      const matches = (medName, drugs) => {
+        if (!medName || !drugs?.length) return false;
+        const low = medName.toLowerCase();
+        return drugs.some((d) => d && low.includes(d.toLowerCase()));
+      };
+
+      for (const entry of Object.values(decisions)) {
+        const { decision, drugs, alternative } = entry || {};
+        if (!decision || decision === 'keep') continue;
+        if (!drugs?.length) continue;
+
+        for (const section of sections) {
+          const list = meds[section] || [];
+          if (decision === 'remove') {
+            meds[section] = list.filter((m) => !matches(m.name, drugs));
+          } else if (decision === 'replace') {
+            meds[section] = list.map((m) => {
+              if (!matches(m.name, drugs)) return m;
+              if (alternative) {
+                // Named alternative — swap drug name; dose & instructions are
+                // now stale, so wipe them so the clinician must re-confirm.
+                return {
+                  ...m,
+                  name: alternative,
+                  dose: '',
+                  instructions: m.instructions ? `[REPLACED from ${m.name}] ${m.instructions}` : `Replaced from ${m.name} per safety review`,
+                };
+              }
+              // Generic "Replace" without a named alternative — flag the rec
+              // by appending a tag so the clinician can see it needs attention.
+              return { ...m, instructions: m.instructions ? `[NEEDS REPLACEMENT — safety flag] ${m.instructions}` : 'Needs replacement — safety flag fired' };
+            });
+          }
+        }
+      }
+
+      return { ...state, carePlan: { ...state.carePlan, medications: meds } };
+    }
     case 'APPEND_PIPELINE_EVENT':
       return { ...state, pipelineEvents: [...state.pipelineEvents, action.payload] };
     case 'SET_PIPELINE_SUMMARY':
@@ -1018,6 +1067,10 @@ export function AppProvider({ children }) {
     dispatch({ type: 'UPDATE_MEDICATION', payload: { type, id, accepted } });
   };
 
+  const applySafetyDecisions = (decisions) => {
+    dispatch({ type: 'APPLY_SAFETY_DECISIONS', payload: { decisions } });
+  };
+
   const selectDiagnosis = (diagnosisId) => {
     dispatch({ type: 'SELECT_DIAGNOSIS', payload: diagnosisId });
   };
@@ -1054,6 +1107,7 @@ export function AppProvider({ children }) {
     goToStep,
     updateCarePlanItem,
     updateMedication,
+    applySafetyDecisions,
     selectDiagnosis,
     resetApp,
     calculateBMI,

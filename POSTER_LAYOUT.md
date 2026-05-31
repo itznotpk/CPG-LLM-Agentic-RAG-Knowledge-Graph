@@ -652,7 +652,18 @@ Mirror the reference's "key goals achieved" trio of icons:
 > brings evidence-graded specialist second opinions to doctor-less rural clinics in
 > under a minute — and refuses to sign off on an unsafe plan.
 
-Three achievement icons:
+**Problem → Solved** — the close mirrors the six problem statements; every problem, resolved:
+
+| The problem | How ClearPath closes it |
+|---|---|
+| **Lack of Auditable Reasoning** | Auditable per-stage trace — DDx shortlist, D1–D6 routing, source-tagged flags. |
+| **Clinical Decision Isolation** | An on-demand contextual second opinion, inside the consult window. |
+| **Ungoverned, Non-Local Retrieval** | Deterministic ICD-routing scoped to the Malaysian MoH CPG corpus, with scope-refusal. |
+| **Limited Medication Guardrails** | Dual-source safety critic (LLM ‖ knowledge-graph) blocks any CRITICAL/MAJOR flag. |
+| **Care Without Memory** | Patient-first longitudinal record carried across visits. |
+| **Lack of Executable Output** | A structured 9-section executable care plan, not prose. |
+
+Or, condensed to the reference's trio of hero icons:
 1. **Guideline access** — instant scoped CPG retrieval, no manual PDF search.
 2. **Diagnostic support** — contextual DDx + clinician override.
 3. **Medication safety** — dual-source adversarial critic blocks unsafe plans.

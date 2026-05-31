@@ -3,9 +3,13 @@
  */
 export function mapDdxToDiagnosis(ddxList, cpgsMatched) {
   const differentials = ddxList.map((d, i) => {
-    const scoreVal = d.score_breakdown?.final_score !== undefined
+    const rawScore = d.score_breakdown?.final_score !== undefined
       ? d.score_breakdown.final_score
       : d.similarity;
+    // final_score = base + incl_boost − excl_penalty and can exceed 1.0 when an
+    // inclusion / red-flag boost fires. Clamp before rendering so the UI never
+    // shows a >100% confidence (clinically nonsensical and erodes trust).
+    const scoreVal = Math.max(0, Math.min(1, rawScore ?? 0));
     return {
       id: i + 1,
       name: d.title,

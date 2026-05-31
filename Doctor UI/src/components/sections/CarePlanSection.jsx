@@ -294,12 +294,17 @@ function ActionDropdown({ action, onChange }) {
   );
 }
 
-function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule }) {
+function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule, highlighted }) {
   const { isDark } = useTheme();
   // originalAction = the category the med belongs to (determines content rendering)
   // action = the displayed action (may be overridden by user)
   return (
-    <tr className={`border-b ${isDark ? 'border-white/5' : 'border-slate-100'} last:border-b-0 group/row`}>
+    <tr
+      id={`med-row-${med.id}`}
+      className={`border-b ${isDark ? 'border-white/5' : 'border-slate-100'} last:border-b-0 group/row transition-colors duration-700 ${
+        highlighted ? (isDark ? 'bg-amber-500/10' : 'bg-amber-50') : ''
+      }`}
+    >
       <td className="py-3 pr-4 align-top w-[100px]">
         <ActionDropdown action={action} onChange={onActionChange} />
       </td>
@@ -365,7 +370,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
     </tr>
   );
 }
-function MedicationsTable({ medications, dispatch, graphRules }) {
+function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId }) {
   const { isDark } = useTheme();
   const ordered = [
     ...(medications.stop || []).map((m) => ({ med: m, action: 'stop' })),
@@ -415,11 +420,40 @@ function MedicationsTable({ medications, dispatch, graphRules }) {
                 onActionChange={(newAction) => handleActionChange(action, med.id, newAction)}
                 onDelete={() => handleDelete(action, med.id)}
                 graphRule={pickBestRuleForMed(med.name, graphRules)}
+                highlighted={highlightedMedId === med.id}
               />
             ))}
           </tbody>
         </table>
       )}
+
+      {/* Contraindicated section — these are NOT prescribed; surfaced so the
+          clinician can see the synthesiser's deliberate exclusions (and so
+          safety-banner deep-links land on something visible). */}
+      {(medications.contraindicated || []).length > 0 && (
+        <div className={`mt-2 mb-4 rounded-lg border-l-4 ${
+          isDark ? 'bg-red-900/10 border-l-red-500 border border-red-900/30' : 'bg-red-50/40 border-l-red-500 border border-red-200'
+        } px-3 py-2`}>
+          <p className={`text-[11px] font-semibold uppercase tracking-wider mb-2 ${isDark ? 'text-red-300' : 'text-red-700'}`}>
+            Contraindicated · do not prescribe ({(medications.contraindicated || []).length})
+          </p>
+          <ul className="space-y-1.5">
+            {(medications.contraindicated || []).map((m) => (
+              <li
+                key={`ci-${m.id}`}
+                id={`med-row-${m.id}`}
+                className={`text-xs flex flex-wrap items-baseline gap-x-2 transition-colors duration-700 ${
+                  highlightedMedId === m.id ? (isDark ? 'bg-amber-500/10 ring-1 ring-amber-400/30' : 'bg-amber-100 ring-1 ring-amber-300') : ''
+                } px-1.5 py-0.5 rounded`}
+              >
+                <span className={`font-semibold ${isDark ? 'text-red-200' : 'text-red-800'}`}>{m.name}</span>
+                {m.reason && <span className={isDark ? 'text-slate-400' : 'text-slate-600'}>— {m.reason}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       <button
         onClick={handleAddMedication}
         className={`ml-1 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
@@ -1351,7 +1385,7 @@ function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
 }
 
 export function CarePlanSection() {
-  const { state, dispatch, finalizePlan, goToStep } = useApp();
+  const { state, dispatch, finalizePlan, goToStep, applySafetyDecisions } = useApp();
   const { isDark } = useTheme();
   const { user, profile } = useAuth();
   const clinicianName = profile?.full_name || user?.email || 'Unknown clinician';
@@ -1368,6 +1402,20 @@ export function CarePlanSection() {
   const [traceCollapsed, setTraceCollapsed] = useState(true);
   const [safetyAcknowledged, setSafetyAcknowledged] = useState(false);
   const [safetyAckAt, setSafetyAckAt] = useState(null);
+  const [safetyDecisions, setSafetyDecisions] = useState(null);
+  const [highlightedMedId, setHighlightedMedId] = useState(null);
+
+  const jumpToMed = (medId) => {
+    setTab('meds');
+    setHighlightedMedId(medId);
+    // Scroll after the tab has had a chance to render
+    setTimeout(() => {
+      const el = document.getElementById(`med-row-${medId}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 50);
+    // Fade highlight after 2s
+    setTimeout(() => setHighlightedMedId(null), 2500);
+  };
   const [tab, setTab] = useState('overview');
   const [drawerRef, setDrawerRef] = useState(null);
 
@@ -1545,8 +1593,18 @@ export function CarePlanSection() {
         <div className="lg:col-span-8 space-y-4">
           <SafetyReviewBanner
             report={safetyReport}
+            plannedMeds={Object.entries(carePlan?.medications || {}).flatMap(([section, list]) =>
+              (list || []).map((m) => ({ id: m.id, name: m.name, section }))
+            )}
+            currentMeds={patientData?.currentMedications || patientData?.current_medications || []}
+            onJumpToMed={jumpToMed}
             acknowledged={safetyAcknowledged}
-            onAcknowledge={() => { setSafetyAcknowledged(true); setSafetyAckAt(new Date().toISOString()); }}
+            onAcknowledge={(decisions) => {
+              applySafetyDecisions(decisions);
+              setSafetyDecisions(decisions);
+              setSafetyAcknowledged(true);
+              setSafetyAckAt(new Date().toISOString());
+            }}
           />
 
           <TabBar tabs={tabs} active={tab} onChange={setTab} />
@@ -1612,7 +1670,7 @@ export function CarePlanSection() {
           {/* ── MEDICATIONS ────────────────────────────────────── */}
           {tab === 'meds' && (
             <Section title="Medications" icon={Pill} count={medsCount}>
-              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} graphRules={graphNavigatorRules} />
+              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} graphRules={graphNavigatorRules} highlightedMedId={highlightedMedId} />
             </Section>
           )}
 
@@ -1722,7 +1780,7 @@ export function CarePlanSection() {
           icon={Check}
           onClick={() => finalizePlan({
             safetyOverride: safetyReport && !safetyReport.safe_to_proceed
-              ? { acknowledged: safetyAcknowledged, by: clinicianName, at: safetyAckAt }
+              ? { acknowledged: safetyAcknowledged, by: clinicianName, at: safetyAckAt, decisions: safetyDecisions }
               : null,
           })}
           disabled={workflowStatus !== WORKFLOW_STATES.APPROVED}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp, Network, Bot } from 'lucide-react';
-import { GlassCard, Button, Badge } from '../shared';
+import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp, AlertOctagon } from 'lucide-react';
+import { Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
 const SEVERITY_ORDER = { CRITICAL: 0, MAJOR: 1, MODERATE: 2 };
@@ -12,6 +12,8 @@ const KNOWN_DRUGS = [
   'amlodipine', 'hydrochlorothiazide', 'losartan', 'valsartan', 'sacubitril',
   'ramipril', 'lisinopril', 'perindopril', 'carvedilol', 'metoprolol',
   'sildenafil', 'tadalafil', 'isosorbide mononitrate', 'nitroglycerin',
+  // Pregnancy-related alternatives surfaced in safety advice
+  'labetalol', 'methyldopa', 'nifedipine', 'hydralazine', 'atenolol',
 ];
 
 const RISK_LABELS = [
@@ -31,6 +33,10 @@ function toDisplayDrug(text) {
   return text.trim().replace(/\s+/g, ' ').toLowerCase();
 }
 
+function titleCaseDrug(text) {
+  return text.replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 function unique(items) {
   return [...new Set(items.filter(Boolean))];
 }
@@ -46,6 +52,19 @@ function extractDrugNames(detail = '') {
   const fromKnownList = KNOWN_DRUGS.filter((drug) => lower.includes(drug));
 
   return unique([...fromParentheses, ...fromKnownList]).slice(0, 5);
+}
+
+// Pull candidate drug names out of the LLM's suggested_alternative prose.
+// Returns an array like ["Labetalol", "Methyldopa"] — empty when the suggestion
+// is generic ("switch to a pregnancy-safe antihypertensive") with no named drug.
+function extractAlternatives(suggestion = '', primaryDrugs = []) {
+  if (!suggestion) return [];
+  const lower = suggestion.toLowerCase();
+  const primarySet = new Set(primaryDrugs.map(toDisplayDrug));
+  return KNOWN_DRUGS
+    .filter((drug) => lower.includes(drug) && !primarySet.has(drug))
+    .map(titleCaseDrug)
+    .slice(0, 4);
 }
 
 function flagTypeLabel(flagType = '') {
@@ -75,42 +94,78 @@ function safetyFlagTitle(flag) {
   return `${risk} ${type} caution`;
 }
 
-function severityColor(severity, isDark) {
-  if (severity === 'CRITICAL') return isDark ? 'text-red-400' : 'text-red-700';
-  if (severity === 'MAJOR')    return isDark ? 'text-amber-400' : 'text-amber-700';
-  return isDark ? 'text-slate-400' : 'text-slate-600';
-}
-
 function severityBg(severity, isDark) {
-  if (severity === 'CRITICAL') return isDark ? 'bg-red-500/10 border-red-500/20' : 'bg-red-50/50 border-red-200';
+  if (severity === 'CRITICAL') return isDark ? 'bg-red-500/10 border-red-500/30' : 'bg-red-50/80 border-red-300';
   if (severity === 'MAJOR')    return isDark ? 'bg-amber-500/10 border-amber-500/20' : 'bg-amber-50/50 border-amber-200';
   return isDark ? 'bg-slate-500/10 border-slate-500/20' : 'bg-slate-50 border-slate-200';
 }
+
+const DECISION_LABELS = {
+  replace: 'Replaced',
+  keep: 'Kept (acknowledged)',
+  remove: 'Removed',
+};
 
 /**
  * SafetyReviewBanner
  *
  * Props:
  *   report        : SafetyReport | null
- *   onAcknowledge : () => void  — flips local acknowledged state to unblock Approve
+ *   onAcknowledge : (decisions: { [flagKey]: { decision, alternative?, reason? } }) => void
+ *                   Called once when all flags have a per-flag decision and the
+ *                   clinician confirms. Decisions are also exposed for audit /
+ *                   downstream care-plan mutation by the parent.
  *   acknowledged  : bool
  */
-export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
+// Classify a flag against the current plan and the patient's existing meds.
+// Returns { kind, matchedMed? } where:
+//   `plan`           — drug appears in the active care plan → real decision required;
+//                       matchedMed = { id, name, section } enables deep-linking
+//   `current_only`   — drug is in the patient's current med list but NOT in the
+//                       new plan → informational ("review existing prescription"),
+//                       no plan mutation possible from the banner
+//   `class_or_noise` — neither → collapsed informational pile so the clinician
+//                       isn't asked to decide on something they aren't prescribing
+//                       (e.g. class-level ARB warning duplicating a specific
+//                       Losartan flag already shown above)
+function classifyFlag(flag, plannedMeds, currentMeds) {
+  const drugs = (flag.title || flag.detail || '').toLowerCase();
+
+  const findMatch = (meds, nameKey = 'name') => {
+    for (const med of meds) {
+      const rawName = typeof med === 'string' ? med : med?.[nameKey] || med?.drug || '';
+      if (!rawName) continue;
+      const low = String(rawName).toLowerCase();
+      if (low.length < 3) continue;
+      const tokenHit = low.split(/[\s,()]+/).some((tok) => tok.length >= 4 && /^[a-z]/.test(tok) && drugs.includes(tok));
+      if (drugs.includes(low) || tokenHit) return med;
+    }
+    return null;
+  };
+
+  const planned = findMatch(plannedMeds);
+  if (planned) return { kind: 'plan', matchedMed: planned };
+  const current = findMatch(currentMeds);
+  if (current) return { kind: 'current_only', matchedMed: typeof current === 'string' ? { name: current } : current };
+  return { kind: 'class_or_noise' };
+}
+
+export function SafetyReviewBanner({ report, onAcknowledge, acknowledged, plannedMeds = [], currentMeds = [], onJumpToMed }) {
   const { isDark } = useTheme();
   const [expanded, setExpanded] = useState(false);
+  // decisions: { [flagKey]: { decision: 'replace'|'keep'|'remove', alternative?, reason? } }
+  const [decisions, setDecisions] = useState({});
+  const [criticalReasonModal, setCriticalReasonModal] = useState(null); // { flagKey } | null
+  const [criticalReasonDraft, setCriticalReasonDraft] = useState('');
 
-  // While critic is running (report not yet received), show nothing
   if (report === undefined || report === null) return null;
 
-  // Deduplicate flags that involve the same set of drugs at the same severity
-  // (e.g. "Aspirin + Clopidogrel + Warfarin" vs "Warfarin + Aspirin + Clopidogrel").
   const dedupFlags = (rawFlags) => {
-    const seen = new Map(); // key → merged flag
+    const seen = new Map();
     for (const flag of rawFlags) {
       const drugs = extractDrugNames(flag.title || safetyFlagTitle(flag));
       const key = [...drugs].sort().join('|') + '::' + (flag.severity || '') + '::' + (flag.flag_type || '');
       if (seen.has(key)) {
-        // Merge recommendation indices into the existing entry
         const existing = seen.get(key);
         if (flag.recommendation_index != null) {
           existing._recIndices = existing._recIndices || [existing.recommendation_index];
@@ -125,13 +180,27 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
     return [...seen.values()];
   };
 
-  const flags = dedupFlags(
-    (report.flags || []).filter((f) => f.severity !== 'MODERATE')
+  const allFlags = dedupFlags(
+    (report.flags || []).filter((f) => f.severity !== 'MODERATE' || f.source === 'graph')
   ).sort((a, b) => (SEVERITY_ORDER[a.severity] ?? 3) - (SEVERITY_ORDER[b.severity] ?? 3));
-  const hasBlockingFlag = !report.safe_to_proceed;
-  const hasFlags = flags.length > 0;
 
-  // ── Green state — no flags ───────────────────────────────────────────────
+  // Classify each flag against the actual plan; only flags whose drug is in the
+  // plan get the per-flag decision UI. Current-meds-only and class/noise flags
+  // are surfaced separately for audit but don't require a decision.
+  const classified = allFlags.map((f) => {
+    const c = classifyFlag(f, plannedMeds, currentMeds);
+    return { flag: f, ...c };
+  });
+  // Each entry now carries `matchedMed` ({id, name, section}) when kind === 'plan'
+  // so the per-flag card can deep-link to the matched row via onJumpToMed.
+  const planClassified   = classified.filter((c) => c.kind === 'plan');
+  const flags            = planClassified.map((c) => ({ ...c.flag, _matchedMed: c.matchedMed }));
+  const currentOnlyFlags = classified.filter((c) => c.kind === 'current_only').map((c) => ({ ...c.flag, _matchedMed: c.matchedMed }));
+  const noiseFlags       = classified.filter((c) => c.kind === 'class_or_noise').map((c) => c.flag);
+
+  const hasBlockingFlag = !report.safe_to_proceed;
+  const hasFlags = flags.length > 0 || currentOnlyFlags.length > 0 || noiseFlags.length > 0;
+
   if (!hasFlags) {
     return (
       <div className={`flex items-center gap-2 px-4 py-2 rounded-xl border mb-4 ${
@@ -143,9 +212,9 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
     );
   }
 
-  // ── Amber / Red state — has flags ────────────────────────────────────────
-  const topSeverity = flags[0]?.severity;
+  const flagKey = (flag, i) => `${flag.severity}::${flag.flag_type}::${i}`;
   const isRed = hasBlockingFlag;
+  const allDecided = isRed ? flags.every((f, i) => !!decisions[flagKey(f, i)]) : true;
 
   const bannerBg = isRed
     ? (isDark ? 'bg-red-900/20 border-red-700/50' : 'bg-red-50 border-red-300')
@@ -161,21 +230,49 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
 
   const Icon = isRed ? ShieldX : ShieldAlert;
 
-  const critCount   = flags.filter(f => f.severity === 'CRITICAL').length;
-  const majorCount  = flags.filter(f => f.severity === 'MAJOR').length;
-  const modCount    = flags.filter(f => f.severity === 'MODERATE').length;
+  const critCount  = flags.filter(f => f.severity === 'CRITICAL').length;
+  const majorCount = flags.filter(f => f.severity === 'MAJOR').length;
+  const modCount   = flags.filter(f => f.severity === 'MODERATE').length;
   const summary = [
     critCount  ? `${critCount} CRITICAL`  : null,
     majorCount ? `${majorCount} MAJOR`    : null,
     modCount   ? `${modCount} MODERATE`   : null,
   ].filter(Boolean).join(', ');
 
-  const graphCount = flags.filter(f => f.source === 'graph').length;
-  const llmCount   = flags.filter(f => (f.source ?? 'llm') === 'llm').length;
+  const tightenedNote = flags.length === 0
+    ? 'No flagged drugs are in the current plan — no plan changes required, but please review the informational notes below.'
+    : `${flags.length} flag${flags.length === 1 ? '' : 's'} require${flags.length === 1 ? 's' : ''} a decision before continuing.${
+        (currentOnlyFlags.length + noiseFlags.length) > 0
+          ? ` ${currentOnlyFlags.length + noiseFlags.length} additional flag(s) are informational — see below.`
+          : ''
+      }`;
+
+  const setDecision = (key, decision, extra = {}) => {
+    setDecisions((prev) => ({ ...prev, [key]: { decision, ...extra } }));
+  };
+
+  const handleReplace = (key, drugs, alt) => setDecision(key, 'replace', { alternative: alt, drugs });
+  const handleRemove  = (key, drugs)      => setDecision(key, 'remove',  { drugs });
+  const handleKeep    = (key, flag) => {
+    if (flag.severity === 'CRITICAL') {
+      setCriticalReasonDraft('');
+      setCriticalReasonModal({ key });
+    } else {
+      setDecision(key, 'keep');
+    }
+  };
+
+  const confirmCriticalKeep = () => {
+    if (!criticalReasonModal) return;
+    const reason = criticalReasonDraft.trim();
+    if (reason.length < 10) return; // require a substantive reason
+    setDecision(criticalReasonModal.key, 'keep', { reason });
+    setCriticalReasonModal(null);
+    setCriticalReasonDraft('');
+  };
 
   return (
     <div className={`rounded-xl border mb-4 overflow-hidden ${bannerBg}`}>
-      {/* Header row */}
       <button
         onClick={() => setExpanded(v => !v)}
         className="w-full flex items-center justify-between px-4 py-3 text-left"
@@ -186,114 +283,215 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
             {isRed ? 'Safety concerns require acknowledgement' : 'Safety concerns detected'}
           </span>
           <span className={`text-xs font-medium ${textColor} opacity-80`}>— {summary}</span>
-          {(graphCount > 0 || llmCount > 0) && (
-            <span className={`hidden sm:inline-flex items-center gap-1 ml-1 text-[10px] font-medium ${textColor} opacity-70`}>
-              {graphCount > 0 && (
-                <span className="inline-flex items-center gap-0.5">
-                  <Network className="w-3 h-3" /> {graphCount} KG
-                </span>
-              )}
-              {llmCount > 0 && (
-                <span className="inline-flex items-center gap-0.5">
-                  <Bot className="w-3 h-3" /> {llmCount} LLM
-                </span>
-              )}
-            </span>
-          )}
         </div>
         <div className={`w-5 h-5 ${textColor}`}>
           {expanded ? <ChevronUp strokeWidth={2} /> : <ChevronDown strokeWidth={2} />}
         </div>
       </button>
 
-      {/* Expanded flag list */}
       {expanded && (
         <div className="px-4 pb-4 space-y-2">
-          {flags.map((flag, i) => (
-            <div
-              key={i}
-              className={`rounded-lg border px-3 py-2 ${severityBg(flag.severity, isDark)}`}
-            >
-              <div className="flex items-start gap-2">
-                <Badge
-                  variant={flag.severity === 'CRITICAL' ? 'danger' : flag.severity === 'MAJOR' ? 'warning' : 'gray'}
-                  size="sm"
-                  className="shrink-0 mt-0.5 font-bold uppercase text-[10px] gap-1.5"
-                >
-                  <span className={`w-1.5 h-1.5 rounded-full ${
-                    flag.severity === 'CRITICAL' ? 'bg-red-500 animate-pulse' :
-                    flag.severity === 'MAJOR' ? 'bg-amber-500' :
-                    'bg-slate-400'
-                  }`} />
-                  {flag.severity}
-                </Badge>
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <p className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
-                      {safetyFlagTitle(flag)}
-                    </p>
-                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded-full border ${
-                      isDark
-                        ? 'bg-white/5 border-white/10 text-slate-400'
-                        : 'bg-white/60 border-slate-200 text-slate-500'
-                    }`}>
-                      rec {(flag._recIndices && flag._recIndices.length > 0
-                        ? flag._recIndices.map(i => `#${i + 1}`).join(', ')
-                        : `#${flag.recommendation_index + 1}`)}
-                    </span>
-                    {flag.source === 'graph' ? (
-                      <span
-                        title="Verified against a structured edge in the Neo4j clinical knowledge graph"
-                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full border ${
-                          isDark
-                            ? 'bg-emerald-900/30 border-emerald-700/50 text-emerald-300'
-                            : 'bg-emerald-50 border-emerald-300 text-emerald-800'
-                        }`}
-                      >
-                        <Network className="w-3 h-3" /> Graph-verified
-                      </span>
-                    ) : (
-                      <span
-                        title="Adversarial LLM critic finding (independent pharmacist review)"
-                        className={`inline-flex items-center gap-1 text-[10px] font-semibold px-1.5 py-0.5 rounded-full border ${
-                          isDark
-                            ? 'bg-slate-800/60 border-slate-600/50 text-slate-300'
-                            : 'bg-slate-100 border-slate-300 text-slate-700'
-                        }`}
-                      >
-                        <Bot className="w-3 h-3" /> LLM critic
-                      </span>
+          <p className={`text-xs font-medium px-1 ${textColor} opacity-90`}>{tightenedNote}</p>
+
+          {flags.map((flag, i) => {
+            const key = flagKey(flag, i);
+            const decision = decisions[key];
+            const isCritical = flag.severity === 'CRITICAL';
+            const titleDrugs = extractDrugNames(flag.title || safetyFlagTitle(flag));
+            const alternatives = extractAlternatives(flag.suggested_alternative, titleDrugs);
+
+            return (
+              <div
+                key={key}
+                className={`rounded-lg border px-3 py-2 ${severityBg(flag.severity, isDark)} ${
+                  isCritical ? 'border-l-4' : ''
+                } ${isCritical && (isDark ? 'border-l-red-500' : 'border-l-red-600')}`}
+              >
+                <div className="flex items-start gap-2">
+                  <Badge
+                    variant={isCritical ? 'danger' : flag.severity === 'MAJOR' ? 'warning' : 'gray'}
+                    size="sm"
+                    className="shrink-0 mt-0.5 font-bold uppercase text-[10px] gap-1.5"
+                  >
+                    {isCritical && <AlertOctagon className="w-3 h-3" />}
+                    {!isCritical && (
+                      <span className={`w-1.5 h-1.5 rounded-full ${
+                        flag.severity === 'MAJOR' ? 'bg-amber-500' : 'bg-slate-400'
+                      }`} />
                     )}
-                  </div>
-                  <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                    <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>Impact: </span>{flag.detail}
-                  </p>
-                  {flag.suggested_alternative && (
-                    <p className={`text-xs mt-1 font-medium ${isDark ? 'text-sky-400' : 'text-sky-700'}`}>
-                      Consider: {flag.suggested_alternative}
+                    {flag.severity}
+                  </Badge>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center flex-wrap gap-2">
+                      <p className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+                        {safetyFlagTitle(flag)}
+                      </p>
+                      {flag._matchedMed?.id && onJumpToMed && (
+                        <button
+                          type="button"
+                          onClick={(e) => { e.stopPropagation(); onJumpToMed(flag._matchedMed.id); }}
+                          className={`text-[11px] font-medium underline-offset-2 hover:underline ${
+                            isDark ? 'text-sky-400 hover:text-sky-300' : 'text-sky-700 hover:text-sky-900'
+                          }`}
+                          title={`Jump to this drug in the ${flag._matchedMed.section} list`}
+                        >
+                          → in {flag._matchedMed.section} list
+                        </button>
+                      )}
+                    </div>
+                    <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                      <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>Impact: </span>{flag.detail}
                     </p>
-                  )}
+
+                    {flag.suggested_alternative && alternatives.length === 0 && (
+                      <p className={`text-xs mt-1 font-medium ${isDark ? 'text-sky-400' : 'text-sky-700'}`}>
+                        Consider: {flag.suggested_alternative}
+                      </p>
+                    )}
+
+                    {alternatives.length > 0 && (
+                      <div className="mt-2 flex flex-wrap items-center gap-1.5">
+                        <span className={`text-[11px] font-medium mr-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                          Replace with:
+                        </span>
+                        {alternatives.map((alt) => (
+                          <button
+                            key={alt}
+                            type="button"
+                            disabled={!!decision}
+                            onClick={() => handleReplace(key, titleDrugs, alt)}
+                            className={`text-[11px] font-semibold px-2 py-1 rounded-full border transition-colors ${
+                              decision?.alternative === alt
+                                ? (isDark ? 'bg-sky-500/20 border-sky-400/60 text-sky-200' : 'bg-sky-100 border-sky-400 text-sky-800')
+                                : (isDark ? 'bg-sky-900/30 border-sky-700/50 text-sky-300 hover:bg-sky-800/40' : 'bg-sky-50 border-sky-300 text-sky-800 hover:bg-sky-100')
+                            } ${decision ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
+                          >
+                            {alt}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Per-flag decision row */}
+                    <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
+                      {decision ? (
+                        <>
+                          <span className={`text-[11px] font-semibold px-2 py-1 rounded-full ${
+                            isDark ? 'bg-emerald-900/40 text-emerald-300' : 'bg-emerald-100 text-emerald-800'
+                          }`}>
+                            ✓ {DECISION_LABELS[decision.decision]}
+                            {decision.alternative ? ` → ${decision.alternative}` : ''}
+                          </span>
+                          {decision.reason && (
+                            <span className={`text-[11px] italic ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                              "{decision.reason}"
+                            </span>
+                          )}
+                          <button
+                            type="button"
+                            onClick={() => setDecisions((prev) => { const n = { ...prev }; delete n[key]; return n; })}
+                            className={`text-[11px] underline ${isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-500 hover:text-slate-700'}`}
+                          >
+                            change
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          {alternatives.length === 0 && (
+                            <button
+                              type="button"
+                              onClick={() => handleReplace(key, titleDrugs, null)}
+                              className={`text-[11px] font-medium px-2 py-1 rounded-md border ${
+                                isDark ? 'border-sky-700/60 text-sky-300 hover:bg-sky-900/30' : 'border-sky-300 text-sky-700 hover:bg-sky-50'
+                              }`}
+                            >
+                              Replace
+                            </button>
+                          )}
+                          <button
+                            type="button"
+                            onClick={() => handleKeep(key, flag)}
+                            className={`text-[11px] font-medium px-2 py-1 rounded-md border ${
+                              isDark ? 'border-amber-700/60 text-amber-300 hover:bg-amber-900/30' : 'border-amber-300 text-amber-700 hover:bg-amber-50'
+                            }`}
+                          >
+                            Keep + acknowledge risk
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => handleRemove(key, titleDrugs)}
+                            className={`text-[11px] font-medium px-2 py-1 rounded-md border ${
+                              isDark ? 'border-slate-600 text-slate-300 hover:bg-slate-700/40' : 'border-slate-300 text-slate-700 hover:bg-slate-100'
+                            }`}
+                          >
+                            Remove from plan
+                          </button>
+                        </>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
-          {report.reviewer_notes && (
-            <p className={`text-xs italic px-1 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
-              {report.reviewer_notes}
-            </p>
+          {/* Informational: drug is on patient's current med list but not in the new plan.
+              No plan-side decision possible — surfaced so the clinician can review
+              the patient's existing prescription separately. */}
+          {currentOnlyFlags.length > 0 && (
+            <div className={`mt-2 rounded-lg border-l-4 ${
+              isDark ? 'bg-sky-900/15 border-l-sky-500 border border-sky-700/30' : 'bg-sky-50/60 border-l-sky-500 border border-sky-200'
+            } px-3 py-2`}>
+              <p className={`text-[11px] font-semibold uppercase tracking-wider mb-1 ${isDark ? 'text-sky-300' : 'text-sky-800'}`}>
+                Review existing prescription ({currentOnlyFlags.length})
+              </p>
+              <p className={`text-xs mb-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                These drugs are on the patient's current med list but not in this plan. No plan change needed; review with the patient.
+              </p>
+              <ul className={`text-xs space-y-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                {currentOnlyFlags.map((f, i) => (
+                  <li key={`co-${i}`}><span className="font-semibold">{safetyFlagTitle(f)}</span> — {f.detail}</li>
+                ))}
+              </ul>
+            </div>
           )}
 
-          {/* Acknowledge button — only shown when plan is blocked */}
+          {/* Informational: class-level / no-match flags (likely Stage 6 critic noise). */}
+          {noiseFlags.length > 0 && (
+            <details className={`mt-2 rounded-lg border ${
+              isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-slate-50 border-slate-200'
+            } px-3 py-2`}>
+              <summary className={`text-[11px] font-semibold uppercase tracking-wider cursor-pointer ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                Class-level notices not matched to a prescribed drug ({noiseFlags.length})
+              </summary>
+              <p className={`text-xs mt-2 mb-2 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+                These flags reference a drug class or alternative drug that is not in the active plan or current meds. Shown for audit; no action required.
+              </p>
+              <ul className={`text-xs space-y-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                {noiseFlags.map((f, i) => (
+                  <li key={`noise-${i}`}><span className="font-semibold">{safetyFlagTitle(f)}</span> — {f.detail}</li>
+                ))}
+              </ul>
+            </details>
+          )}
+
+          {/* Acknowledge button — only enabled once every flag has a decision */}
           {isRed && !acknowledged && (
-            <div className="pt-2">
+            <div className="pt-2 flex items-center gap-3">
               <Button
                 variant="danger"
                 size="sm"
-                onClick={onAcknowledge}
+                disabled={!allDecided}
+                onClick={() => onAcknowledge?.(decisions)}
+                title={allDecided ? undefined : 'Resolve every flag (Replace / Keep / Remove) to enable'}
               >
                 I have reviewed these concerns and accept clinical responsibility
               </Button>
+              {!allDecided && (
+                <span className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                  {flags.filter((f, i) => !decisions[flagKey(f, i)]).length} flag(s) still need a decision
+                </span>
+              )}
             </div>
           )}
           {isRed && acknowledged && (
@@ -302,6 +500,62 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged }) {
               Concerns acknowledged — Approve is now enabled
             </div>
           )}
+        </div>
+      )}
+
+      {/* CRITICAL keep-reason modal */}
+      {criticalReasonModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className={`max-w-md w-full mx-4 rounded-xl border p-5 shadow-xl ${
+            isDark ? 'bg-slate-900 border-red-700/60' : 'bg-white border-red-300'
+          }`}>
+            <div className="flex items-center gap-2 mb-3">
+              <AlertOctagon className={`w-5 h-5 ${isDark ? 'text-red-400' : 'text-red-600'}`} />
+              <h3 className={`text-base font-semibold ${isDark ? 'text-red-300' : 'text-red-800'}`}>
+                Keep a CRITICAL flag — clinical justification required
+              </h3>
+            </div>
+            <p className={`text-xs mb-3 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              You are overriding a critical safety concern. State the clinical reason — this is recorded in the consultation audit.
+            </p>
+            <textarea
+              autoFocus
+              rows={3}
+              value={criticalReasonDraft}
+              onChange={(e) => setCriticalReasonDraft(e.target.value)}
+              placeholder="e.g. patient already on this drug for 3 years without adverse effect; benefit > risk based on…"
+              className={`w-full text-sm rounded-md border p-2 ${
+                isDark ? 'bg-slate-800 border-slate-700 text-slate-200 placeholder-slate-500' : 'bg-white border-slate-300 text-slate-800 placeholder-slate-400'
+              }`}
+            />
+            <div className="mt-3 flex items-center justify-between">
+              <span className={`text-[11px] ${criticalReasonDraft.trim().length < 10
+                ? (isDark ? 'text-slate-500' : 'text-slate-500')
+                : (isDark ? 'text-emerald-400' : 'text-emerald-700')
+              }`}>
+                {criticalReasonDraft.trim().length < 10
+                  ? `${10 - criticalReasonDraft.trim().length} more character${10 - criticalReasonDraft.trim().length === 1 ? '' : 's'} required`
+                  : '✓ Reason looks substantive'}
+              </span>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => { setCriticalReasonModal(null); setCriticalReasonDraft(''); }}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  variant="danger"
+                  size="sm"
+                  disabled={criticalReasonDraft.trim().length < 10}
+                  onClick={confirmCriticalKeep}
+                >
+                  Confirm override
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -613,9 +613,20 @@ export function PlanGenerationProcess({
     ? selectedDiagnoses[0]?.name
     : `${selectedDiagnoses.length} confirmed diagnoses`;
   const activeLabel = currentStageLabel(stageData);
-  const cpgEvents = pipelineEvents.filter((e) => e.stage === 3 && e.eventType === 'sub_step' && e.badge !== 'excluded');
-  const uniqueCpgNames = new Set(cpgEvents.map((e) => e.detail));
-  const cpgCount = uniqueCpgNames.size;
+  // Read counts straight off the canonical stage_update events the backend
+  // emits at stage completion (clinical_workflow.py — Stage 3 carries
+  // `data: names` + `detail: "{N} CPGs matched"`; Stage 4 carries the chunk
+  // count in `detail`). Counting sub_step events instead double-counts the
+  // intermediate routing-attempt rows ("Primary JA21 backed by 1 CPG…").
+  const stage3Complete = [...pipelineEvents].reverse().find(
+    (e) => e.stage === 3 && e.eventType === 'stage_update' && e.status === 'complete'
+  );
+  const uniqueCpgNames = new Set(
+    Array.isArray(stage3Complete?.data) ? stage3Complete.data : []
+  );
+  const cpgCount = uniqueCpgNames.size > 0
+    ? uniqueCpgNames.size
+    : (stage3Complete?.detail?.match(/\d+/)?.[0] ?? null);
   const retrievalDetail = [...pipelineEvents].reverse().find((e) => e.stage === 4 && e.eventType === 'stage_update')?.detail;
 
   const activeStage = stageData.find((s) => s.status === 'running') || 

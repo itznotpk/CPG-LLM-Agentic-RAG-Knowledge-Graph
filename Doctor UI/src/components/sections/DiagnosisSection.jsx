@@ -47,6 +47,7 @@ export function DiagnosisSection() {
   const { isDark } = useTheme();
   const { diagnosis, isGeneratingPlan } = state;
   const [traceCollapsed, setTraceCollapsed] = React.useState(true);
+  const [expandedWhy, setExpandedWhy] = React.useState({});
 
   if (!diagnosis) return null;
 
@@ -321,25 +322,21 @@ export function DiagnosisSection() {
                       AI top pick
                     </span>
                   )}
-                  {/* .pc — font-weight 700, tabular-nums, var(--slate-900) */}
+                  {/* Match strength — qualitative tier only; the raw % can exceed
+                       100 due to inclusion / red-flag boosts (math is fine, but
+                       reading "107%" erodes clinician trust). The full numeric
+                       breakdown stays in the AI Reasoning Trace + the "Why?"
+                       disclosure below. */}
                   {pct != null && (
-                    <>
-                      <span
-                        className="font-mono text-sm shrink-0"
-                        style={{ fontWeight: 700, fontVariantNumeric: 'tabular-nums', color: isDark ? '#f1f5f9' : 'var(--slate-900)' }}
-                      >
-                        {pct}%
-                      </span>
-                      <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
-                        pct >= 70
-                          ? (isDark ? 'bg-emerald-500/20 text-emerald-300' : 'bg-emerald-100 text-emerald-700')
-                          : pct >= 40
-                          ? (isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-700')
-                          : (isDark ? 'bg-slate-500/20 text-slate-300' : 'bg-slate-100 text-slate-600')
-                      }`}>
-                        {pct >= 70 ? 'High' : pct >= 40 ? 'Moderate' : 'Low'}
-                      </span>
-                    </>
+                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
+                      pct >= 70
+                        ? (isDark ? 'bg-emerald-500/20 text-emerald-300' : 'bg-emerald-100 text-emerald-700')
+                        : pct >= 40
+                        ? (isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-700')
+                        : (isDark ? 'bg-slate-500/20 text-slate-300' : 'bg-slate-100 text-slate-600')
+                    }`}>
+                      {pct >= 70 ? 'High' : pct >= 40 ? 'Moderate' : 'Low'}
+                    </span>
                   )}
                 </div>
 
@@ -375,26 +372,56 @@ export function DiagnosisSection() {
                   />
                 </div>
 
-                {/* Row 1.5: rank-deviation indication (post-rerank tracking) */}
-                {diff.mathRank && diff.mathRank !== (idx + 1) && (
-                  <div className="flex items-center gap-1.5 mb-1.5 text-[11px] font-mono">
-                    <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>Reranked:</span>
-                    <span className={`px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 ${
-                      diff.rankDelta > 0 
-                        ? (isDark ? 'bg-emerald-500/10 text-emerald-400' : 'bg-emerald-50 text-emerald-700') 
-                        : (isDark ? 'bg-rose-500/10 text-rose-400' : 'bg-rose-50 text-rose-700')
-                    }`}>
-                      math #{diff.mathRank} → AI #{idx + 1} ({diff.rankDelta > 0 ? `↑${diff.rankDelta}` : `↓${Math.abs(diff.rankDelta)}`})
-                    </span>
-                    {Math.abs(diff.rankDelta) >= 2 && (
-                      <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 animate-pulse ${
-                        isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-800'
-                      }`}>
-                        Clinical Override
-                      </span>
-                    )}
-                  </div>
-                )}
+                {/* Row 1.5: per-card "Why?" disclosure — only show when the card
+                     carries engineering signal worth explaining (rank moved, or
+                     an override fired). Clinician sees a single subtle link;
+                     reranker telemetry + override details open behind it. */}
+                {(() => {
+                  const hasRankDelta = diff.mathRank && diff.mathRank !== (idx + 1);
+                  const hasOverride = !!diff.overrideReason;
+                  if (!hasRankDelta && !hasOverride) return null;
+                  const isExpanded = !!expandedWhy[diff.icdCode];
+                  return (
+                    <div
+                      className="mb-1.5"
+                      onClick={(e) => e.stopPropagation()}
+                      onKeyDown={(e) => e.stopPropagation()}
+                    >
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setExpandedWhy((prev) => ({ ...prev, [diff.icdCode]: !prev[diff.icdCode] }));
+                        }}
+                        className={`text-[11px] underline-offset-2 hover:underline ${
+                          isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-500 hover:text-slate-700'
+                        }`}
+                      >
+                        {isExpanded ? 'Hide details' : 'Why this rank?'}
+                      </button>
+
+                      {isExpanded && hasRankDelta && (
+                        <div className="flex items-center gap-1.5 mt-1.5 text-[11px] font-mono">
+                          <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>Reranked:</span>
+                          <span className={`px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 ${
+                            diff.rankDelta > 0
+                              ? (isDark ? 'bg-emerald-500/10 text-emerald-400' : 'bg-emerald-50 text-emerald-700')
+                              : (isDark ? 'bg-rose-500/10 text-rose-400' : 'bg-rose-50 text-rose-700')
+                          }`}>
+                            math #{diff.mathRank} → AI #{idx + 1} ({diff.rankDelta > 0 ? `↑${diff.rankDelta}` : `↓${Math.abs(diff.rankDelta)}`})
+                          </span>
+                          {Math.abs(diff.rankDelta) >= 2 && (
+                            <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
+                              isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-800'
+                            }`}>
+                              Clinical Override
+                            </span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })()}
 
                 {/* Row 2: probability bar — 10px height, 6px radius, 0.7s CSS transition */}
                 {pct != null && (
@@ -423,8 +450,10 @@ export function DiagnosisSection() {
                      Trace panel on the left; under each DDx card we keep only the
                      percentage / tier / override-reason so the card stays scannable. */}
 
-                {/* Row 4: clinical override reason, if any — only shown when selected */}
-                {isSelected && diff.overrideReason && (
+                {/* Row 4: clinical override reason — only shown when the
+                     clinician opens "Why this rank?" for this card. Keeps the
+                     scannable view clean while preserving full auditability. */}
+                {expandedWhy[diff.icdCode] && diff.overrideReason && (
                   <div className={`mt-2 flex flex-col gap-1.5 text-xs p-2.5 rounded-lg border leading-relaxed ${
                     isDark ? 'bg-amber-950/20 text-amber-300 border-amber-500/10' 
                            : 'bg-amber-50/50 text-amber-800 border-amber-100'
