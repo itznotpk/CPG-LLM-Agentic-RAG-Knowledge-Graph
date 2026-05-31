@@ -186,44 +186,49 @@ tool without rebuilding the pipeline.*
 
 ## Data & Statistics ⟷ Problem Statement (FUSED — one linked spine)
 
-> **Design decision (why these are now one unit):** in the first draft these were two
-> disconnected lists, and only one of the three "stats" (45.6%) was a real problem
-> number — `< 1 min` is a *solution* metric and was narratively backwards in a
-> problem-framing panel. They are now fused into **three parallel rows, one per
-> bottleneck**, each row reading left-to-right: **a severity number → the clinical
-> problem it proves → ClearPath's structural answer.** This is the reference poster's
-> implicit strength made explicit: every problem carries a number, and every number
-> earns its place by pointing at a capability.
+**The umbrella problem — *Clinical Decision Isolation*.** At the moment of decision the
+clinician is **cut off from every source of support they'd normally lean on**: an
+unfamiliar comorbid case lands, there's **no senior to consult right then**, and **no
+time to dig through 100-page CPG PDFs** in a 10-minute slot.
 
-Render as a **3-row band** (big number on the left in brand teal, problem in the middle,
-answer chip on the right). This single band replaces both the old "Data & Statistics"
-tiles and the old "Problem Statement" cards.
+**ClearPath's answer:** one pipeline that restores all three missing voices *inside* the
+consult window — the **colleague** (a Contextual DDx + actionable CPG-grounded plan,
+informed by the patient's full past *and* present context), the **guideline** (the right
+CPG passage retrieved and cited in <1 s), and the **pharmacist** (an independent safety
+critic that blocks sign-off on any critical interaction).
+
+The band below splits that one problem into its **three faces** — cut off from a
+**colleague**, from the **guideline**, from a **pharmacist** — each row reading
+left-to-right: **a severity number → the problem it proves → ClearPath's answer.**
+
+> **Render:** a **3-row band** — big teal number on the left, problem in the middle,
+> answer chip on the right. Replaces both the old "Data & Statistics" tiles and the old
+> "Problem Statement" cards.
 
 | # | Severity stat (the hook) | The clinical problem (Need) | ClearPath's answer (Capability) |
 |---|---|---|---|
-| **1** | **45.6%** — rural clinics in East Malaysia run **without a resident doctor** *(real, sourced)* | Junior MOs/MAs in absolute clinical isolation — no senior to consult on complex comorbid patients. | **Contextual DDx re-ranking** + clinician-named boost + one-click override. |
-| **2** | ⟦**NEEDS SOURCE**⟧ guideline-adherence / underutilisation stat — e.g. *"~X% of clinical decisions deviate from guideline"* | CPGs live in 100+ page static PDFs; un-searchable inside a **10-min** consultation → guidelines go unused. | **Deterministic scoped routing (D1–D6)** + multi-query retrieval brings the right chunk in <1 s. |
-| **3** | ⟦**NEEDS SOURCE**⟧ preventable-ADE stat — e.g. *"~X% of adverse drug events are preventable"* | Pharmacist-vacant clinics → DDIs, allergy cross-reactivity, renal-dose errors slip through. | **Hybrid adversarial safety critic** (LLM + KG) blocks sign-off on any CRITICAL/MAJOR flag. |
+| **1** | **45.6%** of **Sarawak** rural clinics have **no medical officer** (98/215, 2019) · and a second clinical opinion **changes or refines the diagnosis in 88%** of complex referred cases *(Mayo, 2017)* | **Cut off from a colleague** — a complex comorbid patient, no senior to consult on an unfamiliar case, right when the decision is made. | **Contextual DDx** + **CPG-grounded care plan** — the on-demand "second opinion"; clinician-named boost + one-click override keep the human in charge. |
+| **2** | primary-care consults run **≤ 5 min for half the world's population** *(Irving, 2017 — 28.5M consults)* · under that pressure only **~55% of recommended care** is delivered *(McGlynn, NEJM 2003)* | **Cut off from the guideline** — CPGs live in 100+ page static PDFs, un-searchable inside a 10-min consult → guidelines go unused. | **Deterministic scoped routing (D1–D6)** + multi-query retrieval brings the right chunk in <1 s. |
+| **3** | medication harm is **~50% of all preventable harm** in care — **~US$42 B/yr** *(WHO)* · **1 in 30 patients** is hit, **>¼ severe/life-threatening** *(Hodkinson, BMC Med 2020)* | **Cut off from a pharmacist** — DDIs, allergy cross-reactivity, renal-dose errors slip through in pharmacist-vacant clinics. | **Hybrid adversarial safety critic** (LLM + KG) blocks sign-off on any CRITICAL/MAJOR flag. |
 
-> ⟦**NEEDS SOURCE**⟧ **— do not invent these.** Rows 2 and 3 are the two weakest spots
-> on the whole poster precisely because they currently have no number. Find **one real,
-> citable figure each** before printing. Credible sources to mine:
-> - **Row 2** — guideline-adherence gap: WHO, a Malaysian MoH health-services audit, or a
->   published primary-care guideline-adherence study (the classic McGlynn *"~55% of
->   recommended care delivered"* is a defensible global anchor if no MY-specific figure exists).
-> - **Row 3** — preventable ADE burden: WHO *Medication Without Harm* campaign, or a
->   published ADE-epidemiology paper (preventable-ADE fractions in the 50%+ range are
->   well-documented — cite the specific paper, not a round guess).
+> **All three rows are now sourced (no fabricated numbers).** Provenance to cite on print:
+> - **Row 1** — *45.6%*: 98/215 Sarawak rural clinics without a medical officer, 2019
+>   (Sarawak State Health Dept; [summary](https://worldofbuzz.com/statistics-show-almost-half-of-sarawak-rural-clinics-dont-even-have-a-doctor/) — locate the primary press statement). *88%*:
+>   [Van Such et al., *J Eval Clin Pract* 2017](https://pubmed.ncbi.nlm.nih.gov/28374457/) — qualifier "**among complex cases referred for a second opinion**".
+> - **Row 2** — *≤5 min*: [Irving et al., *BMJ Open* 2017](https://pubmed.ncbi.nlm.nih.gov/29118053/) (178 studies, 67 countries).
+>   *~55%*: [McGlynn et al., *NEJM* 2003](https://pubmed.ncbi.nlm.nih.gov/12826639/) (US, retained as the secondary/consequence figure).
+> - **Row 3** — *~50% / ~$42 B*: [WHO *Medication Without Harm*](https://www.who.int/initiatives/medication-without-harm). *1 in 30 / >¼ severe*:
+>   [Hodkinson et al., *BMC Medicine* 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7646069/) (81-study meta-analysis).
 >
 > A poster claim about patient harm with a fabricated number is the single worst thing a
-> clinical judge can catch. One sourced number per row > three impressive guesses.
+> clinical judge can catch — keep every figure traceable to the source above.
 
-**Where the solution/scale numbers go instead** (they were polluting the problem panel):
-move `< 1 min` end-to-end latency and the corpus scale (**3,914 ICD-11 codes**,
-**~1,630 drug nodes / ~289 KG interaction edges**) into a small **"By the numbers"**
-strip beside the Architecture or atop the Evaluation panel — they're *credibility/results*
-figures, not problem-framing figures. Keeping them out of this band is what makes the
-stat→problem→answer link read cleanly.
+**Keep solution/scale numbers out of this panel.** `< 1 min` end-to-end latency and the
+corpus scale (**3,914 ICD-11 codes**, **~1,630 drug nodes / ~289 KG interaction edges**)
+are *credibility/results* figures, not problem figures — move them to a small **"By the
+numbers"** strip beside the Architecture or atop the Evaluation panel. This panel carries
+only severity stats, so every number points at a problem and the stat→problem→answer link
+reads cleanly.
 
 ### Moat Bank — reverse-engineerable `stat → need → moat` candidates
 
@@ -315,6 +320,10 @@ source and cite the source — do not print my paraphrase as the number.**
   Challenge — global medication-harm burden, large share avoidable); **Hodkinson et al.,
   *BMC Medicine* 2020** (medication-error prevalence / proportion severe). A MY-specific
   primary-care medication-error study is the ideal local anchor if you can find one.
+- ✅ **Verified:** [WHO *Medication Without Harm*](https://www.who.int/initiatives/medication-without-harm)
+  — medication harm ≈ **50% of all preventable harm**, **~US$42 B/yr**. [Hodkinson et al.,
+  *BMC Medicine* 2020](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7646069/) — **1 in 30**
+  patients hit, **>¼ severe** (81-study meta-analysis).
 
 **Row #2 — Scope-refusal → need: LLMs answer confidently when they should decline**
 - Search: `large language model hallucination rate clinical question fabricated`
@@ -324,6 +333,13 @@ source and cite the source — do not print my paraphrase as the number.**
   fabricated-citation / inaccurate-answer rates (commonly cited in the tens-of-percent
   range). This row pairs perfectly with your **scope-refusal demo** — show the stat, then
   show ClearPath emitting `out_of_scope` instead.
+- ✅ **Verified (use this — latest, peer-reviewed, tests current models):** Omar et al.,
+  [*Communications Medicine* (Nature) 2025](https://www.nature.com/articles/s43856-025-01021-3)
+  — 6 leading LLMs repeated a planted fake clinical fact in **65.9% of cases (up to 83%)**;
+  **GPT-4o ~53%**, and a mitigation prompt only cut the overall rate to **44%, never to zero**.
+  Peer-reviewed backup: [JMIR 2024](https://www.jmir.org/2024/1/e53164) — **GPT-4 28.6%** on
+  systematic-review citations. The "a prompt doesn't fix it" finding directly justifies a
+  **structural** scope gate over prompt-engineering.
 
 **Row #3 — Auditable trace → need: clinicians won't adopt / can't be accountable for black-box AI**
 - Search: `physician trust AI explainability barrier adoption survey`
@@ -333,12 +349,20 @@ source and cite the source — do not print my paraphrase as the number.**
   adoption concerns, incl. transparency/oversight); **npj Digital Medicine / BMJ Health &
   Care Informatics** explainability-in-clinical-AI surveys. The number you want is
   "% of clinicians citing lack of transparency/explainability as a barrier to trusting AI."
+- ✅ **Verified (with a caveat):** use [AMA Physician Survey on Augmented Intelligence](https://www.ama-assn.org/practice-management/digital-health/physician-survey-augmented-intelligence)
+  — AI use **38% (2023) → 66% (2024)**; **47% rank increased oversight as the #1 action to
+  build trust**. ⚠️ **No clean "% require explainability" exists** — the rigorous source
+  ([JMIR AI 2024 systematic review](https://ai.jmir.org/2024/1/e53207)) is qualitative and
+  even reports explanations don't always raise trust. Frame as: explainability helps *only
+  when it fits clinical reasoning* → which is exactly ClearPath's per-stage trace.
 
 > If a search for any anchor row dead-ends, **swap in #4 (documentation-burden /
-> consult-length: Sinsky 2016 *Annals of Internal Medicine*; Irving 2017 *BMJ Open* on
-> international consultation length) or #5 (continuity-of-care: Pereira Gray 2018 *BMJ
-> Open* "Continuity of care … a matter of life and death?")** — both are game-winners
-> with famously well-cited stats. Never downgrade to a parity-trap row to fill the gap.
+> consult-length: [Sinsky 2016 *Annals of Internal Medicine*](https://pubmed.ncbi.nlm.nih.gov/28460382/)
+> — ~2 hrs EHR/desk per 1 hr patient care; [Irving 2017 *BMJ Open*](https://pubmed.ncbi.nlm.nih.gov/29118053/)
+> on international consultation length) or #5 (continuity-of-care: [Pereira Gray 2018 *BMJ
+> Open*](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6042583/) "Continuity of care … a matter
+> of life and death?" — 18/22 studies found lower mortality with higher continuity)** — both
+> are game-winners with famously well-cited stats. Never downgrade to a parity-trap row to fill the gap.
 
 ---
 
@@ -426,6 +450,18 @@ Intake → DDx (ICD-11) → Route (D1–D6) ──out-of-scope?──► gracefu
 ---
 
 ## FULL-WIDTH — System Architecture
+
+> **Why a system, not a model.** Even GPT-4o repeats a planted fake clinical fact in **~53%**
+> of cases — across six leading LLMs the rate is **65.9% (up to 83%)**, and a safety prompt
+> only halves it, *never to zero* ([*Communications Medicine* 2025](https://www.nature.com/articles/s43856-025-01021-3)).
+> The field's consensus is that the fix is **architectural, not a bigger model**:
+> state-of-the-art clinical AI comes from **compound systems** — retrieval grounding,
+> scope-refusal gates, and verification layers ([BAIR 2024](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)) —
+> where *"hallucination mitigation relies more on architecture and retrieval than on model
+> scale"* (35–60% error reduction, [*Computers* 2025](https://www.mdpi.com/2073-431X/14/8/332)),
+> and guardrails that **stop rather than speculate** and defer uncertain cases to clinicians
+> ([CDSS safety assurance](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9289024/)). **The
+> table below is that system.**
 
 Reuse the 7-stage ASCII diagram from the README (Stages 2→6 + KG inject + UI), but
 **redrawn as clean boxes**. Label each stage with its one-line job and the file/engine:
@@ -628,11 +664,33 @@ empirical accuracy + clinician-confidence capture.
 
 ## References
 
-Keep the reference's numbered footnote style. Cite:
-- Malaysian MoH Clinical Practice Guidelines corpus (the grounding source).
-- ICD-11 (WHO).
-- Key tooling: pgvector, Neo4j, FastAPI, React.
-- Any rural-clinic / resident-doctor-shortage statistic source backing the 45.6% figure.
+Keep the reference's numbered footnote style. Verified sources used across the poster:
+
+**Problem / statistics (the FUSED band)**
+1. Sarawak State Health Dept (2019) — 98/215 rural clinics without a medical officer (45.6%). [Coverage summary](https://worldofbuzz.com/statistics-show-almost-half-of-sarawak-rural-clinics-dont-even-have-a-doctor/) · *locate the primary press statement for print.*
+2. Van Such M, Lohr R, Beckman T, Naessens J. Extent of diagnostic agreement among medical referrals. *J Eval Clin Pract* 2017. [PubMed](https://pubmed.ncbi.nlm.nih.gov/28374457/)
+3. Irving G, et al. International variations in primary care physician consultation time: a systematic review of 67 countries. *BMJ Open* 2017;7:e017902. [PubMed](https://pubmed.ncbi.nlm.nih.gov/29118053/)
+4. McGlynn EA, et al. The Quality of Health Care Delivered to Adults in the United States. *NEJM* 2003;348:2635–45. [PubMed](https://pubmed.ncbi.nlm.nih.gov/12826639/)
+5. WHO. *Medication Without Harm* — 3rd Global Patient Safety Challenge (~50% of preventable harm; ~US$42 B/yr). [WHO](https://www.who.int/initiatives/medication-without-harm)
+6. Hodkinson A, et al. Preventable medication harm across health care settings: a systematic review and meta-analysis. *BMC Medicine* 2020. [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7646069/)
+
+**LLM reliability / "system, not a model"**
+7. Omar M, Sorin V, Collins JD, et al. Multi-model assurance analysis showing LLMs are highly vulnerable to adversarial hallucination attacks during clinical decision support. *Communications Medicine* 2025;5:330. [Nature](https://www.nature.com/articles/s43856-025-01021-3)
+8. Zaharia M, Khattab O, et al. The Shift from Models to Compound AI Systems. BAIR (Berkeley) blog, 2024. [BAIR](https://bair.berkeley.edu/blog/2024/02/18/compound-ai-systems/)
+9. Multi-Layered Framework for LLM Hallucination Mitigation in High-Stakes Applications. *Computers* (MDPI) 2025;14(8):332. [MDPI](https://www.mdpi.com/2073-431X/14/8/332)
+10. HALO: Hallucination Analysis and Learning Optimization for guided clinical decision making. arXiv:2409.10011. [arXiv](https://arxiv.org/pdf/2409.10011)
+11. Assuring the safety of AI-based clinical decision support systems (AI Clinician, sepsis). [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9289024/)
+
+**Clinician trust / burden / continuity (supporting moats)**
+12. AMA Physician Survey on Augmented Intelligence (2024) — 66% using AI; 47% rank oversight as #1 trust action. [AMA](https://www.ama-assn.org/practice-management/digital-health/physician-survey-augmented-intelligence)
+13. How Explainable AI Can Increase or Decrease Clinicians' Trust: systematic review. *JMIR AI* 2024. [JMIR](https://ai.jmir.org/2024/1/e53207)
+14. Sinsky C, et al. Allocation of Physician Time in Ambulatory Practice. *Annals of Internal Medicine* 2016;165:753–60. [PubMed](https://pubmed.ncbi.nlm.nih.gov/28460382/)
+15. Pereira Gray DJ, et al. Continuity of care with doctors — a matter of life and death? *BMJ Open* 2018. [PMC](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6042583/)
+
+**Corpus / tooling**
+16. Malaysian MoH Clinical Practice Guidelines corpus (the grounding source).
+17. ICD-11, World Health Organization.
+18. Key tooling: pgvector, Neo4j, FastAPI, React.
 
 ---
 
