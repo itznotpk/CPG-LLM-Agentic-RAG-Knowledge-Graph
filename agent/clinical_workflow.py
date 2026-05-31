@@ -641,6 +641,27 @@ async def run_resynthesize_streaming(
                 clinical_context=_build_symptom_text(case),
                 patient_sex=case.sex,
             )
+        # Comorbidity routing — fan in any staged/free-text comorbidities so
+        # CPGs like Obesity-Management(2023) don't drop on the resynth path.
+        # Initial /clinical/plan/stream does this; resynth was missing it.
+        try:
+            with _time_stage("stage_3_route_comorbidities", timings):
+                extra_cpgs = await route_comorbidities(
+                    case.comorbidities,
+                    cpgs,
+                    patient_sex=case.sex,
+                    emit=emit,
+                    staged_comorbidities=case.staged_comorbidities,
+                    clinical_context=_build_symptom_text(case),
+                )
+            if extra_cpgs:
+                cpgs = list(cpgs) + list(extra_cpgs)
+                logger.info(
+                    "Re-synth Stage 3 comorbidity routing added %d CPG(s)",
+                    len(extra_cpgs),
+                )
+        except Exception as e:
+            logger.warning("Re-synth comorbidity routing failed (continuing): %s", e)
         names = [c.cpg_name for c in cpgs]
         await emit("stage_update", {
             "stage": 3, "name": "CPG Routing", "status": "complete",

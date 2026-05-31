@@ -96,7 +96,14 @@ async def _get_neo4j_session():
         user = os.getenv("NEO4J_USER")
         password = os.getenv("NEO4J_PASSWORD")
         db = os.getenv("NEO4J_DATABASE") or None
-        driver = AsyncGraphDatabase.driver(uri, auth=(user, password))
+        driver = AsyncGraphDatabase.driver(
+            uri,
+            auth=(user, password),
+            max_connection_lifetime=300,
+            keep_alive=True,
+            liveness_check_timeout=30,
+            connection_acquisition_timeout=60,
+        )
         return driver.session(database=db)
 
 

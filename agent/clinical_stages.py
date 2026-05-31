@@ -625,6 +625,120 @@ def _dedup_pharmacological_recs(recommendations: list[Recommendation]) -> list[R
     return deduped
 
 
+import re as _re_mod
+
+# Canonical multi-word specialties where 'team'/'professional'/'surgery' is part
+# of the name and must not be stripped.
+_CANONICAL_MULTIWORD_SPECIALTIES = frozenset({
+    "multidisciplinary team",
+    "oral health professional",
+    "bariatric surgery",
+    "vascular surgery",
+    "cardiothoracic surgery",
+    "general surgery",
+    "diabetes nurse educator",
+    "diabetes nurse",
+    "renal team",
+    "heart failure team",
+    "palliative care",
+    "infectious diseases",
+    "internal medicine",
+    "emergency medicine",
+    "family medicine",
+    "general medicine",
+    "respiratory medicine",
+    "geriatric medicine",
+    "obstetrics and gynaecology",
+    "obstetrics & gynaecology",
+})
+
+# Trailing tokens that follow a specialty noun and should be stripped so that
+# "Cardiology review" and "Refer to Cardiology" both normalise to "cardiology".
+# Not applied to canonical multi-word specialties above.
+_REFERRAL_SPECIALTY_SUFFIXES = frozenset({
+    "review", "consultation", "consult", "consultations",
+    "service", "services", "team", "input",
+    "opinion", "assessment", "evaluation", "referral",
+    "follow", "followup", "follow-up", "clinic", "clinics",
+    "specialist", "specialists", "department", "dept",
+    "appointment", "visit", "advice",
+})
+
+# Stopwords that terminate the specialty phrase. Once one of these is hit,
+# everything after it is non-specialty rationale ("for X", "if Y", "due to Z").
+_REFERRAL_PHRASE_TERMINATORS = frozenset({
+    "for", "if", "due", "to", "regarding", "re", "about",
+    "with", "after", "before", "when", "trigger", "indicated",
+    "consider", "urgent", "routine", "emergency",
+})
+
+
+def _normalise_specialty_phrase(phrase: str) -> str:
+    """Reduce a referral phrase to a normalised specialty key.
+
+    Strategy:
+      1. Drop parenthetical qualifiers and leading "Refer(ral) to".
+      2. If a canonical multi-word specialty appears as a prefix, return that.
+      3. Walk tokens left-to-right; stop at any phrase terminator
+         ('for', 'if', 'with', ...).
+      4. Drop trailing suffix tokens ('review', 'consultation', 'team', ...).
+      5. If a conjunction split two alternatives, keep the first.
+    """
+    p = (phrase or "").strip().lower()
+    if not p:
+        return ""
+    # Strip parenthetical qualifier ('(consider)', '(routine)', ...).
+    p = _re_mod.sub(r"\s*\([^)]*\)", " ", p).strip()
+    # Strip leading 'refer to' / 'referral to' / 'consider'.
+    p = _re_mod.sub(r"^(?:refer(?:ral)?\s+(?:to\s+)?|consider\s+)", "", p).strip()
+    if not p:
+        return ""
+    # Canonical multi-word specialty prefix wins (handles 'multidisciplinary team',
+    # 'bariatric surgery', 'oral health professional', etc.).
+    for canonical in _CANONICAL_MULTIWORD_SPECIALTIES:
+        if p == canonical or p.startswith(canonical + " "):
+            return canonical
+    # If a conjunction splits two alternatives, keep the first.
+    for sep in (" or ", " and/or ", " / ", "/"):
+        if sep in p:
+            p = p.split(sep, 1)[0].strip()
+            break
+    # Walk tokens; stop at first phrase terminator.
+    tokens: list[str] = []
+    for tok in p.split():
+        t = tok.strip(",.;:")
+        if t in _REFERRAL_PHRASE_TERMINATORS:
+            break
+        if t:
+            tokens.append(t)
+    # Drop trailing suffix tokens.
+    while len(tokens) > 1 and tokens[-1] in _REFERRAL_SPECIALTY_SUFFIXES:
+        tokens.pop()
+    return " ".join(tokens).strip()
+
+
+def _infer_referral_specialty(rec) -> str:
+    """Best-effort specialty extraction from intervention text.
+
+    The Stage 5 synthesis LLM emits referrals as free-text intervention strings
+    like `"Refer to Cardiology — optimise foundational HF medications"` without
+    populating a structured `specialty` field (the model doesn't even define one).
+    Without this fallback, every empty-specialty referral normalises to ("","")
+    and Tier 1 dedup collapses every distinct specialty into one bucket.
+    """
+    spec = (getattr(rec, "specialty", "") or "").strip()
+    if spec:
+        return _normalise_specialty_phrase(spec)
+    intervention = (getattr(rec, "intervention", "") or "").strip()
+    if not intervention:
+        return ""
+    # Take prefix before first hard separator (— – - : ( ; |).
+    head = _re_mod.split(r"[—–\-:(;|]", intervention, maxsplit=1)[0].strip()
+    if not head:
+        head = intervention
+    return _normalise_specialty_phrase(head[:120])
+
+
 def _normalize_referral_key(specialty: str | None, condition: str | None) -> tuple[str, str]:
     """Normalize specialty and condition for dedup comparison."""
     spec = (specialty or "").strip().lower()
@@ -664,107 +778,132 @@ def _referral_tokens(spec: str, cond: str, intervention: str) -> set[str]:
     return {t for t in raw if len(t) > 2 and t not in _REFERRAL_STOPWORDS}
 
 
-def _is_duplicate_referral(rec1: Recommendation, rec2: Recommendation, threshold: float = 0.6) -> bool:
-    """Detect duplicate referrals using 2-tier matching.
+def _is_duplicate_referral(rec1: Recommendation, rec2: Recommendation) -> bool:
+    """Detect duplicate referrals by inferred specialty.
 
-    Tier 1 (Exact): Normalized specialty + condition match.
-    Tier 2 (Token-set Jaccard): Same specialty + Jaccard(tokens) >= threshold.
-    Replaces the prior positional char-zip overlap, which silently failed on
-    word-reordered conditions and was sensitive to length differences.
+    Clinically a referral books ONE consultation per specialty per visit;
+    multiple reasons get bundled into a single consult, not split into N
+    separate appointments. So same inferred specialty == duplicate, regardless
+    of condition. Distinct reasons are preserved by the merge in
+    `_dedup_referral_recs` (rationale concatenation) — nothing is lost.
 
-    Args:
-        rec1, rec2: Recommendation objects (both should be type="referral")
-        threshold: Jaccard similarity threshold on the token sets (0.0-1.0)
-
-    Returns: True if duplicates detected.
+    Returns True iff both are referrals with the same inferred specialty.
     """
     if not rec1 or not rec2:
         return False
     if rec1.type != "referral" or rec2.type != "referral":
         return False
-
-    spec1 = (getattr(rec1, "specialty", "") or "").strip()
-    cond1 = (getattr(rec1, "condition", "") or "").strip()
-    spec2 = (getattr(rec2, "specialty", "") or "").strip()
-    cond2 = (getattr(rec2, "condition", "") or "").strip()
-
-    # Tier 1: Exact normalized match
-    if _normalize_referral_key(spec1, cond1) == _normalize_referral_key(spec2, cond2):
-        return True
-
-    # Tier 2 requires same specialty — different specialties are never dups even
-    # if the conditions overlap (e.g. Cardiology vs Nephrology for CKD+HF).
-    if spec1.lower().strip() != spec2.lower().strip():
+    spec1 = _infer_referral_specialty(rec1)
+    spec2 = _infer_referral_specialty(rec2)
+    # If we couldn't extract a specialty for either side, refuse to dedup —
+    # better to keep a redundant referral than to silently lose a distinct one.
+    if not spec1 or not spec2:
         return False
+    return spec1 == spec2
 
-    toks1 = _referral_tokens(spec1, cond1, rec1.intervention or "")
-    toks2 = _referral_tokens(spec2, cond2, rec2.intervention or "")
-    if len(toks1) < 2 or len(toks2) < 2:
-        return False
-    inter = toks1 & toks2
-    union = toks1 | toks2
-    jaccard = len(inter) / len(union) if union else 0.0
-    return jaccard >= threshold
+
+def _merge_referral_into(kept: Recommendation, extra: Recommendation) -> None:
+    """Fold `extra`'s rationale + cpg_source into `kept` in-place.
+
+    Same specialty, distinct reasons → one entry with all reasons preserved.
+    `kept` keeps its `intervention` headline; the new reason is appended to
+    `rationale` (bullet-style) and the new source is added to `cpg_source`
+    (semicolon-joined, deduped).
+    """
+    # Reason: prefer extra.rationale; fall back to its intervention tail.
+    extra_rationale = (getattr(extra, "rationale", "") or "").strip()
+    if not extra_rationale:
+        intervention = (extra.intervention or "").strip()
+        # take the text after the first separator as the reason
+        for sep in ("—", "–", "-", ":"):
+            if sep in intervention:
+                extra_rationale = intervention.split(sep, 1)[1].strip()
+                break
+        if not extra_rationale:
+            extra_rationale = intervention
+    if extra_rationale:
+        kept_rationale = (getattr(kept, "rationale", "") or "").strip()
+        # Avoid duplicating a reason already captured.
+        if extra_rationale and extra_rationale.lower() not in kept_rationale.lower():
+            joined = (
+                f"{kept_rationale}; also: {extra_rationale}"
+                if kept_rationale and not kept_rationale.endswith(";")
+                else f"{kept_rationale} also: {extra_rationale}".strip()
+                if kept_rationale
+                else extra_rationale
+            )
+            try:
+                kept.rationale = joined
+            except Exception:
+                pass
+    # Merge cpg_source (semicolon-separated, dedup-by-substring).
+    extra_src = (getattr(extra, "cpg_source", "") or "").strip()
+    if extra_src:
+        kept_src = (getattr(kept, "cpg_source", "") or "").strip()
+        if extra_src not in kept_src:
+            try:
+                kept.cpg_source = f"{kept_src}; {extra_src}" if kept_src else extra_src
+            except Exception:
+                pass
 
 
 def _dedup_referral_recs(recommendations: list[Recommendation]) -> list[Recommendation]:
-    """Deduplicate referral recommendations, preserving order and higher urgency.
+    """Deduplicate referral recommendations by inferred specialty, merging reasons.
 
-    For duplicate referrals:
-    - Keep the recommendation with higher urgency (emergency > urgent > routine)
-    - If same urgency, prefer longer intervention (more specific)
-    - Log dedup decisions at INFO level
-
-    Args:
-        recommendations: List of Recommendation objects (mixed types)
-
-    Returns: Deduplicated list with same order but no duplicate referrals.
+    Same specialty → one entry. Higher urgency wins for the kept entry. Distinct
+    rationales and cpg sources are folded into the kept entry rather than discarded.
+    Non-referral recommendations pass through untouched, preserving order.
     """
     if not recommendations:
         return recommendations
 
-    deduped = []
+    deduped: list[Recommendation] = []
 
     for rec in recommendations:
         if rec.type != "referral":
             deduped.append(rec)
             continue
 
-        # Check against existing referral recommendations
         is_dup = False
         for j, existing_rec in enumerate(deduped):
             if existing_rec.type != "referral":
                 continue
+            if not _is_duplicate_referral(rec, existing_rec):
+                continue
 
-            if _is_duplicate_referral(rec, existing_rec):
-                # Compare urgency, prefer higher
-                urgency_rec = _referral_urgency_priority(getattr(rec, "urgency", None))
-                urgency_existing = _referral_urgency_priority(getattr(existing_rec, "urgency", None))
+            urgency_rec = _referral_urgency_priority(getattr(rec, "urgency", None))
+            urgency_existing = _referral_urgency_priority(getattr(existing_rec, "urgency", None))
+            len_rec = len((rec.intervention or "").strip())
+            len_existing = len((existing_rec.intervention or "").strip())
 
-                len_rec = len((rec.intervention or "").strip())
-                len_existing = len((existing_rec.intervention or "").strip())
+            # Decide which entry stays as the "headline" (intervention text + urgency).
+            keep_new_as_headline = (
+                urgency_rec > urgency_existing
+                or (urgency_rec == urgency_existing and len_rec > len_existing)
+            )
 
-                should_replace = False
-                if urgency_rec > urgency_existing:
-                    should_replace = True
-                elif urgency_rec == urgency_existing and len_rec > len_existing:
-                    should_replace = True
-
-                if should_replace:
-                    deduped[j] = rec
-                    logger.info(
-                        "referral dedup: replaced %r with higher urgency/specificity %r",
-                        (existing_rec.intervention or "")[:60],
-                        (rec.intervention or "")[:60],
-                    )
-                else:
-                    logger.info(
-                        "referral dedup: dropped duplicate %r (kept %r)",
-                        (rec.intervention or "")[:60],
-                        (existing_rec.intervention or "")[:60],
-                    )
-                is_dup = True
-                break
+            spec = _infer_referral_specialty(rec) or "(unknown)"
+            if keep_new_as_headline:
+                # New rec becomes the headline; fold old reason in.
+                _merge_referral_into(rec, existing_rec)
+                deduped[j] = rec
+                logger.info(
+                    "referral dedup [%s]: replaced headline %r with %r (reason merged)",
+                    spec,
+                    (existing_rec.intervention or "")[:60],
+                    (rec.intervention or "")[:60],
+                )
+            else:
+                # Existing rec stays as headline; fold new reason in.
+                _merge_referral_into(existing_rec, rec)
+                logger.info(
+                    "referral dedup [%s]: merged reason from %r into kept %r",
+                    spec,
+                    (rec.intervention or "")[:60],
+                    (existing_rec.intervention or "")[:60],
+                )
+            is_dup = True
+            break
 
         if not is_dup:
             deduped.append(rec)
@@ -1501,14 +1640,17 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
             raw_content = json.dumps(forced)
         elif emit is not None:
             # Streaming path — capture thinking tokens
-            # max_tokens caps total output so MiMo doesn't burn the budget on
-            # verbose reasoning and run out before emitting the JSON array.
+            # max_tokens caps total output. Bumped 4000 → 8000 because Gemini 2.5
+            # Flash's thinking tokens count against this budget on the OpenAI-compat
+            # endpoint and were truncating the JSON mid-string. response_format
+            # forces server-side JSON closure even if budget is squeezed.
             stream = await client.chat.completions.create(
                 model=active_model,
                 messages=messages,
                 temperature=0,
                 **_seed_kwargs(active_model),
-                max_tokens=4000,
+                max_tokens=8000,
+                response_format={"type": "json_object"},
                 stream=True,
             )
             async for chunk in stream:
@@ -1533,13 +1675,15 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 if delta.content:
                     raw_content += delta.content
         else:
-            # Non-streaming path — identical to pre-Step-09 behavior
+            # Non-streaming path — same JSON-mode enforcement as streaming so
+            # both paths have the same parse-stability guarantees.
             resp = await client.chat.completions.create(
                 model=active_model,
                 messages=messages,
                 temperature=0,
                 **_seed_kwargs(active_model),
                 max_tokens=8000,
+                response_format={"type": "json_object"},
             )
             raw_content = resp.choices[0].message.content
 
@@ -3492,7 +3636,7 @@ _CPG_STALE_THRESHOLD_YEARS = 5
 # visible to the synthesis LLM.
 _CHILD_CHAR_LIMIT = 20_000
 _PARENT_CHAR_LIMIT = 60_000
-_TOTAL_TOKEN_BUDGET = 50_000
+_TOTAL_TOKEN_BUDGET = 60_000
 _PROMPT_TOKEN_LIMIT = 180_000
 _ENC = None
 
@@ -4603,6 +4747,53 @@ Produce a TreatmentPlan JSON object matching this schema:
             "stage_5: final referral dedup (post-KG): %d → %d referral recs",
             ref_count_before_final, ref_count_after_final,
         )
+
+    # Anti-hallucination guard: strip unresolved_questions that claim a
+    # severity_staging / vitals field is "not provided" when the case actually
+    # carries that field. The synthesis LLM occasionally contradicts itself
+    # (e.g. uses eGFR=58 in the rationale + summary, then says "eGFR not provided"
+    # in unresolved_questions). Such entries mislead clinicians into reordering
+    # tests they already have.
+    try:
+        provided_keys: set[str] = set()
+        for key, val in (getattr(case, "severity_staging", {}) or {}).items():
+            if val not in (None, "", []):
+                provided_keys.add(key.lower())
+        for key, val in (getattr(case, "vitals", {}) or {}).items():
+            if val not in (None, "", []):
+                provided_keys.add(key.lower())
+        if provided_keys:
+            import re as _re
+            absent_re = _re.compile(
+                r"(?i)\b([a-z][a-z0-9+\-/() ]{0,40}?)\s+(?:not\s+(?:provided|available|reported|specified|known|documented|recorded|measured)|is\s+missing|unknown)\b"
+            )
+            kept: list[str] = []
+            dropped: list[str] = []
+            for q in plan.unresolved_questions or []:
+                hit = False
+                for m in absent_re.finditer(q or ""):
+                    claimed = m.group(1).strip().lower()
+                    tokens = {t for t in _re.findall(r"[a-z0-9+]+", claimed) if len(t) > 1}
+                    for tok in tokens:
+                        if tok in provided_keys or any(tok == k or tok in k for k in provided_keys):
+                            hit = True
+                            break
+                    if hit:
+                        break
+                if hit:
+                    dropped.append(q)
+                else:
+                    kept.append(q)
+            if dropped:
+                plan.unresolved_questions = kept
+                for d in dropped:
+                    logger.warning(
+                        "stage_5 anti-hallucination: dropped unresolved_question claiming "
+                        "missing field that IS in case input — %r",
+                        d[:160],
+                    )
+    except Exception as e:
+        logger.warning("stage_5 anti-hallucination guard failed (continuing): %s", e)
 
     # Coverage-gap detector: for each routed condition with a FIRST_LINE_FOR
     # rule in the KG, ensure the synthesised plan actually prescribes a med in

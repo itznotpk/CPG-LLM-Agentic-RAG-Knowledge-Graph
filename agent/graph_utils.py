@@ -322,6 +322,21 @@ class GraphitiClient:
                 password=self.neo4j_password,
                 database=self.neo4j_database,
             )
+            # Aura idle-closes Bolt connections; replace Graphiti's default driver
+            # with one configured to cycle connections before Aura's ~30 min idle window.
+            from neo4j import AsyncGraphDatabase
+            try:
+                await neo4j_driver.client.close()
+            except Exception:
+                pass
+            neo4j_driver.client = AsyncGraphDatabase.driver(
+                uri=self.neo4j_uri,
+                auth=(self.neo4j_user or '', self.neo4j_password or ''),
+                max_connection_lifetime=300,
+                keep_alive=True,
+                liveness_check_timeout=30,
+                connection_acquisition_timeout=60,
+            )
             
             self.graphiti = Graphiti(
                 self.neo4j_uri,

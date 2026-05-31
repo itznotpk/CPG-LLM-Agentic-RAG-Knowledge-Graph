@@ -121,7 +121,7 @@ async def save_pipeline_timings(
     request_id: str = "",
 ) -> None:
     """Persist stage timings + request_id to the consultations row. Best-effort."""
-    pool = supabase_pool._pool
+    pool = supabase_pool.pool
     if pool is None:
         return
     try:

@@ -11,7 +11,13 @@ function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, st
       sex: patientState.gender === 'Male' ? 'M'
          : patientState.gender === 'Female' ? 'F'
          : patientState.gender ? 'other' : null,
-      comorbidities: mpisData?.comorbidities || [],
+      // Prefer MPIS-synced comorbidities for returning patients; fall back to
+      // the Step-1 form list for fresh patients (otherwise route_comorbidities
+      // has nothing to fan in and CPGs like Obesity-Management(2023) silently
+      // drop on every fresh-patient run).
+      comorbidities: (mpisData?.comorbidities && mpisData.comorbidities.length)
+        ? mpisData.comorbidities
+        : (patientState?.comorbidities || []),
       current_medications: (mpisData?.currentMeds || []).map(
         (m) => (typeof m === 'string' ? m : m.name || m.medication || '')
       ).filter(Boolean),
