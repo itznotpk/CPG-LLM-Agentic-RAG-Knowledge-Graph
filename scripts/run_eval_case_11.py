@@ -26,6 +26,13 @@ from pathlib import Path
 
 import aiohttp
 
+# Force UTF-8 stdout so Windows cp1252 console doesn't crash on emoji in SSE events.
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except (AttributeError, OSError):
+    pass
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "tasks" / "eval_runs"
 
