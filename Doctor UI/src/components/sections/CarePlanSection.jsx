@@ -474,9 +474,28 @@ function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId 
    ============================================================ */
 function RedFlagRow({ text }) {
   const { isDark } = useTheme();
-  const dashIdx = text ? text.indexOf(' — ') : -1;
-  const flagTitle = dashIdx !== -1 ? text.slice(0, dashIdx).trim() : text;
-  const flagSub   = dashIdx !== -1 ? text.slice(dashIdx + 3).trim() : null;
+  const [showFull, setShowFull] = React.useState(false);
+  // Split priority: ":" first (Stage-5 convention "Label: criteria…"), then " — "
+  // (older format), then the whole thing as title. Keeps the bold label short
+  // and scannable so a clinician can ignore the criteria detail unless they need it.
+  const splitText = (raw) => {
+    if (!raw) return { title: '', sub: null };
+    const colonIdx = raw.indexOf(': ');
+    if (colonIdx !== -1 && colonIdx < 40) {
+      return { title: raw.slice(0, colonIdx).trim(), sub: raw.slice(colonIdx + 2).trim() };
+    }
+    const dashIdx = raw.indexOf(' — ');
+    if (dashIdx !== -1) {
+      return { title: raw.slice(0, dashIdx).trim(), sub: raw.slice(dashIdx + 3).trim() };
+    }
+    return { title: raw, sub: null };
+  };
+  const { title: flagTitle, sub: flagSub } = splitText(text);
+  // Long criteria lists ("SBP ≥160 OR DBP ≥110 OR thrombocytopenia OR …") get
+  // truncated with a Show more toggle — preserves scannability without losing audit.
+  const SUB_CAP = 90;
+  const subIsLong = flagSub && flagSub.length > SUB_CAP;
+  const subDisplay = subIsLong && !showFull ? `${flagSub.slice(0, SUB_CAP).trimEnd()}…` : flagSub;
   return (
     <div className={`py-2.5 border-b last:border-b-0 ${isDark ? 'border-white/5' : 'border-slate-100'}`}>
       <div className="flex items-start gap-3">
@@ -486,7 +505,18 @@ function RedFlagRow({ text }) {
         <div className="flex-1 min-w-0">
           <div className={`text-sm font-semibold leading-snug ${isDark ? 'text-red-400' : 'text-red-600'}`}>{flagTitle}</div>
           {flagSub && (
-            <div className={`text-xs mt-0.5 leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>{flagSub}</div>
+            <div className={`text-xs mt-0.5 leading-snug ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+              {subDisplay}
+              {subIsLong && (
+                <button
+                  type="button"
+                  onClick={() => setShowFull((v) => !v)}
+                  className={`ml-1 text-[10px] font-semibold underline-offset-2 hover:underline ${isDark ? 'text-slate-400' : 'text-slate-500'}`}
+                >
+                  {showFull ? 'less' : 'more'}
+                </button>
+              )}
+            </div>
           )}
         </div>
       </div>
@@ -1350,11 +1380,43 @@ function parseUnresolvedQuestion(q) {
   return <span className="block mb-2.5">{q.replace(/\*\*/g, '')}</span>;
 }
 
-/* Unresolved Questions — collapsible with first N visible */
+/* Unresolved Questions — sub-grouped by source:
+   - Assumption:  load-bearing assumptions the plan depends on (verify before signing)
+   - Cross-check: validator findings (internal consistency — fix the plan itself)
+   - other:       genuine CPG evidence gaps (apply clinical judgement)
+   Bucketing is by text prefix so it works regardless of which Stage-5 commandment
+   produced the entry — no backend coupling. */
+function classifyUnresolved(q) {
+  const stripped = (q || '').replace(/\*\*/g, '').trim();
+  if (/^Assumption:/i.test(stripped)) return 'assumption';
+  if (/^Cross-check:/i.test(stripped)) return 'crosscheck';
+  return 'gap';
+}
+
+const UNRESOLVED_GROUPS = [
+  { key: 'assumption', label: 'Assumptions the plan depends on', hint: 'Verify these before signing.' },
+  { key: 'gap',        label: 'Evidence gaps',                   hint: 'CPG does not specify — apply clinical judgement.' },
+  { key: 'crosscheck', label: 'Internal consistency checks',     hint: 'Contradictions inside the plan — fix before signing.' },
+];
+
 function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
   const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? qs : qs.slice(0, maxVisible);
-  const hasMore = qs.length > maxVisible;
+  const grouped = qs.reduce((acc, q) => {
+    const k = classifyUnresolved(q);
+    (acc[k] = acc[k] || []).push(q);
+    return acc;
+  }, {});
+
+  // Flatten in group order for the truncated view
+  const orderedAll = UNRESOLVED_GROUPS.flatMap((g) => (grouped[g.key] || []).map((q) => ({ q, group: g.key })));
+  const visible = expanded ? orderedAll : orderedAll.slice(0, maxVisible);
+  const hasMore = orderedAll.length > maxVisible;
+
+  // When collapsed: simple flat list (preserves the existing tight look).
+  // When expanded: sub-grouped with headings so the clinician sees what each entry is for.
+  const visibleByGroup = expanded
+    ? UNRESOLVED_GROUPS.map((g) => ({ ...g, items: grouped[g.key] || [] })).filter((g) => g.items.length > 0)
+    : null;
 
   return (
     <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
@@ -1367,9 +1429,25 @@ function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
           {qs.length}
         </span>
       </p>
-      <ul className={`text-[11px] space-y-1.5 pl-3 list-disc leading-relaxed ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
-        {visible.map((q, i) => <li key={i}>{parseUnresolvedQuestion(q)}</li>)}
-      </ul>
+
+      {!expanded && (
+        <ul className={`text-[11px] space-y-1.5 pl-3 list-disc leading-relaxed ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
+          {visible.map(({ q }, i) => <li key={i}>{parseUnresolvedQuestion(q)}</li>)}
+        </ul>
+      )}
+
+      {expanded && visibleByGroup.map((g) => (
+        <div key={g.key} className="mt-2 first:mt-0">
+          <p className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-amber-300/90' : 'text-amber-700/90'}`}>
+            {g.label} ({g.items.length})
+          </p>
+          <p className={`text-[10px] mb-1.5 italic ${isDark ? 'text-amber-200/60' : 'text-amber-700/60'}`}>{g.hint}</p>
+          <ul className={`text-[11px] space-y-1.5 pl-3 list-disc leading-relaxed ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
+            {g.items.map((q, i) => <li key={i}>{parseUnresolvedQuestion(q.replace(/^(Assumption|Cross-check):\s*/i, ''))}</li>)}
+          </ul>
+        </div>
+      ))}
+
       {hasMore && (
         <button
           onClick={() => setExpanded(v => !v)}
@@ -1377,7 +1455,7 @@ function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
             isDark ? 'text-amber-400 hover:text-amber-300' : 'text-amber-600 hover:text-amber-700'
           }`}
         >
-          {expanded ? 'Show fewer' : `Show all ${qs.length} questions`}
+          {expanded ? 'Show fewer' : `Show all ${qs.length} — grouped by type`}
         </button>
       )}
     </div>
