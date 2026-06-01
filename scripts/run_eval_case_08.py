@@ -36,8 +36,8 @@ CASE_8 = {
     "comorbidities": ["Heart failure with reduced EF", "Type 2 Diabetes Mellitus", "Obesity"],
     "current_medications": ["Metformin 1g BD", "Gliclazide MR 60mg OD"],
     "allergies": [],
-    "vitals": {"sbp": 128, "dbp": 76, "hr": 82, "spO2": 97, "weight": 98, "height": 175, "temp": 36.8, "egfr": 58},
-    "severity_staging": {"HbA1c": "8.4", "LVEF": "25", "eGFR": "58", "NYHA": "II"},
+    "vitals": {"sbp": 128, "dbp": 76, "hr": 82, "spO2": 97, "weight": 98, "height": 175, "temp": 36.8},
+    "severity_staging": {"HbA1c": "8.4", "LVEF": "25", "NYHA": "II"},
 }
 
 

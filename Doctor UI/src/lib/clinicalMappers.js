@@ -1,3 +1,32 @@
+/* Lifestyle category classifier — keyword → canonical tag.
+   Order matters: most specific first; everything unmatched falls back to the
+   generic 'Lifestyle' so the UI never renders a blank/placeholder category. */
+const LIFESTYLE_RULES = [
+  ['Smoking',   /\b(smok|tobacco|cigarette|nicotine|vaping|vape)/i],
+  ['Alcohol',   /\b(alcohol|drinking|ethanol)/i],
+  ['Weight',    /\b(weight|bmi|obesity|obese|waist|adiposity)/i],
+  ['Exercise',  /\b(exercise|physical activity|cardiac rehab|aerobic|walking|sedentary|fitness|activity level)/i],
+  ['Diet',      /\b(diet|nutrition|sodium|salt|dietitian|mediterranean|caffeine|fluid restriction|carbohydrate|sugar intake|food intake)/i],
+  ['Adherence', /\b(adherence|complian|medication support|self-?management|pill)/i],
+];
+
+function classifyLifestyle(text) {
+  const t = String(text || '');
+  for (const [cat, re] of LIFESTYLE_RULES) if (re.test(t)) return cat;
+  return 'Lifestyle';
+}
+
+/* Split "Action — benefit" into a clean goal + detail, dropping the em-dash so
+   the card reads as a structured action + rationale rather than an AI run-on. */
+function splitGoalDetail(text) {
+  const clean = String(text || '').replace(/\s+/g, ' ').trim();
+  const m = clean.match(/\s+(?:—|–|-)\s+/);
+  if (m?.index != null) {
+    return { goal: clean.slice(0, m.index).trim(), detail: clean.slice(m.index + m[0].length).trim() };
+  }
+  return { goal: clean, detail: '' };
+}
+
 /**
  * Map ClinicalPlanResponse.ddx → diagnosis state shape for DiagnosisSection
  */
@@ -88,13 +117,20 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
     accepted: true,
   }));
 
-  const lifestyleItems = lifestyle.map((r, i) => ({
-    id: i + 1,
-    goal: r.intervention,
-    rationale: r.rationale,
-    cpgRef: r.cpg_source,
-    accepted: true,
-  }));
+  const lifestyleItems = lifestyle.map((r, i) => {
+    const { goal, detail } = splitGoalDetail(r.intervention);
+    return {
+      id: i + 1,
+      category: classifyLifestyle(r.intervention),
+      goal,
+      // Prefer the em-dash tail as the human-readable benefit; fall back to the
+      // structured rationale so the second line is never empty when one exists.
+      detail: detail || r.rationale || '',
+      rationale: r.rationale,
+      cpgRef: r.cpg_source,
+      accepted: true,
+    };
+  });
 
   const cleanReferralText = (value = '') => String(value)
     .replace(/\s+/g, ' ')

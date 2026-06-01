@@ -37,16 +37,33 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "tasks" / "eval_runs"
 
 CASE_11 = {
-    "chief_complaint": "Erectile dysfunction affecting marital relationship. Requesting treatment options.",
+    "chief_complaint": "Erectile dysfunction affecting marital relationship over the past ~6 months. Requesting treatment options. Has not yet tried any therapy.",
     "history": (
-        "CC: Erectile dysfunction affecting marital relationship. Requesting treatment options.\n"
+        "CC: Erectile dysfunction affecting marital relationship over the past ~6 months.\n"
+        "    Requesting treatment options. Has not yet tried any therapy.\n"
         "HPI: PCI 18 months ago; angina-free for 6 months on current secondary-prevention regimen.\n"
-        "PE / Labs: LDL 1.6 mmol/L (no severity slot — recorded here)."
+        "    Long-standing T2DM — stable on current regimen.\n"
+        "    Height 175 cm, Weight 95 kg → BMI 31.0 (Obesity Class I); sedentary office worker.\n"
+        "    ED symptoms started insidiously; patient has NOT linked them to any medication.\n"
+        "    No reduced libido, no nocturnal/morning erections — pattern more consistent with\n"
+        "    organic / pharmacologic aetiology than psychogenic.\n"
+        "PE / Labs: LDL 1.6 mmol/L (no severity slot — recorded here). Peripheral pulses intact.\n"
+        "\n"
+        "Clinician query (the doctor missed this on first pass — surface it):\n"
+        "    Bisoprolol (β-blocker) is a well-described ED contributor, and the\n"
+        "    underlying vascular-risk burden (T2DM + obesity) is a common organic\n"
+        "    driver. Before defaulting to ED-CPG first-line pharmacotherapy, the\n"
+        "    system should flag medication-induced / multifactorial ED and the\n"
+        "    option of swapping the β-blocker for a more ED-neutral agent (only if\n"
+        "    angina-free status and cardiology agree) as an upstream lever —\n"
+        "    alongside (not instead of) the nitrate-conflict pathway."
     ),
     "age": 56,
     "sex": "M",
     "comorbidities": [
         "Stable Coronary Artery Disease (PCI 18 months ago)",
+        "Type 2 Diabetes Mellitus",
+        "Obesity Class I",
         "Erectile Dysfunction (new)",
     ],
     "current_medications": [
@@ -54,18 +71,21 @@ CASE_11 = {
         "Aspirin 100mg OD",
         "Atorvastatin 40mg OD",
         "Bisoprolol 5mg OD",
+        "Metformin 1g BD",
     ],
     "allergies": [],
     "vitals": {
-        "sbp": 124,
-        "dbp": 76,
+        "sbp": 128,
+        "dbp": 80,
         "hr": 64,
         "spO2": 98,
-        "weight": 78,
+        "weight": 95,
+        "height": 175,
         "temp": 36.6,
     },
     "severity_staging": {
         "eGFR": "88",
+        "HbA1c": "7.4",
     },
 }
 
@@ -234,8 +254,12 @@ def dry_run() -> int:
           f"{any('Stable Coronary' in c for c in CASE_11['comorbidities'])}")
     print(f"  - ED in comorbids:            "
           f"{any('Erectile Dysfunction' in c for c in CASE_11['comorbidities'])}")
-    print(f"  - vitals BP normotensive:     sbp={CASE_11['vitals']['sbp']} dbp={CASE_11['vitals']['dbp']}")
-    print(f"  - eGFR staged:                {CASE_11['severity_staging'].get('eGFR')}")
+    print(f"  - β-blocker (ED contributor): {'Bisoprolol 5mg OD' in CASE_11['current_medications']}")
+    print(f"  - T2DM in comorbids:          {any('Type 2 Diabetes' in c for c in CASE_11['comorbidities'])}")
+    print(f"  - Obesity in comorbids:       {any('Obesity' in c for c in CASE_11['comorbidities'])}")
+    print(f"  - vitals BP:                  sbp={CASE_11['vitals']['sbp']} dbp={CASE_11['vitals']['dbp']}")
+    print(f"  - BMI derivable:              h={CASE_11['vitals']['height']} w={CASE_11['vitals']['weight']} → ~31.0")
+    print(f"  - eGFR / HbA1c staged:        eGFR={CASE_11['severity_staging'].get('eGFR')} HbA1c={CASE_11['severity_staging'].get('HbA1c')}")
     print()
     print("OK — payload is well-formed. Re-run without --dry-run against a live")
     print("server to actually execute the pipeline.")

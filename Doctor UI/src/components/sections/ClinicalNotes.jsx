@@ -34,7 +34,7 @@ export function ClinicalNotes() {
   };
 
   const handleSampleFill = () => {
-    const sample = `CC: Chest pain radiating to left arm, 30 min onset.\n\nHPI: 58yo M with known T2DM (HbA1c 8.5%), HTN. Awoke with central chest pressure, 7/10, diaphoresis. No previous cardiac history.\n\nPE: Anxious, diaphoretic. BP 142/88, HR 82, regular. No murmur.`;
+    const sample = `CC: Newly diagnosed HFrEF on routine echo. Here for management plan.\n\nHPI: Clinically stable, euvolemic, no dyspnoea at rest. NYHA II.\n\nPE/Labs: Echo today LVEF 25%. K+ 4.4 mmol/L.`;
     persist(sample);
   };
 

@@ -659,7 +659,7 @@ You now have a complete evaluation framework:
 **Consult input (Doctor UI Step-1 schema — paste into the matching field):**
 *   **Patient card:** Name `Demo Case 8` · Age `62` · Sex `M`
 *   **Vitals:** BP `128/76` · HR `82` · SpO2 `97` · Weight `98` · Temp `36.8`  *(BMI 34 is auto-derived from weight + height; if height absent, mention "BMI 34" in Clinical Notes)*
-*   **Severity staging (+ Add stage):** HbA1c `8.4` · LVEF `25` · eGFR `58` · NYHA `II`
+*   **Severity staging (+ Add stage):** HbA1c `8.4` · LVEF `25` · NYHA `II`  *(eGFR intentionally omitted — see Anti-hallucination note in Expected behaviour)*
 *   **Comorbidities (chips):** `Heart failure with reduced EF` · `Type 2 Diabetes Mellitus` · `Obesity`
 *   **Current Medications (chips):** `Metformin 1g BD` · `Gliclazide MR 60mg OD`
 *   **Allergies (chips):** *(leave empty — "Nil known" renders by default)*
@@ -772,42 +772,64 @@ You now have a complete evaluation framework:
 
 ---
 
-## Case 11: Stable CAD + ED — Conflict-Surfacing Between Two CPGs
-**Target CPGs:** Stable-Coronary-Artery-Disease (2nd Edition) · Erectile-Dysfunction (2024) · Primary-Secondary-Prevention-of-CVD (2017)
-**Showcase Capability:** **Explicit conflict-surfacing between two CPGs that pull in opposite directions.** The ED CPG wants PDE5i as first-line; the Stable-CAD CPG mandates nitrate continuation; the system must name the conflict explicitly, not paper over it, and route the upstream decision (nitrate de-escalation) to cardiology. Qmed will give the correct contraindication but typically won't name it as a *guideline conflict* or articulate the upstream-decision pathway.
-**Score on:** explicit conflict naming (binary), KG-sourced contraindication citation, alternative-therapy completeness, correct cardiology-led deferral on nitrate review.
+## Case 11: Stable CAD + T2DM + Obesity + ED — Conflict-Surfacing + Occult Medication-Induced ED
+**Target CPGs:** Stable-Coronary-Artery-Disease (2nd Edition) · Erectile-Dysfunction (2024) · Primary-Secondary-Prevention-of-CVD (2017) · T2-Diabetes-Mellitus (6th Edition) · Obesity-Management (2023)
+**Showcase Capability:** **Two interleaved showcases.** (1) **Explicit conflict-surfacing between two CPGs that pull in opposite directions** — the ED CPG wants PDE5i as first-line; the Stable-CAD CPG mandates long-acting nitrate continuation; the system must name the conflict explicitly, not paper over it, and route the upstream decision (nitrate de-escalation) to cardiology. (2) **Occult medication-induced / multifactorial ED**: the clinician did not link the new ED to the bisoprolol on the regimen, and the vascular-risk burden (T2DM + obesity, BMI 31) is itself a common organic driver — the system must surface β-blocker as a candidate contributor and offer the **β-blocker swap to an ED-neutral agent** (cardiology-gated) as an upstream lever, alongside (not instead of) the nitrate-conflict pathway. Qmed will give the correct PDE5i contraindication but typically won't (a) name it as a *guideline conflict*, (b) articulate the upstream-decision pathway, or (c) flag the β-blocker as an occult ED contributor.
+**Score on:** explicit conflict naming (binary), KG-sourced PDE5i × nitrate contraindication citation, alternative-therapy completeness (vacuum / alprostadil), correct cardiology-led deferral on nitrate review, **β-blocker-induced-ED flagged in differential (binary)**, **β-blocker swap discussed as upstream lever with cardiology gate (binary)**, T2DM + obesity vascular-risk contribution to ED named, glycaemic / weight optimisation surfaced as adjunct.
 
 **Consult input (Doctor UI Step-1 schema — paste into the matching field):**
 *   **Patient card:** Name `Demo Case 11` · Age `56` · Sex `M`
-*   **Vitals:** BP `124/76` · HR `64` · SpO2 `98` · Weight `78` · Temp `36.6`
-*   **Severity staging (+ Add stage):** eGFR `88`  *(no LDL slot — see Clinical Notes)*
-*   **Comorbidities (chips):** `Stable Coronary Artery Disease (PCI 18 months ago)` · `Erectile Dysfunction (new)`
-*   **Current Medications (chips):** `Isosorbide Mononitrate 60mg OD` · `Aspirin 100mg OD` · `Atorvastatin 40mg OD` · `Bisoprolol 5mg OD`
+*   **Vitals:** BP `128/80` · HR `64` · SpO2 `98` · Weight `95` · Height `175` · Temp `36.6`  *(BMI 31.0 → Obesity Class I)*
+*   **Severity staging (+ Add stage):** eGFR `88` · HbA1c `7.4`  *(no LDL slot — see Clinical Notes)*
+*   **Comorbidities (chips):** `Stable Coronary Artery Disease (PCI 18 months ago)` · `Type 2 Diabetes Mellitus` · `Obesity Class I` · `Erectile Dysfunction (new)`
+*   **Current Medications (chips):** `Isosorbide Mononitrate 60mg OD` · `Aspirin 100mg OD` · `Atorvastatin 40mg OD` · `Bisoprolol 5mg OD` · `Metformin 1g BD`
 *   **Allergies (chips):** *(empty)*
 *   **Clinical Notes (single CC/HPI/PE textarea):**
     ```
-    CC: Erectile dysfunction affecting marital relationship. Requesting treatment options.
+    CC: Erectile dysfunction affecting marital relationship over the past ~6 months.
+        Requesting treatment options. Has not yet tried any therapy.
     HPI: PCI 18 months ago; angina-free for 6 months on current secondary-prevention regimen.
-    PE / Labs: LDL 1.6 mmol/L (no severity slot — recorded here).
+        Long-standing T2DM — stable on current regimen.
+        Height 175 cm, Weight 95 kg → BMI 31.0 (Obesity Class I); sedentary office worker.
+        ED symptoms started insidiously; patient has NOT linked them to any medication.
+        No reduced libido, no nocturnal/morning erections — pattern more consistent with
+        organic / pharmacologic aetiology than psychogenic.
+    PE / Labs: LDL 1.6 mmol/L (no severity slot — recorded here). Peripheral pulses intact.
+
+    Clinician query (the doctor missed this on first pass — surface it):
+        Bisoprolol (β-blocker) is a well-described ED contributor, and the
+        underlying vascular-risk burden (T2DM + obesity) is a
+        common organic driver. Before defaulting to ED-CPG first-line
+        pharmacotherapy, the system should flag medication-induced /
+        multifactorial ED and the option of swapping the β-blocker for a more
+        ED-neutral agent (only if angina-free status and cardiology agree) as an
+        upstream lever — alongside (not instead of) the nitrate-conflict
+        pathway.
     ```
 
 **Expected behaviour:**
 *   **DO NOT PRESCRIBE PDE5i — KG-sourced absolute contraindication:** P8 Red Flags must include `PDE5i × long-acting nitrate = synergistic vasodilation, potentially fatal hypotension. No safe washout interval for ISMN 60mg OD (the 24h washout rule applies to GTN PRN only, not long-acting nitrate).` This flag must fire even though no PDE5i is currently in the med list — the system anticipates the obvious ED-CPG-default and pre-empts it.
 *   **Explicit conflict statement (the differentiator):** P1 Summary or P6 Referrals must say: "Two CPGs apply and conflict on first-line ED therapy: ED CPG (2024) recommends PDE5i first-line, but Stable-CAD CPG (2nd Ed) mandates anti-anginal continuation. The contraindication wins — but the conflict means the upstream decision is *whether the long-acting nitrate is still necessary*, given the patient is angina-free for 6 months. That is a cardiology call, not primary care."
+*   **Occult medication-induced ED differential (NEW — the second differentiator):** P1 Summary or P5 Differential must name **bisoprolol (β-blocker) as a candidate ED contributor** that the referring clinician did not link, citing the temporal correlation (insidious onset on a stable β-blocker regimen) and the organic-pattern history (no reduced libido, no nocturnal/morning erections). The plan must distinguish this from purely vascular / psychogenic aetiology rather than collapsing all causes together.
+*   **β-blocker swap as upstream lever (NEW):** P6 Referrals must offer **β-blocker → ED-neutral antihypertensive / anti-anginal swap (e.g. nebivolol — NO-mediated, ED-neutral; or substitute rate control if cardiology agrees)** as an *upstream lever*, **cardiology-gated** (must NOT be initiated in primary care — the patient is post-PCI angina-free on bisoprolol for prognostic benefit). This is offered *alongside*, not *instead of*, the nitrate-holiday pathway — both are independent cardiology questions surfaced in a single referral packet.
+*   **Vascular-risk adjunct (NEW):** P5 Lifestyle / P7 Patient Education must surface T2DM + obesity (BMI 31) as concurrent organic ED drivers — glycaemic optimisation (HbA1c trending 7.4 → <7.0), weight reduction (5–10% body weight target per Obesity CPG), and aerobic activity (≥150 min/wk) as adjunct interventions with independent evidence for ED improvement.
 *   **Safe ED options today** (no nitrate interaction): vacuum erection device (first-line non-pharmacological), intracavernosal alprostadil, intraurethral alprostadil (MUSE).
 *   **Nitrate-holiday pathway:** if cardiologist deems ISMN non-essential (angina-free for 6 months on full secondary-prevention regimen — β-blocker + aspirin + statin), de-escalate ISMN → reassess angina → then PDE5i becomes possible. Often resolvable in 1–2 weeks.
-*   **Refer:** cardiology (nitrate review) + urology/sexual medicine (ED workup).
+*   **Refer:** cardiology (combined nitrate review + β-blocker-swap consideration) + urology/sexual medicine (ED workup) + dietitian (weight + glycaemic adjunct).
 *   **Assumption flag:** "Plan assumes patient has not already obtained PDE5i over-the-counter. Counsel explicitly on the contraindication; if exposure has occurred, screen for hypotensive symptoms."
+*   **Assumption flag (NEW):** "β-blocker temporal-correlation hypothesis assumes ED onset post-dates bisoprolol initiation. If ED predates β-blocker, weight the vascular / T2DM driver more heavily and de-prioritise the swap lever."
 
 **Live-run result (last executed 2026-05-31, trace: `tasks/eval_runs/case11_20260531_004134_summary.md`):**
 
 | Axis | Result |
 |---|---|
-| **DDx** | ❌ Rank-1 = `MF41` (Chapter 21 symptom code, "male sexual function complaint") instead of the specific disease code (`MF40.0` / `5C80`). Chapter-21 demotion safety net has since been added in `agent/clinical_stages.py::_demote_chapter21_codes`; this case should be re-run to confirm. |
-| **CPGs matched** | ✅ 5/5 — Percutaneous-Coronary-Intervention, Stable-Coronary-Artery-Disease (2nd Edition), NSTE-ACS (3rd Edition), Primary-Secondary-Prevention-of-CVD (2017), Erectile-Dysfunction (2024). Of these, 3 were rescued via the comorbidity-routing channel. |
-| **Safety** | ✅ PDE5i flagged contraindicated against ISMN 60mg OD; urology referral surfaced; alternative non-PDE5i ED options (vacuum device, intracavernosal/intraurethral alprostadil) named. |
-| **Under-fill telemetry (T2.5)** | Major `MF41` backed by 1 CPG (allotment 3); Minor `BA52.Z` backed by 1 CPG (allotment 2). Cascade exhausted with nothing more to give from the selected codes. |
-| **Verdict** | **Pass — plan correct despite DDx mis-rank.** The comorbidity-routing channel rescued the CPG coverage even though the headless Major (`MF41`) is a vague symptom code. |
+| **Scenario coverage** | ⚠️ Stale — the 2026-05-31 trace was generated against the OLD case definition (2 comorbidities: Stable CAD + ED; 4 meds without metformin; no T2DM / Obesity / HbA1c / height). The renewed case (5 comorbidities incl. T2DM + Obesity Class I, height 175 + weight 95 → BMI 31, HbA1c 7.4, new occult-β-blocker-ED + swap-lever scoring axes) has NOT been re-run yet. Re-run via `python scripts/run_eval_case_11.py` to refresh. |
+| **DDx (prior run)** | ❌ Rank-1 = `MF41` (Chapter 21 symptom code, "male sexual function complaint") instead of the specific disease code (`MF40.0` / `5C80`). Chapter-21 demotion safety net has since been added in `agent/clinical_stages.py::_demote_chapter21_codes`; this case should be re-run to confirm. |
+| **CPGs matched (prior run)** | ✅ 5/5 — Percutaneous-Coronary-Intervention, Stable-Coronary-Artery-Disease (2nd Edition), NSTE-ACS (3rd Edition), Primary-Secondary-Prevention-of-CVD (2017), Erectile-Dysfunction (2024). Of these, 3 were rescued via the comorbidity-routing channel. **New target CPGs (T2-DM 6th Ed, Obesity-Management 2023) must additionally route in the next run.** |
+| **Safety (prior run)** | ✅ PDE5i flagged contraindicated against ISMN 60mg OD; urology referral surfaced; alternative non-PDE5i ED options (vacuum device, intracavernosal/intraurethral alprostadil) named. |
+| **NEW axes (un-measured)** | ☐ β-blocker (bisoprolol) flagged as candidate ED contributor in differential. ☐ β-blocker swap discussed as cardiology-gated upstream lever (independent of, and alongside, the nitrate-holiday pathway). ☐ T2DM + obesity surfaced as concurrent vascular drivers with glycaemic / weight adjunct interventions. |
+| **Under-fill telemetry (T2.5)** | Major `MF41` backed by 1 CPG (allotment 3); Minor `BA52.Z` backed by 1 CPG (allotment 2). Cascade exhausted with nothing more to give from the selected codes. Expected to improve with T2DM + Obesity comorbidity-routing contributions. |
+| **Verdict** | **Re-run required** — prior verdict ("pass despite DDx mis-rank") no longer covers the renewed scoring axes. |
 
 ---
 

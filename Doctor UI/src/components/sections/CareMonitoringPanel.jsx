@@ -7,6 +7,9 @@ import {
   Dumbbell,
   Salad,
   Pill,
+  Scale,
+  Wine,
+  CigaretteOff,
   Trash2,
   Plus,
 } from 'lucide-react';
@@ -14,13 +17,17 @@ import { GlassCard } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 import { InlineEdit } from './CarePlanSection';
 
-/* Lifestyle category → icon */
-const LIFESTYLE_ICONS = {
-  Exercise: Dumbbell,
-  Diet: Salad,
-  Lifestyle: Heart,
-  Adherence: Pill,
-  Weight: Activity,
+/* Lifestyle category → icon + colour. Keys mirror clinicalMappers.classifyLifestyle.
+   Each category gets a distinct tint so the cards are scannable at a glance;
+   the generic 'Lifestyle' fallback keeps the house teal. */
+const LIFESTYLE_STYLE = {
+  Exercise:  { Icon: Dumbbell,     text: 'text-emerald-600', chip: 'bg-emerald-500/10 text-emerald-600' },
+  Diet:      { Icon: Salad,        text: 'text-lime-600',    chip: 'bg-lime-500/10 text-lime-600' },
+  Smoking:   { Icon: CigaretteOff, text: 'text-rose-600',    chip: 'bg-rose-500/10 text-rose-600' },
+  Alcohol:   { Icon: Wine,         text: 'text-purple-600',  chip: 'bg-purple-500/10 text-purple-600' },
+  Weight:    { Icon: Scale,        text: 'text-amber-600',   chip: 'bg-amber-500/10 text-amber-600' },
+  Adherence: { Icon: Pill,         text: 'text-sky-600',     chip: 'bg-sky-500/10 text-sky-600' },
+  Lifestyle: { Icon: Heart,        text: 'text-teal-700',    chip: 'bg-[var(--accent-primary)]/12 text-teal-700' },
 };
 
 const URGENCY_OPTIONS = ['Routine', 'This admission', 'Today'];
@@ -308,7 +315,8 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
                 </div>
               )}
               {lifestyle.map((l) => {
-                const Icon = LIFESTYLE_ICONS[l.category] || Heart;
+                const style = LIFESTYLE_STYLE[l.category] || LIFESTYLE_STYLE.Lifestyle;
+                const Icon = style.Icon;
                 return (
                   <div
                     key={l.id}
@@ -316,15 +324,18 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
                       isDark ? 'bg-white/5 border-white/10' : 'bg-[#fcfdfd] border-slate-200'
                     }`}
                   >
-                    <div className="w-8 h-8 rounded-xl bg-[var(--accent-primary)]/12 text-teal-700 flex items-center justify-center flex-shrink-0">
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 ${style.chip}`}>
                       <Icon size={16} strokeWidth={1.8} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <div className="text-[10.5px] font-bold tracking-wider uppercase text-teal-700 mb-1">
+                      <div className={`text-[10.5px] font-bold tracking-wider uppercase mb-1 ${style.text}`}>
                         <InlineEdit value={l.category} onChange={(v) => updateField('lifestyle', l.id, 'category', v)} placeholder="Category" />
                       </div>
-                      <div className={`text-[13px] leading-snug ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                      <div className={`text-[13px] font-medium leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
                         <InlineEdit value={l.goal} onChange={(v) => updateField('lifestyle', l.id, 'goal', v)} multiline placeholder="Goal" />
+                      </div>
+                      <div className={`text-[12px] leading-snug mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                        <InlineEdit value={l.detail} onChange={(v) => updateField('lifestyle', l.id, 'detail', v)} multiline placeholder="Add benefit / detail" />
                       </div>
                     </div>
                     <DeleteBtn onClick={() => deleteItem('lifestyle', l.id)} label="Remove recommendation" />

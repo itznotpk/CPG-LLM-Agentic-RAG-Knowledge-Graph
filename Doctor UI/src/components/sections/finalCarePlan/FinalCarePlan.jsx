@@ -45,9 +45,11 @@ function EditableBullets({ items, onChange, editing }) {
           <div key={i} className="bullet">
             <span className="marker">•</span>
             <span>{typeof l === 'object'
-              ? (l.category
-                ? <><span className="item-title">{l.category}</span><span className="item-subtitle">{l.goal}</span></>
-                : <SplitPlanText text={l.goal} />)
+              ? <>
+                  {l.category && <span className="lifestyle-tag">{l.category}</span>}
+                  <span className="item-title">{l.goal}</span>
+                  {l.detail && <span className="item-subtitle">{l.detail}</span>}
+                </>
               : <SplitPlanText text={l} />}
             </span>
           </div>
@@ -69,25 +71,23 @@ function EditableBullets({ items, onChange, editing }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       {items.map((l, i) => {
-        const raw = typeof l === 'object' ? `${l.category}: ${l.goal}` : l;
-        const dashMatch = raw.match(/\s+(?:—|-|–)\s+/);
-        const title = dashMatch ? raw.slice(0, dashMatch.index).trim() : raw;
-        const subtitle = dashMatch ? raw.slice(dashMatch.index + dashMatch[0].length).trim() : '';
+        const isObj = typeof l === 'object';
+        // Object items (lifestyle) edit goal/detail directly; string items
+        // (patient education) keep the em-dash round-trip.
+        const dashMatch = isObj ? null : String(l).match(/\s+(?:—|-|–)\s+/);
+        const title = isObj ? l.goal : (dashMatch ? l.slice(0, dashMatch.index).trim() : l);
+        const subtitle = isObj ? (l.detail || '') : (dashMatch ? l.slice(dashMatch.index + dashMatch[0].length).trim() : '');
 
         return (
           <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 8, padding: '4px 0', borderBottom: '1px solid #f1f5f9' }}>
             <span style={{ color: 'var(--accent-primary)', fontWeight: 700, flexShrink: 0, marginTop: 2 }}>•</span>
             <div style={{ flex: 1, minWidth: 0 }}>
+              {isObj && l.category && <span className="lifestyle-tag">{l.category}</span>}
               <input type="text" value={title}
                 onChange={e => {
                   const next = [...items];
-                  const newVal = subtitle ? `${e.target.value} — ${subtitle}` : e.target.value;
-                  if (typeof l === 'object') {
-                    const ci = newVal.indexOf(': ');
-                    next[i] = ci > -1
-                      ? { ...l, category: newVal.slice(0, ci), goal: newVal.slice(ci + 2) }
-                      : { ...l, goal: newVal };
-                  } else { next[i] = newVal; }
+                  if (isObj) { next[i] = { ...l, goal: e.target.value }; }
+                  else { next[i] = subtitle ? `${e.target.value} — ${subtitle}` : e.target.value; }
                   onChange(next);
                 }}
                 style={INLINE_TITLE}
@@ -96,13 +96,8 @@ function EditableBullets({ items, onChange, editing }) {
               <input type="text" value={subtitle}
                 onChange={e => {
                   const next = [...items];
-                  const newVal = e.target.value ? `${title} — ${e.target.value}` : title;
-                  if (typeof l === 'object') {
-                    const ci = newVal.indexOf(': ');
-                    next[i] = ci > -1
-                      ? { ...l, category: newVal.slice(0, ci), goal: newVal.slice(ci + 2) }
-                      : { ...l, goal: newVal };
-                  } else { next[i] = newVal; }
+                  if (isObj) { next[i] = { ...l, detail: e.target.value }; }
+                  else { next[i] = e.target.value ? `${title} — ${e.target.value}` : title; }
                   onChange(next);
                 }}
                 style={INLINE_SUB}
@@ -113,7 +108,7 @@ function EditableBullets({ items, onChange, editing }) {
           </div>
         );
       })}
-      <button onClick={() => onChange([...items, typeof items[0] === 'object' ? { category: 'New', goal: '' } : ''])}
+      <button onClick={() => onChange([...items, typeof items[0] === 'object' ? { category: 'Lifestyle', goal: '', detail: '' } : ''])}
         style={{ ...ADD_BTN, alignSelf: 'flex-start' }}>+ Add item</button>
     </div>
   );

@@ -40,31 +40,26 @@ function CurrentMedicationRows({ meds = [], isDark, isEditing = false, onRemove 
   }
 
   return (
-    <div className="space-y-0">
+    <div className="flex flex-wrap gap-1.5">
       {meds.map((med, idx) => (
-        <div
+        <span
           key={`${medicationLabel(med)}-${idx}`}
-          className={`flex items-start justify-between gap-3 text-sm py-2.5 border-b last:border-0 ${
-            isDark ? 'border-white/5' : 'border-slate-100'
+          className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${
+            isDark
+              ? 'bg-indigo-400/10 text-indigo-300 border-indigo-400/30'
+              : 'bg-indigo-50 text-indigo-700 border-indigo-200'
           }`}
         >
-          <span className={`font-medium leading-snug break-words ${isDark ? 'text-white' : 'text-slate-800'}`}>
-            {medicationLabel(med)}
-          </span>
+          {medicationLabel(med)}
           {isEditing && (
             <button
               onClick={() => onRemove?.(idx)}
-              className={`shrink-0 w-6 h-6 rounded-md flex items-center justify-center transition-colors ${
-                isDark
-                  ? 'text-slate-500 hover:text-red-400 hover:bg-red-500/10'
-                  : 'text-slate-400 hover:text-red-500 hover:bg-red-50'
-              }`}
               aria-label={`Remove ${medicationLabel(med)}`}
             >
-              <X className="w-3.5 h-3.5" strokeWidth={2} />
+              <X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} />
             </button>
           )}
-        </div>
+        </span>
       ))}
     </div>
   );

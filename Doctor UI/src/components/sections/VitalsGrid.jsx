@@ -75,7 +75,7 @@ export function VitalsGrid() {
   const handleDemoFill = () =>
     dispatch({
       type: 'SET_VITALS',
-      payload: { bpSystolic: '142', bpDiastolic: '88', hr: '82', temp: '36.8', rr: '16', spo2: '97', weight: '72', height: '168' },
+      payload: { bpSystolic: '128', bpDiastolic: '76', hr: '82', temp: '36.8', rr: '16', spo2: '97', weight: '98', height: '175' },
     });
 
   const divider = (
