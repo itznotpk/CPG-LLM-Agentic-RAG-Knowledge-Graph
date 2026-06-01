@@ -32,6 +32,34 @@ const LIFESTYLE_STYLE = {
 
 const URGENCY_OPTIONS = ['Routine', 'This admission', 'Today'];
 
+/* Split a backend rationale into readable clauses on ';' and render them as bullets.
+   Only bullets when there are 2+ clauses; a single clause stays plain text so short
+   rationales don't get a lone dot. Dynamic — works for any clause count. */
+function splitClauses(text) {
+  return String(text || '')
+    .split(/;\s*/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+function capClause(s) {
+  // Skip intentional lowercase-leading tokens (eGFR, mRNA, pH) — only cap normal words.
+  return /^[a-z][A-Z]/.test(s) ? s : s.charAt(0).toUpperCase() + s.slice(1);
+}
+function renderRationale(text) {
+  const parts = splitClauses(text);
+  if (parts.length <= 1) return text;
+  return (
+    <ul className="space-y-1">
+      {parts.map((p, i) => (
+        <li key={i} className="flex gap-1.5">
+          <span className="mt-[7px] w-1 h-1 rounded-full bg-current opacity-40 flex-shrink-0" />
+          <span className="min-w-0">{capClause(p)}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 /* Urgency pill colours */
 function urgencyPillCls(value) {
   if (value === 'Today') return 'bg-red-100 text-red-700';
@@ -205,7 +233,7 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
                       <InlineEdit value={p.name} onChange={(v) => updateField('interventions', p.id, 'name', v)} placeholder="Procedure name" />
                     </div>
                     <div className={`text-[12.5px] leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                      <InlineEdit value={p.rationale} onChange={(v) => updateField('interventions', p.id, 'rationale', v)} multiline placeholder="Rationale" />
+                      <InlineEdit value={p.rationale} onChange={(v) => updateField('interventions', p.id, 'rationale', v)} multiline placeholder="Rationale" renderDisplay={renderRationale} />
                     </div>
                     <div className="flex justify-end pt-px">
                       <UrgencySelect value={p.urgency} onChange={(v) => updateField('interventions', p.id, 'urgency', v)} />
@@ -248,7 +276,7 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
                         AI reasoning
                       </div>
                       <div className={`text-[12.5px] leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                        {note}
+                        {renderRationale(note)}
                       </div>
                     </div>
                   )}

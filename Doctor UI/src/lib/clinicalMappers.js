@@ -91,6 +91,30 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
     return { drugName: text, dose: null };
   };
 
+  // The Stage 5 prompt makes every rationale open with a restated patient data point
+  // (age, sex, comorbidity, vital, OR medication) before an em-dash, then the actual
+  // clinical reason — e.g. "55-year-old male on isosorbide — PDE5i contraindicated".
+  // Drop only that leading head clause, and only when it clearly reads as patient
+  // context. We split on the FIRST spaced em/en-dash so dashes inside the real reason
+  // are preserved, and we leave diagnosis-led or reason-only rationales untouched.
+  const PATIENT_CONTEXT_HEAD = [
+    /\b\d+[-\s]?year[-\s]?old\b/i,                  // "55-year-old"
+    /\b(male|female|man|woman|patient)\b/i,         // sex / generic patient
+    /\bBMI\s*\d/i,                                  // "BMI 32"
+    /\bon\b[^—–]*\b(mg|mcg|g|od|bd|tds|qid|prn)\b/i, // "on <drug> 60 mg OD"
+  ];
+  const stripPatientContext = (value = '') => {
+    if (!value) return value;
+    const str = String(value).trim();
+    const dashIdx = str.search(/\s[—–]\s/);
+    if (dashIdx === -1) return value;              // no separator → leave untouched
+    const head = str.slice(0, dashIdx);
+    const tail = str.slice(dashIdx).replace(/^\s[—–]\s*/, '').trim();
+    if (!tail) return value;                       // nothing after the dash → keep
+    if (!PATIENT_CONTEXT_HEAD.some(re => re.test(head))) return value;
+    return tail.charAt(0).toUpperCase() + tail.slice(1);
+  };
+
   // Split pharmacological recommendations by action field
   const byAction = (action) => pharmacological
     .filter(r => (r.action ?? 'start') === action)
@@ -100,7 +124,7 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
         id: i + 1,
         name: drugName,
         dose: dose,
-        reason: r.rationale,
+        reason: stripPatientContext(r.rationale),
         cpgRef: r.cpg_source,
         evidenceGrade: r.evidence_grade || null,
         accepted: true,
@@ -118,7 +142,7 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
       id: i + 1,
       name: goal,
       rationale: detail,
-      reasoning: r.rationale || '',
+      reasoning: stripPatientContext(r.rationale || ''),
       urgency: '',
       cpgRef: r.cpg_source,
       evidenceGrade: r.evidence_grade || null,
@@ -133,9 +157,10 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
       category: classifyLifestyle(r.intervention),
       goal,
       // Prefer the em-dash tail as the human-readable benefit; fall back to the
-      // structured rationale so the second line is never empty when one exists.
-      detail: detail || r.rationale || '',
-      rationale: r.rationale,
+      // structured rationale (patient-context-stripped, same guard as the other
+      // sections) so the second line is never empty when one exists.
+      detail: detail || stripPatientContext(r.rationale) || '',
+      rationale: stripPatientContext(r.rationale),
       cpgRef: r.cpg_source,
       accepted: true,
     };
@@ -189,7 +214,7 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
     referralByDepartment.set(department.toLowerCase(), {
       id: 0,
       specialty: `Referral to ${department}`,
-      reason: r.rationale,
+      reason: stripPatientContext(r.rationale),
       urgency,
       cpgRef: r.cpg_source,
       accepted: true,

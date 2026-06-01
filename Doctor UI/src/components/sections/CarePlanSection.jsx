@@ -212,7 +212,7 @@ function ActionTag({ action }) {
 }
 
 /* Editable inline text — click to edit, blur/enter to save */
-export function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '' }) {
+export function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '', renderDisplay = null }) {
   const { isDark } = useTheme();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value || '');
@@ -265,11 +265,11 @@ export function InlineEdit({ value, onChange, className = '', multiline = false,
   return (
     <span
       onClick={() => setEditing(true)}
-      className={`group/edit cursor-pointer inline-flex items-center gap-1 rounded px-1 -mx-1 transition-colors ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'} ${className}`}
+      className={`group/edit cursor-pointer inline-flex ${renderDisplay && value ? 'items-start' : 'items-center'} gap-1 rounded px-1 -mx-1 transition-colors ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-100'} ${className}`}
       title="Click to edit"
     >
-      <span className="min-w-0">{value || <span className="italic opacity-50">{placeholder || 'Click to edit'}</span>}</span>
-      <Pencil className={`w-3 h-3 flex-shrink-0 opacity-0 group-hover/edit:opacity-60 transition-opacity ${isDark ? 'text-slate-400' : 'text-slate-400'}`} strokeWidth={1.7} />
+      <span className="min-w-0">{value ? (renderDisplay ? renderDisplay(value) : value) : <span className="italic opacity-50">{placeholder || 'Click to edit'}</span>}</span>
+      <Pencil className={`w-3 h-3 flex-shrink-0 opacity-0 group-hover/edit:opacity-60 transition-opacity ${renderDisplay && value ? 'mt-1' : ''} ${isDark ? 'text-slate-400' : 'text-slate-400'}`} strokeWidth={1.7} />
     </span>
   );
 }
