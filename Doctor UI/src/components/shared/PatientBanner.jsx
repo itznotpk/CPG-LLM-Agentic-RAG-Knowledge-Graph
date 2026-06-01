@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
-import { AlertCircle, Activity } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 
 export function PatientBanner() {
   const { state } = useApp();
@@ -21,28 +21,12 @@ export function PatientBanner() {
     }
   }
 
-  const getRiskBadge = (level) => {
-    const config = {
-      low: { bg: 'bg-emerald-500/20', text: 'text-emerald-500' },
-      moderate: { bg: 'bg-amber-500/20', text: 'text-amber-500' },
-      high: { bg: 'bg-orange-500/20', text: 'text-orange-500' },
-      critical: { bg: 'bg-red-500/20', text: 'text-red-600 font-bold' }
-    };
-    const cfg = config[level?.toLowerCase()] || config['low'];
-    const displayLevel = level || 'Low';
-    return (
-      <span className={`px-2 py-0.5 rounded-full text-xs font-medium whitespace-nowrap ${cfg.bg} ${cfg.text}`}>
-        {displayLevel.charAt(0).toUpperCase() + displayLevel.slice(1)} Risk
-      </span>
-    );
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: -8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      className={`mb-6 p-4 rounded-xl flex flex-wrap items-center justify-between gap-4 border ${isDark ? 'bg-slate-800/80 border-white/10' : 'bg-white/80 border-slate-200'} shadow-sm backdrop-blur-md`}>
+      className={`mb-6 p-4 rounded-xl flex flex-wrap items-center justify-between gap-4 border ${isDark ? 'bg-slate-800/80 border-white/10' : 'bg-white/80 border-slate-200'} shadow-sm backdrop-blur-md font-sans`}>
       <div className="flex items-center gap-4 flex-wrap">
         <div className={`w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-indigo-500 to-purple-500 text-white font-bold text-sm shadow-sm`}>
           {patient.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()}
@@ -53,9 +37,9 @@ export function PatientBanner() {
             {patient.name}
           </h2>
           <div className={`flex items-center gap-2 text-sm mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-            <span className="ds-mono">{patient.nsn}</span>
+            <span>{patient.nsn}</span>
             <span>•</span>
-            <span className="ds-numeric">{patient.age || '--'} yrs</span>
+            <span>{patient.age || '--'} yrs</span>
             <span>•</span>
             <span>{patient.gender || '--'}</span>
           </div>
@@ -63,13 +47,6 @@ export function PatientBanner() {
       </div>
 
       <div className="flex items-center gap-4 flex-wrap">
-        {patient.riskLevel && (
-          <div className="flex items-center gap-2">
-            <Activity className={`w-4 h-4 ${isDark ? 'text-slate-400' : 'text-slate-500'}`} strokeWidth={1.5} />
-            {getRiskBadge(patient.riskLevel)}
-          </div>
-        )}
-
         {allergiesList.length > 0 && (
           <div className="flex items-center gap-2 border-l pl-4 border-slate-200 dark:border-white/10">
             <AlertCircle className="w-4 h-4 text-red-500" strokeWidth={1.5} />
