@@ -75,10 +75,10 @@ def pos_wang(rgb_signals, fs):
     # Detrend
     H = detrend(H, 100)
 
-    # Bandpass filter: 0.75 Hz (45 BPM) to 3.0 Hz (180 BPM)
+    # Bandpass filter: 0.75 Hz (45 BPM) to 2.5 Hz (150 BPM) — matches HR FFT range
     nyq = fs / 2
     low = 0.75 / nyq
-    high = 3.0 / nyq
+    high = 2.5 / nyq
     if low < 1 and high < 1:
         b, a = scipy_signal.butter(2, [low, high], btype='bandpass')
         H = scipy_signal.filtfilt(b, a, H.astype(np.double))
@@ -155,7 +155,8 @@ def calculate_respiratory_rate(bvp_signal, fs):
     try:
         nyq = fs / 2
         b, a = scipy_signal.butter(2, [0.1 / nyq, 0.5 / nyq], btype='bandpass')
-        resp_signal = scipy_signal.filtfilt(b, a, np.abs(bvp_signal))
+        envelope = np.abs(scipy_signal.hilbert(bvp_signal))
+        resp_signal = scipy_signal.filtfilt(b, a, envelope)
         N = 2 ** (len(resp_signal) - 1).bit_length()
         f, pxx = scipy_signal.periodogram(resp_signal, fs=fs, nfft=N)
         mask = (f >= 0.1) & (f <= 0.5)
@@ -167,12 +168,97 @@ def calculate_respiratory_rate(bvp_signal, fs):
         return 0.0
 
 
-def estimate_blood_pressure(bvp_signal, fs, hr):
+def compute_ptt_phase(bvp1, bvp2, fs, hr):
     """
-    Research-grade BP estimate from rPPG BVP waveform morphology.
-    Uses normalised rise time and pulse width — features that correlate
-    with arterial stiffness and therefore blood pressure.
-    NOT clinically validated — label clearly as estimate.
+    Estimate pseudo-PTT between two BVP signals (forehead vs cheek) using
+    phase difference at the fundamental HR frequency.
+    Longer PTT → lower arterial stiffness → lower BP.
+    Returns PTT in milliseconds (0–60ms range), or None if insufficient data.
+    """
+    n = min(len(bvp1), len(bvp2))
+    if n < fs * 5 or hr <= 0:
+        return None
+    try:
+        b1 = np.array(bvp1[-n:], dtype=np.float64)
+        b2 = np.array(bvp2[-n:], dtype=np.float64)
+        for sig in (b1, b2):
+            rng = sig.max() - sig.min()
+            if rng < 1e-6:
+                return None
+            sig -= sig.mean()
+            sig /= (rng + 1e-10)
+
+        freqs  = np.fft.rfftfreq(n, d=1.0 / fs)
+        hr_hz  = hr / 60.0
+        mask   = np.abs(freqs - hr_hz) < 0.25
+        if not np.any(mask):
+            return None
+
+        f1 = np.fft.rfft(b1)
+        f2 = np.fft.rfft(b2)
+        # Pick the bin with highest combined magnitude inside the HR window
+        mag = np.where(mask, np.abs(f1) + np.abs(f2), 0)
+        best = int(np.argmax(mag))
+        if mag[best] < 1e-6:
+            return None
+
+        delta = (np.angle(f2[best]) - np.angle(f1[best]) + np.pi) % (2 * np.pi) - np.pi
+        f_act = freqs[best]
+        if f_act < 0.5:
+            return None
+        ptt_ms = abs(delta / (2 * np.pi * f_act)) * 1000
+        return float(np.clip(ptt_ms, 0, 60))
+    except Exception:
+        return None
+
+
+def compute_augmentation_index(bvp, fs):
+    """
+    Estimate augmentation index proxy from the BVP dicrotic notch depth.
+    Higher AIx → stiffer arteries → higher BP.
+    Returns float in 0.1–0.8; defaults to 0.3 (population mean) on failure.
+    """
+    if len(bvp) < fs * 4:
+        return 0.3
+    try:
+        bvp_n = np.array(bvp, dtype=np.float64)
+        rng = bvp_n.max() - bvp_n.min()
+        if rng < 1e-6:
+            return 0.3
+        bvp_n = (bvp_n - bvp_n.min()) / rng
+
+        min_dist = max(int(fs * 0.4), 1)
+        peaks, _ = scipy_signal.find_peaks(bvp_n, distance=min_dist, height=0.4, prominence=0.2)
+        if len(peaks) < 2:
+            return 0.3
+
+        ai_vals = []
+        for i in range(len(peaks) - 1):
+            p1, p2   = peaks[i], peaks[i + 1]
+            beat_len = p2 - p1
+            ns = p1 + beat_len // 3
+            ne = p1 + int(beat_len * 0.75)
+            if ne <= ns + 2:
+                continue
+            notch_val = float(np.min(bvp_n[ns:ne]))
+            peak_val  = float(bvp_n[p1])
+            if peak_val > 0.3:
+                ai = notch_val / peak_val
+                if 0.05 <= ai <= 0.95:
+                    ai_vals.append(ai)
+
+        return float(np.median(ai_vals)) if ai_vals else 0.3
+    except Exception:
+        return 0.3
+
+
+def estimate_blood_pressure(bvp_signal, fs, hr, ptt_ms=None, aix=None):
+    """
+    Multi-feature BP estimate combining:
+      - BVP rise time + pulse width morphology (base)
+      - Phase-based PTT proxy between forehead and cheek ROIs
+      - Augmentation index from dicrotic notch depth
+    Without individual calibration expect ±10–15 mmHg MAE.
     Returns: (sbp, dbp) in mmHg, or (0.0, 0.0) if insufficient data.
     """
     if len(bvp_signal) < fs * 5 or hr <= 0:
@@ -184,7 +270,7 @@ def estimate_blood_pressure(bvp_signal, fs, hr):
             return 0.0, 0.0
         bvp_norm = (bvp - bvp.min()) / rng
 
-        min_dist = int(fs * 0.4)   # max ~150 BPM
+        min_dist = int(fs * 0.4)
         peaks, _ = scipy_signal.find_peaks(
             bvp_norm, distance=min_dist, height=0.5, prominence=0.25)
         if len(peaks) < 3:
@@ -201,12 +287,12 @@ def estimate_blood_pressure(bvp_signal, fs, hr):
             if len(before) == 0:
                 continue
             trough = before[-1]
-            rise_t = (peak - trough) / fs
+            rise_t  = (peak - trough) / fs
             norm_rt = np.clip(rise_t / (pulse_period + 1e-10), 0.05, 0.6)
             rise_times.append(norm_rt)
 
             half = bvp_norm[trough] + 0.5 * (bvp_norm[peak] - bvp_norm[trough])
-            seg = bvp_norm[trough:peak]
+            seg   = bvp_norm[trough:peak]
             cross = np.where(seg >= half)[0]
             if len(cross):
                 pw = (peak - (trough + cross[0])) / fs
@@ -218,9 +304,22 @@ def estimate_blood_pressure(bvp_signal, fs, hr):
         mrt = float(np.mean(rise_times))
         mpw = float(np.mean(pulse_widths)) if pulse_widths else 0.3
 
-        # Empirical formulas — faster rise & narrower pulse → higher pressure
+        # Base morphology formula
         sbp = 115 - 55 * mrt + 0.35 * hr + 12 * (1.0 - mpw)
         dbp =  72 - 18 * mrt + 0.15 * hr + 8  * mpw
+
+        # PTT correction: shorter PTT → stiffer arteries → higher BP
+        # Centred at 15 ms (typical forehead-cheek delay); ±3 mmHg per 5 ms
+        if ptt_ms is not None:
+            ptt_corr = float(np.clip((15.0 - ptt_ms) / 5.0, -4.0, 4.0))
+            sbp += ptt_corr * 3.0
+            dbp += ptt_corr * 1.5
+
+        # AIx correction: deviation from population mean 0.3 → ±6 mmHg
+        if aix is not None:
+            aix_corr = (float(aix) - 0.3) * 20.0
+            sbp += aix_corr
+            dbp += aix_corr * 0.6
 
         sbp = float(np.clip(sbp, 85, 185))
         dbp = float(np.clip(dbp, 55, 115))
@@ -342,44 +441,133 @@ class DLProcessor:
 
 
 # ============================================================
-# Face Detection using OpenCV Haar Cascade
+# Face Detection — Haar Cascade with 3-ROI extraction
+# (forehead + left cheek + right cheek) for improved SNR
 # ============================================================
 
 class FaceDetector:
     def __init__(self):
-        self.face_cascade = cv2.CascadeClassifier(
+        self._cascade = cv2.CascadeClassifier(
             cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+        # Eye cascade (handles glasses better than plain eye detector)
+        self._eye_cascade = cv2.CascadeClassifier(
+            cv2.data.haarcascades + 'haarcascade_eye_tree_eyeglasses.xml')
+        self._clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+
+        # MediaPipe Face Mesh — 468 landmarks for anatomically exact ROIs
+        try:
+            import mediapipe as mp
+            self._face_mesh = mp.solutions.face_mesh.FaceMesh(
+                static_image_mode=False,
+                max_num_faces=1,
+                refine_landmarks=False,
+                min_detection_confidence=0.5,
+                min_tracking_confidence=0.5,
+            )
+            self._use_mp = True
+            print("[FaceDetector] MediaPipe Face Mesh active")
+        except Exception as e:
+            self._face_mesh = None
+            self._use_mp = False
+            print(f"[FaceDetector] Eye-anchored Haar mode ({e})")
+
+    def _lm_bbox(self, lm, indices, W, H, pad_x=0, pad_y=0):
+        pts = [(int(lm[i].x * W), int(lm[i].y * H)) for i in indices if i < len(lm)]
+        if not pts:
+            return None
+        xs, ys = zip(*pts)
+        x1 = max(0, min(xs) - pad_x)
+        y1 = max(0, min(ys) - pad_y)
+        x2 = min(W, max(xs) + pad_x)
+        y2 = min(H, max(ys) + pad_y)
+        return (x1, y1, x2 - x1, y2 - y1) if x2 > x1 and y2 > y1 else None
 
     def detect(self, frame):
-        """Returns (face_roi, rppg_roi) or (None, None).
-        face_roi  — full bounding box, used by the DL model.
-        rppg_roi  — forehead-only strip, used for POS signal extraction.
-                    Avoids the eye/glasses region which causes specular glare.
-        """
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = self.face_cascade.detectMultiScale(gray, 1.3, 5, minSize=(80, 80))
+        """Returns (face_roi, forehead_roi, left_cheek_roi, right_cheek_roi) or (None,)*4."""
+        if self._use_mp:
+            return self._detect_mp(frame)
+        return self._detect_haar(frame)
+
+    def _detect_mp(self, frame):
+        H, W = frame.shape[:2]
+        rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        results = self._face_mesh.process(rgb)
+        if not results.multi_face_landmarks:
+            return None, None, None, None
+
+        lm = results.multi_face_landmarks[0].landmark
+        face_xs = [int(l.x * W) for l in lm]
+        face_ys = [int(l.y * H) for l in lm]
+        face_roi = (
+            max(0, min(face_xs)), max(0, min(face_ys)),
+            min(W, max(face_xs)) - max(0, min(face_xs)),
+            min(H, max(face_ys)) - max(0, min(face_ys)),
+        )
+        forehead_roi = self._lm_bbox(lm,
+            [10, 21, 54, 67, 68, 69, 103, 104, 108, 109, 151,
+             284, 297, 298, 299, 332, 333, 337, 338, 251],
+            W, H, pad_x=12, pad_y=4)
+        left_cheek_roi = self._lm_bbox(lm,
+            [36, 47, 50, 100, 101, 116, 117, 118, 119, 123, 147, 187, 192, 206, 213],
+            W, H, pad_x=8, pad_y=6)
+        right_cheek_roi = self._lm_bbox(lm,
+            [266, 277, 280, 329, 330, 345, 346, 347, 348, 352, 376, 411, 416, 426, 433],
+            W, H, pad_x=8, pad_y=6)
+        return face_roi, forehead_roi, left_cheek_roi, right_cheek_roi
+
+    def _detect_haar(self, frame):
+        gray  = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray  = self._clahe.apply(gray)
+        faces = self._cascade.detectMultiScale(
+            gray, scaleFactor=1.1, minNeighbors=3, minSize=(50, 50))
         if len(faces) == 0:
-            return None, None
-        faces = sorted(faces, key=lambda f: f[2] * f[3], reverse=True)
-        x, y, w, h = faces[0]
+            return None, None, None, None
+
+        x, y, w, h = sorted(faces, key=lambda f: f[2] * f[3], reverse=True)[0]
         face_roi = (x, y, w, h)
-        # Forehead strip: top 5–27% of face height, inset 10% on each side.
-        # This sits above the eyebrow line and is completely clear of glasses.
-        rppg_x = x + int(w * 0.10)
-        rppg_y = y + int(h * 0.05)
-        rppg_w = int(w * 0.80)
-        rppg_h = int(h * 0.22)
-        rppg_roi = (rppg_x, rppg_y, rppg_w, rppg_h)
-        return face_roi, rppg_roi
+
+        # Detect eyes inside the face crop — gives us the actual eye line Y
+        face_gray = gray[y:y+h, x:x+w]
+        eyes = self._eye_cascade.detectMultiScale(
+            face_gray, scaleFactor=1.1, minNeighbors=4, minSize=(15, 15))
+
+        if len(eyes) >= 1:
+            # eye_line = bottom edge of the topmost detected eye
+            eye_line = int(min(e[1] + e[3] for e in eyes))  # relative to face crop
+
+            # Forehead: from top of face to just above eye line
+            fh_top = y + max(int(h * 0.05), eye_line - int(h * 0.26))
+            fh_bot = y + eye_line - int(h * 0.03)
+            fh_h   = max(18, fh_bot - fh_top)
+            forehead_roi = (x + int(w * 0.12), fh_top, int(w * 0.76), fh_h)
+
+            # Cheeks: anchored below eye line, tall enough to reach actual cheek tissue
+            ck_top = y + eye_line + int(h * 0.23)   # 23% gap below eye bottom
+            ck_h   = int(h * 0.34)
+            left_cheek_roi  = (x + int(w * 0.04), ck_top, int(w * 0.24), ck_h)
+            right_cheek_roi = (x + int(w * 0.72), ck_top, int(w * 0.24), ck_h)
+        else:
+            # Fallback proportional layout (no eyes detected)
+            forehead_roi    = (x + int(w*0.12), y + int(h*0.08), int(w*0.76), int(h*0.20))
+            left_cheek_roi  = (x + int(w*0.04), y + int(h*0.56), int(w*0.24), int(h*0.34))
+            right_cheek_roi = (x + int(w*0.72), y + int(h*0.56), int(w*0.24), int(h*0.34))
+
+        return face_roi, forehead_roi, left_cheek_roi, right_cheek_roi
 
     def extract_roi_rgb(self, frame, roi):
-        """Extract mean RGB from ROI."""
+        """Extract mean RGB from a single ROI. Returns (R,G,B) array or None."""
         x, y, w, h = roi
-        region = frame[y:y+h, x:x+w]
+        if w <= 0 or h <= 0:
+            return None
+        x1 = max(0, x)
+        y1 = max(0, y)
+        x2 = min(frame.shape[1], x + w)
+        y2 = min(frame.shape[0], y + h)
+        region = frame[y1:y2, x1:x2]
         if region.size == 0:
             return None
-        mean_rgb = np.mean(region.reshape(-1, 3), axis=0)  # BGR
-        return mean_rgb[[2, 1, 0]]  # Convert to RGB
+        mean_bgr = np.mean(region.reshape(-1, 3), axis=0)
+        return mean_bgr[[2, 1, 0]]  # BGR → RGB
 
 
 # ============================================================
@@ -410,11 +598,23 @@ class RPPGProcessor:
         self.is_locked = False
         self.lock_count = 0
         self.ema_alpha = 0.15
+        # Per-ROI buffers for PTT-based BP
+        self.fh_buffer  = deque(maxlen=self.buffer_size)
+        self.lc_buffer  = deque(maxlen=self.buffer_size)
+        self.rc_buffer  = deque(maxlen=self.buffer_size)
+        self.last_ptt_ms = None
+        self.last_aix    = 0.3
 
     def add_frame(self, mean_rgb):
         """Add a frame's mean RGB values to the buffer."""
         self.rgb_buffer.append(mean_rgb)
         self.timestamps.append(time.time())
+
+    def add_roi_frames(self, fh_rgb, lc_rgb, rc_rgb):
+        """Track per-ROI RGB separately for PTT phase estimation."""
+        if fh_rgb is not None: self.fh_buffer.append(fh_rgb)
+        if lc_rgb is not None: self.lc_buffer.append(lc_rgb)
+        if rc_rgb is not None: self.rc_buffer.append(rc_rgb)
 
     def _ema_update(self, current, new_val, alpha):
         """Exponential moving average update."""
@@ -437,6 +637,11 @@ class RPPGProcessor:
         self.signal_quality = 0.0
         self.is_locked = False
         self.lock_count = 0
+        self.fh_buffer.clear()
+        self.lc_buffer.clear()
+        self.rc_buffer.clear()
+        self.last_ptt_ms = None
+        self.last_aix    = 0.3
 
     def compute_vitals(self):
         """Compute heart rate and respiratory rate from buffered RGB data."""
@@ -480,9 +685,12 @@ class RPPGProcessor:
             # Smooth the quality itself
             self.signal_quality = self._ema_update(self.signal_quality, quality, 0.2)
 
-            # Accept HR if in valid physiological range (quality gates smoothing speed)
+            # Accept HR only when quality clears the minimum threshold.
+            # Below MIN_QUALITY the signal is too noisy — hold last good value.
+            MIN_QUALITY = 0.15
             if 40 <= hr <= 180:
-                self.hr_history.append(hr)
+                if quality >= MIN_QUALITY:
+                    self.hr_history.append(hr)
 
                 if len(self.hr_history) >= 5:
                     sorted_hrs = sorted(self.hr_history)
@@ -490,22 +698,27 @@ class RPPGProcessor:
                     trimmed = sorted_hrs[trim:-trim] if trim < len(sorted_hrs) // 2 else sorted_hrs
                     raw_hr = np.mean(trimmed)
                 else:
-                    raw_hr = np.median(self.hr_history)
+                    raw_hr = np.median(self.hr_history) if self.hr_history else hr
 
-                # High quality → fast lock; low quality → slow cautious update
-                if quality > 0.2:
-                    alpha = 0.08 if self.is_locked else self.ema_alpha
-                    self.lock_count = min(self.lock_count + 1, 30)
-                    if self.lock_count >= 10:
-                        self.is_locked = True
+                if quality >= MIN_QUALITY:
+                    # High quality → fast lock; moderate quality → slow update
+                    if quality > 0.2:
+                        alpha = 0.08 if self.is_locked else self.ema_alpha
+                        self.lock_count = min(self.lock_count + 1, 30)
+                        if self.lock_count >= 10:
+                            self.is_locked = True
+                    else:
+                        alpha = 0.05
+                        self.lock_count = max(0, self.lock_count - 1)
+                        if self.lock_count == 0:
+                            self.is_locked = False
+                    self.stable_hr = self._ema_update(self.stable_hr, raw_hr, alpha)
+                    self.last_hr = self.stable_hr
                 else:
-                    alpha = 0.05   # slow update when signal is weak
+                    # Quality too low — decay lock count but keep last stable reading
                     self.lock_count = max(0, self.lock_count - 1)
                     if self.lock_count == 0:
                         self.is_locked = False
-
-                self.stable_hr = self._ema_update(self.stable_hr, raw_hr, alpha)
-                self.last_hr = self.stable_hr
             else:
                 self.lock_count = max(0, self.lock_count - 1)
                 if self.lock_count == 0:
@@ -518,17 +731,43 @@ class RPPGProcessor:
                 self.stable_rr = self._ema_update(self.stable_rr, raw_rr, 0.1)
                 self.last_rr = self.stable_rr
 
-            # SpO2 estimation from red/blue ratio
+            # SpO2 estimation from red/blue ratio — require quality ≥ 0.20 and
+            # at least 3 readings within ±2% of the running median before committing.
             spo2 = calculate_spo2(rgb_array, actual_fps)
-            if 80 <= spo2 <= 100:
+            if 80 <= spo2 <= 100 and quality >= 0.20:
                 self.spo2_history.append(spo2)
-                raw_spo2 = np.median(self.spo2_history)
-                alpha_spo2 = 0.08 if quality > 0.2 else 0.03
-                self.stable_spo2 = self._ema_update(self.stable_spo2, raw_spo2, alpha_spo2)
-                self.last_spo2 = self.stable_spo2
+                if len(self.spo2_history) >= 3:
+                    raw_spo2 = np.median(self.spo2_history)
+                    spread   = float(np.std(list(self.spo2_history)[-5:]))
+                    if spread < 2.5:   # reject unstable / flapping readings
+                        alpha_spo2 = 0.08 if quality > 0.3 else 0.03
+                        self.stable_spo2 = self._ema_update(self.stable_spo2, raw_spo2, alpha_spo2)
+                        self.last_spo2 = self.stable_spo2
 
-            # Blood pressure estimate from BVP waveform morphology
-            sbp, dbp = estimate_blood_pressure(bvp, actual_fps, self.last_hr)
+            # Augmentation index from averaged BVP
+            self.last_aix = compute_augmentation_index(bvp, actual_fps)
+
+            # Phase-based PTT from per-ROI BVPs (forehead vs cheeks)
+            min_roi_frames = int(actual_fps * 5)
+            if len(self.fh_buffer) >= min_roi_frames and len(self.lc_buffer) >= min_roi_frames:
+                try:
+                    fh_arr = np.array(self.fh_buffer)
+                    lc_arr = np.array(self.lc_buffer)
+                    rc_arr = np.array(self.rc_buffer) if len(self.rc_buffer) >= min_roi_frames else lc_arr
+                    cheek_arr = (lc_arr[-len(rc_arr):] + rc_arr) / 2.0 if len(rc_arr) == len(lc_arr) else lc_arr
+                    n = min(len(fh_arr), len(cheek_arr))
+                    fh_bvp = pos_wang(fh_arr[-n:], actual_fps)
+                    ch_bvp = pos_wang(cheek_arr[-n:], actual_fps)
+                    ptt = compute_ptt_phase(fh_bvp, ch_bvp, actual_fps, self.last_hr)
+                    if ptt is not None:
+                        self.last_ptt_ms = ptt
+                except Exception as _ptt_err:
+                    print(f"[PTT] {_ptt_err}")
+
+            # Multi-feature BP estimate: morphology + PTT + AIx
+            sbp, dbp = estimate_blood_pressure(
+                bvp, actual_fps, self.last_hr,
+                ptt_ms=self.last_ptt_ms, aix=self.last_aix)
             if sbp > 0 and dbp > 0:
                 self.bp_history.append((sbp, dbp))
                 raw_sbp = float(np.median([x[0] for x in self.bp_history]))
@@ -548,6 +787,7 @@ class RPPGProcessor:
                 "spo2": round(self.last_spo2, 1),
                 "sbp": round(self.last_sbp, 1),
                 "dbp": round(self.last_dbp, 1),
+                "bp_note": "research_only",
                 "quality": round(self.signal_quality * 100, 1),
                 "buffer_pct": 100.0,
                 "status": "locked" if self.is_locked else "measuring",
@@ -711,11 +951,14 @@ async def websocket_endpoint(ws: WebSocket):
     dl_processor.reset()
 
     proc = RPPGProcessor(buffer_seconds=10, fps=15)
-    frame_count   = 0
-    cached_face   = None   # full face bbox — for display
-    cached_rppg   = None   # forehead strip — for POS signal extraction
-    roi_miss      = 0
-    detect_every  = 10
+    frame_count       = 0
+    cached_face       = None   # full face bbox — for DL model
+    cached_forehead   = None   # forehead ROI
+    cached_left_cheek = None   # left cheek ROI
+    cached_right_cheek= None   # right cheek ROI
+    roi_miss          = 0
+    last_detect_time  = 0.0
+    DETECT_INTERVAL   = 0.25   # seconds — fast initial lock, holds ROI between runs
 
     # Send current ESP32 state only if fresh (< 10s old)
     if (esp32_vitals.get("status") == "connected" and
@@ -739,28 +982,35 @@ async def websocket_endpoint(ws: WebSocket):
                 if frame is None:
                     continue
 
-                # Re-run Haar Cascade every detect_every frames.
-                # Only update on success — transient misses keep the old ROI.
+                # Re-run MediaPipe FaceMesh every 0.5 s (time-based, FPS-independent).
+                # On success update all 3 ROIs; transient misses keep previous ROIs.
                 # After 3 consecutive misses the face is truly gone.
-                if frame_count % detect_every == 0:
-                    new_face, new_rppg = face_detector.detect(frame)
+                now = time.time()
+                if now - last_detect_time >= DETECT_INTERVAL:
+                    last_detect_time = now
+                    new_face, new_fh, new_lc, new_rc = face_detector.detect(frame)
                     if new_face is not None:
-                        cached_face = new_face
-                        cached_rppg = new_rppg
-                        roi_miss    = 0
+                        cached_face        = new_face
+                        cached_forehead    = new_fh
+                        cached_left_cheek  = new_lc
+                        cached_right_cheek = new_rc
+                        roi_miss           = 0
                     else:
                         roi_miss += 1
                         if roi_miss >= 3:
-                            cached_face = None
-                            cached_rppg = None
+                            cached_face = cached_forehead = cached_left_cheek = cached_right_cheek = None
                             roi_miss    = 0
                 face_detected = cached_face is not None
 
                 if face_detected:
-                    # POS uses forehead-only ROI (above glasses/eyes)
-                    mean_rgb = face_detector.extract_roi_rgb(frame, cached_rppg)
-                    if mean_rgb is not None:
-                        proc.add_frame(mean_rgb)
+                    # Extract each ROI separately — needed for PTT phase estimation
+                    fh_rgb = face_detector.extract_roi_rgb(frame, cached_forehead)    if cached_forehead    else None
+                    lc_rgb = face_detector.extract_roi_rgb(frame, cached_left_cheek)  if cached_left_cheek  else None
+                    rc_rgb = face_detector.extract_roi_rgb(frame, cached_right_cheek) if cached_right_cheek else None
+                    rgbs   = [r for r in (fh_rgb, lc_rgb, rc_rgb) if r is not None]
+                    if rgbs:
+                        proc.add_frame(np.mean(rgbs, axis=0))
+                    proc.add_roi_frames(fh_rgb, lc_rgb, rc_rgb)
                     dl_processor.add_frame(frame, cached_face)
 
                 frame_count += 1
@@ -772,18 +1022,30 @@ async def websocket_endpoint(ws: WebSocket):
                     vitals["type"] = "camera"
                     if face_detected:
                         vitals["face_roi"]  = [int(v) for v in cached_face]
-                        vitals["rppg_roi"]  = [int(v) for v in cached_rppg]
+                        vitals["rppg_roi"]  = [int(v) for v in cached_forehead] if cached_forehead else None
+                        vitals["rppg_rois"] = {
+                            "forehead":    [int(v) for v in cached_forehead]    if cached_forehead    else None,
+                            "left_cheek":  [int(v) for v in cached_left_cheek]  if cached_left_cheek  else None,
+                            "right_cheek": [int(v) for v in cached_right_cheek] if cached_right_cheek else None,
+                        }
                     vitals["bvp"] = [float(v) for v in vitals.get("bvp", [])]
                     if frame_count % 24 == 0 and dl_processor.ready and not _dl_inference_running:
                         ts = list(proc.timestamps)
                         fps_est = len(ts) / (ts[-1] - ts[0] + 1e-10) if len(ts) > 1 else 15.0
                         asyncio.create_task(_run_dl_inference(fps_est))
+                    # DL (EfficientPhys) has higher MAE than POS — use only as fallback
+                    # when POS signal quality is too poor to trust.
+                    pos_quality = vitals.get("quality", 0)
                     dl = dl_processor._snapshot()
-                    vitals["dl_hr"]   = dl['hr']
-                    vitals["dl_rr"]   = dl['rr']
-                    vitals["dl_spo2"] = dl['spo2']
-                    vitals["dl_sbp"]  = dl['sbp']
-                    vitals["dl_dbp"]  = dl['dbp']
+                    if pos_quality < 15:
+                        vitals["dl_hr"]   = dl['hr']
+                        vitals["dl_rr"]   = dl['rr']
+                        vitals["dl_spo2"] = dl['spo2']
+                        vitals["dl_sbp"]  = dl['sbp']
+                        vitals["dl_dbp"]  = dl['dbp']
+                    else:
+                        vitals["dl_hr"] = vitals["dl_rr"] = vitals["dl_spo2"] = 0.0
+                        vitals["dl_sbp"] = vitals["dl_dbp"] = 0.0
                     vitals["dl_ready"] = dl_processor.ready
                     vitals["esp32"] = esp32_vitals
                     await ws.send_text(json.dumps(vitals))

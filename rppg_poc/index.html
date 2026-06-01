@@ -347,6 +347,9 @@
                         <span class="text-orange-300 text-sm">°C</span>
                     </div>
                     <div id="esp32TempNote" class="text-orange-800 text-xs mt-0.5">Add ~3°C for body temp</div>
+                    <div class="text-orange-900/50 text-[9px] font-mono mt-1.5 break-all leading-tight">
+                        POST to:<br><span id="esp32ApiEndpoint" class="select-all text-orange-700/70">computing…</span>
+                    </div>
                 </div>
 
                 <!-- Respiratory Rate -->
@@ -1042,8 +1045,8 @@ async function startCamera() {
         });
         video.srcObject = stream;
         await video.play();
-        sendCanvas.width  = 320;
-        sendCanvas.height = 240;
+        sendCanvas.width  = 480;
+        sendCanvas.height = 360;
         overlay.width  = video.videoWidth  || 640;
         overlay.height = video.videoHeight || 480;
         document.getElementById('statusText').textContent = 'Camera ready, connecting...';
@@ -1064,7 +1067,12 @@ function connectWebSocket() {
     if (ws && ws.readyState < 2) { ws.onclose = null; ws.close(); }
 
     const wsHost = window.location.hostname || '127.0.0.1';
-    ws = new WebSocket(`ws://${wsHost}:8090/ws`);
+    // When mounted as sub-app at /rppg (port 8058), connect to /rppg/ws on same port.
+    // When running standalone on port 8090, connect to /ws on 8090.
+    const isSubapp = window.location.pathname.startsWith('/rppg');
+    const wsPort   = isSubapp ? (window.location.port || '8058') : '8090';
+    const wsPath   = isSubapp ? '/rppg/ws' : '/ws';
+    ws = new WebSocket(`ws://${wsHost}:${wsPort}${wsPath}`);
     ws.onopen = () => {
         document.getElementById('statusText').textContent = 'Connected — detecting face...';
         document.getElementById('statusDot').className = 'w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0';
@@ -1072,16 +1080,24 @@ function connectWebSocket() {
         startSending();
     };
     ws.onmessage = (e) => {
-        try {
-            const d = JSON.parse(e.data);
-            if (d.type === 'ping') return;
-            if (d.type === 'esp32') {
-                updateESP32(d);
-            } else {
-                updateUI(d);
-                if (d.esp32 && d.esp32.status === 'connected') updateESP32(d.esp32);
-            }
-        } catch (_) {}
+        // Parse JSON in its own try-catch so a bad message doesn't kill the handler.
+        let d;
+        try { d = JSON.parse(e.data); } catch (_) { return; }
+        if (!d || d.type === 'ping') return;
+
+        if (d.type === 'esp32') {
+            // Direct hardware push — independent try so a UI crash can't block it.
+            try { updateESP32(d); } catch (err) { console.warn('[ESP32 push]', err); }
+            return;
+        }
+
+        // Camera vitals — updateUI and updateESP32 in SEPARATE try-catch blocks.
+        // If updateUI throws (canvas glitch, missing element, etc.) the hardware
+        // display still updates because updateESP32 is in its own scope.
+        try { updateUI(d); } catch (err) { console.warn('[updateUI]', err); }
+        if (d.esp32 && d.esp32.status && d.esp32.status !== 'disconnected') {
+            try { updateESP32(d.esp32); } catch (err) { console.warn('[ESP32 cam]', err); }
+        }
     };
     ws.onclose = () => {
         document.getElementById('statusText').textContent = 'Disconnected. Reconnecting...';
@@ -1095,7 +1111,7 @@ function startSending() {
     sending = true;
     function sendFrame() {
         if (!ws || ws.readyState !== WebSocket.OPEN) { sending = false; return; }
-        sendCtx.drawImage(video, 0, 0, 320, 240);
+        sendCtx.drawImage(video, 0, 0, 480, 360);
         sendCanvas.toBlob((blob) => {
             if (!blob) { requestAnimationFrame(sendFrame); return; }
             const reader = new FileReader();
@@ -1120,6 +1136,42 @@ setInterval(() => {
         esp32LastSeen = 0;
         updateAverages();
     }
+}, 3000);
+
+// ── Compute the correct ESP32 POST endpoint based on how this page is served ──
+// Subapp (mounted at /rppg): POST to http://<host>:8058/rppg/api/vitals
+// Standalone (port 8090):    POST to http://<host>:8090/api/vitals
+const _isSubapp   = window.location.pathname.startsWith('/rppg');
+const _apiPort    = _isSubapp ? (window.location.port || '8058') : (window.location.port || '8090');
+const _apiPrefix  = _isSubapp ? '/rppg' : '';
+const esp32ApiUrl = `http://${window.location.hostname}:${_apiPort}${_apiPrefix}/api/vitals`;
+
+// Show the endpoint URL in the temperature card so users can configure ESP32 firmware
+const _endpointEl = document.getElementById('esp32ApiEndpoint');
+if (_endpointEl) _endpointEl.textContent = esp32ApiUrl;
+
+// Also expose as tooltip on the status chip
+const _statusChip = document.getElementById('esp32Status');
+if (_statusChip) _statusChip.title = `ESP32 must POST to:\n${esp32ApiUrl}`;
+
+// ── Polling fallback — GET /api/vitals every 3 s when WS push hasn't fired ───
+// This catches the case where the ESP32 posted before our WS was established,
+// or when the push message was lost due to a disconnect/reconnect.
+setInterval(async () => {
+    if (Date.now() - esp32LastSeen < 6000) return; // push is active — skip poll
+    try {
+        const ctrl = new AbortController();
+        const tid  = setTimeout(() => ctrl.abort(), 2000);
+        let resp;
+        try { resp = await fetch(esp32ApiUrl, { signal: ctrl.signal }); }
+        finally { clearTimeout(tid); }
+        if (!resp || !resp.ok) return;
+        const d = await resp.json();
+        // Only update display if hardware has actually connected at least once
+        if (d.status && d.status !== 'disconnected') {
+            try { updateESP32(d); } catch (_) {}
+        }
+    } catch (_) { /* network error or AbortError — silent */ }
 }, 3000);
 
 function updateESP32(d) {
@@ -1190,7 +1242,7 @@ function updateESP32(d) {
         spo2Rng.textContent = 'Place finger';
     }
 
-    if (d.temp != null && d.temp !== undefined) {
+    if (d.temp != null && d.temp > 0) {
         const newTemp = parseFloat(d.temp).toFixed(1);
         if (newTemp !== prevSensorTemp) {
             prevSensorTemp = newTemp;
@@ -1211,9 +1263,9 @@ function updateUI(d) {
     if (d.face_detected) {
         faceEl.textContent = '👤 Face Detected';
         faceEl.className = 'px-3 py-1.5 rounded-xl text-xs bg-green-500/20 border border-green-500/30 text-green-300';
-        if (d.face_roi) {
+        if (d.face_roi && overlay.width > 0 && overlay.height > 0) {
             overlayCtx.clearRect(0, 0, overlay.width, overlay.height);
-            const sx = overlay.width / 320, sy = overlay.height / 240;
+            const sx = overlay.width / 480, sy = overlay.height / 360;
             // Full face outline (dim green)
             const [fx, fy, fw, fh] = d.face_roi;
             overlayCtx.strokeStyle = 'rgba(0,255,136,0.4)';

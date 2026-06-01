@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-// rPPG backend runs separately on port 8090.
-// Override with VITE_RPPG_URL for other machines (e.g. ws://192.168.x.x:8090).
-const RPPG_WS_URL = (import.meta.env.VITE_RPPG_URL || 'ws://127.0.0.1:8090') + '/ws';
+// rPPG is mounted inside the main backend at /rppg.
+// Override with VITE_RPPG_URL for other machines (e.g. ws://192.168.x.x:8058/rppg).
+const RPPG_WS_URL = (import.meta.env.VITE_RPPG_URL || 'ws://127.0.0.1:8058/rppg') + '/ws';
 const FRAME_INTERVAL = 100; // ms between frames sent (10 fps)
 
 /**
