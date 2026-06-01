@@ -677,10 +677,26 @@ function FollowUpItem({ timeline, body, isDark }) {
   );
 }
 
+/* Convert a follow-up timeline label into a sortable offset in days so the plan
+   reads earliest → latest. Ranges ("4-6 weeks") sort by their lower bound.
+   Immediate cues map to 0; recurring/standing instructions ("each visit",
+   "ongoing") have no fixed point, so they sort to the end as continuous care. */
+function timelineToDays(timeline) {
+  const t = String(timeline || '').toLowerCase();
+  if (!t || t === '—') return Number.POSITIVE_INFINITY;
+  if (/\b(immediate|immediately|today|now|stat|on discharge|at discharge)\b/.test(t)) return 0;
+  if (/\b(each|every|per)\s+visit\b|\bongoing\b|\bcontinuous\b|\bindefinite|\blong[-\s]?term\b|\bas\s+needed\b|\bprn\b|\broutine\b/.test(t)) {
+    return Number.POSITIVE_INFINITY;
+  }
+  const UNIT_DAYS = { day: 1, week: 7, fortnight: 14, month: 30, year: 365 };
+  // Lower bound of the first number(s) in the label (handles "4-6 weeks", "3 months").
+  const m = t.match(/(\d+(?:\.\d+)?)\s*(?:[-–—]\s*\d+(?:\.\d+)?\s*)?(day|week|fortnight|month|year)/);
+  if (m) return parseFloat(m[1]) * UNIT_DAYS[m[2]];
+  return Number.POSITIVE_INFINITY;
+}
+
 function FollowUpBlock({ followUp }) {
   const { isDark } = useTheme();
-
-  const items = Array.isArray(followUp) ? [...followUp].reverse() : followUp ? [followUp] : [];
 
   const parseInstruction = (text) => {
     const source = String(text || '').replace(/\s+/g, ' ').trim();
@@ -696,15 +712,23 @@ function FollowUpBlock({ followUp }) {
     return { timeline: source.slice(0, colonIdx).trim(), body: source.slice(colonIdx + 1).trim() };
   };
 
+  const raw = Array.isArray(followUp) ? followUp : followUp ? [followUp] : [];
+  // Parse first, then sort chronologically (earliest → latest) with a stable
+  // tiebreak so equal/recurring timelines keep their original relative order.
+  const items = raw
+    .map((it, idx) => ({ idx, ...parseInstruction(it) }))
+    .sort((a, b) => {
+      const da = timelineToDays(a.timeline);
+      const db = timelineToDays(b.timeline);
+      return da === db ? a.idx - b.idx : da - db;
+    });
+
   return (
     <div className="relative pl-7">
       <div className={`absolute left-2 top-2 bottom-2 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
-      {items.map((it, idx) => {
-        const { timeline, body } = parseInstruction(it);
-        return (
-          <FollowUpItem key={idx} timeline={timeline} body={body} isDark={isDark} />
-        );
-      })}
+      {items.map((it) => (
+        <FollowUpItem key={it.idx} timeline={it.timeline} body={it.body} isDark={isDark} />
+      ))}
     </div>
   );
 }

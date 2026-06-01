@@ -215,7 +215,7 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
                         type="button"
                         onClick={() => setExpandedId(open ? null : p.id)}
                         aria-expanded={open}
-                        title="AI-suggested reason"
+                        title="AI reasoning"
                         className={`w-[26px] h-[26px] rounded-lg border flex items-center justify-center justify-self-end transition-all duration-150 ${
                           open
                             ? 'border-[var(--accent-primary)] bg-[var(--accent-primary)]/10 text-teal-700'
@@ -245,7 +245,7 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
                       style={{ marginLeft: 0 }}
                     >
                       <div className="text-[10px] font-bold tracking-widest uppercase text-teal-700 mb-1">
-                        AI-suggested reason
+                        AI reasoning
                       </div>
                       <div className={`text-[12.5px] leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                         {note}

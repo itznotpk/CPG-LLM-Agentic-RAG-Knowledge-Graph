@@ -911,6 +911,119 @@ def _dedup_referral_recs(recommendations: list[Recommendation]) -> list[Recommen
     return deduped
 
 
+# Generic words that name *how* something is tracked rather than *what* is being
+# tracked — excluded from the "subject" comparison so that "Body weight" and
+# "Weight monitoring" collapse to the shared subject token {"weight"}.
+_MONITORING_GENERIC_TOKENS = frozenset({
+    "body", "level", "levels", "test", "testing", "monitoring", "monitor",
+    "self", "function", "and", "the", "of", "for", "value", "values",
+    "status", "parameter", "parameters", "daily", "routine", "regular",
+})
+
+# Verbs/nouns that signal a lifestyle rec is really describing a *measurement /
+# surveillance* activity (i.e. it overlaps a monitoring parameter) rather than a
+# therapeutic lifestyle change.
+_MONITORING_ACTIVITY_TOKENS = frozenset({
+    "monitor", "monitoring", "weigh", "weighing", "record", "recording",
+    "measure", "measuring", "measurement", "track", "tracking", "check",
+    "checking", "log", "logging", "report", "reporting", "self-monitor",
+    "self-monitoring", "observe", "observing",
+})
+
+
+def _subject_tokens(text: str) -> set[str]:
+    """Significant subject words in *text* (lowercased, >2 chars, non-generic)."""
+    import re as _re
+    toks = {t for t in _re.findall(r"[a-z]+", (text or "").lower()) if len(t) > 2}
+    return toks - _MONITORING_GENERIC_TOKENS
+
+
+def _numeric_signatures(text: str) -> set[str]:
+    """Distinctive number+unit tokens (e.g. '2kg', '5mmol') from *text*.
+
+    These act as strong duplicate signals: two entries that both mention the same
+    quantitative threshold (">2kg in 2 days") are almost certainly the same advice.
+    """
+    import re as _re
+    sigs: set[str] = set()
+    for num, unit in _re.findall(r"(\d+(?:\.\d+)?)\s*([a-zA-Z%/]+)", (text or "").lower()):
+        sigs.add(f"{num}{unit}")
+    return sigs
+
+
+def _dedup_lifestyle_vs_monitoring(
+    recommendations: list[Recommendation],
+    monitoring: list,
+) -> list[Recommendation]:
+    """Drop lifestyle recs that merely restate a structured monitoring parameter.
+
+    The plan surfaces patient-facing lifestyle advice (``type == "lifestyle"``) and
+    a separate structured monitoring table (``plan.monitoring``). The synthesis LLM
+    sometimes emits the same surveillance action in both — e.g. a "Weight monitoring"
+    lifestyle card and a "Body weight / report >2kg gain in 2 days" monitoring row.
+    The monitoring row is the authoritative one (it carries schedule + target), so we
+    suppress the lifestyle duplicate.
+
+    Fully content-driven (no hardcoded subjects): a lifestyle rec is treated as a
+    duplicate of a monitoring item when they share at least one significant subject
+    token AND either (a) the lifestyle rec describes a measurement/surveillance
+    activity, or (b) both entries share a distinctive numeric threshold (e.g. "2kg").
+    Therapeutic lifestyle recs that merely share a subject word (e.g. "Weight
+    management — caloric restriction") are preserved because they carry no monitoring
+    activity token or shared threshold.
+    """
+    if not recommendations or not monitoring:
+        return recommendations
+
+    # Precompute subject tokens + numeric signatures for each monitoring parameter.
+    monitor_index: list[tuple[set[str], set[str], str]] = []
+    for item in monitoring:
+        param = getattr(item, "parameter", "") or ""
+        schedule = getattr(item, "schedule", "") or ""
+        target = getattr(item, "target", "") or ""
+        subj = _subject_tokens(param)
+        nums = _numeric_signatures(f"{param} {schedule} {target}")
+        if subj or nums:
+            monitor_index.append((subj, nums, param))
+
+    if not monitor_index:
+        return recommendations
+
+    kept: list[Recommendation] = []
+    for rec in recommendations:
+        if rec.type != "lifestyle":
+            kept.append(rec)
+            continue
+
+        import re as _re
+        rec_text = f"{rec.intervention or ''} {rec.rationale or ''}"
+        rec_subjects = _subject_tokens(rec_text)
+        rec_words = set(_re.findall(r"[a-z]+(?:-[a-z]+)*", rec_text.lower()))
+        has_activity = bool(rec_words & _MONITORING_ACTIVITY_TOKENS)
+        rec_nums = _numeric_signatures(rec_text)
+
+        matched_param = None
+        for subj, nums, param in monitor_index:
+            shares_subject = bool(rec_subjects & subj)
+            if not shares_subject:
+                continue
+            shares_number = bool(rec_nums & nums)
+            if has_activity or shares_number:
+                matched_param = param
+                break
+
+        if matched_param is not None:
+            logger.info(
+                "lifestyle/monitoring dedup: dropped lifestyle rec %r — duplicates "
+                "monitoring parameter %r",
+                (rec.intervention or "")[:60], matched_param,
+            )
+            continue
+        kept.append(rec)
+
+    return kept
+
+
 def _referral_evidence_quality(rec) -> tuple[str, str]:
     """Assess evidence quality for a KG referral and return (quality_level, audit_note).
 
@@ -4746,6 +4859,21 @@ Produce a TreatmentPlan JSON object matching this schema:
         logger.info(
             "stage_5: final referral dedup (post-KG): %d → %d referral recs",
             ref_count_before_final, ref_count_after_final,
+        )
+
+    # Cross-section dedup: a lifestyle rec that merely restates a structured
+    # monitoring parameter (e.g. "Weight monitoring" vs the "Body weight" row) is
+    # redundant. The monitoring table is authoritative (schedule + target), so the
+    # lifestyle duplicate is dropped. Content-driven — see _dedup_lifestyle_vs_monitoring.
+    lifestyle_before = sum(1 for r in plan.recommendations if r.type == "lifestyle")
+    plan.recommendations = _dedup_lifestyle_vs_monitoring(
+        plan.recommendations, plan.monitoring
+    )
+    lifestyle_after = sum(1 for r in plan.recommendations if r.type == "lifestyle")
+    if lifestyle_before != lifestyle_after:
+        logger.info(
+            "stage_5: lifestyle/monitoring dedup: %d → %d lifestyle recs",
+            lifestyle_before, lifestyle_after,
         )
 
     # Anti-hallucination guard: strip unresolved_questions that claim a

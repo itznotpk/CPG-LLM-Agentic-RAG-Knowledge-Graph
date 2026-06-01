@@ -107,15 +107,24 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
       };
     });
 
-  const interventionItems = [...procedures, ...investigations].map((r, i) => ({
-    id: i + 1,
-    name: r.intervention,
-    rationale: r.rationale,
-    urgency: '',
-    cpgRef: r.cpg_source,
-    evidenceGrade: r.evidence_grade || null,
-    accepted: true,
-  }));
+  const interventionItems = [...procedures, ...investigations].map((r, i) => {
+    // Mirror the lifestyle treatment: split "Procedure — clinical detail" so the
+    // em-dash tail becomes the readable Rationale column instead of an AI run-on
+    // baked into the procedure name. The model's own `rationale` is not a true
+    // rationale here (it restates patient context); surface it separately as the
+    // expandable "AI reasoning" note rather than in the column.
+    const { goal, detail } = splitGoalDetail(r.intervention);
+    return {
+      id: i + 1,
+      name: goal,
+      rationale: detail,
+      reasoning: r.rationale || '',
+      urgency: '',
+      cpgRef: r.cpg_source,
+      evidenceGrade: r.evidence_grade || null,
+      accepted: true,
+    };
+  });
 
   const lifestyleItems = lifestyle.map((r, i) => {
     const { goal, detail } = splitGoalDetail(r.intervention);
