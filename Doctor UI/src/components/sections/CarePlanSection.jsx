@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { getTodayUTC8 } from '../../utils/timezone';
 import {
   ClipboardList,
-  Stethoscope,
   Pill,
   Activity,
   Calendar,
@@ -14,7 +13,6 @@ import {
   AlertCircle,
   ArrowRight,
   ArrowLeft,
-  Heart,
   TrendingUp,
   Send,
   Shield,
@@ -39,6 +37,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
 import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
+import CareMonitoringPanel from './CareMonitoringPanel';
 
 /* ============================================================
    Graph-verified badge — folds Graph Navigator KG edges into the
@@ -214,7 +213,7 @@ function ActionTag({ action }) {
 }
 
 /* Editable inline text — click to edit, blur/enter to save */
-function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '' }) {
+export function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '' }) {
   const { isDark } = useTheme();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(value || '');
@@ -1736,45 +1735,7 @@ export function CarePlanSection() {
           )}
 
           {/* ── CARE & MONITORING ──────────────────────────────── */}
-          {tab === 'care' && (
-            <>
-              <Section title="Procedures & Interventions" icon={Stethoscope} count={carePlan.interventions?.length || 0} noCollapse>
-                <div>
-                  {(carePlan.interventions || []).map((i) => (
-                    <ListRow
-                      key={i.id}
-                      bulletTone="ok"
-                      title={i.name}
-                      sub={i.rationale}
-                      tag={i.urgency}
-                      tagTone={i.urgency === 'Today' ? 'danger' : 'accent'}
-                    />
-                  ))}
-                </div>
-              </Section>
-              <Section title="Monitoring & Testing" icon={Activity} count={carePlan.monitoring?.length || 0}>
-                <div>
-                  {(carePlan.monitoring || []).map((i) => (
-                    <ListRow
-                      key={i.id}
-                      bulletTone="info"
-                      title={i.parameter || i.task}
-                      sub={i.target ? `Target: ${i.target}` : i.cpgRef}
-                      tag={i.schedule}
-                      tagTone="accent"
-                      noCollapse
-                      scheduleBelow
-                    />
-                  ))}
-                </div>
-              </Section>
-              <Section title="Lifestyle & Self-Management" icon={Heart} count={carePlan.lifestyle?.length || 0} noCollapse>
-                <div>
-                  {(carePlan.lifestyle || []).map((i) => <ListRow key={i.id} bulletTone="ok" title={i.goal} tag={i.category} />)}
-                </div>
-              </Section>
-            </>
-          )}
+          {tab === 'care' && <CareMonitoringPanel carePlan={carePlan} dispatch={dispatch} />}
 
           {/* ── FOLLOW-UP & SAFETY ─────────────────────────────── */}
           {tab === 'followup' && (

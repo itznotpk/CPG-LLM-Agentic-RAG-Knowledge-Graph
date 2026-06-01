@@ -236,6 +236,45 @@ function appReducer(state, action) {
         },
       };
     }
+    case 'ADD_CARE_ITEM': {
+      // section ∈ 'interventions' | 'monitoring' | 'lifestyle'
+      const { section: addSection } = action.payload;
+      const blanks = {
+        interventions: { name: '', rationale: '', urgency: 'Routine', cpgRef: 'Manual entry' },
+        monitoring:    { parameter: '', schedule: '', target: '', cpgRef: 'Manual entry' },
+        lifestyle:     { goal: '', category: 'Lifestyle', cpgRef: 'Manual entry' },
+      };
+      const newItem = { id: `new-${Date.now()}`, accepted: true, ...(blanks[addSection] || {}) };
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          [addSection]: [...(state.carePlan[addSection] || []), newItem],
+        },
+      };
+    }
+    case 'DELETE_CARE_ITEM': {
+      const { section: delSection, id: delId } = action.payload;
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          [delSection]: (state.carePlan[delSection] || []).filter((i) => i.id !== delId),
+        },
+      };
+    }
+    case 'UPDATE_CARE_ITEM_FIELD': {
+      const { section: updSection, id: updId, field: updField, value: updValue } = action.payload;
+      return {
+        ...state,
+        carePlan: {
+          ...state.carePlan,
+          [updSection]: (state.carePlan[updSection] || []).map((i) =>
+            i.id === updId ? { ...i, [updField]: updValue } : i
+          ),
+        },
+      };
+    }
     case 'APPLY_SAFETY_DECISIONS': {
       // Dynamic mutation of carePlan.medications driven by the safety banner's
       // per-flag decisions: { [flagKey]: { decision, drugs?, alternative?, reason? } }
