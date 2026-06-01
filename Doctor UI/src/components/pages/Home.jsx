@@ -184,7 +184,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
       'in-progress': 'bg-blue-500/20 text-blue-600 border-blue-400/30 dark:text-blue-400',
       done: 'bg-emerald-500/20 text-emerald-600 border-emerald-400/30 dark:text-emerald-400'
     };
-    const labels = { waiting: 'Scheduled', 'in-progress': 'In Consult', done: 'Completed' };
+    const labels = { waiting: 'Scheduled', 'in-progress': 'In Queue', done: 'Completed' };
     return (
       <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold border ${styles[status] || ''}`}>
         {labels[status] || status}
@@ -498,7 +498,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 {[
                   { id: 'all', label: 'All patients' },
                   { id: 'waiting', label: 'Scheduled' },
-                  { id: 'in-progress', label: 'In consult' },
+                  { id: 'in-progress', label: 'In Queue' },
                   { id: 'done', label: 'Completed' }
                 ].map((tab) => {
                   const isActive = statusFilter === tab.id;

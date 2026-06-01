@@ -741,13 +741,9 @@ export function AppProvider({ children }) {
     // Save to database - include diagnoses and TCA date
     if (USE_SUPABASE && state.currentConsultationId) {
       try {
-        // Use nextReviewDate from step 1 (user-selected TCA), or default to 4 weeks
-        let nextReviewStr = state.nextReviewDate;
-        if (!nextReviewStr) {
-          const nextReview = new Date();
-          nextReview.setDate(nextReview.getDate() + 28); // Default 4 weeks follow-up
-          nextReviewStr = nextReview.toISOString().split('T')[0];
-        }
+        // Use nextReviewDate from the Review & Approve section (user-selected TCA)
+        // If not set, no follow-up is scheduled (null)
+        let nextReviewStr = state.nextReviewDate || null;
 
         // Format diagnoses for storage with current timestamp (UTC+08:00)
         const now = getNowUTC8();

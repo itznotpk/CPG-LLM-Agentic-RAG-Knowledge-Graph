@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { getTodayUTC8 } from '../../utils/timezone';
 import {
   ClipboardList,
   Pill,
@@ -680,19 +679,12 @@ function FollowUpItem({ timeline, body, isDark }) {
 
 function FollowUpBlock({ followUp }) {
   const { isDark } = useTheme();
-  const { state, dispatch } = useApp();
-  const nextReviewDate = state.nextReviewDate || '';
 
-  const items = Array.isArray(followUp) ? followUp : followUp ? [followUp] : [];
-  const suggestedDate = items.reduce((earliest, it) => {
-    const d = parseSuggestedDate(it);
-    if (!d) return earliest;
-    return !earliest || d < earliest ? d : earliest;
-  }, null);
+  const items = Array.isArray(followUp) ? [...followUp].reverse() : followUp ? [followUp] : [];
 
   const parseInstruction = (text) => {
     const source = String(text || '').replace(/\s+/g, ' ').trim();
-    const dashMatch = source.match(/\s+(?:-|—|–|â€”|Ã¢â‚¬â€ )\s+/);
+    const dashMatch = source.match(/\s+(?:-|—|–)\s+/);
     if (dashMatch?.index != null) {
       return {
         timeline: source.slice(0, dashMatch.index).trim(),
@@ -704,45 +696,15 @@ function FollowUpBlock({ followUp }) {
     return { timeline: source.slice(0, colonIdx).trim(), body: source.slice(colonIdx + 1).trim() };
   };
 
-  const handleDateChange = (e) => {
-    const date = e.target.value;
-    dispatch({ type: 'SET_NEXT_REVIEW_DATE', payload: date });
-    if (date) {
-      dispatch({ type: 'SET_PATIENT_STATUS', payload: 'follow-up' });
-    } else {
-      dispatch({ type: 'SET_PATIENT_STATUS', payload: null });
-    }
-  };
-
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-      <div className="relative pl-7">
-        <div className={`absolute left-2 top-2 bottom-2 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
-        {items.map((it, idx) => {
-          const { timeline, body } = parseInstruction(it);
-          return (
-            <FollowUpItem key={idx} timeline={timeline} body={body} isDark={isDark} />
-          );
-        })}
-      </div>
-
-      <div className={`rounded-xl p-4 border ${isDark ? 'bg-[var(--accent-primary)]/10 border-[var(--accent-primary)]/30' : 'bg-[var(--accent-primary)]/5 border-[var(--accent-primary)]/20'}`}>
-        <div className="flex items-center gap-2 mb-2">
-          <Calendar className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.6} />
-          <span className="text-[10px] font-bold uppercase tracking-wider text-[var(--accent-primary)]">Next Review (TCA)</span>
-        </div>
-        <input
-          type="date"
-          value={nextReviewDate}
-          onChange={handleDateChange}
-          min={getTodayUTC8()}
-          className={`w-full px-3 py-2 rounded-lg border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/40
-            ${isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white border-slate-200 text-slate-800'}`}
-        />
-        {suggestedDate && !nextReviewDate && (
-          <p className="text-[11px] mt-1.5 text-[var(--accent-primary)]/80">Suggested from CPG: {suggestedDate} — adjust as needed</p>
-        )}
-      </div>
+    <div className="relative pl-7">
+      <div className={`absolute left-2 top-2 bottom-2 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+      {items.map((it, idx) => {
+        const { timeline, body } = parseInstruction(it);
+        return (
+          <FollowUpItem key={idx} timeline={timeline} body={body} isDark={isDark} />
+        );
+      })}
     </div>
   );
 }
@@ -1352,94 +1314,173 @@ function parseUnresolvedQuestion(q) {
   if (dashMatch) {
     const title = q.slice(0, dashMatch.index).replace(/\*\*/g, '').trim();
     const desc = q.slice(dashMatch.index + dashMatch[0].length).trim();
-    return (
-      <span className="block mb-2.5">
-        <strong className="block font-semibold text-red-600 dark:text-red-400 mb-0.5">{title}</strong>
-        <span className="block opacity-90 leading-snug">{desc}</span>
-      </span>
-    );
+    return { title, desc };
   }
-  return <span className="block mb-2.5">{q.replace(/\*\*/g, '')}</span>;
+  return { title: q.replace(/\*\*/g, ''), desc: null };
 }
 
-/* Unresolved Questions — sub-grouped by source:
-   - Assumption:  load-bearing assumptions the plan depends on (verify before signing)
-   - Cross-check: validator findings (internal consistency — fix the plan itself)
-   - other:       genuine CPG evidence gaps (apply clinical judgement)
-   Bucketing is by text prefix so it works regardless of which Stage-5 commandment
-   produced the entry — no backend coupling. */
+/* Unresolved Questions — sub-grouped into three clinical categories:
+   - medication_interaction:  drug–drug interactions, dose adjustments, contraindications
+   - evidence_gap:            CPG does not specify — apply clinical judgement
+   - missing_data:            patient data not available (labs, history, etc.)
+   Bucketing uses keyword heuristics on the question text. */
 function classifyUnresolved(q) {
-  const stripped = (q || '').replace(/\*\*/g, '').trim();
-  if (/^Assumption:/i.test(stripped)) return 'assumption';
-  if (/^Cross-check:/i.test(stripped)) return 'crosscheck';
-  return 'gap';
+  const stripped = (q || '').replace(/\*\*/g, '').trim().toLowerCase();
+  // Medication Interaction keywords
+  if (
+    /interaction/i.test(stripped) ||
+    /dose\s*(adjustment|reduction|titrat)/i.test(stripped) ||
+    /concurrent/i.test(stripped) ||
+    /contraindic/i.test(stripped) ||
+    /warfarin|amiodarone|fluconazole|inr|anticoagul/i.test(stripped) ||
+    /drug[- ]drug/i.test(stripped) ||
+    /co-administ/i.test(stripped) ||
+    /pharmacist/i.test(stripped)
+  ) return 'medication_interaction';
+  // Missing Data keywords
+  if (
+    /not\s*(provided|available|recorded|known|documented|reported)/i.test(stripped) ||
+    /missing|awaiting\s*data|unknown|not\s*specified.*(?:patient|this)/i.test(stripped) ||
+    /renal\s*function|liver\s*function|lab|baseline|creatinine|egfr/i.test(stripped) ||
+    /^Assumption:/i.test(q.replace(/\*\*/g, '').trim())
+  ) return 'missing_data';
+  // Everything else is an evidence gap
+  return 'evidence_gap';
 }
 
-const UNRESOLVED_GROUPS = [
-  { key: 'assumption', label: 'Assumptions the plan depends on', hint: 'Verify these before signing.' },
-  { key: 'gap',        label: 'Evidence gaps',                   hint: 'CPG does not specify — apply clinical judgement.' },
-  { key: 'crosscheck', label: 'Internal consistency checks',     hint: 'Contradictions inside the plan — fix before signing.' },
-];
+const UNRESOLVED_CATEGORY_CONFIG = {
+  medication_interaction: {
+    label: 'Medication Interaction',
+    hint: 'Drug–drug interactions and dose adjustment concerns.',
+    headerBg: 'bg-orange-50 dark:bg-orange-950/30',
+    headerText: 'text-orange-600 dark:text-orange-400',
+    bodyBg: 'bg-orange-50 dark:bg-orange-950/30',
+    bodyBorder: 'border-orange-100 dark:border-orange-900/30',
+    bulletBg: 'bg-orange-400 dark:bg-orange-500',
+    titleColor: 'text-slate-700 dark:text-slate-200',
+    descColor: 'text-slate-500 dark:text-slate-400',
+    countBg: 'bg-orange-100 text-orange-700 dark:bg-orange-900/50 dark:text-orange-300',
+    icon: 'pill',
+  },
+  evidence_gap: {
+    label: 'Evidence Gaps',
+    hint: 'CPG does not specify — apply clinical judgement.',
+    headerBg: 'bg-blue-50 dark:bg-blue-950/30',
+    headerText: 'text-blue-600 dark:text-blue-400',
+    bodyBg: 'bg-blue-50 dark:bg-blue-950/30',
+    bodyBorder: 'border-blue-100 dark:border-blue-900/30',
+    bulletBg: 'bg-blue-400 dark:bg-blue-500',
+    titleColor: 'text-slate-700 dark:text-slate-200',
+    descColor: 'text-slate-500 dark:text-slate-400',
+    countBg: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
+    icon: 'book',
+  },
+  missing_data: {
+    label: 'Missing Data',
+    hint: 'Patient data not available — verify before proceeding.',
+    headerBg: 'bg-slate-50 dark:bg-slate-800/40',
+    headerText: 'text-slate-600 dark:text-slate-400',
+    bodyBg: 'bg-slate-50 dark:bg-slate-800/40',
+    bodyBorder: 'border-slate-100 dark:border-slate-700/50',
+    bulletBg: 'bg-slate-400 dark:bg-slate-500',
+    titleColor: 'text-slate-700 dark:text-slate-200',
+    descColor: 'text-slate-500 dark:text-slate-400',
+    countBg: 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300',
+    icon: 'alert',
+  },
+};
 
-function UnresolvedQuestionsPanel({ qs, maxVisible = 3, isDark }) {
-  const [expanded, setExpanded] = useState(false);
+const UNRESOLVED_CATEGORY_ORDER = ['medication_interaction', 'evidence_gap', 'missing_data'];
+
+function UnresolvedCategorySection({ categoryKey, items, isDark }) {
+  const [open, setOpen] = useState(true);
+  const cfg = UNRESOLVED_CATEGORY_CONFIG[categoryKey];
+  if (!cfg || items.length === 0) return null;
+
+  const iconEl = categoryKey === 'medication_interaction'
+    ? <Pill className="w-3.5 h-3.5" strokeWidth={2} />
+    : categoryKey === 'evidence_gap'
+      ? <BookOpen className="w-3.5 h-3.5" strokeWidth={2} />
+      : <AlertCircle className="w-3.5 h-3.5" strokeWidth={2} />;
+
+  return (
+    <div className={`rounded-xl overflow-hidden border ${cfg.bodyBorder} transition-colors`}>
+      {/* Colored header bar */}
+      <button
+        onClick={() => setOpen(v => !v)}
+        className={`w-full flex items-center gap-2 px-3.5 py-2.5 text-left ${cfg.headerBg} ${cfg.headerText}`}
+      >
+        {iconEl}
+        <span className="text-[11px] font-bold uppercase tracking-wider flex-1">{cfg.label}</span>
+        <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${cfg.countBg}`}>
+          {items.length}
+        </span>
+        <span className="ml-1 opacity-70 hover:opacity-100 transition-opacity">
+          {open
+            ? <ChevronUp className="w-3.5 h-3.5" strokeWidth={2} />
+            : <ChevronDown className="w-3.5 h-3.5" strokeWidth={2} />}
+        </span>
+      </button>
+
+      {/* Items */}
+      {open && (
+        <div className={`px-3.5 pb-3 pt-1 ${cfg.bodyBg} space-y-2`}>
+          {items.map((q, i) => {
+            const cleaned = q.replace(/^(Assumption|Cross-check):\s*/i, '');
+            const parsed = parseUnresolvedQuestion(cleaned);
+            return (
+              <div key={i} className="flex gap-2 items-start">
+                <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.bulletBg}`} />
+                <div className="flex-1 min-w-0">
+                  <p className={`text-[12px] font-semibold leading-snug ${cfg.titleColor}`}>
+                    {parsed.title}
+                  </p>
+                  {parsed.desc && (
+                    <p className={`text-[11px] leading-relaxed mt-0.5 ${cfg.descColor}`}>
+                      {parsed.desc}
+                    </p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function UnresolvedQuestionsPanel({ qs, isDark }) {
   const grouped = qs.reduce((acc, q) => {
     const k = classifyUnresolved(q);
     (acc[k] = acc[k] || []).push(q);
     return acc;
   }, {});
 
-  // Flatten in group order for the truncated view
-  const orderedAll = UNRESOLVED_GROUPS.flatMap((g) => (grouped[g.key] || []).map((q) => ({ q, group: g.key })));
-  const visible = expanded ? orderedAll : orderedAll.slice(0, maxVisible);
-  const hasMore = orderedAll.length > maxVisible;
-
-  // When collapsed: simple flat list (preserves the existing tight look).
-  // When expanded: sub-grouped with headings so the clinician sees what each entry is for.
-  const visibleByGroup = expanded
-    ? UNRESOLVED_GROUPS.map((g) => ({ ...g, items: grouped[g.key] || [] })).filter((g) => g.items.length > 0)
-    : null;
-
   return (
-    <div className="bg-amber-500/10 border border-amber-500/20 rounded-lg p-3">
-      <p className="text-amber-500 text-xs font-semibold mb-1.5 flex items-center gap-1.5">
-        <AlertCircle className="w-3.5 h-3.5" strokeWidth={2} />
-        Unresolved Questions
-        <span className={`font-sans text-[10px] px-1.5 py-0.5 rounded-full ${
+    <div className={`rounded-xl border p-3.5 space-y-2.5 ${
+      isDark ? 'bg-slate-800/30 border-white/10' : 'bg-white/60 border-slate-200'
+    }`}>
+      {/* Header */}
+      <div className="flex items-center gap-2 mb-1">
+        <AlertCircle className="w-4 h-4 text-amber-500" strokeWidth={2} />
+        <span className="text-sm font-bold text-amber-500">Unresolved Questions</span>
+        <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
           isDark ? 'bg-amber-500/20 text-amber-400' : 'bg-amber-100 text-amber-700'
         }`}>
           {qs.length}
         </span>
-      </p>
+      </div>
 
-      {!expanded && (
-        <ul className={`text-[11px] space-y-1.5 pl-3 list-disc leading-relaxed ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
-          {visible.map(({ q }, i) => <li key={i}>{parseUnresolvedQuestion(q)}</li>)}
-        </ul>
-      )}
-
-      {expanded && visibleByGroup.map((g) => (
-        <div key={g.key} className="mt-2 first:mt-0">
-          <p className={`text-[10px] font-bold uppercase tracking-wider mb-1 ${isDark ? 'text-amber-300/90' : 'text-amber-700/90'}`}>
-            {g.label} ({g.items.length})
-          </p>
-          <p className={`text-[10px] mb-1.5 italic ${isDark ? 'text-amber-200/60' : 'text-amber-700/60'}`}>{g.hint}</p>
-          <ul className={`text-[11px] space-y-1.5 pl-3 list-disc leading-relaxed ${isDark ? 'text-amber-200/80' : 'text-amber-700/80'}`}>
-            {g.items.map((q, i) => <li key={i}>{parseUnresolvedQuestion(q.replace(/^(Assumption|Cross-check):\s*/i, ''))}</li>)}
-          </ul>
-        </div>
+      {/* Category sections */}
+      {UNRESOLVED_CATEGORY_ORDER.map((key) => (
+        <UnresolvedCategorySection
+          key={key}
+          categoryKey={key}
+          items={grouped[key] || []}
+          isDark={isDark}
+        />
       ))}
-
-      {hasMore && (
-        <button
-          onClick={() => setExpanded(v => !v)}
-          className={`mt-2 text-[10px] font-semibold transition-colors ${
-            isDark ? 'text-amber-400 hover:text-amber-300' : 'text-amber-600 hover:text-amber-700'
-          }`}
-        >
-          {expanded ? 'Show fewer' : `Show all ${qs.length} — grouped by type`}
-        </button>
-      )}
     </div>
   );
 }
@@ -1502,6 +1543,15 @@ export function CarePlanSection() {
   const handleRegenerate = async (feedback) => {
     console.log('Regenerating with feedback:', feedback);
     await new Promise((resolve) => setTimeout(resolve, 1500));
+  };
+
+  const handleNextReviewChange = (date) => {
+    dispatch({ type: 'SET_NEXT_REVIEW_DATE', payload: date });
+    if (date) {
+      dispatch({ type: 'SET_PATIENT_STATUS', payload: 'follow-up' });
+    } else {
+      dispatch({ type: 'SET_PATIENT_STATUS', payload: null });
+    }
   };
 
   const generateCarePlanSummary = () => {
@@ -1569,37 +1619,79 @@ export function CarePlanSection() {
           <GlassCard className="p-4 border-l-4 border-[var(--accent-primary)] sticky top-4">
             <h3 className={`text-base font-semibold mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Reference Context</h3>
 
-            <div className="space-y-3">
-              {/* Diagnosis + Allergies: compact 2-column grid */}
-              <div className="grid grid-cols-2 gap-3">
+            <div className="space-y-4">
+              {/* Diagnosis + Allergies: card-based layout */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* Diagnoses Column */}
                 <div>
-                  <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Diagnosis</span>
+                  <span className={`text-[11px] font-bold uppercase tracking-wider ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                    Diagnoses{selectedDiagnoses.length > 0 ? ` (${selectedDiagnoses.length})` : ''}
+                  </span>
                   {selectedDiagnoses.length > 0 ? (
-                    <div className="mt-1 space-y-1.5">
+                    <div className="mt-2 space-y-2">
                       {selectedDiagnoses.map((d) => (
-                        <div key={d.id}>
-                          <p className={`text-sm font-bold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{d.name}</p>
-                          {d.icdCode && (
-                            <span className={`text-[10px] font-sans ${isDark ? 'text-[var(--accent-primary)]' : 'text-blue-600'}`}>ICD-11: {d.icdCode}</span>
-                          )}
+                        <div
+                          key={d.id}
+                          className={`p-3 rounded-xl border transition-all ${
+                            isDark
+                              ? 'bg-slate-800/60 border-slate-700/60 hover:border-slate-600'
+                              : 'bg-white border-slate-200 shadow-sm hover:shadow-md'
+                          }`}
+                        >
+                          <div className="flex-1 min-w-0">
+                            <p className={`text-[13px] font-semibold leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                              {d.name}
+                            </p>
+                            {d.icdCode && (
+                              <span className={`text-[10px] font-medium mt-1 inline-block ${isDark ? 'text-blue-400' : 'text-blue-600'}`}>
+                                ICD-11: {d.icdCode}
+                              </span>
+                            )}
+                          </div>
                         </div>
                       ))}
                     </div>
                   ) : (
-                    <p className={`text-sm mt-1 ${isDark ? 'text-white' : 'text-slate-800'}`}>None selected</p>
+                    <p className={`text-sm mt-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>None selected</p>
                   )}
                 </div>
+
+                {/* Allergies Column */}
                 <div>
-                  <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Allergies</span>
-                  {allergiesList.length > 0 ? (
-                    <div className="flex flex-wrap gap-1 mt-1">
-                      {allergiesList.map((a, idx) => (
-                        <span key={idx} className="bg-red-100 text-red-700 border border-red-300 rounded-full px-2 py-0.5 text-[10px] font-semibold">{a}</span>
-                      ))}
-                    </div>
-                  ) : (
-                    <p className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>None known</p>
-                  )}
+                  <span className={`text-[11px] font-bold uppercase tracking-wider ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                    Allergies
+                  </span>
+                  <div className="mt-2">
+                    {allergiesList.length > 0 ? (
+                      <div className="space-y-2">
+                        {allergiesList.map((a, idx) => (
+                          <div
+                            key={idx}
+                            className={`p-3 rounded-xl border ${
+                              isDark
+                                ? 'bg-red-950/30 border-red-500/20'
+                                : 'bg-red-50/60 border-red-200 shadow-sm'
+                            }`}
+                          >
+                            <span className={`text-[13px] font-semibold ${isDark ? 'text-red-300' : 'text-red-700'}`}>{a}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className={`p-3 rounded-xl border flex items-center gap-2 ${
+                        isDark
+                          ? 'bg-slate-800/60 border-slate-700/60'
+                          : 'bg-white border-slate-200 shadow-sm'
+                      }`}>
+                        <span className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center ${
+                          isDark ? 'bg-emerald-500/15 text-emerald-400' : 'bg-emerald-50 text-emerald-500'
+                        }`}>
+                          <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </span>
+                        <span className={`text-[13px] font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>None known</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
 
@@ -1643,7 +1735,7 @@ export function CarePlanSection() {
 
               {/* Unresolved Questions — collapsible, shows first 3 */}
               {carePlan?.unresolvedQuestions?.length > 0 && (
-                <UnresolvedQuestionsPanel qs={carePlan.unresolvedQuestions} maxVisible={3} isDark={isDark} />
+                <UnresolvedQuestionsPanel qs={carePlan.unresolvedQuestions} isDark={isDark} />
               )}
             </div>
           </GlassCard>
@@ -1788,6 +1880,8 @@ export function CarePlanSection() {
               onRegenerate={handleRegenerate}
               history={workflowHistory}
               disabled={safetyBlocksApprove}
+              nextReviewDate={state.nextReviewDate || ''}
+              onNextReviewChange={handleNextReviewChange}
             />
           </div>
         </div>

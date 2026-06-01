@@ -6,7 +6,8 @@ import {
   User, 
   ChevronDown,
   History,
-  RefreshCw
+  RefreshCw,
+  Calendar
 } from 'lucide-react';
 import { Badge, Button } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
@@ -61,14 +62,16 @@ export function WorkflowStatusBadge({ status, size = 'md' }) {
   );
 }
 
-// Workflow Actions Panel - Simplified
+// Workflow Actions Panel - with optional TCA date picker
 export function WorkflowActions({ 
   currentStatus, 
   onStatusChange, 
   onReject,
   onRegenerate,
   history = [],
-  disabled = false 
+  disabled = false,
+  nextReviewDate = '',
+  onNextReviewChange
 }) {
   const { isDark } = useTheme();
   const [showHistory, setShowHistory] = useState(false);
@@ -96,6 +99,13 @@ export function WorkflowActions({
       setComment('');
       setIsRejected(false);
     }
+  };
+
+  // Get today's date in YYYY-MM-DD for the min attribute
+  const getTodayStr = () => {
+    const now = new Date();
+    const utc8 = new Date(now.getTime() + 8 * 60 * 60 * 1000);
+    return utc8.toISOString().split('T')[0];
   };
 
   return (
@@ -155,9 +165,49 @@ export function WorkflowActions({
         </div>
       )}
 
-      {/* Normal State - Show Approve/Reject */}
+      {/* Normal State - Show TCA + Approve/Reject */}
       {!isRejected && currentStatus !== WORKFLOW_STATES.APPROVED && (
         <>
+          {/* Next Review (TCA) — optional date picker */}
+          {onNextReviewChange && (
+            <div className={`mb-4 p-3.5 rounded-xl border ${isDark ? 'bg-[var(--accent-primary)]/5 border-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/5 border-[var(--accent-primary)]/15'}`}>
+              <div className="flex items-center gap-2 mb-2">
+                <Calendar className="w-4 h-4 text-[var(--accent-primary)]" strokeWidth={1.6} />
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent-primary)]">Next Review (TCA)</span>
+                <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                  nextReviewDate 
+                    ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] font-semibold' 
+                    : isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-100 text-slate-500'
+                }`}>
+                  {nextReviewDate ? 'Scheduled' : 'Optional'}
+                </span>
+              </div>
+              <p className={`text-[11px] mb-2.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                Set a follow-up date if this patient requires a return visit. Leave empty for no follow-up.
+              </p>
+              <div className="flex items-center gap-2">
+                <input
+                  type="date"
+                  value={nextReviewDate}
+                  onChange={(e) => onNextReviewChange(e.target.value)}
+                  min={getTodayStr()}
+                  className={`flex-1 px-3 py-2 rounded-lg border text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/40
+                    ${isDark ? 'bg-white/10 border-white/20 text-white' : 'bg-white border-slate-200 text-slate-800'}
+                    ${!nextReviewDate ? (isDark ? 'text-slate-500' : 'text-slate-400') : ''}`}
+                />
+                {nextReviewDate && (
+                  <button
+                    onClick={() => onNextReviewChange('')}
+                    className={`p-2 rounded-lg transition-colors ${isDark ? 'text-slate-400 hover:bg-white/10 hover:text-slate-200' : 'text-slate-400 hover:bg-slate-100 hover:text-slate-600'}`}
+                    title="Clear date"
+                  >
+                    <XCircle className="w-4 h-4" strokeWidth={1.5} />
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+
           {/* AI Feedback Info */}
           <div className={`mb-3 p-3 rounded-lg ${isDark ? 'bg-[var(--accent-primary)]/10' : 'bg-[var(--accent-primary)]/5'}`}>
             <p className={`text-xs ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>

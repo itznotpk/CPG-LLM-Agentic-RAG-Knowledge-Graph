@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp, AlertOctagon } from 'lucide-react';
+import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp, ChevronRight, AlertOctagon } from 'lucide-react';
 import { Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -95,9 +95,9 @@ function safetyFlagTitle(flag) {
 }
 
 function severityBg(severity, isDark) {
-  if (severity === 'CRITICAL') return isDark ? 'bg-red-500/10 border-red-500/30' : 'bg-red-50/80 border-red-300';
-  if (severity === 'MAJOR')    return isDark ? 'bg-amber-500/10 border-amber-500/20' : 'bg-amber-50/50 border-amber-200';
-  return isDark ? 'bg-slate-500/10 border-slate-500/20' : 'bg-slate-50 border-slate-200';
+  if (severity === 'CRITICAL') return isDark ? 'bg-slate-900/50 border-slate-700 border-l-[4px] border-l-red-500' : 'bg-white border-slate-200 shadow-sm border-l-[4px] border-l-red-600';
+  if (severity === 'MAJOR')    return isDark ? 'bg-slate-900/50 border-slate-700 border-l-[4px] border-l-amber-500' : 'bg-white border-slate-200 shadow-sm border-l-[4px] border-l-amber-500';
+  return isDark ? 'bg-slate-900/50 border-slate-700 border-l-[4px] border-l-slate-400' : 'bg-white border-slate-200 shadow-sm border-l-[4px] border-l-slate-400';
 }
 
 const DECISION_LABELS = {
@@ -152,7 +152,8 @@ function classifyFlag(flag, plannedMeds, currentMeds) {
 
 export function SafetyReviewBanner({ report, onAcknowledge, acknowledged, plannedMeds = [], currentMeds = [], onJumpToMed }) {
   const { isDark } = useTheme();
-  const [expanded, setExpanded] = useState(false);
+  const [expandedSections, setExpandedSections] = useState({ CRITICAL: true, MAJOR: true, MODERATE: true });
+  const [isMainExpanded, setIsMainExpanded] = useState(true);
   // decisions: { [flagKey]: { decision: 'replace'|'keep'|'remove', alternative?, reason? } }
   const [decisions, setDecisions] = useState({});
   const [criticalReasonModal, setCriticalReasonModal] = useState(null); // { flagKey } | null
@@ -271,237 +272,343 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged, planne
     setCriticalReasonDraft('');
   };
 
+  const totalFlags = flags.length;
+  const decidedCount = flags.filter((f, i) => !!decisions[flagKey(f, i)]).length;
+  const progressPercent = totalFlags > 0 ? (decidedCount / totalFlags) * 100 : 0;
+  
+  const toggleSection = (sev) => {
+    setExpandedSections(prev => ({ ...prev, [sev]: !prev[sev] }));
+  };
+
+  const severityOrder = ['CRITICAL', 'MAJOR', 'MODERATE'];
+
   return (
-    <div className={`rounded-xl border mb-4 overflow-hidden ${bannerBg}`}>
-      <button
-        onClick={() => setExpanded(v => !v)}
-        className="w-full flex items-center justify-between px-4 py-3 text-left"
-      >
-        <div className="flex items-center gap-2">
-          <Icon className={`w-5 h-5 shrink-0 ${iconColor}`} strokeWidth={2} />
-          <span className={`text-sm font-semibold ${textColor}`}>
-            {isRed ? 'Safety concerns require acknowledgement' : 'Safety concerns detected'}
-          </span>
-          <span className={`text-xs font-medium ${textColor} opacity-80`}>— {summary}</span>
+    <div className={`rounded-xl border mb-4 overflow-hidden shadow-sm ${
+      isRed ? (isDark ? 'bg-red-950/20 border-red-700/50' : 'bg-red-50/50 border-red-200') : (isDark ? 'bg-yellow-950/20 border-yellow-600/40' : 'bg-amber-50 border-amber-200')
+    }`}>
+      {/* Header */}
+      <button 
+        onClick={() => setIsMainExpanded(!isMainExpanded)}
+        className={`w-full text-left px-4 py-4 border-b flex items-center justify-between gap-3 ${
+        isRed ? (isDark ? 'border-red-900/50 hover:bg-red-900/20' : 'border-red-100 hover:bg-red-50/80') : (isDark ? 'border-yellow-900/50 hover:bg-yellow-900/20' : 'border-amber-100 hover:bg-amber-50/80')
+      } transition-colors`}>
+        <div className="flex items-center gap-3">
+          <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 shadow-sm ${
+            isRed ? 'bg-red-600' : 'bg-amber-500'
+          }`}>
+            <Icon className="w-5 h-5 text-white" strokeWidth={2} />
+          </div>
+          <div className="flex-1">
+            <h3 className={`text-base font-bold ${
+              isRed ? (isDark ? 'text-red-400' : 'text-red-900') : (isDark ? 'text-yellow-400' : 'text-amber-900')
+            }`}>
+              {isRed ? 'Safety concerns require acknowledgement' : 'Safety concerns detected'}
+            </h3>
+            <div className="flex items-center gap-2 mt-1.5">
+              {critCount > 0 && (
+                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold border ${
+                  isDark ? 'bg-red-900/40 text-red-300 border-red-800' : 'bg-red-100 text-red-700 border-red-200'
+                }`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-red-400' : 'bg-red-600'}`} />
+                  {critCount} Critical
+                </span>
+              )}
+              {majorCount > 0 && (
+                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold border ${
+                  isDark ? 'bg-amber-900/40 text-amber-300 border-amber-800' : 'bg-amber-100 text-amber-700 border-amber-200'
+                }`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-amber-400' : 'bg-amber-500'}`} />
+                  {majorCount} Major
+                </span>
+              )}
+              {modCount > 0 && (
+                <span className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-semibold border ${
+                  isDark ? 'bg-blue-900/40 text-blue-300 border-blue-800' : 'bg-blue-100 text-blue-700 border-blue-200'
+                }`}>
+                  <span className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-blue-400' : 'bg-blue-500'}`} />
+                  {modCount} Moderate
+                </span>
+              )}
+            </div>
+          </div>
         </div>
-        <div className={`w-5 h-5 ${textColor}`}>
-          {expanded ? <ChevronUp strokeWidth={2} /> : <ChevronDown strokeWidth={2} />}
+        <div className={`w-5 h-5 shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          {isMainExpanded ? <ChevronUp strokeWidth={2} /> : <ChevronDown strokeWidth={2} />}
         </div>
       </button>
 
-      {expanded && (
-        <div className="px-4 pb-4 space-y-2">
-          <p className={`text-xs font-medium px-1 ${textColor} opacity-90`}>{tightenedNote}</p>
+      {isMainExpanded && (
+        <>
+          {/* Decision Progress */}
+      {totalFlags > 0 && (
+        <div className={`px-4 py-3 border-b flex items-center justify-between gap-4 ${
+          isDark ? 'border-slate-700/50 bg-slate-800/50' : 'border-slate-100 bg-white'
+        }`}>
+          <span className={`text-sm font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Decision progress</span>
+          <div className={`flex-1 h-1.5 rounded-full overflow-hidden ${isDark ? 'bg-slate-700' : 'bg-slate-200'}`}>
+            <div 
+              className={`h-full rounded-full transition-all duration-300 ${decidedCount === totalFlags ? 'bg-emerald-500' : 'bg-emerald-400'}`}
+              style={{ width: `${progressPercent}%` }} 
+            />
+          </div>
+          <span className={`text-sm font-bold ${decidedCount === totalFlags ? 'text-emerald-600' : 'text-emerald-500'}`}>
+            {decidedCount}/{totalFlags} decided
+          </span>
+        </div>
+      )}
 
-          {flags.map((flag, i) => {
-            const key = flagKey(flag, i);
-            const decision = decisions[key];
-            const isCritical = flag.severity === 'CRITICAL';
-            const titleDrugs = extractDrugNames(flag.title || safetyFlagTitle(flag));
-            const alternatives = extractAlternatives(flag.suggested_alternative, titleDrugs);
-
-            return (
-              <div
-                key={key}
-                className={`rounded-lg border px-3 py-2 ${severityBg(flag.severity, isDark)} ${
-                  isCritical ? 'border-l-4' : ''
-                } ${isCritical && (isDark ? 'border-l-red-500' : 'border-l-red-600')}`}
+      {/* Rows for each severity */}
+      <div className={isDark ? 'bg-slate-900/30' : 'bg-white rounded-b-xl'}>
+        {severityOrder.map(severity => {
+          const severityFlags = flags.filter(f => f.severity === severity);
+          if (severityFlags.length === 0) return null;
+          
+          const isExpanded = expandedSections[severity];
+          
+          return (
+            <div key={severity} className={`border-b last:border-b-0 ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
+              <button 
+                onClick={() => toggleSection(severity)}
+                className={`w-full flex items-center px-4 py-3 gap-3 transition-colors ${
+                  isDark ? 'hover:bg-slate-800/50' : 'hover:bg-slate-50'
+                }`}
               >
-                <div className="flex items-start gap-2">
-                  <Badge
-                    variant={isCritical ? 'danger' : flag.severity === 'MAJOR' ? 'warning' : 'gray'}
-                    size="sm"
-                    className="shrink-0 mt-0.5 font-bold uppercase text-[10px] gap-1.5"
-                  >
-                    {isCritical && <AlertOctagon className="w-3 h-3" />}
-                    {!isCritical && (
-                      <span className={`w-1.5 h-1.5 rounded-full ${
-                        flag.severity === 'MAJOR' ? 'bg-amber-500' : 'bg-slate-400'
-                      }`} />
-                    )}
-                    {flag.severity}
-                  </Badge>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center flex-wrap gap-2">
-                      <p className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
-                        {safetyFlagTitle(flag)}
-                      </p>
-                      {flag._matchedMed?.id && onJumpToMed && (
-                        <button
-                          type="button"
-                          onClick={(e) => { e.stopPropagation(); onJumpToMed(flag._matchedMed.id); }}
-                          className={`text-[11px] font-medium underline-offset-2 hover:underline ${
-                            isDark ? 'text-sky-400 hover:text-sky-300' : 'text-sky-700 hover:text-sky-900'
-                          }`}
-                          title={`Jump to this drug in the ${flag._matchedMed.section} list`}
-                        >
-                          → in {flag._matchedMed.section} list
-                        </button>
-                      )}
-                    </div>
-                    <p className={`text-xs mt-1 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                      <span className={isDark ? 'text-slate-300' : 'text-slate-700'}>Impact: </span>{flag.detail}
-                    </p>
-
-                    {flag.suggested_alternative && alternatives.length === 0 && (
-                      <p className={`text-xs mt-1 font-medium ${isDark ? 'text-sky-400' : 'text-sky-700'}`}>
-                        Consider: {flag.suggested_alternative}
-                      </p>
-                    )}
-
-                    {alternatives.length > 0 && (
-                      <div className="mt-2 flex flex-wrap items-center gap-1.5">
-                        <span className={`text-[11px] font-medium mr-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                          Replace with:
-                        </span>
-                        {alternatives.map((alt) => (
-                          <button
-                            key={alt}
-                            type="button"
-                            disabled={!!decision}
-                            onClick={() => handleReplace(key, titleDrugs, alt)}
-                            className={`text-[11px] font-semibold px-2 py-1 rounded-full border transition-colors ${
-                              decision?.alternative === alt
-                                ? (isDark ? 'bg-sky-500/20 border-sky-400/60 text-sky-200' : 'bg-sky-100 border-sky-400 text-sky-800')
-                                : (isDark ? 'bg-sky-900/30 border-sky-700/50 text-sky-300 hover:bg-sky-800/40' : 'bg-sky-50 border-sky-300 text-sky-800 hover:bg-sky-100')
-                            } ${decision ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
-                          >
-                            {alt}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Per-flag decision row */}
-                    <div className="mt-2.5 flex flex-wrap items-center gap-1.5">
-                      {decision ? (
-                        <>
-                          <span className={`text-[11px] font-semibold px-2 py-1 rounded-full ${
-                            isDark ? 'bg-emerald-900/40 text-emerald-300' : 'bg-emerald-100 text-emerald-800'
-                          }`}>
-                            ✓ {DECISION_LABELS[decision.decision]}
-                            {decision.alternative ? ` → ${decision.alternative}` : ''}
-                          </span>
-                          {decision.reason && (
-                            <span className={`text-[11px] italic ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                              "{decision.reason}"
-                            </span>
-                          )}
-                          <button
-                            type="button"
-                            onClick={() => setDecisions((prev) => { const n = { ...prev }; delete n[key]; return n; })}
-                            className={`text-[11px] underline ${isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-500 hover:text-slate-700'}`}
-                          >
-                            change
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          {alternatives.length === 0 && (
-                            <button
-                              type="button"
-                              onClick={() => handleReplace(key, titleDrugs, null)}
-                              className={`text-[11px] font-medium px-2 py-1 rounded-md border ${
-                                isDark ? 'border-sky-700/60 text-sky-300 hover:bg-sky-900/30' : 'border-sky-300 text-sky-700 hover:bg-sky-50'
-                              }`}
-                            >
-                              Replace
-                            </button>
-                          )}
-                          <button
-                            type="button"
-                            onClick={() => handleKeep(key, flag)}
-                            className={`text-[11px] font-medium px-2 py-1 rounded-md border ${
-                              isDark ? 'border-amber-700/60 text-amber-300 hover:bg-amber-900/30' : 'border-amber-300 text-amber-700 hover:bg-amber-50'
-                            }`}
-                          >
-                            Keep + acknowledge risk
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => handleRemove(key, titleDrugs)}
-                            className={`text-[11px] font-medium px-2 py-1 rounded-md border ${
-                              isDark ? 'border-slate-600 text-slate-300 hover:bg-slate-700/40' : 'border-slate-300 text-slate-700 hover:bg-slate-100'
-                            }`}
-                          >
-                            Remove from plan
-                          </button>
-                        </>
-                      )}
-                    </div>
-                  </div>
+                <div className={`w-4 h-4 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  {isExpanded ? <ChevronDown strokeWidth={2} className="w-4 h-4" /> : <ChevronRight strokeWidth={2} className="w-4 h-4" />}
                 </div>
-              </div>
-            );
-          })}
+                
+                <Badge
+                  variant={severity === 'CRITICAL' ? 'danger' : severity === 'MAJOR' ? 'warning' : 'gray'}
+                  size="sm"
+                  className="shrink-0 font-bold uppercase text-[10px] gap-1.5"
+                >
+                  {severity === 'CRITICAL' && <AlertOctagon className="w-3 h-3" />}
+                  {severity !== 'CRITICAL' && (
+                    <span className={`w-1.5 h-1.5 rounded-full ${
+                      severity === 'MAJOR' ? 'bg-amber-500' : 'bg-slate-400'
+                    }`} />
+                  )}
+                  {severity}
+                </Badge>
+                
+                <span className={`text-sm font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                  {severityFlags.length} concern{severityFlags.length === 1 ? '' : 's'}
+                </span>
+              </button>
+              
+              {isExpanded && (
+                <div className="px-4 pb-4 pl-12 space-y-3 pt-1">
+                  {severityFlags.map((flag) => {
+                    const idx = flags.indexOf(flag);
+                    const key = flagKey(flag, idx);
+                    const decision = decisions[key];
+                    const titleDrugs = extractDrugNames(flag.title || safetyFlagTitle(flag));
+                    const alternatives = extractAlternatives(flag.suggested_alternative, titleDrugs);
 
-          {/* Informational: drug is on patient's current med list but not in the new plan.
-              No plan-side decision possible — surfaced so the clinician can review
-              the patient's existing prescription separately. */}
-          {currentOnlyFlags.length > 0 && (
-            <div className={`mt-2 rounded-lg border-l-4 ${
+                    return (
+                      <div
+                        key={key}
+                        className={`rounded-lg px-3 py-3 ${severityBg(flag.severity, isDark)}`}
+                      >
+                        <div>
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-center flex-wrap gap-2">
+                              <p className={`text-sm font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>
+                                {safetyFlagTitle(flag)}
+                              </p>
+                              {flag._matchedMed?.id && onJumpToMed && (
+                                <button
+                                  type="button"
+                                  onClick={(e) => { e.stopPropagation(); onJumpToMed(flag._matchedMed.id); }}
+                                  className={`text-[11px] font-medium underline-offset-2 hover:underline ${
+                                    isDark ? 'text-sky-400 hover:text-sky-300' : 'text-sky-700 hover:text-sky-900'
+                                  }`}
+                                  title={`Jump to this drug in the ${flag._matchedMed.section} list`}
+                                >
+                                  → in {flag._matchedMed.section} list
+                                </button>
+                              )}
+                            </div>
+                            {flag.suggested_alternative && (
+                              <p className={`text-[13px] mt-2 font-medium ${isDark ? 'text-sky-400' : 'text-sky-700'}`}>
+                                <span className="font-bold">Consider:</span> {flag.suggested_alternative}
+                              </p>
+                            )}
+
+                            <details className="mt-2.5 group">
+                              <summary className={`text-[12px] font-medium cursor-pointer select-none outline-none flex items-center gap-1 w-max opacity-80 hover:opacity-100 transition-opacity ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                                <span className="group-open:hidden flex items-center gap-1"><ChevronRight className="w-3 h-3" /> Show clinical impact</span>
+                                <span className="hidden group-open:flex items-center gap-1"><ChevronDown className="w-3 h-3" /> Hide clinical impact</span>
+                              </summary>
+                              <p className={`text-[13px] mt-1.5 leading-relaxed pl-3 py-0.5 border-l-2 ${isDark ? 'text-slate-400 border-slate-700' : 'text-slate-600 border-slate-200'}`}>
+                                {flag.detail}
+                              </p>
+                            </details>
+
+                            {alternatives.length > 0 && (
+                              <div className="mt-3 flex flex-wrap items-center gap-2">
+                                <span className={`text-xs font-medium mr-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                                  Replace with:
+                                </span>
+                                {alternatives.map((alt) => (
+                                  <button
+                                    key={alt}
+                                    type="button"
+                                    disabled={!!decision}
+                                    onClick={() => handleReplace(key, titleDrugs, alt)}
+                                    className={`text-[11px] font-semibold px-2.5 py-1.5 rounded-full border transition-colors ${
+                                      decision?.alternative === alt
+                                        ? (isDark ? 'bg-sky-500/20 border-sky-400/60 text-sky-200' : 'bg-sky-100 border-sky-400 text-sky-800')
+                                        : (isDark ? 'bg-sky-900/30 border-sky-700/50 text-sky-300 hover:bg-sky-800/40' : 'bg-sky-50 border-sky-300 text-sky-800 hover:bg-sky-100')
+                                    } ${decision ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer'}`}
+                                  >
+                                    {alt}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+
+                            {/* Per-flag decision row */}
+                            <div className="mt-3.5 flex flex-wrap items-center gap-2">
+                              {decision ? (
+                                <>
+                                  <span className={`text-[11px] font-semibold px-2.5 py-1.5 rounded-md ${
+                                    isDark ? 'bg-emerald-900/40 text-emerald-300 border border-emerald-800' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                                  }`}>
+                                    ✓ {DECISION_LABELS[decision.decision]}
+                                    {decision.alternative ? ` → ${decision.alternative}` : ''}
+                                  </span>
+                                  {decision.reason && (
+                                    <span className={`text-[11px] italic ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                                      "{decision.reason}"
+                                    </span>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={() => setDecisions((prev) => { const n = { ...prev }; delete n[key]; return n; })}
+                                    className={`text-[11px] font-medium underline-offset-2 underline ${isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-500 hover:text-slate-700'}`}
+                                  >
+                                    Change
+                                  </button>
+                                </>
+                              ) : (
+                                <>
+                                  {alternatives.length === 0 && (
+                                    <button
+                                      type="button"
+                                      onClick={() => handleReplace(key, titleDrugs, null)}
+                                      className={`text-xs font-medium px-3 py-1.5 rounded-md border transition-colors ${
+                                        isDark ? 'border-sky-700/60 text-sky-300 hover:bg-sky-900/30' : 'border-sky-300 text-sky-700 hover:bg-sky-50'
+                                      }`}
+                                    >
+                                      Replace
+                                    </button>
+                                  )}
+                                  <button
+                                    type="button"
+                                    onClick={() => handleKeep(key, flag)}
+                                    className={`text-xs font-medium px-3 py-1.5 rounded-md border transition-colors ${
+                                      isDark ? 'border-amber-700/60 text-amber-300 hover:bg-amber-900/30' : 'border-amber-300 text-amber-700 hover:bg-amber-50'
+                                    }`}
+                                  >
+                                    Keep + acknowledge risk
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => handleRemove(key, titleDrugs)}
+                                    className={`text-xs font-medium px-3 py-1.5 rounded-md border transition-colors ${
+                                      isDark ? 'border-slate-600 text-slate-300 hover:bg-slate-700/40' : 'border-slate-300 text-slate-700 hover:bg-slate-100'
+                                    }`}
+                                  >
+                                    Remove from plan
+                                  </button>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          );
+        })}
+        
+        {/* Informational: drug is on patient's current med list but not in the new plan. */}
+        {currentOnlyFlags.length > 0 && (
+          <div className={`p-4 border-t ${isDark ? 'border-slate-800' : 'border-slate-100'}`}>
+            <div className={`rounded-lg border-l-4 ${
               isDark ? 'bg-sky-900/15 border-l-sky-500 border border-sky-700/30' : 'bg-sky-50/60 border-l-sky-500 border border-sky-200'
-            } px-3 py-2`}>
-              <p className={`text-[11px] font-semibold uppercase tracking-wider mb-1 ${isDark ? 'text-sky-300' : 'text-sky-800'}`}>
+            } px-4 py-3`}>
+              <p className={`text-[11px] font-semibold uppercase tracking-wider mb-1.5 ${isDark ? 'text-sky-300' : 'text-sky-800'}`}>
                 Review existing prescription ({currentOnlyFlags.length})
               </p>
-              <p className={`text-xs mb-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              <p className={`text-xs mb-2.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 These drugs are on the patient's current med list but not in this plan. No plan change needed; review with the patient.
               </p>
-              <ul className={`text-xs space-y-1 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+              <ul className={`text-xs space-y-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                 {currentOnlyFlags.map((f, i) => (
                   <li key={`co-${i}`}><span className="font-semibold">{safetyFlagTitle(f)}</span> — {f.detail}</li>
                 ))}
               </ul>
             </div>
-          )}
+          </div>
+        )}
 
-          {/* Informational: class-level / no-match flags (likely Stage 6 critic noise). */}
-          {noiseFlags.length > 0 && (
-            <details className={`mt-2 rounded-lg border ${
+        {/* Informational: class-level / no-match flags (likely Stage 6 critic noise). */}
+        {noiseFlags.length > 0 && (
+          <div className={`px-4 pb-4 ${currentOnlyFlags.length === 0 ? 'pt-4 border-t ' + (isDark ? 'border-slate-800' : 'border-slate-100') : ''}`}>
+            <details className={`rounded-lg border ${
               isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-slate-50 border-slate-200'
-            } px-3 py-2`}>
+            } px-4 py-3`}>
               <summary className={`text-[11px] font-semibold uppercase tracking-wider cursor-pointer ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 Class-level notices not matched to a prescribed drug ({noiseFlags.length})
               </summary>
-              <p className={`text-xs mt-2 mb-2 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+              <p className={`text-xs mt-2.5 mb-2.5 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
                 These flags reference a drug class or alternative drug that is not in the active plan or current meds. Shown for audit; no action required.
               </p>
-              <ul className={`text-xs space-y-1 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+              <ul className={`text-xs space-y-1.5 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                 {noiseFlags.map((f, i) => (
                   <li key={`noise-${i}`}><span className="font-semibold">{safetyFlagTitle(f)}</span> — {f.detail}</li>
                 ))}
               </ul>
             </details>
-          )}
-
-          {/* Acknowledge button — only enabled once every flag has a decision */}
-          {isRed && !acknowledged && (
-            <div className="pt-2 flex items-center gap-3">
-              <Button
-                variant="danger"
-                size="sm"
-                disabled={!allDecided}
-                onClick={() => onAcknowledge?.(decisions)}
-                title={allDecided ? undefined : 'Resolve every flag (Replace / Keep / Remove) to enable'}
-              >
-                I have reviewed these concerns and accept clinical responsibility
-              </Button>
-              {!allDecided && (
-                <span className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                  {flags.filter((f, i) => !decisions[flagKey(f, i)]).length} flag(s) still need a decision
-                </span>
-              )}
-            </div>
-          )}
-          {isRed && acknowledged && (
-            <div className={`flex items-center gap-2 text-xs font-medium pt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              <ShieldCheck className="w-3.5 h-3.5" />
-              Concerns acknowledged — Approve is now enabled
-            </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
+      
+      {/* Footer Acknowledge Button Container */}
+      <div className={`px-4 py-3 border-t ${
+        isDark ? 'bg-slate-900/50 border-slate-800' : 'bg-slate-50 border-slate-200'
+      }`}>
+        {isRed && !acknowledged && (
+          <div className="flex flex-wrap items-center gap-3">
+            <Button
+              variant="danger"
+              size="sm"
+              disabled={!allDecided}
+              onClick={() => onAcknowledge?.(decisions)}
+              title={allDecided ? undefined : 'Resolve every flag (Replace / Keep / Remove) to enable'}
+            >
+              I have reviewed these concerns and accept clinical responsibility
+            </Button>
+            {!allDecided && (
+              <span className={`text-xs font-medium ${isDark ? 'text-red-400' : 'text-red-600'}`}>
+                {totalFlags - decidedCount} flag(s) still need a decision
+              </span>
+            )}
+          </div>
+        )}
+        {isRed && acknowledged && (
+          <div className={`flex items-center gap-2 text-sm font-medium ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>
+            <ShieldCheck className="w-4 h-4" strokeWidth={2} />
+            Concerns acknowledged — Approve is now enabled
+          </div>
+        )}
+      </div>
+      </>)}
 
       {/* CRITICAL keep-reason modal */}
       {criticalReasonModal && (
