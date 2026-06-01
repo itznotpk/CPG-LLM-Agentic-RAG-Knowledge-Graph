@@ -119,7 +119,7 @@ This section provides a framework and ideas for how **YOU** can evaluate your sy
 ## Benchmark Scenario Set
 
 **Test Cases** (5 consultation-shaped scenarios — Doctor UI input shape: Patient + Vitals + Labs + Conditions + Current Medications + Allergies + Chief Complaint. No clinician hypotheses or proposed drugs in the input; the system synthesises the plan from structured patient data alone. Full definitions in *Consultation-Shaped Test Cases* section below):
-1. **Case 8 — T2DM + HFrEF + Obesity**: tests **9-section executable plan (P1–P9) + dual-source safety critic** — action-verbed meds with section+chunk citations, time-anchored monitoring schedule, numeric red-flag trip-wires, and both `source="llm"` and `source="graph"` safety flags merged on the same surface.
+1. **Case 8 — T2DM + HFrEF + Obesity**: tests **8-section executable plan (P1–P8) + dual-source safety critic** — action-verbed meds with section+chunk citations, time-anchored monitoring schedule, numeric red-flag trip-wires, and both `source="llm"` and `source="graph"` safety flags merged on the same surface.
 2. **Case 9 — AF + Post-PCI + T2DM**: tests **KG-sourced safety flags from the current-meds list** — warfarin × fluconazole/amiodarone DDIs surfaced from Neo4j on an unaltered med list, with no clinician prompt to look.
 3. **Case 10 — HTN in Pregnancy + GDM**: tests **teratogen KG-veto on an existing med** — losartan is already in the patient's med list (prescribed pre-pregnancy); system must STOP it on its own based on patient state (pregnant + female + GA 30w).
 4. **Case 11 — Stable CAD + ED**: tests **explicit CPG conflict-naming + pre-emptive contraindication** — ED-CPG default would be PDE5i but patient's existing ISMN makes that fatal; system surfaces the conflict and routes nitrate review to cardiology before a PDE5i is ever proposed.
@@ -647,14 +647,14 @@ You now have a complete evaluation framework:
 
 > Each case represents **one complete consultation = one query → one final care plan**, matching the shipped product model. The system produces the full plan in one pass.
 >
-> Each case is engineered to force a *specific* differentiator that a single-CPG tool (Qmed AskCPG) or a general LLM (GPT-4/Gemini) cannot easily produce: a 9-section executable plan with dual-source safety flags, KG-sourced DDI flags from free-text meds, KG-veto on a wrong drug proposal, explicit conflict-surfacing across overlapping CPGs, and correct refusal-to-compute on scope-edge questions.
+> Each case is engineered to force a *specific* differentiator that a single-CPG tool (Qmed AskCPG) or a general LLM (GPT-4/Gemini) cannot easily produce: an 8-section executable plan with dual-source safety flags, KG-sourced DDI flags from free-text meds, KG-veto on a wrong drug proposal, explicit conflict-surfacing across overlapping CPGs, and correct refusal-to-compute on scope-edge questions.
 >
 > **All CPGs referenced are present in the live 30-CPG corpus** (see `tasks/Next-Step/Last Step Improvement/DDx Gap/cpg_scope_review.md`). Each case names the **Showcase Capability** — the column on which this case is designed to make the system win, and the metric to score.
 
 ## Case 8: T2DM + HFrEF + Obesity — Structured Executable Plan + Hybrid Safety Critic
 **Target CPGs:** T2-Diabetes-Mellitus (6th Edition) · Heart-Failure (5th Edition) · Obesity-Management (2023)
-**Showcase Capability:** **9-section executable care plan (P1–P9) + dual-source safety flags (`source="llm"` + `source="graph"`) merged without dedup.** On the same vignette, Qmed returns a bulleted prose plan with page-level citations. Your system returns a structured plan with: action verbs on every med (`START` / `CHANGE` / `CONTINUE`), per-chunk citations (`§10.1.2.1 [chunk 4]`), a time-anchored monitoring schedule, a Safety Netting / Red Flags panel with numeric trip-wires, and a follow-up ladder with concrete dates. The Stage 6 hybrid safety critic surfaces *both* LLM-reasoned flags and KG-verified flags side-by-side on the same plan.
-**Score on:** plan structure completeness (P1–P9 sections present, binary per section), action-verb correctness on each med (START/CHANGE/CONTINUE), citation granularity (section + chunk vs page-only), monitoring-schedule timing-anchor presence, red-flag count with numeric thresholds, dual-source safety flag count.
+**Showcase Capability:** **8-section executable care plan (P1–P8) + dual-source safety flags (`source="llm"` + `source="graph"`) merged without dedup.** On the same vignette, Qmed returns a bulleted prose plan with page-level citations. Your system returns a structured plan with: action verbs on every med (`START` / `CHANGE` / `CONTINUE`), per-chunk citations (`§10.1.2.1 [chunk 4]`), a time-anchored monitoring schedule, a Safety Netting / Red Flags panel with numeric trip-wires, and a follow-up ladder with concrete dates. The Stage 6 hybrid safety critic surfaces *both* LLM-reasoned flags and KG-verified flags side-by-side on the same plan.
+**Score on:** plan structure completeness (P1–P8 sections present, binary per section), action-verb correctness on each med (START/CHANGE/CONTINUE), citation granularity (section + chunk vs page-only), monitoring-schedule timing-anchor presence, red-flag count with numeric thresholds, dual-source safety flag count.
 
 **Consult input (Doctor UI Step-1 schema — paste into the matching field):**
 *   **Patient card:** Name `Demo Case 8` · Age `62` · Sex `M`
@@ -670,7 +670,7 @@ You now have a complete evaluation framework:
     PE: Echo today LVEF 25%. K+ 4.4 mmol/L (no severity-staging slot — recorded here).
     ```
 
-**Expected behaviour — the plan should render as 9 sections (this *is* the differentiator):**
+**Expected behaviour — the plan should render as 8 sections (this *is* the differentiator):**
 *   **P1 Clinical Summary** — patient one-liner + indication framing.
 *   **P2 Medications** — every line tagged `START` / `CHANGE` / `CONTINUE`:
     *   START: ACE-I (enalapril/ramipril low-dose, titrate); β-blocker (bisoprolol 1.25mg OD); MRA (spironolactone 12.5–25mg OD); SGLT2i (dapagliflozin 10mg OD or empagliflozin 10mg OD — **dual indication** HFrEF + T2DM).
@@ -681,9 +681,8 @@ You now have a complete evaluation framework:
 *   **P4 Monitoring & Investigations** — time-anchored: renal/K+ within 7–14 days of ACE-I/MRA initiation; BP at each visit + after titration; HR at each visit; daily weight (>2kg/3d trigger); HbA1c q3–6mo; serum K+ before MRA + periodically; UTI/uro-genital surveillance on SGLT2i.
 *   **P5 Lifestyle** — sodium <2g/day; weight reduction; cardiac rehab; smoking cessation; BP target 130–139/70–79.
 *   **P6 Referrals** — **cardiology** for HFrEF optimisation (this was empty in the screenshot — fix before demo); dietitian for obesity + T2DM.
-*   **P7 Patient Education** — SGLT2i sick-day rules, DKA red-flag symptoms, hypoglycaemia recognition, daily foot inspection, glucose tablets to carry.
-*   **P8 Safety Netting — Red Flags (numeric trip-wires)** — SBP <90, HR <50, K+ ≥5.6, creatinine ↑≥30% within 2 months of ACE-I, NYHA III–IV deterioration, euglycaemic DKA risk on SGLT2i, weight ↑>2kg/3d, acute decompensation signs.
-*   **P9 Follow-up Plan (time-anchored ladder)** — 1–2 weeks (renal/K+ recheck post-ACE-I), 2–4 weeks (renal/K+ post-MRA/SGLT2i), 4–6 weeks (β-blocker uptitration), 6–12 weeks (HbA1c review, consider GLP-1 RA if >8%), 3 months (echo if indicated), ongoing (titration, weight, annual DKD screen). Concrete next-review date computed.
+*   **P7 Safety Netting — Red Flags (numeric trip-wires)** — SBP <90, HR <50, K+ ≥5.6, creatinine ↑≥30% within 2 months of ACE-I, NYHA III–IV deterioration, euglycaemic DKA risk on SGLT2i, weight ↑>2kg/3d, acute decompensation signs.
+*   **P8 Follow-up Plan (time-anchored ladder)** — 1–2 weeks (renal/K+ recheck post-ACE-I), 2–4 weeks (renal/K+ post-MRA/SGLT2i), 4–6 weeks (β-blocker uptitration), 6–12 weeks (HbA1c review, consider GLP-1 RA if >8%), 3 months (echo if indicated), ongoing (titration, weight, annual DKD screen). Concrete next-review date computed.
 
 **Expected behaviour — Stage 6 hybrid safety critic (the dual-source differentiator):**
 *   `source="llm"` flag: "Combining ACE-I + MRA + low eGFR raises hyperkalaemia risk above either alone — recheck K+ at 7 days post-MRA, not 14."
@@ -812,7 +811,7 @@ You now have a complete evaluation framework:
 *   **Explicit conflict statement (the differentiator):** P1 Summary or P6 Referrals must say: "Two CPGs apply and conflict on first-line ED therapy: ED CPG (2024) recommends PDE5i first-line, but Stable-CAD CPG (2nd Ed) mandates anti-anginal continuation. The contraindication wins — but the conflict means the upstream decision is *whether the long-acting nitrate is still necessary*, given the patient is angina-free for 6 months. That is a cardiology call, not primary care."
 *   **Occult medication-induced ED differential (NEW — the second differentiator):** P1 Summary or P5 Differential must name **bisoprolol (β-blocker) as a candidate ED contributor** that the referring clinician did not link, citing the temporal correlation (insidious onset on a stable β-blocker regimen) and the organic-pattern history (no reduced libido, no nocturnal/morning erections). The plan must distinguish this from purely vascular / psychogenic aetiology rather than collapsing all causes together.
 *   **β-blocker swap as upstream lever (NEW):** P6 Referrals must offer **β-blocker → ED-neutral antihypertensive / anti-anginal swap (e.g. nebivolol — NO-mediated, ED-neutral; or substitute rate control if cardiology agrees)** as an *upstream lever*, **cardiology-gated** (must NOT be initiated in primary care — the patient is post-PCI angina-free on bisoprolol for prognostic benefit). This is offered *alongside*, not *instead of*, the nitrate-holiday pathway — both are independent cardiology questions surfaced in a single referral packet.
-*   **Vascular-risk adjunct (NEW):** P5 Lifestyle / P7 Patient Education must surface T2DM + obesity (BMI 31) as concurrent organic ED drivers — glycaemic optimisation (HbA1c trending 7.4 → <7.0), weight reduction (5–10% body weight target per Obesity CPG), and aerobic activity (≥150 min/wk) as adjunct interventions with independent evidence for ED improvement.
+*   **Vascular-risk adjunct (NEW):** P5 Lifestyle must surface T2DM + obesity (BMI 31) as concurrent organic ED drivers — glycaemic optimisation (HbA1c trending 7.4 → <7.0), weight reduction (5–10% body weight target per Obesity CPG), and aerobic activity (≥150 min/wk) as adjunct interventions with independent evidence for ED improvement.
 *   **Safe ED options today** (no nitrate interaction): vacuum erection device (first-line non-pharmacological), intracavernosal alprostadil, intraurethral alprostadil (MUSE).
 *   **Nitrate-holiday pathway:** if cardiologist deems ISMN non-essential (angina-free for 6 months on full secondary-prevention regimen — β-blocker + aspirin + statin), de-escalate ISMN → reassess angina → then PDE5i becomes possible. Often resolvable in 1–2 weeks.
 *   **Refer:** cardiology (combined nitrate review + β-blocker-swap consideration) + urology/sexual medicine (ED workup) + dietitian (weight + glycaemic adjunct).

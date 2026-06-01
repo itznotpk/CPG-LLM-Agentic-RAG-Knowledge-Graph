@@ -507,7 +507,7 @@ html, body {
   background: #ef4444;
 }
 
-/* Patient education / lifestyle */
+/* Lifestyle */
 .bullets {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -531,27 +531,6 @@ html, body {
   font-size: 0;
 }
 
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px 22px;
-}
-.education-item {
-  display: grid;
-  grid-template-columns: 10px 1fr;
-  gap: 8px;
-  align-items: start;
-  font-size: 13px;
-  line-height: 1.4;
-}
-.education-item .marker {
-  width: 5px;
-  height: 5px;
-  margin-top: 7px;
-  border-radius: 999px;
-  background: var(--accent-primary);
-  font-size: 0;
-}
 .lifestyle-tag {
   display: block;
   font-size: 10px;

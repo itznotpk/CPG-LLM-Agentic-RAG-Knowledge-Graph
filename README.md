@@ -126,7 +126,7 @@ ClearPath is a **hybrid deterministic + agentic clinical pipeline**: every routi
                                                            │ ClinicalFlags + PREFER edges
                                                            ▼
      [STAGE 5: SYNTHESIZE]     ┌────────────────────────────────────────────────────────┐
-                               │        Evidence-Guided 9-Section Care Plan             │
+                               │        Evidence-Guided 8-Section Care Plan             │
                                │  • TreatmentPlan synthesizer (Pydantic-validated)      │
                                │  • Recommendations tagged                              │
                                │    action ∈ {start, stop, change, continue,            │
@@ -188,8 +188,8 @@ ClearPath is a **hybrid deterministic + agentic clinical pipeline**: every routi
 * **Routed-chunk scope filter** keeps only edges whose `cpg_chunk_id` belongs to a routed CPG — symmetric across PREFER and referral lookups; eliminates cross-CPG drift.
 * **Paediatric-source filter** drops paediatric flags when `patient_age ≥ 18`.
 
-### Stage 5: 9-Section Executable Care Plan Synthesis (`agent/clinical_stages.stage_5_synthesize`)
-* **TreatmentPlan synthesizer** assembles patient data, retrieved CPG evidence, prior-visit summary, and KG edges into a Pydantic-validated `TreatmentPlan` structured to render as a **9-section executable plan**:
+### Stage 5: 8-Section Executable Care Plan Synthesis (`agent/clinical_stages.stage_5_synthesize`)
+* **TreatmentPlan synthesizer** assembles patient data, retrieved CPG evidence, prior-visit summary, and KG edges into a Pydantic-validated `TreatmentPlan` structured to render as an **8-section executable plan**:
 
   | # | Section | Source field |
   |---|---|---|
@@ -199,9 +199,8 @@ ClearPath is a **hybrid deterministic + agentic clinical pipeline**: every routi
   | P4 | Monitoring | `monitoring` (time-anchored schedules) |
   | P5 | Lifestyle | `recommendations` (lifestyle type) |
   | P6 | Referrals | `recommendations` (referral type, with urgency) |
-  | P7 | Patient Education | `recommendations` (education type) |
-  | P8 | Safety Netting / Red Flags | monitoring trip-wires + `SafetyReport` |
-  | P9 | Follow-up Plan | `follow_up` |
+  | P7 | Safety Netting / Red Flags | monitoring trip-wires + `SafetyReport` |
+  | P8 | Follow-up Plan | `follow_up` |
 
 * **Recommendations stamped** with the *original* Malaysian MoH grading scheme — three incompatible schemes co-exist in the corpus (ESC, USPSTF, SIGN50) and are **never normalised across schemes**.
 * **Post-synthesis validator chain (8 layers):** medication dedup (post-LLM then post-KG, 2-tier exact + ≥85% substring), referral dedup with urgency prioritisation (emergency > urgent > routine, token-set Jaccard ≥0.6 with specialty gate), urgency↔severity harmonisation with auto-upgrade, coverage-gap detector (1st-line therapy missing per condition — never fabricates a prescription, only surfaces unresolved), specialist↔medication cross-check (primary-clause trimmed + continuing-token suppressed + pregnancy-context obstetric acceptance), STOP-with-switch splitter (rescues paired START rec from collapsed swap prose), assumption flagger (load-bearing clinical assumptions surfaced for clinician verification), gate-audit per-CPG cap.
@@ -252,7 +251,7 @@ ClearPath represents a complete clinical end-product, designed for visual tablet
         <li><strong>Patient Queue Pulse:</strong> Prioritises clinical triage by surfacing critical cases and overdue follow-ups dynamically.</li>
         <li><strong>Workflow Analytics:</strong> Real DB-backed tiles (Time Saved = 8 min × today's consultation count, CPG Align %, Citations, Referrals — no static mocks) refresh on Supabase realtime <code>postgres_changes</code> events.</li>
         <li><strong>4-Step Consultation Wizard:</strong> Input → Diagnosis → CarePlan → Output, with SSE-streamed pipeline trace and one-click clinician override that re-fires Stage 5 synthesis.</li>
-        <li><strong>9-Section Plan Renderer:</strong> Action-tagged medication chips, monitoring trip-wires, urgency-coloured referrals, and a one-click PDF export → Gmail delivery handoff.</li>
+        <li><strong>8-Section Plan Renderer:</strong> Action-tagged medication chips, monitoring trip-wires, urgency-coloured referrals, and a one-click PDF export → Gmail delivery handoff.</li>
       </ul>
       <p align="center">
         <a href="Doctor%20UI/">Explore Frontend Workspace →</a>
@@ -284,7 +283,7 @@ The table below illustrates how a single remote consultation is processed step-b
 | **Stage 3: Routing** | Top DDx + sex='F' + staged comorbidities | D1 exact match → routes to *Hypertension (5th Ed)*, *Diabetes-in-Pregnancy (2017)*, *Heart-Disease-in-Pregnancy (2nd Ed)*; sex filter keeps obstetric CPGs in scope. | 5 scoped CPG documents | Deterministic; staged-comorbidity short-circuit skips ~4 s vector path for already-confirmed ICDs. |
 | **Stage 4: Retrieval** | Scoped CPGs + PatientCase + prior-visit summary | 5 targeted queries → scoped pgvector → H3→H2→H1 prefetch → cross-reference resolver. | Evidence pack with §14.2 (HTN-in-Pregnancy), Table 7.6-A (anti-HTN dose ladder), §5.3 (GDM metformin), §5.5 (low-dose aspirin). | `document_id_filter` pinning prevents the AF CPG's secondary-prevention section leaking in. |
 | **Stage 4.5: KG inject** | Retrieved chunks + `patient_meds=[Losartan]` + comorbidities | `_query_comorbidity_flags` expands Losartan → {ARB, Angiotensin Receptor Blocker}; expands "Pregnancy 30 weeks (primigravida)" → {pregnancy}; runs Cypher. | ClinicalFlags: `(ARB)-[:CONTRAINDICATED_WITH]->(Pregnancy)`, `(Arb)-[:CONTRAINDICATED_WITH]->(Pregnancy)` | Drug-class + comorbidity aliasing is what makes a class-level KG edge visible against a free-text comorbidity. |
-| **Stage 5: Synthesis** | Retrieved chunks + KG edges + prior-visit | LLM synthesis → 9-section plan → 8-layer validator chain → STOP-with-switch splitter pairs `[STOP] Losartan` with `[START] Methyldopa`. | TreatmentPlan: STOP Losartan • START Methyldopa 250 mg TDS [Grade C] • START Labetalol alt • START Metformin 500 mg [§5.3] • START low-dose aspirin [Grade I/A] • obstetrician referral + monitoring + follow-up. | Recommendations stamped with original MoH grading scheme; never cross-normalised. |
+| **Stage 5: Synthesis** | Retrieved chunks + KG edges + prior-visit | LLM synthesis → 8-section plan → 8-layer validator chain → STOP-with-switch splitter pairs `[STOP] Losartan` with `[START] Methyldopa`. | TreatmentPlan: STOP Losartan • START Methyldopa 250 mg TDS [Grade C] • START Labetalol alt • START Metformin 500 mg [§5.3] • START low-dose aspirin [Grade I/A] • obstetrician referral + monitoring + follow-up. | Recommendations stamped with original MoH grading scheme; never cross-normalised. |
 | **Stage 6: Critic** | PatientCase + drafted TreatmentPlan | `asyncio.gather`(LLM critic, KG verify); merge without dedup. | SafetyReport: **3 flags** — [CRITICAL/llm] Losartan teratogen, [MAJOR/graph] ARB×Pregnancy, [MAJOR/graph] Arb×Pregnancy. `safe_to_proceed=False`. | LLM catches narrative reasoning; KG catches the structural edge even when the same paragraph wasn't in the LLM's window. Both fire here — the merged view is what the clinician sees. |
 
 ---

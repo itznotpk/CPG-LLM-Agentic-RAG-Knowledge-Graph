@@ -72,8 +72,8 @@ function EditableBullets({ items, onChange, editing }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
       {items.map((l, i) => {
         const isObj = typeof l === 'object';
-        // Object items (lifestyle) edit goal/detail directly; string items
-        // (patient education) keep the em-dash round-trip.
+        // Object items (lifestyle) edit goal/detail directly; plain string
+        // items keep the em-dash round-trip.
         const dashMatch = isObj ? null : String(l).match(/\s+(?:—|-|–)\s+/);
         const title = isObj ? l.goal : (dashMatch ? l.slice(0, dashMatch.index).trim() : l);
         const subtitle = isObj ? (l.detail || '') : (dashMatch ? l.slice(dashMatch.index + dashMatch[0].length).trim() : '');
@@ -255,19 +255,6 @@ function ShortColonText({ text }) {
       <span className="item-title">{title}</span>
       {description && <span className="item-subtitle">{description}</span>}
     </>
-  );
-}
-
-function EducationList({ items }) {
-  return (
-    <div className="education-grid">
-      {items.map((item, i) => (
-        <div key={i} className="education-item">
-            <span className="marker"></span>
-          <div><SplitPlanText text={item} /></div>
-        </div>
-      ))}
-    </div>
   );
 }
 
@@ -596,14 +583,6 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
     monitoring: plan.monitoring,
     referrals: collapseReferrals(plan.referrals),
     lifestyle: plan.lifestyle,
-    patientEducation: [
-      'Diabetes self-management — understanding HbA1c targets, hypoglycaemia recognition and management',
-      'SGLT2 inhibitor sick-day rules — hold medication if ill, report symptoms early',
-      'Daily foot inspection — check for wounds, blisters, skin changes',
-      'Signs of DKA — nausea, vomiting, abdominal pain (rare but important with SGLT2i)',
-      'Carry glucose tablets — for hypoglycaemic episodes',
-      'Importance of regular follow-up and lab monitoring',
-    ],
     redFlags: plan.redFlags,
     followUp: plan.followUp,
     nextReviewDate: nextReviewDate || '',
@@ -735,13 +714,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                 />
               </PlanSub>
 
-              <PlanSub num="P6" title="Patient Education">
-                {editing
-                  ? <EditableBullets items={draft.patientEducation} onChange={set('patientEducation')} editing={editing} />
-                  : <EducationList items={draft.patientEducation} />}
-              </PlanSub>
-
-              <PlanSub num="P7" title="Safety Netting — Red Flags">
+              <PlanSub num="P6" title="Safety Netting — Red Flags">
                 {editing ? (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                     {draft.redFlags.map((f, i) => {
@@ -774,7 +747,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                 )}
               </PlanSub>
 
-              <PlanSub num="P8" title="Follow-up Plan">
+              <PlanSub num="P7" title="Follow-up Plan">
                 <div className="tca-row">
                   <div className="tca-list">
                     {draft.followUp.map((f, i) => {

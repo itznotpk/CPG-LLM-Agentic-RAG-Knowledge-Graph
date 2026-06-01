@@ -86,7 +86,6 @@ A modern, AI-powered Clinical Practice Guideline (CPG) web application built wit
   - 🔵 CONTINUE medications (with CPG references)
 - **Interventions & Procedures**: With CPT codes and urgency levels
 - **Monitoring & Testing**: Schedules with frequency (e.g., "Now, then q3 months")
-- **Patient Education & Counseling**: Categorized (Lifestyle, Self-Monitoring, Safety)
 - **Referrals**: Specialist referrals with priority badges
 - **Lifestyle & Self-Management Goals**: Diet, exercise, weight management
 - **Follow-up**: Scheduling recommendations

@@ -639,7 +639,6 @@ export const updateConsultation = async (consultationId, updates = {}) => {
         p_medication_recommendations: updates.medicationRecommendations || null,
         p_interventions: updates.interventions || null,
         p_monitoring: updates.monitoring || null,
-        p_patient_education: updates.patientEducation || null,
         p_referrals: updates.referrals || null,
         p_lifestyle_goals: updates.lifestyleGoals || null,
         p_cpg_references: updates.cpgReferences || null,
@@ -731,7 +730,7 @@ export const downloadCarePlanPDF = async (reportPdfUrl, fileName = 'care-plan.pd
  * Legacy function - Save or update a consultation for a patient
  * @deprecated Use startConsultation() and updateConsultation() instead
  */
-export const saveConsultation = async (patientNric, clinicalNotes, nextReview = null, diagnoses = [], carePlanSummary = null, medicationRecommendations = null, interventions = null, monitoring = null, patientEducation = null, referrals = null, lifestyleGoals = null, cpgReferences = null) => {
+export const saveConsultation = async (patientNric, clinicalNotes, nextReview = null, diagnoses = [], carePlanSummary = null, medicationRecommendations = null, interventions = null, monitoring = null, referrals = null, lifestyleGoals = null, cpgReferences = null) => {
   console.warn('⚠️ saveConsultation is deprecated. Use startConsultation() and updateConsultation() instead.');
   // This function is kept for backward compatibility during migration
   // It will be removed in future versions
@@ -900,12 +899,23 @@ export const getLatestPriorVisitSummary = async (patientNric) => {
   }
 };
 
-export const saveRPPGVitals = async ({ nric, consultationId, vitals, quality }) => {
-  const { hr, bpSystolic, bpDiastolic, spo2, rr, temp } = vitals;
-  const { error } = await supabase.from('live_vitals').insert({
+/**
+ * Persist a Step-1 vitals snapshot to the `live_vitals` table, linked to the
+ * consultation. Works for BOTH manual entry (source='manual') and rPPG capture
+ * (source='rppg'). Call this once the consultation row exists so consultation_id
+ * is non-null and the foreign-key relationship to consultations/patients holds.
+ */
+export const saveLiveVitals = async ({ nric, consultationId, vitals, source = 'manual', quality = null }) => {
+  if (!nric) return { error: new Error('saveLiveVitals: missing patient nric') };
+  const { hr, bpSystolic, bpDiastolic, spo2, rr, temp } = vitals || {};
+  // live_vitals keeps one row PER CONSULTATION (UNIQUE consultation_id). Upsert on
+  // consultation_id so re-applying vitals within a visit overwrites in place while
+  // each consultation retains its own snapshot. consultation_id should be non-null
+  // here (the row is written once the consultation exists).
+  const { error } = await supabase.from('live_vitals').upsert({
     patient_nric:    nric,
     consultation_id: consultationId || null,
-    source:          'rppg',
+    source,
     hr:              hr    ? Number(hr)    : null,
     spo2:            spo2  ? Number(spo2)  : null,
     sbp:             bpSystolic  ? Number(bpSystolic)  : null,
@@ -914,7 +924,23 @@ export const saveRPPGVitals = async ({ nric, consultationId, vitals, quality }) 
     temp:            temp  ? Number(temp)  : null,
     quality:         quality != null ? +Number(quality).toFixed(1) : null,
     updated_at:      new Date().toISOString(),
-  });
+  }, { onConflict: 'consultation_id' });
+  if (error) console.error('Error saving live vitals:', error);
+  return { error };
+};
+
+/**
+ * Persist severity/staging onto the consultation row. Uses a direct column
+ * update (NOT the update_consultation RPC) to avoid the RPC overload-rebuild
+ * trap. Requires the `severity_staging` JSONB column (add_consultation_severity.sql).
+ */
+export const saveConsultationSeverity = async (consultationId, severityStaging) => {
+  if (!consultationId) return { error: new Error('saveConsultationSeverity: missing consultationId') };
+  const { error } = await supabase
+    .from('consultations')
+    .update({ severity_staging: severityStaging || {} })
+    .eq('id', consultationId);
+  if (error) console.error('Error saving consultation severity:', error);
   return { error };
 };
 

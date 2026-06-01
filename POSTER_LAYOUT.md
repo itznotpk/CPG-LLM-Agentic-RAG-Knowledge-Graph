@@ -168,7 +168,7 @@ so they're defensible at a poster defense even before empirical capture):
 2. **Dual-source safety critic** — independent LLM pharmacist **+** Neo4j graph verifier,
    merged without dedup. Qmed has a single grounding source; NotebookLM has none. A
    well-known DDI absent from the retrieved paragraph is invisible to both — not to us.
-3. **9-section executable plan** — action-tagged orders, time-anchored monitoring,
+3. **8-section executable plan** — action-tagged orders, time-anchored monitoring,
    urgency-coded referrals. Competitors return prose paragraphs the clinician must
    re-read and mentally extract under time pressure.
 4. **Patient-first, longitudinal** — the patient is a typed object (vitals, allergies,
@@ -251,7 +251,7 @@ The stat column says *what kind of number to hunt and where* — **never invent 
 | **E** | **KG structural safety (DDI / teratogen / renal-dose)** — catches harm no retrieved paragraph mentions | Pharmacist-vacant clinics miss drug–drug / drug–condition interactions → preventable ADEs | Preventable-ADE burden; DDI prevalence in polypharmacy → WHO *Medication Without Harm*, ADE-epidemiology papers *(this is spine row 3)* | **High** |
 | **F** | **Offline resilience** — rotating logs, failed-job replay, fail-open everywhere | Rural clinics have unreliable power/connectivity; a flaky link must not drop a safety concern | Rural East-Malaysia internet/electricity reliability or clinic downtime → MCMC / MoH rural-infrastructure reports | **Medium** — MY-specific figures harder to find |
 | **G** | **Sub-minute latency in the consult window** — full pipeline < 1 min | Public-clinic consults are short and patient load is crushing; advice must fit the window | Mean primary-care consult duration / daily patient load in MY *Klinik Kesihatan* → MoH health-facts, primary-care workload studies | **Medium-High** |
-| **H** | **9-section executable plan** — action-tagged orders, not prose | Cognitive load of extracting an order list from prose under time pressure raises error risk | Documentation burden / time on paperwork / EHR cognitive-load → clinician-burnout & time-motion studies | **High** — burnout/documentation stats abound |
+| **H** | **8-section executable plan** — action-tagged orders, not prose | Cognitive load of extracting an order list from prose under time pressure raises error risk | Documentation burden / time on paperwork / EHR cognitive-load → clinician-burnout & time-motion studies | **High** — burnout/documentation stats abound |
 | **I** | **Patient-first longitudinal memory** — typed patient object + prior-visit summary persists across visits | Fragmented rural records → repeated history-taking, continuity-of-care gaps | Continuity-of-care impact on outcomes, or time lost re-taking history → primary-care continuity literature | **Medium** |
 | **J** | **Multilingual care-plan delivery (en / ms / zh)** — localized patient cover, kept in sync | Language barriers in multi-ethnic MY population → poor comprehension & adherence | % MY population with limited English health-literacy; language-barrier → adherence impact → DOSM census, health-literacy surveys | **Medium-High** — DOSM language data is solid |
 | **K** | **Clinician override + instant re-synthesis** — human stays the decision-maker | Automation bias: clinicians over-trust AI and miss errors when they can't easily override | Automation-bias error rates in clinical decision support → CDS automation-bias studies | **Medium** |
@@ -290,7 +290,7 @@ highest), each with its one-line kill-shot vs each competitor:
 | **#1** | **Dual-source safety critic** (KG + LLM, merged) — *Moat 2 / bank E* | single grounding source: surfaces a DDI **only if** the retrieved paragraph names the pair — misses teratogens on existing meds | pure RAG, **no drug ontology, no typed contraindication edges, no second grader** — a textbook DDI absent from the notebook is invisible |
 | **#2** | **ICD-anchored routing + first-class refusal** — *Moat 1 / bank B* | **no diagnostic-scope layer** — always synthesises from whatever it pulled; a 56 M with pregnancy-overlap symptoms still gets a confident obstetric paragraph | generic doc-chatbot — **no ICD, no sex-exclusion, no notion of clinical applicability**; paraphrases any chunk on demand |
 | **#3** | **Auditable per-stage decision trace** (typed CoT events) — *Moat 5 / bank A* | shows the verdict + page cite but the **reasoning is opaque** — no DDx shortlist, no routing rejections, no why | shows a source panel but **no decision logic** — reasoning hidden inside the final paragraph |
-| **#4** | **Schema-constrained executable 9-section plan** — *Moat 3 / bank H* | returns **long-form prose** — clinician must re-read and mentally extract the order list under time pressure | conversational paragraphs with footnotes — **no clinical structure**, can't render as a checklist or diff vs prior visit |
+| **#4** | **Schema-constrained executable 8-section plan** — *Moat 3 / bank H* | returns **long-form prose** — clinician must re-read and mentally extract the order list under time pressure | conversational paragraphs with footnotes — **no clinical structure**, can't render as a checklist or diff vs prior visit |
 | **#5** | **Patient-first, longitudinal intake** (typed `PatientCase` + rPPG + prior-visit loop) — *Moat 4 / bank I* | **stateless chat** — no allergy field, no current-med list, no prior visit; allergies are at best a sentence the LLM may miss | **notebook chat** — no vitals, no patient schema, no longitudinal memory; every consult starts from zero context |
 
 > ⛔ **Parity traps — do NOT frame these as competitor wins** (the doc lists them as
@@ -373,7 +373,7 @@ Bullet list (reference style):
 - Deliver an **auditable** CPG guidance pipeline: every routing/retrieval/safety
   decision that *can* be deterministic **is** deterministic; LLMs only for grounded
   clinical reasoning.
-- Generate a structured **9-section executable care plan** per consultation
+- Generate a structured **8-section executable care plan** per consultation
   (Summary → Meds → Investigations → Monitoring → Lifestyle → Referrals → Education →
   Safety-netting → Follow-up).
 - Independently audit every plan with a **two-source safety critic** (LLM pharmacist +
@@ -437,7 +437,7 @@ Intake → DDx (ICD-11) → Route (D1–D6) ──out-of-scope?──► gracefu
                               ▼
                   KG inject (prefer / avoid edges)
                               ▼
-                  Synthesize 9-section plan
+                  Synthesize 8-section plan
                               ▼
               Safety Critic  (LLM ‖ KG, parallel)
                               │
@@ -472,7 +472,7 @@ Reuse the 7-stage ASCII diagram from the README (Stages 2→6 + KG inject + UI),
 | **3 · Route** | Scope to verified CPGs | Deterministic D1–D6 ladder | ⚙ **Deterministic** |
 | **4 · Retrieve** | Pull evidence-graded chunks | LLM query-gen + scoped pgvector (H3→H2→H1 prefetch) | 🤖 **LLM step** (LLM writes the queries) |
 | **4.5 · KG inject** | "prefer Y / avoid X" edges | Neo4j Cypher | ⚙ **Deterministic** (graph lookup) |
-| **5 · Synthesize** | 9-section care plan | LLM + post-synthesis validator chain | 🤖 **LLM step** |
+| **5 · Synthesize** | 8-section care plan | LLM + post-synthesis validator chain | 🤖 **LLM step** |
 | **6 · Critic** | Independent safety audit | LLM pharmacist ‖ Neo4j verifier | 🤖⚙ **Hybrid — the one true *agent*** (LLM critic with veto ∥ deterministic KG) |
 
 Caption: *Hybrid deterministic + agentic — deterministic wherever possible (routing,
@@ -537,7 +537,7 @@ Real pregnancy + chronic HTN + GDM case (`scripts/run_eval_case_10.py`):
 | **Route** | D1 exact match | HTN 5th Ed, Diabetes-in-Pregnancy, Heart-Disease-in-Pregnancy |
 | **Retrieve** | 5 scoped queries | §14.2 HTN-in-preg, dose ladder, GDM metformin, low-dose aspirin |
 | **KG inject** | Losartan → ARB class | `(ARB)-[CONTRAINDICATED_WITH]->(Pregnancy)` |
-| **Synthesize** | 9-section plan | STOP Losartan • START Methyldopa / Labetalol / Metformin / aspirin + referral |
+| **Synthesize** | 8-section plan | STOP Losartan • START Methyldopa / Labetalol / Metformin / aspirin + referral |
 | **Critic** | LLM ‖ KG | **3 flags** — CRITICAL Losartan teratogen + 2× MAJOR ARB×Pregnancy. `safe_to_proceed = False` |
 
 Caption the punchline: *The LLM catches the narrative; the knowledge graph catches the
@@ -563,7 +563,7 @@ benchmark numbers are fenced into their own clearly-labelled box at the end.**
   RF-decision-boundary equivalent — a real artifact, not a mock).
 
 **Quadrant 2 — Plan correctness & structure** *(analogue of "Predictive Maintenance")*
-- **9/9 sections populate** across eval cases 8–12 (`scripts/run_eval_case_08..12.py`).
+- **8/8 sections populate** across eval cases 8–12 (`scripts/run_eval_case_08..12.py`).
 - Dual-source flag merge verified; multi-CPG scenarios handled; coverage-gap + specialist
   cross-check fire correctly (and never fabricate a prescription).
 - Output: per-case `_summary.md` + `_trace.json` under `tasks/eval_runs/`.
@@ -661,7 +661,7 @@ Mirror the reference's "key goals achieved" trio of icons:
 | **Ungoverned, Non-Local Retrieval** | Deterministic ICD-routing scoped to the Malaysian MoH CPG corpus, with scope-refusal. |
 | **Limited Medication Guardrails** | Dual-source safety critic (LLM ‖ knowledge-graph) blocks any CRITICAL/MAJOR flag. |
 | **Care Without Memory** | Patient-first longitudinal record carried across visits. |
-| **Lack of Executable Output** | A structured 9-section executable care plan, not prose. |
+| **Lack of Executable Output** | A structured 8-section executable care plan, not prose. |
 
 Or, condensed to the reference's trio of hero icons:
 1. **Guideline access** — instant scoped CPG retrieval, no manual PDF search.
@@ -835,14 +835,14 @@ flowchart TB
 
     subgraph M5["Stage 5 · Plan Synthesis"]
         direction TB
-        S5["🤖 AI drafts the 9-section care plan"]:::step
+        S5["🤖 AI drafts the 8-section care plan"]:::step
         V5["automated checks: de-duplicate · coverage gaps ·<br/>specialist cross-check · flag assumptions"]:::step
         S5 --> V5
     end
     KGC --> M5
     CHUNKS -. guideline evidence .-> M5
     PC -. patient + last visit .-> M5
-    PLAN(["Draft care plan · 9 sections"]):::art
+    PLAN(["Draft care plan · 8 sections"]):::art
     V5 --> PLAN
 
     subgraph M6["Stage 6 · Adversarial Safety Critic — the one true AGENT"]
@@ -932,7 +932,7 @@ flowchart TD
     C -- out of scope --> Z([Graceful stop · no fabricated plan])
     C -- in scope --> D["🤖 Retrieve · LLM query-gen + scoped CPG chunks"]
     D --> E["⚙ KG inject · prefer / avoid edges"]
-    E --> F["🤖 Synthesize · 9-section care plan"]
+    E --> F["🤖 Synthesize · 8-section care plan"]
     F --> G{{"🤖⚙ Safety Critic · LLM ∥ KG in parallel"}}
     G -- any CRITICAL/MAJOR --> H[/BLOCK sign-off · surface flags/]
     G -- safe_to_proceed --> I[Stream to clinician UI]
@@ -967,7 +967,7 @@ flowchart TB
         S3["⚙ Stage 3 · Route<br/>deterministic D1–D6 scope ladder"]
         S4["🤖 Stage 4 · Retrieve<br/>LLM query-gen + scoped pgvector ⚙ · H3→H2→H1 prefetch"]
         S45["⚙ Stage 4.5 · KG inject<br/>Neo4j Cypher · prefer Y / avoid X edges"]
-        S5["🤖 Stage 5 · Synthesize<br/>LLM 9-section plan + post-synthesis validators"]
+        S5["🤖 Stage 5 · Synthesize<br/>LLM 8-section plan + post-synthesis validators"]
         S6{{"🤖⚙ Stage 6 · Safety Critic<br/>LLM pharmacist ∥ Neo4j verifier"}}
         S2 --> S3 --> S4 --> S45 --> S5 --> S6
     end
@@ -1028,7 +1028,7 @@ The 4-step Doctor UI flow, each step streaming its SSE pipeline trace.
 ```mermaid
 flowchart LR
     I[1 · Input<br/>intake + vitals] --> D[2 · Diagnosis<br/>DDx + clinician select]
-    D --> C[3 · Care Plan<br/>9-section + safety flags]
+    D --> C[3 · Care Plan<br/>8-section + safety flags]
     C --> O[4 · Output<br/>PDF export → Gmail delivery]
     D -. override .-> R((re-synth)) -. SSE .-> C
 
@@ -1117,7 +1117,7 @@ digraph clearpath {
     s3 [label="Stage 3 · Route ⚙\nD1–D6 deterministic", color="#0891b2", fillcolor="#ecfeff"];
     s4 [label="Stage 4 · Retrieve 🤖\nLLM query-gen + scoped pgvector"];
     s45 [label="Stage 4.5 · KG inject ⚙\nNeo4j Cypher · prefer / avoid edges", color="#0891b2", fillcolor="#ecfeff"];
-    s5 [label="Stage 5 · Synthesize 🤖\n9-section + validators"];
+    s5 [label="Stage 5 · Synthesize 🤖\n8-section + validators"];
     s6 [label="Stage 6 · Safety Critic 🤖⚙\nLLM ∥ KG", color="#f59e0b", fillcolor="#fffbeb", shape=hexagon];
     ui [label="Clinician UI · SSE\nReact + CLI"];
 

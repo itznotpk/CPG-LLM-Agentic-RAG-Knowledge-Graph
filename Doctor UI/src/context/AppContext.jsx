@@ -21,6 +21,8 @@ import {
   uploadCarePlanPDF,
   writePriorVisitSummary,
   getLatestPriorVisitSummary,
+  saveLiveVitals,
+  saveConsultationSeverity,
 } from '../lib/supabase';
 import { getNowUTC8, getTodayUTC8 } from '../utils/timezone';
 
@@ -50,6 +52,8 @@ const initialState = {
     weight: '',
     height: '',
   },
+  vitalsSource: 'manual', // 'manual' | 'rppg' — how the current vitals were captured
+  vitalsQuality: null,    // rPPG signal quality (%) when source === 'rppg'
   mpisData: {
     race: '',
     ethnicity: '',
@@ -109,7 +113,14 @@ function appReducer(state, action) {
     case 'SET_PRIOR_VISIT':
       return { ...state, priorVisit: action.payload?.summary ?? null, priorVisitMeta: action.payload?.meta ?? null };
     case 'SET_VITALS':
-      return { ...state, vitals: { ...state.vitals, ...action.payload } };
+      // Manual edits reset the source to 'manual' unless the dispatch explicitly
+      // tags it (rPPG apply passes source/quality so the live_vitals row is labelled).
+      return {
+        ...state,
+        vitals: { ...state.vitals, ...action.payload },
+        vitalsSource: action.source || 'manual',
+        vitalsQuality: action.source === 'rppg' ? (action.quality ?? null) : null,
+      };
     case 'SET_SEVERITY_STAGING':
       return { ...state, severityStaging: action.payload };
     case 'SET_MPIS_DATA':
@@ -619,6 +630,26 @@ export function AppProvider({ children }) {
           if (result.consultationNumber != null) {
             dispatch({ type: 'SET_CONSULTATION_NUMBER', payload: result.consultationNumber });
           }
+          // Persist the Step-1 vitals snapshot to live_vitals NOW that the
+          // consultation exists — links the row to consultations/patients via a
+          // non-null consultation_id. Covers both manual entry and rPPG capture.
+          try {
+            await saveLiveVitals({
+              nric:           state.patient.nsn,
+              consultationId: result.consultationId,
+              vitals:         state.vitals,
+              source:         state.vitalsSource || 'manual',
+              quality:        state.vitalsQuality,
+            });
+          } catch (vErr) {
+            console.warn('live_vitals save failed (non-fatal):', vErr);
+          }
+          // Persist severity/staging to its dedicated column on the consultation.
+          try {
+            await saveConsultationSeverity(result.consultationId, staging);
+          } catch (sErr) {
+            console.warn('consultation severity save failed (non-fatal):', sErr);
+          }
         } else {
           console.warn('⚠️ Failed to start consultation:', result.error);
         }
@@ -932,8 +963,7 @@ export function AppProvider({ children }) {
         const medicationRecommendations = state.carePlan?.medications || null;
         const interventions = state.carePlan?.interventions || null;
         const monitoring = state.carePlan?.monitoring || null;
-        const patientEducation = state.carePlan?.disposition?.patientEducation || null;
-        const referrals = state.carePlan?.disposition?.referrals || null;
+        const referrals = state.carePlan?.referrals || null;
         const lifestyleGoals = state.carePlan?.lifestyle || null;
         const cpgReferences = state.carePlan?.cpgReferences || null;
         const safetyFlags = state.safetyReport?.flags?.length
@@ -953,7 +983,6 @@ export function AppProvider({ children }) {
           medicationRecommendations,
           interventions,
           monitoring,
-          patientEducation,
           referrals,
           lifestyleGoals,
           cpgReferences,

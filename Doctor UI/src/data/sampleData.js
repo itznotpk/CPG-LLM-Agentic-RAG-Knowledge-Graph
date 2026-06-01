@@ -281,14 +281,6 @@ export const sampleCarePlan = {
       { specialty: "Ophthalmology", reason: "Dilated retinal exam for diabetic retinopathy screening", urgency: "2 weeks" },
       { specialty: "Dietitian", reason: "Medical nutrition therapy for diabetes and weight management", urgency: "2 weeks" },
     ],
-    patientEducation: [
-      { text: "Reinforce compliance and explain complications of uncontrolled diabetes", category: "Compliance" },
-      { text: "SGLT2 inhibitor sick day rules - hold medication if ill, report symptoms immediately", category: "Medication" },
-      { text: "Regular foot check - daily inspection for wounds, blisters, or skin changes", category: "Self-Care" },
-      { text: "Hypoglycemia recognition and management - carry glucose tablets", category: "Safety" },
-      { text: "Signs of diabetic ketoacidosis (rare but important with SGLT2i) - nausea, vomiting, abdominal pain", category: "Safety" },
-      { text: "Importance of regular follow-up visits and lab monitoring", category: "Compliance" },
-    ],
   },
 
   cpgReferences: [

@@ -247,18 +247,6 @@ export function generateCarePlanPDF({ patient, diagnosis, carePlan }) {
       });
       yPos += 3;
     }
-
-    if (carePlan.disposition.patientEducation?.length > 0) {
-      doc.setFont('helvetica', 'bold');
-      doc.text('Patient Education:', margin, yPos);
-      yPos += 5;
-      carePlan.disposition.patientEducation.forEach(item => {
-        doc.setFont('helvetica', 'normal');
-        const lines = doc.splitTextToSize(`• ${item}`, pageWidth - 2 * margin - 5);
-        doc.text(lines, margin + 5, yPos);
-        yPos += 5 * lines.length;
-      });
-    }
   }
 
   // ===== FOOTER =====

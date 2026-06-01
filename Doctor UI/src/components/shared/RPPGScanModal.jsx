@@ -6,7 +6,6 @@ import {
 import { useApp }   from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useRPPGStream } from '../../hooks/useRPPGStream';
-import { saveRPPGVitals } from '../../lib/supabase';
 
 const FRAME_W = 640;
 const FRAME_H = 480;
@@ -548,11 +547,10 @@ export function RPPGScanModal({ onClose }) {
     if (temp != null) payload.temp        = temp.toFixed(1);
     if (rr   != null) payload.rr          = String(Math.round(rr));
     if (spo2 != null) payload.spo2        = String(Math.round(spo2));
-    dispatch({ type: 'SET_VITALS', payload });
-    const nric = state.patient?.nsn;
-    if (nric) await saveRPPGVitals({
-      nric, consultationId: state.currentConsultationId, vitals: payload, quality
-    });
+    // Tag the captured vitals as rPPG-sourced; the live_vitals row is written
+    // (with a non-null consultation_id) when the consultation is created in
+    // analyzeAssessment — the consultation does not exist yet at this point.
+    dispatch({ type: 'SET_VITALS', payload, source: 'rppg', quality });
     setApplying(false);
     setApplied(true);
     setTimeout(() => { stop(); onClose(); }, 1200);
