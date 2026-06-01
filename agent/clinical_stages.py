@@ -2137,6 +2137,71 @@ async def _generate_condition_hypotheses(
         return []
 
 
+# Qualifier pairs where ICD-11 sibling leaves under one 4-char stem differ by a
+# single discriminative word. When the LLM-emitted name carries one side of a
+# pair, prefer the candidate whose title carries the same side — vector top-1
+# can pick the wrong sibling because both leaves embed near-identically.
+_QUALIFIER_PAIRS: tuple[tuple[str, ...], ...] = (
+    ("reduced", "preserved", "mid-range", "mildly reduced"),
+    ("acute", "chronic", "subacute"),
+    ("with", "without"),
+    ("primary", "secondary"),
+    ("type 1", "type 2"),
+    ("st elevation", "non-st elevation", "nstemi", "stemi"),
+    ("left", "right", "bilateral"),
+    ("benign", "malignant"),
+)
+
+
+def _pick_qualifier_match(name: str, hits: list[dict]) -> dict | None:
+    """Sibling-leaf disambiguation for vector-resolved CC hints.
+
+    Given a name and the top-K search_ddx hits, return the hit whose title best
+    matches the qualifier carried by the name. Falls back to top-1 when no
+    qualifier disambiguation applies.
+    """
+    if not hits:
+        return None
+    top = hits[0]
+    if len(hits) < 2:
+        return top
+
+    name_l = name.lower()
+    name_quals: set[str] = set()
+    for pair in _QUALIFIER_PAIRS:
+        for q in pair:
+            if q in name_l:
+                name_quals.add(q)
+    if not name_quals:
+        return top
+
+    top_code = (top.get("code") or "").strip().upper()
+    top_stem = top_code[:4]
+    top_title_l = (top.get("title") or "").lower()
+    if any(q in top_title_l for q in name_quals):
+        return top  # top-1 already carries the right qualifier
+
+    # Look for a same-stem sibling whose title carries one of the name's qualifiers
+    # AND does NOT carry the opposing qualifier from the same pair.
+    for cand in hits[1:]:
+        cand_code = (cand.get("code") or "").strip().upper()
+        if cand_code[:4] != top_stem:
+            continue
+        cand_title_l = (cand.get("title") or "").lower()
+        for pair in _QUALIFIER_PAIRS:
+            wanted = name_quals.intersection(pair)
+            if not wanted:
+                continue
+            opposed = set(pair) - wanted
+            if any(q in cand_title_l for q in wanted) and not any(q in cand_title_l for q in opposed):
+                logger.info(
+                    "CC hint qualifier-swap: %r → %s (was %s) on qualifier %s",
+                    name, cand_code, top_code, sorted(wanted),
+                )
+                return cand
+    return top
+
+
 async def _extract_cc_icd_hints(
     cc: str,
     client: openai.AsyncOpenAI,
@@ -2246,10 +2311,17 @@ async def _extract_cc_icd_hints(
 
         from ddx.search_ddx import search_ddx as _search_ddx
         # Resolve each name → top-1 ICD code in parallel.
+        # Fetch top-5 so we can do qualifier-aware sibling disambiguation: when
+        # two leaf codes share the same 4-char ICD stem and differ only by a
+        # qualifier word (reduced/preserved, acute/chronic, with/without, etc.),
+        # vector top-1 can pick the wrong leaf. Override the pick when the
+        # emitted name explicitly carries the qualifier of the lower-ranked leaf.
         async def _resolve(name: str):
             try:
-                hits = await _search_ddx(name, top_k=1)
-                return hits[0] if hits else None
+                hits = await _search_ddx(name, top_k=5)
+                if not hits:
+                    return None
+                return _pick_qualifier_match(name, hits)
             except Exception as exc:
                 logger.warning("CC hint resolve failed for %r: %s", name, exc)
                 return None

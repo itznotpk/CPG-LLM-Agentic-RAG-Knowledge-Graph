@@ -4,6 +4,8 @@ import {
   AlertTriangle,
   BookOpen,
   CheckCircle2,
+  ChevronRight,
+  Circle,
   FileSearch,
   GitBranch,
   Loader2,
@@ -20,6 +22,21 @@ import { useTheme } from '../../context/ThemeContext';
 
 // ── Telemetry Panels ──────────────────────────────────────────────────────────
 
+// Shared "live" pulse dot (solid core + fading halo) used by every telemetry
+// panel header so the heartbeat reads identically across stages.
+function LiveDot({ color = 'bg-teal-500', ping = true }) {
+  return (
+    <span className="relative flex w-2 h-2">
+      {ping && <span className={`absolute inline-flex w-full h-full rounded-full ${color} opacity-60 animate-ping`} />}
+      <span className={`relative inline-flex w-2 h-2 rounded-full ${color}`} />
+    </span>
+  );
+}
+
+// Neutral panel shell — accent lives on the dot/label/pill, not the container.
+const PANEL_SHELL = (isDark) =>
+  `p-4 rounded-xl border ${isDark ? 'bg-slate-900/40 border-white/10' : 'bg-slate-50 border-slate-200'}`;
+
 function CpgRoutingTelemetry({ selectedDiagnoses, uniqueCpgNames, isDark }) {
   const diags = selectedDiagnoses.length > 0 
     ? selectedDiagnoses 
@@ -27,13 +44,13 @@ function CpgRoutingTelemetry({ selectedDiagnoses, uniqueCpgNames, isDark }) {
 
   return (
     <div className="space-y-4 animate-fadeIn">
-      <div className={`p-4 rounded-xl border ${isDark ? 'bg-slate-900/60 border-teal-500/20' : 'bg-teal-50/50 border-teal-200'} backdrop-blur-md`}>
+      <div className={PANEL_SHELL(isDark)}>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-teal-500 animate-pulse" />
-            <span className={`text-[10px] font-sans tracking-wider ${isDark ? 'text-teal-300' : 'text-teal-700'} uppercase font-bold`}>CPG Registry Scanner</span>
+            <LiveDot color="bg-teal-500" />
+            <span className={`text-[10px] tracking-wider ${isDark ? 'text-teal-300' : 'text-teal-700'} uppercase font-semibold`}>CPG Registry Scanner</span>
           </div>
-          <span className="text-[9px] font-sans text-slate-500">Registry: v2.5</span>
+          <span className="text-[9px] font-medium text-slate-500 bg-slate-500/10 px-2 py-0.5 rounded-full">Registry v2.5</span>
         </div>
 
         {/* Visual climb flowchart */}
@@ -47,12 +64,18 @@ function CpgRoutingTelemetry({ selectedDiagnoses, uniqueCpgNames, isDark }) {
               <p className={`font-semibold mb-2.5 truncate ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{diag.name}</p>
               
               {/* Timeline diagram */}
-              <div className="flex items-center gap-2 text-[9px] font-sans text-slate-500 pt-2 border-t border-slate-100/5 dark:border-white/5 flex-wrap">
-                <span className="text-emerald-400">✓ ICD Valid</span>
-                <span className="text-slate-400">➔</span>
-                <span className="text-emerald-400">✓ Parent Code Resolved</span>
-                <span className="text-slate-400">➔</span>
-                <span className="text-teal-400 animate-pulse">Searching registry...</span>
+              <div className="flex items-center gap-1.5 text-[10px] font-medium text-slate-500 pt-2 border-t border-slate-100/5 dark:border-white/5 flex-wrap">
+                <span className="inline-flex items-center gap-1 text-emerald-500">
+                  <CheckCircle2 className="w-3 h-3" strokeWidth={2.2} /> ICD valid
+                </span>
+                <ChevronRight className="w-3 h-3 text-slate-300 dark:text-slate-600" strokeWidth={2.2} />
+                <span className="inline-flex items-center gap-1 text-emerald-500">
+                  <CheckCircle2 className="w-3 h-3" strokeWidth={2.2} /> Parent code resolved
+                </span>
+                <ChevronRight className="w-3 h-3 text-slate-300 dark:text-slate-600" strokeWidth={2.2} />
+                <span className="inline-flex items-center gap-1 text-teal-500">
+                  <Loader2 className="w-3 h-3 animate-spin" strokeWidth={2.2} /> Searching registry
+                </span>
               </div>
             </div>
           ))}
@@ -103,48 +126,53 @@ function RetrievalTelemetry({ pipelineEvents, isDark }) {
     <div className="space-y-4 animate-fadeIn">
       {/* Metrics Dashboard */}
       <div className="grid grid-cols-3 gap-3">
-        <div className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/60 border-blue-500/20' : 'bg-blue-50/30 border-blue-200'}`}>
-          <div className={`text-lg font-bold font-sans ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{totalQueries}</div>
-          <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">Queries Run</div>
-        </div>
-        <div className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/60 border-blue-500/20' : 'bg-blue-50/30 border-blue-200'}`}>
-          <div className={`text-lg font-bold font-sans ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{chunkDisplay}</div>
-          <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">Chunks Found</div>
-        </div>
-        <div className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/60 border-blue-500/20' : 'bg-blue-50/30 border-blue-200'}`}>
-          <div className={`text-lg font-bold font-sans ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>&gt;0.72</div>
-          <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">Cosine Sim</div>
-        </div>
+        {[
+          { value: totalQueries, label: 'Queries Run' },
+          { value: chunkDisplay, label: 'Chunks Found' },
+          { value: '>0.72', label: 'Cosine Sim' },
+        ].map((m, i) => (
+          <div key={i} className={`p-3 rounded-xl border text-center ${isDark ? 'bg-slate-900/40 border-white/10' : 'bg-white border-slate-200'}`}>
+            <div className={`text-lg font-bold ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>{m.value}</div>
+            <div className="text-[9px] uppercase tracking-wider text-slate-500 mt-0.5 font-semibold">{m.label}</div>
+          </div>
+        ))}
       </div>
 
       {/* Similarity telemetry bar */}
-      <div className={`p-4 rounded-xl border ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50 border-slate-200'}`}>
+      <div className={PANEL_SHELL(isDark)}>
         <div className="flex justify-between items-center mb-2">
-          <span className={`text-xs font-bold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>RAG Match Quality Index</span>
-          <span className="text-[10px] font-sans text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded-full">Optimal</span>
+          <span className={`text-xs font-semibold ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>RAG Match Quality Index</span>
+          <span className="text-[9px] font-medium text-emerald-500 bg-emerald-500/10 px-2 py-0.5 rounded-full">Optimal</span>
         </div>
         <div className="h-2.5 rounded-full overflow-hidden bg-slate-200 dark:bg-white/10 relative">
           <div className="absolute top-0 bottom-0 left-[75%] right-[5%] bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full" />
         </div>
-        <div className="flex justify-between items-center text-[9px] font-sans text-slate-500 mt-2">
+        <div className="flex justify-between items-center text-[9px] text-slate-500 mt-2">
           <span>Min Cutoff (0.72)</span>
-          <span className="text-blue-400 font-bold">Mean Match (0.88)</span>
+          <span className="text-blue-500 font-semibold">Mean Match (0.88)</span>
           <span>Max Match (1.00)</span>
         </div>
       </div>
 
-      {/* RAG DB status console */}
-      <div className="p-3.5 rounded-xl border bg-slate-950 border-white/5 font-sans text-[10px] leading-relaxed text-slate-400 shadow-inner">
-        <div className="text-blue-400 mb-1.5 font-bold flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-ping" />
-          RAG_INDEXER_LOGS
+      {/* Indexer status */}
+      <div className={PANEL_SHELL(isDark)}>
+        <div className="flex items-center gap-2 mb-3">
+          <LiveDot color="bg-blue-500" />
+          <span className={`text-[10px] tracking-wider uppercase font-semibold ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>Retrieval Indexer</span>
         </div>
-        <div className="space-y-1">
-          <div>[OK] Cosine similarity index loader active.</div>
-          <div>[OK] Filtering background boilerplate paragraphs.</div>
-          <div>[OK] Vectorizing query formulations using embedding models.</div>
-          {totalQueries > 0 && <div>[OK] Retrieved and indexed {chunkDisplay} distinct guidelines chunks.</div>}
-        </div>
+        <ul className="space-y-2 text-[13px]">
+          {[
+            'Cosine similarity index active',
+            'Filtering boilerplate paragraphs',
+            'Vectorizing query formulations',
+            totalQueries > 0 ? `Indexed ${chunkDisplay} distinct guideline chunks` : null,
+          ].filter(Boolean).map((line, i) => (
+            <li key={i} className="flex items-center gap-2">
+              <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500" strokeWidth={2.2} />
+              <span className={isDark ? 'text-slate-400' : 'text-slate-600'}>{line}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
@@ -170,50 +198,57 @@ function SynthesisTelemetry({ isDark }) {
 
   return (
     <div className="space-y-4 animate-fadeIn">
-      <div className={`p-4 rounded-xl border ${isDark ? 'bg-slate-900/60 border-violet-500/20' : 'bg-violet-50/50 border-violet-200'} backdrop-blur-md`}>
+      <div className={PANEL_SHELL(isDark)}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 rounded-full bg-violet-500 animate-ping" />
-            <span className={`text-[10px] font-sans tracking-wider ${isDark ? 'text-violet-300' : 'text-violet-700'} uppercase font-bold`}>Care Plan Compiler</span>
+            <LiveDot color="bg-violet-500" />
+            <span className={`text-[10px] tracking-wider ${isDark ? 'text-violet-300' : 'text-violet-700'} uppercase font-semibold`}>Care Plan Compiler</span>
           </div>
-          <span className="text-[9px] font-sans text-violet-400 font-bold bg-violet-500/10 px-2 py-0.5 rounded-full">Compiling</span>
+          <span className="text-[9px] font-medium text-violet-500 bg-violet-500/10 px-2 py-0.5 rounded-full">Compiling</span>
         </div>
 
-        <div className="space-y-3.5">
+        <ol className="relative">
           {steps.map((step, idx) => {
             const isDone = idx < currentStep;
             const isActive = idx === currentStep;
-            const isPending = idx > currentStep;
+            const isLast = idx === steps.length - 1;
 
             return (
-              <div key={idx} className="flex items-start gap-3 text-xs transition-all duration-300">
-                <div className="mt-0.5 shrink-0">
+              <li key={idx} className="relative pl-6 pb-4 last:pb-0">
+                {/* Connecting rail */}
+                {!isLast && (
+                  <span className={`absolute left-[7px] top-5 bottom-0 w-px ${
+                    isDone ? 'bg-emerald-500/40' : isDark ? 'bg-white/10' : 'bg-slate-200'
+                  }`} />
+                )}
+
+                {/* Node */}
+                <span className="absolute left-0 top-0.5 shrink-0">
                   {isDone ? (
-                    <div className="w-4 h-4 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/40 text-emerald-400 font-sans text-[10px] font-bold">✓</div>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" strokeWidth={2.2} />
                   ) : isActive ? (
-                    <Loader2 className="w-4 h-4 text-violet-400 animate-spin" strokeWidth={2.5} />
+                    <Loader2 className="w-4 h-4 text-violet-500 animate-spin" strokeWidth={2.5} />
                   ) : (
-                    <div className="w-4 h-4 rounded-full bg-slate-900/40 border border-slate-700/50 flex items-center justify-center text-slate-600 font-sans text-[9px]">○</div>
+                    <Circle className={`w-4 h-4 ${isDark ? 'text-slate-700' : 'text-slate-300'}`} strokeWidth={2} />
                   )}
-                </div>
-                <div className="min-w-0">
-                  <p className={`font-semibold transition-colors duration-300 ${
-                    isDone ? (isDark ? 'text-slate-400' : 'text-slate-500') :
-                    isActive ? (isDark ? 'text-violet-300' : 'text-violet-700') :
-                    'text-slate-600'
-                  }`}>
-                    {step.label}
+                </span>
+
+                <p className={`text-[13px] font-medium leading-snug transition-colors duration-300 ${
+                  isDone ? (isDark ? 'text-slate-400' : 'text-slate-400') :
+                  isActive ? (isDark ? 'text-violet-300' : 'text-violet-700 font-semibold') :
+                  isDark ? 'text-slate-500' : 'text-slate-400'
+                }`}>
+                  {step.label}
+                </p>
+                {isActive && (
+                  <p className={`text-[11px] mt-0.5 leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                    {step.desc}
                   </p>
-                  {isActive && (
-                    <p className={`text-[10px] mt-0.5 leading-relaxed animate-pulse ${isDark ? 'text-slate-400 font-medium' : 'text-slate-500'}`}>
-                      {step.desc}
-                    </p>
-                  )}
-                </div>
-              </div>
+                )}
+              </li>
             );
           })}
-        </div>
+        </ol>
       </div>
     </div>
   );
@@ -234,40 +269,37 @@ function SafetyReviewTelemetry({ safetyReport, isDark }) {
   return (
     <div className="space-y-4 animate-fadeIn">
       {/* Shield status */}
-      <div className={`p-4 rounded-xl border ${
-        criticalCount > 0
-          ? (isDark ? 'bg-rose-500/10 border-rose-500/30 shadow-lg shadow-rose-950/20' : 'bg-rose-50 border-rose-200 shadow-sm')
-          : (isDark ? 'bg-slate-900/60 border-rose-500/20' : 'bg-rose-50/30 border-rose-200')
-      } backdrop-blur-md`}>
+      <div className={PANEL_SHELL(isDark)}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <div className={`w-2.5 h-2.5 rounded-full ${criticalCount > 0 ? 'bg-rose-500' : isDone ? 'bg-emerald-500 animate-pulse' : 'bg-rose-400 animate-pulse'}`} />
-            <span className={`text-[10px] font-sans tracking-wider ${isDark ? 'text-rose-300' : 'text-rose-700'} uppercase font-bold`}>Safety Guardrails</span>
+            <LiveDot color={criticalCount > 0 ? 'bg-rose-500' : isDone ? 'bg-emerald-500' : 'bg-rose-400'} ping={!isDone || criticalCount > 0} />
+            <span className={`text-[10px] tracking-wider ${isDark ? 'text-rose-300' : 'text-rose-700'} uppercase font-semibold`}>Safety Guardrails</span>
           </div>
-          <span className={`text-[9px] font-sans font-bold px-2 py-0.5 rounded-full ${
-            isDone 
-              ? (criticalCount > 0 ? 'bg-rose-500/20 text-rose-300' : 'bg-emerald-500/20 text-emerald-300')
-              : 'bg-rose-500/10 text-rose-400'
+          <span className={`text-[9px] font-medium px-2 py-0.5 rounded-full ${
+            isDone
+              ? (criticalCount > 0 ? 'bg-rose-500/10 text-rose-500' : 'bg-emerald-500/10 text-emerald-500')
+              : 'bg-rose-500/10 text-rose-500'
           }`}>{isDone ? 'Checked' : 'Scanning'}</span>
         </div>
 
-        {/* Checks grid */}
-        <div className="grid grid-cols-1 gap-2.5">
+        {/* Checks list */}
+        <ul className="space-y-2 text-[13px]">
           {checks.map((check, idx) => (
-            <div key={idx} className={`flex items-center justify-between p-3 rounded-lg border text-xs ${
-              isDark ? 'bg-slate-950/40 border-white/5' : 'bg-white border-slate-100 shadow-sm'
-            }`}>
-              <span className={`font-semibold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{check.name}</span>
-              <span className={`font-sans text-[10px] font-bold ${
-                isDone 
-                  ? 'text-emerald-400' 
-                  : 'text-rose-400 animate-pulse'
-              }`}>
+            <li key={idx} className="flex items-center justify-between gap-3">
+              <span className="flex items-center gap-2 min-w-0">
+                {isDone ? (
+                  <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500" strokeWidth={2.2} />
+                ) : (
+                  <Loader2 className="w-3.5 h-3.5 shrink-0 text-rose-400 animate-spin" strokeWidth={2.2} />
+                )}
+                <span className={isDark ? 'text-slate-300' : 'text-slate-600'}>{check.name}</span>
+              </span>
+              <span className={`text-[10px] font-semibold shrink-0 ${isDone ? 'text-emerald-500' : 'text-rose-400'}`}>
                 {check.status}
               </span>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
 
       {isDone && (
@@ -278,12 +310,12 @@ function SafetyReviewTelemetry({ safetyReport, isDark }) {
         }`}>
           {criticalCount > 0 ? (
             <p className="font-semibold flex items-start gap-2">
-              <span className="shrink-0 text-base -mt-1">⚠️</span>
+              <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={2.2} />
               Safety guardrails detected {criticalCount} major alert(s). Ensure active review and adjustments are made before signing off patient medications.
             </p>
           ) : (
             <p className="font-semibold flex items-start gap-2">
-              <span className="shrink-0 text-base -mt-1">✓</span>
+              <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={2.2} />
               Clinical safety check complete. All recommendations verify with patient clinical profile, comorbidities, allergies and active medications.
             </p>
           )}
@@ -366,6 +398,16 @@ const ACCENT = {
     ring: 'ring-rose-500/20',
   },
 };
+
+// Single source of truth for per-stage label + accent, shared by the
+// chain-of-thought feed and the "What Is Happening" header so they never drift.
+const STAGE_META = {
+  3: { color: 'teal', label: 'CPG Routing' },
+  4: { color: 'blue', label: 'Evidence Retrieval' },
+  5: { color: 'violet', label: 'Plan Synthesis' },
+  6: { color: 'rose', label: 'Safety Review' },
+};
+const DOT_BG = { teal: 'bg-teal-500', blue: 'bg-blue-500', violet: 'bg-violet-500', rose: 'bg-rose-500' };
 
 function getStageData(stageDef, pipelineEvents, safetyReport) {
   const events = pipelineEvents.filter((e) => e.stage === stageDef.stage);
@@ -506,28 +548,13 @@ function LiveActivity({ events, isDark }) {
   }
 
   return (
-    <div className="space-y-3 max-h-[380px] overflow-y-auto pr-1">
+    <ol className="relative max-h-[380px] overflow-y-auto pr-1">
       {visible.map((event, idx) => {
-        // Map stage to styling colors
-        let stageColor = 'indigo';
-        let Icon = BookOpen;
-
-        if (event.stage === 3) {
-          stageColor = 'teal';
-          Icon = Route;
-        } else if (event.stage === 4) {
-          stageColor = 'blue';
-          Icon = FileSearch;
-        } else if (event.stage === 5) {
-          stageColor = 'violet';
-          Icon = Sparkles;
-        } else if (event.stage === 6) {
-          stageColor = 'rose';
-          Icon = ShieldCheck;
-        }
-
+        const isLast = idx === visible.length - 1;
         const isError = event.status === 'error';
-        const colorSet = ACCENT[stageColor] || ACCENT.teal;
+        const meta = STAGE_META[event.stage] || STAGE_META[3];
+        const colorSet = ACCENT[meta.color] || ACCENT.teal;
+        const dotColor = isError ? 'bg-rose-500' : DOT_BG[meta.color] || 'bg-teal-500';
 
         // Clean up quotes from detail strings if present
         let cleanDetail = event.detail || '';
@@ -536,51 +563,36 @@ function LiveActivity({ events, isDark }) {
         }
 
         return (
-          <div
-            key={`${event.stage}-${event.detail}-${idx}`}
-            className={`group relative rounded-xl border p-3.5 transition-all duration-300 hover:-translate-y-0.5 ${
-              isDark 
-                ? 'bg-slate-900/40 border-white/5 hover:bg-slate-900/60' 
-                : 'bg-white border-slate-100 shadow-sm hover:shadow-md'
-            }`}
-          >
-            {/* Glowing left strip */}
-            <div className={`absolute top-0 bottom-0 left-0 w-1 rounded-l-xl transition-all duration-300 ${
-              isError 
-                ? 'bg-rose-500' 
-                : stageColor === 'teal' 
-                  ? 'bg-teal-500' 
-                  : stageColor === 'blue' 
-                    ? 'bg-blue-500' 
-                    : stageColor === 'violet' 
-                      ? 'bg-violet-500' 
-                      : 'bg-rose-500'
-            }`} />
+          <li key={`${event.stage}-${event.detail}-${idx}`} className="relative pl-6 pb-4 last:pb-0">
+            {/* Connecting rail */}
+            {!isLast && (
+              <span className={`absolute left-[5px] top-3.5 bottom-0 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+            )}
 
-            <div className="pl-2 flex items-start justify-between gap-3">
-              <div className="flex items-start gap-2.5 min-w-0">
-                <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 border ${
-                  isDark ? `${colorSet.darkBg} ${colorSet.darkBorder}` : `${colorSet.bg} ${colorSet.border}`
+            {/* Node */}
+            <span className={`absolute left-0 top-1.5 w-[11px] h-[11px] rounded-full ${dotColor} ${
+              isLast ? `ring-4 ${colorSet.ring}` : ''
+            }`}>
+              {isLast && <span className={`absolute inset-0 rounded-full ${dotColor} animate-ping opacity-60`} />}
+            </span>
+
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <span className={`text-[10px] font-semibold uppercase tracking-wider ${
+                  isError ? 'text-rose-500' : isDark ? colorSet.darkText : colorSet.text
                 }`}>
-                  <Icon className={`w-4 h-4 ${isDark ? colorSet.darkText : colorSet.text}`} strokeWidth={1.8} />
-                </div>
-                <div className="min-w-0">
-                  <span className={`text-[9px] font-bold tracking-wider uppercase font-sans ${
-                    isDark ? colorSet.darkText : colorSet.text
-                  }`}>
-                    Stage {event.stage} · {stageColor}
-                  </span>
-                  <p className={`text-xs mt-0.5 font-medium leading-relaxed ${
-                    isError ? 'text-rose-500' : isDark ? 'text-slate-200' : 'text-slate-700'
-                  }`}>
-                    {cleanDetail}
-                  </p>
-                </div>
+                  {meta.label}
+                </span>
+                <p className={`text-[13px] mt-0.5 leading-snug ${
+                  isError ? 'text-rose-500' : isDark ? 'text-slate-200' : 'text-slate-700'
+                }`}>
+                  {cleanDetail}
+                </p>
               </div>
 
               {event.badge && (
-                <span className={`shrink-0 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full ${
-                  event.badge.includes('new') 
+                <span className={`shrink-0 mt-0.5 text-[9px] font-sans font-bold px-2 py-0.5 rounded-full ${
+                  event.badge.includes('new')
                     ? (isDark ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border border-emerald-200')
                     : (isDark ? 'bg-white/5 text-slate-400 border border-white/10' : 'bg-slate-50 text-slate-600 border border-slate-200')
                 }`}>
@@ -588,10 +600,10 @@ function LiveActivity({ events, isDark }) {
                 </span>
               )}
             </div>
-          </div>
+          </li>
         );
       })}
-    </div>
+    </ol>
   );
 }
 
@@ -646,13 +658,13 @@ export function PlanGenerationProcess({
             <div className={`w-9 h-9 rounded-lg flex items-center justify-center border transition-all duration-300 ${
               isDark ? `${tone.darkBg} ${tone.darkBorder}` : `${tone.bg} ${tone.border}`
             }`}>
-              <Icon className={`w-4.5 h-4.5 ${iconTone}`} strokeWidth={1.8} />
+              <Icon className={`w-5 h-5 ${iconTone}`} strokeWidth={1.8} />
             </div>
-            <div>
-              <span className={`text-[9px] uppercase font-bold tracking-wider ${iconTone} font-sans`}>
-                Active Phase: Stage {activeStage.stage}
+            <div className="leading-tight">
+              <span className={`block text-[10px] uppercase font-semibold tracking-wider ${iconTone} font-sans`}>
+                Active Phase · Stage {activeStage.stage}
               </span>
-              <h4 className={`text-sm font-bold -mt-0.5 ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
+              <h4 className={`text-sm font-bold ${isDark ? 'text-slate-100' : 'text-slate-800'}`}>
                 {activeStage.label}
               </h4>
             </div>
