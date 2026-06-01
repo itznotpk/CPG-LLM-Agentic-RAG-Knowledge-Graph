@@ -138,6 +138,10 @@ export const searchPatientByNRIC = async (nric) => {
           riskLevel: patient.risk_level,
           mpisSyncedAt: patient.mpis_synced_at,
           vitalsHistory: patient.vitals_history || [],
+          // Stored delivery email — lets the "Email to Patient" form default to
+          // the saved address on a returning patient's 2nd+ consultation.
+          email: patient.email || '',
+          email_consent_at: patient.email_consent_at || null,
         },
         error: null
       };

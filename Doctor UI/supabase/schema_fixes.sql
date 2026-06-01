@@ -49,6 +49,9 @@ GRANT EXECUTE ON FUNCTION public.update_prior_visit_summary_bypass(TEXT, INTEGER
 -- 4. API COMPATIBILITY: REDEFINE search_patient_v2 RPC
 -- Overrides the old function to return a mock empty vitals_history JSONB array
 -- preventing any client-side queries or Vite mapping logic from breaking.
+-- Drop first: the RETURNS TABLE signature changed (added email columns), and
+-- CREATE OR REPLACE cannot alter a function's output columns.
+DROP FUNCTION IF EXISTS public.search_patient_v2(TEXT);
 CREATE OR REPLACE FUNCTION public.search_patient_v2(p_nric TEXT)
 RETURNS TABLE (
     nric TEXT,
@@ -62,11 +65,13 @@ RETURNS TABLE (
     current_medications JSONB,
     risk_level public.risk_level,
     mpis_synced_at TIMESTAMPTZ,
-    vitals_history JSONB
+    vitals_history JSONB,
+    email TEXT,
+    email_consent_at TIMESTAMPTZ
 ) AS $$
 BEGIN
     RETURN QUERY
-    SELECT 
+    SELECT
         p.nric,
         p.full_name,
         p.date_of_birth,
@@ -78,7 +83,9 @@ BEGIN
         p.current_medications,
         p.risk_level,
         p.mpis_synced_at,
-        '[]'::jsonb AS vitals_history
+        '[]'::jsonb AS vitals_history,
+        p.email,
+        p.email_consent_at
     FROM public.patients p
     WHERE p.nric = p_nric;
 END;

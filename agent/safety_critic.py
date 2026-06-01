@@ -131,7 +131,7 @@ def _kg_flag_to_safety(
     )
 
 
-async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[SafetyFlag]:
+async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> tuple[list[SafetyFlag], bool]:
     """Deterministic post-Stage-5 KG verification of the final TreatmentPlan.
 
     Different from the pre-Stage-5 `clinical_graph_lookup` in two ways:
@@ -141,29 +141,37 @@ async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[Safety
         the synthesis prompt the LLM consumes.
 
     Fail-open with one retry on transient errors — a Neo4j connection reset has
-    been observed in the wild and shouldn't drop the whole safety pass.
+    been observed in the wild and shouldn't drop the whole safety pass. We pass
+    `raise_on_error=True` into `match_plan_drugs` so a backend failure (e.g. the
+    Neo4j pool-acquisition timeout) actually propagates into this retry loop
+    instead of being swallowed as an empty result that looks like "no drugs".
+
+    Returns:
+        (flags, degraded) — `degraded` is True when the KG backend errored and
+        both attempts were exhausted, so the caller can surface that the graph
+        half of the safety pass was skipped (distinct from a clean empty result).
     """
     pharm = [
         (i, r.intervention) for i, r in enumerate(plan.recommendations)
         if r.type == "pharmacological"
     ]
     if not pharm:
-        return []
+        return [], False
     pharm_recommendation_indices = [i for i, _ in pharm]
     interventions = [iv for _, iv in pharm]
 
     for attempt in (1, 2):
         try:
-            drug_idx_map = await match_plan_drugs(interventions)
+            drug_idx_map = await match_plan_drugs(interventions, raise_on_error=True)
             if not drug_idx_map:
-                return []
+                return [], False
             # Canonicalise the current-med list to KG Drug names. case.current_medications
             # are verbose free-text ("Gliclazide MR 60mg OD") whose _norm form
             # ("gliclazide mr 60mg od") never equals a Drug node's name_normalised
             # ("gliclazide") — so drug–drug interactions anchored on an existing med
             # (warfarin×fluconazole, gliclazide×dapagliflozin) could never fire. Resolve
             # them to canonical names first; fall back to the raw list if nothing matches.
-            pm_idx_map = await match_plan_drugs(case.current_medications or [])
+            pm_idx_map = await match_plan_drugs(case.current_medications or [], raise_on_error=True)
             patient_med_names = list(pm_idx_map.keys()) or (case.current_medications or [])
             kg_flags = await clinical_graph_lookup(
                 patient_meds=patient_med_names,
@@ -229,13 +237,13 @@ async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> list[Safety
                 "KG verify: %d graph-sourced safety flags from %d KG flags (plan drugs: %d)",
                 len(out), len(kg_flags), len(drug_idx_map),
             )
-            return out
+            return out, False
         except Exception as exc:
             logger.warning(
                 "KG verify attempt %d failed (%s)%s",
-                attempt, exc, "; retrying" if attempt == 1 else "; giving up (fail-open)",
+                attempt, exc, "; retrying" if attempt == 1 else "; giving up (fail-open, KG verification degraded)",
             )
-    return []
+    return [], True
 
 
 async def run_safety_critic(
@@ -310,7 +318,7 @@ async def run_safety_critic(
                 reviewer_notes=f"LLM safety review unavailable: {exc.__class__.__name__}",
             )
 
-    llm_report, kg_flags = await asyncio.gather(
+    llm_report, (kg_flags, kg_degraded) = await asyncio.gather(
         _llm_critic(),
         _kg_verify_plan(case, plan),
         return_exceptions=False,  # both halves already fail-open internally
@@ -325,5 +333,15 @@ async def run_safety_critic(
     if kg_flags:
         graph_note = f"{len(kg_flags)} graph-verified flag(s) added from Neo4j KG"
         notes = f"{notes} | {graph_note}" if notes else graph_note
+    if kg_degraded:
+        # The KG half was skipped due to a backend error — surface it so a
+        # transient Neo4j outage isn't presented as a clean graph-verified pass.
+        degraded_note = "Neo4j KG verification unavailable — graph-source safety checks were skipped this run"
+        notes = f"{notes} | {degraded_note}" if notes else degraded_note
 
-    return SafetyReport(flags=merged_flags, safe_to_proceed=safe_to_proceed, reviewer_notes=notes)
+    return SafetyReport(
+        flags=merged_flags,
+        safe_to_proceed=safe_to_proceed,
+        reviewer_notes=notes,
+        kg_verification_degraded=kg_degraded,
+    )

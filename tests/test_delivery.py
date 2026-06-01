@@ -171,40 +171,46 @@ async def test_email_has_html_alternative(smtp_server):
 
 
 @pytest.mark.asyncio
-async def test_refuses_without_consent(smtp_server):
+async def test_sends_to_recipient_despite_no_stored_consent(smtp_server):
+    """Consent/on-file checks are enforced at enqueue time. At send time the
+    job's `recipient` (clinician-supplied via the UI form, or the legacy stored
+    email) is authoritative, so a job with a recipient but no stored consent on
+    the patient still delivers."""
     handler = smtp_server
-    row = _make_job_row(email_consent_at=None)
+    row = _make_job_row(email=None, email_consent_at=None,
+                        recipient="typed-address@test.com")
     pool, conn = _make_pool_mock(row)
     jid = uuid.uuid4()
 
-    # deliver_care_plan returns (does not raise) on consent failure
     with patch("agent.delivery.db_pool", pool):
-        await deliver_care_plan(jid)
+        with patch("agent.delivery._fetch_pdf", AsyncMock(return_value=FIXTURE_PDF)):
+            await deliver_care_plan(jid)
 
-    # status written as 'failed' with error='no_consent'
-    execute_calls = conn.execute.call_args_list
-    failed_call = next((c for c in execute_calls if "failed" in str(c)), None)
-    assert failed_call is not None, "Expected a failed status update"
-    assert "no_consent" in str(failed_call)
-
-    # SMTP server received nothing
-    assert len(handler.messages) == 0
+    execute_calls = [str(c) for c in conn.execute.call_args_list]
+    assert any("sent" in c for c in execute_calls)
+    assert len(handler.messages) == 1
+    msg = email.message_from_bytes(handler.messages[0])
+    assert "typed-address@test.com" in msg["To"]
 
 
 @pytest.mark.asyncio
-async def test_refuses_without_email(smtp_server):
+async def test_refuses_without_recipient(smtp_server):
     handler = smtp_server
-    # email=None means consent check also fails (email is falsy)
-    row = _make_job_row(email=None, email_consent_at=None)
+    row = _make_job_row(recipient=None)
     pool, conn = _make_pool_mock(row)
     jid = uuid.uuid4()
 
+    # deliver_care_plan returns (does not raise) when no recipient is resolved
     with patch("agent.delivery.db_pool", pool):
         await deliver_care_plan(jid)
 
+    # status written as 'failed' with error='no_recipient'
     execute_calls = conn.execute.call_args_list
     failed_call = next((c for c in execute_calls if "failed" in str(c)), None)
-    assert failed_call is not None
+    assert failed_call is not None, "Expected a failed status update"
+    assert "no_recipient" in str(failed_call)
+
+    # SMTP server received nothing
     assert len(handler.messages) == 0
 
 

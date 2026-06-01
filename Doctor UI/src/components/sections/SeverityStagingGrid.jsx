@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { GlassCard } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+import { sampleSeverityStaging } from '../../data/sampleData';
 
 // CKD-EPI 2021 (race-free) — requires serum creatinine (mg/dL), age, sex
 function calcEGFR(creatinine, age, sex) {
@@ -99,6 +100,15 @@ export function SeverityStagingGrid() {
     dispatch({ type: 'SET_SEVERITY_STAGING', payload: updated });
   };
 
+  const handleSampleFill = () => {
+    // EVALUATION_FRAMEWORK_README.md Case 11: eGFR 88 · HbA1c 7.4.
+    dispatch({
+      type: 'SET_SEVERITY_STAGING',
+      payload: { ...severityStaging, ...sampleSeverityStaging },
+    });
+    setExpanded(true);
+  };
+
   const filledCount = Object.keys(severityStaging).length + (isAutoEGFR ? 1 : 0);
 
   const inputClass = (isDark) =>
@@ -124,17 +134,31 @@ export function SeverityStagingGrid() {
             </p>
           )}
         </div>
-        <button
-          onClick={() => setExpanded((v) => !v)}
-          type="button"
-          className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors flex-shrink-0 ${
-            isDark
-              ? 'border-white/20 text-slate-300 hover:bg-white/10'
-              : 'border-slate-300 text-slate-600 hover:bg-slate-50'
-          }`}
-        >
-          {expanded ? '− Hide' : '+ Add stage'}
-        </button>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          <button
+            onClick={handleSampleFill}
+            type="button"
+            title="Fill with sample data"
+            className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors ${
+              isDark
+                ? 'border-white/20 text-slate-400 hover:bg-white/10'
+                : 'border-slate-300 text-slate-500 hover:bg-slate-50'
+            }`}
+          >
+            Sample
+          </button>
+          <button
+            onClick={() => setExpanded((v) => !v)}
+            type="button"
+            className={`text-sm font-medium px-3 py-1.5 rounded-lg border transition-colors ${
+              isDark
+                ? 'border-white/20 text-slate-300 hover:bg-white/10'
+                : 'border-slate-300 text-slate-600 hover:bg-slate-50'
+            }`}
+          >
+            {expanded ? '− Hide' : '+ Add stage'}
+          </button>
+        </div>
       </div>
 
       {expanded && (

@@ -1024,6 +1024,110 @@ def _dedup_lifestyle_vs_monitoring(
     return kept
 
 
+def _surface_interacting_current_meds(
+    recommendations: list[Recommendation],
+    red_flags: list[str],
+    current_medications: list[str],
+) -> list[Recommendation]:
+    """Surface a current medication ONLY when it is the existing side of a
+    drug–drug contraindication the plan already raised.
+
+    Stage 5 only emits recommendations for drugs it *acts on*, so a current med
+    that merely *creates* a contraindication is invisible. The motivating case:
+    the patient's long-acting nitrate (Isosorbide Mononitrate) is what makes a
+    PDE5 inhibitor absolutely contraindicated — the plan flags the PDE5i, but the
+    nitrate itself never gets a row, so the clinician sees only one side of the
+    interaction. This pass gives that interacting current med its own row, tagged
+    ``contraindicated`` so it sits alongside the contraindicated agent and the
+    conflict is visible from both sides.
+
+    Background meds the plan does not touch (aspirin, statin, etc. for ongoing
+    secondary prevention) are deliberately NOT surfaced — they are assumed
+    continued and would only add noise.
+
+    Trigger = the current med's name appears in the text of an emitted
+    ``contraindicated`` recommendation or an interaction red flag. Unresolved
+    Questions are intentionally NOT a trigger: a drug named there may merely be a
+    *swap candidate* (e.g. a β-blocker under ED-contribution review), and stamping
+    it ``contraindicated`` would be clinically wrong.
+    """
+    if not current_medications:
+        return recommendations
+
+    def _primary_token(norm: str) -> str:
+        return norm.split()[0] if norm else ""
+
+    # Drugs already addressed by an emitted rec — never duplicate or relabel them.
+    covered_full: set[str] = set()
+    covered_tokens: set[str] = set()
+    for r in recommendations:
+        if r.type != "pharmacological":
+            continue
+        norm = _normalize_drug_name(r.intervention or "")
+        if norm:
+            covered_full.add(norm)
+            covered_tokens.add(_primary_token(norm))
+
+    # Interaction corpus: where the existing interacting drug would be named.
+    corpus_parts: list[str] = []
+    for r in recommendations:
+        if r.type == "pharmacological" and (r.action or "") == "contraindicated":
+            corpus_parts.append(r.intervention or "")
+            corpus_parts.append(r.rationale or "")
+    corpus_parts.extend(red_flags or [])
+    corpus = " \n ".join(corpus_parts).lower()
+    if not corpus.strip():
+        return recommendations
+
+    injected: list[Recommendation] = []
+    for med in current_medications:
+        med = (med or "").strip()
+        if not med:
+            continue
+        norm = _normalize_drug_name(med)
+        if not norm:
+            continue
+        token = _primary_token(norm)
+        already = (
+            norm in covered_full
+            or (token and token in covered_tokens)
+            or any(norm.startswith(c) or c.startswith(norm) for c in covered_full)
+        )
+        if already:
+            continue
+        # Only surface if this drug is actually named in the interaction corpus.
+        if norm not in corpus and not (token and token in corpus):
+            continue
+        injected.append(
+            Recommendation(
+                intervention=(
+                    f"{med} — interacting agent in a flagged drug–drug contraindication"
+                ),
+                type="pharmacological",
+                action="contraindicated",
+                evidence_grade=None,
+                cpg_source="Patient medication reconciliation (drug interaction)",
+                rationale=(
+                    "Existing medication on the patient's active list that is the other side of "
+                    "a drug–drug contraindication surfaced by this plan — shown so the conflict "
+                    "is visible from both sides. The contraindication blocks co-prescribing the "
+                    "flagged agent; it does NOT mean stop this drug reflexively. Manage via the "
+                    "relevant specialty (e.g. cardiology review of nitrate necessity)."
+                ),
+                contraindications_checked=[],
+            )
+        )
+        covered_full.add(norm)
+        covered_tokens.add(token)
+
+    if injected:
+        logger.info(
+            "stage_5: surfaced %d interacting current med(s) as contraindicated row(s)",
+            len(injected),
+        )
+    return recommendations + injected
+
+
 def _referral_evidence_quality(rec) -> tuple[str, str]:
     """Assess evidence quality for a KG referral and return (quality_level, audit_note).
 
@@ -3821,7 +3925,11 @@ _CPG_STALE_THRESHOLD_YEARS = 5
 # visible to the synthesis LLM.
 _CHILD_CHAR_LIMIT = 20_000
 _PARENT_CHAR_LIMIT = 60_000
-_TOTAL_TOKEN_BUDGET = 60_000
+# Raised 60k → 90k: multi-CPG cases (e.g. Case 11: 5 target CPGs) were exhausting
+# the evidence budget and dropping even small (~500-token) lower-ranked chunks that
+# can carry safety-critical detail. 90k still leaves comfortable headroom under the
+# 180k prompt ceiling (system prompt + plan schema + case ≈ 10-20k).
+_TOTAL_TOKEN_BUDGET = 90_000
 _PROMPT_TOKEN_LIMIT = 180_000
 _ENC = None
 
@@ -4921,6 +5029,19 @@ Produce a TreatmentPlan JSON object matching this schema:
             "stage_5: final medication dedup (post-KG): %d → %d pharmacological recs",
             med_count_before_final, med_count_after_final,
         )
+
+    # Surface the existing side of a drug–drug contraindication. The LLM flags the
+    # contraindicated agent (e.g. a PDE5i) but the current med that *creates* the
+    # contraindication (e.g. the patient's long-acting nitrate) never gets a row,
+    # so the clinician sees only one side of the conflict. This pass gives that
+    # interacting current med a contraindicated row. Background meds the plan
+    # doesn't touch are intentionally not surfaced. Runs after dedup so it sees the
+    # final (incl. KG-injected) rec set.
+    plan.recommendations = _surface_interacting_current_meds(
+        plan.recommendations,
+        plan.red_flags,
+        getattr(case, "current_medications", []) or [],
+    )
 
     # Final dedup of referrals (post-KG injection) to handle urgency conflicts
     # and duplicates introduced by LLM+KG overlap or KG itself

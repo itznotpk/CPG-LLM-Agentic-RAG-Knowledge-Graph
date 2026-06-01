@@ -568,8 +568,21 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   onSendToPatient, deliveryStatus, canSendToPatient,
 }, ref) {
   const [editing, setEditing] = useState(false);
+  const [emailFormOpen, setEmailFormOpen] = useState(false);
+  const [emailInput, setEmailInput] = useState('');
   const { isDark } = useTheme();
   const paperRef = useRef(null);
+
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.trim());
+  const openEmailForm = () => {
+    setEmailInput(patient?.email || '');
+    setEmailFormOpen(true);
+  };
+  const submitEmailForm = () => {
+    if (!emailValid) return;
+    onSendToPatient(emailInput.trim());
+    setEmailFormOpen(false);
+  };
 
   // Expose the paper DOM element to the parent via ref
   useImperativeHandle(ref, () => ({
@@ -864,11 +877,6 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
             <span className="icon-box">{fcpIcons.print({})}</span>
             <span>Print copy</span>
           </button>
-          <button className="action-btn" disabled>
-            <span className="icon-box">{fcpIcons.send({})}</span>
-            <span>Send to EMR</span>
-            <span className="meta">HL7 FHIR</span>
-          </button>
           {/* ── Supabase upload status ── */}
           <div style={{
             display: 'flex', alignItems: 'center', gap: 8,
@@ -909,17 +917,68 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
           </div>
           <button
             className="action-btn"
-            onClick={onSendToPatient}
+            onClick={openEmailForm}
             disabled={!canSendToPatient || deliveryStatus?.status === 'sending' || deliveryStatus?.status === 'sent'}
-            title={!canSendToPatient ? 'Patient has not consented to email delivery' : undefined}
+            title={!canSendToPatient ? 'Care plan PDF is still being saved — try again in a moment' : undefined}
           >
             <span className="icon-box">{fcpIcons.mail({})}</span>
             <span>
               {deliveryStatus?.status === 'sending' ? 'Sending…'
                 : deliveryStatus?.status === 'sent' ? 'Sent'
-                : 'Send to patient'}
+                : 'Email to Patient'}
             </span>
           </button>
+          {emailFormOpen && (
+            <div style={{
+              padding: '12px', borderRadius: 8, marginTop: 4,
+              background: 'rgba(15,118,110,0.05)',
+              border: '1px solid rgba(15,118,110,0.2)',
+            }}>
+              <label style={{
+                display: 'block', fontSize: 12, fontWeight: 600,
+                color: '#0f766e', marginBottom: 6,
+              }}>
+                Patient email address
+              </label>
+              <input
+                type="email"
+                value={emailInput}
+                autoFocus
+                placeholder="patient@example.com"
+                onChange={(e) => setEmailInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') submitEmailForm();
+                  if (e.key === 'Escape') setEmailFormOpen(false);
+                }}
+                style={{
+                  width: '100%', boxSizing: 'border-box', padding: '8px 10px',
+                  borderRadius: 6, fontSize: 13, marginBottom: 8,
+                  border: '1px solid rgba(100,116,139,0.3)',
+                }}
+              />
+              <p style={{ margin: '0 0 8px 0', fontSize: 11, color: '#64748b', lineHeight: 1.4 }}>
+                The care plan PDF will be emailed to this address.
+              </p>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <button
+                  className="action-btn primary"
+                  style={{ flex: 1, marginTop: 0 }}
+                  onClick={submitEmailForm}
+                  disabled={!emailValid}
+                >
+                  <span className="icon-box">{fcpIcons.mail({})}</span>
+                  <span>Send PDF</span>
+                </button>
+                <button
+                  className="action-btn"
+                  style={{ flex: 1, marginTop: 0 }}
+                  onClick={() => setEmailFormOpen(false)}
+                >
+                  <span>Cancel</span>
+                </button>
+              </div>
+            </div>
+          )}
           {deliveryStatus && (
             <div style={{
               display: 'flex', alignItems: 'center', gap: 8,

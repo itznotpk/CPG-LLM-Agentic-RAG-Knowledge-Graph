@@ -1723,18 +1723,24 @@ async def get_session_info(session_id: str):
 class DeliveryEnqueueRequest(_BaseModel):
     consultation_id: int
     clinician_name: Optional[str] = None
+    # Recipient address supplied by the clinician via the UI form. When set,
+    # it overrides the patient's stored email and bypasses the on-file/consent
+    # gate (the clinician is explicitly directing the send).
+    recipient: Optional[str] = None
 
 
 @app.post("/delivery/enqueue")
 async def delivery_enqueue(body: DeliveryEnqueueRequest):
     """Enqueue a care-plan delivery job for the given consultation."""
     from .db_utils import db_pool as _pool
+    recipient = (body.recipient or "").strip() or None
     try:
         async with _pool.acquire() as conn:
             rows = await conn.fetch(
-                "SELECT * FROM enqueue_delivery_job($1::integer, $2::text)",
+                "SELECT * FROM enqueue_delivery_job($1::integer, $2::text, $3::text)",
                 body.consultation_id,
                 body.clinician_name,
+                recipient,
             )
         if not rows:
             raise HTTPException(status_code=400, detail="enqueue returned no row")

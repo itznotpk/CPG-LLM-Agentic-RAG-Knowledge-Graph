@@ -376,11 +376,15 @@ export async function resynthesizePlanStream(
   });
 }
 
-export async function enqueueDelivery(consultationId, clinicianName = null) {
+export async function enqueueDelivery(consultationId, clinicianName = null, recipient = null) {
   const r = await fetch(`${CLINICAL_API_BASE}/delivery/enqueue`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ consultation_id: consultationId, clinician_name: clinicianName }),
+    body: JSON.stringify({
+      consultation_id: consultationId,
+      clinician_name: clinicianName,
+      recipient,
+    }),
   });
   if (!r.ok) throw new Error(await r.text());
   return r.json();

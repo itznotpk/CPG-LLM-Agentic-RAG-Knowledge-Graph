@@ -1,47 +1,49 @@
 // Sample data for the CPG LLM demo application
 
+// Stage-1 demo fill — EVALUATION_FRAMEWORK_README.md Case 11
+// (Stable CAD + T2DM + Obesity + ED). Name/Age/Sex are taken verbatim from the
+// case card; DOB/NRIC are synthesised to satisfy the UI's identity fields
+// (age 56 → born 1970; NRIC last digit odd = Male).
 export const samplePatientData = {
-  name: "Wong Kin Meng ",
-  dob: "1958-03-15",
-  nsn: "580315-08-1234",
+  name: "Demo Case 11",
+  dob: "1970-01-01",
+  nsn: "700101-10-5673",
   gender: "Male",
-  age: 68,
+  age: 56,
 };
 
 // Mock MPIS Patient Database for NRIC lookup
 export const mpisPatientDatabase = {
-  "580315-08-1234": {
+  "700101-10-5673": {
     patient: {
-      name: "Wong Kin Meng",
-      dob: "1958-03-15",
-      nsn: "580315-08-1234",
+      name: "Demo Case 11",
+      dob: "1970-01-01",
+      nsn: "700101-10-5673",
       gender: "Male",
-      age: 68,
+      age: 56,
     },
     mpisData: {
       race: "Malay",
       ethnicity: "Malaysian",
       allergies: "None known",
-      comorbidities: ["Type 2 Diabetes Mellitus", "Hypertension", "Hyperlipidemia"],
+      comorbidities: [
+        "Stable Coronary Artery Disease (PCI 18 months ago)",
+        "Type 2 Diabetes Mellitus",
+        "Obesity Class I",
+        "Erectile Dysfunction (new)",
+      ],
       currentMeds: [
-        { name: "Metformin", dose: "1000mg", frequency: "BD" },
-        { name: "Glipizide", dose: "5mg", frequency: "OD" },
-        { name: "Amlodipine", dose: "5mg", frequency: "OD" },
-        { name: "Atorvastatin", dose: "20mg", frequency: "ON" },
+        { name: "Isosorbide Mononitrate", dose: "60mg", frequency: "OD" },
+        { name: "Aspirin", dose: "100mg", frequency: "OD" },
+        { name: "Atorvastatin", dose: "40mg", frequency: "OD" },
+        { name: "Bisoprolol", dose: "5mg", frequency: "OD" },
+        { name: "Metformin", dose: "1g", frequency: "BD" },
       ],
       vitalsHistory: [
-        { date: "2025-02-15", bpSystolic: 158, bpDiastolic: 95, hr: 82, temp: 36.5, spo2: 97, weight: 94 },
-        { date: "2025-03-20", bpSystolic: 155, bpDiastolic: 92, hr: 80, temp: 36.6, spo2: 97, weight: 93.5 },
-        { date: "2025-04-18", bpSystolic: 150, bpDiastolic: 90, hr: 78, temp: 36.4, spo2: 98, weight: 93 },
-        { date: "2025-05-22", bpSystolic: 148, bpDiastolic: 88, hr: 76, temp: 36.5, spo2: 97, weight: 92.5 },
-        { date: "2025-06-19", bpSystolic: 152, bpDiastolic: 92, hr: 80, temp: 36.7, spo2: 96, weight: 93 },
-        { date: "2025-07-17", bpSystolic: 146, bpDiastolic: 86, hr: 75, temp: 36.5, spo2: 98, weight: 92 },
-        { date: "2025-08-21", bpSystolic: 144, bpDiastolic: 85, hr: 74, temp: 36.4, spo2: 98, weight: 91.5 },
-        { date: "2025-09-18", bpSystolic: 148, bpDiastolic: 88, hr: 78, temp: 36.6, spo2: 97, weight: 92 },
-        { date: "2025-10-16", bpSystolic: 145, bpDiastolic: 86, hr: 76, temp: 36.5, spo2: 98, weight: 91 },
-        { date: "2025-11-20", bpSystolic: 143, bpDiastolic: 85, hr: 77, temp: 36.4, spo2: 98, weight: 91.5 },
-        { date: "2025-12-18", bpSystolic: 140, bpDiastolic: 84, hr: 75, temp: 36.5, spo2: 98, weight: 91 },
-        { date: "2026-01-08", bpSystolic: 142, bpDiastolic: 86, hr: 78, temp: 36.6, spo2: 98, weight: 92 },
+        { date: "2025-08-20", bpSystolic: 132, bpDiastolic: 82, hr: 66, temp: 36.6, spo2: 98, weight: 96 },
+        { date: "2025-10-15", bpSystolic: 130, bpDiastolic: 80, hr: 64, temp: 36.5, spo2: 98, weight: 95.5 },
+        { date: "2025-12-10", bpSystolic: 129, bpDiastolic: 81, hr: 65, temp: 36.6, spo2: 98, weight: 95 },
+        { date: "2026-01-08", bpSystolic: 128, bpDiastolic: 80, hr: 64, temp: 36.6, spo2: 98, weight: 95 },
       ],
     },
   },
@@ -103,31 +105,50 @@ export const mpisPatientDatabase = {
   },
 };
 
+// Clinical Notes — verbatim CC/HPI/PE textarea block from Case 11.
 export const sampleClinicalNotes = {
-  history: `Patient reports persistently high home glucose readings (fasting 12-15, postprandial >15) over 3 months a/w polydipsia and polyuria. Admits non-compliance to meds. Exam: BP 142/86, diminished light touch sensation on bilateral big toes. No wounds.`,
+  history: `CC: Erectile dysfunction affecting marital relationship over the past ~6 months. Has not yet tried any therapy.
+
+HPI: PCI 18 months ago; angina-free for 6 months on current secondary-prevention regimen. Long-standing T2DM — stable on current regimen. Sedentary office worker. ED symptoms started insidiously; patient has NOT linked them to any medication. No reduced libido, no nocturnal/morning erections: pattern more consistent with organic / pharmacologic aetiology than psychogenic.
+
+PE/Labs: LDL 1.6 mmol/L. Peripheral pulses intact.`,
 };
 
+// Vitals — Case 11. BP 128/80 · HR 64 · SpO2 98 · Weight 95 · Height 175 · Temp 36.6
+// (BMI 31.0 → Obesity Class I). RR not specified by the case; left at a normal default.
 export const sampleVitals = {
-  bpSystolic: 142,
-  bpDiastolic: 86,
-  hr: 78,
+  bpSystolic: 128,
+  bpDiastolic: 80,
+  hr: 64,
   temp: 36.6,
   rr: 16,
   spo2: 98,
-  weight: 92,
-  height: 170,
+  weight: 95,
+  height: 175,
+};
+
+// Severity staging (+ Add stage) — Case 11: eGFR 88 · HbA1c 7.4.
+export const sampleSeverityStaging = {
+  eGFR: "88",
+  HbA1c: "7.4",
 };
 
 export const sampleMPISData = {
   race: "Malay",
   ethnicity: "Malaysian",
   allergies: "None known",
-  comorbidities: ["Type 2 Diabetes Mellitus", "Hypertension", "Hyperlipidemia"],
+  comorbidities: [
+    "Stable Coronary Artery Disease (PCI 18 months ago)",
+    "Type 2 Diabetes Mellitus",
+    "Obesity Class I",
+    "Erectile Dysfunction (new)",
+  ],
   currentMeds: [
-    { name: "Metformin", dose: "1000mg", frequency: "BD" },
-    { name: "Glipizide", dose: "5mg", frequency: "OD" },
-    { name: "Amlodipine", dose: "5mg", frequency: "OD" },
-    { name: "Atorvastatin", dose: "20mg", frequency: "ON" },
+    { name: "Isosorbide Mononitrate", dose: "60mg", frequency: "OD" },
+    { name: "Aspirin", dose: "100mg", frequency: "OD" },
+    { name: "Atorvastatin", dose: "40mg", frequency: "OD" },
+    { name: "Bisoprolol", dose: "5mg", frequency: "OD" },
+    { name: "Metformin", dose: "1g", frequency: "BD" },
   ],
 };
 

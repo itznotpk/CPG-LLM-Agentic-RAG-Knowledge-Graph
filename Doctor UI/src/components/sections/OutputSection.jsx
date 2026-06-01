@@ -153,13 +153,22 @@ export function OutputSection() {
 
   const handleBack = () => goToStep(3);
 
-  const handleSendToPatient = async () => {
+  const handleSendToPatient = async (recipientEmail) => {
     if (!consultationId) return;
     try {
       // Sign the email with the logged-in clinician (current session).
       const clinicianName = authProfile?.full_name || null;
-      const job = await enqueueDelivery(consultationId, clinicianName);
+      const job = await enqueueDelivery(consultationId, clinicianName, recipientEmail);
       setDelivery(job);
+
+      // Persist the address on the patient record so future consultations
+      // default to it (the send form is the only place we capture a patient email).
+      const nric = resolvedPatient?.nsn || resolvedPatient?.id || resolvedPatient?.nric;
+      if (nric && recipientEmail) {
+        const { updatePatientDeliveryPrefs } = await import('../../lib/supabase');
+        updatePatientDeliveryPrefs(nric, { email: recipientEmail, consented: true })
+          .catch((e) => console.warn('Could not save patient email:', e));
+      }
     } catch (err) {
       toast.error('Could not queue delivery: ' + err.message);
     }
@@ -176,7 +185,9 @@ export function OutputSection() {
     return () => clearInterval(t);
   }, [delivery, consultationId]);
 
-  const canSendToPatient = !!(resolvedPatient?.email_consent_at) && pdfUploaded;
+  // The clinician supplies the recipient address via the form, so the only
+  // hard requirement is that the PDF has finished uploading (so it can be attached).
+  const canSendToPatient = pdfUploaded;
 
   if (!carePlan) return null;
 

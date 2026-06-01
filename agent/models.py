@@ -435,6 +435,11 @@ class SafetyReport(BaseModel):
     flags: List[SafetyFlag] = Field(default_factory=list)
     safe_to_proceed: bool = Field(..., description="False if any CRITICAL or MAJOR flag is present")
     reviewer_notes: Optional[str] = None
+    kg_verification_degraded: bool = Field(
+        default=False,
+        description="True when the Neo4j KG half of the safety pass errored and was skipped "
+        "(distinct from a clean pass with no graph flags); the LLM critic still ran.",
+    )
 
 
 # Ingestion Models

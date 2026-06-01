@@ -81,7 +81,8 @@ async def test_kg_verify_returns_graph_flags_for_known_interaction():
                new=AsyncMock(return_value={"warfarin": 0})), \
          patch("agent.safety_critic.clinical_graph_lookup",
                new=AsyncMock(return_value=[kg_flag])):
-        flags = await _kg_verify_plan(_case(), _plan_with_warfarin())
+        flags, degraded = await _kg_verify_plan(_case(), _plan_with_warfarin())
+    assert degraded is False
     assert len(flags) == 1
     assert flags[0].source == "graph"
     assert flags[0].flag_type == "drug_interaction"
@@ -99,17 +100,21 @@ async def test_kg_verify_returns_empty_when_no_pharmacological_recs():
         confidence=0.5,
     )
     # No need to mock — should short-circuit on the empty pharm filter
-    flags = await _kg_verify_plan(_case(), plan)
+    flags, degraded = await _kg_verify_plan(_case(), plan)
     assert flags == []
+    assert degraded is False
 
 
 @pytest.mark.asyncio
 async def test_kg_verify_fails_open_on_kg_error():
-    """Transient KG failure → empty list, never raises (retry exhausted)."""
-    with patch("agent.safety_critic.match_plan_drugs",
-               new=AsyncMock(side_effect=RuntimeError("neo4j reset"))):
-        flags = await _kg_verify_plan(_case(), _plan_with_warfarin())
+    """Transient KG failure → empty list + degraded=True, never raises (retry exhausted)."""
+    mock = AsyncMock(side_effect=RuntimeError("neo4j reset"))
+    with patch("agent.safety_critic.match_plan_drugs", new=mock):
+        flags, degraded = await _kg_verify_plan(_case(), _plan_with_warfarin())
     assert flags == []
+    assert degraded is True
+    # both attempts of the retry loop actually fired
+    assert mock.await_count == 2
 
 
 # --- run_safety_critic merges LLM + KG --------------------------------------

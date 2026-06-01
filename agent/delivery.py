@@ -268,8 +268,11 @@ async def deliver_care_plan(job_id: UUID) -> None:
     """Entrypoint called by the worker. Pure deterministic flow."""
     try:
         job = await _load_job(job_id)
-        if not (job["email"] and job["email_consent_at"]):
-            await _mark_failed(job_id, "no_consent")
+        # The recipient is resolved at enqueue time: either the clinician-supplied
+        # address from the UI form, or (legacy path) the patient's stored, consented
+        # email. Both routes guarantee a recipient here, so gate the send on that.
+        if not job["recipient"]:
+            await _mark_failed(job_id, "no_recipient")
             return
         if not job["report_pdf_url"]:
             await _mark_failed(job_id, "no_pdf")

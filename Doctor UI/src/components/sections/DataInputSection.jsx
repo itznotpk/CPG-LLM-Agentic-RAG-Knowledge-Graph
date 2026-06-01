@@ -301,8 +301,6 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       allergies: (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean),
       comorbidities: mpisData?.comorbidities || [],
       currentMeds: mpisData?.currentMeds || [],
-      email: patient?.email || '',
-      emailConsent: !!patient?.email_consent_at,
     };
     if (d.name !== orig.name) n++;
     if (d.gender !== orig.gender) n++;
@@ -310,8 +308,6 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
     if (JSON.stringify(d.allergies) !== JSON.stringify(orig.allergies)) n++;
     if (JSON.stringify(d.comorbidities) !== JSON.stringify(orig.comorbidities)) n++;
     if (JSON.stringify(d.currentMeds) !== JSON.stringify(orig.currentMeds)) n++;
-    if (d.email !== orig.email) n++;
-    if (d.emailConsent !== orig.emailConsent) n++;
     return n;
   };
 
@@ -323,8 +319,6 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       allergies: (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean),
       comorbidities: mpisData?.comorbidities || [],
       currentMeds: mpisData?.currentMeds ? mpisData.currentMeds.map(m => ({ ...m })) : [],
-      email: patient?.email || '',
-      emailConsent: !!patient?.email_consent_at,
       // inline add state
       allergyInput: '',
       conditionInput: '',
@@ -340,7 +334,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
     if (!patient?.nsn || !draft) return;
     setIsSaving(true); setSaveError('');
     try {
-      const { updatePatientFromMPIS, updatePatientDeliveryPrefs } = await import('../../lib/supabase');
+      const { updatePatientFromMPIS } = await import('../../lib/supabase');
       const payload = {
         allergies: draft.allergies.join(', ') || null,
         comorbidities: draft.comorbidities,
@@ -348,20 +342,6 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
       };
       const { success, error } = await updatePatientFromMPIS(patient.nsn, payload);
       if (!success || error) { setSaveError(error?.message || 'Failed to save'); return; }
-
-      // Save email + consent if changed
-      const origEmail = patient?.email || '';
-      const origConsent = !!patient?.email_consent_at;
-      if (draft.email !== origEmail || draft.emailConsent !== origConsent) {
-        await updatePatientDeliveryPrefs(patient.nsn, {
-          email: draft.email,
-          consented: draft.emailConsent,
-        });
-        dispatch({ type: 'SET_PATIENT', payload: {
-          email: draft.email,
-          email_consent_at: draft.emailConsent ? new Date().toISOString() : null,
-        }});
-      }
 
       dispatch({ type: 'SET_MPIS_DATA', payload: { ...mpisData, ...payload } });
       dispatch({ type: 'SET_PATIENT', payload: { name: draft.name, gender: draft.gender } });
@@ -602,38 +582,6 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
             />
           )}
         </div>
-      </div>
-
-      {/* ── Email & Consent ── */}
-      <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-3`}>Email delivery</p>
-        {isEditing ? (
-          <div className="flex flex-col gap-2">
-            <input
-              type="email"
-              className={inputCls}
-              placeholder="patient@example.com"
-              value={draft.email}
-              onChange={e => setDraft(d => ({ ...d, email: e.target.value }))}
-            />
-            <label className={`flex items-center gap-2 cursor-pointer text-sm ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-              <input
-                type="checkbox"
-                checked={draft.emailConsent}
-                onChange={e => setDraft(d => ({ ...d, emailConsent: e.target.checked }))}
-                className="w-4 h-4 accent-teal-600"
-              />
-              Patient consents to email delivery of care plan
-            </label>
-          </div>
-        ) : (
-          <div className="flex flex-col gap-1">
-            <p className={roText}>{patient?.email || <span className={isDark ? 'text-slate-500' : 'text-slate-400'}>No email on file</span>}</p>
-            {patient?.email_consent_at
-              ? <span className="text-xs text-emerald-500 font-medium">Consented to email delivery</span>
-              : <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No email consent</span>}
-          </div>
-        )}
       </div>
 
       {/* ── Footer ── */}

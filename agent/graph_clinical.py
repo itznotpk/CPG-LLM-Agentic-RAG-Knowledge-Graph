@@ -81,6 +81,33 @@ def _norm_list(names: List[str]) -> List[str]:
 # Neo4j session helper
 # ---------------------------------------------------------------------------
 
+# Cached fallback driver. The fallback path used to create a brand-new driver
+# on *every* call and never close it — each one owns its own connection pool,
+# so a persistently-failing primary path would leak drivers against Aura. Cache
+# a single one instead.
+_fallback_driver = None
+
+
+def _get_fallback_driver():
+    """Lazily create (once) and return the standalone fallback Neo4j driver."""
+    global _fallback_driver
+    if _fallback_driver is None:
+        from neo4j import AsyncGraphDatabase
+        _fallback_driver = AsyncGraphDatabase.driver(
+            os.getenv("NEO4J_URI"),
+            auth=(os.getenv("NEO4J_USER"), os.getenv("NEO4J_PASSWORD")),
+            # Must exceed the worst-case request duration (a slow Stage-5
+            # synthesis can run >5 min, leaving the pool idle the whole time);
+            # a short lifetime force-expires every connection mid-request and
+            # guarantees a cold reconnect exactly on the safety-critic path.
+            max_connection_lifetime=1800,
+            keep_alive=True,
+            liveness_check_timeout=30,
+            connection_acquisition_timeout=60,
+        )
+    return _fallback_driver
+
+
 async def _get_neo4j_session():
     """Get a Neo4j async session using the Graphiti driver (avoids second connection)."""
     try:
@@ -90,21 +117,9 @@ async def _get_neo4j_session():
         db_name = os.getenv("NEO4J_DATABASE") or None
         return graph_client.graphiti.driver.client.session(database=db_name)
     except Exception:
-        # Fallback: create a standalone driver
-        from neo4j import AsyncGraphDatabase
-        uri = os.getenv("NEO4J_URI")
-        user = os.getenv("NEO4J_USER")
-        password = os.getenv("NEO4J_PASSWORD")
+        # Fallback: reuse a single cached standalone driver.
         db = os.getenv("NEO4J_DATABASE") or None
-        driver = AsyncGraphDatabase.driver(
-            uri,
-            auth=(user, password),
-            max_connection_lifetime=300,
-            keep_alive=True,
-            liveness_check_timeout=30,
-            connection_acquisition_timeout=60,
-        )
-        return driver.session(database=db)
+        return _get_fallback_driver().session(database=db)
 
 
 # ---------------------------------------------------------------------------
@@ -492,7 +507,7 @@ async def _query_allergy_cross_reactivity(
 # Candidate drug extraction from retrieved chunk IDs
 # ---------------------------------------------------------------------------
 
-async def match_plan_drugs(interventions: List[str]) -> dict:
+async def match_plan_drugs(interventions: List[str], *, raise_on_error: bool = False) -> dict:
     """Map plan intervention strings to KG Drug nodes by substring match on
     `name_normalised`.
 
@@ -504,7 +519,11 @@ async def match_plan_drugs(interventions: List[str]) -> dict:
     Returns:
         {drug_name_normalised: first_intervention_index} — first intervention
         position that contained the drug. Caller maps that back to the
-        `TreatmentPlan.recommendations` index. Returns {} on any failure.
+        `TreatmentPlan.recommendations` index. Returns {} when nothing matches.
+        On a backend error it returns {} by default (fail-open), but raises if
+        `raise_on_error=True` so the caller can distinguish a transient failure
+        (e.g. Neo4j pool-acquisition timeout) from a genuinely empty result and
+        decide whether to retry / mark verification degraded.
 
     Notes:
     - We require `size(name_normalised) >= 4` to avoid short-name false positives
@@ -532,6 +551,8 @@ async def match_plan_drugs(interventions: List[str]) -> dict:
             return mapping
     except Exception as e:
         logger.warning("match_plan_drugs failed: %s", e)
+        if raise_on_error:
+            raise
         return {}
 
 

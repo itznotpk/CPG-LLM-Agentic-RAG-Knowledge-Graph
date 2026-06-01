@@ -332,7 +332,12 @@ class GraphitiClient:
             neo4j_driver.client = AsyncGraphDatabase.driver(
                 uri=self.neo4j_uri,
                 auth=(self.neo4j_user or '', self.neo4j_password or ''),
-                max_connection_lifetime=300,
+                # Keep above the worst-case request duration: a slow Stage-5
+                # synthesis can run >5 min with the pool idle, and a lifetime
+                # shorter than that force-expires connections mid-request,
+                # guaranteeing a cold reconnect on the safety-critic path.
+                # Liveness checks still recycle connections Aura has idle-closed.
+                max_connection_lifetime=1800,
                 keep_alive=True,
                 liveness_check_timeout=30,
                 connection_acquisition_timeout=60,

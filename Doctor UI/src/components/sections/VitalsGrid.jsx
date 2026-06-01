@@ -4,6 +4,7 @@ import { GlassCard, Badge } from '../shared';
 import { RPPGScanModal } from '../shared/RPPGScanModal';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+import { sampleVitals } from '../../data/sampleData';
 
 const GROUPS = [
   {
@@ -73,9 +74,20 @@ export function VitalsGrid() {
   const bmiCategory = getBMICategory(bmi);
 
   const handleDemoFill = () =>
+    // EVALUATION_FRAMEWORK_README.md Case 11 vitals: BP 128/80 · HR 64 · SpO2 98
+    // · Weight 95 · Height 175 · Temp 36.6 (BMI 31.0 → Obesity Class I).
     dispatch({
       type: 'SET_VITALS',
-      payload: { bpSystolic: '128', bpDiastolic: '76', hr: '82', temp: '36.8', rr: '16', spo2: '97', weight: '98', height: '175' },
+      payload: {
+        bpSystolic: String(sampleVitals.bpSystolic),
+        bpDiastolic: String(sampleVitals.bpDiastolic),
+        hr: String(sampleVitals.hr),
+        temp: String(sampleVitals.temp),
+        rr: String(sampleVitals.rr),
+        spo2: String(sampleVitals.spo2),
+        weight: String(sampleVitals.weight),
+        height: String(sampleVitals.height),
+      },
     });
 
   const divider = (

@@ -200,8 +200,9 @@ const ACTION_STYLES = {
   start:    { label: 'START',    light: 'bg-emerald-100 text-emerald-700', dark: 'bg-emerald-500/20 text-emerald-300' },
   change:   { label: 'CHANGE',   light: 'bg-amber-100 text-amber-700',     dark: 'bg-amber-500/20 text-amber-300' },
   continue: { label: 'CONTINUE', light: 'bg-blue-100 text-blue-700',       dark: 'bg-blue-500/20 text-blue-300' },
+  contraindicated: { label: 'CONTRAINDICATED', light: 'bg-red-100 text-red-700', dark: 'bg-red-500/20 text-red-300' },
 };
-const ACTION_OPTIONS = ['start', 'continue', 'change', 'stop'];
+const ACTION_OPTIONS = ['start', 'continue', 'change', 'stop', 'contraindicated'];
 
 function ActionTag({ action }) {
   const { isDark } = useTheme();
@@ -371,6 +372,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
 function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId }) {
   const { isDark } = useTheme();
   const ordered = [
+    ...(medications.contraindicated || []).map((m) => ({ med: m, action: 'contraindicated' })),
     ...(medications.stop || []).map((m) => ({ med: m, action: 'stop' })),
     ...(medications.start || []).map((m) => ({ med: m, action: 'start' })),
     ...(medications.change || []).map((m) => ({ med: m, action: 'change' })),
@@ -423,33 +425,6 @@ function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId 
             ))}
           </tbody>
         </table>
-      )}
-
-      {/* Contraindicated section — these are NOT prescribed; surfaced so the
-          clinician can see the synthesiser's deliberate exclusions (and so
-          safety-banner deep-links land on something visible). */}
-      {(medications.contraindicated || []).length > 0 && (
-        <div className={`mt-2 mb-4 rounded-lg border-l-4 ${
-          isDark ? 'bg-red-900/10 border-l-red-500 border border-red-900/30' : 'bg-red-50/40 border-l-red-500 border border-red-200'
-        } px-3 py-2`}>
-          <p className={`text-[11px] font-semibold uppercase tracking-wider mb-2 ${isDark ? 'text-red-300' : 'text-red-700'}`}>
-            Contraindicated · do not prescribe ({(medications.contraindicated || []).length})
-          </p>
-          <ul className="space-y-1.5">
-            {(medications.contraindicated || []).map((m) => (
-              <li
-                key={`ci-${m.id}`}
-                id={`med-row-${m.id}`}
-                className={`text-xs flex flex-wrap items-baseline gap-x-2 transition-colors duration-700 ${
-                  highlightedMedId === m.id ? (isDark ? 'bg-amber-500/10 ring-1 ring-amber-400/30' : 'bg-amber-100 ring-1 ring-amber-300') : ''
-                } px-1.5 py-0.5 rounded`}
-              >
-                <span className={`font-semibold ${isDark ? 'text-red-200' : 'text-red-800'}`}>{m.name}</span>
-                {m.reason && <span className={isDark ? 'text-slate-400' : 'text-slate-600'}>— {m.reason}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
       )}
 
       <button
@@ -1601,6 +1576,7 @@ export function CarePlanSection() {
 
   // Tab counts
   const medsCount =
+    (carePlan.medications?.contraindicated?.length || 0) +
     (carePlan.medications?.stop?.length || 0) +
     (carePlan.medications?.start?.length || 0) +
     (carePlan.medications?.change?.length || 0) +

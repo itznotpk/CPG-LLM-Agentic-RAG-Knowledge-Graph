@@ -2,6 +2,7 @@ import React from 'react';
 import { GlassCard, VoiceInputButton } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+import { sampleClinicalNotes } from '../../data/sampleData';
 
 export function ClinicalNotes() {
   const { state, dispatch } = useApp();
@@ -34,8 +35,8 @@ export function ClinicalNotes() {
   };
 
   const handleSampleFill = () => {
-    const sample = `CC: Newly diagnosed HFrEF on routine echo. Here for management plan.\n\nHPI: Clinically stable, euvolemic, no dyspnoea at rest. NYHA II.\n\nPE/Labs: Echo today LVEF 25%. K+ 4.4 mmol/L.`;
-    persist(sample);
+    // EVALUATION_FRAMEWORK_README.md Case 11 — Stable CAD + T2DM + Obesity + ED.
+    persist(sampleClinicalNotes.history);
   };
 
   const wordCount = clinicalNotes?.trim()
