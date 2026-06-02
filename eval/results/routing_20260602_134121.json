@@ -3,7 +3,7 @@
     "n": 44,
     "top1_accuracy": 1.0,
     "hit_rate@3": 1.0,
-    "pct_exact": 0.8636363636363636,
+    "pct_exact": 0.8863636363636364,
     "pct_parent": 0.0,
     "pct_semantic": 0.0
   },
@@ -78,7 +78,7 @@
       "predicted_top3": "Heart-Disease-in-Pregnancy(2nd Edition)",
       "top1_match": 1.0,
       "hit@3": 1.0,
-      "match_type": "ancestor_d1_sibling"
+      "match_type": "exact"
     },
     {
       "id": "route_009",

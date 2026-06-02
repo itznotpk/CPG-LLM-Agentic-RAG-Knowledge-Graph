@@ -6,7 +6,7 @@ route_004,BA41.1,"NSTEMI(2011),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Inter
 route_005,BA40.0,"NSTE-ACS(3rd Edition),Stable-Coronary-Artery-Disease(2nd Edition),Percutaneous-Coronary-Intervention",NSTE-ACS(3rd Edition) | Stable-Coronary-Artery-Disease(2nd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
 route_006,BD10,"Heart-Failure(5th Edition),Heart-Disease-in-Pregnancy(2nd Edition),CVD-Prevention-Women(2016)",Heart-Failure(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | CVD-Prevention-Women(2016),1.0,1.0,exact
 route_007,BD11,"Heart-Failure(5th Edition),CVD-Prevention-Women(2016),Primary-Secondary-Prevention-of-CVD(2017)",Heart-Failure(5th Edition) | CVD-Prevention-Women(2016) | Primary-Secondary-Prevention-of-CVD(2017),1.0,1.0,exact
-route_008,JB44.3,Heart-Disease-in-Pregnancy(2nd Edition),Heart-Disease-in-Pregnancy(2nd Edition),1.0,1.0,ancestor_d1_sibling
+route_008,JB44.3,Heart-Disease-in-Pregnancy(2nd Edition),Heart-Disease-in-Pregnancy(2nd Edition),1.0,1.0,exact
 route_009,BA00,"Hypertension(5th Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
 route_010,BA00.Z,"Hypertension(5th Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
 route_011,BA03,"Hypertension(5th Edition),Heart-Disease-in-Pregnancy(2nd Edition),Primary-Secondary-Prevention-of-CVD(2017)",Hypertension(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | Primary-Secondary-Prevention-of-CVD(2017),1.0,1.0,exact
