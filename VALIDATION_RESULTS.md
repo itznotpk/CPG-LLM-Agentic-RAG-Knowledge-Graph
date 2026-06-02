@@ -9,7 +9,7 @@
 > - **Layer A2 (Routing) — RE-RUN 2026-06-02 after gold correction:** **44/44 ICD codes resolve to the expected CPG (Top-1 = 100%, Hit@3 = 100%)**, 39/44 via `exact` D1 match. The earlier 18.2% was a *gold-set + harness artifact*, not a routing defect — see the A2 section.
 > - **Layer A1 (DDx) — canonical re-run 2026-06-02 (all 4 levers):** exact **Hit@5 = 77.1% (27/35), MRR = 0.564** (up from the throttled/wrong-gold 28.6%). **7 of 8 exact-misses are ICD-family granularity** (correct disease family, different leaf). The dynamic **lineage matcher (ancestor/descendant) → Hit@5 = 0.971 (34/35), MRR = 0.810**; **graded@5 = 0.900**. Lineage is stable across runs while exact jitters ±1–2 (seedless Gemini reranker) — headline lineage/graded.
 > - **Layer B (Retrieval) — MEASURED 2026-06-02 on 148-row LLM-judged graded gold:** vector Recall@10 = **0.874**, Hit@10 = **0.953**, MRR = 0.682, graded nDCG@10 = 0.669. **RRF-hybrid ties vector** (Recall@10 0.876) but is −0.02 MRR / −0.01 nDCG — RRF *closed* the old weighted-hybrid gap (was 0.749 < vector) but does **not** beat vector. Retain vector. Recall@10 + Hit@10 now pass target.
-> - **Layer C (Stage-4 dedup/boost):** harness gap **closed** — `eval/run_stage4_eval.py` now evaluates the real production Stage-4 path (multi-query → dedup → category-boost → top-20) with a multi-query-lift column; graded nDCG + all-30-CPG anchor map wired. Numbers pending a run.
+> - **Layer C (Stage-4 dedup/boost) — MEASURED 2026-06-02 (n=148):** Recall@20 = **0.797**, MRR = **0.529**, nDCG@10 = **0.494**, Hit@10 = **0.804**; single-query baseline Recall@20 = **0.971**; **mean lift = −0.173** — the full multi-query pipeline *underperforms* a plain single vector query on this gold set. Multi-query dedup/boost is regressing retrieval, not improving it. Investigate `stage_4_retrieve` query diversity and dedup thresholds.
 > - The original A1/A2 floor numbers were depressed by three fixable causes: wrong/non-existent ICD codes in the gold, a substring title-matcher that failed on spaces-vs-hyphens, and an LLM-rerank JSON-parse fallback (A1 only).
 
 ---
@@ -33,7 +33,7 @@ table for context and caveats.
 | **Layer E** (e2e) | 🔴 Rate-limited | Same window as D |
 | **Determinism harness** | ⏸ Queued | Will burn LLM quota — better to retry alongside D/E |
 | **Layer B** Retrieval | ✅ Done (148 graded) | vector Recall@10 = **0.874**, Hit@10 = **0.953**, MRR = 0.682, nDCG@10 = 0.669; RRF-hybrid ties (0.876 / 0.953 / 0.659 / 0.656) — vector retained |
-| **Layer C** Stage-4 dedup/boost lift | ✅ Harness ready | `run_stage4_eval.py` runs real production Stage 4 (multi-query→dedup→boost→top-20) + multi-query-lift; graded nDCG + 30-CPG anchor map wired; **numbers pending a run** |
+| **Layer C** Stage-4 dedup/boost lift | ✅ Done (2026-06-02) | Recall@20 = **0.797**, MRR = **0.529**, nDCG@10 = **0.494**, Hit@10 = **0.804**; baseline Recall@20 = 0.971; **mean lift = −0.173** (Stage-4 multi-query pipeline underperforms single vector query — see Layer C section) |
 | **Stakeholder SUS / TAM** | ❌ Blocked | Needs IRB + clinicians |
 
 ### Two honest findings worth flagging on the poster
@@ -474,31 +474,61 @@ as each is captured:
 - **Layer E — End-to-end clinical QA** (`python -m eval.run_e2e_eval`) — same gold set, broader rubric.
 - **Non-acc — Latency p50/p95** (`python -m eval.run_latency_eval`) — pipeline_timings harvest.
 - **Non-acc — Determinism** (`python scripts/rerun_stability.py --case 9 --n 10`) — same-plan reproducibility.
-- **Layer C — Stage-4 dedup/boost lift** (`python -m eval.run_stage4_eval`) — harness now exists (see below); a run on the 148-row gold is pending a quiet Bedrock window.
+- ~~**Layer C — Stage-4 dedup/boost lift**~~ ✅ **measured 2026-06-02** — see Layer C section below for results and findings.
 
-## Layer C — Stage-4 dedup / category-boost lift (harness ready)
+## Layer C — Stage-4 dedup / category-boost lift
 
 **What it tests.** Whether the *production* Stage 4 path — LLM multi-query
 generation (7 domains + condition + universal anchors) → parallel vector search
 → chunk dedup → category-boost scoring → top-20 — surfaces the gold chunks
 better than a single raw vector query. Implemented in
-[`eval/run_stage4_eval.py`](eval/run_stage4_eval.py) (added in the `Fixed Layer
-B and C` pull). Reports the usual recall/MRR/nDCG plus a **`lift_r@20`** column =
-Stage-4 recall@20 − single-query baseline recall@20, so the multi-query
-complexity is justified per item.
+[`eval/run_stage4_eval.py`](eval/run_stage4_eval.py). Reports recall/MRR/nDCG
+plus a **`lift_r@20`** column = Stage-4 recall@20 − single-query baseline recall@20.
 
-**Harness state (verified 2026-06-02):**
-- ✅ Runs the real `stage_4_retrieve` against the gold (not vector-vs-hybrid).
-- ✅ **Graded nDCG** wired (`grades=item.get("relevance_grades")`) — consistent with `run_retrieval_eval.py`.
-- ✅ **`_FILTER_TO_ICD` extended to all 30 CPGs** with **ICD-11** codes (was 10 cardiac CPGs with ICD-10 codes that never prefix-matched `_CONDITION_EXPECTED_THERAPIES`, so condition anchors silently never fired). Heart Failure is now `BD11.0`, so the HFrEF four-pillar anchors actually fire; the 3 universal anchors fire for every row.
-- ⚠️ **Condition-specific anchors only exist for HFrEF (`BD11`)** today — `_CONDITION_EXPECTED_THERAPIES` has one entry. Other 29 CPGs run with universal anchors + an accurate DDx-title stub (which improves LLM query-gen) but no drug-class pillar anchors. Add entries to that table to deepen per-condition coverage.
-- ⏳ **Numbers pending.** The committed `stage4_full_*` result files are an **n=120, binary-nDCG** run on the old gold — superseded; re-run on the 148-row graded gold for citable figures.
+**Run condition (2026-06-02):** n=148, same graded gold as Layer B. 7 LLM-generated
+queries per ICD code, 5 chunks per query, 3 s inter-item delay.
 
-**Run (when Bedrock is quiet — sequential, self-throttled):**
-```
-python -m eval.run_stage4_eval            # 3 s inter-item delay by default
-python -m eval.run_stage4_eval --limit 5  # smoke test
-```
+### Results (n=148, graded nDCG)
+
+| Metric | Stage-4 full pipeline | Single-query baseline | Lift |
+|---|---:|---:|---:|
+| **Recall@20** | **0.797** | **0.971** | **−0.173** |
+| **MRR** | **0.529** | — | — |
+| **nDCG@10** | **0.494** | — | — |
+| **Hit@10** | **0.804** | — | — |
+
+**Raw output:** [`eval/results/stage4_full_20260602_230221.csv`](eval/results/stage4_full_20260602_230221.csv) ·
+[`eval/results/stage4_full_20260602_230221.json`](eval/results/stage4_full_20260602_230221.json)
+
+### Key finding — negative lift (−0.173)
+
+The full Stage-4 pipeline retrieves *fewer* relevant chunks than a plain single
+vector search (0.797 vs 0.971 Recall@20). The multi-query complexity is net
+harmful on this gold set. Likely causes:
+
+1. **Dedup over-aggressively drops chunks.** The cosine-similarity dedup threshold
+   may be collapsing related but distinct relevant chunks into one representative,
+   then the top-20 cap cuts off the rest.
+2. **Category-boost mis-scores.** The boost scoring promotes chunks from certain
+   category pillars that don't align with the gold's relevance labels, displacing
+   higher-recall chunks.
+3. **LLM query-gen introduces noise.** 7 generated queries per code may cover
+   tangential aspects, pulling in irrelevant chunks that consume the top-20 budget.
+4. **Condition anchors mostly silent.** Only HFrEF (`BD11`) has `_CONDITION_EXPECTED_THERAPIES`
+   entries; the other 29 CPGs run with universal anchors only — condition-specific
+   boosting doesn't fire for most rows.
+
+### Targets
+
+| Metric | Target | Achieved | Pass |
+|---|---|---|---|
+| Recall@20 lift > 0 | positive lift over baseline | **−0.173** | ❌ |
+
+> Status: **fails target — Stage-4 full pipeline underperforms plain vector search.**
+> The multi-query/dedup/boost machinery needs investigation before it can be claimed
+> as an improvement. Dedup threshold and category-boost weights are the first levers
+> to tune. Compare per-item `lift_r@20` in the CSV to identify which CPG domains
+> are worst affected.
 
 ## Blocked — stakeholder validation
 
@@ -517,7 +547,8 @@ python -m eval.run_stage4_eval --limit 5  # smoke test
 | 2026-06-02 | A1 | Clean re-runs on corrected gold (`162351`/`183939`): exact Hit@5 = 0.743/0.714; both superseded by `194144` |
 | 2026-06-02 | A1 | **Levers 2/H/3b/C.** Replaced crude 4-char-stem family matcher with **lineage** (`metrics.py::is_lineage`, ancestor/descendant — excludes siblings) + **graded** (`icd_relation_gain`/`graded_best_at_k`); added pipeline **residual-subcode demotion** (`_demote_residual_subcodes`) and general disease aliases (ED, cancer-pain). All dynamic |
 | 2026-06-02 | A1 | **Canonical re-run all-levers (`ddx_20260602_194144.*`): exact Hit@5 = 0.771 (27/35), MRR = 0.564; lineage Hit@5 = 0.971 (34/35), MRR = 0.810; graded@5 = 0.900.** 7/8 exact-misses are lineage hits; lone true miss `ddx_011` (sibling lipid disorders). Lever 3b lifted exact (named codes over `.Y` residuals); exact jitters ±1–2 on the seedless Gemini reranker, lineage stable — headline lineage/graded |
-| 2026-06-02 | C | Harness gap closed by `Fixed Layer B and C` pull (`eval/run_stage4_eval.py` runs real Stage-4 multi-query→dedup→boost→top-20 + multi-query lift). Wired graded nDCG; extended `_FILTER_TO_ICD` from 10 (ICD-10) → all 30 CPGs (ICD-11); HFrEF anchors now fire. Numbers pending a 148-gold run |
+| 2026-06-02 | C | Harness gap closed by `Fixed Layer B and C` pull (`eval/run_stage4_eval.py` runs real Stage-4 multi-query→dedup→boost→top-20 + multi-query lift). Wired graded nDCG; extended `_FILTER_TO_ICD` from 10 (ICD-10) → all 30 CPGs (ICD-11); HFrEF anchors now fire. |
+| 2026-06-02 | C | **Measured on 148-row graded gold (`stage4_full_20260602_230221.*`): Recall@20 = 0.797, MRR = 0.529, nDCG@10 = 0.494, Hit@10 = 0.804; single-query baseline Recall@20 = 0.971; mean lift = −0.173.** Stage-4 multi-query pipeline underperforms plain vector search — negative lift signals dedup/boost regression. Investigation of dedup threshold and category-boost weights queued. |
 | 2026-06-02 | B | Gold re-labelled 120→148 rows, LLM-judged + graded relevance; old 120 binary runs superseded |
 | 2026-06-02 | B | **Measured on 148 graded gold (`retrieval_vector_20260602_200110.*` / `retrieval_hybrid_20260602_200834.*`): vector Recall@10 = 0.874, Hit@10 = 0.953, MRR = 0.682, nDCG@10 = 0.669; RRF-hybrid 0.876 / 0.953 / 0.659 / 0.656.** RRF closed the old weighted-hybrid gap (was 0.749 < vector) → parity, but does not beat vector on ranking; vector retained. Recall@10 + Hit@10 now pass target |
 | 2026-06-02 | A2 | First run, n=44, Top-1 = 0.182, % exact = 0.477; later found to be a gold-set + title-matcher artifact, not a routing defect |
