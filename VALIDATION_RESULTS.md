@@ -8,7 +8,8 @@
 > **Headline takeaways (first run, 2026-06-02):**
 > - **Layer A1 (DDx):** 10/35 vignettes hit the expected ICD-11 inside top-5 (28.6%).
 > - **Layer A2 (Routing):** 8/44 ICD codes resolved to the expected CPG (18.2%); 21/44 reached *some* CPG via exact match.
-> - Both numbers are **floor** — many runs degraded due to an LLM-rerank JSON-parse failure (the rerank silently fell back to vector-only order). Fixing the parser is a one-line job and will lift A1 materially.
+> - **Layer B (Retrieval):** now unblocked after mapping all `retrieval_gold.jsonl` placeholders to live Postgres `chunks.id` UUIDs; vector Recall@10 = 0.7625, MRR = 0.8152, Hit@10 = 0.9917.
+> - A1/A2 numbers are **floor** — A1 is degraded by an LLM-rerank JSON-parse failure, while A2 is dominated by a leaf-to-parent ICD routing issue.
 
 ---
 
@@ -30,7 +31,8 @@ table for context and caveats.
 | **Layer D** (faithfulness) | 🔴 Rate-limited | Provider 429 — retry pending in a fresh quota window |
 | **Layer E** (e2e) | 🔴 Rate-limited | Same window as D |
 | **Determinism harness** | ⏸ Queued | Will burn LLM quota — better to retry alongside D/E |
-| **Layer B / C** (retrieval) | ❌ Blocked | 98 placeholder chunk UUIDs in `retrieval_gold.jsonl` |
+| **Layer B** Retrieval | ✅ Done | Vector Recall@10 = **0.7625**, MRR = **0.8152**, Hit@10 = **0.9917**; hybrid Recall@10 = 0.7486 |
+| **Layer C** Re-ranker / dedup lift | ⚠️ Partial | Gold set fixed; harness still compares vector vs hybrid only, no `--rerank` implementation |
 | **Stakeholder SUS / TAM** | ❌ Blocked | Needs IRB + clinicians |
 
 ### Two honest findings worth flagging on the poster
@@ -179,10 +181,10 @@ but read each row honestly.
 | **Hit Rate @5** | ≥ 0.90 | B (retrieval) | A1 (DDx top-5) | **0.286** | ❌ | −0.61 |
 | **Hit Rate @10** | (implicit via Recall@10 ≥ 0.85) | B | A1 (DDx top-10) | **0.286** | ❌ | −0.56 |
 | **MRR** | ≥ 0.70 | B | A1 (DDx) | **0.204** | ❌ | −0.50 |
-| **nDCG @10** | ≥ 0.75 | B | not measured (B blocked) | n/a | – | – |
-| **Recall @10** | ≥ 0.85 | B | not measured (B blocked) | n/a | – | – |
-| **Hit Rate @k** | ≥ 0.95 (per VALIDATION_PLAN §2.2) | B | A1 (DDx top-10 reused) | **0.286** | ❌ | −0.66 |
-| **Precision @5** | ≥ 0.5 | B | not measured | n/a | – | – |
+| **nDCG @10** | ≥ 0.75 | B | B vector retrieval | **0.684** | ❌ | −0.07 |
+| **Recall @10** | ≥ 0.85 | B | B vector retrieval | **0.763** | ❌ | −0.09 |
+| **Hit Rate @k** | ≥ 0.95 (per VALIDATION_PLAN §2.2) | B | B vector Hit@10 | **0.992** | ✅ | +0.04 |
+| **Precision @5** | ≥ 0.5 | B | B vector retrieval | **0.367** | ❌ | −0.13 |
 | **Top-1 / Top-3** | none published | A2 (routing) | A2 | **0.182 / 0.182** | – (no target) | – |
 | **% exact route** | none published | A2 | A2 | **0.477** | – (no target) | – |
 | **Faithfulness** | ≥ 0.90 | D | not measured yet | n/a | – | – |
@@ -190,16 +192,60 @@ but read each row honestly.
 | **E2E correctness** | ≥ 80% | E | not measured yet | n/a | – | – |
 | **p95 latency** | < 8 s | Non-acc | not measured yet | n/a | – | – |
 
-**Reading the gap honestly.** A1 is far below target — but the result is
-artificially low because ~15+ of 35 vignettes had the LLM-rerank parser fail
-silently and fell back to vector-only order. So this number is closer to
-"vector-only retrieval baseline" than "full reranked pipeline." A2 has no
-published target — but a sensible one is ≥ 0.85. The actual failure mode is
-dominated by leaf sub-codes (`BA41.00`, `BA41.0Z`) returning empty when the CPG
-scope only lists the parent `BA41.0`. Both A1 and A2 gaps are dominated by
-**two specific known bugs**, not by architectural retrieval quality.
+**Reading the gap honestly.** Layer B is now measured on all 120 retrieval
+gold rows after replacing 98 placeholder chunk IDs with live Postgres UUIDs.
+Hit@10 passes strongly (0.992), meaning almost every query retrieves at least
+one relevant passage in the top 10. Recall@10 and nDCG@10 are below target,
+mostly because many gold rows now contain up to three relevant chunks and the
+metric expects all of them to appear high in the ranking. A1 remains far below
+target due to the rerank parser failure; A2 remains dominated by leaf sub-codes
+(`BA41.00`, `BA41.0Z`) returning empty when CPG scope only lists parent
+`BA41.0`.
 
 ---
+
+## Layer B — Retrieval recall / precision (Stage 4 search)
+
+**What it tests.** Given a clinical question and a CPG document filter, do the
+raw retrieval tools return the gold CPG chunk IDs inside top-k? Inputs come from
+`retrieval_gold.jsonl`; expected chunks are exact `chunks.id` UUIDs from live
+Postgres.
+
+**Unblock performed 2026-06-02.** The original gold set had 98/120 unresolved
+`REPLACE_WITH_chunk_id_*` placeholders. These were mapped to live DB chunk IDs
+using `scratch/auto_map_retrieval_gold.py`, which scores candidate chunks by
+document filter, relevant keywords, query text, notes, and chunk content. The
+script records `label_provenance`, `auto_label_score`, and candidate previews
+on auto-mapped rows. Backup: `eval/gold_sets/retrieval_gold.jsonl.bak_20260602_133914`.
+
+### Results
+
+| Mode | n | Skipped | Recall@5 | Recall@10 | Recall@20 | Precision@5 | MRR | nDCG@10 | Hit@10 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Vector | 120 | 0 | **0.6208** | **0.7625** | **0.8917** | **0.3667** | **0.8152** | **0.6841** | **0.9917** |
+| Hybrid | 120 | 0 | 0.6097 | 0.7486 | **0.8917** | 0.3600 | 0.8019 | 0.6673 | **0.9917** |
+
+**Raw output:** [`eval/results/retrieval_vector_20260602_135852.csv`](eval/results/retrieval_vector_20260602_135852.csv) ·
+[`eval/results/retrieval_vector_20260602_135852.json`](eval/results/retrieval_vector_20260602_135852.json) ·
+[`eval/results/retrieval_hybrid_20260602_140451.csv`](eval/results/retrieval_hybrid_20260602_140451.csv) ·
+[`eval/results/retrieval_hybrid_20260602_140451.json`](eval/results/retrieval_hybrid_20260602_140451.json)
+
+### Targets
+
+| Metric | Target | Achieved (best mode) | Pass |
+|---|---:|---:|---|
+| Recall@10 | ≥ 0.85 | 0.7625 | ❌ |
+| MRR | ≥ 0.70 | 0.8152 | ✅ |
+| nDCG@10 | ≥ 0.75 | 0.6841 | ❌ |
+| Hit Rate@10 | ≥ 0.95 | 0.9917 | ✅ |
+| Precision@5 | ≥ 0.5 | 0.3667 | ❌ |
+
+> Status: **unblocked and measured.** Vector slightly outperformed hybrid in
+> this scoped eval. Hybrid's earlier lower score was caused by missing document
+> filter aliases in `eval/_helpers.py`; those aliases have now been added.
+> Remaining caveat: 98/120 gold labels are auto-mapped rather than manually
+> clinician-verified, so audit the lowest-scoring or highest-risk rows before
+> treating this as final publication-grade ground truth.
 
 ## Layer D — Faithfulness / hallucination (Stage 5 groundedness)
 
@@ -351,15 +397,13 @@ as each is captured:
 - **Layer E — End-to-end clinical QA** (`python -m eval.run_e2e_eval`) — same gold set, broader rubric.
 - **Non-acc — Latency p50/p95** (`python -m eval.run_latency_eval`) — pipeline_timings harvest.
 - **Non-acc — Determinism** (`python scripts/rerun_stability.py --case 9 --n 10`) — same-plan reproducibility.
-- **Non-acc — Scope refusal** (`python scripts/probe_d2_semantic_scope.py`) — orphan vs positive separation.
-- **Coverage** (`pytest --cov`) — ≥ 80% gate.
+- **Layer C — Re-ranker / dedup lift** — add a real `--rerank` or production Stage 4 context-filter mode to `eval/run_retrieval_eval.py`.
 
-## Blocked layers — chunk-ID backfill required
+## Remaining technical gap — Layer C harness
 
-| Layer | Why blocked | Cost to unblock |
+| Layer | Current state | Cost to complete |
 |---|---|---|
-| **B — Retrieval (Recall/MRR/nDCG)** | 98 of 120 entries in `retrieval_gold.jsonl` still hold `REPLACE_WITH_chunk_id_*` placeholders | ~3–5 h of manual SQL against the existing `chunks` table; zero LLM/embedding cost |
-| **C — Re-ranker lift** | Depends on B | Same as above |
+| **C — Re-ranker lift** | Gold set is now complete; current harness compares vector vs hybrid only and does not implement the documented `--rerank` flag | Add a third mode that evaluates production Stage 4 dedup/category-boost or a true reranker against the same 120-row gold set |
 
 ## Blocked — stakeholder validation
 
@@ -376,6 +420,7 @@ as each is captured:
 |---|---|---|
 | 2026-06-02 | A1 | First run, n=35, Hit@5 = 0.286, MRR = 0.204; degraded by LLM-rerank JSON-parse failure |
 | 2026-06-02 | A2 | First run, n=44, Top-1 = 0.182, % exact = 0.477; leaf sub-codes don't walk to parent |
+| 2026-06-02 | B retrieval | Gold set unblocked: 98/120 placeholders auto-mapped to live `chunks.id`; vector n=120, Recall@10 = 0.7625, MRR = 0.8152, Hit@10 = 0.9917; hybrid Recall@10 = 0.7486 |
 | 2026-06-02 | Scope refusal | 11/11 pass on probe_d2_semantic_scope (5 positives + 6 orphans) |
 | 2026-06-02 | Coverage | Total 44.56% (gate ≥80% ❌); 339/348 tests pass; ingestion/ batch tools account for the gap |
 | 2026-06-02 | Latency | Partial (n=3); mean 175 s, range 144–203 s; Stage 5 = 45–57% of total; published `<8 s` target needs revision to ≤60 s |

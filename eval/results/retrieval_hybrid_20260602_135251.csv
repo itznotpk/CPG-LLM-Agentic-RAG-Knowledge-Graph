@@ -1,0 +1,121 @@
+id,query,n_relevant,recall@5,recall@10,recall@20,precision@5,mrr,ndcg@10,hit@10
+ret_001,What is the time target for primary PCI door-to-balloon in S,3,0.3333333333333333,0.6666666666666666,0.6666666666666666,0.2,1.0,0.6257049680303419,1.0
+ret_002,When should fibrinolysis be given instead of primary PCI in ,3,1.0,1.0,1.0,0.6,1.0,0.9469024295259745,1.0
+ret_003,What dual antiplatelet loading doses are recommended for STE,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,0.5,0.49818925746641285,1.0
+ret_004,What anticoagulation is used during primary PCI for STEMI?,3,0.6666666666666666,1.0,1.0,0.4,0.5,0.6340499455108034,1.0
+ret_005,What secondary prevention medications are recommended after ,3,0.6666666666666666,1.0,1.0,0.4,0.5,0.6663732474096913,1.0
+ret_006,How is GRACE score used to risk-stratify NSTE-ACS patients?,3,0.3333333333333333,1.0,1.0,0.2,0.5,0.6045093387918965,1.0
+ret_007,What antiplatelet therapy is recommended in NSTE-ACS?,3,0.6666666666666666,1.0,1.0,0.4,0.5,0.6871475159848289,1.0
+ret_008,When should coronary angiography be performed in high-risk N,3,0.3333333333333333,0.6666666666666666,0.6666666666666666,0.2,1.0,0.617319681505689,1.0
+ret_009,What anticoagulation options are used in NSTE-ACS?,3,0.3333333333333333,0.6666666666666666,1.0,0.2,1.0,0.6364391809889587,1.0
+ret_010,What are the very high risk features in NSTE-ACS requiring i,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.2,0.2,0.18154179253735267,1.0
+ret_011,What is the TIMI risk score and how is it used in UA/NSTEMI?,3,1.0,1.0,1.0,0.6,1.0,0.9674679834891693,1.0
+ret_012,What defines NSTEMI versus unstable angina?,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.6713860725233041,1.0
+ret_013,What anticoagulation is recommended in UA/NSTEMI according t,3,0.3333333333333333,0.6666666666666666,1.0,0.2,1.0,0.6105456988825855,1.0
+ret_014,When is urgent revascularization indicated in NSTEMI?,3,0.6666666666666666,1.0,1.0,0.4,0.5,0.6338412308988606,1.0
+ret_015,What are the four foundational medications for HFrEF?,3,0.0,0.0,0.3333333333333333,0.0,0.08333333333333333,0.0,0.0
+ret_016,What is the LVEF threshold that defines HFrEF versus HFpEF?,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.2,0.5,0.2960819109658652,1.0
+ret_017,What diuretic is used in acute decompensated heart failure w,3,0.6666666666666666,1.0,1.0,0.4,1.0,0.9325210919548239,1.0
+ret_018,When is ICD indicated for primary prevention of sudden cardi,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.7039180890341347,1.0
+ret_019,How is BNP or NT-proBNP used to diagnose heart failure?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_020,What is the first-line antihypertensive in T2DM with protein,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.6713860725233041,1.0
+ret_021,What is the blood pressure target in hypertension?,3,0.3333333333333333,0.3333333333333333,0.6666666666666666,0.2,1.0,0.46927872602275644,1.0
+ret_022,Which drug combination is avoided in hypertension?,3,1.0,1.0,1.0,0.6,1.0,0.8529278650606567,1.0
+ret_023,What defines resistant hypertension?,3,1.0,1.0,1.0,0.6,1.0,0.9469024295259745,1.0
+ret_024,How should hypertensive emergency be managed?,3,1.0,1.0,1.0,0.6,1.0,0.9060254355346823,1.0
+ret_025,What is the LDL-C target for very high cardiovascular risk?,3,0.0,0.3333333333333333,1.0,0.0,0.1111111111111111,0.14126697285982898,1.0
+ret_026,What is the LDL-C target for high cardiovascular risk patien,3,0.0,0.3333333333333333,0.6666666666666666,0.0,0.14285714285714285,0.15642624200758548,1.0
+ret_027,Which statins are classified as high-intensity and reduce LD,3,0.0,0.3333333333333333,0.3333333333333333,0.0,0.16666666666666666,0.16716045496620227,1.0
+ret_028,When should ezetimibe be added to statin therapy?,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.7653606369886217,1.0
+ret_029,What are PCSK9 inhibitors used for and who qualifies?,3,0.3333333333333333,0.6666666666666666,0.6666666666666666,0.2,1.0,0.617319681505689,1.0
+ret_030,How is CHA2DS2-VASc score calculated and what score triggers,3,0.6666666666666666,0.6666666666666666,1.0,0.4,1.0,0.7653606369886217,1.0
+ret_031,Which anticoagulants are preferred in non-valvular atrial fi,3,0.3333333333333333,1.0,1.0,0.2,1.0,0.7585866543655181,1.0
+ret_032,Which AF patients must use warfarin rather than a NOAC?,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.2,1.0,0.46927872602275644,1.0
+ret_033,How is rate control achieved in atrial fibrillation?,3,0.3333333333333333,0.3333333333333333,0.6666666666666666,0.2,0.3333333333333333,0.23463936301137822,1.0
+ret_034,What anticoagulation is needed before electrical cardioversi,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_035,What is the first-line anti-anginal therapy in stable corona,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_036,What are the secondary prevention medications in stable coro,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_037,When is revascularization indicated in stable CAD?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_038,What is the recommended DAPT duration after a drug-eluting s,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_039,What is the preferred arterial access route for PCI?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_040,When should CABG be preferred over PCI in multivessel CAD?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_041,What defines pulmonary arterial hypertension at right heart ,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_042,Which PAH patients should undergo vasoreactivity testing?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_043,What are the first-line targeted therapies for non-vasoreact,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_044,What is the modified WHO classification of cardiovascular ri,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_045,Which anticoagulant is preferred during pregnancy?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_046,What are the major Duke criteria for infective endocarditis?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_047,What empirical antibiotic regimen is used for suspected nati,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_048,When is surgery indicated in infective endocarditis?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_049,What antibiotic prophylaxis is recommended for dental proced,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,0.5,0.49818925746641285,1.0
+ret_050,What is the time window for IV thrombolysis in acute ischaem,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_051,What blood pressure must be achieved before IV thrombolysis ,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_052,What is the time window for mechanical thrombectomy in large,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_053,What antiplatelet therapy is given after ischaemic stroke?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_054,When should anticoagulation be started after AF-related isch,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_055,What is the recommended mammography screening interval for a,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.2,1.0,0.46927872602275644,1.0
+ret_056,What is the preferred biopsy technique for breast lesions?,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_057,Which breast cancer patients should receive trastuzumab?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_058,When is neoadjuvant chemotherapy indicated in breast cancer?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_059,When should BRCA carriers have annual MRI screening?,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.2,1.0,0.46927872602275644,1.0
+ret_060,What is the recommended colonoscopy screening schedule for c,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_061,What adjuvant chemotherapy regimen is used after surgery for,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_062,When is Lynch syndrome testing indicated in colorectal cance,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_063,What is the role of CEA in colorectal cancer monitoring?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_064,What are the three steps of the WHO analgesic ladder for can,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_065,How should breakthrough cancer pain be dosed?,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.6508205185601091,1.0
+ret_066,What adjuvant analgesics are used for neuropathic cancer pai,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_067,How should constipation from opioids be prevented and treate,3,0.3333333333333333,0.3333333333333333,1.0,0.2,1.0,0.46927872602275644,1.0
+ret_068,What is the primary treatment for nasopharyngeal carcinoma?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_069,When is concurrent chemotherapy added to radiotherapy in NPC,1,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_070,What is the role of EBV DNA in NPC?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_071,What presenting symptoms should raise suspicion for nasophar,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_072,What are the minimum monitoring standards required during an,3,0.3333333333333333,1.0,1.0,0.2,0.5,0.6112833214150002,1.0
+ret_073,When is temperature monitoring required during anaesthesia?,3,1.0,1.0,1.0,0.6,1.0,0.9060254355346823,1.0
+ret_074,What monitoring is required in the post-anaesthesia care uni,3,0.3333333333333333,0.3333333333333333,0.6666666666666666,0.2,0.3333333333333333,0.23463936301137822,1.0
+ret_075,What does ASA physical status classification describe?,3,0.6666666666666666,0.6666666666666666,1.0,0.4,1.0,0.7653606369886217,1.0
+ret_076,What are the preoperative fasting guidelines before elective,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_077,How is cardiac risk assessed before non-cardiac surgery?,3,0.3333333333333333,0.6666666666666666,1.0,0.2,1.0,0.6364391809889587,1.0
+ret_078,Which medications should be continued on the morning of surg,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_079,What are high-alert medications in the anaesthesia setting?,3,0.3333333333333333,0.3333333333333333,1.0,0.2,1.0,0.46927872602275644,1.0
+ret_080,How should neuromuscular blockade be monitored and reversed?,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.7653606369886217,1.0
+ret_081,What are the guidelines for safe labelling of drug syringes ,3,0.6666666666666666,1.0,1.0,0.4,1.0,0.9134015924715543,1.0
+ret_082,How should anaphylaxis during anaesthesia be managed?,3,1.0,1.0,1.0,0.6,0.5,0.7122630665145961,1.0
+ret_083,What is the first-line treatment for erectile dysfunction?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_084,When are PDE5 inhibitors contraindicated in ED?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_085,How is erectile dysfunction severity assessed using the IIEF,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_086,What cardiovascular risk evaluation is needed before PDE5 in,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_087,What is the second-line treatment for ED when PDE5 inhibitor,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_088,What Framingham Risk Score threshold defines high CVD risk f,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_089,Is aspirin recommended for primary prevention of CVD?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_090,What unique risk factors increase CVD risk specifically in w,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_091,Is hormone replacement therapy recommended for CVD preventio,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_092,What combination targeted therapy is recommended for high-ri,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_093,How is the NSTEMI (2011) early discharge strategy applied?,3,0.3333333333333333,0.6666666666666666,1.0,0.2,0.3333333333333333,0.40179981797758046,1.0
+ret_094,What dose of alteplase is used for IV thrombolysis in acute ,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_095,When should peripartum cardiomyopathy be suspected?,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_096,What systemic therapy is first-line in hormone receptor-posi,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_097,What induction chemotherapy is used for locoregionally advan,2,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_098,What is the HbA1c target for elderly frail patients with T2D,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_099,What cardiac monitoring is required after initiation of targ,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_100,What are the WHO functional classes in PAH and what treatmen,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_101,What are the indications for CRT (cardiac resynchronisation ,3,0.3333333333333333,0.3333333333333333,0.3333333333333333,0.2,1.0,0.46927872602275644,1.0
+ret_102,What is the ARNI (sacubitril/valsartan) indication in HFrEF?,3,1.0,1.0,1.0,0.6,1.0,0.9469024295259745,1.0
+ret_103,What is the neoadjuvant treatment for locally advanced recta,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_104,What opioid rotation is recommended for uncontrolled pain or,3,1.0,1.0,1.0,0.6,1.0,1.0,1.0
+ret_105,What is the DAPT duration in NSTE-ACS managed with PCI?,3,0.6666666666666666,1.0,1.0,0.4,1.0,0.8395700624665824,1.0
+ret_106,What are the absolute contraindications to IV thrombolysis i,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_107,What is the staging system used for NPC and what are the tre,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_108,What monitoring parameters guide titration of foundational H,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,1.0,0.7653606369886217,1.0
+ret_109,What non-HDL-C target applies when TG >4.5 mmol/L?,3,0.6666666666666666,0.6666666666666666,0.6666666666666666,0.4,0.5,0.49818925746641285,1.0
+ret_110,What is the target HbA1c for DAPT de-escalation after ACS?,3,0.6666666666666666,0.6666666666666666,1.0,0.4,1.0,0.6508205185601091,1.0
+ret_111,What are the discharge criteria after IVT in acute ischaemic,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_112,What second-line anti-anginal medications are used if beta-b,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_113,How should a patient on warfarin for AF be bridged periopera,3,0.6666666666666666,0.6666666666666666,1.0,0.4,1.0,0.7653606369886217,1.0
+ret_114,What special considerations apply to patients with chronic k,3,0.6666666666666666,0.6666666666666666,1.0,0.4,1.0,0.6713860725233041,1.0
+ret_115,What is the risk stratification used before prescribing PDE5,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_116,What systemic therapy is recommended for HER2-positive metas,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_117,What is the fibrinolysis door-to-needle time target in STEMI,3,0.6666666666666666,0.6666666666666666,1.0,0.4,1.0,0.7653606369886217,1.0
+ret_118,What post-PCI follow-up is needed for patients with acute MI,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_119,What are adjuvant radiotherapy indications in breast cancer ,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+ret_120,What role does BRCA mutation testing play in colorectal canc,3,0.0,0.0,0.0,0.0,0.0,0.0,0.0
