@@ -5,6 +5,8 @@ import {
   ArrowLeft,
   Sparkles,
   Target,
+
+  Info,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -48,6 +50,7 @@ export function DiagnosisSection() {
   const { diagnosis, isGeneratingPlan } = state;
   const [traceCollapsed, setTraceCollapsed] = React.useState(true);
   const [expandedWhy, setExpandedWhy] = React.useState({});
+  const [sortBy, setSortBy] = React.useState('rank');
 
   if (!diagnosis) return null;
 
@@ -132,6 +135,29 @@ export function DiagnosisSection() {
     );
   }
 
+  // Confidence bar color — matches the target screenshot: green for high, amber for medium
+  const getBarColor = (pct) => {
+    if (pct == null) return isDark ? '#64748b' : '#94a3b8';
+    if (pct >= 70) return '#10b981'; // emerald-500
+    if (pct >= 40) return '#f59e0b'; // amber-500
+    return '#94a3b8'; // slate-400
+  };
+
+  // Risk label badge colors
+  const getRiskBadge = (pct) => {
+    if (pct == null) return null;
+    if (pct >= 70) return { label: 'High', dot: 'bg-rose-500', bg: isDark ? 'bg-emerald-500/15 text-emerald-400' : 'bg-emerald-50 text-emerald-700 border border-emerald-200' };
+    if (pct >= 40) return { label: 'Moderate', dot: 'bg-amber-500', bg: isDark ? 'bg-amber-500/15 text-amber-400' : 'bg-amber-50 text-amber-700 border border-amber-200' };
+    return { label: 'Low', dot: 'bg-slate-400', bg: isDark ? 'bg-slate-500/15 text-slate-400' : 'bg-slate-100 text-slate-600 border border-slate-200' };
+  };
+
+  // Tier badge for selected cards
+  const getTierBadge = (tier) => {
+    if (tier === 'major') return { label: 'Major', classes: isDark ? 'bg-amber-500 text-white' : 'bg-amber-500 text-white' };
+    if (tier === 'minor') return { label: 'Minor', classes: isDark ? 'bg-teal-500 text-white' : 'bg-teal-500 text-white' };
+    return null;
+  };
+
   return (
     <div className="space-y-6 animate-fadeIn">
       <div className="flex items-center justify-between gap-6 mb-6">
@@ -185,18 +211,22 @@ export function DiagnosisSection() {
         </div>
 
         {/* RIGHT PANEL: Decision & DDx */}
-        <div className="lg:col-span-7 space-y-6">
+        <div className="lg:col-span-7 space-y-4">
 
-      {/* Clinical Correlation note — single line */}
-      <div className={`flex items-center gap-2 text-sm px-4 py-3 rounded-lg
+      {/* Clinical Correlation note — yellow banner */}
+      <div className={`flex items-center gap-2.5 text-sm px-4 py-3 rounded-xl
         ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
                  : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
         <AlertCircle className="w-4 h-4 shrink-0" strokeWidth={1.5} />
-        <span>Click any diagnosis card to cycle Off → Minor → Major. Mark exactly one as Major before Confirm.</span>
+        <span>Cycle a diagnosis: Off → Minor → Major. Mark exactly one as Major before confirming.</span>
+        <a href="#" className="ml-auto text-amber-600 font-semibold text-sm hover:text-amber-700 whitespace-nowrap flex items-center gap-1"
+           onClick={(e) => e.preventDefault()}>
+          <Info className="w-3.5 h-3.5" /> Learn more
+        </a>
       </div>
 
       {confirmError && (
-        <div className={`flex items-start gap-2 text-sm px-4 py-3 rounded-lg
+        <div className={`flex items-start gap-2 text-sm px-4 py-3 rounded-xl
           ${isDark ? 'bg-rose-900/30 text-rose-200 border border-rose-500/30'
                    : 'bg-rose-50    text-rose-800 border border-rose-200'}`}>
           <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" strokeWidth={1.5} />
@@ -217,17 +247,23 @@ export function DiagnosisSection() {
         </div>
       )}
 
-      {/* Differential Diagnosis - Selectable */}
+      {/* Differential Diagnosis - Card-based Design */}
       <GlassCard className="p-6">
+        {/* Header with icon + title + candidate count */}
         <div className="flex items-center gap-3 mb-5">
-          <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-            <Target className="w-5 h-5 text-[var(--accent-primary)]" strokeWidth={1.5} />
+          <div className={`p-2 rounded-xl ${isDark ? 'bg-teal-500/20' : 'bg-teal-50'}`}>
+            <Target className="w-5 h-5 text-teal-500" strokeWidth={1.5} />
           </div>
-          <h3 className={`text-xl font-semibold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Differential Diagnosis</h3>
+          <div className="flex items-center gap-2.5">
+            <h3 className={`text-xl font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>Differential Diagnosis</h3>
+            <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${isDark ? 'bg-slate-700 text-slate-300' : 'bg-slate-100 text-slate-500'}`}>
+              {sortedDifferentials.length} candidates
+            </span>
+          </div>
         </div>
 
         {diagnosis?.cpgsMatched?.length > 0 && (
-          <div className="flex flex-wrap items-center gap-1.5 mb-3">
+          <div className="flex flex-wrap items-center gap-1.5 mb-4">
             <span className="ds-eyebrow">CPGs consulted</span>
             {diagnosis.cpgsMatched.map(name => (
               <Badge key={name} variant="info" size="sm">{name}</Badge>
@@ -235,6 +271,7 @@ export function DiagnosisSection() {
           </div>
         )}
 
+        {/* DDx Cards */}
         <div className="space-y-3">
           {sortedDifferentials.map((diff, idx) => {
             const tier = tiers[diff.icdCode] || 'off';
@@ -245,19 +282,22 @@ export function DiagnosisSection() {
             const isMinorHint = state.ddxSuggestion?.headless_default_minors?.includes(diff.icdCode);
             // probability is already 0–100 (mapped from final_score*100 or similarity*100 in clinicalMappers.js)
             const pct = diff.probability != null ? Math.round(diff.probability) : null;
+            const barColor = getBarColor(pct);
+            const riskBadge = getRiskBadge(pct);
+            const tierBadge = getTierBadge(tier);
 
-            // Canonical MHNexus colors from 19-probability.html
-            const barFill =
-              pct == null   ? '#94a3b8'
-              : pct >= 70   ? '#ef4444'
-              : pct >= 40   ? '#f59e0b'
-              : '#22c55e';
+            // Card border and background based on tier selection
+            const cardBorderColor = isMajor
+              ? (isDark ? 'border-amber-400/70' : 'border-amber-400')
+              : isSelected
+              ? (isDark ? 'border-teal-400/60' : 'border-teal-400')
+              : (isDark ? 'border-slate-700/60' : 'border-slate-200');
 
-            const riskDotColor = {
-              low:    'bg-emerald-500',
-              medium: 'bg-amber-500',
-              high:   'bg-rose-500',
-            }[diff.risk] ?? 'bg-amber-500';
+            const cardBg = isMajor
+              ? (isDark ? 'bg-amber-500/5' : 'bg-amber-50/50')
+              : isSelected
+              ? (isDark ? 'bg-teal-500/5' : 'bg-teal-50/30')
+              : (isDark ? 'bg-slate-800/40' : 'bg-white');
 
             return (
               <div
@@ -274,218 +314,247 @@ export function DiagnosisSection() {
                 }}
                 aria-pressed={isSelected}
                 aria-label={`${diff.name} — current tier ${tier}. Click to cycle Off, Minor, Major.`}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 border-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)] ${
-                  isSelected
-                    ? isMajor
-                      ? `${isDark ? 'border-amber-400/80 bg-amber-500/10 shadow-[0_0_0_1px_rgba(251,191,36,0.45)]' : 'border-amber-400 bg-amber-50 shadow-[0_0_0_1px_rgba(245,158,11,0.35)]'}`
-                      : `${isDark ? 'border-sky-400/70 bg-sky-500/10 shadow-[0_0_0_1px_rgba(56,189,248,0.35)]' : 'border-sky-300 bg-sky-50 shadow-[0_0_0_1px_rgba(14,165,233,0.25)]'}`
-                    : `border-transparent ${isDark ? 'hover:bg-white/5 hover:border-white/10' : 'hover:bg-slate-50 hover:border-slate-200'}`
-                } ${isGeneratingPlan ? 'cursor-not-allowed opacity-70' : ''}`}
+                className={`w-full text-left rounded-xl transition-all duration-200 border-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-400/50
+                  ${cardBorderColor} ${cardBg}
+                  ${!isSelected && !isDark ? 'hover:border-slate-300 hover:shadow-md' : ''}
+                  ${!isSelected && isDark ? 'hover:border-slate-600 hover:bg-slate-800/60' : ''}
+                  ${isSelected ? 'shadow-md' : 'shadow-sm'}
+                  ${isGeneratingPlan ? 'cursor-not-allowed opacity-70' : ''}`}
+                style={{ overflow: 'hidden' }}
               >
-                {/* Row 1: name · ICD · badges · percentage — matches 19-probability.html .head */}
-                <div className="flex items-center gap-2 mb-1.5">
-                  {/* Selected checkmark / index number */}
-                  {isSelected ? (
-                    <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${isMajor ? 'bg-amber-500' : 'bg-sky-500'}`}>
-                      <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 12 12" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l3 3 5-5" />
-                      </svg>
-                    </span>
-                  ) : (
-                    <span className={`font-sans text-xs font-semibold shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                      {String(idx + 1).padStart(2, '0')}
-                    </span>
-                  )}
-                  {/* .nm — font-weight 500, var(--slate-700) */}
-                  <span
-                    className="flex-1 text-sm truncate"
-                    style={{ fontWeight: isSelected ? 600 : 500, color: isSelected ? 'var(--accent-primary)' : isDark ? '#e2e8f0' : 'var(--slate-700)' }}
-                  >
-                    {diff.name}
-                  </span>
-                  {isMajor && (
-                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-700'}`}>
-                      Major
-                    </span>
-                  )}
-                  {tier === 'minor' && (
-                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${isDark ? 'bg-sky-500/20 text-sky-300' : 'bg-sky-100 text-sky-700'}`}>
-                      Minor
-                    </span>
-                  )}
-                  <span className={`text-[11px] font-sans shrink-0 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                    ICD-11 · {diff.icdCode}
-                  </span>
-                  <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${riskDotColor}`} />
-                  {isTopSuggestion && (
-                    <span className="text-[10px] font-semibold text-[var(--accent-primary)] bg-[var(--accent-primary)]/10 px-1.5 py-0.5 rounded shrink-0 animate-pulse">
-                      AI top pick
-                    </span>
-                  )}
-                  {/* Match strength — qualitative tier only; the raw % can exceed
-                       100 due to inclusion / red-flag boosts (math is fine, but
-                       reading "107%" erodes clinician trust). The full numeric
-                       breakdown stays in the AI Reasoning Trace + the "Why?"
-                       disclosure below. */}
-                  {pct != null && (
-                    <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
-                      pct >= 70
-                        ? (isDark ? 'bg-emerald-500/20 text-emerald-300' : 'bg-emerald-100 text-emerald-700')
-                        : pct >= 40
-                        ? (isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-700')
-                        : (isDark ? 'bg-slate-500/20 text-slate-300' : 'bg-slate-100 text-slate-600')
-                    }`}>
-                      {pct >= 70 ? 'High' : pct >= 40 ? 'Moderate' : 'Low'}
-                    </span>
-                  )}
-                </div>
+                {/* Main content area */}
+                <div className="px-4 py-4">
+                  {/* Row 1: Number + Name + ICD + Risk badge + tier controls */}
+                  <div className="flex items-start justify-between gap-3 mb-1">
+                    <div className="flex items-start gap-3 flex-1 min-w-0">
+                      {/* Numbered circle */}
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-sm font-bold mt-0.5
+                        ${isMajor
+                          ? 'bg-amber-500 text-white'
+                          : isSelected
+                          ? 'bg-teal-500 text-white'
+                          : isDark
+                          ? 'bg-slate-700/50 text-slate-400 border border-slate-600/50'
+                          : 'bg-slate-100 text-slate-500 border border-transparent'
+                        }`}>
+                        {idx + 1}
+                      </div>
 
-                <div
-                  className="flex flex-wrap items-center justify-between gap-2 mb-2"
-                  onClick={(e) => e.stopPropagation()}
-                  onKeyDown={(e) => e.stopPropagation()}
-                >
-                  {(isMajorHint || isMinorHint) ? (
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setTier(diff.icdCode, isMajorHint ? 'major' : 'minor');
-                      }}
-                      className={`inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded-full border transition-colors ${
-                        isMajorHint
-                          ? (isDark ? 'border-amber-400/60 text-amber-200 hover:bg-amber-500/10' : 'border-amber-300 text-amber-700 hover:bg-amber-50')
-                          : (isDark ? 'border-sky-400/60 text-sky-200 hover:bg-sky-500/10' : 'border-sky-300 text-sky-700 hover:bg-sky-50')
-                      }`}
-                    >
-                      <Sparkles className="w-3 h-3" />
-                      {isMajorHint ? 'System suggests Major' : 'System suggests Minor'}
-                    </button>
-                  ) : (
-                    <span />
-                  )}
-                  <TierSegmentedControl
-                    value={tier}
-                    onChange={(next) => setTier(diff.icdCode, next)}
-                    disabled={isGeneratingPlan}
-                    ariaLabel={`Tier for ${diff.icdCode} ${diff.name}`}
-                  />
-                </div>
+                      <div className="flex-1 min-w-0">
+                        {/* Diagnosis name */}
+                        <h4 className={`text-sm font-semibold leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                          {diff.name}
+                        </h4>
 
-                {/* Row 1.5: per-card "Why?" disclosure — only show when the card
-                     carries engineering signal worth explaining (rank moved, or
-                     an override fired). Clinician sees a single subtle link;
-                     reranker telemetry + override details open behind it. */}
-                {(() => {
-                  const hasRankDelta = diff.mathRank && diff.mathRank !== (idx + 1);
-                  const hasOverride = !!diff.overrideReason;
-                  if (!hasRankDelta && !hasOverride) return null;
-                  const isExpanded = !!expandedWhy[diff.icdCode];
-                  return (
-                    <div
-                      className="mb-1.5"
-                      onClick={(e) => e.stopPropagation()}
-                      onKeyDown={(e) => e.stopPropagation()}
-                    >
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setExpandedWhy((prev) => ({ ...prev, [diff.icdCode]: !prev[diff.icdCode] }));
-                        }}
-                        className={`text-[11px] underline-offset-2 hover:underline ${
-                          isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-500 hover:text-slate-700'
-                        }`}
-                      >
-                        {isExpanded ? 'Hide details' : 'Why this rank?'}
-                      </button>
+                        {/* System suggestion hint badge */}
+                        {(isMajorHint || isMinorHint) && (
+                          <button
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setTier(diff.icdCode, isMajorHint ? 'major' : 'minor');
+                            }}
+                            className={`inline-flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-full border transition-colors mt-1.5
+                              ${isMajorHint
+                                ? (isDark ? 'border-amber-400/60 text-amber-300 bg-amber-500/10 hover:bg-amber-500/20' : 'border-amber-300 text-amber-700 bg-amber-50 hover:bg-amber-100')
+                                : (isDark ? 'border-teal-400/60 text-teal-300 bg-teal-500/10 hover:bg-teal-500/20' : 'border-teal-300 text-teal-700 bg-teal-50 hover:bg-teal-100')
+                              }`}
+                          >
+                            <Sparkles className="w-3 h-3" />
+                            {isMajorHint ? 'System suggests Major' : 'System suggests Minor'}
+                          </button>
+                        )}
 
-                      {isExpanded && hasRankDelta && (
-                        <div className="flex items-center gap-1.5 mt-1.5 text-[11px] font-sans">
-                          <span className={isDark ? 'text-slate-400' : 'text-slate-500'}>Reranked:</span>
-                          <span className={`px-1.5 py-0.5 rounded font-semibold flex items-center gap-1 ${
-                            diff.rankDelta > 0
-                              ? (isDark ? 'bg-emerald-500/10 text-emerald-400' : 'bg-emerald-50 text-emerald-700')
-                              : (isDark ? 'bg-rose-500/10 text-rose-400' : 'bg-rose-50 text-rose-700')
+                        {/* Why this rank? link */}
+                        {(() => {
+                          const hasRankDelta = diff.mathRank && diff.mathRank !== (idx + 1);
+                          const hasOverride = !!diff.overrideReason;
+                          if (!hasRankDelta && !hasOverride) return null;
+                          const isExpanded = !!expandedWhy[diff.icdCode];
+                          return (
+                            <div
+                              className="mt-1.5"
+                              onClick={(e) => e.stopPropagation()}
+                              onKeyDown={(e) => e.stopPropagation()}
+                            >
+                              <button
+                                type="button"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setExpandedWhy((prev) => ({ ...prev, [diff.icdCode]: !prev[diff.icdCode] }));
+                                }}
+                                className={`text-[11px] underline-offset-2 hover:underline flex items-center gap-1 ${
+                                  isDark ? 'text-slate-400 hover:text-slate-200' : 'text-slate-500 hover:text-slate-700'
+                                }`}
+                              >
+                                {isExpanded ? 'Hide details ∧' : 'Show details ∨'}
+                              </button>
+                            </div>
+                          );
+                        })()}
+                      </div>
+                    </div>
+
+                    {/* Right side: ICD code + risk dot + risk badge + tier badge + segmented control */}
+                    <div className="flex flex-col items-end gap-2 shrink-0"
+                         onClick={(e) => e.stopPropagation()}
+                         onKeyDown={(e) => e.stopPropagation()}>
+                      <div className="flex items-center gap-2">
+                        {tierBadge && (
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${tierBadge.classes}`}>
+                            {tierBadge.label}
+                          </span>
+                        )}
+                        <span className={`text-[11px] font-mono ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                          ICD-11: {diff.icdCode}
+                        </span>
+                        <div className={`w-2 h-2 rounded-full shrink-0 ${riskBadge?.dot || 'bg-amber-500'}`} />
+                        {isTopSuggestion && (
+                          <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${
+                            isDark ? 'text-amber-400' : 'text-amber-600'
                           }`}>
-                            math #{diff.mathRank} → AI #{idx + 1} ({diff.rankDelta > 0 ? `↑${diff.rankDelta}` : `↓${Math.abs(diff.rankDelta)}`})
+                            AI top pick
                           </span>
-                          {Math.abs(diff.rankDelta) >= 2 && (
-                            <span className={`text-[10px] font-semibold px-1.5 py-0.5 rounded shrink-0 ${
-                              isDark ? 'bg-amber-500/20 text-amber-300' : 'bg-amber-100 text-amber-800'
-                            }`}>
-                              Clinical Override
-                            </span>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })()}
-
-                {/* Row 2: probability bar — 10px height, 6px radius, 0.7s CSS transition */}
-                {pct != null && (
-                  <div
-                    style={{
-                      height: 10,
-                      borderRadius: 6,
-                      background: isDark ? 'rgba(255,255,255,0.08)' : 'var(--slate-100)',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <div
-                      style={{
-                        height: '100%',
-                        borderRadius: 6,
-                        background: barFill,
-                        width: `${pct}%`,
-                        transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
-                      }}
-                    />
-                  </div>
-                )}
-
-                {/* Row 3: Clinical reasoning — intentionally hidden on the card.
-                     The full score breakdown stays available in the AI Reasoning
-                     Trace panel on the left; under each DDx card we keep only the
-                     percentage / tier / override-reason so the card stays scannable. */}
-
-                {/* Row 4: clinical override reason — only shown when the
-                     clinician opens "Why this rank?" for this card. Keeps the
-                     scannable view clean while preserving full auditability. */}
-                {expandedWhy[diff.icdCode] && diff.overrideReason && (
-                  <div className={`mt-2 flex flex-col gap-1.5 text-xs p-2.5 rounded-lg border leading-relaxed ${
-                    isDark ? 'bg-amber-950/20 text-amber-300 border-amber-500/10' 
-                           : 'bg-amber-50/50 text-amber-800 border-amber-100'
-                  }`}>
-                    <div className="flex items-center gap-1.5 mb-0.5">
-                      <span className="shrink-0 font-bold font-sans text-[9px] bg-amber-500/20 text-amber-400 px-1.5 py-0.5 rounded uppercase">Clinical Override</span>
-                    </div>
-                    <div className="space-y-1 pl-1">
-                      {parseOverrideReason(diff.overrideReason).map((item, idx) => (
-                        <div key={idx} className="flex flex-col sm:flex-row sm:items-start gap-1">
-                          {item.key && (
-                            <span className="font-semibold shrink-0 text-[11px] text-amber-500/90 dark:text-amber-300">
-                              {item.key}:
-                            </span>
-                          )}
-                          <span className={`${item.key ? 'italic' : ''} text-slate-700 dark:text-slate-200`}>
-                            {item.val}
+                        )}
+                        {riskBadge && (
+                          <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-md ${riskBadge.bg}`}>
+                            {riskBadge.label}
                           </span>
-                        </div>
-                      ))}
+                        )}
+                      </div>
+                      <TierSegmentedControl
+                        value={tier}
+                        onChange={(next) => setTier(diff.icdCode, next)}
+                        disabled={isGeneratingPlan}
+                        ariaLabel={`Tier for ${diff.icdCode} ${diff.name}`}
+                      />
                     </div>
                   </div>
-                )}
+
+                  {/* Confidence bar with label */}
+                  {pct != null && (
+                    <div className="mt-3 flex items-center gap-3">
+                      <span className={`text-xs font-medium shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                        Confidence
+                      </span>
+                      <span className={`text-sm font-bold shrink-0 tabular-nums ${isDark ? 'text-white' : 'text-slate-700'}`}>
+                        {(pct / 100).toFixed(2)}
+                      </span>
+                      <div className="flex-1">
+                        <div
+                          style={{
+                            height: 8,
+                            borderRadius: 6,
+                            background: isDark ? 'rgba(255,255,255,0.08)' : '#e2e8f0',
+                            overflow: 'hidden',
+                          }}
+                        >
+                          <div
+                            style={{
+                              height: '100%',
+                              borderRadius: 6,
+                              background: `linear-gradient(90deg, ${barColor}, ${barColor}dd)`,
+                              width: `${Math.min(100, Math.max(0, pct))}%`,
+                              transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Expanded "Why?" details — two-column gray box */}
+                  {expandedWhy[diff.icdCode] && (() => {
+                    const hasRankDelta = diff.mathRank && diff.mathRank !== (idx + 1);
+                    const hasOverride = !!diff.overrideReason;
+                    if (!hasRankDelta && !hasOverride) return null;
+                    return (
+                      <div
+                        className={`mt-3 rounded-lg p-4 ${
+                          isDark ? 'bg-slate-800/60 border border-slate-700/50' : 'bg-slate-50 border border-slate-200'
+                        }`}
+                        onClick={(e) => e.stopPropagation()}
+                        onKeyDown={(e) => e.stopPropagation()}
+                      >
+                        <div className={`grid gap-4 ${hasRankDelta && hasOverride ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1'}`}>
+                          {/* Left column: Reranked */}
+                          {hasRankDelta && (
+                            <div>
+                              <div className={`text-[11px] font-medium mb-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                Reranked
+                              </div>
+                              <div className="flex flex-wrap items-center gap-1.5">
+                                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
+                                  isDark ? 'bg-amber-500/15 text-amber-300 border border-amber-500/30'
+                                         : 'bg-amber-50 text-amber-700 border border-amber-200'
+                                }`}>
+                                  from #{diff.mathRank} → #{idx + 1} ({diff.rankDelta > 0 ? `↑${diff.rankDelta}` : `↓${Math.abs(diff.rankDelta)}`})
+                                </span>
+                                <span className={`text-[10px] font-semibold px-2 py-1 rounded-full ${
+                                  isDark ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                                         : 'bg-amber-100 text-amber-800 border border-amber-200'
+                                }`}>
+                                  Clinical Override
+                                </span>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Right column: Clinical Override Reason */}
+                          {hasOverride && (
+                            <div>
+                              <div className={`text-[11px] font-medium mb-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                Clinical Override Reason
+                              </div>
+                              <div className="space-y-1">
+                                {parseOverrideReason(diff.overrideReason).map((item, i) => (
+                                  <div key={i} className={`text-xs leading-relaxed ${
+                                    isDark ? 'text-slate-200' : 'text-slate-700'
+                                  }`}>
+                                    {item.key && (
+                                      <span className={`font-semibold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                                        {item.key}:{' '}
+                                      </span>
+                                    )}
+                                    {item.val}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
               </div>
             );
           })}
         </div>
       </GlassCard>
 
+      {/* Bottom status banner */}
+      <div className={`flex items-center gap-2.5 px-4 py-3 rounded-xl ${
+        majorCode
+          ? (isDark ? 'bg-emerald-900/20 text-emerald-300 border border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border border-emerald-200')
+          : (isDark ? 'bg-teal-900/20 text-teal-300 border border-teal-500/20' : 'bg-teal-50 text-teal-700 border border-teal-200')
+      }`}>
+        <CheckCircle className="w-5 h-5 shrink-0" strokeWidth={1.5} />
+        <div>
+          <span className="font-semibold text-sm">
+            {majorCode ? 'Ready to confirm.' : 'Select one diagnosis as Major to proceed.'}
+          </span>
+          <span className={`text-xs block mt-0.5 ${isDark ? 'text-teal-400/70' : 'text-teal-600/70'}`}>
+            {majorCode
+              ? `Major: ${sortedDifferentials.find(d => d.icdCode === majorCode)?.name || majorCode}. ${selectedCodes.length - 1} minor(s) selected.`
+              : 'You can adjust the priority of each diagnosis based on clinical judgement.'}
+          </span>
+        </div>
+      </div>
+
       {/* Re-synthesis notice */}
       {willResynth && !isGeneratingPlan && (
-        <div className={`flex items-center gap-2 text-xs px-4 py-2 rounded-lg
+        <div className={`flex items-center gap-2 text-xs px-4 py-2 rounded-xl
           ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
                    : 'bg-amber-50    text-amber-700 border border-amber-200'}`}>
           <AlertCircle className="w-3.5 h-3.5 shrink-0" strokeWidth={1.5} />
