@@ -1,0 +1,45 @@
+id,icd,expected,predicted_top3,top1_match,hit@3,match_type
+route_001,BA41.0,STEMI,STEMI(4th Edition) | NSTEMI(2011) | NSTE-ACS(3rd Edition),1.0,1.0,exact
+route_002,BA41.00,STEMI,,0.0,0.0,none
+route_003,BA41.0Z,STEMI,,0.0,0.0,none
+route_004,BA41.1,"NSTE-ACS,NSTEMI",NSTEMI(2011) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
+route_005,BA80.0Z,"NSTE-ACS,NSTEMI",,0.0,0.0,none
+route_006,BD10,Heart Failure,Heart-Failure(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | CVD-Prevention-Women(2016),0.0,0.0,exact
+route_007,BD11,Heart Failure,Heart-Failure(5th Edition) | CVD-Prevention-Women(2016) | Primary-Secondary-Prevention-of-CVD(2017),0.0,0.0,exact
+route_008,BD10.1,"Heart Failure,Heart Disease in Pregnancy",,0.0,0.0,none
+route_009,BA00,Hypertension,Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_010,BA00.Z,Hypertension,Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_011,BA04,Hypertension,Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_012,5C80,Dyslipidaemia,Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_013,5C80.0,Dyslipidaemia,Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,sibling
+route_014,5C81,Dyslipidaemia,Dyslipidaemia(6th-Edition),1.0,1.0,exact
+route_015,5C82,Dyslipidaemia,,0.0,0.0,none
+route_016,BC81.0,Atrial Fibrillation,Atrial-Fibrillation(2012) | Heart-Disease-in-Pregnancy(2nd Edition) | Primary-Secondary-Prevention-of-CVD(2017),0.0,0.0,sibling
+route_017,BC81.1,Atrial Fibrillation,Atrial-Fibrillation(2012) | Heart-Disease-in-Pregnancy(2nd Edition) | Primary-Secondary-Prevention-of-CVD(2017),0.0,0.0,sibling
+route_018,BC81.2,Atrial Fibrillation,Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | Heart-Disease-in-Pregnancy(2nd Edition),0.0,0.0,sibling
+route_019,BA80.0,"Stable Coronary Artery Disease,Percutaneous Coronary Intervention",,0.0,0.0,none
+route_020,BA80,Stable Coronary Artery Disease,,0.0,0.0,none
+route_021,BB01.0,Pulmonary Arterial Hypertension,Pulmonary-Arterial-Hypertension(2011),0.0,0.0,exact
+route_022,BB01,Pulmonary Arterial Hypertension,Pulmonary-Arterial-Hypertension(2011),0.0,0.0,exact
+route_023,JA24,Heart Disease in Pregnancy,Heart-Disease-in-Pregnancy(2nd Edition),0.0,0.0,exact
+route_024,JA24.0,Heart Disease in Pregnancy,Heart-Disease-in-Pregnancy(2nd Edition),0.0,0.0,ancestor_d1
+route_025,JA24.1,Heart Disease in Pregnancy,Heart-Disease-in-Pregnancy(2nd Edition),0.0,0.0,ancestor_d1
+route_026,CA40,Infective Endocarditis,,0.0,0.0,none
+route_027,CA40.0,Infective Endocarditis,,0.0,0.0,none
+route_028,CA40.1,Infective Endocarditis,,0.0,0.0,none
+route_029,8B11,Ischaemic Stroke,Ischaemic-Stroke(3rd Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),0.0,0.0,exact
+route_030,8B11.0,Ischaemic Stroke,Ischaemic-Stroke(3rd Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),0.0,0.0,exact
+route_031,8B20,Ischaemic Stroke,Ischaemic-Stroke(3rd Edition),0.0,0.0,semantic_scope
+route_032,2C61,Breast Cancer,Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),0.0,0.0,exact
+route_033,2C61.0,Breast Cancer,Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),0.0,0.0,exact
+route_034,2C61.3,Breast Cancer,Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),0.0,0.0,exact
+route_035,2C61.Z,Breast Cancer,,0.0,0.0,none
+route_036,2B90,Colorectal Carcinoma,Colorectal-Carcinoma(2017) | Cancer-Pain(2nd Edition),0.0,0.0,exact
+route_037,2B91,Colorectal Carcinoma,Colorectal-Carcinoma(2017) | Cancer-Pain(2nd Edition),0.0,0.0,exact
+route_038,MG30.0,Cancer Pain,Cancer-Pain(2nd Edition),0.0,0.0,sibling
+route_039,MG30,Cancer Pain,Cancer-Pain(2nd Edition),0.0,0.0,semantic_scope
+route_040,2B6B,Nasopharyngeal Carcinoma,Nasopharyngeal-Carcinoma | Cancer-Pain(2nd Edition),0.0,0.0,exact
+route_041,HA00,Erectile Dysfunction,Erectile-Dysfunction(2024),0.0,0.0,semantic_scope
+route_042,HA00.0,Erectile Dysfunction,Erectile-Dysfunction(2024),0.0,0.0,semantic_scope
+route_043,HA00.1,Erectile Dysfunction,Erectile-Dysfunction(2024),0.0,0.0,semantic_scope
+route_044,BA00,"Primary Secondary Prevention of CVD,CVD Prevention in Women",Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),0.0,0.0,exact
