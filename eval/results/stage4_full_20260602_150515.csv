@@ -1,0 +1,4 @@
+id,query,n_relevant,n_retrieved,recall@20,mrr,ndcg@10,hit@10,baseline_r@20,lift_r@20
+ret_001,What is the time target for primary PCI door-to-balloon in S,3,20,0.0,0.0,0.0,0.0,0.6666666666666666,-0.6666666666666666
+ret_002,When should fibrinolysis be given instead of primary PCI in ,3,20,1.0,1.0,0.6713860725233041,1.0,1.0,0.0
+ret_003,What dual antiplatelet loading doses are recommended for STE,3,20,0.6666666666666666,0.058823529411764705,0.0,0.0,1.0,-0.33333333333333337

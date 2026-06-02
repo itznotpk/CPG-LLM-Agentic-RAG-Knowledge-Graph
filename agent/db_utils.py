@@ -497,17 +497,17 @@ async def hybrid_search(
     embedding: List[float],
     query_text: str,
     limit: int = 10,
-    text_weight: float = 0.3,
+    rrf_k: int = 60,
     document_id_filter: Optional[List[str]] = None,
 ) -> List[Dict[str, Any]]:
     """
-    Perform hybrid search (vector + keyword).
+    Perform hybrid search (vector + keyword) using Reciprocal Rank Fusion.
 
     Args:
         embedding: Query embedding vector
         query_text: Query text for keyword search
         limit: Maximum number of results
-        text_weight: Weight for text similarity (0-1)
+        rrf_k: RRF constant (default 60); higher = diminish rank-position influence
         document_id_filter: If provided, restrict results to chunks from these document UUIDs
 
     Returns:
@@ -517,35 +517,56 @@ async def hybrid_search(
         embedding_str = '[' + ','.join(map(str, embedding)) + ']'
 
         if document_id_filter:
-            vector_weight = 1.0 - text_weight
             results = await conn.fetch(
                 """
+                WITH vector_results AS (
+                    SELECT
+                        c.id AS chunk_id,
+                        c.document_id,
+                        c.content,
+                        1 - (c.embedding <=> $1::vector) AS vector_sim,
+                        ROW_NUMBER() OVER (ORDER BY c.embedding <=> $1::vector) AS vector_rank,
+                        c.metadata,
+                        d.title  AS document_title,
+                        d.source AS document_source,
+                        d.metadata->>'published_year' AS published_year
+                    FROM chunks c
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE c.document_id = ANY($5::uuid[])
+                      AND c.embedding IS NOT NULL
+                ),
+                text_results AS (
+                    SELECT
+                        c.id AS chunk_id,
+                        ts_rank_cd(to_tsvector('english', c.content), plainto_tsquery('english', $2)) AS text_sim,
+                        ROW_NUMBER() OVER (
+                            ORDER BY ts_rank_cd(to_tsvector('english', c.content), plainto_tsquery('english', $2)) DESC
+                        ) AS text_rank
+                    FROM chunks c
+                    WHERE to_tsvector('english', c.content) @@ plainto_tsquery('english', $2)
+                      AND c.document_id = ANY($5::uuid[])
+                      AND c.embedding IS NOT NULL
+                )
                 SELECT
-                    c.id AS chunk_id,
-                    c.document_id,
-                    c.content,
-                    (
-                        $5::float * (1 - (c.embedding <=> $1::vector))
-                        + $4::float * similarity(c.content, $2)
-                    ) AS combined_score,
-                    1 - (c.embedding <=> $1::vector) AS vector_similarity,
-                    similarity(c.content, $2)         AS text_similarity,
-                    COALESCE(c.metadata::text, '{}')  AS metadata,
-                    d.title  AS document_title,
-                    d.source AS document_source,
-                    d.metadata->>'published_year' AS published_year
-                FROM chunks c
-                JOIN documents d ON d.id = c.document_id
-                WHERE c.document_id = ANY($6::uuid[])
-                  AND c.embedding IS NOT NULL
+                    v.chunk_id,
+                    v.document_id,
+                    v.content,
+                    (1.0 / ($4 + v.vector_rank) + COALESCE(1.0 / ($4 + t.text_rank), 0)) AS combined_score,
+                    v.vector_sim AS vector_similarity,
+                    COALESCE(t.text_sim, 0) AS text_similarity,
+                    COALESCE(v.metadata::text, '{}') AS metadata,
+                    v.document_title,
+                    v.document_source,
+                    v.published_year
+                FROM vector_results v
+                LEFT JOIN text_results t ON v.chunk_id = t.chunk_id
                 ORDER BY combined_score DESC
                 LIMIT $3
                 """,
                 embedding_str,
                 query_text,
                 limit,
-                text_weight,
-                vector_weight,
+                rrf_k,
                 document_id_filter,
             )
         else:
@@ -554,7 +575,7 @@ async def hybrid_search(
                 embedding_str,
                 query_text,
                 limit,
-                text_weight,
+                rrf_k,
             )
 
         def _merge_year(row) -> dict:

@@ -1,0 +1,6 @@
+id,query,n_relevant,n_retrieved,recall@20,mrr,ndcg@10,hit@10,baseline_r@20,lift_r@20
+ret_001,What is the time target for primary PCI door-to-balloon in S,3,20,0.3333333333333333,0.25,0.20210734650054757,1.0,0.6666666666666666,-0.3333333333333333
+ret_002,When should fibrinolysis be given instead of primary PCI in ,3,16,1.0,1.0,1.0,1.0,0.0,1.0
+ret_003,What dual antiplatelet loading doses are recommended for STE,3,16,0.6666666666666666,0.125,0.2893079283427616,1.0,0.0,0.6666666666666666
+ret_004,What anticoagulation is used during primary PCI for STEMI?,3,9,0.0,0.0,0.0,0.0,1.0,-1.0
+ret_005,What secondary prevention medications are recommended after ,3,20,0.6666666666666666,0.2,0.3379680345449381,1.0,1.0,-0.33333333333333337

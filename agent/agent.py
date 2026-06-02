@@ -136,27 +136,27 @@ async def hybrid_search(
     ctx: RunContext[AgentDependencies],
     query: str,
     limit: int = 10,
-    text_weight: float = 0.3
+    rrf_k: int = 60
 ) -> List[Dict[str, Any]]:
     """
     Perform both vector and keyword search for comprehensive results.
-    
+
     This tool combines semantic similarity search with keyword matching
-    for the best coverage. It ranks results using both vector similarity
-    and text matching scores. Best for combining semantic and exact matching.
-    
+    using Reciprocal Rank Fusion (RRF). Best for combining semantic and
+    exact matching without penalising chunks that lack keyword overlap.
+
     Args:
         query: Search query for hybrid search
         limit: Maximum number of results to return (1-50)
-        text_weight: Weight for text similarity vs vector similarity (0.0-1.0)
-    
+        rrf_k: RRF constant (default 60)
+
     Returns:
         List of chunks ranked by combined relevance score
     """
     input_data = HybridSearchInput(
         query=query,
         limit=limit,
-        text_weight=text_weight
+        rrf_k=rrf_k
     )
     
     results = await hybrid_search_tool(input_data)

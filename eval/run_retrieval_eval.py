@@ -52,7 +52,7 @@ async def call_retriever(query: str, doc_ids: list[str] | None, top_k: int, mode
         ))
     elif mode == "hybrid":
         hits = await hybrid_search_tool(HybridSearchInput(
-            query=query, limit=top_k, text_weight=0.3, document_id_filter=doc_ids
+            query=query, limit=top_k, rrf_k=60, document_id_filter=doc_ids
         ))
     else:
         raise ValueError(f"Unknown mode: {mode}")

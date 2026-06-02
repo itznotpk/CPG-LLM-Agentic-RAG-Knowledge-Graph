@@ -2,6 +2,7 @@
 Tools for the Pydantic AI agent.
 """
 
+import asyncio
 import logging
 from typing import List, Dict, Any, Optional
 
@@ -32,6 +33,17 @@ EMBEDDING_MODEL = get_embedding_model()
 
 
 _bedrock_runtime_client = None
+_bedrock_lock: asyncio.Lock | None = None
+_bedrock_last_call: float = 0.0
+_BEDROCK_MIN_INTERVAL = 1.1  # seconds between calls — just under Titan's 1 TPS quota
+
+
+def _get_bedrock_lock() -> asyncio.Lock:
+    # Lazy-init so the Lock is created inside the running event loop.
+    global _bedrock_lock
+    if _bedrock_lock is None:
+        _bedrock_lock = asyncio.Lock()
+    return _bedrock_lock
 
 
 def _get_bedrock_client():
@@ -68,7 +80,6 @@ async def generate_embedding(text: str) -> List[float]:
     if embedding_provider == 'bedrock':
         # Use Bedrock Titan/Cohere for embeddings (matches ingestion pipeline)
         import json
-        import asyncio
 
         client = _get_bedrock_client()  # cached — client creation costs seconds
         model_id = os.getenv('EMBEDDING_MODEL', 'amazon.titan-embed-text-v1')
@@ -95,7 +106,28 @@ async def generate_embedding(text: str) -> List[float]:
             elif 'cohere' in model_id:
                 return result.get('embeddings')[0][:dimension]
         
-        return await asyncio.to_thread(_invoke)
+        # Rate-limit Bedrock calls to Titan's ~1 TPS quota.
+        # All concurrent callers queue behind a single lock. The entire
+        # retry loop runs inside the lock so throttled retries don't race
+        # with other waiters — only one caller ever talks to Bedrock at a time.
+        import time
+        global _bedrock_last_call
+        async with _get_bedrock_lock():
+            for attempt in range(6):
+                now = time.monotonic()
+                gap = _BEDROCK_MIN_INTERVAL - (now - _bedrock_last_call)
+                if gap > 0:
+                    await asyncio.sleep(gap)
+                try:
+                    _bedrock_last_call = time.monotonic()
+                    return await asyncio.to_thread(_invoke)
+                except Exception as exc:
+                    if "ThrottlingException" in str(exc) and attempt < 5:
+                        wait = 2 ** attempt
+                        logger.warning("Bedrock throttled (attempt %d), retrying in %ds", attempt + 1, wait)
+                        await asyncio.sleep(wait)
+                    else:
+                        raise
     
     else:
         # Use OpenAI-compatible API for embeddings
@@ -134,7 +166,7 @@ class HybridSearchInput(BaseModel):
     """Input for hybrid search tool."""
     query: str = Field(..., description="Search query")
     limit: int = Field(default=10, description="Maximum number of results")
-    text_weight: float = Field(default=0.3, description="Weight for text similarity (0-1)")
+    rrf_k: int = Field(default=60, description="RRF constant; higher reduces rank-position influence")
     document_id_filter: Optional[List[str]] = Field(
         default=None,
         description="If provided, restrict results to chunks from these document UUIDs",
@@ -254,7 +286,7 @@ async def hybrid_search_tool(input_data: HybridSearchInput) -> List[ChunkResult]
             embedding=embedding,
             query_text=input_data.query,
             limit=input_data.limit,
-            text_weight=input_data.text_weight,
+            rrf_k=input_data.rrf_k,
             document_id_filter=input_data.document_id_filter,
         )
         

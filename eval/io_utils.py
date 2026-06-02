@@ -51,6 +51,6 @@ def print_summary(name: str, summary: dict) -> None:
     print(f"\n=== {name} ===")
     for k, v in summary.items():
         if isinstance(v, float):
-            print(f"  {k:<25} {v:.4f}")
+            print(f"  {k:<25} {v * 100:.1f}%")
         else:
             print(f"  {k:<25} {v}")
