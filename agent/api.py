@@ -1736,6 +1736,24 @@ async def delivery_enqueue(body: DeliveryEnqueueRequest):
     recipient = (body.recipient or "").strip() or None
     try:
         async with _pool.acquire() as conn:
+            if recipient:
+                # Find the patient NRIC for this consultation and persist the email
+                patient_nric = await conn.fetchval(
+                    "SELECT patient_nric FROM consultations WHERE id = $1",
+                    body.consultation_id
+                )
+                if patient_nric:
+                    await conn.execute(
+                        """
+                        UPDATE patients 
+                        SET email = $1, 
+                            email_consent_at = now(), 
+                            updated_at = now()
+                        WHERE nric = $2
+                        """,
+                        recipient, patient_nric
+                    )
+
             rows = await conn.fetch(
                 "SELECT * FROM enqueue_delivery_job($1::integer, $2::text, $3::text)",
                 body.consultation_id,
