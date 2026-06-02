@@ -20,6 +20,7 @@ No clinician needed — the ICD-11 code IS the ground truth.
 
 from __future__ import annotations
 import asyncio
+import time
 
 from agent.clinical_stages import stage_2_ddx
 from agent.models import PatientCase
@@ -30,8 +31,13 @@ from eval.metrics import hit_rate_at_k, mrr, set_overlap, mean
 
 async def main():
     gold = load_jsonl("ddx_gold.jsonl")
+    total = len(gold)
     rows = []
-    for item in gold:
+    hits = 0
+    run_start = time.perf_counter()
+    print(f"DDx eval: {total} vignettes — running stage_2_ddx (rerank=True)...", flush=True)
+    for i, item in enumerate(gold, start=1):
+        t0 = time.perf_counter()
         case = PatientCase(chief_complaint=item["vignette"])
         top_k = item.get("expected_top_k", 10)
         # rerank=True matches production behaviour. Set False for a "retrieval-only" view.
@@ -39,15 +45,26 @@ async def main():
         predicted = [d.code for d in ddx_results]
         expected = item["expected_icd11_codes"]
         overlap = set_overlap(predicted, expected)
+        hit5 = hit_rate_at_k(predicted, expected, k=5)
+        hits += int(hit5 == 1.0)
         rows.append({
             "id": item["id"],
             "expected": ",".join(expected),
             "predicted_top5": ",".join(predicted[:5]),
-            "hit@5": hit_rate_at_k(predicted, expected, k=5),
+            "hit@5": hit5,
             "hit@10": hit_rate_at_k(predicted, expected, k=10),
             "mrr": mrr(predicted, expected),
             "f1": overlap["f1"],
         })
+        elapsed = time.perf_counter() - t0
+        mark = "HIT " if hit5 == 1.0 else "miss"
+        print(
+            f"[{i:2d}/{total}] {item['id']:8s} {mark} "
+            f"exp={','.join(expected):16s} got={','.join(predicted[:5]):28s} "
+            f"({elapsed:4.1f}s) running hit@5={hits}/{i}",
+            flush=True,
+        )
+    print(f"DDx eval: done in {time.perf_counter() - run_start:.0f}s", flush=True)
 
     summary = {
         "n": len(rows),
