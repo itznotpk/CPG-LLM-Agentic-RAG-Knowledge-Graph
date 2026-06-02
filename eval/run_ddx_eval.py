@@ -19,6 +19,7 @@ No clinician needed — the ICD-11 code IS the ground truth.
 """
 
 from __future__ import annotations
+import argparse
 import asyncio
 import time
 
@@ -26,23 +27,21 @@ from agent.clinical_stages import stage_2_ddx
 from agent.models import PatientCase
 
 from eval.io_utils import load_jsonl, write_results, print_summary
-from eval.metrics import hit_rate_at_k, mrr, set_overlap, mean
-
-
-def _stem(code: str) -> str:
-    """ICD-11 4-char category stem — the part before the dot (e.g. BA41.0 → BA41,
-    5C80.2 → 5C80, MG30.1 → MG30). Used for family-aware matching: a returned code
-    counts as a family hit when it shares the gold code's stem, crediting correct-
-    disease-family results that differ only in leaf specificity."""
-    return code.split(".")[0].strip().upper()
-
-
-def _fam(codes: list[str]) -> list[str]:
-    return [_stem(c) for c in codes]
+from eval.metrics import (
+    hit_rate_at_k, mrr, set_overlap, mean,
+    is_lineage, hit_at_k_pred, mrr_pred, graded_best_at_k,
+)
 
 
 async def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=0,
+                    help="Only run the first N vignettes (0 = all; for smoke tests)")
+    args = ap.parse_args()
+
     gold = load_jsonl("ddx_gold.jsonl")
+    if args.limit:
+        gold = gold[: args.limit]
     total = len(gold)
     rows = []
     hits = 0
@@ -58,11 +57,11 @@ async def main():
         expected = item["expected_icd11_codes"]
         overlap = set_overlap(predicted, expected)
         hit5 = hit_rate_at_k(predicted, expected, k=5)
-        # Family-aware: match on the ICD-11 4-char stem so a correct disease
-        # family that differs only in leaf specificity (e.g. gold 2B90 vs
-        # returned 2B90.30) is credited. Reported alongside exact, never instead.
-        fam_pred, fam_exp = _fam(predicted), _fam(expected)
-        fam_hit5 = hit_rate_at_k(fam_pred, fam_exp, k=5)
+        # Lineage-aware (Lever 2, dynamic): credit a code that is an ancestor or
+        # descendant of an expected code (ICD-11 prefix chain) — e.g. gold 2B90 vs
+        # returned 2B90.30, or gold MG30.1 vs returned MG30. Excludes siblings
+        # (5C80.0 vs 5C80.2), so genuinely different sub-diagnoses still miss.
+        lin_rel = lambda code: any(is_lineage(code, e) for e in expected)  # noqa: E731
         hits += int(hit5 == 1.0)
         rows.append({
             "id": item["id"],
@@ -71,9 +70,11 @@ async def main():
             "hit@5": hit5,
             "hit@10": hit_rate_at_k(predicted, expected, k=10),
             "mrr": mrr(predicted, expected),
-            "fam_hit@5": fam_hit5,
-            "fam_hit@10": hit_rate_at_k(fam_pred, fam_exp, k=10),
-            "fam_mrr": mrr(fam_pred, fam_exp),
+            "lin_hit@5": hit_at_k_pred(predicted, 5, lin_rel),
+            "lin_hit@10": hit_at_k_pred(predicted, 10, lin_rel),
+            "lin_mrr": mrr_pred(predicted, lin_rel),
+            # Graded (Lever H): 1.0 exact · 0.6 lineage · 0.3 sibling · 0 else, best in top-5.
+            "graded@5": graded_best_at_k(predicted, expected, 5),
             "f1": overlap["f1"],
         })
         elapsed = time.perf_counter() - t0
@@ -91,13 +92,17 @@ async def main():
         "hit_rate@5": mean(r["hit@5"] for r in rows),
         "hit_rate@10": mean(r["hit@10"] for r in rows),
         "MRR": mean(r["mrr"] for r in rows),
-        "fam_hit_rate@5": mean(r["fam_hit@5"] for r in rows),
-        "fam_hit_rate@10": mean(r["fam_hit@10"] for r in rows),
-        "fam_MRR": mean(r["fam_mrr"] for r in rows),
+        "lin_hit_rate@5": mean(r["lin_hit@5"] for r in rows),
+        "lin_hit_rate@10": mean(r["lin_hit@10"] for r in rows),
+        "lin_MRR": mean(r["lin_mrr"] for r in rows),
+        "graded@5": mean(r["graded@5"] for r in rows),
         "mean_f1": mean(r["f1"] for r in rows),
     }
     print_summary("DDx (Stage 2)", summary)
-    write_results("ddx", rows, summary)
+    if args.limit:
+        print("[info] --limit set: skipping result-file write (smoke run)")
+    else:
+        write_results("ddx", rows, summary)
 
 
 if __name__ == "__main__":

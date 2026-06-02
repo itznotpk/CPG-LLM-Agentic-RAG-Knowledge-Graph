@@ -1329,6 +1329,13 @@ _DISEASE_ALIAS_MAP: dict[str, str] = {
     "meningitis": "Meningitis",
     "oesophageal candidiasis": "Candidiasis of oesophagus",
     "esophageal candidiasis": "Candidiasis of oesophagus",
+    # Urology
+    "erectile dysfunction": "Erectile dysfunction",
+    # Oncology / palliative — chronic cancer-related pain (named, not the MG30 parent)
+    "cancer pain": "Chronic cancer related pain",
+    "cancer-related pain": "Chronic cancer related pain",
+    "cancer related pain": "Chronic cancer related pain",
+    "malignancy-related pain": "Chronic cancer related pain",
 }
 ScoreRouteMethod = Literal[
     "exact",
@@ -2755,6 +2762,10 @@ async def stage_2_ddx(
     # disease code at near-identical score. Runs whether or not LLM rerank ran.
     results = _demote_chapter21_codes(results)
 
+    # Deterministic: keep named categories above their '.Y/.Z' residual siblings
+    # (e.g. BC81.3 above BC81.3Y). Order-only; no code injection.
+    results = _demote_residual_subcodes(results)
+
     # Deterministic guarantee: a clinician-named chief-complaint dx owns #1, so a
     # boosted comorbidity can't steal the "AI top pick" slot (runs after all other
     # reordering so it has the final word on the primary).
@@ -3018,6 +3029,48 @@ def _demote_chapter21_codes(results: list[DDxResult]) -> list[DDxResult]:
         if not swapped:
             break
     return ordered
+
+
+def _is_residual_icd_code(code: str) -> bool:
+    """ICD-11 residual marker: a code whose terminal character is 'Y' ("other
+    specified") or 'Z' ("unspecified") — e.g. BC81.3Y, BA5Z, 8B1Y. Dynamic; no
+    per-code table. These are intentionally vaguer than their named siblings."""
+    c = (code or "").strip().upper()
+    return bool(c) and c[-1] in ("Y", "Z")
+
+
+def _demote_residual_subcodes(results: list[DDxResult]) -> list[DDxResult]:
+    """Stable-demote residual '.Y'/'.Z' codes below any NON-residual code that
+    shares their 4-char category stem. Returning "atrial fibrillation, unspecified"
+    (BC81.3Y) above the named "atrial fibrillation" (BC81.3) is a mis-rank — the
+    named category is strictly more informative. Fires only when a named same-stem
+    code is actually present, so a lone residual (the only code for its family)
+    keeps its rank. Dynamic, order-only — injects nothing, so it cannot conflict
+    with sibling-collapse or perturb which codes exist for Stage 3."""
+    if len(results) < 2:
+        return results
+    named_stems = {
+        (r.code or "").strip().upper()[:4]
+        for r in results
+        if r.code and not _is_residual_icd_code(r.code)
+    }
+    keep: list[DDxResult] = []
+    demote: list[DDxResult] = []
+    for r in results:
+        code = (r.code or "").strip().upper()
+        if code and _is_residual_icd_code(code) and code[:4] in named_stems:
+            tag = f"residual_demotion: '{code}' yielded to named same-stem code"
+            r.override_reason = f"{r.override_reason}; {tag}" if r.override_reason else tag
+            demote.append(r)
+        else:
+            keep.append(r)
+    if not demote:
+        return results
+    logger.info(
+        "DDx residual-subcode demotion: moved %d '.Y/.Z' residual(s) below named same-stem codes",
+        len(demote),
+    )
+    return keep + demote
 
 
 def _pin_chief_complaint_primary(results: list[DDxResult]) -> list[DDxResult]:
