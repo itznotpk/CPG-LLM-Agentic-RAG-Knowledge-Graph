@@ -1,0 +1,408 @@
+{
+  "summary": {
+    "n": 44,
+    "top1_accuracy": 1.0,
+    "hit_rate@3": 1.0,
+    "pct_exact": 0.8636363636363636,
+    "pct_parent": 0.0,
+    "pct_semantic": 0.0
+  },
+  "rows": [
+    {
+      "id": "route_001",
+      "icd": "BA41.0",
+      "expected": "STEMI(4th Edition),NSTEMI(2011),NSTE-ACS(3rd Edition)",
+      "predicted_top3": "STEMI(4th Edition) | NSTEMI(2011) | NSTE-ACS(3rd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_002",
+      "icd": "BA41",
+      "expected": "NSTEMI(2011),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",
+      "predicted_top3": "NSTEMI(2011) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_003",
+      "icd": "BA42",
+      "expected": "Stable-Coronary-Artery-Disease(2nd Edition),Percutaneous-Coronary-Intervention,Primary-Secondary-Prevention-of-CVD(2017)",
+      "predicted_top3": "Stable-Coronary-Artery-Disease(2nd Edition) | Percutaneous-Coronary-Intervention | Primary-Secondary-Prevention-of-CVD(2017)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_004",
+      "icd": "BA41.1",
+      "expected": "NSTEMI(2011),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",
+      "predicted_top3": "NSTEMI(2011) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_005",
+      "icd": "BA40.0",
+      "expected": "NSTE-ACS(3rd Edition),Stable-Coronary-Artery-Disease(2nd Edition),Percutaneous-Coronary-Intervention",
+      "predicted_top3": "NSTE-ACS(3rd Edition) | Stable-Coronary-Artery-Disease(2nd Edition) | Percutaneous-Coronary-Intervention",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_006",
+      "icd": "BD10",
+      "expected": "Heart-Failure(5th Edition),Heart-Disease-in-Pregnancy(2nd Edition),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Heart-Failure(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_007",
+      "icd": "BD11",
+      "expected": "Heart-Failure(5th Edition),CVD-Prevention-Women(2016),Primary-Secondary-Prevention-of-CVD(2017)",
+      "predicted_top3": "Heart-Failure(5th Edition) | CVD-Prevention-Women(2016) | Primary-Secondary-Prevention-of-CVD(2017)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_008",
+      "icd": "JB44.3",
+      "expected": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "predicted_top3": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "ancestor_d1_sibling"
+    },
+    {
+      "id": "route_009",
+      "icd": "BA00",
+      "expected": "Hypertension(5th Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_010",
+      "icd": "BA00.Z",
+      "expected": "Hypertension(5th Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_011",
+      "icd": "BA03",
+      "expected": "Hypertension(5th Edition),Heart-Disease-in-Pregnancy(2nd Edition),Primary-Secondary-Prevention-of-CVD(2017)",
+      "predicted_top3": "Hypertension(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | Primary-Secondary-Prevention-of-CVD(2017)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_012",
+      "icd": "5C80",
+      "expected": "Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_013",
+      "icd": "5C80.0",
+      "expected": "Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "sibling"
+    },
+    {
+      "id": "route_014",
+      "icd": "5C80.1",
+      "expected": "Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_015",
+      "icd": "5C80.2",
+      "expected": "Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_016",
+      "icd": "BC81.30",
+      "expected": "Atrial-Fibrillation(2012),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_017",
+      "icd": "BC81.31",
+      "expected": "Atrial-Fibrillation(2012),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_018",
+      "icd": "BC81.32",
+      "expected": "Atrial-Fibrillation(2012),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_019",
+      "icd": "BA40.1",
+      "expected": "Stable-Coronary-Artery-Disease(2nd Edition),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",
+      "predicted_top3": "Stable-Coronary-Artery-Disease(2nd Edition) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_020",
+      "icd": "BA40",
+      "expected": "Stable-Coronary-Artery-Disease(2nd Edition),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",
+      "predicted_top3": "Stable-Coronary-Artery-Disease(2nd Edition) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_021",
+      "icd": "BB01.0",
+      "expected": "Pulmonary-Arterial-Hypertension(2011)",
+      "predicted_top3": "Pulmonary-Arterial-Hypertension(2011)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_022",
+      "icd": "BB01",
+      "expected": "Pulmonary-Arterial-Hypertension(2011)",
+      "predicted_top3": "Pulmonary-Arterial-Hypertension(2011)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_023",
+      "icd": "JA24",
+      "expected": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "predicted_top3": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_024",
+      "icd": "JA24.0",
+      "expected": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "predicted_top3": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "ancestor_d1"
+    },
+    {
+      "id": "route_025",
+      "icd": "JA24.1",
+      "expected": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "predicted_top3": "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "ancestor_d1"
+    },
+    {
+      "id": "route_026",
+      "icd": "BB40",
+      "expected": "Prevention-Diagnosis-Management-of-IE",
+      "predicted_top3": "Prevention-Diagnosis-Management-of-IE",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_027",
+      "icd": "BB41",
+      "expected": "Prevention-Diagnosis-Management-of-IE",
+      "predicted_top3": "Prevention-Diagnosis-Management-of-IE",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_028",
+      "icd": "BB42",
+      "expected": "Prevention-Diagnosis-Management-of-IE",
+      "predicted_top3": "Prevention-Diagnosis-Management-of-IE",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_029",
+      "icd": "8B11",
+      "expected": "Ischaemic-Stroke(3rd Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Ischaemic-Stroke(3rd Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_030",
+      "icd": "8B11.0",
+      "expected": "Ischaemic-Stroke(3rd Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "Ischaemic-Stroke(3rd Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_031",
+      "icd": "8B20",
+      "expected": "Ischaemic-Stroke(3rd Edition)",
+      "predicted_top3": "Ischaemic-Stroke(3rd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "semantic_scope"
+    },
+    {
+      "id": "route_032",
+      "icd": "2C61",
+      "expected": "Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_033",
+      "icd": "2C61.0",
+      "expected": "Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_034",
+      "icd": "2C61.3",
+      "expected": "Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_035",
+      "icd": "2C61.1",
+      "expected": "Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_036",
+      "icd": "2B90",
+      "expected": "Colorectal-Carcinoma(2017),Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Colorectal-Carcinoma(2017) | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_037",
+      "icd": "2B92",
+      "expected": "Colorectal-Carcinoma(2017),Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Colorectal-Carcinoma(2017) | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_038",
+      "icd": "MG30.1",
+      "expected": "Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_039",
+      "icd": "MG30",
+      "expected": "Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "semantic_scope"
+    },
+    {
+      "id": "route_040",
+      "icd": "2B6B",
+      "expected": "Nasopharyngeal-Carcinoma,Cancer-Pain(2nd Edition)",
+      "predicted_top3": "Nasopharyngeal-Carcinoma | Cancer-Pain(2nd Edition)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_041",
+      "icd": "HA01.1Z",
+      "expected": "Erectile-Dysfunction(2024)",
+      "predicted_top3": "Erectile-Dysfunction(2024)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_042",
+      "icd": "HA01.12",
+      "expected": "Erectile-Dysfunction(2024)",
+      "predicted_top3": "Erectile-Dysfunction(2024)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_043",
+      "icd": "HA01.13",
+      "expected": "Erectile-Dysfunction(2024)",
+      "predicted_top3": "Erectile-Dysfunction(2024)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    },
+    {
+      "id": "route_044",
+      "icd": "5A11",
+      "expected": "T2-Diabetes-Mellitus(6th-Edition),Diabetes-in-Pregnancy(2017),CVD-Prevention-Women(2016)",
+      "predicted_top3": "T2-Diabetes-Mellitus(6th-Edition) | Diabetes-in-Pregnancy(2017) | CVD-Prevention-Women(2016)",
+      "top1_match": 1.0,
+      "hit@3": 1.0,
+      "match_type": "exact"
+    }
+  ]
+}

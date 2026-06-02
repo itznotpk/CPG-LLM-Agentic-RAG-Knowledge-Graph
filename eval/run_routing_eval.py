@@ -5,13 +5,17 @@
 Calls agent.routing.route_icd_to_cpgs(icd_code, top_k=3) — returns CPGDocRef
 objects with .cpg_name, .match_type ("exact" | "parent" | "semantic"), .title.
 
-We match on substring against expected_document_titles so the gold set can
-say "STEMI" and accept "STEMI(4th Edition)" or similar real cpg_name values.
+We match on a NORMALISED substring against expected_document_titles so the gold
+set can say "Heart Failure" and accept the real cpg_name "Heart-Failure(5th
+Edition)". Normalisation strips the edition/year suffix in parentheses and all
+non-alphanumeric characters (hyphens, spaces, punctuation) before comparing, so
+title FORMAT (spaces vs hyphens, edition tags) never masks a correct route.
 ═══════════════════════════════════════════════════════════════════════════════
 """
 
 from __future__ import annotations
 import asyncio
+import re
 
 from agent.routing import route_icd_to_cpgs
 
@@ -19,9 +23,15 @@ from eval.io_utils import load_jsonl, write_results, print_summary
 from eval.metrics import mean
 
 
+def _normalise_title(name: str) -> str:
+    """Lowercase, drop any (edition/year) suffix, strip all non-alphanumerics."""
+    name = re.sub(r"\(.*?\)", "", name)          # drop "(5th Edition)" / "(2012)"
+    return re.sub(r"[^a-z0-9]", "", name.lower())  # "Heart-Failure" -> "heartfailure"
+
+
 def _matches_any(predicted_name: str, expected_titles: list[str]) -> bool:
-    p = predicted_name.lower()
-    return any(e.lower() in p for e in expected_titles)
+    p = _normalise_title(predicted_name)
+    return any(_normalise_title(e) in p for e in expected_titles if e.strip())
 
 
 async def main():
