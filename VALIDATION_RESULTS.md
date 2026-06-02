@@ -7,8 +7,9 @@
 >
 > **Headline takeaways:**
 > - **Layer A2 (Routing) — RE-RUN 2026-06-02 after gold correction:** **44/44 ICD codes resolve to the expected CPG (Top-1 = 100%, Hit@3 = 100%)**, 39/44 via `exact` D1 match. The earlier 18.2% was a *gold-set + harness artifact*, not a routing defect — see the A2 section.
-> - **Layer A1 (DDx):** first run (against the now-superseded gold) hit 10/35 inside top-5 (28.6%); DDx gold has since been corrected and a re-run is pending.
-> - **Layer B (Retrieval):** now unblocked after mapping all `retrieval_gold.jsonl` placeholders to live Postgres `chunks.id` UUIDs; vector Recall@10 = 0.7625, MRR = 0.8152, Hit@10 = 0.9917.
+> - **Layer A1 (DDx) — RE-RUN 2026-06-02 on corrected gold, clean Bedrock window:** **Hit@5 = 74.3% (26/35), MRR = 0.574** (up from the throttled/wrong-gold 28.6%). **8 of the 9 misses are parent↔child ICD-family granularity mismatches** (correct disease family returned, wrong specificity) — a family-aware matcher would lift this toward ~97%.
+> - **Layer B (Retrieval):** unblocked + **re-labelled to a 148-row, LLM-judged, graded gold (was 120, binary)**; prior vector Recall@10 = 0.7625, MRR = 0.8152, Hit@10 = 0.9917 are on the **old 120-row gold** — re-run on the 148 gold pending.
+> - **Layer C (Stage-4 dedup/boost):** harness gap **closed** — `eval/run_stage4_eval.py` now evaluates the real production Stage-4 path (multi-query → dedup → category-boost → top-20) with a multi-query-lift column; graded nDCG + all-30-CPG anchor map wired. Numbers pending a run.
 > - The original A1/A2 floor numbers were depressed by three fixable causes: wrong/non-existent ICD codes in the gold, a substring title-matcher that failed on spaces-vs-hyphens, and an LLM-rerank JSON-parse fallback (A1 only).
 
 ---
@@ -21,7 +22,7 @@ table for context and caveats.
 
 | Layer / metric | Status | Headline number |
 |---|---|---|
-| **A1** DDx vignette → ICD-11 | ✅ Done | Hit@5 = **0.286** (10/35), MRR = 0.204 — degraded by rerank JSON parser |
+| **A1** DDx vignette → ICD-11 | ✅ Done (clean re-run) | Hit@5 = **0.743** (26/35), MRR = **0.574** — on corrected gold; 8/9 misses are parent↔child family granularity |
 | **A2** Routing | ✅ Done (re-run) | Top-1 = **1.000** (44/44), Hit@3 = **1.000**, % exact = 0.886 — after gold correction + matcher normalization + `JB44.3` scope fix |
 | **Scope refusal** | ✅ Done | **11/11 pass** (5 positives + 6 orphans) — perfect separation |
 | **Coverage** | ✅ Done | **44.56%** (target ≥80% ❌) — gap is `ingestion/` batch tools; 339/348 tests pass |
@@ -31,8 +32,8 @@ table for context and caveats.
 | **Layer D** (faithfulness) | 🔴 Rate-limited | Provider 429 — retry pending in a fresh quota window |
 | **Layer E** (e2e) | 🔴 Rate-limited | Same window as D |
 | **Determinism harness** | ⏸ Queued | Will burn LLM quota — better to retry alongside D/E |
-| **Layer B** Retrieval | ✅ Done | Vector Recall@10 = **0.7625**, MRR = **0.8152**, Hit@10 = **0.9917**; hybrid Recall@10 = 0.7486 |
-| **Layer C** Re-ranker / dedup lift | ⚠️ Partial | Gold set fixed; harness still compares vector vs hybrid only, no `--rerank` implementation |
+| **Layer B** Retrieval | ⚠️ Re-run pending | Old 120-gold: vector Recall@10 = 0.7625, MRR = 0.8152, Hit@10 = 0.9917. Gold now **148 rows, LLM-judged, graded** — re-run for citable numbers |
+| **Layer C** Stage-4 dedup/boost lift | ✅ Harness ready | `run_stage4_eval.py` runs real production Stage 4 (multi-query→dedup→boost→top-20) + multi-query-lift; graded nDCG + 30-CPG anchor map wired; **numbers pending a run** |
 | **Stakeholder SUS / TAM** | ❌ Blocked | Needs IRB + clinicians |
 
 ### Two honest findings worth flagging on the poster
@@ -40,10 +41,13 @@ table for context and caveats.
 1. **The `p95 < 8 s` target in VALIDATION.md is unrealistic** for a Stage 2–6
    pipeline that includes two LLM calls. POSTER_LAYOUT.md's `<60 s` callout is
    the honest one. Revise the published target so it doesn't auto-fail.
-2. **A1's Hit@5 = 0.286 is artificially low** because the MiMo rerank returned
-   NDJSON instead of a JSON array on ~half the runs and the parser silently fell
-   back to vector order. A one-line parser loosen would lift this materially.
-   Same parent-code edge fix would lift A2.
+2. **A1's clean Hit@5 = 0.743 is itself conservative.** 8 of the 9 misses are
+   parent↔child ICD-family granularity mismatches — the pipeline returns the
+   correct disease family but a more/less specific code than the gold's single
+   accepted answer (e.g. gold `2B90` vs returned `2B90.30`; gold `MG30.1` vs
+   returned `MG30`). The ANY-OF exact-code matcher doesn't credit these. A
+   family-prefix-aware matcher (or accepting the parent stem) would lift this
+   toward ~0.97. The earlier 0.286 was a throttled run against the pre-correction gold.
 
 ---
 
@@ -67,52 +71,57 @@ table for context and caveats.
 return the correct ICD-11 code inside the top-5 / top-10? Inputs come from
 `ddx_gold.jsonl`; expected codes are the ground truth.
 
+**Run condition (2026-06-02 clean re-run):** corrected `ddx_gold.jsonl` (35
+vignettes, WHO-verified ICD-11 codes) + a quiet Bedrock window (no competing
+team evals). The earlier 0.286 combined the pre-correction gold *and* shared-quota
+throttling; both are removed here.
+
 | Metric | Value | Interpretation |
 |---|---|---|
 | n | 35 | All gold-set vignettes |
-| Hit@5 | **0.2857 (10/35)** | Expected code appears in top-5 28.6% of the time |
-| Hit@10 | **0.2857 (10/35)** | No additional hits between rank 6–10 |
-| MRR | **0.2043** | Mean reciprocal rank ≈ 1/4.9 → when right, average rank is ~5 |
-| Mean F1 | **0.094** | Set-overlap between predicted and expected codes — low because each vignette expects 1 code but we surface up to 10 |
+| Hit@5 | **0.7429 (26/35)** | Expected code appears in top-5 74.3% of the time |
+| Hit@10 | **0.7429 (26/35)** | No additional hits between rank 6–10 |
+| MRR | **0.5738** | When right, the correct code averages rank ~1.7 |
+| Mean F1 | **0.2458** | Set-overlap predicted vs expected — bounded low because most vignettes accept 1–2 codes but we surface 5–10 |
 
-**Raw output:** [`eval/results/ddx_20260602_095205.csv`](eval/results/ddx_20260602_095205.csv) ·
-[`eval/results/ddx_20260602_095205.json`](eval/results/ddx_20260602_095205.json)
+**Raw output:** [`eval/results/ddx_20260602_162351.csv`](eval/results/ddx_20260602_162351.csv) ·
+[`eval/results/ddx_20260602_162351.json`](eval/results/ddx_20260602_162351.json)
 
-### Notable degradation — LLM rerank parse failure
+### The misses are almost all family-granularity, not wrong-family
 
-The Stage 2 LLM rerank failed to parse on **15+ of 35 vignettes**. The MiMo model
-returned NDJSON / loose JSON (e.g. trailing commas, raw object stream without an
-array wrapper) instead of a strict JSON array, and the rerank parser fell back to
-the original vector order. Sample message:
+8 of the 9 misses return the **correct ICD-11 disease family** but a different
+specificity than the gold's single accepted code — the ANY-OF exact-string
+matcher scores these as misses:
 
-```
-DDx LLM re-rank FAILED: No JSON array found in rerank output (len=2026 chars).
-First 200 chars: '{"code": "BD11.2", "confidence": 0.95, "reasoning": ...}' → using original order
-```
-
-**Action:** loosen the rerank parser in [agent/clinical_stages.py:_llm_rerank_ddx](agent/clinical_stages.py)
-to also accept newline-delimited JSON objects. One-line fix; expected to lift Hit@5
-once applied. Re-run will be appended below the existing table.
-
-### Sample wins / losses
-
-| ID | Expected | Top-5 returned | Hit@5 |
+| ID | Expected | Top-5 returned | Why it scored a miss |
 |---|---|---|---|
-| ddx_001 | `BA41.0` | `BA41.0, BA42, BA60.Y, BA41, BA41.1` | ✅ rank 1 |
-| ddx_002 | `BA41.0` (alt phrasing) | *(empty after rerank failure)* | ❌ |
+| ddx_028 | `2B90` | `2B90.30, 2B91.0, 2B90.3Y, 2B90.3, 2B90.3Z` | returned **children** of 2B90 (colon ca), not the parent stem |
+| ddx_029 | `2B92` | `2B92.0, 2C00.0, 2B91.0, 2B93.0, 2B90.30` | returned `2B92.0` child, not `2B92` (rectal ca) |
+| ddx_030 | `MG30.1` | `2C25.Y, MG30, ME81.0, MD30.1, ME86.3` | returned `MG30` parent, not `.1` (chronic cancer pain) |
+| ddx_031 | `MG30.1` | `2C10.Y, MG30, MG30.Y, MG30.01, MG30.0` | MG30 family present, wrong leaf |
+| ddx_032 | `2B6B` | `2B6B.1, 2F00, 2B6D.Y, 2C20.Y, 2E90.4` | returned `2B6B.1` child of 2B6B (nasopharyngeal ca) |
+| ddx_034 | `HA01.12, HA01.1Z` | `BA00, 5A11, HA01.1, BA03, BA04.Y` | returned `HA01.1` parent, not the `.1Z/.12` leaves (ED) |
+| ddx_007 | `BD10, BD11` | `BD11.0, BC40.Y, BB0Y, BC81.3Y, BD1Y` | returned `BD11.0` child of BD11 (heart failure) |
+| ddx_013 | `BC81.3` | `BC81.3Y, MG40.Z, BB0Y, BC40.Z, BC81.3Z` | returned `BC81.3Y/Z` children, not `BC81.3` (AF) |
+| ddx_011 | `5C80.2` | `5A11, 5A44, 5C80.0, 5C8Y, 5A13.7` | only genuine subtype miss: lipid `5C80.0` vs gold `5C80.2` |
+
+**Implication.** Retrieval + rerank is landing the right disease family on 34/35
+vignettes; the headline 0.743 is depressed purely by parent↔child string
+mismatch. Two honest paths: (a) make the matcher family-prefix-aware (credit a
+hit when the returned code shares the gold code's 4-char stem), or (b) widen the
+gold `expected_icd11_codes` to accept the family parent + its common leaves. Both
+are evaluation-side changes — not a model fix.
 
 ### Targets (VALIDATION.md §Target Scores)
 
 | Metric | Target | Achieved | Pass |
 |---|---|---|---|
-| Hit Rate @5 (≈ Hit Rate @k for DDx) | ≥ 0.90 | 0.286 | ❌ |
-| MRR | ≥ 0.70 | 0.204 | ❌ |
+| Hit Rate @5 (≈ Hit Rate @k for DDx) | ≥ 0.90 | **0.743** | ❌ (≈0.97 with family-aware match) |
+| MRR | ≥ 0.70 | **0.574** | ❌ |
 
-> Status: **below target** on first run. The headline gap is largely the rerank
-> parse failure, not a retrieval quality issue. Vector recall is delivering the
-> right codes inside the candidate pool (visible in the wins above); the rerank
-> step is silently dropping that signal back to vector order. Fix the parser,
-> re-run, expect a material lift.
+> Status: **materially improved, below the 0.90 stretch target.** The remaining
+> gap is family-granularity scoring, not retrieval quality (see the miss table).
+> Decide the matcher/gold policy before citing a final A1 number on the poster.
 
 ---
 
@@ -205,9 +214,9 @@ but read each row honestly.
 
 | Metric | Target | Target's layer | What we measured (layer) | Achieved | Pass | Gap |
 |---|---|---|---|---|---|---|
-| **Hit Rate @5** | ≥ 0.90 | B (retrieval) | A1 (DDx top-5) | **0.286** | ❌ | −0.61 |
-| **Hit Rate @10** | (implicit via Recall@10 ≥ 0.85) | B | A1 (DDx top-10) | **0.286** | ❌ | −0.56 |
-| **MRR** | ≥ 0.70 | B | A1 (DDx) | **0.204** | ❌ | −0.50 |
+| **Hit Rate @5** | ≥ 0.90 | B (retrieval) | A1 (DDx top-5) | **0.743** | ❌ | −0.16 (≈0 family-aware) |
+| **Hit Rate @10** | (implicit via Recall@10 ≥ 0.85) | B | A1 (DDx top-10) | **0.743** | ❌ | −0.11 |
+| **MRR** | ≥ 0.70 | B | A1 (DDx) | **0.574** | ❌ | −0.13 |
 | **nDCG @10** | ≥ 0.75 | B | B vector retrieval | **0.684** | ❌ | −0.07 |
 | **Recall @10** | ≥ 0.85 | B | B vector retrieval | **0.763** | ❌ | −0.09 |
 | **Hit Rate @k** | ≥ 0.95 (per VALIDATION_PLAN §2.2) | B | B vector Hit@10 | **0.992** | ✅ | +0.04 |
@@ -224,10 +233,11 @@ gold rows after replacing 98 placeholder chunk IDs with live Postgres UUIDs.
 Hit@10 passes strongly (0.992), meaning almost every query retrieves at least
 one relevant passage in the top 10. Recall@10 and nDCG@10 are below target,
 mostly because many gold rows now contain up to three relevant chunks and the
-metric expects all of them to appear high in the ranking. A1 remains far below
-target due to the rerank parser failure; A2 remains dominated by leaf sub-codes
-(`BA41.00`, `BA41.0Z`) returning empty when CPG scope only lists parent
-`BA41.0`.
+metric expects all of them to appear high in the ranking. A1 now hits 0.743 on
+the clean re-run; the residual gap is parent↔child family-granularity scoring
+(8/9 misses), not retrieval quality. (Note: these Layer B figures are still the
+**old 120-row binary gold** — the gold is now 148 rows, LLM-judged and graded, so
+a re-run will move them.)
 
 ---
 
@@ -424,13 +434,31 @@ as each is captured:
 - **Layer E — End-to-end clinical QA** (`python -m eval.run_e2e_eval`) — same gold set, broader rubric.
 - **Non-acc — Latency p50/p95** (`python -m eval.run_latency_eval`) — pipeline_timings harvest.
 - **Non-acc — Determinism** (`python scripts/rerun_stability.py --case 9 --n 10`) — same-plan reproducibility.
-- **Layer C — Re-ranker / dedup lift** — add a real `--rerank` or production Stage 4 context-filter mode to `eval/run_retrieval_eval.py`.
+- **Layer C — Stage-4 dedup/boost lift** (`python -m eval.run_stage4_eval`) — harness now exists (see below); a run on the 148-row gold is pending a quiet Bedrock window.
 
-## Remaining technical gap — Layer C harness
+## Layer C — Stage-4 dedup / category-boost lift (harness ready)
 
-| Layer | Current state | Cost to complete |
-|---|---|---|
-| **C — Re-ranker lift** | Gold set is now complete; current harness compares vector vs hybrid only and does not implement the documented `--rerank` flag | Add a third mode that evaluates production Stage 4 dedup/category-boost or a true reranker against the same 120-row gold set |
+**What it tests.** Whether the *production* Stage 4 path — LLM multi-query
+generation (7 domains + condition + universal anchors) → parallel vector search
+→ chunk dedup → category-boost scoring → top-20 — surfaces the gold chunks
+better than a single raw vector query. Implemented in
+[`eval/run_stage4_eval.py`](eval/run_stage4_eval.py) (added in the `Fixed Layer
+B and C` pull). Reports the usual recall/MRR/nDCG plus a **`lift_r@20`** column =
+Stage-4 recall@20 − single-query baseline recall@20, so the multi-query
+complexity is justified per item.
+
+**Harness state (verified 2026-06-02):**
+- ✅ Runs the real `stage_4_retrieve` against the gold (not vector-vs-hybrid).
+- ✅ **Graded nDCG** wired (`grades=item.get("relevance_grades")`) — consistent with `run_retrieval_eval.py`.
+- ✅ **`_FILTER_TO_ICD` extended to all 30 CPGs** with **ICD-11** codes (was 10 cardiac CPGs with ICD-10 codes that never prefix-matched `_CONDITION_EXPECTED_THERAPIES`, so condition anchors silently never fired). Heart Failure is now `BD11.0`, so the HFrEF four-pillar anchors actually fire; the 3 universal anchors fire for every row.
+- ⚠️ **Condition-specific anchors only exist for HFrEF (`BD11`)** today — `_CONDITION_EXPECTED_THERAPIES` has one entry. Other 29 CPGs run with universal anchors + an accurate DDx-title stub (which improves LLM query-gen) but no drug-class pillar anchors. Add entries to that table to deepen per-condition coverage.
+- ⏳ **Numbers pending.** The committed `stage4_full_*` result files are an **n=120, binary-nDCG** run on the old gold — superseded; re-run on the 148-row graded gold for citable figures.
+
+**Run (when Bedrock is quiet — sequential, self-throttled):**
+```
+python -m eval.run_stage4_eval            # 3 s inter-item delay by default
+python -m eval.run_stage4_eval --limit 5  # smoke test
+```
 
 ## Blocked — stakeholder validation
 
@@ -445,7 +473,10 @@ as each is captured:
 
 | Date | Layer | Note |
 |---|---|---|
-| 2026-06-02 | A1 | First run, n=35, Hit@5 = 0.286, MRR = 0.204; degraded by LLM-rerank JSON-parse failure |
+| 2026-06-02 | A1 | First run, n=35, Hit@5 = 0.286, MRR = 0.204; degraded by LLM-rerank JSON-parse failure + pre-correction gold + Bedrock throttling |
+| 2026-06-02 | A1 | **Clean re-run on corrected gold, quiet Bedrock window: n=35, Hit@5 = 0.743 (26/35), MRR = 0.574.** 8/9 misses are parent↔child ICD-family granularity (≈0.97 with a family-aware matcher). Raw: `ddx_20260602_162351.*` |
+| 2026-06-02 | C | Harness gap closed by `Fixed Layer B and C` pull (`eval/run_stage4_eval.py` runs real Stage-4 multi-query→dedup→boost→top-20 + multi-query lift). Wired graded nDCG; extended `_FILTER_TO_ICD` from 10 (ICD-10) → all 30 CPGs (ICD-11); HFrEF anchors now fire. Numbers pending a 148-gold run |
+| 2026-06-02 | B | Gold re-labelled 120→148 rows, LLM-judged + graded relevance; prior vector/hybrid figures are on the old 120 binary gold and superseded — re-run pending |
 | 2026-06-02 | A2 | First run, n=44, Top-1 = 0.182, % exact = 0.477; later found to be a gold-set + title-matcher artifact, not a routing defect |
 | 2026-06-02 | A2 | **Re-run, n=44, Top-1 = 1.000, Hit@3 = 1.000, % exact = 0.886** after (1) correcting wrong/non-existent gold ICD codes, (2) normalizing the title matcher, (3) adding `JB44.3` to Heart-Disease-in-Pregnancy scope. Raw: `routing_20260602_134121.*` |
 | 2026-06-02 | B retrieval | Gold set unblocked: 98/120 placeholders auto-mapped to live `chunks.id`; vector n=120, Recall@10 = 0.7625, MRR = 0.8152, Hit@10 = 0.9917; hybrid Recall@10 = 0.7486 |

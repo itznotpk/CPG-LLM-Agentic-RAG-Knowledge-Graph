@@ -48,21 +48,56 @@ from eval.metrics import recall_at_k, mrr, ndcg_at_k, hit_rate_at_k, mean
 
 
 # ── minimal ICD stubs for condition anchors ───────────────────────────────────
-# Maps the gold-set document_filter label → (icd_code, icd_title).
-# The code is only used by _expected_pillars_for() to inject condition-specific
-# anchor queries; an unrecognised code simply means no condition anchors fire
-# (the 3 universal anchors always fire regardless).
+# Maps the gold-set document_filter label → (icd_code, icd_title), one entry per
+# CPG so every one of the 30 corpus CPGs gets a clinically accurate DDx stub.
+# The stub feeds two places in stage_4_retrieve:
+#   - ddx title → _generate_retrieval_queries (seeds the LLM multi-query gen)
+#   - ddx code  → _expected_pillars_for (prefix-matches _CONDITION_EXPECTED_
+#     THERAPIES to inject condition-specific anchor queries)
+# Codes are ICD-11 (NOT ICD-10) to match the live corpus + _CONDITION_EXPECTED_
+# THERAPIES prefix keys; the prior ICD-10 codes (I21.0/I50.0/…) never matched the
+# ICD-11 "BD11"-style prefixes, so condition anchors silently never fired.
+# Today only "BD11" (HFrEF) has a therapy-pillar entry, so Heart Failure is the
+# only filter whose condition anchors fire; the 3 universal anchors fire for all.
+# The 3 anaesthesia/perioperative CPGs have no disease code — a benign "QC10"
+# placeholder is used (matches no therapy prefix; title carries the query signal).
 _FILTER_TO_ICD: dict[str, tuple[str, str]] = {
-    "STEMI":                              ("I21.0", "ST-elevation myocardial infarction"),
-    "NSTE-ACS":                           ("I21.4", "Non-ST-elevation acute coronary syndrome"),
-    "NSTEMI":                             ("I21.4", "Non-ST-elevation myocardial infarction"),
-    "Heart Failure":                      ("I50.0", "Congestive heart failure"),
-    "Hypertension":                       ("I10",   "Essential hypertension"),
-    "Dyslipidaemia":                      ("E78.5", "Hyperlipidaemia"),
-    "Atrial Fibrillation":                ("I48",   "Atrial fibrillation"),
-    "Ischaemic Stroke":                   ("I63",   "Cerebral infarction"),
-    "Stable Coronary Artery Disease":     ("I25.1", "Atherosclerotic heart disease"),
-    "Percutaneous Coronary Intervention": ("I25.1", "Atherosclerotic heart disease"),
+    # — cardiology —
+    "STEMI":                              ("BA41.0", "ST-elevation myocardial infarction"),
+    "NSTE-ACS":                           ("BA40.0", "Non-ST-elevation acute coronary syndrome"),
+    "NSTEMI":                             ("BA41.1", "Non-ST-elevation myocardial infarction"),
+    "Heart Failure":                      ("BD11.0", "Heart failure with reduced ejection fraction"),
+    "Hypertension":                       ("BA00",   "Essential hypertension"),
+    "Dyslipidaemia":                      ("5C80.0", "Hypercholesterolaemia / dyslipidaemia"),
+    "Atrial Fibrillation":                ("BC81.3", "Atrial fibrillation"),
+    "Stable Coronary Artery Disease":     ("BA40",   "Chronic stable coronary artery disease"),
+    "Percutaneous Coronary Intervention": ("BA40",   "Coronary artery disease — percutaneous coronary intervention"),
+    "Pulmonary Arterial Hypertension":    ("BB01.0", "Pulmonary arterial hypertension"),
+    "Infective Endocarditis":             ("BB40",   "Infective endocarditis"),
+    "Heart Disease in Pregnancy":         ("JB44.3", "Heart disease in pregnancy / peripartum cardiomyopathy"),
+    "Primary Secondary Prevention of CVD":("BA8Z",   "Cardiovascular disease — primary and secondary prevention"),
+    "CVD Prevention in Women":            ("BA8Z",   "Cardiovascular disease prevention in women"),
+    # — neurology —
+    "Ischaemic Stroke":                   ("8B11",   "Cerebral ischaemic stroke"),
+    # — oncology —
+    "Breast Cancer":                      ("2C61",   "Carcinoma of breast"),
+    "Colorectal Carcinoma":               ("2B91",   "Malignant neoplasm of colon / rectum"),
+    "Nasopharyngeal Carcinoma":           ("2B6B",   "Nasopharyngeal carcinoma"),
+    "Cervical Cancer":                    ("2C77",   "Cervical cancer"),
+    "Cancer Pain":                        ("MG30.1", "Chronic cancer-related pain"),
+    # — endocrine / metabolic —
+    "T2 Diabetes Mellitus":               ("5A11",   "Type 2 diabetes mellitus"),
+    "Type 1 Diabetes Mellitus":           ("5A10",   "Type 1 diabetes mellitus"),
+    "Diabetes in Pregnancy":              ("JA63",   "Gestational diabetes mellitus"),
+    "Obesity Management":                 ("5B81",   "Obesity"),
+    "Thyroid Disorders":                  ("5A00",   "Thyroid disorder"),
+    "Growth Hormone":                     ("5A60",   "Growth hormone deficiency"),
+    # — urology —
+    "Erectile Dysfunction":               ("HA01.1", "Erectile dysfunction"),
+    # — anaesthesia / perioperative (no disease code; placeholder) —
+    "Pre-Anaesthetic Assessment":         ("QC10",   "Pre-anaesthetic assessment"),
+    "Patient Safety Minimal Monitoring":  ("QC10",   "Minimal patient monitoring during anaesthesia"),
+    "Anaesthesia Medication Safety":      ("QC10",   "Perioperative anaesthesia medication safety"),
 }
 
 
@@ -146,7 +181,7 @@ async def run_item(
         "n_retrieved":    len(retrieved),
         "recall@20":      stage4_r20,
         "mrr":            mrr(retrieved, relevant),
-        "ndcg@10":        ndcg_at_k(retrieved, relevant, 10),
+        "ndcg@10":        ndcg_at_k(retrieved, relevant, 10, grades=item.get("relevance_grades")),
         "hit@10":         hit_rate_at_k(retrieved, relevant, 10),
         "baseline_r@20":  baseline_r20,
         "lift_r@20":      stage4_r20 - baseline_r20,
