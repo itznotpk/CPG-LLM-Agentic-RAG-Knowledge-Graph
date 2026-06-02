@@ -89,6 +89,13 @@ _FILTER_TO_CPG_SLUG: dict[str, str] = {
     "Erectile Dysfunction":               "Erectile-Dysfunction(2024)",
     "Primary Secondary Prevention of CVD": "Primary-Secondary-Prevention-of-CVD(2017)",
     "CVD Prevention in Women":            "CVD-Prevention-Women(2016)",
+    "Cervical Cancer":                    "Cervical-Cancer(2nd Edition)",
+    "Obesity Management":                 "Obesity-Management(2023)",
+    "T2 Diabetes Mellitus":               "T2-Diabetes-Mellitus(6th-Edition)",
+    "Thyroid Disorders":                  "Thyroid-Disorders(2019)",
+    "Diabetes in Pregnancy":              "Diabetes-in-Pregnancy(2017)",
+    "Type 1 Diabetes Mellitus":           "Type-1-Diabetes-Mellitus-Children_Adolescents(2016)",
+    "Growth Hormone":                     "Growth-Hormone-Children-Adults(2010)",
 }
 
 

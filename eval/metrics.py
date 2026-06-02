@@ -49,15 +49,30 @@ def mrr(retrieved: Sequence[str], relevant: Iterable[str]) -> float:
     return 0.0
 
 
-def ndcg_at_k(retrieved: Sequence[str], relevant: Iterable[str], k: int) -> float:
-    """Binary-relevance nDCG@k. For graded relevance, extend `rel` map."""
+_GRADE_GAIN = {"primary": 2.0, "supporting": 1.0}
+
+
+def ndcg_at_k(
+    retrieved: Sequence[str],
+    relevant: Iterable[str],
+    k: int,
+    grades: dict[str, str] | None = None,
+) -> float:
+    """nDCG@k. Binary by default; graded when `grades` (chunk_id -> 'primary'|
+    'supporting') is supplied — gain 2 for primary, 1 for supporting, 0 otherwise.
+    Any relevant id missing from `grades` falls back to gain 1 (supporting)."""
     relevant = set(relevant)
-    dcg = 0.0
-    for i, r in enumerate(retrieved[:k], start=1):
-        if r in relevant:
-            dcg += 1.0 / math.log2(i + 1)
-    ideal_hits = min(len(relevant), k)
-    idcg = sum(1.0 / math.log2(i + 1) for i in range(1, ideal_hits + 1))
+
+    def gain(cid: str) -> float:
+        if cid not in relevant:
+            return 0.0
+        if grades is None:
+            return 1.0
+        return _GRADE_GAIN.get(grades.get(cid, "supporting"), 1.0)
+
+    dcg = sum(gain(r) / math.log2(i + 1) for i, r in enumerate(retrieved[:k], start=1))
+    ideal_gains = sorted((gain(c) for c in relevant), reverse=True)[:k]
+    idcg = sum(g / math.log2(i + 1) for i, g in enumerate(ideal_gains, start=1))
     return dcg / idcg if idcg > 0 else 0.0
 
 

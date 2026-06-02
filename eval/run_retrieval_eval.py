@@ -92,7 +92,7 @@ async def main():
             "recall@20": recall_at_k(retrieved, relevant, 20),
             "precision@5": precision_at_k(retrieved, relevant, 5),
             "mrr": mrr(retrieved, relevant),
-            "ndcg@10": ndcg_at_k(retrieved, relevant, 10),
+            "ndcg@10": ndcg_at_k(retrieved, relevant, 10, grades=item.get("relevance_grades")),
             "hit@10": hit_rate_at_k(retrieved, relevant, 10),
         })
 
