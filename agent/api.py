@@ -332,7 +332,7 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 try:
     import sys as _sys
     _rppg_dir = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rppg_poc"
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "apps", "rppg-poc"
     )
     if _rppg_dir not in _sys.path:
         _sys.path.insert(0, _rppg_dir)
