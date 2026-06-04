@@ -48,7 +48,7 @@ from .models import (
     TreatmentPlan,
     SafetyReport,
 )
-from pydantic import BaseModel as _BaseModel
+from pydantic import BaseModel as _BaseModel, Field as _Field
 
 
 class ClinicalPlanRequest(_BaseModel):
@@ -70,7 +70,9 @@ class SelectedDiagnosis(_BaseModel):
 
 class ResynthesizeRequest(_BaseModel):
     case: PatientCase
-    selected_diagnoses: list[SelectedDiagnosis]
+    # At least one diagnosis is required — an empty selection routes nothing and
+    # yields a silent out_of_scope/degraded plan. Reject it at the edge (422).
+    selected_diagnoses: list[SelectedDiagnosis] = _Field(..., min_length=1)
     # Explicit Major code — must equal one of selected_diagnoses[*].code.
     # Optional for backward-compat: when None, falls back to (a) the diagnosis whose
     # tier=="major", else (b) the first entry of selected_diagnoses.

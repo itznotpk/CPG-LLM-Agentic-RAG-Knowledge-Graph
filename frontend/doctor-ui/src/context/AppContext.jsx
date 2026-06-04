@@ -769,6 +769,16 @@ export function AppProvider({ children }) {
       }));
     }
 
+    // Guard: the Confirm button only checks that a Major is set, not that the
+    // chosen code maps to a live differential. On state desync the filter above
+    // can resolve to []. Sending an empty selection makes the backend route
+    // nothing and return a silent out_of_scope/degraded plan — fail loudly here
+    // instead so the clinician re-picks rather than getting an empty care plan.
+    if (!selectedDiagnoses || selectedDiagnoses.length === 0) {
+      dispatch({ type: 'SET_GENERATING_PLAN', payload: false });
+      throw new Error('No diagnosis selected — pick at least one diagnosis (and set a primary) before generating the care plan.');
+    }
+
     // Save to database - include diagnoses and TCA date
     if (USE_SUPABASE && state.currentConsultationId) {
       try {

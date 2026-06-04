@@ -35,11 +35,21 @@ export function DDxSelectionPanel({
     setHintsDismissed(false);
   }, [initialTiers]);
 
+  // Live set of codes actually shown — the single source of truth for what is
+  // selectable this render. Validate the selection against it so a stale tier
+  // (code dropped from candidates) can never enable Confirm and post a code the
+  // downstream differential list no longer carries → empty/degraded plan.
+  const candidateCodes = useMemo(
+    () => new Set(candidates.map((c) => c.code)),
+    [candidates],
+  );
   const selectedCodes = Object.entries(tiers)
     .filter(([, t]) => t !== 'off')
-    .map(([code]) => code);
+    .map(([code]) => code)
+    .filter((code) => candidateCodes.has(code));
   const majorCode = Object.entries(tiers).find(([, t]) => t === 'major')?.[0] || null;
-  const canConfirm = !!majorCode && !disabled;
+  const majorIsLive = !!majorCode && candidateCodes.has(majorCode);
+  const canConfirm = majorIsLive && selectedCodes.length > 0 && !disabled;
 
   const setTier = (code, nextTier) => {
     setTiers((prev) => {
@@ -171,7 +181,7 @@ export function DDxSelectionPanel({
       </ul>
 
       <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-700/40">
-        {!majorCode && (
+        {!majorIsLive && (
           <span className="inline-flex items-center gap-1 text-xs text-slate-400">
             <AlertCircle className="w-3.5 h-3.5" />
             Mark one diagnosis as Major to continue

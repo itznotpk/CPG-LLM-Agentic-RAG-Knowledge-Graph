@@ -117,6 +117,26 @@ async def test_resynth_returns_new_treatment_plan(minimal_case, selected_ddx, mo
     assert result.ddx == selected_ddx
 
 
+def test_resynth_request_rejects_empty_selection(minimal_case):
+    """ResynthesizeRequest must reject an empty selected_diagnoses (min_length=1).
+
+    An empty selection routes nothing and yields a silent out_of_scope/degraded
+    plan — the API contract rejects it at the edge (FastAPI → HTTP 422) instead.
+    """
+    from pydantic import ValidationError
+    from agent.api import ResynthesizeRequest
+
+    with pytest.raises(ValidationError):
+        ResynthesizeRequest(case=minimal_case, selected_diagnoses=[])
+
+    # A single diagnosis is accepted.
+    req = ResynthesizeRequest(
+        case=minimal_case,
+        selected_diagnoses=[{"code": "BC81.3", "title": "Atrial Fibrillation"}],
+    )
+    assert len(req.selected_diagnoses) == 1
+
+
 @pytest.mark.asyncio
 async def test_resynth_stage3_failure_continues(minimal_case, selected_ddx, mock_plan):
     """Stage 3 failure is fault-tolerant — pipeline continues to Stage 5."""

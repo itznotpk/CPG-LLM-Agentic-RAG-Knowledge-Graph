@@ -79,14 +79,10 @@ CASE_10 = {
         "spO2": 98,
         "weight": 78,
         "temp": 36.8,
-        "egfr": 102,
     },
     "severity_staging": {
         "eGFR": "102",
         "WHO Pregnancy Risk Class": "II",
-        "Gestational Age": "30 weeks",
-        "OGTT 2h": "11.2",
-        "FBG": "7.4",
     },
 }
 
