@@ -244,6 +244,39 @@ def _derive_bmi(case: PatientCase) -> None:
         pass
 
 
+_EMPTY_EVIDENCE_QUESTION = (
+    "No CPG evidence was retrieved for this case — recommendations below are not "
+    "grounded in guideline text and must be verified manually."
+)
+
+
+def _degraded_no_evidence_plan(ddx: list[DDxResult], reason: str) -> TreatmentPlan:
+    """A safe, explicitly-degraded stand-in plan when retrieval failed outright.
+
+    We refuse to spend a synthesis call (and present a confident-looking plan) on
+    absent evidence; the clinician gets a clear 'pipeline degraded' signal instead.
+    """
+    return TreatmentPlan(
+        icd_primary=(ddx[0].code if ddx else "unknown"),
+        summary=f"Plan not generated — {reason}",
+        recommendations=[],
+        confidence=0.0,
+        unresolved_questions=[reason],
+    )
+
+
+def _flag_empty_evidence(plan: TreatmentPlan) -> None:
+    """Stamp a healthy-pipeline-but-no-chunks plan as low-confidence + unresolved.
+
+    Stage 4 returned zero chunks without erroring, so synthesis ran on no grounding.
+    Cap confidence and surface a question so the plan can never read as confident
+    from empty evidence (SIL-02)."""
+    if plan.confidence is None or plan.confidence > 0.25:
+        plan.confidence = 0.25
+    if _EMPTY_EVIDENCE_QUESTION not in (plan.unresolved_questions or []):
+        plan.unresolved_questions = list(plan.unresolved_questions or []) + [_EMPTY_EVIDENCE_QUESTION]
+
+
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     """
     Run the full clinical workflow for a patient case.
@@ -299,6 +332,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         cpgs = []
 
     # Stage 4 — Retrieve
+    stage4_failed = False
     try:
         with _time_stage("stage_4_retrieve", timings):
             evidence = await stage_4_retrieve(case, ddx, cpgs)
@@ -307,6 +341,7 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         logger.error("Stage 4 Retrieval failed: %s", e)
         errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
         evidence = []
+        stage4_failed = True
 
     # KG lookup — runs between Stage 4 and Stage 5, fail-open
     try:
@@ -337,8 +372,19 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
         logger.warning("Graph navigator failed (non-fatal): %s", e)
 
     # Stage 5 — Synthesize (unrecoverable if it fails)
-    with _time_stage("stage_5_synthesize", timings):
-        treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
+    if stage4_failed:
+        # Retrieval errored out (infra failure): refuse to synthesize a plan on
+        # absent evidence — return an explicitly-degraded plan instead of a
+        # confident-looking one built from nothing (INF-02).
+        logger.warning("Skipping Stage 5: retrieval failed, no evidence to ground synthesis")
+        treatment_plan = _degraded_no_evidence_plan(
+            ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
+        )
+    else:
+        with _time_stage("stage_5_synthesize", timings):
+            treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
+        if not evidence:
+            _flag_empty_evidence(treatment_plan)
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
@@ -486,6 +532,7 @@ async def run_clinical_workflow_streaming(
         "stage": 4, "name": "Evidence Retrieval",
         "status": "running", "detail": "Retrieving relevant guideline chunks…"
     })
+    stage4_failed = False
     try:
         evidence = await stage_4_retrieve(case, ddx, cpgs, emit=emit)
         await emit("stage_update", {
@@ -500,6 +547,7 @@ async def run_clinical_workflow_streaming(
             "stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e),
         })
         evidence = []
+        stage4_failed = True
 
     # KG lookup — runs between Stage 4 and Stage 5, fail-open
     try:
@@ -537,7 +585,17 @@ async def run_clinical_workflow_streaming(
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan…"
     })
-    treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
+    if stage4_failed:
+        # Retrieval outage: refuse to synthesise a confident-looking plan on absent
+        # evidence — emit a degraded plan instead (INF-02, mirrored from non-streaming).
+        logger.warning("Skipping Stage 5: retrieval failed, no evidence to ground synthesis")
+        treatment_plan = _degraded_no_evidence_plan(
+            ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
+        )
+    else:
+        treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
+        if not evidence:
+            _flag_empty_evidence(treatment_plan)
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",
@@ -680,6 +738,7 @@ async def run_resynthesize_streaming(
         "stage": 4, "name": "Evidence Retrieval",
         "status": "running", "detail": "Retrieving guideline evidence for selected diagnosis…",
     })
+    stage4_failed = False
     try:
         with _time_stage("stage_4_retrieve", timings):
             evidence = await stage_4_retrieve(case, selected_ddx, cpgs, emit=emit)
@@ -693,6 +752,7 @@ async def run_resynthesize_streaming(
         errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
         await emit("stage_update", {"stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e)})
         evidence = []
+        stage4_failed = True
 
     # KG lookup — runs between Stage 4 and Stage 5, fail-open
     try:
@@ -730,8 +790,17 @@ async def run_resynthesize_streaming(
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan for confirmed diagnosis…",
     })
-    with _time_stage("stage_5_synthesize", timings):
-        treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
+    if stage4_failed:
+        # Retrieval outage: refuse to synthesise on absent evidence (INF-02, mirrored).
+        logger.warning("Re-synth skipping Stage 5: retrieval failed, no evidence to ground synthesis")
+        treatment_plan = _degraded_no_evidence_plan(
+            selected_ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
+        )
+    else:
+        with _time_stage("stage_5_synthesize", timings):
+            treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
+        if not evidence:
+            _flag_empty_evidence(treatment_plan)
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",

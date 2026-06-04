@@ -1,0 +1,52 @@
+{
+  "summary": {
+    "n": 6,
+    "passes": 6,
+    "pass_rate": 1.0,
+    "mean_elapsed_min": 0.02
+  },
+  "rows": [
+    {
+      "id": "SIL-01",
+      "class": "silent degradation",
+      "pass": 1.0,
+      "reason": "preserved_order=True; degraded_signal=True; events=[[\"sub_step\", {\"stage\": \"stage 2\", \"badge\": \"degraded\", \"detail\": \"ddx re-rank unavailable \\u2014 fallback to vector order (ranking unverified)\"}]]",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "SIL-02",
+      "class": "silent degradation",
+      "pass": 1.0,
+      "reason": "evidence_chunks=0; confidence=0.25; unresolved=1; confident_from_empty=False",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "SIL-03",
+      "class": "silent degradation",
+      "pass": 1.0,
+      "reason": "kg_degraded=True; safe_to_proceed=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "INF-01",
+      "class": "infrastructure failure",
+      "pass": 1.0,
+      "reason": "kg_degraded=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "INF-02",
+      "class": "infrastructure failure",
+      "pass": 1.0,
+      "reason": "stage_error_labelled=True; stage5_called=False; stage_errors=stage 4 retrieval:bedrock embedding 429 rate limit",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "INF-03",
+      "class": "infrastructure failure",
+      "pass": 1.0,
+      "reason": "status_code=503; expected=503; body={\"detail\":\"pgvector connection refused\"}",
+      "elapsed_min": 0.12
+    }
+  ]
+}

@@ -137,7 +137,11 @@ async def test_workflow_stage3_failure_continues():
 
 
 @pytest.mark.asyncio
-async def test_workflow_stage4_failure_continues():
+async def test_workflow_stage4_failure_skips_synthesis():
+    """A Stage-4 *exception* (infra outage) must NOT fall through to a confident
+    synthesis on absent evidence — it returns an explicitly-degraded plan and
+    skips Stage 5 (TESTING_STRATEGY INF-02). Contrast with empty-but-no-exception
+    retrieval, which still synthesises and is flagged low-confidence (SIL-02)."""
     case = make_patient()
     with (
         patch("agent.clinical_workflow.stage_2_ddx", new_callable=AsyncMock, return_value=make_ddx()),
@@ -147,9 +151,11 @@ async def test_workflow_stage4_failure_continues():
     ):
         from agent.clinical_workflow import run_clinical_workflow
         result = await run_clinical_workflow(case)
-        # stage 5 still called even though stage 4 failed
-        m5.assert_called_once()
+        m5.assert_not_called()                       # no synthesis on absent evidence
         assert isinstance(result.treatment_plan, TreatmentPlan)
+        assert result.treatment_plan.confidence == 0.0
+        assert result.treatment_plan.unresolved_questions  # degradation surfaced
+        assert any(e.stage == "Stage 4 Retrieval" for e in result.stage_errors)
 
 
 @pytest.mark.asyncio

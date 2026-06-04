@@ -23,6 +23,7 @@ import {
   OutputSection,
   DashboardSection,
 } from './components/sections';
+import FeedbackInsightsSection from './components/sections/FeedbackInsightsSection';
 import { StepIndicator, PatientBanner, CommandPalette } from './components/shared';
 import Home from './components/pages/Home';
 import MyPatients from './components/pages/MyPatients';
@@ -40,6 +41,35 @@ const steps = [
 // 'chart' is intentionally NOT routable — it's an in-memory sub-view that
 // needs a patient object, so it lives under /patients and falls back there.
 const APP_VIEWS = ['dashboard', 'patients', 'consultation', 'settings', 'analytics'];
+
+// Analytics ("Clinical Performance") view — owns the shared time window so the
+// dashboard and the feedback-insights panel stay in sync from one control.
+function AnalyticsView() {
+  const { isDark } = useTheme();
+  const [days, setDays] = useState(30);
+  const windows = [7, 30, 90];
+  return (
+    <div className="space-y-8">
+      <div className="flex items-center justify-end gap-1.5">
+        <span className={`text-xs mr-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Window</span>
+        {windows.map((d) => (
+          <button
+            key={d}
+            onClick={() => setDays(d)}
+            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border
+              ${days === d
+                ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] border-[var(--accent-primary)]/25'
+                : isDark ? 'text-slate-400 hover:bg-white/5 border-transparent' : 'text-slate-500 hover:bg-slate-50 border-transparent'}`}
+          >
+            {d}d
+          </button>
+        ))}
+      </div>
+      <DashboardSection days={days} />
+      <FeedbackInsightsSection days={days} />
+    </div>
+  );
+}
 
 function AppContent({ view }) {
   const { state, dispatch, goToStep } = useApp();
@@ -211,7 +241,7 @@ function AppContent({ view }) {
       case 'settings':
         return <Settings profile={profile} setProfile={refreshProfile} />;
       case 'analytics':
-        return <DashboardSection />;
+        return <AnalyticsView />;
       case 'chart':
         return <PatientChart patient={chartPatient} onBack={() => setShowChart(false)} />;
       default:

@@ -414,11 +414,26 @@ system/measurement changes landed the same day:
 - **Worst 3 (qa_027 0.59, qa_016 0.61, qa_012 0.62)** carry most of the remaining loss — the
   obvious next triage target before pushing the number higher.
 
+#### Pending: Lever A — judge sees the patient case (implemented 2026-06-05, not yet re-run)
+
+Triage of the worst 3 showed ~25% of failures are `[CONTINUE] current dose` claims (e.g. qa_027
+"continue dapagliflozin 10mg") marked unsupported **only because the judge saw the CPG evidence but
+not the patient's existing regimen** — the dose is grounded in the gold's `history` text, invisible
+to the judge. Lever A passes a compact patient-case block to the judge with a continue/maintenance
+fairness rule (new starts still strict on dose/drug per Rule 1). This is a **measurement-fairness**
+change, not a system change — it should lift the headline modestly and shrink the worst-3 gap.
+The runner now caches generated plans (`faithfulness_plans_*.json`) so the A/B is a deterministic
+**judge-only** rerun on identical plans (eliminates the ±13% synthesis jitter that made prior A/Bs
+unsound). **Number pending** — hold until re-run.
+
 #### Reproduction
 
 ```bash
 # independent Gemini judge resolves from JUDGE_LLM_* → GEMINI_* automatically
-python -m eval.run_faithfulness_eval --limit 30
+python -m eval.run_faithfulness_eval --limit 30            # generates plan cache + judges (Lever A on)
+# clean judge-only A/B on the SAME plans (no regeneration):
+python -m eval.run_faithfulness_eval --from-cache eval/results/faithfulness_plans_<ts>.json                    # Lever A on
+python -m eval.run_faithfulness_eval --from-cache eval/results/faithfulness_plans_<ts>.json --no-case-context  # Lever A off (baseline)
 ```
 
 ---
@@ -556,6 +571,42 @@ callout should be treated as an optimisation target, not a measured result.
 > **Recommendation:** revise the published target to `p95 < 60 s end-to-end`
 > with `Stage 5 < 35 s p95` as the sub-target. The current `< 8 s` row in
 > VALIDATION.md doesn't match the actual pipeline shape and will always fail.
+
+---
+
+## Non-acc · Silent-degradation & infrastructure robustness (SIL / INF)
+
+**What it tests.** [`eval/run_degradation_robustness_eval.py`](eval/run_degradation_robustness_eval.py)
+(spec: [TESTING_STRATEGY.md](TESTING_STRATEGY.md) §3 SIL + §4 INF). Mock-based, single-failure
+probes — they never touch real services. The question is **"fail loud, not silent"**: when an
+internal stage or dependency breaks, does the system surface it clearly, or hand the clinician a
+confident-looking plan built on nothing? Nothing else in this file measures this.
+
+**Result — 2026-06-05, 6/6 pass** (`degradation_sil_20260605_024728.*` · `degradation_inf_20260605_024740.*`).
+The **2026-06-04 pilot was 2/6**; the four failures were real fail-silent bugs, now fixed:
+
+| Probe | Scenario | Pilot (06-04) | Fix shipped | Now |
+|---|---|---|---|---|
+| SIL-01 | Stage-2 rerank returns garbage JSON | ❌ no degraded signal | `_llm_rerank_ddx` emits a `degraded` sub-step on fallback-to-vector-order | ✅ |
+| SIL-02 | Stage-4 returns 0 chunks (no error) | ❌ plan came back **conf 0.92, no caveats** | `_flag_empty_evidence`: caps confidence ≤0.25 + adds unresolved question | ✅ |
+| SIL-03 | KG arm crashes, LLM critic clears | ✅ already labelled degraded | — | ✅ |
+| INF-01 | Neo4j outage | ✅ already labelled | — | ✅ |
+| INF-02 | Bedrock 429 kills Stage 4 | ❌ **Stage 5 ran anyway** on empty evidence | Stage-4 *exception* now skips synthesis, returns explicitly-degraded plan (conf 0.0) | ✅ |
+| INF-03 | pgvector connection refused | ❌ HTTP 500 (generic) | `/clinical/plan` maps `ConnectionError` → **HTTP 503** | ✅ |
+
+**Contract change worth knowing.** INF-02's fix flips a previously-tested behaviour: a Stage-4
+*exception* used to fall through to Stage 5 (synthesise on empty evidence); it now **skips Stage 5
+and returns a degraded plan**. The distinction is deliberate — empty-but-no-exception retrieval
+(SIL-02) still synthesises and is merely flagged low-confidence; only a true retrieval *outage*
+refuses to synthesise. Test `test_workflow_stage4_failure_skips_synthesis` (was `_continues`)
+encodes the new contract. **Scope:** the guards are mirrored across **all three pipeline entrypoints** —
+non-streaming `run_clinical_workflow` (probe + `/clinical/plan`), `run_clinical_workflow_streaming`,
+and `run_resynthesize_streaming` (the path the Doctor UI actually calls) — so the fail-loud behaviour
+holds for the production SSE path, not just the probe.
+
+**Honest framing.** These are 6 single-failure probes, not a statistical robustness claim — they
+prove specific fail-silent modes are now fail-loud. The headline for the poster is the *story*
+(built probes → found 4 silent-degradation bugs → fixed → 6/6), not the 100% number.
 
 ---
 
@@ -757,3 +808,5 @@ impractical for iterative eval. Removed from the gold set.
 | 2026-06-04 | **D v2 (methodology fix)** | New `eval/run_faithfulness_eval_v2.py` with rigorous-critic prompt + 3-way verdict (SUPPORTED/NOT_SUPPORTED/UNVERIFIED) + better aggregates (mean faith, severe_halluc_rate, coverage_rate). Same MiMo judge (zero extra credit). n=10 → **mean faith = 0.658** (v1 was 0.367), **severe_halluc = 0.80**, **coverage = 100%**. |
 | 2026-06-04 | **D decision (later revised)** | Initially decided to keep n=10 v2 as headline (±0.05 expected drift at n=30). **Revised 2026-06-05 — the n=30 rerun was completed (see below).** |
 | 2026-06-05 | **D final (full n=30, independent judge)** | `eval/run_faithfulness_eval.py` upgraded: independent Gemini judge (≠ MiMo author), retry+backoff, concurrency cap, judge-error exclusion. Paired with acute-scope synthesis fix (`stage5_synthesis.txt` Commandment 6 + `clinical_stages.py` `_is_acute_presentation` KG-referral gate) + judge fairness rules (parameter/schedule split + eligibility leniency; dose/drug/threshold kept strict). Full n=30 → **mean faith = 0.864** (849/979 claims), median 0.883, sd 0.116, 0 judge errors/skips. Headline metric for the poster. Raw: `faithfulness_20260605_003723.*`. (Earlier exploratory runs — binary same-model judge, and mimo rigorous-critic n=10 = 0.658 — retired; not directly comparable.) |
+| 2026-06-05 | **SIL/INF robustness (2/6 → 6/6)** | Fixed 4 fail-silent bugs the 06-04 pilot exposed: SIL-01 rerank-fallback now emits a `degraded` signal; SIL-02 empty-evidence plan capped to conf ≤0.25 + unresolved question (`_flag_empty_evidence`); INF-02 Stage-4 *exception* now skips synthesis → degraded plan (conf 0.0) instead of running Stage 5 on no evidence; INF-03 pgvector `ConnectionError` → HTTP 503 not 500. Contract change: `test_workflow_stage4_failure_continues` → `_skips_synthesis`. Guards mirrored across all 3 entrypoints (non-streaming + both streaming variants, incl. the UI's resynthesize path). Raw: `degradation_sil_20260605_024728.*` · `degradation_inf_20260605_024740.*` |
+| 2026-06-05 | **D Lever A (implemented, rerun pending)** | Judge now also sees the patient case (`_case_blob`) + a continue/maintenance fairness rule, so `[CONTINUE] current-dose` claims grounded in the patient's existing regimen (not the CPG) stop being marked unsupported — ~25% of the worst-3 failures. Runner caches generated plans (`faithfulness_plans_*.json`) + adds `--from-cache` / `--no-case-context` for a deterministic judge-only A/B. **Number pending re-run.** |

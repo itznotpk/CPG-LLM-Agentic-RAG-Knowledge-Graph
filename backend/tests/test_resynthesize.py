@@ -96,7 +96,9 @@ async def test_resynth_uses_selected_ddx_for_routing(minimal_case, selected_ddx,
     call_args = mock_s3.call_args
     passed_ddx = call_args.args[0]
     assert passed_ddx[0].code == "BC81.3"
-    assert call_args.kwargs.get("top_k_codes") == len(selected_ddx)
+    # Clinician-directed routing now flows the chosen diagnosis through major_code
+    # (the legacy top_k_codes param is no longer passed on this path).
+    assert call_args.kwargs.get("major_code") == "BC81.3"
 
 
 @pytest.mark.asyncio

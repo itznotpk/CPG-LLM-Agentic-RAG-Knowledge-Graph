@@ -11,6 +11,7 @@ import {
   Activity,
   Clock,
   ChevronRight,
+  ThumbsUp,
 } from 'lucide-react';
 import { GlassCard as Card } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
@@ -103,7 +104,7 @@ function Sparkline({ data, isDark }) {
 // Main Component
 // ---------------------------------------------------------------------------
 
-export function DashboardSection() {
+export function DashboardSection({ days = 30 }) {
   const { isDark, accent } = useTheme();
   const [logFilter, setLogFilter] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
@@ -116,6 +117,8 @@ export function DashboardSection() {
     referrals: { total: 0, emergency: 0, urgent: 0, routine: 0 },
     safetyFlags: { total: 0, critical: 0, major: 0 },
     uniqueCpgs: 0,
+    approvalRate: 0,
+    decisions: 0,
   });
   const [weekSparkline, setWeekSparkline] = useState(Array(7).fill(0));
   const [consultationLog, setConsultationLog] = useState([]);
@@ -128,13 +131,13 @@ export function DashboardSection() {
     try {
       if (showLoading) setLoading(true);
 
-      const thirtyDaysAgo = new Date();
-      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      const windowStart = new Date();
+      windowStart.setDate(windowStart.getDate() - days);
 
       const { data: consultsData, error } = await supabase
         .from('consultations')
         .select('*')
-        .gte('created_at', thirtyDaysAgo.toISOString())
+        .gte('created_at', windowStart.toISOString())
         .order('created_at', { ascending: false });
 
       if (error) throw error;
@@ -142,6 +145,15 @@ export function DashboardSection() {
       const { data: patientsData } = await supabase
         .from('patients')
         .select('nric, full_name');
+
+      // Clinician approval rate over the same window (human_signals feed).
+      const { data: humanSignals } = await supabase
+        .from('human_signals')
+        .select('action')
+        .gte('created_at', windowStart.toISOString());
+      const decisions = (humanSignals || []).length;
+      const approvedCount = (humanSignals || []).filter(h => h.action === 'approved').length;
+      const approvalRate = decisions ? Math.round((approvedCount / decisions) * 100) : 0;
 
       const patientMap = {};
       (patientsData || []).forEach(p => { patientMap[p.nric] = p.full_name; });
@@ -262,6 +274,8 @@ export function DashboardSection() {
         referrals: { total: referralTotal, emergency: refEmergency, urgent: refUrgent, routine: refRoutine },
         safetyFlags: { total: flagTotal, critical: flagCritical, major: flagMajor },
         uniqueCpgs: cpgSet.size,
+        approvalRate,
+        decisions,
       });
 
       setWeekSparkline(Object.values(dayBuckets));
@@ -305,9 +319,10 @@ export function DashboardSection() {
     const channel = supabase
       .channel('dashboard-changes')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'consultations' }, () => fetchData(false))
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'human_signals' }, () => fetchData(false))
       .subscribe();
     return () => supabase.removeChannel(channel);
-  }, []);
+  }, [days]);
 
   const cpgPct = Math.round((metrics.cpgAligned.count / metrics.cpgAligned.total) * 100);
 
@@ -333,7 +348,7 @@ export function DashboardSection() {
             Clinical Performance
           </h1>
           <p className={`mt-1 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-            AI-assisted consultations · last 30 days
+            AI-assisted consultations · last {days} days
           </p>
         </div>
         {loading && <span className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'} animate-pulse`}>Syncing…</span>}
@@ -351,13 +366,13 @@ export function DashboardSection() {
               <span className={`text-[10px] font-semibold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Consultations</span>
             </div>
             <p className={`text-3xl font-bold ds-numeric leading-none ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>{metrics.consultsToday}</p>
-            <p className={`text-xs mt-1.5 mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{metrics.consults30d} in last 30 days</p>
+            <p className={`text-xs mt-1.5 mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{metrics.consults30d} in last {days} days</p>
             <Sparkline data={weekSparkline} isDark={isDark} />
             <p className={`text-[9px] mt-1 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>7-day trend</p>
           </div>
 
           <MetricCard icon={FileCheck}    label="CPG Aligned"      value={<>{cpgPct}<span className="text-lg font-medium ml-0.5 opacity-70">%</span></>}           sub={`${metrics.cpgAligned.count} of ${metrics.cpgAligned.total} plans`}  color="violet"  isDark={isDark} />
-          <MetricCard icon={BookOpen}     label="CPG Citations"    value={metrics.cpgAligned.count > 0 ? Math.round(metrics.cpgAligned.count > 0 ? (metrics.cpgAligned.total > 0 ? metrics.uniqueCpgs : 0) : 0) : 0} sub={`${metrics.uniqueCpgs} unique guidelines cited`} color="sky" isDark={isDark} />
+          <MetricCard icon={ThumbsUp}     label="Approval Rate"    value={metrics.decisions > 0 ? <>{metrics.approvalRate}<span className="text-lg font-medium ml-0.5 opacity-70">%</span></> : '—'} sub={metrics.decisions > 0 ? `${metrics.decisions} clinician decisions` : 'no decisions yet'} color="emerald" isDark={isDark} />
           <MetricCard icon={UserCheck}    label="Referrals"        value={metrics.referrals.total}        sub={`${metrics.referrals.emergency} emergency · ${metrics.referrals.urgent} urgent`}     color="amber"   isDark={isDark} />
           <MetricCard icon={ShieldAlert}  label="Safety Flags"     value={metrics.safetyFlags.total}      sub={`${metrics.safetyFlags.critical} critical · ${metrics.safetyFlags.major} major`}      color={metrics.safetyFlags.critical > 0 ? 'red' : 'emerald'} isDark={isDark} />
           <MetricCard icon={Activity}     label="Avg CPG Cites"    value={metrics.consults30d > 0 ? (Math.round((metrics.cpgAligned.count / metrics.consults30d) * 10) / 10).toFixed(1) : '—'}  sub="citations per consult"  color="teal" isDark={isDark} />
@@ -453,7 +468,7 @@ export function DashboardSection() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
           <p className={`text-[10px] font-semibold uppercase tracking-widest mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-            Top Diagnoses (AI-assisted, 30 days)
+            Top Diagnoses (AI-assisted, {days} days)
           </p>
           <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
             <div className="space-y-4">

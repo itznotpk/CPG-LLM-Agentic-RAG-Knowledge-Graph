@@ -136,6 +136,52 @@ async def save_pipeline_timings(
         logger.warning("save_pipeline_timings failed (non-fatal): %s", exc)
 
 
+async def log_machine_signal(
+    signal_type: str,
+    *,
+    consultation_id: int | None = None,
+    request_id: str = "",
+    cpg_name: str | None = None,
+    trigger: str | None = None,
+    condition: str | None = None,
+    detail: str | None = None,
+    severity: str = "info",
+    payload: dict | None = None,
+) -> None:
+    """Persist one pipeline insight to the machine_signals table (the "Machine
+    Signals" feed of the Layer-3 feedback ecosystem). Direct INSERT into a
+    standalone table — no RPC, so it sidesteps the update_consultation overload
+    trap. Best-effort: never raises, never blocks the pipeline. Requires
+    add_machine_signals.sql to have been run on Supabase.
+
+    signal_type ∈ {'gate_failure','data_quality','kg_gap','coverage_gap','stage_error'}.
+    """
+    pool = supabase_pool.pool
+    if pool is None:
+        return
+    try:
+        async with pool.acquire() as conn:
+            await conn.execute(
+                """
+                INSERT INTO machine_signals
+                    (consultation_id, request_id, signal_type, cpg_name,
+                     trigger, condition, detail, severity, payload)
+                VALUES ($1::integer, $2, $3, $4, $5, $6, $7, $8, $9::jsonb)
+                """,
+                consultation_id,
+                request_id or None,
+                signal_type,
+                cpg_name,
+                trigger,
+                condition,
+                detail,
+                severity,
+                json.dumps(payload) if payload is not None else None,
+            )
+    except Exception as exc:
+        logger.warning("log_machine_signal failed (non-fatal): %s", exc)
+
+
 # Session Management Functions
 async def create_session(
     user_id: Optional[str] = None,

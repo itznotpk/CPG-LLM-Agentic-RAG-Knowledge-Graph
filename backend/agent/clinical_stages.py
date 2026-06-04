@@ -2060,6 +2060,18 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
             stage2_base or os.getenv("LLM_BASE_URL"),
             exc,
         )
+        # Surface the silent degradation: the vector order we return is NOT a
+        # judged ranking. Without this signal a malformed rerank response looks
+        # identical to a successful one downstream (SIL-01).
+        if emit is not None:
+            try:
+                await emit("sub_step", {
+                    "stage": "Stage 2",
+                    "badge": "degraded",
+                    "detail": "DDx re-rank unavailable — fallback to vector order (ranking unverified)",
+                })
+            except Exception:
+                pass
         return candidates
 
 

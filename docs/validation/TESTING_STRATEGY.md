@@ -237,25 +237,28 @@ Summary: **6/7 passed (85.7%)**. Unsafe-plan sensitivity was **4/5 (80.0%)** and
 
 ---
 
-### SIL pilot run results
+### SIL run results
 
-Run: `eval/results/degradation_sil_20260604_213407.json` and `eval/results/degradation_sil_20260604_213407.csv`.
+**Post-fix re-run — 2026-06-05: 3/3 passed (100%).** Run: `eval/results/degradation_sil_20260605_024728.*`.
+The 2026-06-04 pilot was **1/3** (`degradation_sil_20260604_213407.*`); the two failures were real
+fail-silent bugs and are now fixed.
 
-Summary: **1/3 passed (33.3%)**. This confirms that silent-degradation instrumentation is not complete yet.
+| ID | Pilot (06-04) | Now (06-05) | Fix shipped |
+|---|---:|---:|---|
+| SIL-01 | FAIL — fallback emitted no signal | ✅ PASS | `_llm_rerank_ddx` emits a `degraded` sub-step when it falls back to vector order (`clinical_stages.py`) |
+| SIL-02 | FAIL — confident plan (`0.92`) from 0 chunks | ✅ PASS | `_flag_empty_evidence` caps `confidence ≤0.25` + appends an unresolved-evidence question (`clinical_workflow.py`, all 3 entrypoints) |
+| SIL-03 | PASS | ✅ PASS | unchanged — KG degradation labelled in reviewer notes |
 
-| ID | Result | Observed behaviour | Proposed improvement |
-|---|---:|---|---|
-| SIL-01 | FAIL | Malformed Stage 2 rerank preserved the original candidate order, but emitted no `degraded`, `fallback`, or warning event. | Add a structured `WorkflowWarning` / `degraded=true` event for DDx rerank fallback, and surface it in SSE plus final response. |
-| SIL-02 | FAIL | Stage 4 returned 0 evidence chunks but Stage 5 still produced a confident plan (`confidence=0.92`) with no unresolved question. | Add a zero-evidence guard: short-circuit Stage 5 or force `confidence <0.3` plus explicit unresolved evidence message. |
-| SIL-03 | PASS | KG safety failure was labelled: `Neo4j KG verification unavailable - graph-source safety checks were skipped this run`. | Keep this as the partial-safety regression pattern. |
+> **Note on SIL-02 semantics:** empty-but-no-exception retrieval still *synthesises* (the LLM's general
+> guidance can be useful), but the plan is stamped low-confidence + flagged — it can never read as
+> confident-from-empty. A retrieval *exception* is treated more strictly (see INF-02 below): Stage 5 is
+> skipped entirely. That exception-vs-empty split is deliberate.
 
-#### SIL possible issues and proposed improvements
+#### Remaining (not blocking; future polish)
 
-| Possible issue | What we observed | Proposed improvement |
+| Possible issue | Status | Note |
 |---|---|---|
-| Rerank fallback visibility | SIL-01 logged fallback only. | Introduce `WorkflowResult.warnings` and stream `stage_warning` / `pipeline_event` with `degraded=true`, `stage=2`, `reason=rerank_fallback`. |
-| Empty evidence fail-closed | SIL-02 allowed confident synthesis from zero chunks. | Gate Stage 5 on evidence availability; if no evidence is retrieved for an in-scope diagnosis, return an evidence-gap plan rather than clinical recommendations. |
-| Partial safety coverage contract | SIL-03 labels KG degradation but no general `coverage` enum exists. | Add `SafetyReport.coverage = full | partial | unavailable`, so UI and evals do not rely on free-text reviewer notes. |
+| Partial safety coverage contract | open | SIL-03 labels KG degradation via free-text reviewer notes; a structured `SafetyReport.coverage = full \| partial \| unavailable` enum would let UI/evals stop parsing prose. Not yet implemented. |
 
 ---
 
@@ -273,25 +276,26 @@ Summary: **1/3 passed (33.3%)**. This confirms that silent-degradation instrumen
 
 ---
 
-### INF pilot run results
+### INF run results
 
-Run: `eval/results/degradation_inf_20260604_213451.json` and `eval/results/degradation_inf_20260604_213451.csv`.
+**Post-fix re-run — 2026-06-05: 3/3 passed (100%).** Run: `eval/results/degradation_inf_20260605_024740.*`.
+The 2026-06-04 pilot was **1/3** (`degradation_inf_20260604_213451.*`); both failures are now fixed.
 
-Summary: **1/3 passed (33.3%)**. Neo4j KG outage is handled with labelled degradation, but embedding and pgvector failure paths still need fail-closed behaviour.
+| ID | Pilot (06-04) | Now (06-05) | Fix shipped |
+|---|---:|---:|---|
+| INF-01 | PASS | ✅ PASS | unchanged — Neo4j outage labelled, LLM critic still runs |
+| INF-02 | FAIL — Stage 5 ran on empty evidence after embedding 429 | ✅ PASS | a Stage-4 *exception* now skips Stage 5 and returns `_degraded_no_evidence_plan` (conf 0.0); Stage error recorded. Mirrored across all 3 entrypoints |
+| INF-03 | FAIL — pgvector outage returned HTTP 500 | ✅ PASS | `/clinical/plan` maps `ConnectionError` → HTTP **503** (`api.py`) |
 
-| ID | Result | Observed behaviour | Proposed improvement |
-|---|---:|---|---|
-| INF-01 | PASS | Neo4j connection failure was labelled as KG verification unavailable while the LLM critic still ran. | Keep as graph-degradation regression. |
-| INF-02 | FAIL | Stage 4 embedding 429 was recorded as a Stage 4 error, but Stage 5 was still called with empty evidence. | Add retry/backoff and typed `embedding_unavailable`; block Stage 5 if embedding/retrieval failed. |
-| INF-03 | FAIL | `/clinical/plan` returned HTTP 500 for pgvector connection failure, not the expected 503. | Map DB/vector connection failures to HTTP 503 and ensure no `final_result` / completed consultation state is emitted. |
+> **Contract change:** INF-02's fix flipped the old "Stage 4 fail → continue to Stage 5" behaviour.
+> Encoding test renamed `test_workflow_stage4_failure_continues` → `_skips_synthesis`.
 
-#### INF possible issues and proposed improvements
+#### Remaining (not blocking; future polish)
 
-| Possible issue | What we observed | Proposed improvement |
+| Possible issue | Status | Note |
 |---|---|---|
-| Embedding dependency fail-closed | INF-02 continued to Stage 5 after embedding 429. | Treat embedding/vector retrieval failures as evidence-unavailable, not empty-evidence success; retry first, then fail closed or return low-confidence evidence-gap output. |
-| API status semantics | INF-03 returned generic 500 for pgvector outage. | Add exception mapping for database/vector connectivity errors to 503 Service Unavailable with a clear client message. |
-| Final-result gating | INF-02/INF-03 risk confident-looking output after missing dependencies. | Block `final_result` emission unless Stage 4 evidence and Stage 6 safety coverage meet minimum contract, or attach an explicit degradation label. |
+| Embedding retry/backoff | already handled | Bedrock embedding calls retry on throttle (`agent/tools.py` retry loop). INF-02 deliberately injects an *outright* exception to exercise the fail-closed path, bypassing the retry — so this is tested behaviour, not a gap. |
+| Consultation-row state on outage | out of scope here | INF-03 verifies the HTTP 503. The "row stays `failed`, never `completed`" half is enforced upstream by the caller not writing on a 5xx — it needs a live Supabase integration test, not a mocked degradation probe. |
 
 ---
 

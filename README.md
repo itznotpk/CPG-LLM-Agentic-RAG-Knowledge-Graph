@@ -68,6 +68,32 @@ ClearPath acts as a clinician's second opinion, at the speed of a glance. By con
 
 ---
 
+## Repository Layout
+
+The repo is split into two top-level code folders, with project docs and data at the root:
+
+```
+backend/    Python pipeline & tooling — agent/ ingestion/ ddx/ eval/ tools/
+            tests/ sql/ scripts/, the entry scripts (cli.py, clinical_cli.py,
+            convert_pdf.py, audit_markdown.py, split_cpg_markdown.py),
+            and test config (pytest.ini, .coveragerc)
+frontend/   doctor-ui/ — the React clinician dashboard (talks to the backend over HTTP)
+rppg-poc/   standalone rPPG vitals POC, mounted by the backend at /rppg
+docs/       validation, poster, eval and reading material
+tasks/      planning notes and ingestion reports
+documents/ markdown/ staging/ backups/   CPG corpus and pipeline artifacts
+assets/     images used in this README
+```
+
+> All code-location references below (e.g. `agent/routing.py`, `ddx/search_ddx.py`,
+> `scripts/…`) live under `backend/`. Python **import** paths are unchanged
+> (`from agent…`, `from ddx…`) because the backend runs from the `backend/` directory.
+> Run tests with `cd backend && pytest`; run a CLI with `python backend/cli.py`;
+> run corpus scripts from the repo root (e.g. `python backend/convert_pdf.py`) so the
+> root-level `markdown/` and `documents/` paths resolve.
+
+---
+
 ## System Architecture
 
 ClearPath is a **hybrid deterministic + agentic clinical pipeline**: every routing, retrieval, and safety decision that *can* be deterministic is deterministic; LLMs are reserved for clinical reasoning steps and are always grounded against retrieved CPG chunks and Neo4j knowledge-graph edges. All seven stages stream to clients via a single Server-Sent Events (SSE) channel with a shared `emit` contract, so the same backend serves both the React Doctor UI and the terminal `clinical_cli.py` driver identically.
@@ -264,7 +290,7 @@ ClearPath represents a complete clinical end-product, designed for visual tablet
         <li><strong>Override Harness:</strong> Prompts clinicians to accept AI suggestions or input custom codes, executing real-time re-synthesis via the same SSE contract.</li>
       </ul>
       <p align="center">
-        <a href="clinical_cli.py">View clinical_cli.py Code →</a>
+        <a href="backend/clinical_cli.py">View clinical_cli.py Code →</a>
       </p>
     </td>
   </tr>
