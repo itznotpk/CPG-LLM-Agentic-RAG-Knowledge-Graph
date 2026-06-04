@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "n": 3,
+    "passes": 1,
+    "pass_rate": 0.3333333333333333,
+    "mean_elapsed_min": 0.0
+  },
+  "rows": [
+    {
+      "id": "SIL-01",
+      "class": "silent degradation",
+      "pass": 0.0,
+      "reason": "preserved_order=True; degraded_signal=False; events=[]",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "SIL-02",
+      "class": "silent degradation",
+      "pass": 0.0,
+      "reason": "evidence_chunks=0; confidence=0.92; unresolved=0; confident_from_empty=True",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "SIL-03",
+      "class": "silent degradation",
+      "pass": 1.0,
+      "reason": "kg_degraded=True; safe_to_proceed=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run",
+      "elapsed_min": 0.0
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "summary": {
+    "n": 3,
+    "stage_2_ddx_ms_p50": 20813.00000002375,
+    "stage_2_ddx_ms_p95": 20813.00000002375,
+    "stage_2_ddx_ms_p99": 20813.00000002375,
+    "stage_3_route_ms_p50": 187.99999996554106,
+    "stage_3_route_ms_p95": 187.99999996554106,
+    "stage_3_route_ms_p99": 187.99999996554106,
+    "stage_3_route_comorbidities_ms_p50": 0.0,
+    "stage_3_route_comorbidities_ms_p95": 0.0,
+    "stage_3_route_comorbidities_ms_p99": 0.0,
+    "stage_4_retrieve_ms_p50": 42031.00000001723,
+    "stage_4_retrieve_ms_p95": 42031.00000001723,
+    "stage_4_retrieve_ms_p99": 42031.00000001723,
+    "kg_lookup_ms_p50": 297.0000000204891,
+    "kg_lookup_ms_p95": 297.0000000204891,
+    "kg_lookup_ms_p99": 297.0000000204891,
+    "graph_navigator_ms_p50": 61.999999976251274,
+    "graph_navigator_ms_p95": 61.999999976251274,
+    "graph_navigator_ms_p99": 61.999999976251274,
+    "stage_5_synthesize_ms_p50": 68672.00000002049,
+    "stage_5_synthesize_ms_p95": 68672.00000002049,
+    "stage_5_synthesize_ms_p99": 68672.00000002049,
+    "stage_6_safety_ms_p50": 6843.9999999827705,
+    "stage_6_safety_ms_p95": 6843.9999999827705,
+    "stage_6_safety_ms_p99": 6843.9999999827705,
+    "total_ms_p50": 152328.00000003772,
+    "total_ms_p95": 152328.00000003772,
+    "total_ms_p99": 152328.00000003772
+  },
+  "rows": [
+    {
+      "id": "qa_001",
+      "stage_2_ddx_ms": 26000.0,
+      "stage_3_route_ms": 422.0000000204891,
+      "stage_3_route_comorbidities_ms": 0.0,
+      "stage_4_retrieve_ms": 53936.99999997625,
+      "kg_lookup_ms": 2828.0000000377186,
+      "graph_navigator_ms": 93.99999998277053,
+      "stage_5_synthesize_ms": 68672.00000002049,
+      "stage_6_safety_ms": 6843.9999999827705,
+      "total_ms": 158858.99999999674
+    },
+    {
+      "id": "qa_002",
+      "stage_2_ddx_ms": 20813.00000002375,
+      "stage_3_route_ms": 140.00000001396984,
+      "stage_3_route_comorbidities_ms": 0.0,
+      "stage_4_retrieve_ms": 37905.99999995902,
+      "kg_lookup_ms": 297.0000000204891,
+      "graph_navigator_ms": 47.0000000204891,
+      "stage_5_synthesize_ms": 69766.00000000326,
+      "stage_6_safety_ms": 23358.99999999674,
+      "total_ms": 152328.00000003772
+    },
+    {
+      "id": "qa_003",
+      "stage_2_ddx_ms": 20250.0,
+      "stage_3_route_ms": 187.99999996554106,
+      "stage_3_route_comorbidities_ms": 0.0,
+      "stage_4_retrieve_ms": 42031.00000001723,
+      "kg_lookup_ms": 250.0,
+      "graph_navigator_ms": 61.999999976251274,
+      "stage_5_synthesize_ms": 45829.00000002701,
+      "stage_6_safety_ms": 5858.99999999674,
+      "total_ms": 114468.99999998277
+    }
+  ]
+}
