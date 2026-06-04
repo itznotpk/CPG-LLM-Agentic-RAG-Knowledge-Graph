@@ -162,6 +162,44 @@ def _assess_case_severity(case: PatientCase) -> tuple[int, str]:
     return severity, rationale
 
 
+# Acute-presentation markers (Commandment-6 code-side counterpart). Time-critical
+# problems whose visit should action the acute issue + safety-relevant interactions
+# only — NOT a stable comorbidity's full chronic screening/maintenance programme.
+_ACUTE_PRESENTATION_MARKERS = (
+    "st elevation", "st-elevation", "stemi", "nstemi", "acute coronary",
+    "acute mi", "myocardial infarction", "infarct", "chest pain",
+    "stroke", "tia", "sepsis", "septic", "dka", "diabetic ketoacidosis",
+    "anaphylaxis", "haemorrhage", "hemorrhage", "acute decompensation",
+    "decompensated", "unstable", "hypoxia", "respiratory distress",
+    "status epilepticus", "acute abdomen",
+)
+
+
+def _is_acute_presentation(case: PatientCase) -> bool:
+    """True if the visit's PRIMARY reason is time-critical/emergent.
+
+    Used to scope deterministic KG referral injection: on an acute visit, routine
+    chronic-comorbidity referrals (e.g. newly-diagnosed-T2DM → ophthalmology/dental)
+    are deferred to a future routine review rather than booked today. Mirrors the
+    LLM-side Commandment 6 in stage5_synthesis.txt. Fail-open: if nothing matches,
+    treat as non-acute (no suppression).
+    """
+    severity, _ = _assess_case_severity(case)
+    if severity >= 2:
+        return True
+    parts: list[str] = []
+    for attr in ("chief_complaint", "ecg", "history"):
+        val = getattr(case, attr, None)
+        if isinstance(val, str):
+            parts.append(val)
+        elif isinstance(val, (list, tuple)):
+            parts.extend(str(x) for x in val)
+    for x in (getattr(case, "symptoms", None) or []):
+        parts.append(str(x))
+    text = " ".join(parts).lower()
+    return any(m in text for m in _ACUTE_PRESENTATION_MARKERS)
+
+
 def _validate_urgency_severity_alignment(
     referral_urgency: str | None,
     case_severity: int,
@@ -4697,6 +4735,32 @@ Produce a TreatmentPlan JSON object matching this schema:
                     if spec or cond:
                         urgency = _referral_urgency_priority(getattr(existing, "urgency", None))
                         existing_referrals[(spec, cond)] = (existing, urgency)
+            # Visit acuity flag — computed once; gates routine comorbidity referrals below.
+            _acute_visit = _is_acute_presentation(case)
+            # Tokens naming the acute PRIMARY diagnosis (ddx[0]) — used to spare the
+            # acute problem's own routine referrals (post-STEMI cardiology follow-up,
+            # cardiac rehab) from the visit-scope deferral, which targets STABLE
+            # comorbidities only.
+            _STOP_COND_TOKENS = {
+                "acute", "chronic", "disease", "syndrome", "with", "and", "the",
+                "unspecified", "other", "type", "due", "for", "not",
+            }
+            import re as _re_mod
+            _re_cond = _re_mod.compile(r"[a-z0-9]+")
+            def _cond_tokens(text: str | None) -> set[str]:
+                return {
+                    t for t in _re_cond.findall((text or "").lower())
+                    if len(t) >= 4 and t not in _STOP_COND_TOKENS
+                }
+            _primary_cond_tokens = _cond_tokens(
+                (getattr(ddx[0], "title", None) or getattr(ddx[0], "name", "")) if ddx else ""
+            )
+            if _acute_visit:
+                logger.info(
+                    "stage_5: acute presentation detected (primary=%s) — routine comorbidity KG referrals will be deferred",
+                    sorted(_primary_cond_tokens),
+                )
+
             # Triggers we treat as "universal" — patient is presumed to meet them by
             # virtue of having the condition (no per-patient gating needed).
             _UNIVERSAL_TRIGGERS = {
@@ -4827,6 +4891,22 @@ Produce a TreatmentPlan JSON object matching this schema:
                         rec.specialty, rec.condition, rec.trigger,
                     )
                     continue
+                # Visit-scope discipline (Commandment-6 code-side): on an acute
+                # presentation, defer ROUTINE chronic-comorbidity referrals (e.g.
+                # newly-diagnosed-T2DM → ophthalmology/dental). Urgent/emergency KG
+                # referrals (and the acute primary's own urgent referrals) survive;
+                # the LLM still emits a "continue routine <comorbidity> care" line.
+                # Defer ONLY routine referrals for a STABLE comorbidity — spare the
+                # acute primary's own routine referrals (its condition shares tokens
+                # with ddx[0], e.g. post-STEMI cardiology / cardiac rehab).
+                if _acute_visit and urgency_word == "routine":
+                    _is_primary = bool(_primary_cond_tokens & _cond_tokens(rec.condition))
+                    if not _is_primary:
+                        logger.info(
+                            "stage_5: KG referral deferred (routine comorbidity referral on acute visit): %s — %s (trigger=%r)",
+                            rec.specialty, rec.condition, rec.trigger,
+                        )
+                        continue
                 if _is_qualifier_mismatched(rec.trigger, trig_list):
                     logger.info(
                         "stage_5: KG referral dropped (qualifier mismatch with comorbidity negation): %s — %s (trigger=%r)",

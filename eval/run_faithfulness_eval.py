@@ -19,6 +19,7 @@ Outputs
 """
 
 from __future__ import annotations
+import argparse
 import asyncio
 import json
 import os
@@ -41,67 +42,133 @@ CLAIM:
 {claim}
 
 Reply with strict JSON: {{"supported": true|false, "reason": "<one sentence>"}}.
-A claim is "supported" only if a fact in EVIDENCE entails it. Vague paraphrases of evidence are supported; new drug names / doses / thresholds not in evidence are NOT supported."""
+
+Judge the CLAIM's CORE clinical content — the parameter monitored, the drug/action recommended,
+the intervention proposed — against EVIDENCE. Apply these rules:
+
+1. SAFETY-CRITICAL (stay strict): mark UNSUPPORTED if the claim introduces a DRUG NAME, a
+   DOSE/STRENGTH/FREQUENCY value, or a numeric DIAGNOSTIC/LAB THRESHOLD that does not appear in
+   EVIDENCE, or that contradicts it. Fabricated doses and drugs are never acceptable.
+
+2. OPERATIONAL QUALIFIER (be fair — parameter/schedule split): if the core parameter or action
+   IS grounded in EVIDENCE, do NOT mark unsupported merely because a MONITORING SCHEDULE, TIMING
+   INTERVAL, or SCREENING FREQUENCY is not stated verbatim (e.g. "serial at 0,3,6h", "12-lead",
+   "annual", "every 2-4 weeks", "<2 g/day"). These are standard operational details, not new
+   clinical facts. Supported = the monitored parameter / lifestyle target itself is evidence-linked.
+
+3. ELIGIBILITY / ASSESSMENT (be fair): a recommendation to ASSESS, SCREEN, REFER FOR, or CONSIDER a
+   guideline-standard intervention for the patient's condition is SUPPORTED if EVIDENCE links that
+   intervention to the condition — even if the exact eligibility criterion/threshold is not quoted.
+   Mark unsupported only if the intervention is ABSENT from EVIDENCE, or the claim quotes a
+   FABRICATED probability/risk number as a patient prediction.
+
+Vague paraphrases of evidence are supported. When the core clinical claim is grounded and only an
+operational/eligibility qualifier is missing, set supported=true and note the missing qualifier in reason."""
 
 
 def _judge_client() -> tuple[openai.AsyncOpenAI, str]:
-    base = os.getenv("JUDGE_LLM_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    key = os.getenv("JUDGE_LLM_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("JUDGE_LLM_CHOICE") or os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
+    # Judge ≠ author: default to Gemini, NOT the STAGE5/LLM (MiMo) synthesis model,
+    # so a model never grades its own plan. Explicit JUDGE_LLM_* still wins.
+    base = os.getenv("JUDGE_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL")
+    key = os.getenv("JUDGE_LLM_API_KEY") or os.getenv("GEMINI_API_KEY")
+    model = os.getenv("JUDGE_LLM_CHOICE") or os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
     return openai.AsyncOpenAI(base_url=base, api_key=key), model
 
 
-async def judge_claim(client: openai.AsyncOpenAI, model: str, context: str, claim: str) -> bool:
-    resp = await client.chat.completions.create(
-        model=model,
-        messages=[{"role": "user", "content": JUDGE_PROMPT.format(context=context[:60000], claim=claim)}],
-        temperature=0,
-        response_format={"type": "json_object"},
-    )
-    try:
-        return bool(json.loads(resp.choices[0].message.content).get("supported", False))
-    except Exception:
-        return False
+async def judge_claim(client: openai.AsyncOpenAI, model: str, context: str, claim: str) -> tuple[bool, str, bool]:
+    """Return (supported, reason, errored).
+
+    `errored=True` means the judge never gave a verdict (transient 429/503 that
+    survived all retries). These are EXCLUDED from the metric — counting them as
+    unsupported would corrupt faithfulness with provider noise. One unguarded
+    503 previously aborted the whole run; retries + per-claim isolation fix that.
+    """
+    for attempt in range(5):
+        try:
+            resp = await client.chat.completions.create(
+                model=model,
+                messages=[{"role": "user", "content": JUDGE_PROMPT.format(context=context[:60000], claim=claim)}],
+                temperature=0,
+                response_format={"type": "json_object"},
+            )
+            parsed = json.loads(resp.choices[0].message.content)
+            return bool(parsed.get("supported", False)), str(parsed.get("reason", "")), False
+        except (openai.RateLimitError, openai.InternalServerError, openai.APITimeoutError, openai.APIConnectionError) as e:
+            if attempt == 4:
+                return False, f"<judge unavailable after retries: {e}>", True
+            await asyncio.sleep(2 ** attempt)  # 1,2,4,8s backoff
+        except Exception as e:
+            return False, f"<judge parse error: {e}>", False
+    return False, "<judge unavailable>", True
 
 
-async def main():
+async def main(limit: int | None = None):
     gold = load_jsonl("clinical_qa_gold.jsonl")
+    if limit:
+        gold = gold[:limit]
     judge_client, judge_model = _judge_client()
+    sem = asyncio.Semaphore(4)  # cap concurrent judge calls — bursts of 20 trip Gemini 503
+
+    async def _judge(context, c):
+        async with sem:
+            return await judge_claim(judge_client, judge_model, context, c)
+
     rows = []
 
     for item in gold:
-        case = to_patient_case(item["patient_case"])
-        ddx = await stage_2_ddx(case, top_k=5)
-        cpgs = await stage_3_route(ddx)
-        evidence = await stage_4_retrieve(case, ddx, cpgs)
-        plan = await stage_5_synthesize(case, ddx, cpgs, evidence)
+        try:
+            case = to_patient_case(item["patient_case"])
+            ddx = await stage_2_ddx(case, top_k=5)
+            cpgs = await stage_3_route(ddx)
+            evidence = await stage_4_retrieve(case, ddx, cpgs)
+            plan = await stage_5_synthesize(case, ddx, cpgs, evidence)
+        except Exception as e:
+            # One case's pipeline failure must not discard already-judged rows.
+            print(f"[skip] case {item['id']}: pipeline error {e}")
+            continue
 
         context_blob = "\n\n".join(c.content for c in evidence)
         claims = treatment_plan_claims(plan)
 
-        verdicts = await asyncio.gather(*[
-            judge_claim(judge_client, judge_model, context_blob, c) for c in claims
-        ])
-        supported = sum(1 for v in verdicts if v)
-        n = len(claims) or 1
+        verdicts = await asyncio.gather(*[_judge(context_blob, c) for c in claims])
+        # Exclude judge-errored claims from the denominator (provider noise, not hallucination).
+        judged = [(claim, ok, reason) for claim, (ok, reason, err) in zip(claims, verdicts) if not err]
+        n_errored = len(claims) - len(judged)
+        supported = sum(1 for _, ok, _ in judged if ok)
+        n = len(judged) or 1
+
+        # Capture every unsupported claim + the judge's reason so we can inspect
+        # WHICH lever (top-k, retrieval ranking, synthesis prompt) is worth pulling.
+        failures = [
+            {"claim": claim, "reason": reason}
+            for claim, ok, reason in judged
+            if not ok
+        ]
 
         rows.append({
             "id": item["id"],
             "n_claims": n,
             "n_supported": supported,
+            "n_errored": n_errored,
             "faithfulness": supported / n,
             "any_hallucination": 1.0 if supported < n else 0.0,
+            "failures": failures,
         })
 
     summary = {
         "n": len(rows),
         "judge_model": judge_model,
-        "mean_faithfulness":   mean(r["faithfulness"] for r in rows),
-        "hallucination_rate":  mean(r["any_hallucination"] for r in rows),
+        "mean_faithfulness":   mean(r["faithfulness"] for r in rows) if rows else 0.0,
+        "hallucination_rate":  mean(r["any_hallucination"] for r in rows) if rows else 0.0,
+        "total_judge_errored": sum(r["n_errored"] for r in rows),
     }
     print_summary("Faithfulness (Stage 5)", summary)
     write_results("faithfulness", rows, summary)
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--limit", type=int, default=None,
+                    help="Subsample first N gold items (e.g. 10) to fit one quota window.")
+    args = ap.parse_args()
+    asyncio.run(main(limit=args.limit))

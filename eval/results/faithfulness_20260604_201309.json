@@ -1,0 +1,65 @@
+{
+  "summary": {
+    "n": 1,
+    "judge_model": "gemini-2.5-flash",
+    "mean_faithfulness": 0.8166666666666667,
+    "hallucination_rate": 1.0,
+    "total_judge_errored": 0
+  },
+  "rows": [
+    {
+      "id": "qa_001",
+      "n_claims": 60,
+      "n_supported": 49,
+      "n_errored": 0,
+      "faithfulness": 0.8166666666666667,
+      "any_hallucination": 1.0,
+      "failures": [
+        {
+          "claim": "Fibrinolytic therapy with tenecteplase (TNK-tPA) — weight-based single IV bolus over 5 secs; dose per body weight table. Use only if primary PCI cannot be achieved within 120 minutes",
+          "reason": "While the evidence supports the specific weight-based regimen for tenecteplase (TNK-tPA) as a single IV bolus over 5 seconds, it does not state that it should be used 'only if' primary PCI cannot be achieved within 120 minutes, as fibrinolytic therapy is also considered equally effective for early presenters (<3 hours) who are low-risk, even if PCI can be performed within 60 minutes."
+        },
+        {
+          "claim": "UFH IV — 60 U/kg bolus (max 4000 U), infusion 12 U/kg/h (max 1000 U/h) to maintain APTT 1.5–2.5x control — antithrombotic support during/after reperfusion",
+          "reason": "The evidence mentions IV UFH for antithrombotic support during primary PCI with a target ACT above 275 seconds, and for fibrinolysis, but does not specify the exact bolus dose, infusion rate, or an APTT target of 1.5–2.5x control."
+        },
+        {
+          "claim": "Beta-blocker (metoprolol initiation 25 mg BD, target 100 mg BD; or bisoprolol 1.25 mg OD, target 10 mg OD; or carvedilol 3.125 mg BD, target 25 mg BD) — oral, when haemodynamically stable (SBP >90 mmHg)",
+          "reason": "The evidence supports the use of beta-blockers when hemodynamically stable (SBP >90 mmHg) and their uptitration to maximal tolerated doses, but it does not specify the named beta-blockers (metoprolol, bisoprolol, carvedilol) or their exact initiation and target dosages."
+        },
+        {
+          "claim": "ACE inhibitor (ramipril 2.5 mg BD, target 10 mg OD; or perindopril 2 mg OD, target 8–10 mg OD) — started within first 24 hours; continued indefinitely in high-risk patients with anterior infarct and diabetes",
+          "reason": "The evidence does not specify the exact ACE inhibitor names (ramipril, perindopril), their specific doses, or the timing of initiation as 'within first 24 hours'."
+        },
+        {
+          "claim": "High-intensity statin (atorvastatin 40–80 mg daily or rosuvastatin 20–40 mg daily) — initiated as early as possible, regardless of baseline cholesterol; target LDL-C <1.8 mmol/L",
+          "reason": "The evidence mentions 'high dose statin' and the importance of managing lipid profiles, but it does not specify the names or exact dosages of high-intensity statins (e.g., atorvastatin 40–80 mg, rosuvastatin 20–40 mg) nor does it state a target LDL-C of <1.8 mmol/L."
+        },
+        {
+          "claim": "Sublingual GTN 0.5 mg (tablet or spray) — one dose if chest pain persists; may repeat up to 3 times at 5-min intervals; avoid if SBP <90 mmHg",
+          "reason": "The evidence states to give one dose of sublingual GTN if chest pain persists and to avoid if SBP < 90 mmHg, but it does not specify the dosage of 0.5 mg or mention repeating the dose up to 3 times at 5-min intervals."
+        },
+        {
+          "claim": "Oxygen 2–4 L/min via nasal prongs — maintain SpO₂ >95%; only if hypoxaemic (SpO₂ <95%)",
+          "reason": "The evidence supports administering oxygen via nasal prongs to maintain SpO₂ >95% only if hypoxaemic (SpO₂ <95%), but it does not specify a flow rate of 2–4 L/min."
+        },
+        {
+          "claim": "Cardiac rehabilitation — early referral post-STEMI improves physical and psychological well-being",
+          "reason": "The evidence states that early referral for cardiac rehabilitation is advisable or appropriate, but does not explicitly mention that it improves physical and psychological well-being."
+        },
+        {
+          "claim": "58-year-old male with anterior STEMI — cardiac rehabilitation reduces mortality by 20–25%",
+          "reason": "The evidence states that early referral to cardiac rehabilitation is advisable and that patients should be referred where appropriate, but it does not quantify a reduction in mortality by 20-25% for STEMI patients or any other group."
+        },
+        {
+          "claim": "Following an acute cardiac event or post cardiac surgery, patients should be referred to a cardiac rehabilitative physician for exercise prescription. [gate: ECG: ST elevation V2-V5, chest pain, diaphoresis]",
+          "reason": "The evidence states that early referral for cardiac rehabilitation is 'advisable' or 'where appropriate', which is a weaker recommendation than the claim's assertion that patients 'should be referred' for exercise prescription."
+        },
+        {
+          "claim": "Monitor Serum creatinine and potassium (Within 2 weeks of ACE-I initiation)",
+          "reason": "The evidence states that renal function and potassium should be monitored in patients on ACE-I, but it does not specify a timeframe such as 'within 2 weeks of ACE-I initiation'."
+        }
+      ]
+    }
+  ]
+}
