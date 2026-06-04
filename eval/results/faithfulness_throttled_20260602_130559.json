@@ -1,0 +1,82 @@
+{
+  "summary": {
+    "n": 10,
+    "judge_model": "mimo-v2.5-pro",
+    "mean_faithfulness": 0.3668548842461886,
+    "hallucination_rate": 1.0
+  },
+  "rows": [
+    {
+      "id": "qa_001",
+      "n_claims": 44,
+      "n_supported": 17,
+      "faithfulness": 0.38636363636363635,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_002",
+      "n_claims": 14,
+      "n_supported": 10,
+      "faithfulness": 0.7142857142857143,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_003",
+      "n_claims": 46,
+      "n_supported": 20,
+      "faithfulness": 0.43478260869565216,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_004",
+      "n_claims": 34,
+      "n_supported": 17,
+      "faithfulness": 0.5,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_005",
+      "n_claims": 1,
+      "n_supported": 0,
+      "faithfulness": 0.0,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_006",
+      "n_claims": 28,
+      "n_supported": 19,
+      "faithfulness": 0.6785714285714286,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_007",
+      "n_claims": 24,
+      "n_supported": 12,
+      "faithfulness": 0.5,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_008",
+      "n_claims": 33,
+      "n_supported": 15,
+      "faithfulness": 0.45454545454545453,
+      "any_hallucination": 1.0
+    },
+    {
+      "id": "qa_009",
+      "n_claims": 0,
+      "n_supported": 0,
+      "faithfulness": 0.0,
+      "any_hallucination": 1.0,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '429', 'message': 'Too many requests', 'type': 'limitation'}}"
+    },
+    {
+      "id": "qa_010",
+      "n_claims": 0,
+      "n_supported": 0,
+      "faithfulness": 0.0,
+      "any_hallucination": 1.0,
+      "error": "RateLimitError: Error code: 429 - {'error': {'code': '429', 'message': 'Too many requests', 'type': 'limitation'}}"
+    }
+  ]
+}
