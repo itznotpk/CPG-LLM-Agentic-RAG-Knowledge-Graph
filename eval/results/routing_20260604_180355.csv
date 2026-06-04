@@ -1,0 +1,45 @@
+id,icd,expected,predicted_top3,top1_match,hit@3,match_type
+route_001,BA41.0,"STEMI(4th Edition),NSTEMI(2011),NSTE-ACS(3rd Edition)",STEMI(4th Edition) | NSTEMI(2011) | NSTE-ACS(3rd Edition),1.0,1.0,exact
+route_002,BA41,"NSTEMI(2011),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",NSTEMI(2011) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
+route_003,BA42,"Stable-Coronary-Artery-Disease(2nd Edition),Percutaneous-Coronary-Intervention,Primary-Secondary-Prevention-of-CVD(2017)",Stable-Coronary-Artery-Disease(2nd Edition) | Percutaneous-Coronary-Intervention | Primary-Secondary-Prevention-of-CVD(2017),1.0,1.0,exact
+route_004,BA41.1,"NSTEMI(2011),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",NSTEMI(2011) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
+route_005,BA40.0,"NSTE-ACS(3rd Edition),Stable-Coronary-Artery-Disease(2nd Edition),Percutaneous-Coronary-Intervention",NSTE-ACS(3rd Edition) | Stable-Coronary-Artery-Disease(2nd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
+route_006,BD10,"Heart-Failure(5th Edition),Heart-Disease-in-Pregnancy(2nd Edition),CVD-Prevention-Women(2016)",Heart-Failure(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_007,BD11,"Heart-Failure(5th Edition),CVD-Prevention-Women(2016),Primary-Secondary-Prevention-of-CVD(2017)",Heart-Failure(5th Edition) | CVD-Prevention-Women(2016) | Primary-Secondary-Prevention-of-CVD(2017),1.0,1.0,exact
+route_008,JB44.3,Heart-Disease-in-Pregnancy(2nd Edition),Heart-Disease-in-Pregnancy(2nd Edition),1.0,1.0,exact
+route_009,BA00,"Hypertension(5th Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_010,BA00.Z,"Hypertension(5th Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Hypertension(5th Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_011,BA03,"Hypertension(5th Edition),Heart-Disease-in-Pregnancy(2nd Edition),Primary-Secondary-Prevention-of-CVD(2017)",Hypertension(5th Edition) | Heart-Disease-in-Pregnancy(2nd Edition) | Primary-Secondary-Prevention-of-CVD(2017),1.0,1.0,exact
+route_012,5C80,"Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_013,5C80.0,"Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,sibling
+route_014,5C80.1,"Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_015,5C80.2,"Dyslipidaemia(6th-Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Dyslipidaemia(6th-Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_016,BC81.30,"Atrial-Fibrillation(2012),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_017,BC81.31,"Atrial-Fibrillation(2012),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_018,BC81.32,"Atrial-Fibrillation(2012),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Atrial-Fibrillation(2012) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_019,BA40.1,"Stable-Coronary-Artery-Disease(2nd Edition),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",Stable-Coronary-Artery-Disease(2nd Edition) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
+route_020,BA40,"Stable-Coronary-Artery-Disease(2nd Edition),NSTE-ACS(3rd Edition),Percutaneous-Coronary-Intervention",Stable-Coronary-Artery-Disease(2nd Edition) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention,1.0,1.0,exact
+route_021,BB01.0,Pulmonary-Arterial-Hypertension(2011),Pulmonary-Arterial-Hypertension(2011),1.0,1.0,exact
+route_022,BB01,Pulmonary-Arterial-Hypertension(2011),Pulmonary-Arterial-Hypertension(2011),1.0,1.0,exact
+route_023,JA24,Heart-Disease-in-Pregnancy(2nd Edition),Heart-Disease-in-Pregnancy(2nd Edition),1.0,1.0,exact
+route_024,JA24.0,Heart-Disease-in-Pregnancy(2nd Edition),Heart-Disease-in-Pregnancy(2nd Edition),1.0,1.0,ancestor_d1
+route_025,JA24.1,Heart-Disease-in-Pregnancy(2nd Edition),Heart-Disease-in-Pregnancy(2nd Edition),1.0,1.0,ancestor_d1
+route_026,BB40,Prevention-Diagnosis-Management-of-IE,Prevention-Diagnosis-Management-of-IE,1.0,1.0,exact
+route_027,BB41,Prevention-Diagnosis-Management-of-IE,Prevention-Diagnosis-Management-of-IE,1.0,1.0,exact
+route_028,BB42,Prevention-Diagnosis-Management-of-IE,Prevention-Diagnosis-Management-of-IE,1.0,1.0,exact
+route_029,8B11,"Ischaemic-Stroke(3rd Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Ischaemic-Stroke(3rd Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_030,8B11.0,"Ischaemic-Stroke(3rd Edition),Primary-Secondary-Prevention-of-CVD(2017),CVD-Prevention-Women(2016)",Ischaemic-Stroke(3rd Edition) | Primary-Secondary-Prevention-of-CVD(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact
+route_031,8B20,Ischaemic-Stroke(3rd Edition),Ischaemic-Stroke(3rd Edition),1.0,1.0,semantic_scope
+route_032,2C61,"Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_033,2C61.0,"Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_034,2C61.3,"Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_035,2C61.1,"Breast-Cancer(3rd Edition),Cancer-Pain(2nd Edition)",Breast-Cancer(3rd Edition) | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_036,2B90,"Colorectal-Carcinoma(2017),Cancer-Pain(2nd Edition)",Colorectal-Carcinoma(2017) | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_037,2B92,"Colorectal-Carcinoma(2017),Cancer-Pain(2nd Edition)",Colorectal-Carcinoma(2017) | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_038,MG30.1,Cancer-Pain(2nd Edition),Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_039,MG30,Cancer-Pain(2nd Edition),Cancer-Pain(2nd Edition),1.0,1.0,semantic_scope
+route_040,2B6B,"Nasopharyngeal-Carcinoma,Cancer-Pain(2nd Edition)",Nasopharyngeal-Carcinoma | Cancer-Pain(2nd Edition),1.0,1.0,exact
+route_041,HA01.1Z,Erectile-Dysfunction(2024),Erectile-Dysfunction(2024),1.0,1.0,exact
+route_042,HA01.12,Erectile-Dysfunction(2024),Erectile-Dysfunction(2024),1.0,1.0,exact
+route_043,HA01.13,Erectile-Dysfunction(2024),Erectile-Dysfunction(2024),1.0,1.0,exact
+route_044,5A11,"T2-Diabetes-Mellitus(6th-Edition),Diabetes-in-Pregnancy(2017),CVD-Prevention-Women(2016)",T2-Diabetes-Mellitus(6th-Edition) | Diabetes-in-Pregnancy(2017) | CVD-Prevention-Women(2016),1.0,1.0,exact

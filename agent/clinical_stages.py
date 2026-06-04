@@ -3503,7 +3503,9 @@ async def _generate_retrieval_queries(
     model = os.getenv("STAGE4_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
     provider = os.getenv("STAGE4_LLM_PROVIDER", "")
 
-    client = _make_openai_client(base_url=base_url, api_key=api_key, provider=provider)
+    client = _make_openai_client(
+        base_url=base_url, api_key=api_key, provider=provider,
+    )
 
     icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
     cpg_names = ", ".join(c.cpg_name for c in cpgs)
