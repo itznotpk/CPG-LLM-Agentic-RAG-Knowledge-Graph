@@ -3572,6 +3572,36 @@ Generate exactly {n} queries (one per domain as instructed)."""
     return [q for q in queries if isinstance(q, str)][:n]
 
 
+# Category-boost weights for the Stage-4 re-rank (Layer C). Section categories
+# carrying actionable guidance (Treatment/Assessment/Diagnosis) are promoted;
+# background sections (Pathophysiology/Epidemiology/Methodology) are demoted.
+# Module-level so the Layer C re-rank ablation can score the boosted vs raw order
+# on the same pool without re-declaring the weights (single source of truth).
+_CATEGORY_BOOST: dict[str, float] = {
+    "Treatment": 1.4,
+    "Supportive Treatment": 1.3,
+    "Assessment": 1.2,
+    "Diagnosis": 1.2,
+    "Prevention": 1.2,
+    "Special Populations": 1.1,
+    "Reference": 1.0,
+    "Introduction": 0.5,
+    "Pathophysiology": 0.4,
+    "Epidemiology": 0.4,
+    "Methodology": 0.3,
+}
+
+
+def stage4_boosted_score(chunk: ChunkResult) -> float:
+    """Category-boosted score for a chunk: raw vector score × max category weight,
+    clamped to 1.0. Chunks with no category fall back to the raw score."""
+    cats = chunk.metadata.get("category", [])
+    if not cats:
+        return chunk.score
+    boost = max(_CATEGORY_BOOST.get(cat, 1.0) for cat in cats)
+    return min(chunk.score * boost, 1.0)
+
+
 async def stage_4_retrieve(
     case: PatientCase,
     ddx: list[DDxResult],
@@ -3579,8 +3609,16 @@ async def stage_4_retrieve(
     queries_per_code: int = 7,
     chunks_per_query: int = 5,
     emit=None,                      # async callable | None
-) -> list[ChunkResult]:
-    """Generate targeted queries and retrieve scoped evidence chunks."""
+    return_pool: bool = False,      # eval hook: also return the pre-truncation candidate pool
+) -> list[ChunkResult] | tuple[list[ChunkResult], list[ChunkResult]]:
+    """Generate targeted queries and retrieve scoped evidence chunks.
+
+    When ``return_pool`` is True returns ``(final_top20, all_candidates)`` where
+    all_candidates is the deduped pool *before* the boost-sort + top-20 cut. Used
+    by the Layer C re-rank ablation (eval/run_stage4_rerank_ablation.py) to compare
+    raw-score vs category-boosted ordering on the identical candidate set. Default
+    False preserves the plain list return for every production caller.
+    """
     if not cpgs:
         logger.warning("stage_4_retrieve: no CPGs to scope search — returning empty")
         return []
@@ -3658,28 +3696,7 @@ async def stage_4_retrieve(
                 "status": "complete",
             })
 
-    _CATEGORY_BOOST: dict[str, float] = {
-        "Treatment": 1.4,
-        "Supportive Treatment": 1.3,
-        "Assessment": 1.2,
-        "Diagnosis": 1.2,
-        "Prevention": 1.2,
-        "Special Populations": 1.1,
-        "Reference": 1.0,
-        "Introduction": 0.5,
-        "Pathophysiology": 0.4,
-        "Epidemiology": 0.4,
-        "Methodology": 0.3,
-    }
-
-    def _boosted_score(chunk: ChunkResult) -> float:
-        cats = chunk.metadata.get("category", [])
-        if not cats:
-            return chunk.score
-        boost = max(_CATEGORY_BOOST.get(cat, 1.0) for cat in cats)
-        return min(chunk.score * boost, 1.0)
-
-    all_chunks.sort(key=_boosted_score, reverse=True)
+    all_chunks.sort(key=stage4_boosted_score, reverse=True)
     final = all_chunks[:20]
 
     if thin_queries:
@@ -3696,6 +3713,8 @@ async def stage_4_retrieve(
             "status": "complete",
         })
 
+    if return_pool:
+        return final, all_chunks
     return final
 
 
