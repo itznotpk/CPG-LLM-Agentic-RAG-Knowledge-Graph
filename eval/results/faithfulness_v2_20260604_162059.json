@@ -1,0 +1,126 @@
+{
+  "summary": {
+    "judge_model": "mimo-v2.5-pro",
+    "n": 10,
+    "total_claims": 385,
+    "claims_supported": 252,
+    "claims_not_supported": 131,
+    "claims_unverified": 2,
+    "mean_faithfulness": 0.6579634464751958,
+    "unsupported_rate": 0.34203655352480417,
+    "severe_hallucination_rate": 0.8,
+    "coverage_rate": 1.0
+  },
+  "rows": [
+    {
+      "id": "qa_001",
+      "n_claims": 57,
+      "n_supported": 31,
+      "n_not_supported": 25,
+      "n_unverified": 1,
+      "faithfulness": 0.5536,
+      "unsupported_rate": 0.4464,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 0.9825
+    },
+    {
+      "id": "qa_002",
+      "n_claims": 39,
+      "n_supported": 19,
+      "n_not_supported": 19,
+      "n_unverified": 1,
+      "faithfulness": 0.5,
+      "unsupported_rate": 0.5,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 0.9744
+    },
+    {
+      "id": "qa_003",
+      "n_claims": 32,
+      "n_supported": 21,
+      "n_not_supported": 11,
+      "n_unverified": 0,
+      "faithfulness": 0.6562,
+      "unsupported_rate": 0.3438,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_004",
+      "n_claims": 40,
+      "n_supported": 28,
+      "n_not_supported": 12,
+      "n_unverified": 0,
+      "faithfulness": 0.7,
+      "unsupported_rate": 0.3,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_005",
+      "n_claims": 43,
+      "n_supported": 29,
+      "n_not_supported": 14,
+      "n_unverified": 0,
+      "faithfulness": 0.6744,
+      "unsupported_rate": 0.3256,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_006",
+      "n_claims": 31,
+      "n_supported": 19,
+      "n_not_supported": 12,
+      "n_unverified": 0,
+      "faithfulness": 0.6129,
+      "unsupported_rate": 0.3871,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_007",
+      "n_claims": 30,
+      "n_supported": 25,
+      "n_not_supported": 5,
+      "n_unverified": 0,
+      "faithfulness": 0.8333,
+      "unsupported_rate": 0.1667,
+      "severe_hallucination": 0.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_008",
+      "n_claims": 35,
+      "n_supported": 21,
+      "n_not_supported": 14,
+      "n_unverified": 0,
+      "faithfulness": 0.6,
+      "unsupported_rate": 0.4,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_009",
+      "n_claims": 39,
+      "n_supported": 23,
+      "n_not_supported": 16,
+      "n_unverified": 0,
+      "faithfulness": 0.5897,
+      "unsupported_rate": 0.4103,
+      "severe_hallucination": 1.0,
+      "coverage_ratio": 1.0
+    },
+    {
+      "id": "qa_010",
+      "n_claims": 39,
+      "n_supported": 36,
+      "n_not_supported": 3,
+      "n_unverified": 0,
+      "faithfulness": 0.9231,
+      "unsupported_rate": 0.0769,
+      "severe_hallucination": 0.0,
+      "coverage_ratio": 1.0
+    }
+  ]
+}

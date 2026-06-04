@@ -1,0 +1,40 @@
+# Coverage is scoped to the runtime agent code that the test suite can
+# meaningfully exercise. The omits below are modules that legitimately
+# can't be unit-tested without standing up external services
+# (SMTP server, Neo4j, live LLM, GCS, FastAPI lifespan) or are offline
+# batch tooling that runs against the live database during the
+# CPG ingestion pipeline, not pytest.
+#
+# Block-level comments at column 0 are fine. Comments inside the indented
+# `omit` continuation block get parsed as paths by coverage.py, so DO NOT
+# add inline `#` comments next to a path.
+
+[run]
+omit =
+    agent/api.py
+    agent/delivery.py
+    agent/delivery_worker.py
+    agent/gcs_audio.py
+    agent/graph_navigator.py
+    agent/offline_log.py
+    agent/db_utils.py
+    agent/graph_utils.py
+    agent/providers.py
+    agent/tools.py
+    agent/agent.py
+    ingestion/cpg_parser.py
+    ingestion/embedder.py
+    ingestion/ingest.py
+    ingestion/regenerate_scope_review.py
+    ingestion/chunker.py
+    ingestion/graph_builder.py
+    ingestion/classify_cpg_scope.py
+    ingestion/extract_referrals.py
+    ingestion/verify_cpg_scope.py
+
+[report]
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:
+    raise NotImplementedError
+    \.\.\.

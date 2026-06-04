@@ -1,0 +1,11 @@
+id,predicted_icd,predicted_cpgs,icd_routing_correct,cpg_routing_correct,expected_actions_present,forbidden_present,safety_criteria_met,overall_pass,elapsed_ms,stage_errors
+qa_001,BA41.0,STEMI(4th Edition) | NSTEMI(2011) | NSTE-ACS(3rd Edition) | T2-Diabetes-Mellitus,1.0,1.0,0.0,0.0,0.0,0.0,191562.99999999464,
+qa_002,BD11.2,Heart-Failure(5th Edition),0.0,0.0,0.0,0.0,0.0,0.0,141937.00000000536,
+qa_003,GB61.1,T2-Diabetes-Mellitus(6th-Edition) | Hypertension(5th Edition),0.0,0.0,0.0,0.0,0.0,0.0,158389.99999998487,
+qa_004,BA40,Stable-Coronary-Artery-Disease(2nd Edition) | NSTE-ACS(3rd Edition) | Percutaneo,0.0,0.0,0.0,0.0,0.0,0.0,113125.0,
+qa_005,BA00.Y,Hypertension(5th Edition) | T2-Diabetes-Mellitus(6th-Edition),0.0,1.0,0.0,0.0,0.0,0.0,131483.99999999674,
+qa_006,BA40.0,NSTE-ACS(3rd Edition) | Stable-Coronary-Artery-Disease(2nd Edition) | Percutaneo,0.0,0.0,0.0,0.0,0.0,0.0,114578.00000000861,
+qa_007,BC81.3,Atrial-Fibrillation(2012) | Hypertension(5th Edition),0.0,0.0,0.0,0.0,0.0,0.0,148296.99999999139,
+qa_008,BA40,Stable-Coronary-Artery-Disease(2nd Edition) | NSTE-ACS(3rd Edition) | Percutaneo,0.0,0.0,0.0,0.0,0.0,0.0,85578.00000000861,
+qa_009,BA41.1,NSTEMI(2011) | NSTE-ACS(3rd Edition) | Percutaneous-Coronary-Intervention | Stab,1.0,0.0,0.0,0.0,0.0,0.0,92953.00000000861,
+qa_010,BB01.0,Pulmonary-Arterial-Hypertension(2011),1.0,0.0,0.0,0.0,0.0,0.0,151437.99999999464,
