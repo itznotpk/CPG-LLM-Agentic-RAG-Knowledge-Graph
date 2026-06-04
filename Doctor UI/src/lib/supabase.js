@@ -944,6 +944,164 @@ export const saveConsultationSeverity = async (consultationId, severityStaging) 
   return { error };
 };
 
+/**
+ * Persist a clinician feedback event from the care-plan approval box to the
+ * `human_signals` table (the "Human Signals" feed of the Layer-3 feedback
+ * ecosystem). Uses a DIRECT INSERT (NOT the update_consultation RPC) so it never
+ * touches the RPC overload-rebuild trap. Append-only: every approve / reject /
+ * regenerate action is one row. Requires add_human_signals.sql to have been run.
+ *
+ * Best-effort: failures are logged but never thrown — capturing feedback must not
+ * block the clinician's workflow.
+ *
+ * @param {Object} opts
+ * @param {number}  opts.consultationId  consultations.id (INTEGER)
+ * @param {string}  opts.nric            patient NRIC
+ * @param {'approved'|'rejected'|'regenerate'} opts.action
+ * @param {string}  [opts.comment]       free-text clinician comment
+ * @param {string}  [opts.clinicianId]   profiles.id (uuid)
+ * @param {string}  [opts.clinicianName]
+ * @param {boolean} [opts.safetyOverridden]  true if a Stage-6-blocked plan was shipped
+ * @param {Array}   [opts.cpgReferences] CPGs the plan cited at approval time
+ */
+export const saveHumanSignal = async ({
+  consultationId,
+  nric,
+  action,
+  comment = null,
+  clinicianId = null,
+  clinicianName = null,
+  safetyOverridden = false,
+  cpgReferences = null,
+}) => {
+  if (!action) return { error: new Error('saveHumanSignal: missing action') };
+  if (!consultationId) {
+    // No consultation row yet — nothing to attribute the feedback to. Skip
+    // rather than insert an orphan (consultation_id is the primary join key).
+    console.warn('⚠️ saveHumanSignal: missing consultationId, skipping');
+    return { error: new Error('saveHumanSignal: missing consultationId') };
+  }
+  const { error } = await supabase.from('human_signals').insert({
+    consultation_id:   consultationId,
+    patient_nric:      nric || null,
+    action,
+    comment:           comment && comment.trim() ? comment.trim() : null,
+    clinician_id:      clinicianId || null,
+    clinician_name:    clinicianName || null,
+    safety_overridden: !!safetyOverridden,
+    cpg_references:    cpgReferences || null,
+  });
+  if (error) console.error('Error saving human signal:', error);
+  return { error };
+};
+
+/**
+ * Aggregate the Layer-3 feedback ecosystem (human_signals + machine_signals)
+ * into the shape the Feedback Insights dashboard renders. Client-side rollup
+ * (mirrors DashboardSection's fetch-and-aggregate approach) so it stays robust
+ * against the cpg_references JSONB shape. Read-only; never mutates either feed.
+ *
+ * @param {Object} [opts]
+ * @param {number} [opts.days=30] lookback window
+ * @returns {Promise<Object>} aggregated insights (always returns a safe shape)
+ */
+export const getFeedbackInsights = async ({ days = 30 } = {}) => {
+  const since = new Date(Date.now() - days * 86400000).toISOString();
+  const empty = {
+    human: { approved: 0, rejected: 0, regenerate: 0, total: 0, approvalRate: 0, safetyOverrides: 0 },
+    recentComments: [],
+    cpgRejection: [],      // [{ cpg, rejected, total, rate }]
+    machine: { total: 0, byType: {} },
+    machineTop: [],        // [{ signal_type, detail, count, severity }]
+    days,
+  };
+
+  try {
+    const [{ data: human, error: hErr }, { data: machine, error: mErr }] = await Promise.all([
+      supabase.from('human_signals').select('*').gte('created_at', since).order('created_at', { ascending: false }),
+      supabase.from('machine_signals').select('*').gte('created_at', since).order('created_at', { ascending: false }),
+    ]);
+    if (hErr) console.error('getFeedbackInsights human_signals error:', hErr);
+    if (mErr) console.error('getFeedbackInsights machine_signals error:', mErr);
+
+    const H = human || [];
+    const M = machine || [];
+
+    // ── Human rollup ──
+    const counts = { approved: 0, rejected: 0, regenerate: 0 };
+    let safetyOverrides = 0;
+    const cpgAgg = {}; // cpgName → { total, rejected }
+    const extractCpgName = (ref) => {
+      if (!ref) return null;
+      if (typeof ref === 'string') return ref;
+      return ref.cpg || ref.cpg_source || ref.name || ref.title || ref.source_document || null;
+    };
+    for (const row of H) {
+      if (counts[row.action] != null) counts[row.action] += 1;
+      if (row.safety_overridden) safetyOverrides += 1;
+      const refs = Array.isArray(row.cpg_references) ? row.cpg_references : [];
+      const seen = new Set();
+      for (const ref of refs) {
+        const name = extractCpgName(ref);
+        if (!name || seen.has(name)) continue; // one consult counts a CPG once
+        seen.add(name);
+        cpgAgg[name] = cpgAgg[name] || { total: 0, rejected: 0 };
+        cpgAgg[name].total += 1;
+        if (row.action === 'rejected' || row.action === 'regenerate') cpgAgg[name].rejected += 1;
+      }
+    }
+    const total = counts.approved + counts.rejected + counts.regenerate;
+    const approvalRate = total ? Math.round((counts.approved / total) * 100) : 0;
+
+    const recentComments = H
+      .filter((r) => r.comment && r.comment.trim())
+      .slice(0, 12)
+      .map((r) => ({
+        action: r.action,
+        comment: r.comment,
+        clinician: r.clinician_name || 'Unknown',
+        safetyOverridden: !!r.safety_overridden,
+        at: r.created_at,
+      }));
+
+    const cpgRejection = Object.entries(cpgAgg)
+      .map(([cpg, v]) => ({ cpg, rejected: v.rejected, total: v.total, rate: v.total ? Math.round((v.rejected / v.total) * 100) : 0 }))
+      .filter((x) => x.total > 0)
+      .sort((a, b) => b.rate - a.rate || b.total - a.total)
+      .slice(0, 8);
+
+    // ── Machine rollup ──
+    const byType = {};
+    const detailAgg = {}; // `${type}::${detail}` → { signal_type, detail, count, severity }
+    for (const row of M) {
+      byType[row.signal_type] = (byType[row.signal_type] || 0) + 1;
+      const key = `${row.signal_type}::${(row.detail || '').slice(0, 120)}`;
+      if (!detailAgg[key]) {
+        detailAgg[key] = { signal_type: row.signal_type, detail: row.detail || '(no detail)', count: 0, severity: row.severity || 'info' };
+      }
+      detailAgg[key].count += 1;
+      // escalate displayed severity to the worst seen for this group
+      const rank = { info: 0, warning: 1, critical: 2 };
+      if ((rank[row.severity] ?? 0) > (rank[detailAgg[key].severity] ?? 0)) detailAgg[key].severity = row.severity;
+    }
+    const machineTop = Object.values(detailAgg)
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 12);
+
+    return {
+      human: { ...counts, total, approvalRate, safetyOverrides },
+      recentComments,
+      cpgRejection,
+      machine: { total: M.length, byType },
+      machineTop,
+      days,
+    };
+  } catch (err) {
+    console.error('getFeedbackInsights failed:', err);
+    return empty;
+  }
+};
+
 // Export types for TypeScript users (these work as documentation in JS too)
 /**
  * @typedef {import('@supabase/supabase-js').User} User

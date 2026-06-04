@@ -34,6 +34,7 @@ import {
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { useAuth } from '../../context/AuthContext';
+import { saveHumanSignal } from '../../lib/supabase';
 import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
 import CareMonitoringPanel from './CareMonitoringPanel';
@@ -1525,12 +1526,29 @@ export function CarePlanSection() {
 
   const handleBack = () => goToStep(2);
 
+  // Persist a clinician feedback event to the human_signals table. Best-effort:
+  // a failed insert must never block the approve/reject/regenerate UI flow.
+  const recordHumanSignal = (action, comment) => {
+    saveHumanSignal({
+      consultationId: state.currentConsultationId,
+      nric: state.patient?.nsn,
+      action,
+      comment,
+      clinicianId: profile?.id,
+      clinicianName,
+      // a plan the Stage-6 critic blocked was shipped only if it was unsafe AND ack'd
+      safetyOverridden: !!(safetyReport && !safetyReport.safe_to_proceed && safetyAcknowledged),
+      cpgReferences: carePlan?.cpgReferences || null,
+    }).catch((err) => console.error('human_signals capture failed:', err));
+  };
+
   const handleStatusChange = (newStatus, comment) => {
     setWorkflowStatus(newStatus);
     setWorkflowHistory((prev) => [
       { status: newStatus, action: newStatus === WORKFLOW_STATES.REVIEWED ? 'Marked as Reviewed' : 'Approved', user: clinicianName, timestamp: new Date().toLocaleString(), comment },
       ...prev,
     ]);
+    if (newStatus === WORKFLOW_STATES.APPROVED) recordHumanSignal('approved', comment);
   };
   const handleReject = (comment) => {
     setWorkflowStatus(WORKFLOW_STATES.DRAFT);
@@ -1538,9 +1556,11 @@ export function CarePlanSection() {
       { status: WORKFLOW_STATES.DRAFT, action: 'Sent back for revision', user: clinicianName, timestamp: new Date().toLocaleString(), comment },
       ...prev,
     ]);
+    recordHumanSignal('rejected', comment);
   };
   const handleRegenerate = async (feedback) => {
     console.log('Regenerating with feedback:', feedback);
+    recordHumanSignal('regenerate', feedback);
     await new Promise((resolve) => setTimeout(resolve, 1500));
   };
 

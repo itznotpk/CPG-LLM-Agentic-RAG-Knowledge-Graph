@@ -799,6 +799,13 @@ async def clinical_plan(request: ClinicalPlanRequest):
             follow_up_parsed=_parse_follow_up(result.treatment_plan.follow_up),
             evidence=[e.model_dump() for e in result.evidence] if hasattr(result, 'evidence') else [],
         )
+    except ConnectionError as e:
+        # Data-store unreachable (pgvector / Neo4j) — this is a transient
+        # infrastructure outage, not a request defect. 503 tells the client it's
+        # safe to retry, rather than masking it as a generic 500 (INF-03).
+        logger.error("Clinical plan data-store unavailable: %s", e)
+        log_failed_job("clinical_plan", request.case, str(e), request_id=_request_id_var.get())
+        raise HTTPException(status_code=503, detail=str(e))
     except RuntimeError as e:
         logger.error("Clinical plan synthesis failed: %s", e)
         log_failed_job("clinical_plan", request.case, str(e), request_id=_request_id_var.get())
@@ -972,6 +979,44 @@ async def _sse_stream(request: Request, producer, log_label: str, consultation_i
     )
 
 
+async def _harvest_machine_signals(result, consultation_id) -> None:
+    """Persist pipeline insights the workflow already computed (gate failures,
+    unresolved/coverage gaps, stage errors) to the machine_signals table — the
+    "Machine Signals" feed of the Layer-3 feedback ecosystem.
+
+    Pure read of structures that already exist on `result`, then async writes
+    AFTER final_result is emitted — never affects clinical content or timing.
+    Fully fail-open: a failure here must not break the producer. Naturally
+    no-ops when SUPABASE_DB_URL is unset (e.g. eval/CLI runs), since
+    log_machine_signal short-circuits on a None pool.
+    """
+    try:
+        from .db_utils import log_machine_signal
+        rid = _request_id_var.get()
+        plan = getattr(result, "treatment_plan", None)
+
+        for line in getattr(plan, "gate_audit", []) or []:
+            await log_machine_signal(
+                "gate_failure", consultation_id=consultation_id, request_id=rid,
+                detail=str(line), severity="info",
+            )
+        for q in getattr(plan, "unresolved_questions", []) or []:
+            await log_machine_signal(
+                "coverage_gap", consultation_id=consultation_id, request_id=rid,
+                detail=str(q), severity="info",
+            )
+        for err in getattr(result, "stage_errors", []) or []:
+            await log_machine_signal(
+                "stage_error", consultation_id=consultation_id, request_id=rid,
+                detail=f"{getattr(err, 'stage', '')}: {getattr(err, 'message', '')}",
+                severity="warning" if getattr(err, "recoverable", True) else "critical",
+                payload={"error_type": getattr(err, "error_type", None),
+                         "recoverable": getattr(err, "recoverable", None)},
+            )
+    except Exception as exc:
+        logger.warning("_harvest_machine_signals failed (non-fatal): %s", exc)
+
+
 @app.post("/clinical/plan/stream")
 async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
     """
@@ -1007,6 +1052,7 @@ async def clinical_plan_stream(request: Request, payload: ClinicalPlanRequest):
             await save_pipeline_timings(
                 payload.consultation_id, result.stage_timings, _request_id_var.get()
             )
+        await _harvest_machine_signals(result, payload.consultation_id)
 
     return await _sse_stream(request, producer, "clinical_plan_stream", consultation_id=payload.consultation_id)
 
@@ -1078,6 +1124,7 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
             await save_pipeline_timings(
                 payload.consultation_id, result.stage_timings, _request_id_var.get()
             )
+        await _harvest_machine_signals(result, payload.consultation_id)
 
     return await _sse_stream(request, producer, "clinical_resynthesize_stream", consultation_id=payload.consultation_id)
 

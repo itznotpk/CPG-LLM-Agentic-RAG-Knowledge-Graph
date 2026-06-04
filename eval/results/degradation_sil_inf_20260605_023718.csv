@@ -1,0 +1,7 @@
+id,class,pass,reason,elapsed_min
+SIL-01,silent degradation,1.0,"preserved_order=True; degraded_signal=True; events=[[""sub_step"", {""stage"": ""stage 2"", ""badge"": ""degraded"", ""detail"": ""ddx re-rank unavailable \u2014 fallback to vector order (ranking unverified)""}]]",0.0
+SIL-02,silent degradation,1.0,evidence_chunks=0; confidence=0.25; unresolved=1; confident_from_empty=False,0.0
+SIL-03,silent degradation,1.0,kg_degraded=True; safe_to_proceed=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run,0.0
+INF-01,infrastructure failure,1.0,kg_degraded=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run,0.0
+INF-02,infrastructure failure,1.0,stage_error_labelled=True; stage5_called=False; stage_errors=stage 4 retrieval:bedrock embedding 429 rate limit,0.0
+INF-03,infrastructure failure,1.0,"status_code=503; expected=503; body={""detail"":""pgvector connection refused""}",0.35
