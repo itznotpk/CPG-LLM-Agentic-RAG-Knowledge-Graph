@@ -1,0 +1,31 @@
+{
+  "summary": {
+    "n": 3,
+    "passes": 1,
+    "pass_rate": 0.3333333333333333,
+    "mean_elapsed_min": 0.06
+  },
+  "rows": [
+    {
+      "id": "INF-01",
+      "class": "infrastructure failure",
+      "pass": 1.0,
+      "reason": "kg_degraded=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "INF-02",
+      "class": "infrastructure failure",
+      "pass": 0.0,
+      "reason": "stage_error_labelled=True; stage5_called=True; stage_errors=stage 4 retrieval:bedrock embedding 429 rate limit",
+      "elapsed_min": 0.0
+    },
+    {
+      "id": "INF-03",
+      "class": "infrastructure failure",
+      "pass": 0.0,
+      "reason": "status_code=500; expected=503; body={\"detail\":\"pgvector connection refused\"}",
+      "elapsed_min": 0.18
+    }
+  ]
+}

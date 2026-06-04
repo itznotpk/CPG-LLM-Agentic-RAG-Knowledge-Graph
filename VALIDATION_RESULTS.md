@@ -26,9 +26,9 @@ keep their existing entries below but aren't the next action.
 | **A2** Routing | Top-1 = **1.000** (44/44), Hit@3 = **1.000**, % exact = 0.886 after gold + matcher fix. | **Hold as regression guard.** `expected_document_titles` derives from the live router, so this eval guards against future scope drift. Re-run only if `icd11_scope` or D-ladder logic changes. |
 | **B** Retrieval | **Vector Recall@10 = 0.874, Hit@10 = 0.953, MRR = 0.682, nDCG@10 = 0.669** on 148-row LLM-judged graded gold. RRF-hybrid ties vector (0.876 / 0.953) but loses on MRR/nDCG — vector retained. | **Recall@10 (0.874) is 0.024 above the ≥0.85 target ✅; Hit@10 (0.953) is at target ✅.** nDCG@10 (0.669) is below ≥0.75 target. Optional: tune the chunker (smaller chunks → higher graded nDCG) or retrain BM25 weighting. |
 | **C** Stage-4 dedup/boost lift | Harness ready ([`eval/run_stage4_eval.py`](eval/run_stage4_eval.py)) — real production Stage-4 path wired with graded nDCG, all-30-CPG anchor map, multi-query lift column. **No numbers yet.** | **First-ever run pending.** Fire `python -m eval.run_stage4_eval` to get the headline `lift_r@20` (multi-query Stage 4 vs single-query baseline). Then optionally extend `_CONDITION_EXPECTED_THERAPIES` (currently HFrEF only) for per-condition anchor coverage. |
-| **D** Faithfulness | **Full n=30, independent Gemini judge (2026-06-05):** mean faith = **0.864** (849/979 claims), median 0.883, sd 0.116, 4 plans at 1.00, 0 judge errors, 0 skips. Pairs with the acute-scope synthesis fix (Commandment 6 + KG-referral gate) + judge fairness rules (dose/drug/threshold still strict). | **Poster framing:** cite **0.86 (n=30, single pass)**, below the ≥0.90 target — honest. For a hardened figure repeat n=30 ×2–3 for mean±sd. Next system lever: triage worst-3 (qa_027/016/012). |
+| **D** Faithfulness | **Full n=30, independent Gemini judge (2026-06-05):** mean faith = **0.864** (849/979 claims), median 0.883, sd 0.116, 4 plans at 1.00, 0 judge errors, 0 skips. Supersedes the earlier n=10 v2 (0.658) — the n=30 rerun was completed. Pairs with the acute-scope synthesis fix (Commandment 6 + KG-referral gate) + judge fairness rules (dose/drug/threshold still strict). | **Poster framing:** cite **0.86 (n=30, single pass)**, below the ≥0.90 target — honest. For a hardened figure repeat n=30 ×2–3 for mean±sd. Next system lever: triage worst-3 (qa_027/016/012). |
 
-**De-prioritised in this track:** E (gold-encoding fix is invasive), Latency (target needs rewrite, not measurement), Determinism (needs API server up), Coverage (already passes 60% gate after `.coveragerc` scoping), Stakeholder (6–8 wk IRB track).
+**De-prioritised in this track:** E (gold-encoding fix is invasive), Determinism (needs API server up), Coverage (already passes 60% gate after `.coveragerc` scoping), Stakeholder (6–8 wk IRB track). Latency now has an n=3 pilot for poster framing, but not a final p95 benchmark.
 
 ---
 
@@ -44,7 +44,7 @@ table for context and caveats.
 | **A2** Routing | ✅ Done (re-run) | Top-1 = **1.000** (44/44), Hit@3 = **1.000**, % exact = 0.886 — after gold correction + matcher normalization + `JB44.3` scope fix |
 | **Scope refusal** | ✅ Done | **11/11 pass** (5 positives + 6 orphans) — perfect separation |
 | **Coverage** | ✅ Done | **64.93%** with `.coveragerc` excluding external-IO adapters + batch tools; gate revised in `pytest.ini` from ≥80% to ≥60% (passes ✅); 339/348 tests pass |
-| **Latency** | ⚠️ Partial | n=3 before rate-limit crash; mean **175 s**, Stage 5 = 45–57% of total |
+| **Latency** | ⚠️ Pilot done | n=3 clean run; mean **2.36 min** (141.9 s), p50 **2.54 min** (152.3 s), conservative p95/max-observed **2.65 min** (158.9 s); Stage 5 synthesis is the largest bottleneck at **~43%** of total |
 | **Plan correctness (cases 09 / 10 / 12)** | ✅ Done from existing traces | 15–18 recommendations/plan, 104–110 s per case |
 | **Targets-vs-results comparison** | ✅ Done | Single table comparing all 13 target rows to what we measured (below) |
 | **Layer D** (faithfulness) | ✅ Done (full n=30, independent judge) | **mean faith = 0.864** (849/979 claims), median 0.883, sd 0.116, 4 plans at 1.00, 0 judge errors/skips. Below ≥0.90 target (honest). |
@@ -267,7 +267,7 @@ but read each row honestly.
 | **% exact route** | none published | A2 | A2 (re-run) | **0.886** | – (no target) | – |
 | **Faithfulness** (mean per-claim) | ≥ 0.90 | D | D full n=30, independent judge | **0.864** | ❌ (close) | −0.04 |
 | **E2E correctness** | ≥ 80% | E | not measured yet | n/a | – | – |
-| **p95 latency** | < 8 s | Non-acc | not measured yet | n/a | – | – |
+| **p95 latency** | < 8 s | Non-acc | Latency pilot (n=3) | **2.54 min** (152.3 s) by harness p95 / **2.65 min** (158.9 s) max-observed | ❌ | target is unrealistic for full Stage 2–6 workflow |
 
 **Reading the gap honestly.** Layer B is measured on the 148-row LLM-judged
 graded gold. Recall@10 (0.874) and Hit@10 (0.953) now **pass** — almost every
@@ -515,33 +515,42 @@ remaining in-scope code can realistically reach.
 the full pipeline (Stages 2 → 6) per gold item with per-stage timestamps and
 reports p50 / p95 / p99 totals + per-stage breakdowns.
 
-**Status:** ⚠️ **partial — 3 of 30 cases ran before silent rate-limit crash.**
-Not statistically meaningful for p95 (need ≥10), but useful for order-of-
-magnitude and per-stage shape.
+**Status:** ⚠️ **pilot — 3 of 30 cases run cleanly on 2026-06-04.**
+Not statistically meaningful for a final p95 (need ≥10), but useful for
+order-of-magnitude timing and per-stage bottleneck shape.
 
 | Metric | Target | Achieved (n=3) | Pass |
 |---|---|---|---|
-| Total wall-time, mean | n/a | **175.4 s** | – |
-| Total wall-time, range | n/a | 143.9 s – 203.4 s | – |
-| Total wall-time p95 | < **8 s** | **≫ 8 s** (every sample) | ❌ |
+| Total wall-time, mean | n/a | **2.36 min** (141.9 s) | – |
+| Total wall-time, range | n/a | **1.91–2.65 min** (114.5–158.9 s) | – |
+| Total wall-time p50 | n/a | **2.54 min** (152.3 s) | – |
+| Total wall-time p95 | < **8 s** | **2.54 min** (152.3 s) by harness p95; **2.65 min** (158.9 s) conservative max-observed | ❌ |
+
+**Raw output:** [`eval/results/latency_20260604_183851.csv`](eval/results/latency_20260604_183851.csv) ·
+[`eval/results/latency_20260604_183851.json`](eval/results/latency_20260604_183851.json)
 
 ### Per-stage breakdown (n=3)
 
 | Stage | Mean ms | % of total | Note |
 |---|---|---|---|
-| Stage 5 synthesize | **90,500** | 45–57% | LLM synthesis dominates |
-| Stage 2 DDx | 37,979 | 16–28% | Vector + rerank |
-| Stage 4 retrieve | 30,240 | 14–23% | LLM-generated queries + vector search |
-| Stage 6 safety | 14,229 | 5–10% | LLM critic ‖ KG verify |
-| Stage 3 route | 849 | <1% | Pure DB |
-| KG lookup | 1,224 | 1% | Neo4j |
-| Graph navigator | 328 | <1% | Neo4j |
+| Stage 5 synthesize | **1.02 min** (61,422 ms) | **43.3%** | Dominant LLM care-plan generation call |
+| Stage 4 retrieve | **0.74 min** (44,625 ms) | **31.5%** | Query generation + scoped evidence retrieval |
+| Stage 2 DDx | **0.37 min** (22,354 ms) | **15.8%** | ICD candidate extraction + rerank |
+| Stage 6 safety | **0.20 min** (12,021 ms) | **8.5%** | LLM critic ‖ KG verify |
+| KG lookup | 1,125 | 0.8% | Neo4j |
+| Stage 3 route | 250 | 0.2% | Deterministic scope routing |
+| Graph navigator | 68 | <0.1% | Neo4j |
+
+**Poster sentence:** In the 3-case latency pilot, **Stage 5 care-plan synthesis**
+was the main bottleneck, contributing **~43%** of total runtime, followed by
+Stage 4 evidence retrieval at **~31%**.
 
 **Reading the gap honestly.** The VALIDATION.md target of `p95 < 8 s` is
 calibrated for a **retrieval-only** RAG system, not a full Stage 2–6 pipeline
 that includes two heavy LLM calls (Stage 5 synthesis + Stage 6 critic). The
-realistic in-spec total for this pipeline is closer to **~60–180 s**, which
-the POSTER_LAYOUT.md "<60 s end-to-end" callout reflects more honestly.
+realistic in-spec total for this pipeline is closer to **~60–180 s** in the
+current synchronous implementation; the POSTER_LAYOUT.md "<60 s end-to-end"
+callout should be treated as an optimisation target, not a measured result.
 **Stage 5 is the single largest cost driver and the best optimisation target.**
 
 > **Recommendation:** revise the published target to `p95 < 60 s end-to-end`
@@ -738,10 +747,13 @@ impractical for iterative eval. Removed from the gold set.
 | 2026-06-02 | Coverage | Total 44.56% (gate ≥80% ❌); 339/348 tests pass; ingestion/ batch tools account for the gap |
 | 2026-06-02 14:50 | **Coverage re-scoped** | Added `.coveragerc` excluding external-IO adapters + batch tools; revised `pytest.ini` gate from ≥80% to ≥60%; **64.93%** — passes ✅ |
 | 2026-06-02 | Latency | Partial (n=3); mean 175 s, range 144–203 s; Stage 5 = 45–57% of total; published `<8 s` target needs revision to ≤60 s |
+| 2026-06-04 | Latency | Pilot run (n=3); mean **2.36 min** (141.9 s), p50 **2.54 min** (152.3 s), max-observed **2.65 min** (158.9 s); Stage 5 synthesis is the main bottleneck (**~43%**), followed by Stage 4 retrieval (**~31%**). Raw: `latency_20260604_183851.*` |
 | 2026-06-02 | D faithfulness | Rate-limited (429); retry pending |
 | 2026-06-02 | E e2e | Rate-limited (same window as D); retry pending |
 | 2026-06-02 | Case 09/10/12 | Latest live traces pulled from disk; case 08 + 11 cleaned in recent git pull, re-run queued |
 | 2026-06-02 (commit `424768c`) | **A1 lineage matcher** | New per-row `lin_hit@5/@10` + `lin_mrr` + `graded@5` columns wired. Lineage Hit@5 = **0.971 (34/35)**, MRR = 0.810, graded@5 = 0.900. Raw: `ddx_20260602_194144.*` |
 | 2026-06-02 (commit `424768c`) | **B retrieval re-run on 148 graded gold** | Vector Recall@10 = **0.874** ✅ (≥0.85), Hit@10 = **0.953** ✅, MRR = 0.682, nDCG@10 = 0.669. RRF-hybrid ties (Recall@10 = 0.876) but loses on MRR/nDCG — vector retained. Raw: `retrieval_vector_20260602_200110.*` · `retrieval_hybrid_20260602_200834.*` |
 | 2026-06-02 | **Focus track set** | A1, A2, B, C, D = active priority. E / Latency / Determinism / Coverage / Stakeholder = sidebar (kept in doc, no next action) |
+| 2026-06-04 | **D v2 (methodology fix)** | New `eval/run_faithfulness_eval_v2.py` with rigorous-critic prompt + 3-way verdict (SUPPORTED/NOT_SUPPORTED/UNVERIFIED) + better aggregates (mean faith, severe_halluc_rate, coverage_rate). Same MiMo judge (zero extra credit). n=10 → **mean faith = 0.658** (v1 was 0.367), **severe_halluc = 0.80**, **coverage = 100%**. |
+| 2026-06-04 | **D decision (later revised)** | Initially decided to keep n=10 v2 as headline (±0.05 expected drift at n=30). **Revised 2026-06-05 — the n=30 rerun was completed (see below).** |
 | 2026-06-05 | **D final (full n=30, independent judge)** | `eval/run_faithfulness_eval.py` upgraded: independent Gemini judge (≠ MiMo author), retry+backoff, concurrency cap, judge-error exclusion. Paired with acute-scope synthesis fix (`stage5_synthesis.txt` Commandment 6 + `clinical_stages.py` `_is_acute_presentation` KG-referral gate) + judge fairness rules (parameter/schedule split + eligibility leniency; dose/drug/threshold kept strict). Full n=30 → **mean faith = 0.864** (849/979 claims), median 0.883, sd 0.116, 0 judge errors/skips. Headline metric for the poster. Raw: `faithfulness_20260605_003723.*`. (Earlier exploratory runs — binary same-model judge, and mimo rigorous-critic n=10 = 0.658 — retired; not directly comparable.) |

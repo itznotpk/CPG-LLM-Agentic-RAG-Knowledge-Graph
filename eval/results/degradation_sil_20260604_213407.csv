@@ -1,0 +1,4 @@
+id,class,pass,reason,elapsed_min
+SIL-01,silent degradation,0.0,preserved_order=True; degraded_signal=False; events=[],0.0
+SIL-02,silent degradation,0.0,evidence_chunks=0; confidence=0.92; unresolved=0; confident_from_empty=True,0.0
+SIL-03,silent degradation,1.0,kg_degraded=True; safe_to_proceed=True; notes=Neo4j KG verification unavailable — graph-source safety checks were skipped this run,0.0
