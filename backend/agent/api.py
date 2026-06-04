@@ -325,14 +325,19 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 
 
 # ── rPPG vital scanner ──────────────────────────────────────────────────────
-# Mount the standalone rPPG POC (CPG LLM/rppg_poc/rppg_vitals.py) as a sub-app
+# Mount the standalone rPPG POC (<repo-root>/rppg-poc/rppg_vitals.py) as a sub-app
 # so it runs inside this backend. With the API on :8058 the scanner is reachable
 # at  ws://<host>:8058/rppg/ws  and  http://<host>:8058/rppg/api/vitals .
 # Optional: if its deps (opencv/scipy/etc.) aren't installed the API still boots.
 try:
     import sys as _sys
+    # __file__ is backend/agent/api.py -> climb three levels to repo root,
+    # where rppg-poc/ lives alongside backend/ and frontend/.
     _rppg_dir = os.path.join(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "rppg-poc"
+        os.path.dirname(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        ),
+        "rppg-poc",
     )
     if _rppg_dir not in _sys.path:
         _sys.path.insert(0, _rppg_dir)
