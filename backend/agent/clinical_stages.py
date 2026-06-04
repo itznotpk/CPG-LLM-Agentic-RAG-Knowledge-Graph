@@ -1374,6 +1374,22 @@ _DISEASE_ALIAS_MAP: dict[str, str] = {
     "cancer-related pain": "Chronic cancer related pain",
     "cancer related pain": "Chronic cancer related pain",
     "malignancy-related pain": "Chronic cancer related pain",
+    # Bahasa Malaysia / Manglish primary-care comorbidity terms (LNG robustness).
+    # These are the documented Malaysian lay names for chronic comorbidities that
+    # DDx vector search under-recalls (LNG-03 logged kencing manis / darah tinggi /
+    # kolesterol tinggi skipped as weak matches). Disease terms only — symptom
+    # phrases (e.g. "sakit dada") are intentionally left out so the passing
+    # Manglish ACS cases (LNG-01/02) keep their current behaviour.
+    "kencing manis": "Type 2 diabetes mellitus",
+    "darah tinggi": "Essential hypertension",
+    "tekanan darah tinggi": "Essential hypertension",
+    "kolesterol tinggi": "Hyperlipidaemia",
+    "lemak darah tinggi": "Hyperlipidaemia",
+    "sakit jantung": "Ischaemic heart disease",
+    "penyakit buah pinggang": "Chronic kidney disease",
+    "strok": "Stroke",
+    "asma": "Asthma",
+    "lelah": "Asthma",
 }
 ScoreRouteMethod = Literal[
     "exact",
@@ -1774,6 +1790,63 @@ def _collapse_sibling_clusters(reranked: list[DDxResult]) -> list[DDxResult]:
     return primaries + siblings
 
 
+def _extract_rerank_list(raw_content: str) -> list:
+    """Pull the ranked-candidate list out of a Stage-2 rerank response.
+
+    The call sets response_format={"type":"json_object"}, so a well-behaved model
+    returns {"ranking": [...]}. The old "find the first '['" parser handled that,
+    but across adversarial inputs (ADV / INJ / LNG) we kept hitting "No JSON array
+    found" and silently falling back to math order — which defeats the red-flag /
+    specificity overrides those cases depend on. The recurring degraded shapes are:
+      - a bare JSON array (legacy prompt contract / forced Smoke-8 harness)
+      - an object keyed by some other field name (e.g. {"codes": [...]})
+      - an object keyed by ICD code ({"BA41.1": {...}, ...}) with no array at all
+    Handle all of them. Raise ValueError only when no candidate list can be
+    recovered (e.g. empty content from a thinking-token budget blow-out) so the
+    caller logs a genuine degradation instead of masking it.
+    """
+    raw = (raw_content or "").strip().strip("` \n")
+    if raw.startswith("json"):
+        raw = raw[4:].strip()
+
+    # Preferred path: parse the whole payload as JSON.
+    try:
+        parsed = json.loads(raw)
+    except json.JSONDecodeError:
+        parsed = None
+
+    if isinstance(parsed, list):
+        return parsed
+    if isinstance(parsed, dict):
+        # (a) array nested under any key (ranking / codes / results / ...).
+        for value in parsed.values():
+            if isinstance(value, list):
+                return value
+        # (b) object keyed by ICD code: {"BA41.1": {"confidence": ...}, ...}.
+        #     Preserve insertion order (= the model's intended ranking).
+        rebuilt = [
+            {"code": code, **(meta if isinstance(meta, dict) else {})}
+            for code, meta in parsed.items()
+        ]
+        if rebuilt:
+            return rebuilt
+
+    # Fallback: locate a bracketed array embedded in surrounding prose.
+    bracket_idx = raw.find("[")
+    if bracket_idx != -1:
+        end_idx = raw.rfind("]")
+        if end_idx > bracket_idx:
+            try:
+                return json.loads(raw[bracket_idx : end_idx + 1])
+            except json.JSONDecodeError:
+                pass
+
+    raise ValueError(
+        f"No rerank list found in output (len={len(raw_content or '')} chars). "
+        f"First 200 chars: {(raw_content or '')[:200]!r}"
+    )
+
+
 async def _llm_rerank_ddx(
     case: PatientCase,
     candidates: list[DDxResult],
@@ -1949,26 +2022,11 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
             )
             raw_content = resp.choices[0].message.content
 
-        # Parse re-ranked list (shared by both paths).
-        # Robust to MiMo prepending reasoning prose before the JSON array — locate
-        # the first '[' and parse from there. Falls through to the outer except
-        # if no valid array found.
-        raw = raw_content.strip().strip("` \n")
-        if raw.startswith("json"):
-            raw = raw[4:].strip()
-        if not raw.startswith("["):
-            bracket_idx = raw.find("[")
-            if bracket_idx == -1:
-                raise ValueError(
-                    f"No JSON array found in rerank output (len={len(raw_content)} chars). "
-                    f"First 200 chars: {raw_content[:200]!r}"
-                )
-            raw = raw[bracket_idx:]
-            # Trim anything after the matching closing ']' to handle trailing prose
-            end_idx = raw.rfind("]")
-            if end_idx != -1:
-                raw = raw[: end_idx + 1]
-        ranked = json.loads(raw)
+        # Parse re-ranked list (shared by both paths). Robust to json_object-mode
+        # wrappers, object-keyed-by-code outputs, and prose-prefixed arrays — see
+        # _extract_rerank_list. Raises into the outer except (math-order fallback)
+        # only when no candidate list can be recovered at all.
+        ranked = _extract_rerank_list(raw_content)
 
         code_to_result = {c.code: c for c in candidates}
         reranked: list[DDxResult] = []
@@ -2596,6 +2654,71 @@ async def _regex_disease_hints(case: PatientCase) -> list[dict]:
     return out
 
 
+# Vitals-driven can't-miss red-flag injection. Some time-critical syndromes are
+# defined by PHYSIOLOGY, not by a named complaint: a patient who self-reports
+# "dengue" while in septic shock (BP 80/50, HR 130, fever, altered mental status)
+# must still surface sepsis in the DDx (TESTING_STRATEGY ADV-02). Vector search
+# anchors on the chief-complaint text, and the icd11_codes corpus carries no
+# general sepsis code, so neither retrieval nor the rerank red-flag override can
+# introduce it. This deterministic guard injects a flagged can't-miss candidate
+# straight into the pool when the vitals match a shock syndrome. The injected code
+# is the recognised ICD-11 red-flag label; it has no CPG in the corpus and routes
+# out_of_scope — which is the correct "escalate, no local care-plan" behaviour for
+# an emergency outside the loaded guideline set. Each rule is intentionally narrow
+# (full physiology triad) so it never fires on stable patients.
+_REDFLAG_VITALS_RULES: tuple[dict, ...] = (
+    {
+        "name": "septic_shock",
+        "code": "1G41.0",
+        "title": "Sepsis with septic shock",
+        # Hypotension + fever + tachycardia = shock physiology with an infective
+        # driver. Altered mental status / rigors in the text strengthen but are
+        # not required — the vitals triad alone is a can't-miss.
+        "predicate": lambda v, _t: (
+            v.get("sbp") is not None and v["sbp"] < 90
+            and v.get("temp") is not None and v["temp"] >= 38.0
+            and v.get("hr") is not None and v["hr"] > 100
+        ),
+        "reason": "hypotension + fever + tachycardia — septic shock cannot be missed",
+    },
+)
+
+
+def _redflag_vitals_hints(case: PatientCase) -> list[dict]:
+    """Synthetic can't-miss DDx candidates triggered by shock physiology.
+
+    Returns pool-ready dicts (same shape stage_2_ddx feeds into DDxResult) for any
+    red-flag rule whose vitals predicate matches. High base similarity (0.90) keeps
+    the candidate in the top-K even if the LLM rerank degrades to math order, while
+    override_reason marks it as a deliberate red-flag promotion for the trace.
+    """
+    vitals = case.vitals or {}
+    text = " ".join([
+        case.chief_complaint or "",
+        case.history or "",
+        ", ".join(case.comorbidities or []),
+    ]).lower()
+    out: list[dict] = []
+    for rule in _REDFLAG_VITALS_RULES:
+        try:
+            if rule["predicate"](vitals, text):
+                out.append({
+                    "code": rule["code"],
+                    "title": rule["title"],
+                    "similarity": 0.90,
+                    "base_similarity": 0.90,
+                    "cc_boost": 0.0,
+                    "cc_confidence": None,
+                    "cc_explicit": False,
+                    "reasoning": [f"RED-FLAG (vitals-driven): {rule['reason']}"],
+                    "override_reason": f"red_flag_cant_miss: {rule['name']} from vitals",
+                    "source": "redflag_vitals",
+                })
+        except Exception as exc:
+            logger.warning("Red-flag vitals rule %r failed: %s", rule.get("name"), exc)
+    return out
+
+
 async def stage_2_ddx(
     case: PatientCase,
     top_k: int = 5,
@@ -2772,6 +2895,24 @@ async def stage_2_ddx(
                     "CC-boost applied: %s confidence=%.2f explicit=%s → boost=+%.3f",
                     code, conf, explicit, boost_val,
                 )
+
+    # Vitals-driven can't-miss injection (e.g. septic-shock physiology). Runs
+    # regardless of chief-complaint text because shock is defined by vitals, not
+    # by what the patient self-reports. Injected straight into the pool so the
+    # reranker and the clinician both see the red-flag candidate.
+    for rf in _redflag_vitals_hints(case):
+        code = rf["code"]
+        if code not in pool:
+            pool[code] = rf
+            logger.info(
+                "Red-flag vitals injection: %s (%s) added to DDx pool", code, rf["title"]
+            )
+            if emit is not None:
+                await emit("sub_step", {
+                    "stage": 2,
+                    "detail": f"⚠ Red-flag vitals: {rf['title']} surfaced as can't-miss",
+                    "badge": "red-flag",
+                })
 
     # Sort by (similarity + cc_boost) so CC-boosted codes surface to top-K for
     # the LLM reranker. The cc_boost is additive — a high-confidence CC code with

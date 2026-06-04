@@ -65,14 +65,15 @@ NEGATIVE EXEMPLAR — do NOT do this:
 
 CRITICAL OUTPUT RULES:
 - Keep ALL reasoning extremely concise — one short sentence per code, max 20 words each.
-- Your TOTAL response must be under 1500 tokens. The JSON array is the required output.
-- Return ONLY the JSON array. No preamble, no markdown fences, no explanation before/after.
-- Include ALL candidate codes, ordered from most to least likely.
+- Your TOTAL response must be under 1500 tokens. The JSON object is the required output.
+- Return ONLY a single JSON object of the form {"ranking": [ ... ]} — the value of "ranking" is
+  the ordered array of candidates. No preamble, no markdown fences, no explanation before/after.
+- The "ranking" array must include ALL candidate codes, ordered from most to least likely.
 - Include "override_reason" when you reorder a candidate by 2 or more positions from its math_rank.
 - You MUST include a non-empty "override_reason" when you promote (move up) a candidate that has a WHO exclusion penalty.
 
 Format:
-[
+{"ranking": [
   {"code": "BC81.3", "confidence": 0.91, "reasoning": "68M with irregular HR 110 — persistent AF fits best", "override_reason": null},
   {"code": "BC81.1", "confidence": 0.72, "reasoning": "Paroxysmal AF cannot be excluded without Holter", "override_reason": null}
-]
+]}
