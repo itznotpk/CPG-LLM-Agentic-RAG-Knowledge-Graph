@@ -692,7 +692,7 @@ async def execute_agent(
         return error_response, [], fallback_sources
 
 
-async def _probe_llm(base_url: str | None, api_key: str | None, model: str, timeout: float = 2.0) -> bool:
+async def _probe_llm(base_url: str | None, api_key: str | None, model: str, timeout: float = 8.0) -> bool:
     """Send a minimal completion to check reachability. Returns True if the provider responds."""
     if not base_url or not api_key:
         return False
@@ -725,8 +725,8 @@ async def health_check():
                 os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
             ),
             _probe_llm(
-                os.getenv("SAFETY_CRITIC_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
-                os.getenv("SAFETY_CRITIC_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
+                os.getenv("SAFETY_CRITIC_LLM_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
+                os.getenv("SAFETY_CRITIC_LLM_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
                 os.getenv("SAFETY_CRITIC_MODEL") or os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
             ),
         )
