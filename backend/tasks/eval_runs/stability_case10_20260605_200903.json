@@ -1,0 +1,173 @@
+{
+  "case_id": "10",
+  "case_chief_complaint": "Booking visit at 30 weeks (late booker). BP elevated; GDM diagnosed on OGTT. Plan for HTN + GDM management.",
+  "n_runs": 10,
+  "url": "http://127.0.0.1:8058",
+  "expected_codes": [
+    "JA63",
+    "JB42.Y",
+    "BA00"
+  ],
+  "metrics": {
+    "n_runs": 10,
+    "top1_stability": {
+      "unique_top1_codes": 4,
+      "stable": false,
+      "values": [
+        "JA63",
+        "JA63",
+        "JA63",
+        "JB42.3",
+        "JA63.2",
+        "JA20.Y",
+        "JA63",
+        "JA63",
+        "JA20.Y",
+        "JA63"
+      ]
+    },
+    "top3_jaccard_mean": 0.444,
+    "top5_jaccard_mean": 0.419,
+    "expected_code_presence_rate": {
+      "JA63": 0.7,
+      "JB42.Y": 0.4,
+      "BA00": 0.7
+    },
+    "same_plan_rate": 0.1,
+    "wall_time_seconds": {
+      "mean": 123.4,
+      "stdev": 33.5,
+      "min": 60.7,
+      "max": 153.2
+    }
+  },
+  "extras": {
+    "med_count": {
+      "mean": 3.8,
+      "stdev": 2.3
+    },
+    "referral_count": {
+      "mean": 0.0,
+      "stdev": 0.0
+    },
+    "safety_flag_jaccard_mean": 1.0,
+    "plan_text_jaccard_mean": 0.302
+  },
+  "gate": {
+    "checks": {
+      "top1_stable (== 1 unique)": false,
+      "top3_jaccard >= 0.95": false,
+      "top5_jaccard >= 0.90": false,
+      "same_plan_rate >= 0.80": false,
+      "JA63 present in 100% of runs": false,
+      "JB42.Y present in 100% of runs": false,
+      "BA00 present in 100% of runs": false
+    },
+    "overall_pass": false
+  },
+  "per_run_top5": [
+    [
+      "JA63",
+      "JA63.2",
+      "BA00",
+      "JB42.Y",
+      "BA00.1"
+    ],
+    [
+      "JA63",
+      "JA63.2",
+      "BA00",
+      "BA00.1",
+      "BA00.2"
+    ],
+    [
+      "JA63",
+      "JA63.2",
+      "BA00",
+      "BA00.1",
+      "BA00.2"
+    ],
+    [
+      "JB42.3",
+      "JA20.Y",
+      "JA63.Y",
+      "JA61.3",
+      "JA20.Z"
+    ],
+    [
+      "JA63.2",
+      "BA00",
+      "JB42.Y",
+      "JA63",
+      "BA00.1"
+    ],
+    [
+      "JA20.Y",
+      "JA63.Y",
+      "JB6Z",
+      "JA61.3",
+      "JA05.2"
+    ],
+    [
+      "JA63",
+      "JA63.2",
+      "BA00",
+      "JB42.Y",
+      "BA00.1"
+    ],
+    [
+      "JA63",
+      "BA00",
+      "JA63.2",
+      "BA00.1",
+      "BA00.2"
+    ],
+    [
+      "JA20.Y",
+      "JA63.Y",
+      "JB6Z",
+      "JA61.3",
+      "JA05.2"
+    ],
+    [
+      "JA63",
+      "JA63.2",
+      "BA00",
+      "JB42.Y",
+      "BA00.1"
+    ]
+  ],
+  "per_run_wall_seconds": [
+    147.60999999998603,
+    136.53100000007544,
+    130.96899999992456,
+    125.64000000001397,
+    147.76600000006147,
+    64.07799999997951,
+    125.68799999996554,
+    153.1720000000205,
+    142.10900000005495,
+    60.686999999918044
+  ],
+  "skipped_runs": [],
+  "summary_row": {
+    "case_id": "10",
+    "n_runs": 10,
+    "top1_stable": false,
+    "top1_value": "JA20.Y/JA63/JA63.2/JB42.3",
+    "top3_jaccard": 0.444,
+    "top5_jaccard": 0.419,
+    "same_plan_rate": 0.1,
+    "plan_text_jaccard": 0.302,
+    "med_count_mean": 3.8,
+    "med_count_stdev": 2.3,
+    "referral_count_mean": 0.0,
+    "referral_count_stdev": 0.0,
+    "safety_flag_jaccard": 1.0,
+    "wall_mean_s": 123.4,
+    "wall_stdev_s": 33.5,
+    "wall_min_s": 60.7,
+    "wall_max_s": 153.2,
+    "overall_pass": false
+  }
+}

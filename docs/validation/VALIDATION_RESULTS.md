@@ -49,7 +49,7 @@ table for context and caveats.
 | **Targets-vs-results comparison** | ✅ Done | Single table comparing all 13 target rows to what we measured (below) |
 | **Layer D** (faithfulness) | ✅ Done (full n=30, independent judge) | **mean faith = 0.864** (849/979 claims), median 0.883, sd 0.116, 4 plans at 1.00, 0 judge errors/skips. Below ≥0.90 target (honest). |
 | **Layer E** (e2e) | ⚠️ Partial captured | n=10 throttled, **ICD acc = 0.30, CPG acc = 0.20**, forbidden-content = 0% ✅, mean elapsed 132.9 s |
-| **Determinism harness** | ⏸ Needs API server | Fire `uvicorn agent.api:app --port 8058` then `scripts/rerun_stability.py --case 9 --n 10` |
+| **Determinism harness** | ✅ Done (cases 8/9/10, n=10, 2026-06-05) | **Top-1 stable 10/10 for cases 8 & 9** (BD11.2 HFrEF, BA41.1 NSTEMI); **case 10 top-1 flips** across near-tied families (GDM/preg-HTN/pre-eclampsia). Stage-2 query byte-identical across runs — residual variance is the **seedless Gemini reranker** + MiMo synthesis (same-plan 0.1–0.3). See Reproducibility section. |
 | **Layer B** Retrieval | ✅ Done (148 graded) | vector Recall@10 = **0.874**, Hit@10 = **0.953**, MRR = 0.682, nDCG@10 = 0.669; RRF-hybrid ties (0.876 / 0.953 / 0.659 / 0.656) — vector retained |
 | **Layer C** Stage-4 re-rank ablation | ✅ Done (2026-06-04, multi-condition n=5 final) | Re-rank ablation: mean nDCG **+6.0%**, MRR **+10.0%** — **3 wins, 2 small regressions (mc_010 −0.060, mc_005 −0.034)**. Boost is **net positive**. Re-ranker cleared of blame for −0.173 (gold-set artifact). mc_008 pool-seeded re-labelled (fixed). mc_018 dropped (too slow). |
 | **Stakeholder SUS / TAM** | ❌ Blocked | Needs IRB + clinicians |
@@ -644,7 +644,7 @@ as each is captured:
 - **Layer D — Faithfulness / hallucination** (`python -m eval.run_faithfulness_eval`) — 30 QA pairs; LLM-as-judge.
 - **Layer E — End-to-end clinical QA** (`python -m eval.run_e2e_eval`) — same gold set, broader rubric.
 - **Non-acc — Latency p50/p95** (`python -m eval.run_latency_eval`) — pipeline_timings harvest.
-- **Non-acc — Determinism** (`python scripts/rerun_stability.py --case 9 --n 10`) — same-plan reproducibility.
+- ~~**Non-acc — Determinism**~~ ✅ **measured 2026-06-05** (cases 8/9/10, n=10) — see Reproducibility / determinism section below.
 - ~~**Layer C — Stage-4 dedup/boost lift**~~ ✅ **measured 2026-06-02** — see Layer C section below for results and findings.
 
 ## Layer C — Stage-4 dedup / category-boost lift
@@ -768,6 +768,82 @@ impractical for iterative eval. Removed from the gold set.
 5. **mc_018 removed.** Pre-Anaesthetic Assessment is a procedure-scoped CPG that generates 3-CPG Gemini query loads taking 10+ minutes per run — impractical for iterative eval. Removing it is not p-hacking; its regression root-cause was the same domain-anchor gold artifact as mc_008.
 6. **n=5 is directional.** Mean lift is not statistically meaningful at this sample size. To make a publishable Layer C claim, extend to n=15–20.
 
+---
+
+## Non-acc · Reproducibility / determinism (cases 8 / 9 / 10)
+
+**What it tests.** [`backend/scripts/rerun_stability.py`](../../backend/scripts/rerun_stability.py)
+reruns a canned case N times against the live API and reports top-K stability,
+expected-code presence, same-plan rate, and wall-time variance. **This measures
+determinism, not clinical correctness** (the harness's own docstring says so —
+diagnostic accuracy needs a clinician-annotated gold set). Run 2026-06-05,
+n=10 per case against `http://127.0.0.1:8058`, all 30 runs completed (0 skips).
+
+### Results (n=10 each)
+
+| Case | Framing | Top-1 stable | exact top3 J | exact top5 J | **family top5 J** | same-plan | meds μ±σ | wall μ±σ (s) | Gate |
+|---|---|---|---:|---:|---:|---:|---:|---:|---|
+| **8** T2DM+HFrEF+Obesity | Mode A | ✅ `BD11.2` 10/10 | 0.90 | 0.85 | **0.867** | 0.10 | 5.8±0.6 | 143.9±11.9 | ❌ |
+| **9** AF+Post-PCI+T2DM | Mode B (4-layer bypass) | ✅ `BA41.1` 10/10 | 0.471 | 0.483 | **0.582** | 0.30 | 7.5±5.3 | 147.1±58.1 | ❌ |
+| **10** HTN-preg+GDM | task-framed (bypass fires) | ❌ `JA63` 7/10 | 0.444 | 0.419 | **0.519** | 0.10 | 3.8±2.3 | 123.4±33.5 | ❌ |
+
+Gate thresholds (top-1 stable · top3 J ≥0.95 · top5 J ≥0.90 · same-plan ≥0.80 ·
+expected codes present 100%): all three **fail** on Jaccard/same-plan; **top-1
+passes for cases 8 & 9**. Expected-code presence: case 8 `BD11.2` 1.0 / `5A11`
+1.0 / `5B81.0` 0.9; case 9 `BA41.1` 1.0 / `5A11` 0.3 / `BC81.3` 0.1 (AF also
+appears as the child `BC81.3Y` in 4 runs — exact undercounts, see below);
+case 10 `JA63` 0.7 / `JB42.Y` 0.4 / `BA00` 0.7.
+
+**Raw output:** `backend/tasks/eval_runs/stability_case8_20260605_035748.json` ·
+`stability_case9_20260605_194430.json` · `stability_case10_20260605_200903.json`.
+
+### Key findings (honest)
+
+1. **Determinism is a top-1 property, not a whole-plan property.** The primary
+   diagnosis is rock-stable (10/10) where a dominant diagnosis exists — case 8
+   (HFrEF `BD11.2`) and case 9 (NSTEMI `BA41.1`). This confirms at n=10 the
+   CLAUDE.md claim that the 4-layer Mode-B work stabilises case-9 top-1.
+2. **The residual variance is isolated to the seedless Gemini reranker.** Case
+   10's Stage-2 query is **byte-identical across all 10 runs**
+   (`"booking visit for Gestational diabetes mellitus, Essential hypertension, …"`)
+   — Layers 1–4 made the query deterministic. The DDx ordering still varies
+   because the reranker takes **no `seed`** (Gemini's OpenAI-compat layer 400s on
+   the field) and is non-deterministic even at `temperature=0`. It only flips the
+   primary when candidates are clinically **near-tied** (case 10: GDM vs
+   preg-HTN vs pre-eclampsia for an obstetric booking visit); a dominant primary
+   (cases 8/9) holds. The only fix is moving rerank off Gemini onto a seedable
+   backend (mimo) — which needs the `enable_thinking:False` body **and** an A1
+   re-validation (out of scope here).
+3. **This is NOT the A1 leaf-vs-lineage artifact — verified.** Re-scoring top-5
+   stability at ICD family level (4-char stem) does **not** rescue cases 9/10:
+   family top5 J only rises to 0.582 / 0.519 (from exact 0.483 / 0.419), and
+   case 10's *primary family* itself flips (`JA63`/`JB42`/`JA20`). The top-5
+   churn is genuine family-level turnover, not leaf jitter. (One real
+   exact-undercount does apply: case 9's AF surfaces as the child `BC81.3Y`,
+   credited at family level but missed by strict-exact presence.)
+4. **Whole-plan synthesis is non-deterministic** (same-plan 0.10–0.30) from MiMo
+   — but the **safety surface is stable**: case 8's safety-flag set was identical
+   across all 10 runs (`safety_flag_jaccard 1.0`). Plan variance is wording /
+   recommendation composition, not safety flags.
+5. **Case 10 is no longer a "non-bypass holdout."** Its runner docstring (since
+   corrected) called it a holdout for the LLM path, but the `booking visit` /
+   `plan for` / `management` markers now match `_TASK_FRAMED_MARKERS`, so the
+   Mode-B bypass fires (proved by the byte-identical query). Its top-1
+   instability is the reranker on near-tied obstetric candidates, not a missing
+   determinism layer.
+
+### Honest framing for the poster / Chapter 4
+
+> *Reproducibility (n=10/case): the primary diagnosis is deterministic for cases
+> with a dominant diagnosis (HFrEF, NSTEMI — top-1 stable 10/10); the Stage-2
+> candidate query is byte-identical across runs. Residual DDx-breadth and
+> care-plan wording variance trace to the one un-seedable component (the Gemini
+> reranker) and non-deterministic synthesis; the safety-flag surface is stable.*
+
+Do **not** claim a "deterministic pipeline." Cite determinism as a top-1 +
+byte-identical-query property, and list the reranker (un-seedable) + synthesis
+variance as known limitations / future work (seedable reranker backend).
+
 ## Blocked — stakeholder validation
 
 | Track | Why blocked | Cost to unblock |
@@ -810,3 +886,4 @@ impractical for iterative eval. Removed from the gold set.
 | 2026-06-05 | **D final (full n=30, independent judge)** | `eval/run_faithfulness_eval.py` upgraded: independent Gemini judge (≠ MiMo author), retry+backoff, concurrency cap, judge-error exclusion. Paired with acute-scope synthesis fix (`stage5_synthesis.txt` Commandment 6 + `clinical_stages.py` `_is_acute_presentation` KG-referral gate) + judge fairness rules (parameter/schedule split + eligibility leniency; dose/drug/threshold kept strict). Full n=30 → **mean faith = 0.864** (849/979 claims), median 0.883, sd 0.116, 0 judge errors/skips. Headline metric for the poster. Raw: `faithfulness_20260605_003723.*`. (Earlier exploratory runs — binary same-model judge, and mimo rigorous-critic n=10 = 0.658 — retired; not directly comparable.) |
 | 2026-06-05 | **SIL/INF robustness (2/6 → 6/6)** | Fixed 4 fail-silent bugs the 06-04 pilot exposed: SIL-01 rerank-fallback now emits a `degraded` signal; SIL-02 empty-evidence plan capped to conf ≤0.25 + unresolved question (`_flag_empty_evidence`); INF-02 Stage-4 *exception* now skips synthesis → degraded plan (conf 0.0) instead of running Stage 5 on no evidence; INF-03 pgvector `ConnectionError` → HTTP 503 not 500. Contract change: `test_workflow_stage4_failure_continues` → `_skips_synthesis`. Guards mirrored across all 3 entrypoints (non-streaming + both streaming variants, incl. the UI's resynthesize path). Raw: `degradation_sil_20260605_024728.*` · `degradation_inf_20260605_024740.*` |
 | 2026-06-05 | **D Lever A (implemented, rerun pending)** | Judge now also sees the patient case (`_case_blob`) + a continue/maintenance fairness rule, so `[CONTINUE] current-dose` claims grounded in the patient's existing regimen (not the CPG) stop being marked unsupported — ~25% of the worst-3 failures. Runner caches generated plans (`faithfulness_plans_*.json`) + adds `--from-cache` / `--no-case-context` for a deterministic judge-only A/B. **Number pending re-run.** |
+| 2026-06-05 | **Determinism (cases 8/9/10, n=10)** | First full determinism run. **Top-1 stable 10/10 for cases 8 (`BD11.2`) & 9 (`BA41.1`); case 10 top-1 flips** across near-tied families (`JA63`/`JB42`/`JA20`). Stage-2 query byte-identical across runs (Layers 1–4 work); residual variance isolated to the seedless Gemini reranker + MiMo synthesis (same-plan 0.1–0.3). Family-level re-score does NOT rescue 9/10 (genuine churn, not leaf jitter); case 8 safety-flag set identical across runs. Gate fails on Jaccard/same-plan for all three. First batch (cases 8 clean, 9 contaminated by laptop-sleep, 10 skipped by mid-run `backend/` restructure) discarded; clean rerun is the cited one. Raw: `stability_case{8,9,10}_20260605_*.json`. Also aligned `run_eval_case_10.py` severity_staging to the README (removed 3 undocumented slots) + corrected its stale "non-bypass holdout" docstring. |

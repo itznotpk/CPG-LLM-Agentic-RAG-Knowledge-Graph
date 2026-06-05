@@ -1,0 +1,173 @@
+{
+  "case_id": "8",
+  "case_chief_complaint": "Newly diagnosed HFrEF on routine echo. Here for management plan.",
+  "n_runs": 10,
+  "url": "http://127.0.0.1:8058",
+  "expected_codes": [
+    "BD11.2",
+    "5A11",
+    "5B81.0"
+  ],
+  "metrics": {
+    "n_runs": 10,
+    "top1_stability": {
+      "unique_top1_codes": 1,
+      "stable": true,
+      "values": [
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2",
+        "BD11.2"
+      ]
+    },
+    "top3_jaccard_mean": 0.9,
+    "top5_jaccard_mean": 0.85,
+    "expected_code_presence_rate": {
+      "BD11.2": 1.0,
+      "5A11": 1.0,
+      "5B81.0": 0.9
+    },
+    "same_plan_rate": 0.1,
+    "wall_time_seconds": {
+      "mean": 143.9,
+      "stdev": 11.9,
+      "min": 126.9,
+      "max": 168.7
+    }
+  },
+  "extras": {
+    "med_count": {
+      "mean": 5.8,
+      "stdev": 0.63
+    },
+    "referral_count": {
+      "mean": 0.0,
+      "stdev": 0.0
+    },
+    "safety_flag_jaccard_mean": 1.0,
+    "plan_text_jaccard_mean": 0.5
+  },
+  "gate": {
+    "checks": {
+      "top1_stable (== 1 unique)": true,
+      "top3_jaccard >= 0.95": false,
+      "top5_jaccard >= 0.90": false,
+      "same_plan_rate >= 0.80": false,
+      "BD11.2 present in 100% of runs": true,
+      "5A11 present in 100% of runs": true,
+      "5B81.0 present in 100% of runs": false
+    },
+    "overall_pass": false
+  },
+  "per_run_top5": [
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "BD11.0",
+      "BD11.1",
+      "5A13.7"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ],
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ]
+  ],
+  "per_run_wall_seconds": [
+    138.34399999992456,
+    142.90600000007544,
+    126.93799999996554,
+    139.65599999995902,
+    137.53100000007544,
+    158.18799999996554,
+    141.10900000005495,
+    148.375,
+    137.29699999990407,
+    168.65600000007544
+  ],
+  "skipped_runs": [],
+  "summary_row": {
+    "case_id": "8",
+    "n_runs": 10,
+    "top1_stable": true,
+    "top1_value": "BD11.2",
+    "top3_jaccard": 0.9,
+    "top5_jaccard": 0.85,
+    "same_plan_rate": 0.1,
+    "plan_text_jaccard": 0.5,
+    "med_count_mean": 5.8,
+    "med_count_stdev": 0.63,
+    "referral_count_mean": 0.0,
+    "referral_count_stdev": 0.0,
+    "safety_flag_jaccard": 1.0,
+    "wall_mean_s": 143.9,
+    "wall_stdev_s": 11.9,
+    "wall_min_s": 126.9,
+    "wall_max_s": 168.7,
+    "overall_pass": false
+  }
+}

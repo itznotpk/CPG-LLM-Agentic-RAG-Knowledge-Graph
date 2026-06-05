@@ -18,11 +18,17 @@ Pipeline aspects exercised here that cases 8/9 do not exercise:
   * KG teratogen veto on an existing med (the harder safety direction).
   * Cross-CPG bridge on PPCM family history (Heart-Disease-in-Pregnancy).
   * Mode-A/B framing: the chief complaint is a "booking visit + management
-    plan", which is task-framed but does NOT trigger
-    `_TASK_FRAMED_MARKERS` — case 10 therefore exercises Stage-2 stability
-    Layers 1–3 (seed-pin, regex disease fallback, phrase cache) WITHOUT the
-    Layer-4 Mode-B rule-based bypass. Intentional: gives a holdout for the
-    LLM-path determinism claim independent of case 9.
+    plan", which IS task-framed and DOES trigger `_TASK_FRAMED_MARKERS`
+    (`booking visit` / `plan for` / `management`), so the Layer-4 Mode-B
+    rule-based bypass fires — verified 2026-06-05: the Stage-2 query is
+    byte-identical across 10 reruns ("booking visit for Gestational diabetes
+    mellitus, Essential hypertension, …"). The determinism interest here is
+    therefore NOT the query (deterministic) but the seedless Gemini reranker:
+    case-10 candidates (GDM / preg-HTN / pre-eclampsia) are clinically
+    near-tied, so top-1 flips across runs even with an identical query — the
+    pure-reranker-variance case, distinct from case 9's dominant primary.
+    (An earlier version of this docstring wrongly called case 10 a non-bypass
+    holdout; the `booking visit` marker was added after it was written.)
 
 Usage:
     python scripts/run_eval_case_10.py             # uses http://localhost:8058
