@@ -246,6 +246,104 @@ async def _kg_verify_plan(case: PatientCase, plan: TreatmentPlan) -> tuple[list[
     return [], True
 
 
+# ---------------------------------------------------------------------------
+# Deterministic sulfonamide cross-reactivity severity guard (SAF-05)
+# ---------------------------------------------------------------------------
+# Cross-reactivity from a SULFONAMIDE-ANTIBIOTIC allergy (e.g. co-trimoxazole /
+# sulfamethoxazole) to a NON-ANTIBIOTIC sulfonamide (furosemide, thiazides,
+# sulfonylureas, celecoxib, acetazolamide) is NOT firmly established — synthesis
+# COMMANDMENT 3 correctly treats it as a caution, not a hard contraindication, so
+# the default grade is MODERATE. BUT expected harm = cross-reactivity probability
+# × reaction severity: when the patient's DOCUMENTED index reaction was SEVERE
+# (angioedema / facial swelling / anaphylaxis / SJS / TEN / DRESS), even a modest
+# probability against a life-threatening reaction warrants explicit clinician
+# acknowledgement. This guard escalates such a caution to MAJOR (blocking) while
+# leaving mild-reaction sulfonamide cautions at MODERATE — so it does not
+# re-introduce the blanket-cross-reactivity myth.
+_SULFONAMIDE_NONABX_DRUGS = (
+    "furosemide", "frusemide", "torsemide", "torasemide", "bumetanide",
+    "hydrochlorothiazide", "thiazide", "chlortalidone", "chlorthalidone",
+    "indapamide", "metolazone", "acetazolamide",
+    "gliclazide", "glibenclamide", "glimepiride", "glipizide",
+    "celecoxib", "sulfasalazine",
+)
+_SULFONAMIDE_ABX_ALLERGY_MARKERS = (
+    "sulfamethoxazole", "co-trimoxazole", "cotrimoxazole", "trimethoprim-sulfamethoxazole",
+    "septrin", "bactrim", "sulfadiazine", "sulfonamide", "sulphonamide", "sulfa ", "sulpha ",
+)
+_SEVERE_REACTION_MARKERS = (
+    "anaphyla", "angioedema", "angio-oedema", "facial swelling", "face swelling",
+    "swelling of the face", "swelling of face", "lip swelling", "tongue swelling",
+    "throat swelling", "laryngeal", "stevens-johnson", "stevens johnson", "sjs",
+    "toxic epidermal", "dress", "difficulty breathing",
+)
+_SEVERITY_RANK = {"MODERATE": 0, "MAJOR": 1, "CRITICAL": 2}
+
+
+def _sulfonamide_cross_reactivity_guard(
+    case: PatientCase, plan: TreatmentPlan, flags: list[SafetyFlag]
+) -> list[SafetyFlag]:
+    """Escalate (or inject) a sulfonamide cross-reactivity flag based on the
+    severity of the documented index reaction. Deterministic — does not depend on
+    the LLM critic having graded it correctly. Returns the (possibly mutated) list."""
+    allergy_text = " ".join(case.allergies or []).lower()
+    if not any(m in allergy_text for m in _SULFONAMIDE_ABX_ALLERGY_MARKERS):
+        return flags
+
+    hit_idx: int | None = None
+    hit_drug: str | None = None
+    for i, r in enumerate(plan.recommendations):
+        if r.type != "pharmacological":
+            continue
+        iv = (r.intervention or "").lower()
+        match = next((d for d in _SULFONAMIDE_NONABX_DRUGS if d in iv), None)
+        if match:
+            hit_idx, hit_drug = i, match
+            break
+    if hit_idx is None:
+        return flags
+
+    severe = any(m in allergy_text for m in _SEVERE_REACTION_MARKERS)
+    target_sev = "MAJOR" if severe else "MODERATE"
+
+    # Escalate an existing cross-reactivity flag if one already names the drug/class.
+    for f in flags:
+        det = f"{f.title} {f.detail}".lower()
+        if hit_drug in det or "sulfonamide" in det or "sulfa" in det:
+            if _SEVERITY_RANK[target_sev] > _SEVERITY_RANK[f.severity]:
+                f.severity = target_sev
+                f.detail = (
+                    f"{f.detail} [Severity escalated to {target_sev}: documented severe "
+                    "index reaction (e.g. angioedema/facial swelling) to a sulfonamide "
+                    "antibiotic — clinician acknowledgement required before this "
+                    "non-antibiotic sulfonamide.]"
+                )
+            return flags
+
+    # No existing flag — inject a deterministic one. source="llm" is the closest
+    # available provenance label (this is the critic's own deterministic overlay,
+    # not a Neo4j graph edge).
+    detail = (
+        f"Documented sulfonamide-antibiotic allergy ({allergy_text.strip()}); {hit_drug} "
+        "is a non-antibiotic sulfonamide. Cross-reactivity is not firmly established, but "
+        "the index reaction was severe, so clinician acknowledgement is required before "
+        "proceeding."
+        if severe else
+        f"Documented sulfonamide-antibiotic allergy; {hit_drug} is a non-antibiotic "
+        "sulfonamide. Cross-reactivity is not firmly established — caution only."
+    )
+    flags.append(SafetyFlag(
+        title=f"Sulfonamide cross-reactivity caution — {hit_drug}",
+        severity=target_sev,
+        recommendation_index=hit_idx,
+        flag_type="drug_allergy",
+        detail=detail,
+        suggested_alternative=None,
+        source="llm",
+    ))
+    return flags
+
+
 async def run_safety_critic(
     case: PatientCase,
     plan: TreatmentPlan,
@@ -327,6 +425,12 @@ async def run_safety_critic(
     # Merge — keep BOTH sources (safety: don't hide concerns by deduping). Each
     # flag carries `source` so the UI can tag graph-verified ones distinctly.
     merged_flags = list(llm_report.flags) + list(kg_flags)
+
+    # Deterministic severity overlay: escalate sulfonamide cross-reactivity to
+    # MAJOR when the documented index reaction was severe (SAF-05). Applied after
+    # the merge so it can lift an LLM- or KG-graded MODERATE caution.
+    merged_flags = _sulfonamide_cross_reactivity_guard(case, plan, merged_flags)
+
     safe_to_proceed = not any(f.severity in ("CRITICAL", "MAJOR") for f in merged_flags)
 
     notes = llm_report.reviewer_notes

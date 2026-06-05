@@ -59,6 +59,19 @@ ROUTE_TOP_K = 3
 # scope edits). See tasks/Next-Step/Last Step Improvement/DDx Gap/cpg_scope_review.md.
 SEMANTIC_SCOPE_THRESHOLD = 0.32  # minimum cosine similarity for D2 semantic fallback
 
+# Scope-confidence floor for the DISTANT hierarchy-walk tiers (ancestor_d1_sibling,
+# ancestor_d1_sibling_child, ancestor_d2). A code that only reaches a CPG through
+# these structural walks — never via its own code, a sibling, or its direct parent
+# — is a weak match. Require it to clear the same scope-embedding confidence floor
+# the semantic tier already uses; otherwise treat the tier as "no match" and keep
+# walking (ultimately out_of_scope). Without this, an out-of-scope code is pulled
+# into a distant CPG at near-zero relevance — e.g. migraine-without-aura (8A80.0)
+# routed to Ischaemic-Stroke at cosine ~0.17 (TESTING_STRATEGY ADV-04). Direct
+# tiers (exact / sibling / ancestor_d1) are NEVER floored: they are genuine scope
+# hits. Calibration note: no routing_gold case routes via these distant tiers, so
+# this gate changes only spurious far-walk matches.
+SCOPE_FALLBACK_CONFIDENCE_FLOOR = SEMANTIC_SCOPE_THRESHOLD
+
 
 RouteMethod = Literal[
     "exact",
@@ -308,6 +321,18 @@ async def _score_refs_by_scope_embedding(
     return refs
 
 
+def _passing_fallback_refs(refs: list[CPGDocRef]) -> list[CPGDocRef]:
+    """Keep only distant-walk refs whose scope-embedding score clears the floor.
+
+    Used by the ancestor_d1_sibling / ancestor_d1_sibling_child / ancestor_d2
+    tiers. Returns [] when every candidate is below SCOPE_FALLBACK_CONFIDENCE_FLOOR
+    so the caller falls through to the next (lower-confidence) tier rather than
+    routing a spurious far-walk match. If scope-embedding scoring was skipped
+    (score left at its 1.0 default), the ref passes — fail-open, never fail-loud.
+    """
+    return [r for r in refs if (r.score or 0.0) >= SCOPE_FALLBACK_CONFIDENCE_FLOOR]
+
+
 async def find_cpgs_for_code(
     code: str,
     conn,
@@ -391,16 +416,20 @@ async def find_cpgs_for_code(
                 )
 
     # 4. ancestor_d1_sibling — peer categories of the direct parent
+    #    Distant walk: gate on the scope-confidence floor (see
+    #    SCOPE_FALLBACK_CONFIDENCE_FLOOR). A below-floor sibling match is skipped
+    #    so the walk falls through rather than routing a spurious far match.
     ancestor_siblings = await fetch_icd_ancestor_siblings(conn, code)
     for anc_sib_code in ancestor_siblings:
         refs = await _scope_code_match(
             conn, anc_sib_code, match_type="ancestor_d1_sibling", matched_scope=anc_sib_code,
         )
         if refs:
-            return await _with_procedure_refs(
-                await _score_refs_by_scope_embedding(conn, code, refs),
-                "ancestor_d1_sibling",
+            scored = _passing_fallback_refs(
+                await _score_refs_by_scope_embedding(conn, code, refs)
             )
+            if scored:
+                return await _with_procedure_refs(scored, "ancestor_d1_sibling")
 
     # 5. ancestor_d1_sibling_child — children of those peer categories
     ancestor_sibling_children = await fetch_icd_ancestor_sibling_children(conn, code)
@@ -409,10 +438,11 @@ async def find_cpgs_for_code(
             conn, child_code, match_type="ancestor_d1_sibling_child", matched_scope=child_code,
         )
         if refs:
-            return await _with_procedure_refs(
-                await _score_refs_by_scope_embedding(conn, code, refs),
-                "ancestor_d1_sibling_child",
+            scored = _passing_fallback_refs(
+                await _score_refs_by_scope_embedding(conn, code, refs)
             )
+            if scored:
+                return await _with_procedure_refs(scored, "ancestor_d1_sibling_child")
 
     # 6. ancestor_d2 — grandparent block
     for ancestor in ancestors:
@@ -422,10 +452,11 @@ async def find_cpgs_for_code(
                 conn, ancestor["code"], match_type="ancestor_d2", matched_scope=ancestor["code"],
             )
             if refs:
-                return await _with_procedure_refs(
-                    await _score_refs_by_scope_embedding(conn, code, refs),
-                    "ancestor_d2",
+                scored = _passing_fallback_refs(
+                    await _score_refs_by_scope_embedding(conn, code, refs)
                 )
+                if scored:
+                    return await _with_procedure_refs(scored, "ancestor_d2")
 
     # 7. procedure_scope — tag overlap (catches procedure-only CPGs with no icd11_scope)
     if procedure_tags:

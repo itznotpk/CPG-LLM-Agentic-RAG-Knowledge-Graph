@@ -1,0 +1,81 @@
+{
+  "case_id": "10",
+  "case_chief_complaint": "Booking visit at 30 weeks (late booker). BP elevated; GDM diagnosed on OGTT. Plan for HTN + GDM management.",
+  "n_runs": 1,
+  "url": "http://127.0.0.1:8058",
+  "expected_codes": [],
+  "metrics": {
+    "n_runs": 1,
+    "top1_stability": {
+      "unique_top1_codes": 1,
+      "stable": true,
+      "values": [
+        "JA63"
+      ]
+    },
+    "top3_jaccard_mean": 1.0,
+    "top5_jaccard_mean": 1.0,
+    "expected_code_presence_rate": {},
+    "same_plan_rate": 1.0,
+    "wall_time_seconds": {
+      "mean": 127.9,
+      "stdev": 0.0,
+      "min": 127.9,
+      "max": 127.9
+    }
+  },
+  "extras": {
+    "med_count": {
+      "mean": 6.0,
+      "stdev": 0.0
+    },
+    "referral_count": {
+      "mean": 0.0,
+      "stdev": 0.0
+    },
+    "safety_flag_jaccard_mean": 1.0,
+    "plan_text_jaccard_mean": 1.0
+  },
+  "gate": {
+    "checks": {
+      "top1_stable (== 1 unique)": true,
+      "top3_jaccard >= 0.95": true,
+      "top5_jaccard >= 0.90": true,
+      "same_plan_rate >= 0.80": true
+    },
+    "overall_pass": true
+  },
+  "per_run_top5": [
+    [
+      "JA63",
+      "JA63.2",
+      "JB42.Y",
+      "BA00",
+      "BA00.1"
+    ]
+  ],
+  "per_run_wall_seconds": [
+    127.875
+  ],
+  "skipped_runs": [],
+  "summary_row": {
+    "case_id": "10",
+    "n_runs": 1,
+    "top1_stable": true,
+    "top1_value": "JA63",
+    "top3_jaccard": 1.0,
+    "top5_jaccard": 1.0,
+    "same_plan_rate": 1.0,
+    "plan_text_jaccard": 1.0,
+    "med_count_mean": 6.0,
+    "med_count_stdev": 0.0,
+    "referral_count_mean": 0.0,
+    "referral_count_stdev": 0.0,
+    "safety_flag_jaccard": 1.0,
+    "wall_mean_s": 127.9,
+    "wall_stdev_s": 0.0,
+    "wall_min_s": 127.9,
+    "wall_max_s": 127.9,
+    "overall_pass": true
+  }
+}

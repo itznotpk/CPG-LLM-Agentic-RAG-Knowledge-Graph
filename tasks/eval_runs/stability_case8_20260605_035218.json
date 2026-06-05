@@ -1,0 +1,81 @@
+{
+  "case_id": "8",
+  "case_chief_complaint": "Newly diagnosed HFrEF on routine echo. Here for management plan.",
+  "n_runs": 1,
+  "url": "http://127.0.0.1:8058",
+  "expected_codes": [],
+  "metrics": {
+    "n_runs": 1,
+    "top1_stability": {
+      "unique_top1_codes": 1,
+      "stable": true,
+      "values": [
+        "BD11.2"
+      ]
+    },
+    "top3_jaccard_mean": 1.0,
+    "top5_jaccard_mean": 1.0,
+    "expected_code_presence_rate": {},
+    "same_plan_rate": 1.0,
+    "wall_time_seconds": {
+      "mean": 139.6,
+      "stdev": 0.0,
+      "min": 139.6,
+      "max": 139.6
+    }
+  },
+  "extras": {
+    "med_count": {
+      "mean": 5.0,
+      "stdev": 0.0
+    },
+    "referral_count": {
+      "mean": 0.0,
+      "stdev": 0.0
+    },
+    "safety_flag_jaccard_mean": 1.0,
+    "plan_text_jaccard_mean": 1.0
+  },
+  "gate": {
+    "checks": {
+      "top1_stable (== 1 unique)": true,
+      "top3_jaccard >= 0.95": true,
+      "top5_jaccard >= 0.90": true,
+      "same_plan_rate >= 0.80": true
+    },
+    "overall_pass": true
+  },
+  "per_run_top5": [
+    [
+      "BD11.2",
+      "5A11",
+      "5B81.0",
+      "BC43.7",
+      "BD1Y"
+    ]
+  ],
+  "per_run_wall_seconds": [
+    139.64100000006147
+  ],
+  "skipped_runs": [],
+  "summary_row": {
+    "case_id": "8",
+    "n_runs": 1,
+    "top1_stable": true,
+    "top1_value": "BD11.2",
+    "top3_jaccard": 1.0,
+    "top5_jaccard": 1.0,
+    "same_plan_rate": 1.0,
+    "plan_text_jaccard": 1.0,
+    "med_count_mean": 5.0,
+    "med_count_stdev": 0.0,
+    "referral_count_mean": 0.0,
+    "referral_count_stdev": 0.0,
+    "safety_flag_jaccard": 1.0,
+    "wall_mean_s": 139.6,
+    "wall_stdev_s": 0.0,
+    "wall_min_s": 139.6,
+    "wall_max_s": 139.6,
+    "overall_pass": true
+  }
+}
