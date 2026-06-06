@@ -377,26 +377,44 @@ flowchart LR
 
 ## 3.4 Stage 1: Patient Intake and Vitals Ingestion
 
-The pipeline begins by assembling a single, typed picture of the patient. The objective of Stage 1
-was to merge every available data source, namely demographics, history, current medications,
-allergies, vital signs, and, for returning patients, the prior-visit summary, into one
-Pydantic-validated `PatientCase` object that becomes the immutable input to every downstream stage.
-Centralising on one schema was a deliberate decision, because it allows the rest of the pipeline to
-be written against a stable contract rather than against ad-hoc dictionaries.
+The pipeline initializes by aggregating all available patient data including demographics, medical
+history, concurrent medications, allergies, vital signs, and prior-visit summaries into a unified,
+strictly typed `PatientCase` object validated via Pydantic. This standardized schema centralizes
+data ingestion, establishing a stable, immutable data contract for all subsequent processing stages
+and eliminating the structural unreliability of ad-hoc dictionaries.
 
 > **[FIGURE 3.5: Step 1 intake screen (Data Input).]**
 > *Insert a screenshot of the Doctor UI consultation wizard Step 1, showing the
 > demographics/history/medications form together with the vitals panel and the rPPG scan
 > affordance.*
 
-Where height and weight are present, BMI is derived. The derivation is mirrored on both the
-frontend and the backend so that a direct API caller still receives a populated BMI. BMI is
-load-bearing downstream, because several referral triggers compare against it, and a missing BMI
-causes those gates to return "unknown".
+Derived clinical metrics, notably Body Mass Index (BMI), are computed symmetrically across both the
+frontend and backend API to ensure consistent data structures regardless of the entry vector. This
+redundancy guarantees that downstream clinical referral triggers, which strictly depend on BMI
+thresholds, reliably receive populated values, preventing undefined state evaluations.
 
-Two contactless capture subsystems feed Stage 1. Both were kept deliberately standalone: they
-enrich the `PatientCase` but are not part of the Stage 2 to 6 reasoning pipeline. Each is documented
-below, because each is a self-contained engineering subsystem.
+The principal fields of this contract are summarised in Table 3.3.
+
+**Table 3.3: Principal fields of the standardized patient intake record (`PatientCase`).**
+
+| Field | Purpose |
+|---|---|
+| `chief_complaint` | Required free-text presenting complaint and relevant history |
+| `age`, `sex` | Patient age and biological sex |
+| `comorbidities` | Free-text past and current diagnoses (legacy path) |
+| `staged_comorbidities` | Structured comorbidities with confirmed ICD codes |
+| `current_medications` | Current medication regimen |
+| `allergies` | Known drug and substance allergies |
+| `vitals` | Recorded vital signs (e.g. sbp, dbp, hr, spo2, bmi) |
+| `severity_staging` | Structured disease severity staging (e.g. eGFR band, NYHA class) |
+| `prior_visit` | Summary of the most recent prior consultation (returning patients) |
+
+Most of these fields are entered directly in the Step 1 form. To reduce that manual burden, this
+stage incorporates two independent, contactless capture subsystems. Architected as self-contained
+engineering modules, they enrich the `PatientCase` prior to its ingestion into the core reasoning
+pipeline: an rPPG subsystem populates the `vitals` map from a face-camera recording, and a
+voice-intake subsystem derives the clinical-note narrative from a recorded consultation. Each is
+documented below.
 
 ### 3.4.1 rPPG vitals-capture ecosystem
 
@@ -463,6 +481,10 @@ on typing. Like rPPG, this is intake tooling that never touches the Stage 2 to 6
 is never persisted: it is deleted immediately after transcription, with a one-day storage lifecycle
 rule retained only as a crash safety net, and the transcript itself is not stored either.
 
+> **[FIGURE 3.5c: Voice-intake (STT to SOAP) pipeline.]**
+> *Insert Mermaid diagram D-STT (below). A screenshot of the GCS bucket is not recommended, because
+> the staging bucket is emptied on every request and would show no meaningful state.*
+
 The implementation (`POST /clinical/consultation/process`, with `gcs_audio.py` and
 `summarise_consultation`) proceeds as follows:
 
@@ -486,23 +508,21 @@ read hop authenticates as Google Speech's own service agent rather than the back
 and that agent must hold object-viewer permission on the bucket, an IAM binding that is easy to
 overlook.
 
-The output of Stage 1, regardless of which capture subsystems were used, is the `PatientCase`
-object, whose principal fields are listed in Table 3.3.
+**Diagram D-STT, voice-intake transcription pipeline (Fig. 3.5c):**
 
-**Table 3.3: `PatientCase` schema, abridged, from `backend/agent/models.py`.**
+```mermaid
+flowchart LR
+    AUD[Consultation audio] --> GCS["Upload to GCS<br/>gs:// URI (bypasses ~1 min inline cap)"]
+    GCS --> REC["Google Speech longrunningrecognize<br/>2-speaker diarization · polled with 504 timeout"]
+    REC --> GRP["Group speakerTag stream into turns<br/>first speaker = Doctor"]
+    GRP --> SOAP["Gemini Flash summariser<br/>labelled transcript to SOAP note"]
+    SOAP --> NOTE([Appended to clinical notes])
+    GCS -.->|finally block| DEL["Delete GCS blob<br/>(audio never persisted)"]
+    REC -.-> DEL
 
-| Field | Type | Purpose |
-|---|---|---|
-| `chief_complaint` | `str` (required) | Presenting symptoms; the primary driver of Stage 2 |
-| `history` | `str?` | History narrative |
-| `age`, `sex` | `int?`, `{M,F,other}?` | Demographics; drive sex-aware routing and paediatric filters |
-| `comorbidities` | `list[str]` | Free-text comorbidity list (legacy path) |
-| `staged_comorbidities` | `list[StagedComorbidity]` | Clinician-confirmed comorbidities with ICD codes; enable the routing short-circuit |
-| `current_medications` | `list[str]` | Current regimen; fed into the Stage 4.5 KG safety lookup |
-| `allergies` | `list[str]` | Known allergies; audited by the Stage 6 critic |
-| `vitals` | `dict[str,float]` | For example `{sbp, dbp, hr, spo2, bmi}` |
-| `severity_staging` | `dict[str,str]` | For example eGFR band or NYHA class; drives urgency harmonisation |
-| `prior_visit` | `PriorVisitSummary?` | Returning-patient memory (see §3.12) |
+    classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
+    class GCS,REC,GRP,DEL det;
+```
 
 ---
 
