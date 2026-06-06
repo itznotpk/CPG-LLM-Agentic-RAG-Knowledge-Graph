@@ -178,60 +178,45 @@ flowchart TD
 
 ## 3.2 Technology Stack
 
-The system was built with a clear three-tier separation of concerns: a Python reasoning backend, a
-React clinician frontend, and a set of purpose-specific data stores, connected by a single
-streaming contract. Each technology was selected for a specific engineering property rather than
-for familiarity, and the rationale for each choice is recorded below.
+This section documents the implemented technology stack. The justification for selecting each
+database and framework over its alternatives is presented in the concept-selection analysis of
+Chapter 2 and is not repeated here; the purpose of this section is to record what was built and how
+the pieces fit together.
+
+The system is organised as three tiers connected by one streaming contract. The reasoning backend is
+Python 3.11 on FastAPI, which exposes the entire pipeline over a single Server-Sent Events (SSE)
+stream. The clinician frontend is a React 18, Vite, and Tailwind single-page application, and a
+terminal CLI (`clinical_cli.py`) consumes the identical SSE stream for headless end-to-end runs.
+Three data stores serve distinct roles: PostgreSQL with pgvector on Neon (the vector store), Neo4j
+Aura accessed through Graphiti (the knowledge graph), and Supabase (the application and
+patient-records store). All embeddings are produced by AWS Bedrock Titan at 1536 dimensions. The two
+grounding stores are described in §3.2.2 and the application store in §3.11.6.
 
 > **[FIGURE 3.3: Technology-stack strip.]**
 > *Insert a horizontal logo strip (Python, FastAPI, React, Tailwind, PostgreSQL/pgvector on Neon,
-> Neo4j Aura, Supabase, AWS Bedrock) with the one-line role label under each, as tabulated below.*
+> Neo4j Aura, Supabase, AWS Bedrock) with a one-line role label under each.*
 
-**Table 3.2: Technology stack and selection rationale.**
+### 3.2.1 Language-model composition: spending reasoning where it matters
 
-| Layer | Technology | Role in ClearPath | Reason selected |
+ClearPath was implemented as a multi-model system, and the governing principle was to spend latency,
+cost, and reasoning capacity only on the steps where they change output quality. Most pipeline steps
+are bounded extraction, classification, or query-rewriting tasks that run inside the interactive
+consultation, so they were assigned a fast, low-cost model in order to protect the ten-minute
+consultation budget. The single step that carries the deepest reasoning load, care-plan synthesis,
+was assigned a dedicated reasoning model, and the one-time offline graph build was assigned a cheap
+model because it never runs in the live path. Table 3.2 records this tiering and the rationale for
+each assignment.
+
+**Table 3.2: Model assignment by tier (verified against `.env` and `providers.py`).**
+
+| Tier | Stages / steps | Model | Why this tier |
 |---|---|---|---|
-| Backend | Python 3.11, FastAPI | Stage orchestrator, HTTP/SSE entry point | Async-native; first-class Server-Sent Events; the dominant ecosystem for LLM and embedding SDKs |
-| Streaming | Server-Sent Events (SSE) | One streaming contract for the UI and the CLI | Allows the pipeline to emit per-stage progress live; both clients consume the identical event stream |
-| Reasoning DB | PostgreSQL with pgvector (Neon) | ICD-11 code embeddings and CPG chunk embeddings | A mature relational store with a production-grade vector index (ivfflat); one store holds both structured rows and 1536-dim vectors |
-| Knowledge graph | Neo4j Aura with Graphiti | Drug, condition, and parameter safety relationships | Provides structural safety reasoning (contraindications, interactions, monitoring) that text retrieval cannot express; Graphiti wraps the Bolt driver with hardened connection pooling |
-| Application DB | Supabase (Postgres) | Auth, patient records, consultations, prior-visit summaries, realtime metrics | Managed Postgres with realtime subscriptions and row-level auth, kept separate from the reasoning store (see §3.11.6) |
-| Embeddings | AWS Bedrock, Titan Text v1 (1536-dim) | All vector representations (codes, chunks, scope) | A stable hosted embedding endpoint; the client is cached at module level (approximately 0.4 s per call versus 4.5 s for a cold client) |
-| Frontend | React 18, Vite, Tailwind | Clinician Doctor UI (4-step consultation wizard) | A component-driven workspace with a hot-reload development loop; Tailwind supports a dense, glanceable clinical surface |
-| Alternate client | Terminal CLI (`clinical_cli.py`) | The same pipeline, headless | Shares the SSE contract; used for end-to-end debugging and reproducibility runs without the UI |
+| Fast (interactive) | Stage 2 symptom extraction and hypothesis generation; Stage 2 DDx rerank; Stage 4 query rewriting; Stage 6 LLM critic; prep brief; STT-to-SOAP summary | Gemini 2.5 Flash (1M context) | • Latency-sensitive, runs in the live consult<br/>• Bounded extraction or judgement, no heavy reasoning needed<br/>• Light "thinking" tokens only on rerank and critic<br/>• Critic kept off the synthesis model, so no self-grading |
+| Reasoning (quality-critical) | Stage 5 care-plan synthesis; prior-visit summariser | MiMo v2.5 Pro (128k context) | • Deepest reasoning, longest evidence assembly<br/>• Output quality matters most here<br/>• Large context holds evidence + KG edges + patient state |
+| Offline (one-time) | CPG triple extraction during ingestion | Claude Haiku 4.5 | • High-volume per-chunk extraction; cost scales with corpus size<br/>• §3.3.1 guards (not the model) catch false edges, so Sonnet/Opus adds cost for no gain<br/>• Offline on Bedrock |
+| Embeddings | All vector representations (codes, chunks, scope) | Bedrock Titan Text v1 (1536-dim) | • Defines the shared vector space (codes, chunks, scope); all must use one model and dimension<br/>• 1536-dim v1 pinned to pgvector + ivfflat; switching (e.g. Titan v2) forces a full re-embed and re-index<br/>• Client cached against cold-start cost |
 
-### 3.2.1 Language-model composition
-
-ClearPath was implemented as a multi-model system. Each reasoning step is served by the model whose
-cost, latency, and quality profile best fits that step, rather than routing every step through one
-model. This point is recorded precisely because the system is sometimes assumed to be a single-model
-application, which it is not.
-
-**Table 3.3: Language models by pipeline role (verified against `.env` and `providers.py`).**
-
-| Pipeline role | Model | Notes |
-|---|---|---|
-| Stage 2 symptom extraction and hypothesis generation | Gemini 2.5 Flash | Seed-pinned where the backend accepts the field |
-| Stage 2 contextual DDx rerank | Gemini 2.5 Flash | `temperature=0`; uses reasoning ("thinking") tokens |
-| Stage 4 retrieval query generation | Gemini 2.5 Flash | `temperature=0.2` |
-| Stage 5 care-plan synthesis | MiMo v2.5 Pro (Xiaomi, 128k context) | Reasoning model; thinking disabled for structured output |
-| Stage 6 LLM pharmacist critic | Gemini 2.5 Flash (1M context) | Kept independent of the Stage 5 model so that no model grades its own plan |
-| Prior-visit summariser | MiMo (reasoning) | Compresses a finished visit into five fields |
-| Pre-consultation prep brief | Gemini 2.5 Flash | Read-only "Step 0" briefing |
-| Consultation STT to SOAP summary | Gemini 2.5 Flash | Voice-intake tooling, outside Stage 2 to 6 |
-| Offline CPG triple extraction (ingestion) | Claude Haiku 4.5 (Bedrock) | Builds the knowledge graph; never runs at consultation time |
-| Embeddings (all) | AWS Bedrock Titan (1536-dim) | n/a |
-
-### 3.2.2 Codebase composition
-
-The implementation comprises approximately 43,200 lines of Python (the reasoning backend, the
-ingestion tooling, and the test suite of roughly 250 tests) and approximately 22,800 lines of
-JavaScript and JSX (the React Doctor UI), giving an approximate 65 percent to 35 percent
-backend-to-frontend split by source lines. The dominance of the backend reflects where the
-engineering effort was concentrated: in the deterministic orchestration, the routing cascade, and
-the eight-layer Stage 5 validator chain, rather than in the user interface.
-
-### 3.2.3 Data-store architecture and the dual-grounding philosophy
+### 3.2.2 Data-store architecture and the dual-grounding philosophy
 
 A deliberate and defining design decision was to ground the system's reasoning in two complementary
 stores rather than one. This dual-grounding split is not incidental infrastructure; it is a core
@@ -240,10 +225,6 @@ other cannot answer on its own. A third store, Supabase, holds the application's
 but it is not a reasoning store and is owned by the frontend, so it is introduced here only briefly
 and documented alongside the Doctor UI in §3.11.6.
 
-> **[FIGURE 3.3b: Three-store data architecture.]**
-> *Insert Mermaid diagram D-DATA (below), drawn as three labelled cylinders with the stages that
-> read each one.*
-
 - **Vector store, PostgreSQL with pgvector (Neon).** This store answers questions of semantic
   similarity, such as which ICD-11 code is closest to a given symptom narrative and which guideline
   passage is most relevant to a given query. It holds the 1536-dimension Titan embeddings of all
@@ -251,12 +232,17 @@ and documented alongside the Doctor UI in §3.11.6.
   fuzzy, meaning-based matching, but it is blind to structured relationships: it can establish that
   two passages read similarly, not that two drugs interact.
 - **Knowledge graph, Neo4j Aura (through Graphiti).** This store answers questions of structural
-  relationship, such as whether a drug is contraindicated in a condition, what monitoring a
-  condition requires, and what the first-line therapy for a diagnosis is. It holds approximately
-  1,630 drug nodes and the typed edges `CONTRAINDICATED_WITH`, `INTERACTS_WITH`,
-  `REQUIRES_MONITORING`, and the positive prescribing relations. A graph traversal can therefore
-  surface a hazard, such as a teratogen on the patient's current medication list, that no retrieved
-  passage happens to mention, which is the gap a vector-only system cannot close.
+  relationship, such as whether a drug is contraindicated in a condition, what monitoring a drug
+  requires, and what the first-line therapy for a diagnosis is. The graph is a biomedical ontology
+  of roughly 13,800 nodes across about eleven entity types (the largest being `Condition`,
+  `Procedure`, `Drug` at approximately 1,630 nodes, `AdverseEvent`, `DiagnosticTool`, `RiskFactor`,
+  `Dosage`, `PatientProfile`, and `Specialty`) connected by roughly 18,700 typed edges across about
+  fifteen relation types, shown in Fig. 3.3c. The runtime pipeline queries the safety-relevant
+  subset of these relations, principally `CONTRAINDICATED_WITH` (approximately 980 edges),
+  `INTERACTS_WITH` (approximately 290), `REQUIRES_MONITORING`, `REQUIRES_REFERRAL`, and the positive
+  prescribing edges (`FIRST_LINE_FOR`, `RECOMMENDED_FOR`, and similar). A graph traversal can
+  therefore surface a hazard, such as a teratogen on the patient's current medication list, that no
+  retrieved passage happens to mention, which is the gap a vector-only system cannot close.
 - **Application store, Supabase (Postgres).** Held separately from both grounding stores, this
   contains the operational state of the clinic: clinician authentication, patient records,
   consultations, vitals history, prior-visit summaries, generated PDFs, and feedback signals. It is
@@ -271,25 +257,39 @@ safety critic of §3.10 possible: the LLM arm reasons over the text retrieved fr
 the KG arm reasons over the edges held in the graph store, and because the two arms fail in
 different ways, a hazard that is invisible to one is still caught by the other.
 
-**Diagram D-DATA, three-store data architecture (Fig. 3.3b):**
+The schema of the vector store is shown in Fig. 3.3b, and a safety subgraph of the knowledge graph
+in Fig. 3.3c. The knowledge-graph edges are not bare links: each one carries its own provenance,
+namely the evidence sentence it was extracted from, the source CPG document and chunk, a severity,
+and, where the contraindication is conditional, a structured threshold (for example, contraindicated
+when AF duration exceeds seven days). Fig. 3.3d shows this edge-level metadata, which is what makes a
+knowledge-graph-sourced safety flag auditable back to the exact CPG sentence that produced it.
 
-```mermaid
-flowchart LR
-    subgraph GROUND["Grounding stores · built OFFLINE · read-only at runtime"]
-        VDB[("pgvector / Neon<br/>3,914 ICD-11 codes<br/>+ CPG chunk + scope embeddings")]
-        KG[("Neo4j Aura + Graphiti<br/>~1,630 drugs · contraindication /<br/>interaction / monitoring edges")]
-    end
-    subgraph APP["Application store · read + WRITE at runtime"]
-        SB[("Supabase / Postgres<br/>auth · patients · consultations<br/>vitals · prior-visit summaries · PDFs")]
-    end
+> **[FIGURE 3.3b: Vector-store schema (PostgreSQL with pgvector, Neon).]**
+> *Insert an entity-relationship diagram of the three grounding tables `documents`
+> (`icd11_scope`, `scope_embedding`), `chunks` (chunk text, embedding, section hierarchy,
+> cross-refs), and `icd11_codes` (code, title, parent_code, embedding). Generate it as a real
+> diagram, not a screenshot, with these steps:*
+> 1. *Export the schema DDL of only the relevant tables:*
+>    `pg_dump --schema-only --no-owner -t documents -t chunks -t icd11_codes "$env:DATABASE_URL" > pgvector_schema.sql`
+> 2. *Open <https://dbdiagram.io>, choose **Import → PostgreSQL**, and paste `pgvector_schema.sql`.*
+> 3. *Export the rendered ER diagram as PNG or PDF.*
+> *Alternative (GUI): connect DBeaver to `DATABASE_URL`, select the three tables, right-click,
+> "Generate ER Diagram", and export. The `vector` columns will appear as a `USER-DEFINED` type,
+> which is expected.*
 
-    VDB -. semantic recall .-> S2["Stage 2 DDx · Stage 4 Retrieve"]
-    KG -. structural safety .-> S45["Stage 4.5 KG inject · Stage 6 Critic"]
-    SB <-. patient state .-> UI["Doctor UI · Stages 1 and 7"]
+> **[FIGURE 3.3c: Knowledge-graph safety subgraph (Neo4j Aura, Warfarin example).]**
+> *Insert the Neo4j screenshot of a single-drug ego network (Query 3 in
+> `docs/kg_figure_queries.cypher`, run on Warfarin), showing the safety-relevant edges
+> `CONTRAINDICATED_WITH`, `REQUIRES_MONITORING`, and `CAUSES` radiating from one drug. Tidy the
+> layout, dismiss any duplicate condition nodes, and export PNG or SVG from the result panel's
+> download icon.*
 
-    classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
-    class VDB,KG,SB store;
-```
+> **[FIGURE 3.3d: Knowledge-graph edge provenance (Neo4j Aura).]**
+> *Insert the Neo4j screenshot of a selected `CONTRAINDICATED_WITH` edge with its property panel
+> open, showing that each edge carries its evidence sentence (`evidence`), CPG citation
+> (`source_document`, `cpg_chunk_id`), `severity`, and a structured conditional threshold
+> (`threshold_param`, `threshold_op`, `threshold_value`, `threshold_unit`). Click any edge in the
+> graph view to open this panel.*
 
 ---
 
@@ -323,11 +323,12 @@ steps with one offline LLM extraction step:
    the semantic-fallback routing tier. This field is the basis on which Stage 3 routing is
    deterministic.
 5. **Knowledge-graph construction (`graph_builder.py` to Claude Haiku 4.5).** A language model
-   extracts `(subject, relation, object)` triples from the CPG prose into the schema
-   `(:Drug)-[:CONTRAINDICATED_WITH]->(:Condition)`,
-   `(:Drug)-[:INTERACTS_WITH {severity}]->(:Drug)`, and
-   `(:Condition)-[:REQUIRES_MONITORING]->(:Parameter)`, together with the positive prescribing edges
-   such as `FIRST_LINE_FOR` and `RECOMMENDED_FOR`.
+   extracts `(subject, relation, object)` triples from the CPG prose into the biomedical ontology
+   shown in Fig. 3.3c. The safety-relevant relations include
+   `(:Drug)-[:CONTRAINDICATED_WITH]->(:Condition)`, `(:Drug)-[:INTERACTS_WITH]->(:Drug)`,
+   `(:Drug)-[:REQUIRES_MONITORING]->(:DiagnosticTool)`, and
+   `(:Condition)-[:REQUIRES_REFERRAL]->(:Specialty)`, alongside the positive prescribing edges such
+   as `FIRST_LINE_FOR` and `RECOMMENDED_FOR`.
 
 ### 3.3.1 Relation-extraction guardrails
 
@@ -376,26 +377,44 @@ flowchart LR
 
 ## 3.4 Stage 1: Patient Intake and Vitals Ingestion
 
-The pipeline begins by assembling a single, typed picture of the patient. The objective of Stage 1
-was to merge every available data source, namely demographics, history, current medications,
-allergies, vital signs, and, for returning patients, the prior-visit summary, into one
-Pydantic-validated `PatientCase` object that becomes the immutable input to every downstream stage.
-Centralising on one schema was a deliberate decision, because it allows the rest of the pipeline to
-be written against a stable contract rather than against ad-hoc dictionaries.
+The pipeline initializes by aggregating all available patient data including demographics, medical
+history, concurrent medications, allergies, vital signs, and prior-visit summaries into a unified,
+strictly typed `PatientCase` object validated via Pydantic. This standardized schema centralizes
+data ingestion, establishing a stable, immutable data contract for all subsequent processing stages
+and eliminating the structural unreliability of ad-hoc dictionaries.
 
 > **[FIGURE 3.5: Step 1 intake screen (Data Input).]**
 > *Insert a screenshot of the Doctor UI consultation wizard Step 1, showing the
 > demographics/history/medications form together with the vitals panel and the rPPG scan
 > affordance.*
 
-Where height and weight are present, BMI is derived. The derivation is mirrored on both the
-frontend and the backend so that a direct API caller still receives a populated BMI. BMI is
-load-bearing downstream, because several referral triggers compare against it, and a missing BMI
-causes those gates to return "unknown".
+Derived clinical metrics, notably Body Mass Index (BMI), are computed symmetrically across both the
+frontend and backend API to ensure consistent data structures regardless of the entry vector. This
+redundancy guarantees that downstream clinical referral triggers, which strictly depend on BMI
+thresholds, reliably receive populated values, preventing undefined state evaluations.
 
-Two contactless capture subsystems feed Stage 1. Both were kept deliberately standalone: they
-enrich the `PatientCase` but are not part of the Stage 2 to 6 reasoning pipeline. Each is documented
-below, because each is a self-contained engineering subsystem.
+The principal fields of this contract are summarised in Table 3.3.
+
+**Table 3.3: Principal fields of the standardized patient intake record (`PatientCase`).**
+
+| Field | Purpose |
+|---|---|
+| `chief_complaint` | Required free-text presenting complaint and relevant history |
+| `age`, `sex` | Patient age and biological sex |
+| `comorbidities` | Free-text past and current diagnoses (legacy path) |
+| `staged_comorbidities` | Structured comorbidities with confirmed ICD codes |
+| `current_medications` | Current medication regimen |
+| `allergies` | Known drug and substance allergies |
+| `vitals` | Recorded vital signs (e.g. sbp, dbp, hr, spo2, bmi) |
+| `severity_staging` | Structured disease severity staging (e.g. eGFR band, NYHA class) |
+| `prior_visit` | Summary of the most recent prior consultation (returning patients) |
+
+Most of these fields are entered directly in the Step 1 form. To reduce that manual burden, this
+stage incorporates two independent, contactless capture subsystems. Architected as self-contained
+engineering modules, they enrich the `PatientCase` prior to its ingestion into the core reasoning
+pipeline: an rPPG subsystem populates the `vitals` map from a face-camera recording, and a
+voice-intake subsystem derives the clinical-note narrative from a recorded consultation. Each is
+documented below.
 
 ### 3.4.1 rPPG vitals-capture ecosystem
 
@@ -462,6 +481,10 @@ on typing. Like rPPG, this is intake tooling that never touches the Stage 2 to 6
 is never persisted: it is deleted immediately after transcription, with a one-day storage lifecycle
 rule retained only as a crash safety net, and the transcript itself is not stored either.
 
+> **[FIGURE 3.5c: Voice-intake (STT to SOAP) pipeline.]**
+> *Insert Mermaid diagram D-STT (below). A screenshot of the GCS bucket is not recommended, because
+> the staging bucket is emptied on every request and would show no meaningful state.*
+
 The implementation (`POST /clinical/consultation/process`, with `gcs_audio.py` and
 `summarise_consultation`) proceeds as follows:
 
@@ -485,23 +508,21 @@ read hop authenticates as Google Speech's own service agent rather than the back
 and that agent must hold object-viewer permission on the bucket, an IAM binding that is easy to
 overlook.
 
-The output of Stage 1, regardless of which capture subsystems were used, is the `PatientCase`
-object, whose principal fields are listed in Table 3.4.
+**Diagram D-STT, voice-intake transcription pipeline (Fig. 3.5c):**
 
-**Table 3.4: `PatientCase` schema, abridged, from `backend/agent/models.py`.**
+```mermaid
+flowchart LR
+    AUD[Consultation audio] --> GCS["Upload to GCS<br/>gs:// URI (bypasses ~1 min inline cap)"]
+    GCS --> REC["Google Speech longrunningrecognize<br/>2-speaker diarization · polled with 504 timeout"]
+    REC --> GRP["Group speakerTag stream into turns<br/>first speaker = Doctor"]
+    GRP --> SOAP["Gemini Flash summariser<br/>labelled transcript to SOAP note"]
+    SOAP --> NOTE([Appended to clinical notes])
+    GCS -.->|finally block| DEL["Delete GCS blob<br/>(audio never persisted)"]
+    REC -.-> DEL
 
-| Field | Type | Purpose |
-|---|---|---|
-| `chief_complaint` | `str` (required) | Presenting symptoms; the primary driver of Stage 2 |
-| `history` | `str?` | History narrative |
-| `age`, `sex` | `int?`, `{M,F,other}?` | Demographics; drive sex-aware routing and paediatric filters |
-| `comorbidities` | `list[str]` | Free-text comorbidity list (legacy path) |
-| `staged_comorbidities` | `list[StagedComorbidity]` | Clinician-confirmed comorbidities with ICD codes; enable the routing short-circuit |
-| `current_medications` | `list[str]` | Current regimen; fed into the Stage 4.5 KG safety lookup |
-| `allergies` | `list[str]` | Known allergies; audited by the Stage 6 critic |
-| `vitals` | `dict[str,float]` | For example `{sbp, dbp, hr, spo2, bmi}` |
-| `severity_staging` | `dict[str,str]` | For example eGFR band or NYHA class; drives urgency harmonisation |
-| `prior_visit` | `PriorVisitSummary?` | Returning-patient memory (see §3.12) |
+    classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
+    class GCS,REC,GRP,DEL det;
+```
 
 ---
 
@@ -687,6 +708,11 @@ The sub-steps are:
   `document_id_filter` to the routed guidelines only. Because the filter is applied at the database
   query, evidence from an unrelated guideline cannot enter the evidence pack; this is the structural
   guarantee behind the system's grounded, in-corpus claim. All queries run in parallel.
+- **Category-aware ranking.** Before the candidate pool is truncated to the top results, each chunk
+  is re-weighted using its `category` metadata (the 13-value controlled vocabulary assigned at
+  ingestion), so that high-value sections such as pharmacological management and monitoring are
+  promoted over incidental prose. This uses the chunk metadata captured in §3.3 to keep the most
+  decision-relevant passages in the final set.
 - **Hierarchical content prefetcher (H3 to H2 to H1).** For every matched leaf chunk,
   `_prefetch_parent_content` pulls its grandparent section headers up the tree, so that local
   abbreviations, the section's level of evidence, and Malaysian-context callouts accompany the chunk
@@ -756,9 +782,9 @@ rather than rendering partially.
 ### 3.9.1 The eight-section executable plan
 
 The `TreatmentPlan` schema was structured to render as the eight canonical sections evaluated in the
-test cases, as shown in Table 3.5.
+test cases, as shown in Table 3.4.
 
-**Table 3.5: The eight-section care plan and its backing fields.**
+**Table 3.4: The eight-section care plan and its backing fields.**
 
 | # | Section | Source field |
 |---|---|---|
@@ -975,9 +1001,9 @@ Because the same event stream is consumed by both the React UI and the terminal 
 identical regardless of surface.
 
 **What each stage exposes.** Transparency was built into the data each stage emits, not bolted on
-afterwards. Table 3.7 records the auditable output of each stage.
+afterwards. Table 3.5 records the auditable output of each stage.
 
-**Table 3.7: Per-stage transparency artifacts.**
+**Table 3.5: Per-stage transparency artifacts.**
 
 | Stage | Reasoning artifact exposed |
 |---|---|
@@ -1025,7 +1051,17 @@ reasoning backend never touches Supabase (the sole exception is the background d
 reads `delivery_jobs` through a direct asyncpg pool), and the Supabase layer never calls the backend.
 Patient-identifiable data and clinical reasoning are therefore kept in different tiers with different
 security postures, which is the reason this tier is documented with the UI that owns it rather than
-with the reasoning stores of §3.2.3.
+with the reasoning stores of §3.2.2. The application schema is shown in Fig. 3.11b.
+
+> **[FIGURE 3.11b: Application-store schema (Supabase / Postgres).]**
+> *Insert an entity-relationship diagram of the application tables (`patients`, `consultations`,
+> `live_vitals`, `human_signals`, `machine_signals`, `delivery_jobs`, and the prior-visit summary
+> store), showing the `nric TEXT` and `consultation_id INTEGER` keys. Supabase renders this
+> directly, so no SQL is required:*
+> 1. *Open the Supabase dashboard and go to **Database → Schema Visualizer**.*
+> 2. *Select the `public` schema; the ER diagram with foreign keys renders automatically.*
+> 3. *Use the export control to download a PNG, or screenshot the diagram.*
+> *Alternative (matches the Fig. 3.3b method): `pg_dump --schema-only --no-owner "$env:SUPABASE_DB_URL" > supabase_schema.sql`, then **Import → PostgreSQL** at <https://dbdiagram.io> and export.*
 
 - **Clinician authentication.** Supabase Auth provides the identity layer (`signIn`, `getSession`,
   `onAuthStateChange`, `signOut`), wrapped by the `AuthProvider` that sits outermost in the provider
@@ -1151,7 +1187,7 @@ This section consolidates the quantitative design parameters referenced earlier 
 | Stage 5 token budget | `60,000` of 128k MiMo context | Stage 5 synthesis guardrail |
 | Medication dedup substring threshold | at least 85 percent | Stage 5 validator 1 |
 | Referral dedup token-set Jaccard | at least 0.6 (specialty-gated) | Stage 5 validator 2 |
-| KG drug nodes / interaction edges | approximately 1,630 / 289 | Stage 4.5 and Stage 6 |
+| KG drug nodes / interaction edges | approximately 1,630 / 290 | Stage 4.5 and Stage 6 |
 | Determinism seed | `DDX_DETERMINISTIC_SEED = 42` | Stage 2 |
 
 The principal Pydantic schemas form the typed contracts that connect the stages: `PatientCase`
@@ -1259,7 +1295,9 @@ this chapter was built to support.
 >   width.
 > - **Fig. 3.2:** pipeline overview with branches (Mermaid D-FLOW).
 > - **Fig. 3.3:** technology-stack logo strip.
-> - **Fig. 3.3b:** three-store data architecture (Mermaid D-DATA).
+> - **Fig. 3.3b:** vector-store schema, pgvector ER diagram (generate via pg_dump to dbdiagram.io).
+> - **Fig. 3.3c:** knowledge-graph safety subgraph, Neo4j screenshot (Query 3, Warfarin).
+> - **Fig. 3.3d:** knowledge-graph edge provenance, Neo4j edge-property panel screenshot.
 > - **Fig. 3.4:** CPG ingestion pipeline (Mermaid D-INGEST).
 > - **Fig. 3.5:** Step 1 intake and vitals screenshot.
 > - **Fig. 3.5b:** rPPG signal-processing pipeline (Mermaid D-RPPG) with RPPGScanModal screenshot.
@@ -1270,6 +1308,7 @@ this chapter was built to support.
 > - **Fig. 3.10:** Doctor UI and CLI side-by-side screenshots.
 > - **Fig. 3.10b:** consultation wizard data flow (Mermaid D-WIZARD) with the four step screenshots.
 > - **Fig. 3.11:** returning-patient memory loop (Mermaid D-MEMORY) with PrepBriefCard screenshot.
+> - **Fig. 3.11b:** application-store schema, Supabase Schema Visualizer ER diagram.
 > - **Fig. 3.12:** optional embedding or threshold visual.
 >
 > All Mermaid sources render at <https://mermaid.live>; export SVG at high scale for print. The

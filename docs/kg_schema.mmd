@@ -1,0 +1,31 @@
+%% ClearPath knowledge-graph schema (Neo4j Aura) - Fig. 3.3c
+%% Paste this whole file into https://mermaid.live, then Actions > Export > SVG (or PNG).
+%% Bold (==>) edges are the safety-relevant relations queried by Stage 4.5 and Stage 6.
+flowchart LR
+    Drug["Drug"]:::core
+    Cond["Condition"]:::core
+    Proc["Procedure"]
+    Dx["DiagnosticTool"]
+    Dose["Dosage"]
+    AE["AdverseEvent"]
+    RF["RiskFactor"]
+    Spec["Specialty"]
+    PP["PatientProfile"]
+
+    Drug -->|"INDICATED_FOR · TREATS · RECOMMENDED_FOR"| Cond
+    Drug -->|"FIRST_LINE_FOR · SECOND_LINE_FOR"| Cond
+    Drug ==>|"CONTRAINDICATED_WITH"| Cond
+    Drug ==>|"INTERACTS_WITH"| Drug
+    Drug ==>|"REQUIRES_MONITORING"| Dx
+    Drug -->|"REQUIRES_DOSE_ADJUSTMENT"| Cond
+    Drug -->|"HAS_DOSAGE"| Dose
+    Drug -->|"CAUSES"| AE
+    Proc -->|"INDICATED_FOR · TREATS"| Cond
+    Cond -->|"INCREASES_RISK_OF"| Cond
+    Cond -->|"INCREASES_RISK_OF"| AE
+    Cond ==>|"REQUIRES_REFERRAL"| Spec
+    Cond -->|"ASSESSED_BY"| Dx
+    RF -->|"INCREASES_RISK_OF"| Cond
+    Drug -.->|"CONTRAINDICATED_WITH"| PP
+
+    classDef core fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
