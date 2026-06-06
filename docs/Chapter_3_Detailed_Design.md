@@ -16,16 +16,17 @@ senior clinician or pharmacist is present to catch an error.
 
 The pipeline consists of seven primary stages that operate as a continuous data-processing chain.
 Each stage transforms one typed, validated object into the next, and each stage streams its
-progress to the clinician in real time. The conceptual architecture and the high-level data flow
+progress to the clinician in real time. The system-level architecture and the high-level data flow
 between the stages are shown in Fig. 3.1, which serves as the master reference for the detailed
 specifications that follow in this chapter.
 
-> **[FIGURE 3.1: Conceptual architecture of the ClearPath system.]**
-> *Insert the full-width 7-stage pipeline flowchart by rendering the Mermaid source in §3.1.1
-> (diagram D-ARCH) at high export scale. The figure shows Stage 1 Intake, Stage 2 DDx, Stage 3
-> Route, Stage 4 Retrieve, Stage 4.5 KG inject, Stage 5 Synthesize, Stage 6 Safety Critic, and
-> Stage 7 Delivery, with the two grounding stores (pgvector and Neo4j) drawn as side cylinders and
-> the two decision branches (out-of-scope stop and safety block) marked.*
+> **[FIGURE 3.1: System-Level Architecture of the ClearPath System.]**
+> *Insert the full-width architecture diagram by rendering the Mermaid source in §3.1.1
+> (diagram D-ARCH) at high export scale. The figure names the seven stage components (Intake Module,
+> Differential Diagnosis Engine, Routing Module, Retrieval Engine, KG Injection Module, Synthesis
+> Engine, Safety Critic, and the Clinician Delivery Surface), with the two grounding stores (the
+> pgvector Vector Store and the Neo4j Knowledge Graph) drawn as side cylinders and their data
+> dependencies drawn as dashed edges.*
 
 As shown, the system operates as a directed pipeline in which each stage carries a single,
 well-defined responsibility:
@@ -94,9 +95,9 @@ This split also underpins the system's transparency design. Because each stage i
 typed step rather than one opaque generation, every intermediate decision can be exposed as part of
 an auditable chain of thought, which is documented in detail in §3.11.4.
 
-> **[FIGURE 3.2: Pipeline overview with decision branches.]**
-> *Insert Mermaid diagram D-FLOW (§3.1.2). This is the compact happy-path view together with the
-> two branch points, the out-of-scope stop and the safety block, suitable as a smaller inset
+> **[FIGURE 3.2: End-to-End Consultation Process Flow.]**
+> *Insert Mermaid diagram D-FLOW (§3.1.2). This is the compact happy-path process view together with
+> the two branch points, the out-of-scope stop and the safety block, suitable as a smaller inset
 > beside Fig. 3.1.*
 
 ### 3.1.2 Diagram sources for §3.1
@@ -105,27 +106,27 @@ The two diagrams are reproduced as renderable Mermaid sources below. They render
 <https://mermaid.live>; teal denotes an LLM reasoning step, cyan a deterministic step, and amber
 the safety-critic agent.
 
-**Diagram D-ARCH, full 7-stage system architecture (Fig. 3.1):**
+**Diagram D-ARCH, system-level architecture by component (Fig. 3.1):**
 
 ```mermaid
 flowchart TB
     subgraph Intake["Stage 1 · Intake (deterministic)"]
-        S1["PatientCase JSON + derived BMI<br/>vitals · history · allergies · meds · prior-visit"]
+        S1["Intake Module<br/>PatientCase assembler · rPPG + STT capture · derived BMI"]
     end
 
-    subgraph Pipeline["Hybrid pipeline · LLM step / deterministic"]
+    subgraph Pipeline["Hybrid reasoning pipeline · LLM engine / deterministic module"]
         direction TB
-        S2["Stage 2 · DDx<br/>symptom to ICD-11 · pgvector 3,914 codes + LLM rerank"]
-        S3["Stage 3 · Route<br/>deterministic D1–D6 scope cascade"]
-        S4["Stage 4 · Retrieve<br/>LLM query-gen + scoped pgvector · H3→H2→H1 prefetch"]
-        S45["Stage 4.5 · KG inject<br/>Neo4j Cypher · prefer Y / avoid X edges"]
-        S5["Stage 5 · Synthesize<br/>LLM 8-section plan + post-synthesis validators"]
-        S6{{"Stage 6 · Safety Critic<br/>LLM pharmacist and Neo4j verifier"}}
+        S2["Stage 2 · Differential Diagnosis Engine<br/>pgvector ICD-11 search + LLM reranker"]
+        S3["Stage 3 · Routing Module<br/>deterministic D1–D6 scope cascade"]
+        S4["Stage 4 · Retrieval Engine<br/>LLM query generator + scoped pgvector + hierarchical prefetch"]
+        S45["Stage 4.5 · KG Injection Module<br/>Neo4j Cypher · prefer / avoid edges"]
+        S5["Stage 5 · Synthesis Engine<br/>LLM planner + post-synthesis validators"]
+        S6{{"Stage 6 · Safety Critic<br/>LLM pharmacist + Neo4j verifier"}}
         S2 --> S3 --> S4 --> S45 --> S5 --> S6
     end
 
-    PG[("Postgres + pgvector<br/>ICD-11 + CPG chunk embeddings")]
-    KG[("Neo4j Aura KG<br/>drug · condition · parameter")]
+    PG[("Vector Store<br/>Postgres + pgvector (Neon)<br/>ICD-11 + CPG chunk embeddings")]
+    KG[("Knowledge Graph<br/>Neo4j Aura<br/>drug · condition · procedure")]
 
     S1 --> S2
     PG -. embeddings .-> S2
@@ -134,7 +135,7 @@ flowchart TB
     KG -. prefer/avoid .-> S45
     KG -. structural verify .-> S6
 
-    S6 --> UI["Stage 7 · Live Clinician UI · SSE stream<br/>React Doctor UI + terminal CLI to PDF delivery"]
+    S6 --> UI["Stage 7 · Clinician Delivery Surface<br/>React Doctor UI + CLI · SSE stream · PDF delivery"]
     UI -. override to re-synth .-> S5
 
     classDef agent fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
@@ -536,33 +537,74 @@ post-PCI review with no symptom narrative, produce brittle and non-reproducible 
 therefore layers several deterministic stabilisers around the language-model steps.
 
 > **[FIGURE 3.6: Stage 2 DDx sub-pipeline.]**
-> *Insert Mermaid diagram D-DDX (below), or a screenshot of the Step 2 Diagnosis screen showing the
-> ranked DDx cards with their High/Moderate/Low tier badges and the "Why this rank?" disclosure.*
+> *Insert Mermaid diagram D-DDX (below). This is the internal process view; its Mode A versus Mode B
+> branch is explained in §3.5.1, and the clinician-facing output of this stage is shown separately in
+> Fig. 3.6b.*
 
-The stage is composed of the following sub-steps:
+The stage is composed of the following sub-steps. Every generative step here runs on the fast tier,
+Gemini 2.5 Flash, consistent with the model tiering in Table 3.2, because each is a bounded
+extraction or ranking task rather than deep synthesis, and the parallel search uses the shared
+Bedrock Titan v1 embedding model that defines the vector space.
 
-- **Symptom extractor (15-word distiller).** A language model rewrites the clinical notes into a
-  single short phrase, capped at fifteen words, optimised for embedding. The cap is enforced in
-  code, with truncation as a secondary guard.
-- **Hypothesis generator.** A complementary language-model call proposes candidate named conditions,
-  which widens the candidate pool beyond what the symptom phrase alone retrieves.
-- **Clinician-named (CC) boost.** Diagnoses the clinician wrote explicitly in the chief-complaint,
-  history, or examination text are lifted out, resolved from name to code by vector lookup, and
-  given a score boost so that a clinician-stated diagnosis outranks the strongest symptom hit. The
-  system never trusts an LLM-emitted ICD code, because language models hallucinate digit-leading
-  codes; the name-to-code resolution step removes that class of failure.
-- **Multi-query parallel vector search.** The symptom phrase, the generated hypotheses, and the
-  resolved CC hints are embedded and searched against the 3,914-code ICD-11 store in parallel
-  (`asyncio.gather`), with the ivfflat probe count raised (`SET ivfflat.probes = 100`) to avoid
-  silently dropping correct codes.
-- **Contextual LLM re-ranker.** A language model with reasoning tokens re-ranks the merged candidate
-  pool using the patient's age, sex, comorbidities, and medications as context. Two prompt rules
-  counter the Titan bias: a specificity preference (for example NSTEMI `BA41.1` over the unspecified
-  `BA41`) and a distinct-disease preference (codes sharing a four-character ICD stem collapse to a
-  single conceptual slot, so that one strong vector hit cannot fill the top five with its own
-  siblings).
+- **Symptom extractor (15-word distiller, Gemini 2.5 Flash).** A language model rewrites the clinical
+  notes into a single short phrase, capped at fifteen words, optimised for embedding. The cap is
+  enforced in code, with truncation as a secondary guard.
+- **Hypothesis generator (Gemini 2.5 Flash).** A complementary language-model call proposes candidate
+  named conditions, which widens the candidate pool beyond what the symptom phrase alone retrieves.
+- **Clinician-named (CC) boost (Gemini 2.5 Flash extraction, Titan vector resolution).** Diagnoses the
+  clinician wrote explicitly in the chief-complaint, history, or examination text are lifted out,
+  resolved from name to code by vector lookup, and flagged to the contextual re-ranker as a strong
+  soft signal — a hard prompt rule requires an explicitly clinician-named diagnosis to surface in the
+  top three — so that a clinician-stated diagnosis outranks the strongest symptom hit. This signal is
+  carried in the score trace for audit but, by design, does not enter the deterministic `math_rank`
+  formula below. The system never trusts an LLM-emitted ICD code,
+  because language models hallucinate digit-leading codes; the name-to-code resolution step removes
+  that class of failure.
+- **Multi-query parallel vector search (Bedrock Titan v1, 1536-dim).** The symptom phrase, the
+  generated hypotheses, and the resolved CC hints are embedded and searched against the 3,914-code
+  ICD-11 store in parallel (`asyncio.gather`), with the ivfflat probe count raised
+  (`SET ivfflat.probes = 100`) to avoid silently dropping correct codes.
+- **Deterministic relevance scoring (the `math_rank`).** Before any language model re-orders the
+  pool, each candidate is scored deterministically from the WHO ICD-11 metadata attached to its code.
+  An ICD-11 code carries, besides its title and hierarchy position, a set of *inclusion* terms
+  (synonyms and indexed sub-entities that legitimately resolve to that code) and *exclusion*
+  cross-references ("see-other" pointers redirecting a near-miss query to a different, correct code).
+  The score adjusts the raw embedding cosine accordingly: a hit against an inclusion synonym adds a
+  weighted boost, and a query that actually matches an exclusion cross-reference is penalised, so that
+  `final_score = base_similarity + inclusion_match − exclusion_penalty`. This produces a purely
+  deterministic ordering, the `math_rank`, on which the contextual re-ranker below then operates. A
+  strong inclusion boost can lift `final_score` above 1.0; the value is clamped to `[0, 1]` for display
+  only, and the raw percent is never shown on the clinician card.
+- **Contextual LLM re-ranker (Gemini 2.5 Flash, reasoning tokens enabled).** A language model with
+  reasoning tokens re-ranks the merged candidate pool using the patient's age, sex, comorbidities,
+  and medications as context. Two prompt rules counter the Titan bias: a specificity preference (for
+  example NSTEMI `BA41.1` over the unspecified `BA41`) and a distinct-disease preference (codes
+  sharing a four-character ICD stem collapse to a single conceptual slot, so that one strong vector
+  hit cannot fill the top five with its own siblings). The re-ranked order is the displayed
+  `AI_rank`; the per-card "Why this rank?" disclosure surfaces the `math_rank → AI_rank` delta so that
+  any model-driven reordering away from the deterministic score remains auditable.
 
-### 3.5.1 Four-layer determinism stack
+### 3.5.1 Two intake paths: symptom-driven (Mode A) and task-framed (Mode B)
+
+Before any of the sub-steps run, Stage 2 decides which of two paths a `PatientCase` follows, because
+the two kinds of visit demand different handling. This is the first branch in Fig. 3.6.
+
+- **Mode A, symptom-driven.** The default path for a patient presenting with a complaint. The notes
+  carry a genuine symptom narrative, so the LLM symptom extractor and hypothesis generator are run to
+  distil and then widen the query before the vector search.
+- **Mode B, task-framed.** Procedural and review encounters (post-operative review, antenatal
+  booking, medication review, routine follow-up) carry no presenting symptom to extract, and forcing
+  an LLM extractor over them produces brittle, non-reproducible phrasing. A cheap regex
+  (`_is_task_framed`) detects a task marker and bypasses the extractor entirely, assembling the query
+  deterministically (`_assemble_task_framed_phrase`) from the chief complaint, history, and
+  comorbidities, so the same case always yields the same query string.
+
+Separating the two paths matters because a task-framed visit gives the embedding space no symptom to
+latch onto, so routing it through the symptom pipeline is both wasteful and a source of run-to-run
+drift. Mode B removes that failure at its root, which is why it also appears as the fourth layer of
+the reproducibility stack below.
+
+### 3.5.2 Reproducibility: the four-layer determinism stack
 
 Because the same patient must receive the same differential on every run, which is a non-negotiable
 property for an auditable clinical tool, Stage 2 was hardened with four reproducibility layers:
@@ -576,14 +618,18 @@ property for an auditable clinical tool, Stage 2 was hardened with four reproduc
    filling gaps the LLM missed.
 3. **In-process phrase cache,** keyed on a hash of model and notes, which removes per-run extraction
    jitter within a process.
-4. **Mode-B rule-based bypass,** under which task-framed visits (post-op, antenatal booking,
-   medication review, follow-up) skip the LLM extractor entirely and build the query
-   deterministically from a template, together with a co-equal-primary tie-break that orders two
-   clinician-named diagnoses alphabetically when their scores fall within an epsilon.
+4. **Mode-B rule-based bypass** (§3.5.1), which removes LLM phrasing jitter on task-framed visits,
+   together with a co-equal-primary tie-break that orders two clinician-named diagnoses
+   alphabetically when their scores fall within an epsilon.
 
 The output is a ranked DDx list that the clinician approves before the system spends any compute on
 Stages 3 to 6. The reproducibility of this stage is the strongest empirical result of the project
 and is reported in Chapter 4.
+
+> **[FIGURE 3.6b: Step 2 Diagnosis screen (clinician-facing ranked differential).]**
+> *Insert a screenshot of the Doctor UI Step 2, showing the ranked ICD-11 differential cards with
+> their High/Moderate/Low tier badges, the clinician selection controls, and the "Why this rank?"
+> disclosure that exposes the math-rank to AI-rank delta and any clinical override.*
 
 **Diagram D-DDX, Stage 2 differential-diagnosis sub-pipeline (Fig. 3.6):**
 
@@ -613,12 +659,77 @@ flowchart TB
 Stage 3 is the architectural centre of the system's safety design, and it contains no language
 model. Its objective was to map each clinician-approved ICD-11 code to the exact set of MoH CPGs
 that govern it, and, equally important, to return no plan when no guideline applies rather than
-fabricate a plausible but ungoverned answer. This refusal behaviour was a primary design goal: a
-system that always synthesises from whatever it retrieved would hand a confident obstetric paragraph
-to a 56-year-old male whose symptoms overlap with a pregnancy presentation, whereas ClearPath returns
-`out_of_scope` for that input.
+fabricate a plausible but ungoverned answer. This refusal behaviour was a primary design goal,
+because a system that always synthesises from whatever it retrieved would produce confident advice
+for conditions it holds no guideline for.
 
-> **[FIGURE 3.7: Routing cascade ladder.]**
+The reliability of this mapping rests on the provenance of each guideline's scope. The `icd11_scope`
+of every guideline, the explicit set of ICD-11 codes it governs, was established against the WHO
+ICD-11 reference rather than inferred by a model. Each candidate code was resolved through the WHO
+ICD-11 API to obtain its authoritative title, definition, inclusions, exclusions (the synonym and
+cross-reference terms introduced in §3.5), parent hierarchy, and chapter, and these details were
+recorded per code. The resulting scope assignments were then
+reviewed and clinically verified by a practising clinician, who approved, edited, or rejected the
+proposed scope of each guideline.
+
+A single guideline's scope is therefore a set of related ICD-11 codes rather than one code. The
+Heart-Failure (5th Edition) guideline, for example, is scoped to the heart-failure block together
+with its subtypes and the residual `.Y`/`.Z` variants, as shown in Table 3.4.
+
+**Table 3.4: ICD-11 scope of the Heart-Failure (5th Edition) guideline.**
+
+| ICD-11 code | Title |
+|---|---|
+| `BD10` | Congestive heart failure |
+| `BD11` | Left ventricular failure |
+| `BD11.0` | Left ventricular failure with preserved ejection fraction |
+| `BD11.1` | Left ventricular failure with mid range ejection fraction |
+| `BD11.2` | Left ventricular failure with reduced ejection fraction |
+| `BD11.Z` | Left ventricular failure, unspecified |
+| `BD12` | High output syndromes |
+| `BD13` | Right ventricular failure |
+| `BD14` | Biventricular failure |
+| `BD1Y` | Other specified heart failure |
+| `BD1Z` | Heart failure, unspecified |
+
+It is this set that the routing cascade in §3.6.1 matches a predicted code against. The full
+per-guideline scope assignment is enumerated in Appendix [TODO: appendix ref].
+
+> **[FIGURE 3.7 — insert WHO ICD-11 browser screenshot of the heart-failure block here.]**
+>
+> **Figure 3.7 — WHO ICD-11 browser: the heart-failure block (`BD10`–`BD1Z`).** Left pane: the
+> parent–child code hierarchy that the Stage 3 routing cascade (§3.6.1) walks when an exact match is
+> absent. Right pane: the "Exclusions from above levels" list for `BD11.0` — the WHO cross-references
+> that the deterministic `exclusion_penalty` (§3.5) keys off — and the authoritative source against
+> which this guideline's scope in Table 3.4 was verified.
+
+This procedure is also the system's scaling contract. The first version of the scope was verified by
+a single clinician; broadening the corpus toward production scale will require the same codes to be
+reviewed by multiple clinicians so that the mapping does not rest on one practitioner's judgement,
+and every newly ingested CPG must pass through the identical classify-then-clinically-verify
+procedure before it is allowed to participate in routing.
+
+The corpus routed against at the time of writing comprises thirty clinically verified MoH CPGs,
+organised under the four MoH clinical domains the system primarily targets — cardiovascular disease,
+endocrine disease, cancer, and anaesthesiology — together with a single erectile-dysfunction
+guideline, as summarised in Table 3.5.
+
+**Table 3.5: The thirty-guideline CPG corpus by MoH clinical domain.**
+
+| Clinical domain | CPGs | Conditions |
+|---|---|---|
+| Cardiovascular disease | 15 | Heart failure, Hypertension, Atrial fibrillation, STEMI, NSTE-ACS, UA/NSTEMI, Stable coronary artery disease, Percutaneous coronary intervention, Ischaemic stroke, Infective endocarditis, Pulmonary arterial hypertension, Dyslipidaemia, CVD prevention, CVD prevention in women, Heart disease in pregnancy |
+| Endocrine disease | 6 | Type 2 diabetes, Type 1 diabetes (children), Diabetes in pregnancy, Thyroid disorders, Obesity, Growth hormone |
+| Cancer | 5 | Cancer pain, Breast cancer, Colorectal carcinoma, Nasopharyngeal carcinoma, Cervical cancer |
+| Anaesthesiology | 3 | Pre-anaesthetic assessment, Medication safety in anaesthesia, Patient safety & minimal monitoring |
+| Erectile dysfunction | 1 | Erectile dysfunction |
+
+The grouping follows the MoH CPG portal's own domain taxonomy, so guidelines that span more than one
+organ system are placed where MoH files them — Dyslipidaemia and Heart-Disease-in-Pregnancy under
+cardiovascular disease, Diabetes-in-Pregnancy under endocrine disease. The distribution shows the
+corpus's deliberate cardiovascular and cardiometabolic focus.
+
+> **[FIGURE 3.7b: Routing cascade ladder.]**
 > *Insert Mermaid diagram D-ROUTE (below), drawn as a descending ladder so that the progression
 > from exact match, through broadening, to semantic fallback and refusal is legible.*
 
@@ -627,29 +738,46 @@ to a 56-year-old male whose symptoms overlap with a pregnancy presentation, wher
 Routing was implemented as a deterministic cascade that attempts the most precise match first and
 broadens only as far as necessary. Although it is summarised in design materials as the "D1 to D6
 ladder", the implementation in `backend/agent/routing.py` is a nine-tier cascade, each tier
-representing a strictly weaker structural claim than the one before it:
+representing a strictly weaker structural claim than the one before it. Table 3.9 defines each tier,
+with one ICD-11 family — `5B80.00` *(Overweight in infants, children or adolescents)* — threaded
+through the examples so that the progressive broadening is legible row to row.
 
-1. **exact:** the predicted code appears directly in a guideline's `icd11_scope`.
-2. **sibling:** same-parent siblings, including the `.Y` and `.Z` residual variants.
-3. **ancestor_d1:** the one-decimal-digit parent, for example `BA41` from `BA41.0`.
-4. **ancestor_d1_sibling:** peer categories of that parent.
-5. **ancestor_d1_sibling_child:** children of those peer categories.
-6. **ancestor_d2:** the no-decimal block ancestor, for example `BA00` from `BA00.0`.
-7. **procedure_scope:** tag overlap with a caller-supplied procedure context.
-8. **semantic_scope:** cosine similarity between the code embedding and the guideline's
-   `scope_embedding`, accepted only at or above the calibrated threshold, which captures
-   cross-chapter conditions that the structural tiers miss.
-9. **out_of_scope:** no guideline matched, and the system returns no plan.
+**Table 3.9: The nine-tier deterministic routing cascade (`backend/agent/routing.py`).**
+
+| # | Match tier | What it matches | Example |
+|---|---|---|---|
+| 1 | `exact` | Predicted code appears directly in a guideline's `icd11_scope` | `5B80.00` → `5B80.00` |
+| 2 | `sibling` | Same-parent siblings, including the `.Y`/`.Z` residual variants | `5B80.00` → `5B80.01`, `5B80.0Z` |
+| 3 | `ancestor_d1` | The direct (one-decimal) parent | `5B80.00` → `5B80.0` |
+| 4 | `ancestor_d1_sibling` | Peer categories of that parent | `5B80.00` → `5B80.1` |
+| 5 | `ancestor_d1_sibling_child` | Children of those peer categories | children of `5B80.1` |
+| 6 | `ancestor_d2` | The no-decimal block (grandparent) ancestor | `5B80.00` → `5B80` |
+| 7 | `procedure_scope` | Tag overlap with a caller-supplied procedure context | PCI context → PCI-tagged scope |
+| 8 | `semantic_scope` | Cosine similarity between the code embedding and the guideline's `scope_embedding`, at or above the calibrated `0.32` floor — captures cross-chapter conditions the structural tiers miss | similarity ≥ `0.32` |
+| 9 | `out_of_scope` | No guideline matched — the system returns no plan | — |
+
+The three distant structural-walk tiers (4–6) and the semantic tier (8) are additionally gated by the
+scope-confidence floor described in §3.6.2; the precise tiers (1–3) are never floored, as they
+represent genuine scope membership.
 
 ### 3.6.2 Calibration and gates
 
 Three design details make this cascade trustworthy:
 
-- **Semantic threshold `SEMANTIC_SCOPE_THRESHOLD = 0.32`.** This floor was calibrated empirically
-  against the spread between the minimum in-scope similarity and the maximum out-of-scope
-  similarity, leaving headroom on each side, and must not be retuned without rerunning the
-  calibration probe. The same value floors the distant structural-walk tiers, so a code that reaches
-  a guideline only through a remote hierarchy walk cannot present itself as in scope.
+- **Semantic threshold `SEMANTIC_SCOPE_THRESHOLD = 0.32`.** The semantic-fallback tier admits a code
+  only when its cosine similarity to a guideline's `scope_embedding` meets this floor. The value was
+  not chosen by intuition but calibrated through a systematic procedure. A labelled validation set of
+  code-to-guideline pairs was assembled and partitioned into known in-scope and known out-of-scope
+  pairs; every pair was scored, and the floor was placed inside the separation margin between the
+  highest out-of-scope similarity and the lowest in-scope similarity, leaving headroom on each side
+  so that neither class is clipped. The ground-truth labels for this set were taken from the same
+  clinician-verified scope assignments described in §3.6, so the threshold is validated against
+  clinically approved labels rather than self-generated ones, and it is the same clinician who
+  established the first version of the scope routing who validated this benchmark. The value is
+  therefore treated as a calibrated constant and must not be retuned without rerunning the
+  calibration procedure against the validation set. The same floor also gates the distant
+  structural-walk tiers, so a code that reaches a guideline only through a remote hierarchy walk
+  cannot present itself as in scope.
 - **D3 exclusion-penalty gate.** The exclusion penalty applied to "other specified" chunks is gated
   on the condition `exclusion_sim > base_score`, so that a generic exclusion chunk cannot
   self-penalise the correct subtype out of scope.
@@ -663,7 +791,7 @@ A further optimisation, the staged-comorbidity short-circuit, allows a comorbidi
 the clinician already confirmed in the intake UI to bypass the vector path entirely (0 ms versus
 roughly 4 s), routing the confirmed code directly.
 
-**Diagram D-ROUTE, Stage 3 deterministic routing cascade (Fig. 3.7):**
+**Diagram D-ROUTE, Stage 3 deterministic routing cascade (Fig. 3.7b):**
 
 ```mermaid
 flowchart TB
@@ -782,9 +910,9 @@ rather than rendering partially.
 ### 3.9.1 The eight-section executable plan
 
 The `TreatmentPlan` schema was structured to render as the eight canonical sections evaluated in the
-test cases, as shown in Table 3.4.
+test cases, as shown in Table 3.6.
 
-**Table 3.4: The eight-section care plan and its backing fields.**
+**Table 3.6: The eight-section care plan and its backing fields.**
 
 | # | Section | Source field |
 |---|---|---|
@@ -925,6 +1053,16 @@ providers deliberately, from `AuthProvider` (clinician identity, outermost) thro
 and `AppProvider` (consultation state) to `ToastProvider`, so that every screen has the authenticated
 clinician in scope and no consultation view can render without an identity.
 
+Beyond the consultation wizard, the shell exposes a separate Clinical Performance analytics view
+(route `/analytics`), driven by a single time-window selector, that aggregates volume, output, and
+feedback metrics directly from the application store. It is documented here as a delivery surface
+because it reads only persisted consultation data and never the live pipeline.
+
+> **[FIGURE 3.10c: Clinical Performance analytics view.]**
+> *Insert a screenshot of the `/analytics` view, showing the 7/30/90-day window selector together
+> with the volume and approval-rate metric cards and the feedback-insights panel (most-amended CPGs
+> and recent clinician comments).*
+
 ### 3.11.2 The four-step consultation UX flow
 
 The wizard is the spine of the clinician experience, and its data flow was made precise about which
@@ -932,8 +1070,9 @@ backend and which call fires at each step. This step-by-step contract is what pr
 reasoning stages from running before the clinician has committed to a differential.
 
 > **[FIGURE 3.10b: Consultation wizard data flow.]**
-> *Insert Mermaid diagram D-WIZARD (below). Optionally accompany it with the four step screenshots
-> (Input, Diagnosis, Care Plan, Output).*
+> *Insert Mermaid diagram D-WIZARD (below). This figure shows only the four-step flow; the detailed
+> per-step screens appear once each in their stage sections (Step 1 in Fig. 3.5, Step 2 in Fig. 3.6b,
+> Step 3 in Fig. 3.8, Step 4 in Fig. 3.10d) and are not repeated here.*
 
 - **Step 1, Data Input.** The clinician keys the patient's NRIC. For a returning patient, `syncMPIS`
   loads the prior-visit summary and current medications, and a read-only "Step 0" prep brief renders
@@ -1001,9 +1140,9 @@ Because the same event stream is consumed by both the React UI and the terminal 
 identical regardless of surface.
 
 **What each stage exposes.** Transparency was built into the data each stage emits, not bolted on
-afterwards. Table 3.5 records the auditable output of each stage.
+afterwards. Table 3.7 records the auditable output of each stage.
 
-**Table 3.5: Per-stage transparency artifacts.**
+**Table 3.7: Per-stage transparency artifacts.**
 
 | Stage | Reasoning artifact exposed |
 |---|---|
@@ -1042,6 +1181,10 @@ Gmail module (`delivery.py` together with a background worker polling a `deliver
 no language model in the delivery loop. The email subject is validated against a PHI-token blocklist,
 the body is localized (English, Malay, Chinese), and the job is retried up to three times before
 being marked permanently failed.
+
+> **[FIGURE 3.10d: Step 4 final care plan and PDF export.]**
+> *Insert a screenshot of the wizard Step 4 (Output), showing the finalized care-plan summary, the
+> export-to-PDF affordance, and the "Send to patient" delivery control with its status indicator.*
 
 ### 3.11.6 Application-data tier: Supabase (auth, patient records, persistence)
 
@@ -1171,7 +1314,7 @@ This section consolidates the quantitative design parameters referenced earlier 
 > desired, for example a two-dimensional projection of in-scope versus out-of-scope code embeddings
 > around the 0.32 threshold.*
 
-**Table 3.6: Key engineering constants and formulas (verified against source).**
+**Table 3.8: Key engineering constants and formulas (verified against source).**
 
 | Parameter | Value | Where used |
 |---|---|---|
@@ -1302,7 +1445,8 @@ this chapter was built to support.
 > - **Fig. 3.5:** Step 1 intake and vitals screenshot.
 > - **Fig. 3.5b:** rPPG signal-processing pipeline (Mermaid D-RPPG) with RPPGScanModal screenshot.
 > - **Fig. 3.6:** Stage 2 DDx sub-pipeline (Mermaid D-DDX) or Step 2 screenshot.
-> - **Fig. 3.7:** routing cascade ladder (Mermaid D-ROUTE).
+> - **Fig. 3.7:** WHO ICD-11 browser — Heart-Failure block hierarchy and exclusions (screenshot).
+> - **Fig. 3.7b:** routing cascade ladder (Mermaid D-ROUTE).
 > - **Fig. 3.8:** Step 3 care-plan renderer screenshot.
 > - **Fig. 3.9:** safety-critic dual-source card screenshot with Mermaid D-CRITIC.
 > - **Fig. 3.10:** Doctor UI and CLI side-by-side screenshots.

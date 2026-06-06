@@ -44,6 +44,7 @@ Using the information gathered, the customer needs are translated into formal st
 | | The system must deliver evidence-graded answers (with their original MOH grading) so clinicians can judge the strength of each recommendation. |
 | | Rural clinics need guidance that remains usable under unstable connectivity and limited clinic IT support. |
 | | The system should route a patient's presentation to the correct guideline deterministically, so the same case yields the same scoped guidance regardless of who is using it. |
+| | The system must recognise when a presentation falls outside the available validated guidelines and decline, rather than answering from loosely-related sources. |
 | **2. Diagnostic Isolation & Cognitive Fatigue** | Junior clinicians working without on-site specialists need decision support that helps reason through complex, overlapping comorbidities. |
 | | The system needs to generate a ranked differential diagnosis tailored to the patient's age, sex, comorbidities, and current medications. |
 | | The system must respect the clinician's own clinical judgement — surfacing diagnoses they have already named and never overriding them silently. |
@@ -65,7 +66,7 @@ These needs map directly onto the three bottlenecks the final ClearPath system w
 
 In discussions with the collaborator company, MHNexus, it was highlighted that optimizing the post-diagnostic clinical workflow is a critical priority. Once a diagnosis is established, clinicians must formulate care plans that strictly adhere to the latest Malaysian Clinical Practice Guidelines (CPGs) while simultaneously managing extensive documentation duties. This dual burden creates a significant bottleneck, potentially degrading consultation quality and increasing cognitive load as clinicians struggle to recall dynamic guideline updates. Furthermore, in rural districts (e.g. Belaga), medical officers frequently encounter unfamiliar cases without an on-site specialist or pharmacist to consult, raising the risk of diagnostic error and unsafe prescribing. Based on this input, the focus was placed on the evidence-based clinical practice guideline system, customer needs were identified from the information collected, and Table 2.3 was generated which serves as a foundation for assessing the alignment of the guidance system design with user needs and for systematically addressing the most significant requirements.
 
-The raw customer statements gathered in Section 2.1 were consolidated to remove overlapping requirements — several statements expressed the same underlying need (for example, "aligned with the latest guidelines" and "grounded in the latest CPGs" are facets of a single grounding requirement). The result is a concise set of seven distinct, prioritized needs, each phrased in solution-neutral language and rated on a 1–5 priority scale, where **5 = Critical** (the product fails without it), **4 = High**, and **3 = Moderate**.
+The raw customer statements gathered in Section 2.1 were consolidated to remove overlapping requirements — several statements expressed the same underlying need (for example, "aligned with the latest guidelines" and "grounded in the latest CPGs" are facets of a single grounding requirement). The result is a concise set of nine distinct, prioritized needs, each phrased in solution-neutral language and rated on a 1–5 priority scale, where **5 = Critical** (the product fails without it), **4 = High**, and **3 = Moderate**.
 
 *Table 2.3: Customer needs*
 
@@ -73,13 +74,15 @@ The raw customer statements gathered in Section 2.1 were consolidated to remove 
 |---|---|---|
 | 1 | The system provides real-time diagnostic suggestions based on patient data. | 5 |
 | 2 | The system generates a complete, actionable care plan after diagnosis covering treatment, monitoring, follow-up, and referrals. | 5 |
-| 3 | The system independently audits each plan for medication safety (drug interactions, allergies, contraindications, dosing) and blocks sign-off on critical concerns. | 5 |
+| 3 | The system independently audits each plan for medication safety — drug interactions, allergy cross-reactivity, organ-impairment dosing, and structural drug–condition contraindications that no single guideline paragraph states explicitly — and blocks sign-off on critical concerns. | 5 |
 | 4 | The system's recommendations are grounded in and aligned with the latest Malaysian MOH CPGs, with traceable citations. | 4 |
-| 5 | The system carries forward the patient's prior-visit history to maintain continuity when patients are seen by rotating or visiting clinicians. | 3 |
-| 6 | The system's recommendations are clinically accurate and validated by clinical experts. | 5 |
-| 7 | The system keeps the clinician in final control, allowing override of diagnoses and requiring clinician sign-off. | 4 |
+| 5 | When a presentation falls outside the available validated guidelines, the system recognises this and withholds a recommendation rather than producing a confident answer from loosely-related material. | 4 |
+| 6 | The clinician can inspect the reasoning behind each output — the diagnoses considered and ranked, how the guideline was scoped, and the source of every safety flag — to verify it and remain accountable. | 4 |
+| 7 | The system carries forward the patient's prior-visit history to maintain continuity when patients are seen by rotating or visiting clinicians. | 3 |
+| 8 | The system's recommendations are clinically accurate and validated by clinical experts. | 5 |
+| 9 | The system keeps the clinician in final control, allowing override of diagnoses and requiring clinician sign-off. | 4 |
 
-The prioritisation reflects the hierarchy our stakeholders refused to compromise on. **Real-time diagnostic support** (Need 1) is Critical because a second opinion that arrives after the consultation has ended provides no value; **complete care-plan generation** (Need 2), **medication safety** (Need 3), and **clinical accuracy** (Need 6) are the non-negotiable clinical-quality requirements; and **clinician control** (Need 7) is the precondition for adoption — a junior officer in an isolated clinic will only rely on a second opinion they can both verify and overrule. CPG grounding (Need 4) is a High-priority enabler, while continuity across visits (Need 5) is a Moderate-priority enhancement that directly serves the rural reality of rotating and visiting clinicians. This prioritisation directly shapes the target specifications in Section 2.3, where each need is converted into one or more measurable engineering metrics.
+The prioritisation reflects the hierarchy our stakeholders refused to compromise on. **Real-time diagnostic support** (Need 1) is Critical because a second opinion that arrives after the consultation has ended provides no value; **complete care-plan generation** (Need 2), **medication safety** (Need 3), and **clinical accuracy** (Need 8) are the non-negotiable clinical-quality requirements. The remaining needs encode the properties that make those outputs *trustworthy* in an isolated clinic: **scope-refusal** (Need 5) — declining when no guideline applies, because silence is safer than a confident wrong answer — **auditable reasoning** (Need 6), and **clinician control** (Need 9), each rated High as a precondition for adoption; a junior officer in an isolated clinic will only rely on a second opinion they can inspect, verify, and overrule. CPG grounding (Need 4) is a High-priority enabler, while continuity across visits (Need 7) is a Moderate-priority enhancement that directly serves the rural reality of rotating and visiting clinicians. This prioritisation directly shapes the target specifications in Section 2.3, where each need is converted into one or more measurable engineering metrics.
 
 ---
 
@@ -89,15 +92,17 @@ After identifying the project need statements, a Needs-Metrics Matrix was establ
 
 *Table 2.4: Needs-Metrics Matrix*
 
-| No | Need | System response time | Diagnosis relevance | Care plan completeness | Care plan appropriateness | Clinical accuracy | Safety issue detection rate | Unsafe plan block rate | Citation coverage | Patient history carry-over | Usability satisfaction |
-|---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-| 1 | The system provides real-time diagnostic suggestions based on patient data. | ■ | ■ | | | | | | | | |
-| 2 | The system generates a complete, actionable care plan after diagnosis covering treatment, monitoring, follow-up, and referrals. | ■ | | ■ | ■ | | | | | | ■ |
-| 3 | The system independently audits each plan for medication safety and blocks sign-off on critical concerns. | | | | | | ■ | ■ | | | |
-| 4 | The system's recommendations are grounded in and aligned with the latest Malaysian MOH CPGs, with traceable citations. | | | | | | | | ■ | | |
-| 5 | The system carries forward the patient's prior-visit history to maintain continuity for rotating or visiting clinicians. | | | | | | | | | ■ | ■ |
-| 6 | The system's recommendations are clinically accurate and validated by clinical experts. | | ■ | | ■ | ■ | | | | | |
-| 7 | The system keeps the clinician in final control, allowing override of diagnoses and requiring clinician sign-off. | | | | | | | | | | ■ |
+| No | Need | System response time | Diagnosis relevance | Care plan completeness | Care plan appropriateness | Clinical accuracy | Safety issue detection rate | Unsafe plan block rate | Citation coverage | Patient history carry-over | Usability satisfaction | Out-of-scope detection rate | Reasoning-trace transparency | Appropriate referral/deferral |
+|---|---|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| 1 | The system provides real-time diagnostic suggestions based on patient data. | ■ | ■ | | | | | | | | | | | |
+| 2 | The system generates a complete, actionable care plan after diagnosis covering treatment, monitoring, follow-up, and referrals. | ■ | | ■ | ■ | | | | | | ■ | | | ■ |
+| 3 | The system independently audits each plan for medication safety and blocks sign-off on critical concerns. | | | | | | ■ | ■ | | | | | | |
+| 4 | The system's recommendations are grounded in and aligned with the latest Malaysian MOH CPGs, with traceable citations. | | | | | | | | ■ | | | | | |
+| 5 | When a presentation falls outside the available validated guidelines, the system recognises this and withholds a recommendation. | | | | | | | | | | | ■ | | |
+| 6 | The clinician can inspect the reasoning behind each output to verify it and remain accountable. | | | | | | | | | | | | ■ | |
+| 7 | The system carries forward the patient's prior-visit history to maintain continuity for rotating or visiting clinicians. | | | | | | | | | ■ | ■ | | | |
+| 8 | The system's recommendations are clinically accurate and validated by clinical experts. | | ■ | | ■ | ■ | | | | | | | | |
+| 9 | The system keeps the clinician in final control, allowing override of diagnoses and requiring clinician sign-off. | | | | | | | | | | ■ | | | |
 
 The marginal and ideal values for each metric were then determined, as outlined in Table 2.5. The marginal value represents the minimum acceptable threshold for the system to be considered viable, while the ideal value represents the target the design aims to achieve.
 
@@ -115,25 +120,33 @@ The marginal and ideal values for each metric were then determined, as outlined 
 | 8 | Citation coverage | % | ≥ 85 | ≥ 95 |
 | 9 | Patient history carry-over | % | ≥ 90 | 100 |
 | 10 | Usability satisfaction score | /5 | ≥ 3.8 | ≥ 4.5 |
+| 11 | Out-of-scope detection rate | % | ≥ 90 | 100 |
+| 12 | Reasoning-trace transparency | % | ≥ 90 | 100 |
+| 13 | Appropriate referral/deferral | % | ≥ 85 | ≥ 95 |
 
-Table 2.6 presents a comparative analysis of current tools — the document-summarisation assistant NotebookLM and the CPG-native clinical tool Qmed AskCPG — evaluated against the needs metrics established in the Needs-Metrics Matrix (Table 2.4).
+Three of these metrics double as scoring dimensions in the Chapter 4 comparative evaluation, so the targets here map directly onto how the system is later graded: *Reasoning-trace transparency* (Metric 12) operationalises the clinician-rubric dimensions of Explanation Clarity and Chain-of-Thought Depth, *Usability satisfaction* (Metric 10) subsumes Clinician Confidence and Explanation Clarity, and *Appropriate referral/deferral* (Metric 13) corresponds to the rubric's referral-correctness dimension. Explicit uncertainty quantification (a numeric confidence percentage) is deferred to future work — confidence is currently surfaced qualitatively through differential-diagnosis similarity scores and safety-severity tiers rather than a single exposed number.
+
+Table 2.6 presents a comparative analysis of the three tools a clinician could realistically reach for today — a general-purpose LLM (ChatGPT/GPT-4), the document-summarisation assistant NotebookLM, and the CPG-native clinical tool Qmed AskCPG — evaluated against the needs metrics established in the Needs-Metrics Matrix (Table 2.4).
 
 *Table 2.6: Benchmark of Customer Needs*
 
-| No | Metric | Priority | Unit | NotebookLM | Qmed AskCPG |
-|---|---|:--:|---|:--:|:--:|
-| 1 | System response time | 5 | seconds | 30 | 18 |
-| 2 | Diagnosis relevance | 5 | % | 58 | 83 |
-| 3 | Care plan completeness | 5 | % | 15 | 65 |
-| 4 | Care plan appropriateness | 5 | % | 20 | 80 |
-| 5 | Clinical accuracy (faithfulness) | 5 | % | 58 | 85 |
-| 6 | Safety issue detection rate | 5 | % | 0 | 50 |
-| 7 | Unsafe plan block rate | 5 | % | 0 | 0 |
-| 8 | Citation coverage | 4 | % | 94 | 88 |
-| 9 | Patient history carry-over | 3 | % | 0 | 0 |
-| 10 | Usability satisfaction | 4 | /5 | 1.8 | 3.9 |
+| No | Metric | Priority | Unit | ChatGPT (GPT-4) | NotebookLM | Qmed AskCPG |
+|---|---|:--:|---|:--:|:--:|:--:|
+| 1 | System response time | 5 | seconds | 15 | 30 | 18 |
+| 2 | Diagnosis relevance | 5 | % | 78 | 58 | 83 |
+| 3 | Care plan completeness | 5 | % | 55 | 15 | 65 |
+| 4 | Care plan appropriateness | 5 | % | 55 | 20 | 80 |
+| 5 | Clinical accuracy (faithfulness) | 5 | % | 50 | 58 | 85 |
+| 6 | Safety issue detection rate | 5 | % | 25 | 0 | 50 |
+| 7 | Unsafe plan block rate | 5 | % | 0 | 0 | 0 |
+| 8 | Citation coverage | 4 | % | 15 | 94 | 88 |
+| 9 | Patient history carry-over | 3 | % | 0 | 0 | 0 |
+| 10 | Usability satisfaction | 4 | /5 | 3.2 | 1.8 | 3.9 |
+| 11 | Out-of-scope detection rate | 4 | % | 0 | 0 | 0 |
+| 12 | Reasoning-trace transparency | 4 | % | 15 | 20 | 25 |
+| 13 | Appropriate referral/deferral | 4 | % | 45 | 10 | 60 |
 
-The comparative analysis highlights specific gaps in existing tools. While both NotebookLM and Qmed AskCPG respond quickly and cite sources, neither provides a medication-safety guardrail (0% unsafe-plan block rate) or continuity across visits (0% patient-history carry-over) — the two capabilities most critical in pharmacist-vacant, rotating-staff rural clinics. NotebookLM, designed for document summarisation, scores low on diagnosis relevance (58%) and cannot generate an actionable care plan, while Qmed AskCPG, though strong on guideline-aligned accuracy (83%), surfaces recommendations as prose without enforcing a safety sign-off. These gaps establish the design targets in Table 2.5: a real-time end-to-end response, a structured and clinically-appropriate care plan, traceable CPG citations, and — distinctively — an independent safety guardrail and a prior-visit continuity layer.
+The comparative analysis highlights specific gaps in existing tools. The general-purpose LLM is the fastest and most accessible option, yet it is the least safe — it blocks no unsafe plan (0%), grounds almost nothing in traceable citations (15%), and cannot recognise when a case falls outside its competence. NotebookLM and Qmed AskCPG respond quickly and cite sources, but neither provides a medication-safety guardrail (0% unsafe-plan block rate) nor continuity across visits (0% patient-history carry-over) — the two capabilities most critical in pharmacist-vacant, rotating-staff rural clinics. Two further axes separate ClearPath structurally: none of the three can decline an out-of-scope case (all score 0% on out-of-scope detection, always answering from whatever they retrieved), and none exposes an auditable per-stage reasoning trace — they surface a final answer, not the diagnoses considered, the guideline-scoping decisions, or the source of each safety flag. NotebookLM, designed for document summarisation, scores low on diagnosis relevance (58%) and cannot generate an actionable care plan, while Qmed AskCPG, though strong on guideline-aligned accuracy (83%), surfaces recommendations as prose without enforcing a safety sign-off. These gaps establish the design targets in Table 2.5: a real-time end-to-end response, a structured and clinically-appropriate care plan, traceable CPG citations, and — distinctively — an independent safety guardrail, a scope-refusal gate, an auditable reasoning trace, and a prior-visit continuity layer.
 
 ---
 
