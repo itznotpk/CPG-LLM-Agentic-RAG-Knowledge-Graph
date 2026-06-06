@@ -1,0 +1,53 @@
+// ClearPath vector store (PostgreSQL + pgvector, Neon)
+// Fig. 3.3b. Paste this whole file into https://dbdiagram.io (the editor accepts DBML directly),
+// then Export > PNG / PDF.
+
+Table documents {
+  id uuid [pk]
+  title text [not null]
+  source text [not null]
+  content text [not null]
+  metadata jsonb
+  created_at timestamptz
+  updated_at timestamptz
+  icd11_scope "text[]" [not null, note: 'ICD-11 codes this CPG governs (D1 routing key)']
+  procedure_scope "text[]" [not null]
+  scope_rationale text
+  scope_verified boolean [not null]
+  classified_at timestamptz
+  verified_at timestamptz
+  verified_by text
+  scope_embedding "vector(1536)" [note: 'D2 semantic-fallback routing']
+}
+
+Table chunks {
+  id uuid [pk]
+  document_id uuid [not null]
+  content text [not null]
+  embedding "vector(1536)" [note: 'Stage 4 retrieval']
+  chunk_index int [not null]
+  metadata jsonb
+  token_count int
+  created_at timestamptz
+  parent_chunk_id uuid [note: 'self-ref: H3->H2->H1 hierarchy']
+  chunk_level text [not null]
+  start_char int
+  end_char int
+}
+
+Table icd11_codes {
+  id int [pk]
+  code varchar [not null]
+  title varchar [not null]
+  description text
+  inclusions "text[]"
+  exclusions "text[]"
+  parent_code varchar [note: 'self-ref by code: ICD-11 hierarchy']
+  chapter varchar
+  embedding "vector(1536)" [note: 'Stage 2 DDx vector search']
+  inclusion_embeddings jsonb
+  exclusion_embeddings jsonb
+}
+
+Ref: chunks.document_id > documents.id
+Ref: chunks.parent_chunk_id > chunks.id
