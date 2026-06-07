@@ -1,0 +1,170 @@
+{
+  "case_id": "12",
+  "case_chief_complaint": "Comprehensive health screening. Multiple risk factors identified at this visit. Patient asking about CVD risk and whether bariatric surgery would cure his diabetes.",
+  "n_runs": 10,
+  "url": "http://127.0.0.1:8058",
+  "expected_codes": [
+    "5A11",
+    "BA00",
+    "5C80.0"
+  ],
+  "metrics": {
+    "n_runs": 9,
+    "top1_stability": {
+      "unique_top1_codes": 3,
+      "stable": false,
+      "values": [
+        "5A11",
+        "BA00",
+        "5A11",
+        "BC43.7",
+        "5A11",
+        "5A11",
+        "5A11",
+        "5A11",
+        "5A11"
+      ]
+    },
+    "top3_jaccard_mean": 0.597,
+    "top5_jaccard_mean": 0.548,
+    "expected_code_presence_rate": {
+      "5A11": 0.778,
+      "BA00": 0.889,
+      "5C80.0": 0.778
+    },
+    "same_plan_rate": 0.111,
+    "wall_time_seconds": {
+      "mean": 228.8,
+      "stdev": 104.0,
+      "min": 59.2,
+      "max": 464.2
+    }
+  },
+  "extras": {
+    "med_count": {
+      "mean": 3.89,
+      "stdev": 1.62
+    },
+    "referral_count": {
+      "mean": 0.0,
+      "stdev": 0.0
+    },
+    "safety_flag_jaccard_mean": 1.0,
+    "plan_text_jaccard_mean": 0.37
+  },
+  "gate": {
+    "checks": {
+      "top1_stable (== 1 unique)": false,
+      "top3_jaccard >= 0.95": false,
+      "top5_jaccard >= 0.90": false,
+      "same_plan_rate >= 0.80": false,
+      "5A11 present in 100% of runs": false,
+      "BA00 present in 100% of runs": false,
+      "5C80.0 present in 100% of runs": false
+    },
+    "overall_pass": false
+  },
+  "per_run_top5": [
+    [
+      "5A11",
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA04.Y"
+    ],
+    [
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA03",
+      "BA04.Y"
+    ],
+    [
+      "5A11",
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA03"
+    ],
+    [
+      "BC43.7",
+      "BA5Y",
+      "5A13.Y",
+      "BA6Z",
+      "BA8Y"
+    ],
+    [
+      "5A11",
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA04.Y"
+    ],
+    [
+      "5A11",
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA03"
+    ],
+    [
+      "5A11",
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA04.Y"
+    ],
+    [
+      "5A11",
+      "BA00",
+      "5C8Y",
+      "BA04.Y",
+      "5A13.7"
+    ],
+    [
+      "5A11",
+      "BA00",
+      "5C80.0",
+      "5C8Y",
+      "BA03"
+    ]
+  ],
+  "per_run_wall_seconds": [
+    235.0470000000205,
+    224.7970000000205,
+    216.71900000004098,
+    195.81199999991804,
+    202.73400000017136,
+    217.4539999999106,
+    59.186999999918044,
+    243.3279999999795,
+    464.25
+  ],
+  "skipped_runs": [
+    {
+      "run": 10,
+      "error": "TimeoutError: ",
+      "elapsed": 900.2970000000205
+    }
+  ],
+  "summary_row": {
+    "case_id": "12",
+    "n_runs": 9,
+    "top1_stable": false,
+    "top1_value": "5A11/BA00/BC43.7",
+    "top3_jaccard": 0.597,
+    "top5_jaccard": 0.548,
+    "same_plan_rate": 0.111,
+    "plan_text_jaccard": 0.37,
+    "med_count_mean": 3.89,
+    "med_count_stdev": 1.62,
+    "referral_count_mean": 0.0,
+    "referral_count_stdev": 0.0,
+    "safety_flag_jaccard": 1.0,
+    "wall_mean_s": 228.8,
+    "wall_stdev_s": 104.0,
+    "wall_min_s": 59.2,
+    "wall_max_s": 464.2,
+    "overall_pass": false
+  }
+}
