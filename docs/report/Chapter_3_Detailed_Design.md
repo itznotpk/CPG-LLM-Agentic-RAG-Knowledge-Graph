@@ -1508,50 +1508,29 @@ on independently of the reasoning path.
 
 ---
 
-## 3.17 Comparative-Benchmark Protocol Design (Evaluation Design)
+## 3.17 Prompt-Engineering Methodology
 
-This section documents the design of the evaluation; the captured results are reported in Chapter 4.
-The benchmark compares ClearPath against a five-system panel (ClearPath, Qmed AskCPG, Gemini
-NotebookLM, and general GPT-4 or Gemini as the floor) across the dimensions of safety, reasoning
-quality, transparency, citation quality, and clinical correctness.
+Each language-model step has its own instruction file, kept separate from the program code so the exact
+wording behind any decision can be reviewed on its own. Nothing is hidden in later processing, which is
+what makes the system's reasoning auditable end to end. Five controls do the work:
 
-This section defines what was to be measured and how, not the outcomes. Two integrity constraints
-were built into the protocol from the outset. First, the grounding corpus is the Malaysian MoH CPG
-set, not AHA or ESC, and there is no UpToDate integration; the evidence sources are the CPG corpus
-and the Neo4j knowledge graph only. Second, the headline empirical result is reproducibility and
-determinism, the metric that was captured from live runs, rather than any unmeasured accuracy figure.
-The clinician-scored accuracy, chain-of-thought-depth, and confidence numbers are treated explicitly
-as targets pending capture and are not reported as findings.
+- **Fixed output format.** Models must answer as a structured object, automatically checked before use;
+  anything malformed is rejected rather than shown to the clinician as a half-finished plan.
+- **Override rules.** The treatment-planning prompt opens with seven rules that outrank everything
+  else: cite a source or say "unknown"; copy doses exactly; don't repeat medical myths; flag when two
+  guidelines conflict; refuse to turn a population statistic into a personal risk figure; don't
+  over-treat stable conditions during an emergency; and treat patient notes as information, never as
+  instructions.
+- **Names, not codes.** The model proposes disease *names* and picks only from a supplied shortlist of
+  codes — never writing a code from memory — so invented codes are impossible by design.
+- **Self-checking.** Prompts require the model to audit its own answer against a checklist, and to name
+  one finding that argues *against* its top diagnosis, forcing real reasoning over rubber-stamping.
+- **Independent safety review.** The final step acts as a separate pharmacist who hasn't seen how the
+  plan was made; it must raise a concern even if the plan already addresses it — double-checking, not
+  confirming.
 
-The reproducibility harness (`scripts/rerun_stability.py`) reruns a case N times against the same
-endpoint and reports top-K differential stability, expected-code presence, same-plan rate, and
-wall-time variance. This is the empirical contribution that the deterministic-first architecture of
-this chapter was built to support.
-
----
-
-## 3.18 Prompt-Engineering Methodology
-
-Every language-model step is governed by an **externalised, version-controlled prompt file** — nine
-in `backend/agent/prompts/`, one per task — kept separate from the Python so a reviewer can audit the
-exact instruction behind any decision without reading code. On top of this auditable base, the prompts
-apply a set of deliberate, engineered controls rather than free-form instruction:
-
-| Technique | Where | What it enforces |
-|---|---|---|
-| Schema-constrained output | Stages 2, 5, 6 | JSON-mode + Pydantic validation — a malformed plan fails validation, never renders partially |
-| Override "Commandments" | Stage 5 synthesis | Five top-of-prompt rules that override every later instruction (cross-CPG conflict, refusal to predict individualised outcomes) |
-| Self-audit checklist | Stage 5 synthesis | The model verifies its own output against a 3-✓ checklist before returning |
-| Negation cascade | Stage 6 critic | Suppresses spurious flags when the plan already proposes the mitigation |
-| De-biasing rules | Stage 2 rerank | Specificity + distinct-disease preferences counter the embedding model's bias toward generic/unspecified codes |
-| Name→code anti-hallucination | Stage 2 | LLM emits diagnosis *names*, never ICD codes; codes are resolved by vector search, eliminating fabricated codes |
-| Explicit-complement guards | Ingestion | A contraindication edge is emitted only on an explicit grammatical complement, blocking section-heading hallucinations |
-| Determinism controls | All LLM steps | Seed-pinning, `temperature=0`, and `enable_thinking=False` for reasoning models hold output stable across reruns |
-| Invention guards | Summarisers | Forbidden to invent; emit `null` on no-data, with hard character caps and server-side truncation |
-
-The distinctive choice is that these controls are **declarative and inspectable** — they live in the
-prompt files and the schemas, not as opaque post-processing — which is what makes the reasoning path
-auditable end to end.
+Underpinning all five, model settings are fixed (pinned seed, zero temperature) so the same input
+reliably produces the same output.
 
 ---
 

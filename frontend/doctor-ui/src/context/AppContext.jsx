@@ -31,7 +31,7 @@ const USE_SUPABASE = isSupabaseConfigured();
 
 const AppContext = createContext();
 
-const initialState = {
+export const initialState = {
   currentStep: 1, // 1: Input, 2: Diagnosis, 3: CarePlan, 4: Output
   patient: {
     name: '',
@@ -87,7 +87,7 @@ const initialState = {
 // state so a previous patient's fields can't leak into a new-patient entry.
 const PERSIST_KEY = 'cpg.consultation.v1';
 
-function loadPersistedState() {
+export function loadPersistedState() {
   try { sessionStorage.removeItem(PERSIST_KEY); } catch { /* ignore */ }
   return initialState;
 }
@@ -96,7 +96,7 @@ function clearPersistedState() {
   try { sessionStorage.removeItem(PERSIST_KEY); } catch { /* ignore */ }
 }
 
-function appReducer(state, action) {
+export function appReducer(state, action) {
   switch (action.type) {
     case 'SET_PATIENT':
       return { ...state, patient: { ...state.patient, ...action.payload } };

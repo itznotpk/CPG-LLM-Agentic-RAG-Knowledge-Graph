@@ -46,9 +46,9 @@ therefore arranged in three parts:
 | Reasoning | SIL / INF | Silent stage degradation, dependency outage | `run_degradation_robustness_eval.py` | ✅ measured |
 | Reasoning | Determinism | Same vignette → same actionable output | `rerun_stability.py` | ✅ measured |
 | Reasoning | Grounding stores | pgvector + Neo4j connectivity & integrity | `verify_cpg_scope.py`, KG unit tests | ◑ partial |
-| Application | Data layer (Supabase) | Round-trip, RLS, migration, schema-type | planned (Supabase test project) | ○ planned |
-| Application | Authentication | Login, route gating, audit identity | planned (Vitest + Playwright) | ○ planned |
-| Application | Doctor UI | Mappers, reducer, components, E2E | Vitest L1 done (30 tests); reducer/component/E2E planned | ◑ partial |
+| Application | Data layer (Supabase) | Round-trip, RLS, migration, schema-type | migration-contract smoke done (12 tests); round-trip/RLS planned | ◑ partial |
+| Application | Authentication | Login, route gating, audit identity | AuthContext + routeGuard unit done (17 tests); E2E/audit planned | ◑ partial |
+| Application | Doctor UI | Mappers, reducer, components, E2E | Vitest L1–L4 done (70 tests; L3 banner + L4 data-flow); DDx/contraindicated render + browser E2E planned | ◑ partial |
 | Application | Delivery | Gmail send + enqueue/poll | `test_delivery*.py` (backend) + planned (frontend) | ◑ partial |
 | System | Latency, coverage, scope refusal | p50/p95, unit coverage, out-of-scope calibration | `run_latency_eval.py`, `pytest --cov`, `probe_d2_semantic_scope.py` | ✅ measured |
 | System | Expert clinician review | Clinical-quality + workflow scoring (cases 8/10/11) | Single-clinician structured rubric | ✅ measured (n = 1) |
@@ -100,8 +100,8 @@ also why the chapter can test the two tiers largely independently.
 | Backend → pgvector | Scoped vector search pinned by `document_id_filter` | Layers A1, B, C run against live Neon (§4.3, §4.4) |
 | Backend → Neo4j | Stage 4.5 injection and Stage 6 KG verification (Cypher) | SAF, INF-01, KG unit tests, the dual-source case studies (§4.3, §4.6, §4.12) |
 | Backend → Bedrock | Titan v1 embeddings (1536-dim), client-cached | INF-02 (429 outage), all vector layers |
-| Frontend → Supabase | Patient CRUD, consultation upserts, audit columns, all via RPC | Application-tier persistence (§4.8) — *planned* |
-| Frontend → Supabase Auth | Clinician identity, provider tree outermost | Authentication (§4.9) — *planned* |
+| Frontend → Supabase | Patient CRUD, consultation upserts, audit columns, all via RPC | Migration-contract smoke (§4.8) — *partial*; live round-trip planned |
+| Frontend → Supabase Auth | Clinician identity, provider tree outermost | AuthContext + routeGuard unit (§4.9) — *partial*; E2E planned |
 | Backend → Supabase (worker only) | Deterministic Gmail PDF delivery from `delivery_jobs` | `test_delivery.py` (in-process SMTP) — *partial* (§4.11) |
 
 The offline build path (CPG ingestion into pgvector and Neo4j) and the live read path were kept
@@ -656,13 +656,28 @@ Table 4.13 sets out the planned suite.
 | Feedback append | `human_signals` / `machine_signals` append-only inserts succeed and never touch clinical columns | Integration vs test project | ○ planned |
 | Longitudinal loop | `update_prior_visit_summary_bypass` → `get_latest_prior_visit_summary` round-trips on the `(nric, consultation_number)` key | Integration vs test project | ○ planned |
 | Access control (RLS) | A clinician reads only permitted patients; an unauthenticated client is refused | Integration + auth | ○ planned |
-| Schema-type regression | `consultations.id` is INTEGER, `patients` PK is `nric` TEXT, every FK matches; no `UUID` drift | Migration smoke | ○ planned |
-| Migration superset | All 21 idempotent SQL files apply cleanly to a fresh project, and `update_consultation` is rebuilt as the full parameter superset (the overload-rebuild trap) | Migration smoke | ○ planned |
+| Schema-type regression | `p_consultation_id` is declared INTEGER (not UUID) in the rebuilt RPC | Migration smoke (static) | **✅ measured** |
+| Migration superset | `update_consultation` is rebuilt as the full parameter superset of every prior migration, drops all overloads via the `pg_proc` loop, retains the backend-called params, and re-grants EXECUTE — and every `p_*` key the frontend sends exists in that signature (the overload-rebuild trap) | Migration smoke (static) | **✅ measured (12 tests)** |
+| All-files apply-clean | All 21 idempotent SQL files apply to a fresh project without error | Migration smoke (live project) | ○ planned |
 
 The two highest-value items are the **consultation round-trip** (it is the core write path and the
 one that persists the safety audit trail) and the **migration superset smoke test** (it guards the
-`update_consultation` overload trap that Chapter 3 flagged as a recurring hazard). Both are named as
-the first application-tier tests to write.
+`update_consultation` overload trap that Chapter 3 flagged as a recurring hazard).
+
+**Migration-contract smoke test — implemented (2026-06-07).** The second item is now realised as an
+offline static test, `supabaseContract.test.js` (**12 tests, passing in the same Vitest run as L1**),
+which parses the migration SQL and the `updateConsultation` call site rather than touching a live
+database. It asserts the overload trap can't reopen: the latest signature in
+`add_safety_acknowledgement.sql` is a **strict superset** of the `add_pipeline_timings.sql` signature,
+which is in turn a superset of `add_safety_flags.sql`; the rebuild **drops every overload via the
+`pg_proc` loop** (not a hand-listed `DROP`) and re-`GRANT`s EXECUTE to `anon`/`authenticated`, so the
+42725 "function name is not unique" failure cannot recur; the backend-called `p_pipeline_timings` /
+`p_request_id` params survive the rebuild; **every `p_*` key the frontend sends maps to a parameter in
+the rebuilt signature** (and `p_patient_education`, dropped in the 8-section refactor, is correctly no
+longer sent); and `p_consultation_id` is declared `INTEGER`, pinning the documented schema-type
+gotcha. This is deliberately a *contract* check, not a live round-trip: the consultation round-trip,
+RLS, and all-files-apply-clean items remain ○ planned because they need a disposable Supabase test
+project, which must not be the production instance.
 
 > **[FIGURE 4.14: Application-store schema and round-trip evidence.]**
 > *Two-part: (a) the Supabase ER diagram of the application tables (`patients`, `consultations`,
@@ -671,6 +686,14 @@ the first application-tier tests to write.
 > guards; (b) a screenshot of a single `consultations` row in the Supabase table editor with the
 > `safety_flags` JSONB and the four Stage-6 acknowledgement columns populated, as the visual target
 > of the planned round-trip test.*
+
+> **[FIGURE 4.14a: Migration-superset contract test.]**
+> *A simple diagram of the three nested signature sets — `add_safety_flags` (14 params) ⊂
+> `add_pipeline_timings` (16) ⊂ `add_safety_acknowledgement` (20) — with the four acknowledgement
+> params highlighted as the latest addition, and a side note listing the four invariants the test
+> enforces (superset · drop-all-overloads loop · backend params retained · JS keys ⊆ signature).
+> Pairs with a screenshot of the 12-test `supabaseContract.test.js` block passing. Makes the
+> otherwise-invisible "overload trap" guard concrete for the reader.*
 
 ## 4.9 Authentication and Access-Control Testing
 
@@ -681,25 +704,49 @@ cover** (§3.11.6). A defect here is therefore not merely a login bug; it can br
 audit trail. The identity layer is `AuthContext.jsx` over Supabase Auth (`signIn`, `getSession`,
 `onAuthStateChange`, `signOut`).
 
-The current status is that **authentication has no automated tests**. Table 4.14 sets out the
-planned suite, which mirrors the reference projects' decision to test the authentication service as
-its own first module.
+The authentication layer now carries automated tests at the unit/behaviour level, mirroring the
+reference projects' decision to test the authentication service as its own first module. Table 4.14
+sets out the suite; the two unit rows are implemented, while the end-to-end and audit-trail rows
+remain planned (they need a browser driver and a live identity).
 
 **Table 4.14: Authentication and access-control test plan.**
 
 | Concern | What to assert | Approach | Status |
 |---|---|---|---|
-| Sign-in / sign-out | `signIn` succeeds on valid credentials and rejects invalid ones; `signOut` clears session state | Unit (mock supabase-js) | ○ planned |
-| Session restore | `getSession` restores an authenticated clinician on reload; `onAuthStateChange` propagates logout | Unit (mock supabase-js) | ○ planned |
-| Route gating | No consultation/dashboard view renders without a session — redirect to login | E2E (Playwright) | ○ planned |
+| Sign-in / sign-out | `signIn` succeeds on valid credentials and rejects invalid ones; `signOut` clears session state | Unit (mocked supabase-js) | **✅ measured** |
+| Session restore | `getSession` restores an authenticated clinician on reload; `onAuthStateChange` propagates SIGNED_IN / SIGNED_OUT; unmount unsubscribes | Unit (mocked supabase-js) | **✅ measured** |
+| Route gating | No app view renders without a session (→ /login); unknown slug → dashboard; session checked before slug | Unit (`resolveRoute`) ✅; full-browser E2E planned | **◑ partial** |
 | Identity → audit trail | The signed-in clinician's name reaches the Stage-6 acknowledgement and the PDF cover | Integration | ○ planned |
 | Session expiry | An expired session forces re-authentication before any further write | E2E (Playwright) | ○ planned |
+
+**Authentication tests — implemented (2026-06-08).** Two suites were added. `AuthContext.test.jsx`
+(**8 tests**, jsdom + React Testing Library with the Supabase client fully mocked, so no network) drives
+`AuthProvider` through its real lifecycle: the `useAuth`-outside-provider guard throws; an initial
+`getSession` with no session leaves `user`/`profile` null and clears `loading` without a spurious
+profile fetch; a session maps `user` and loads the profile; an `onAuthStateChange` `SIGNED_IN`
+(re)loads the profile while `SIGNED_OUT` clears it; `signIn` returns data on success and **rejects on a
+Supabase error**; `signOut` delegates to the client; and unmount unsubscribes (no listener leak). To
+make the access-control rules testable without rendering the whole app, the gate logic scattered
+across `App.jsx`'s route components was consolidated into a pure `lib/routeGuard.js::resolveRoute`,
+which those components now defer to; `routeGuard.test.js` (**9 tests, no DOM**) pins the contract — the
+splash shows while auth resolves, an authenticated user is bounced off the public routes, **no app
+view renders without a session (→ /login)**, an unknown slug normalises to the dashboard, and the
+session is checked *before* the slug so a route slug never leaks to an anonymous visitor. The full
+browser-level route-gating and session-expiry checks (Playwright) remain planned, as does the
+identity → audit-trail integration test. `vite build` confirms the `App.jsx` refactor compiles.
 
 > **[FIGURE 4.15: Authentication surface and provider tree.]**
 > *Two-part: (a) a screenshot of the clinician login screen; (b) a small diagram of the provider tree
 > (`AuthProvider` → `ThemeProvider` → `AppProvider` → `ToastProvider`) with an arrow tracing the
 > authenticated identity through to the Stage-6 acknowledgement and the PDF cover — the visual of why
 > auth is load-bearing for the audit trail, not just access control.*
+
+> **[FIGURE 4.15a: Auth-gate decision table + test run.]**
+> *A compact truth-table of `resolveRoute` — rows = { loading, public route + session, app route +
+> no session, app route + unknown slug } → outcome (splash / redirect-/dashboard / redirect-/login /
+> render) — beside a screenshot of the 17 passing auth tests (`AuthContext.test.jsx` 8 +
+> `routeGuard.test.js` 9). Shows the access contract as a decision matrix and as green tests in one
+> view.*
 
 ## 4.10 Doctor UI / Frontend Testing
 
@@ -717,9 +764,9 @@ warning about — come first.
 | Layer | What it locks in (real invariants) | Tool | Status |
 |---|---|---|---|
 | L1 — Pure-logic unit | `clinicalMappers.js` (score clamp to [0,1] + tier badge; **top-level `carePlan` keys, no `disposition` phantom path**; `cpg_source` dedup); `safetyClassify.js` (graph-exemption noise filter; plan / current-only / class-or-noise triage); `helpers.js` (`safeJson`, avatar hash) | Vitest | **✅ measured (30 tests)** |
-| L2 — Reducer unit | `AppContext` reducer: `APPLY_SAFETY_DECISIONS` across **all** med sections incl. `contraindicated`; `ADD/DELETE/UPDATE_CARE_ITEM`; SSE reducers; empty-selection guard throws | Vitest | ○ planned |
-| L3 — Component / interaction | DDx cards ("Why this rank?" discloses math→AI delta); **SafetyReviewBanner** *rendering/interaction* (acknowledge gated on every plan-flag decided; `jumpToMed` deep-link); **contraindicated panel renders**. *(The banner's pure classification + noise-filter logic was extracted to `safetyClassify.js` and is now covered under L1.)* | Vitest + React Testing Library + MSW | ○ planned |
-| L4 — Integration / data-flow | SSE stream → `AppContext` slices (terminal `stage_update` counting rule; `clinician_override` first event); `finalizePlan` persists correct top-level keys (NULL-referrals regression guard); session persistence disabled → refresh resets (PHI-leak guard) | Vitest + MSW | ○ planned |
+| L2 — Reducer unit | `AppContext` reducer: `APPLY_SAFETY_DECISIONS` across **all** med sections incl. `contraindicated` (remove / named-replace / generic-replace / keep / immutability); generic `ADD/DELETE/UPDATE_CARE_ITEM`; medication editors + `CHANGE_MEDICATION_ACTION`; diagnosis toggle; pipeline accumulators + resets; vitals source tagging; PHI-leak reset guard | Vitest | **✅ measured (29 tests)** |
+| L3 — Component / interaction | **SafetyReviewBanner** *rendering/interaction* — graph-MODERATE exemption visible, plan vs current-only vs class/noise panels, acknowledge gated on every plan-flag decided, `jumpToMed` deep-link **✅**; DDx-card "Why this rank?" disclosure + contraindicated-panel render still ○ (need `AppContext` host). *(The banner's pure classification logic is covered under L1.)* | Vitest + React Testing Library | **◑ partial (7 tests)** |
+| L4 — Integration / data-flow | `finalizePlan` persists the correct **top-level** keys (NULL-referrals regression guard) + Stage-6 audit fields; `confirmDiagnosis` empty-selection fail-loud throw; DDx run → terminal `stage_update` recorded, diagnosis mapped, wizard → Step 2 with consult id. Driven against the real `AppProvider` with the API boundary mocked. *(PHI-leak guard covered under L2.)* | Vitest (API-boundary mock) | **✅ measured (4 tests)** |
 | L5 — End-to-end browser | Full 4-step happy path (input → DDx select → plan + safety ack → PDF); out-of-scope graceful stop; returning-patient Step-0 prep brief; realtime dashboard update | Playwright | ○ planned |
 | L6 — Auth & access | Covered jointly with §4.9 (route gating, session expiry) | Playwright | ○ planned |
 | L7 — Non-functional / UX | `vite build` compile gate (in use); Lighthouse / accessibility; responsiveness; the n = 1 clinician UI/UX rubric of §4.14 | Lighthouse + §4.14 rubric | ◑ partial |
@@ -749,12 +796,82 @@ clinical invariants, which are fully exercised. `clinicalApi.js` and `supabase.j
 excluded from this metric as side-effecting integration modules belonging to the next test tiers
 (§4.8–4.9).
 
-> **[FIGURE 4.16a: Doctor UI Layer-L1 test run and coverage.]**
-> *Left — the `npm test` terminal output: "Test Files 3 passed (3) · Tests 30 passed (30)" in ≈1.2 s.
-> Right — the per-module coverage table (`clinicalMappers.js` 81.9 %, `helpers.js` 100 %,
-> `safetyClassify.js` 100 % lines; 100 % functions overall). A compact, honest screenshot pairing the
-> green run with the coverage figures the prose quotes — concrete evidence that the documented
-> bug-classes are now regression-guarded, not just described.*
+**Layer L2 — implemented (2026-06-08).** `AppContext.test.jsx` adds **29 tests** over the reducer that
+is the single source of truth for all consultation state. The reducer (plus `initialState` and the
+persistence helper) was exported so it can be exercised directly; the heavy `lib/supabase` /
+`lib/clinicalApi` imports are mocked so importing the context never opens a real client, and the
+reducer itself is pure. The suite concentrates on the most safety-critical action,
+`APPLY_SAFETY_DECISIONS` — the path that mutates the care plan when a clinician overrides a Stage-6
+flag: it asserts a flagged drug is removed from **every** section including `contraindicated`, that a
+named replacement swaps the drug, **wipes the now-stale dose, and prepends `[REPLACED from X]`**, that a
+generic replacement tags the med `[NEEDS REPLACEMENT — safety flag]`, that `keep`/drug-less decisions
+are no-ops, and that the **input state is never mutated**. It also covers the generic care-item editors
+(add/delete/update over interventions/monitoring/lifestyle), the medication editors including
+`CHANGE_MEDICATION_ACTION` and its same-section/missing-med no-ops, the diagnosis-selection toggle, the
+pipeline accumulators and stage-scoped resets, vitals source tagging (manual vs rPPG+quality), and the
+**PHI-leak guard** — `loadPersistedState` clears `sessionStorage` and returns a clean `initialState`,
+so a refresh cannot leak a previous patient's data. With L1 and L2 in place the application tier now
+has **88 passing tests across 7 files** (L1 30 · L2 29 · auth 17 · Supabase contract 12), the full
+backend-free base of the frontend pyramid.
+
+**Layer L3 — SafetyReviewBanner interaction (2026-06-08).** The first rendered-component suite,
+`SafetyReviewBanner.test.jsx` (**7 tests**, jsdom + React Testing Library, mounted in a real
+`ThemeProvider`), exercises the Stage-6 safety surface end-to-end at the DOM level — the banner's pure
+classification is already under L1, so this covers the *behaviour* the contract depends on: a null
+report renders nothing and an empty one shows the pass message; a **graph-sourced MODERATE flag is
+visible while an LLM MODERATE flag is dropped** (the dual-source exemption, asserted on rendered text,
+not just the predicate); a non-prescribed flag falls into the "class-level notices" panel and a
+current-meds-only flag into the "review existing prescription" panel; the **acknowledge button stays
+disabled until every plan flag has a decision** and then fires `onAcknowledge` with the recorded
+decisions; and the **`jumpToMed` deep-link calls back with the matched med id**. This takes L3 to
+*partial*: the remaining L3 items (the DDx "Why this rank?" disclosure and the contraindicated-panel
+render) need an `AppContext` host and are better reached at the E2E layer. The application tier now
+stands at **95 passing tests across 8 files**.
+
+**Layer L4 — data-flow / integration (2026-06-08).** `AppProvider.integration.test.jsx` (**4 tests**)
+drives the **real provider** with the API boundary mocked (`lib/supabase` + `lib/clinicalApi` stubbed,
+so no network or SSE) and asserts the orchestration logic where the documented L4 regressions live.
+The headline guard is the **NULL-referrals regression**: `finalizePlan` is run against a seeded care
+plan and the test asserts `updateConsultation` receives `referrals` / `interventions` / `monitoring` /
+`lifestyleGoals` / `cpgReferences` read off the **top level** of `carePlan` — the exact values that
+silently persisted as NULL for weeks when an earlier build read the phantom `carePlan.disposition.*`
+path. A second test confirms the **Stage-6 audit** flows through — `safeToProceed`, the
+acknowledged/by/at trail, and the mapped `safetyFlags` (severity + source + flag_type) all reach the
+RPC. A third pins the **fail-loud empty-selection guard**: `confirmDiagnosis` *throws* rather than
+routing an empty selection into a silent degraded plan, and never calls the synthesis stream. The
+fourth exercises the **SSE-result → state** path: a mocked DDx run records the terminal
+`stage_update` (`status: complete` — the event the display-layer counting rule reads), maps the
+differential, and lands the wizard on Step 2 with the consultation id wired in from
+`startConsultation`. MSW-over-SSE is deliberately not used here — the SSE wire-parsing lives inside
+`clinicalApi.js` and is coverable on its own; these tests target the provider that consumes its
+already-parsed result. The application tier now stands at **99 passing tests across 9 files**.
+
+> **[FIGURE 4.16a: Doctor UI unit test run and L1 coverage.]**
+> *Left — the `npm test` terminal output for the application-tier suite ("Test Files 9 passed (9) ·
+> Tests 99 passed (99)"). Right — the L1 per-module coverage table (`clinicalMappers.js` 81.9 %,
+> `helpers.js` 100 %, `safetyClassify.js` 100 % lines; 100 % functions). A compact, honest screenshot
+> pairing the green run with the coverage figures the prose quotes — concrete evidence that the
+> documented bug-classes are now regression-guarded, not just described.*
+
+> **[FIGURE 4.16b: Safety-override reducer state transition.]**
+> *A before→after of `carePlan.medications` under `APPLY_SAFETY_DECISIONS` for the case-10 Losartan
+> flag: the `contraindicated` row shown (a) removed, and (b) named-replaced → `Labetalol` with the dose
+> wiped and `[REPLACED from Losartan 50mg]` prepended. Visualises the single most safety-critical
+> frontend mutation the L2 suite now guards.*
+
+> **[FIGURE 4.16d: finalizePlan data-flow guard.]**
+> *A small flow: seeded `carePlan` (top-level `referrals`/`interventions`/…) → `finalizePlan` →
+> `updateConsultation(payload)`, with the asserted payload keys highlighted in green and the phantom
+> `carePlan.disposition.*` path struck through in red beside it (→ would yield NULL). One glance shows
+> the regression the L4 test now blocks. Optionally pair with the 4-test `AppProvider.integration`
+> block passing.*
+
+> **[FIGURE 4.16c: SafetyReviewBanner under test.]**
+> *A screenshot of the rendered banner with (a) a graph-MODERATE flag shown beside a dropped
+> LLM-MODERATE one, (b) the disabled "accept clinical responsibility" button with the "N flag(s) still
+> need a decision" hint, and (c) the same button enabled after a Remove decision. Pairs the
+> acknowledge-gate and the dual-source exemption — the two behaviours the 7 L3 tests assert — with
+> what the clinician actually sees.*
 
 > **[FIGURE 4.16: Frontend test pyramid.]**
 > *A test-pyramid diagram with the seven layers L1 (pure-logic, widest base) → L2 reducer → L3
@@ -1065,9 +1182,14 @@ competitor benchmark — are named precisely in this chapter as the agenda for t
 > - **Fig. 4.12** — silent-degradation probe status grid (red → green).
 > - **Fig. 4.13** — reproducibility panel (stability bars + case-10 Jaccard heatmap + substance-vs-prose).
 > - **Fig. 4.14** — application-store ER diagram + consultation-row screenshot.
+> - **Fig. 4.14a** — migration-superset contract diagram + 12-test `supabaseContract.test.js` pass. *(in hand)*
 > - **Fig. 4.15** — login screenshot + provider-tree / audit-identity diagram.
+> - **Fig. 4.15a** — `resolveRoute` decision table + 17-test auth run (`AuthContext` + `routeGuard`). *(in hand)*
 > - **Fig. 4.16** — frontend test pyramid (L1–L7).
-> - **Fig. 4.16a** — Doctor UI Layer-L1 test run (30 passing) + per-module coverage table. *(in hand — screenshot the `npm test` / `--coverage` output)*
+> - **Fig. 4.16a** — Doctor UI unit test run (88 passing / 7 files) + L1 per-module coverage table. *(in hand — screenshot the `npm test` / `--coverage` output)*
+> - **Fig. 4.16b** — safety-override reducer before→after (remove + named-replace of the case-10 Losartan flag). *(in hand)*
+> - **Fig. 4.16c** — SafetyReviewBanner under test: graph-vs-LLM MODERATE + acknowledge-gate disabled→enabled. *(in hand)*
+> - **Fig. 4.16d** — finalizePlan data-flow: top-level keys → updateConsultation (phantom `disposition.*` struck through). *(in hand)*
 > - **Fig. 4.17** — delivery state machine + "Send to patient" status screenshot.
 > - **Fig. 4.18** — Case 11 rendered plan + dual-source safety banner screenshot.
 > - **Fig. 4.19** — per-stage latency stacked bar / waterfall.

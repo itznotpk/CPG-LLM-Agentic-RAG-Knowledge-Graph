@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Login from './pages/Login';
 import Landing from './pages/Landing';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { resolveRoute } from './lib/routeGuard';
 import { AppProvider, useApp } from './context/AppContext';
 import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { ToastProvider } from './components/shared/Notification';
@@ -37,10 +38,7 @@ const steps = [
   { id: 4, label: 'Complete' },
 ];
 
-// Top-level app views that map 1:1 to URL paths (/dashboard, /patients, …).
-// 'chart' is intentionally NOT routable — it's an in-memory sub-view that
-// needs a patient object, so it lives under /patients and falls back there.
-const APP_VIEWS = ['dashboard', 'patients', 'consultation', 'settings', 'analytics'];
+// APP_VIEWS now lives in lib/routeGuard.js alongside the gate logic.
 
 // Analytics ("Clinical Performance") view — owns the shared time window so the
 // dashboard and the feedback-insights panel stay in sync from one control.
@@ -295,7 +293,8 @@ function AppContent({ view }) {
 function LandingRoute() {
   const { session } = useAuth();
   const navigate = useNavigate();
-  if (session) return <Navigate to="/dashboard" replace />;
+  const decision = resolveRoute({ route: 'landing', session });
+  if (decision.action === 'redirect') return <Navigate to={decision.to} replace />;
   return <Landing onSignIn={() => navigate('/login')} />;
 }
 
@@ -303,7 +302,8 @@ function LandingRoute() {
 function LoginRoute() {
   const { session } = useAuth();
   const navigate = useNavigate();
-  if (session) return <Navigate to="/dashboard" replace />;
+  const decision = resolveRoute({ route: 'login', session });
+  if (decision.action === 'redirect') return <Navigate to={decision.to} replace />;
   return <Login onBackToLanding={() => navigate('/')} />;
 }
 
@@ -312,12 +312,9 @@ function AppShell() {
   const { session } = useAuth();
   const { view } = useParams();
 
-  // Unauthenticated access to a protected route → send to Login (not Landing),
-  // which is also how sign-out behaves.
-  if (!session) return <Navigate to="/login" replace />;
-
-  // Unknown view slug → normalise to the dashboard.
-  if (!APP_VIEWS.includes(view)) return <Navigate to="/dashboard" replace />;
+  // Unauthenticated → /login (same as sign-out); unknown slug → dashboard.
+  const decision = resolveRoute({ route: 'app', session, view });
+  if (decision.action === 'redirect') return <Navigate to={decision.to} replace />;
 
   return (
     <ThemeProvider>
