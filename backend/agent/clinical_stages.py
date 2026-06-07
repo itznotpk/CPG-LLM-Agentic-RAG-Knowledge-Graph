@@ -3274,23 +3274,43 @@ def _pin_chief_complaint_primary(results: list[DDxResult]) -> list[DDxResult]:
     badge while the named dx sits at #2/#3. This deterministic post-pass lifts the
     highest-ranked explicit code to #1.
 
-    Two guards preserve legitimate exceptions:
+    Guards preserve legitimate exceptions:
       - A can't-miss red-flag promotion at #1 (override_reason="red_flag_cant_miss…")
         outranks everything and is left in place.
-      - If #1 is already explicit, nothing changes.
+      - If #1 is already a specific explicit dx, nothing changes.
+      - Only SPECIFIC explicit codes are pinned — a vague Chapter-21 symptom or
+        '.Y/.Z' residual explicit code is never promoted over a named disease
+        code, so this pass can't undo the demotion safety nets above it.
     """
     if len(results) < 2:
         return results
     top = results[0]
     if (top.override_reason or "").startswith("red_flag_cant_miss"):
         return results
-    if getattr(top, "cc_explicit", False):
+
+    def _is_vague(code: str | None) -> bool:
+        # A Chapter-21 symptom code (MF41) or a '.Y/.Z' residual is strictly
+        # less informative than a named disease code.
+        return _is_chapter_21_code(code) or _is_residual_icd_code(code or "")
+
+    # Only pin a SPECIFIC clinician-named dx. The CC-hint resolver can resolve a
+    # symptom phrase ("erectile dysfunction") to a vague code (MF41 "complaint of
+    # male sexual function") and mark it cc_explicit; pinning that to #1 would
+    # silently undo _demote_chapter21_codes / _demote_residual_subcodes — the
+    # case-11 MF41 bug, where the symptom code outranked the actual HA01.x ED
+    # codes. If no specific explicit dx exists, respect the demotion order rather
+    # than resurrecting a vague code.
+    if getattr(top, "cc_explicit", False) and not _is_vague(top.code):
         return results
     idx = next(
-        (i for i, r in enumerate(results) if getattr(r, "cc_explicit", False)),
+        (
+            i
+            for i, r in enumerate(results)
+            if getattr(r, "cc_explicit", False) and not _is_vague(r.code)
+        ),
         None,
     )
-    if idx is None:
+    if idx is None or idx == 0:
         return results
     promoted = results.pop(idx)
     tag = "cc_explicit_primary: clinician-named chief-complaint dx pinned to #1"

@@ -331,6 +331,29 @@ steps with one offline LLM extraction step:
    `(:Condition)-[:REQUIRES_REFERRAL]->(:Specialty)`, alongside the positive prescribing edges such
    as `FIRST_LINE_FOR` and `RECOMMENDED_FOR`.
 
+Each chunk's `category` (step 2) is drawn from the fixed 13-value controlled vocabulary in Table 3.10.
+A section may carry more than one category, and the vocabulary is what the Stage-4 category-aware
+ranking (§3.7) keys off when it promotes decision-relevant sections — chiefly *Treatment*,
+*Supportive Treatment*, and *Assessment* — over incidental prose.
+
+**Table 3.10: The 13-value chunk-category controlled vocabulary (`documents/METADATA_README.md`).**
+
+| # | Category | Captures |
+|---|---|---|
+| 1 | Methodology | Executive summary, evidence grading, guideline-development process |
+| 2 | Introduction | Disease burden, CPG rationale, healthcare context |
+| 3 | Pathophysiology | Disease mechanisms, biological pathways, genetic susceptibility |
+| 4 | Epidemiology | Prevalence, incidence, risk factors, prognosis, natural history |
+| 5 | Classification | Staging and taxonomy (WHO / NYHA / TNM / Dana Point) |
+| 6 | Screening | Early detection, high-risk identification, screening modalities |
+| 7 | Diagnosis | Clinical assessment, diagnostic criteria, investigation and referral pathways |
+| 8 | Assessment | Risk stratification, severity scoring, operability and prognostic assessment |
+| 9 | Treatment | Pharmacological therapy, surgical intervention, acute/chronic management |
+| 10 | Supportive Treatment | Rehabilitation, palliative care, symptom and psychosocial management |
+| 11 | Prevention | Secondary prevention, surveillance, lifestyle modification, risk reduction |
+| 12 | Special Populations | Age/sex/comorbidity-specific care — pregnancy, paediatrics, fertility |
+| 13 | Reference | Appendices, algorithm flowcharts, reference tables, trial data |
+
 ### 3.3.1 Relation-extraction guardrails
 
 During development we found that the negative-edge extractor was the single largest source of false
@@ -729,7 +752,7 @@ organ system are placed where MoH files them — Dyslipidaemia and Heart-Disease
 cardiovascular disease, Diabetes-in-Pregnancy under endocrine disease. The distribution shows the
 corpus's deliberate cardiovascular and cardiometabolic focus.
 
-> **[FIGURE 3.7b: Routing cascade ladder.]**
+> **[FIGURE 3.7b: Nine-tier deterministic routing cascade.]**
 > *Insert Mermaid diagram D-ROUTE (below), drawn as a descending ladder so that the progression
 > from exact match, through broadening, to semantic fallback and refusal is legible.*
 
@@ -799,18 +822,22 @@ flowchart TB
     T1 -- yes --> SEX
     T1 -- no --> T2{2 · sibling / .Y / .Z?}
     T2 -- yes --> SEX
-    T2 -- no --> T3{3–6 · ancestor / block walk?}
-    T3 -- yes --> FLOOR{>= scope floor 0.32?}
-    T3 -- no --> T8{7–8 · procedure / semantic >= 0.32?}
+    T2 -- no --> T3{3 · direct parent ancestor_d1?}
+    T3 -- yes --> SEX
+    T3 -- no --> T46{4–6 · distant ancestor / block walk?}
+    T46 -- yes --> FLOOR{also clears 0.32 sim?}
+    T46 -- no --> T7{7 · procedure-tag overlap?}
     FLOOR -- yes --> SEX
     FLOOR -- no --> OOS
+    T7 -- yes --> SEX
+    T7 -- no --> T8{8 · sim >= 0.32 alone?}
     T8 -- yes --> SEX
     T8 -- no --> OOS([9 · out_of_scope · no plan returned])
     SEX["Sex-incompatibility filter<br/>(drop female-only CPGs for male)"] --> CPG([Matched CPG set])
 
     classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
     classDef stop fill:#fef2f2,stroke:#dc2626,color:#991b1b;
-    class T1,T2,T3,T8,FLOOR,SEX det;
+    class T1,T2,T3,T46,T7,T8,FLOOR,SEX det;
     class OOS stop;
 ```
 
@@ -827,31 +854,69 @@ here.
 
 The sub-steps are:
 
-- **Targeted query generator (LLM).** A language model drafts up to seven focused,
+- **Targeted Query Generation (LLM).** A language model drafts up to seven focused,
   domain-specific queries from the patient context and the top DDx codes. These are supplemented by
   three universal anchor queries (baseline investigations, lifestyle modifications, and specialist
   referrals) and by condition-specific pillar anchors derived from the primary code, so that
   high-leverage sections are not omitted when the LLM fails to seed a query for them.
-- **Scoped pgvector search.** Each query is executed against the vector store pinned by a
+- **Scoped pgvector Search.** Each query is executed against the vector store pinned by a
   `document_id_filter` to the routed guidelines only. Because the filter is applied at the database
   query, evidence from an unrelated guideline cannot enter the evidence pack; this is the structural
   guarantee behind the system's grounded, in-corpus claim. All queries run in parallel.
-- **Category-aware ranking.** Before the candidate pool is truncated to the top results, each chunk
-  is re-weighted using its `category` metadata (the 13-value controlled vocabulary assigned at
-  ingestion), so that high-value sections such as pharmacological management and monitoring are
-  promoted over incidental prose. This uses the chunk metadata captured in §3.3 to keep the most
-  decision-relevant passages in the final set.
-- **Hierarchical content prefetcher (H3 to H2 to H1).** For every matched leaf chunk,
+- **Category-aware ranking and top-20 cut.** The deduplicated pool is re-weighted using each chunk's
+  `category` metadata (the 13-value controlled vocabulary of Table 3.10, assigned at ingestion), then
+  sorted by that boosted score and **truncated to the top 20 chunks**. The cap serves two ends: it
+  bounds the evidence pack so it fits inside the Stage-5 synthesis token budget, and it prevents
+  context dilution — feeding the synthesiser a smaller set of high-value passages keeps its attention
+  concentrated on decision-relevant evidence rather than spread thin across marginal, lower-ranked
+  prose. The category boost is what ensures the 20 survivors are the decision-relevant sections —
+  chiefly pharmacological management and monitoring — rather than the highest-similarity incidental
+  prose.
+- **Hierarchical Prefetching (H3 to H2 to H1).** For every matched leaf chunk,
   `_prefetch_parent_content` pulls its grandparent section headers up the tree, so that local
   abbreviations, the section's level of evidence, and Malaysian-context callouts accompany the chunk
   rather than being stranded.
-- **Cross-reference resolver.** `_resolve_cross_refs` scans the matched chunks, and their parent
+- **Cross-Reference Resolution.** `_resolve_cross_refs` scans the matched chunks, and their parent
   chain, for inline `§X.Y` anchors that point to other sections or guidelines, fetches the best
   matching target chunks, and appends them to the evidence pack, following the guideline's own
   internal citation graph.
 
 The deduplicated, evidence-graded chunk set is the output. Each chunk carries its original MoH
 evidence grade, so that the synthesiser can stamp every recommendation with its provenance.
+
+**Diagram D-RETRIEVE, Stage 4 evidence-graded scoped retrieval (Fig. 3.7c):** the three inputs are
+carried in from earlier stages (each tagged with its source stage), and every process node is named
+to match the sub-steps above.
+
+```mermaid
+flowchart TB
+    S1["Stage 1 · Intake"] --> I1
+    S2["Stage 2 · DDx"] --> I2
+    S3["Stage 3 · Routing"] --> I3
+    I1(["Patient context"]) --> QG
+    I2(["Top DDx codes"]) --> QG
+    I3(["Routed CPGs · document_id_filter"]) --> SEARCH
+
+    QG["Targeted Query Generation<br/>(LLM · up to 7 + anchor queries)"] --> SEARCH
+    SEARCH["Scoped pgvector Search<br/>(parallel · pinned to routed CPGs)"] --> DEDUP
+    OTHER[("Unrelated CPGs")] -. blocked by document_id_filter .- SEARCH
+    DEDUP["Deduplication"] --> RANK
+    RANK["Category-Aware Ranking and Top-20 Cut"] --> PREF
+    PREF["Hierarchical Prefetching<br/>(H3 → H2 → H1 parents)"] --> XREF
+    XREF["Cross-Reference Resolution<br/>(§X.Y anchors)"] --> OUT
+    OUT(["Evidence-Graded Chunk Set → Stage 5"])
+
+    classDef tag fill:#f1f5f9,stroke:#94a3b8,color:#475569;
+    classDef input fill:#f8fafc,stroke:#64748b,color:#334155;
+    classDef llm fill:#ccfbf1,stroke:#0d9488,color:#134e4a;
+    classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
+    classDef block fill:#fef2f2,stroke:#dc2626,color:#991b1b;
+    class S1,S2,S3 tag;
+    class I1,I2,I3,OUT input;
+    class QG llm;
+    class SEARCH,DEDUP,RANK,PREF,XREF det;
+    class OTHER block;
+```
 
 ---
 
@@ -884,24 +949,29 @@ belongs to a routed guideline, which prevents cross-CPG drift, and a paediatric-
 drops paediatric evidence when the patient is an adult. Both arms fail open: if Postgres is
 unavailable the filter is simply not applied, rather than dropping every edge, and if the graph is
 unreachable the edge list is empty. Neither failure blocks synthesis. This fail-open posture is a
-recurring safety theme, discussed further in §3.15.
+recurring safety theme, discussed further in §3.14.
 
-> **[NOTE FOR FIG. 3.1]** *Stage 4.5 appears as the cyan "KG inject" node in the master architecture
-> diagram, so no separate figure is required. A Neo4j graph-view screenshot of a
-> `(:Drug)-[:CONTRAINDICATED_WITH]->(:Condition)` subgraph would serve as an effective supporting
-> image here.*
+> **Figure 3.8b — KG "avoid" arm: pregnancy contraindication fan-out with edge provenance.**
+> *Multiple drugs and drug classes (RAS blocker, orlistat, phentermine, liraglutide) share one
+> `CONTRAINDICATED_WITH` target — the central Pregnancy node. The selected Orlistat edge's*
+> *Relationship details panel shows the provenance every safety edge carries: `severity = MAJOR`, the*
+> *verbatim CPG `evidence`, and the `cpg_chunk_id` / `source_document` tracing it to a specific*
+> *guideline section. Captured via `MATCH p=(d:Drug)-[:CONTRAINDICATED_WITH]->(c:Condition) WHERE*
+> *c.name_normalised CONTAINS 'pregnan' RETURN p`. Stage 4.5 also appears as the cyan "KG inject" node*
+> *in the master architecture diagram (Fig. 3.1).*
 
 ---
 
 ## 3.9 Stage 5: Evidence-Graded Care Plan Synthesis
 
-Stage 5 is where the language model performs its most substantial reasoning: it assembles the
-patient data, the retrieved CPG evidence, the prior-visit summary, and the knowledge-graph
-constraints into a single coherent treatment plan. The objective was a structured, executable,
-eight-section care plan rather than a prose paragraph that the clinician would have to re-read and
-parse under time pressure, with every recommendation cited and evidence-graded. The output is a
-Pydantic-validated `TreatmentPlan` object, so that a structurally malformed plan fails on validation
-rather than rendering partially.
+Stage 5 executes the core language-model reasoning using MiMo v2.5 Pro, synthesising patient
+data, retrieved CPG evidence, prior-visit summaries, and knowledge-graph constraints into a unified
+treatment plan. To minimise clinician cognitive load under time constraints, the system generates a
+structured, executable, eight-section care plan rather than dense prose.
+
+Every recommendation is strictly cited and evidence-graded. The final output is enforced as a
+Pydantic-validated `TreatmentPlan` object, ensuring that structurally malformed plans fail safely
+during validation rather than rendering partially.
 
 > **[FIGURE 3.8: Step 3 Care Plan screen (8-section renderer).]**
 > *Insert a screenshot of the Doctor UI Step 3, showing the action-tagged medication chips, the
@@ -924,6 +994,12 @@ test cases, as shown in Table 3.6.
 | P6 | Referrals | `recommendations` (referral type, with urgency) |
 | P7 | Safety Netting / Red Flags | monitoring trip-wires and `SafetyReport` |
 | P8 | Follow-up Plan | `follow_up` |
+
+P7 red flags are *patient-facing* trip-wires — the symptoms or vital thresholds that should prompt the
+patient to return or escalate. They are distinct from the plan's **unresolved questions**
+(`TreatmentPlan.unresolved_questions`), which are *clinician-facing* gaps the model raises about its
+own reasoning — missing data, load-bearing assumptions, coverage gaps, or refused computations. One
+tells the patient what to watch for; the other tells the clinician what the system could not resolve.
 
 Every recommendation is stamped with its original MoH evidence grade. The corpus contains three
 mutually incompatible grading schemes (ESC, USPSTF, SIGN50), for example an ESC-style "Class I, Level
@@ -969,10 +1045,12 @@ finished plan and can block sign-off. The objective was to catch medication harm
 single-source tool would miss, and to do so through two mechanisms that fail in different ways, so
 that the absence of a hazard from one source does not hide it from the clinician.
 
-> **[FIGURE 3.9: Safety-critic dual-source flag card.]**
-> *Insert a screenshot of the Stage 6 safety banner with a blocked plan, showing the
-> severity-coloured CRITICAL and MAJOR flags and the `[llm]` versus `[graph]` source tags. Pair with
-> Mermaid diagram D-CRITIC below.*
+> **[FIGURE 3.9: Stage 6 safety-acknowledgement banner.]**
+> *Insert a screenshot of the Stage 6 safety banner on a blocked plan, showing the severity-grouped
+> flags (Critical / Major / Moderate), each with its evidence expander and per-flag Replace /
+> Keep+acknowledge / Remove decision controls, and the acknowledgement progress gate. The banner
+> surfaces the merged union of concerns from both critics. Pair with Mermaid diagram D-CRITIC
+> (Fig. 3.9b) below.*
 
 The two graders run concurrently through `asyncio.gather`:
 
@@ -994,13 +1072,19 @@ merged union, and any CRITICAL or MAJOR flag blocks sign-off. Both critics fail 
 empty flag list on error, which follows the same principle as Stage 4.5: an unreliable connection
 must never silently suppress a safety concern.
 
-The dual-source design can be illustrated by the canonical worked example, Case 10, a 35-year-old
-primigravida with chronic hypertension on Losartan. The LLM critic catches the teratogen in
-narrative form, while the knowledge graph independently catches the structural
-`(ARB)-[:CONTRAINDICATED_WITH]->(Pregnancy)` edge that the same passage never mentioned. Three flags
-fire, `safe_to_proceed` is set to false, and the plan is blocked. The second catch is produced by a
-graph traversal over typed edges, which a text-retrieval-only design does not have the data structure
-to reproduce.
+The dual-source design is illustrated by Case 11 (Fig. 3.9): a man with stable coronary artery
+disease maintained on isosorbide mononitrate, with comorbid type 2 diabetes on metformin and
+liraglutide, presenting for treatment of erectile dysfunction. The two critics surface complementary
+concerns, and the banner shows both. The LLM critic flags the interaction between a PDE5 inhibitor
+and the patient's nitrate as CRITICAL — a life-threatening hypotension risk, and a severity that only
+the reasoning arm emits, since the knowledge-graph arm never raises a flag to CRITICAL. The graph
+verifier independently contributes the second flag, the metformin–liraglutide interaction, drawn from
+a typed drug–drug edge; it reaches the clinician as a MODERATE concern precisely because graph-verified
+flags are exempt from the moderate-severity noise filter that suppresses the model's own low-severity
+chatter. The two lists are merged without de-duplication, `safe_to_proceed` is set to false, and the
+plan is blocked until the clinician decides on both. Because the graph catch is a traversal over typed
+edges rather than a phrase the model happened to surface, it is reproducible by structure — a guarantee
+a text-retrieval-only design does not have the data to provide.
 
 ### 3.10.2 Audit logging
 
@@ -1009,24 +1093,54 @@ clinician overrides a blocked plan and proceeds, the acknowledgement is persiste
 authenticated user and a timestamp (`safe_to_proceed`, `safety_acknowledged`, `_by`, `_at`), so that
 the decision trail can be reconstructed afterwards.
 
-**Diagram D-CRITIC, Stage 6 dual-source safety critic (Fig. 3.9):**
+**Figure 3.9b — Diagram D-CRITIC, Stage 6 dual-source safety critic:**
 
 ```mermaid
 flowchart TB
-    P["Drafted TreatmentPlan<br/>STOP Losartan · START Methyldopa / Metformin / aspirin"] --> G{asyncio.gather}
-    G --> L["LLM pharmacist critic<br/>reasoning · allergy · DDI · renal/hepatic dosing"]
-    G --> K["Neo4j KG verifier<br/>structural Cypher on final plan"]
-    L --> M[Merge WITHOUT dedup]
-    K --> M
-    M --> R["SafetyReport · 3 flags<br/>CRITICAL/llm Losartan teratogen<br/>MAJOR/graph ARB × Pregnancy ×2"]
-    R --> B[/safe_to_proceed = False to BLOCK sign-off/]
+    S5["Stage 5 · Synthesis"] --> I1
+    S1["Stage 1 · Intake"] --> I2
+    I1(["Drafted Treatment Plan"]) --> DISP["Concurrent Dispatch<br/>(asyncio.gather)"]
+    I2(["Patient Case Context<br/>allergies · comorbidities · current meds · organ function"]) --> DISP
 
+    DISP --> LLM
+    DISP --> KG
+
+    subgraph LLM["LLM Pharmacist Critic"]
+        direction TB
+        LA["Allergy & Cross-Reactivity"]
+        LD["Drug–Drug Interactions"]
+        LO["Organ-Impairment Dosing"]
+        LC["Absolute Contraindications"]
+    end
+
+    subgraph KG["Neo4j KG Plan Verifier"]
+        direction TB
+        KC["Drug–Condition Contraindications"]
+        KI["Drug–Drug Interactions"]
+        KM["Monitoring Requirements"]
+        KX["Recommendation-Index Mapping"]
+    end
+
+    LLM --> MERGE["Merging Without Deduplication"]
+    KG --> MERGE
+    MERGE --> REPORT(["SafetyReport<br/>dual-source flags"])
+    REPORT --> VERDICT{"Any CRITICAL or<br/>MAJOR Flag?"}
+    VERDICT -- yes --> BLOCK["Blocked Sign-Off<br/>override recorded to audit log"]
+    VERDICT -- no --> PROCEED(["Cleared Sign-Off"])
+
+    classDef tag fill:#f1f5f9,stroke:#94a3b8,color:#475569;
+    classDef input fill:#f8fafc,stroke:#64748b,color:#334155;
     classDef llm fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
-    classDef kg fill:#ecfeff,stroke:#0891b2,color:#164e63;
+    classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
     classDef block fill:#fef2f2,stroke:#dc2626,color:#991b1b;
-    class L llm;
-    class K kg;
-    class B,R block;
+    class S5,S1 tag;
+    class I1,I2,REPORT,PROCEED input;
+    class LA,LD,LO,LC llm;
+    class KC,KI,KM,KX det;
+    class DISP,MERGE,VERDICT det;
+    class BLOCK block;
+    style LLM fill:#f0fdfa,stroke:#0d9488,stroke-dasharray: 6 4,color:#134e4a;
+    style KG fill:#ecfeff,stroke:#0891b2,stroke-dasharray: 6 4,color:#164e63;
 ```
 
 ---
@@ -1151,7 +1265,7 @@ afterwards. Table 3.7 records the auditable output of each stage.
 | 4, Retrieve | The queries that were issued and the evidence chunks returned, each chunk tagged with its source CPG section and MoH evidence grade |
 | 4.5, KG inject | The "prefer Y" and "avoid X" edges that were injected, with their source guideline |
 | 5, Synthesize | Every recommendation cites its `cpg_source` and evidence grade; `gate_audit` lists referrals that were considered and ruled out with the gate's reason; `unresolved_questions` and the assumption flags surface what the system could not resolve |
-| 6, Critic | Every safety flag carries its `source` (`llm` or `graph`), `severity`, and the recommendation index it refers to, so the provenance of each concern is explicit |
+| 6, Critic | Every safety flag carries its `source` (`llm` or `graph`), `severity`, and the recommendation index it refers to, so the provenance of each concern is explicit in the audit trail |
 
 **How the trace is surfaced in the UI.** Three complementary surfaces present this material at the
 right level of detail. The `PipelineProgress` component renders the live per-stage event log as the
@@ -1286,88 +1400,71 @@ flowchart TB
 
 ## 3.13 Clinician Override and Re-Synthesis Design
 
-The plan flow was deliberately split into two HTTP calls, so that the clinician confirms the
-differential before the system spends compute on the more expensive Stages 3 to 6:
+The plan flow was deliberately split into two HTTP calls so that the clinician confirms the
+differential diagnosis before the system commits to the more expensive Stages 3 to 6. This enacts the
+design's central principle — the clinician, not the model, is the decision-maker:
 
 ```
-Step 1 (Data Input) to POST /clinical/plan/ddx/stream            (Stage 2 only)
-Step 2 (DDx pick)   to POST /clinical/plan/resynthesize/stream   (Stages 3–6)
-Step 3 (Care Plan)  renders the audited plan
+Step 1 (Data Input)     POST /clinical/plan/ddx/stream          (Stage 2 only)
+Step 2 (DDx selection)  POST /clinical/plan/resynthesize/stream (Stages 3–6)
+Step 3 (Care Plan)      renders the audited plan
 ```
 
-This human-in-the-loop split is a core design decision rather than an optimisation, because it
-implements the principle that the clinician is the decision-maker. An empty diagnosis selection is
-blocked at three independent layers: a disabled-button gate validated against the live candidate set;
-a submit guard that raises a visible banner; and an API contract that rejects an empty selection with
-HTTP 422 before any LLM cost is incurred. This is defence in depth against the silent `out_of_scope`
-that an empty selection would otherwise cause. A contract requirement ensures that the re-synthesis
-path routes comorbidities identically to the one-shot path, so that the UI and the evaluation scripts
-cannot produce clinically different plans from the same input.
+The split is a core design decision rather than an optimisation: it guarantees that the authoritative
+care plan is never generated against a diagnosis the clinician has not seen and confirmed.
+
+**Defence in depth against empty selection.** Because an empty diagnosis selection would route nothing
+and degrade silently to `out_of_scope`, it is blocked at three independent layers: a disabled-button
+gate validated against the live candidate set; a submit guard that raises a visible banner; and an API
+contract that rejects an empty selection with HTTP 422 before any language-model cost is incurred. A
+separate contract requirement holds the re-synthesis path to the same comorbidity routing as the
+one-shot path, so that the clinician UI and the evaluation scripts cannot produce clinically different
+plans from identical input.
+
+**Inline editing as the in-the-loop check.** Once the plan is rendered at Step 3, the clinician
+retains full editorial control: any recommendation can be added, modified, or removed on the plan
+surface, and each CRITICAL or MAJOR safety flag is resolved through an explicit per-flag decision
+(Replace, Keep and acknowledge, or Remove). These edits and decisions update the working plan and are
+persisted with the finalised consultation. The dual-source safety review runs once, during the Step-2
+resynthesis; at Step 3 the clinician is the safety check, and every flag that touches a planned
+medication must carry a recorded decision before the plan can close.
+
+**Safety-acknowledgement gate.** So that a flagged hazard can never be silently shipped, the plan
+cannot be finalised until every CRITICAL or MAJOR flag touching a planned medication has an explicit
+decision; the approval control stays disabled until the set is resolved. Each decision is persisted
+with the acknowledging clinician's identity and a timestamp on the consultation row (`safe_to_proceed`,
+`safety_acknowledged`, `_by`, `_at`), forming the medico-legal audit trail described in §3.11.5.
+
+**Override signalling.** When the clinician's Step-2 selection differs from the AI's top pick, the
+resynthesis stream emits a single `clinician_override` event as its first event, carrying the
+clinician-selected codes and the designated major diagnosis. This marks the trace explicitly as
+clinician-directed, so both the reasoning log and the UI record that the plan was generated against
+the clinician's choice rather than the model's — closing the loop between the human decision and the
+machine's subsequent reasoning.
 
 ---
 
-## 3.14 Engineering Calculations, Schemas, and Scoring Formulas
-
-This section consolidates the quantitative design parameters referenced earlier in the chapter.
-
-> **[FIGURE 3.12 (optional)]** *Insert an embedding or similarity illustration here if a visual is
-> desired, for example a two-dimensional projection of in-scope versus out-of-scope code embeddings
-> around the 0.32 threshold.*
-
-**Table 3.8: Key engineering constants and formulas (verified against source).**
-
-| Parameter | Value | Where used |
-|---|---|---|
-| Embedding dimensionality | 1536 (Bedrock Titan) | All vector representations |
-| pgvector probe count | `ivfflat.probes = 100` | DDx and semantic-scope queries |
-| ICD-11 catalogue size | 3,914 codes | Stage 2 vector search |
-| CPG corpus size | approximately 30 MoH guidelines | Stage 3 routing scope |
-| Semantic scope threshold | `0.32` cosine | Stage 3 tier 8 and distant-walk floor |
-| CC explicit boost / inferred | `+0.25` flat / `0.15 × confidence` | Stage 2 CC-boost |
-| Co-equal-primary tie-break epsilon | `0.20` | Stage 2 rerank tie-break |
-| Name-to-code resolver similarity floor | `0.55` | Stage 2 CC resolve |
-| Stage 4 LLM queries / chunks per query | up to 7, plus 3 anchors / 5 | Stage 4 retrieval |
-| Stage 5 token budget | `60,000` of 128k MiMo context | Stage 5 synthesis guardrail |
-| Medication dedup substring threshold | at least 85 percent | Stage 5 validator 1 |
-| Referral dedup token-set Jaccard | at least 0.6 (specialty-gated) | Stage 5 validator 2 |
-| KG drug nodes / interaction edges | approximately 1,630 / 290 | Stage 4.5 and Stage 6 |
-| Determinism seed | `DDX_DETERMINISTIC_SEED = 42` | Stage 2 |
-
-The principal Pydantic schemas form the typed contracts that connect the stages: `PatientCase`
-(intake, §3.4) produces `DDxResult[]` (Stage 2), which produces `CPGDocRef[]` (Stage 3), which
-produces `ChunkResult[]` (Stage 4), which produces `ClinicalFlag[]` (Stage 4.5), which feeds
-`TreatmentPlan` (Stage 5), which feeds `SafetyReport` as `SafetyFlag[]` (Stage 6). Each `SafetyFlag`
-carries a required `title` and `detail`, a `severity ∈ {CRITICAL, MAJOR, MODERATE}`, a `flag_type`, a
-`recommendation_index`, and a `source ∈ {llm, graph}`. The `source` field is what drives the
-dual-source rendering described in §3.10.
-
----
-
-## 3.15 Fail-Loud, Degradation, and Anti-Hallucination Design
+## 3.14 Fail-Loud, Degradation, and Anti-Hallucination Design
 
 The system was engineered to fail loudly on absent evidence and to fail open on infrastructure
-unreliability. These two postures are deliberately opposite, and the codebase encodes them as a
-contract that is validated by a dedicated degradation test suite. The governing principle of this
-section is that the system declares degraded output rather than concealing it.
+unreliability. These two postures are deliberately opposite and are encoded in the codebase as a
+contract validated by a dedicated degradation test suite. The governing principle throughout is that
+the system declares degraded output rather than concealing it. Table 3.14.1 sets out each contract.
 
-- **Retrieval exception skips synthesis.** A Stage 4 retrieval exception, for example a vector-store
-  outage, skips Stage 5 entirely and returns a degraded, zero-confidence plan with the failure echoed
-  in the unresolved questions. The system does not synthesise a plan on absent evidence.
-- **Empty but successful retrieval caps confidence.** A Stage 4 success that returns zero chunks
-  still synthesises, but the plan is stamped so that its confidence cannot read as
-  confident-from-empty. The distinction between an exception and an empty result is the entire point
-  of this branch.
-- **Retryable versus fatal status codes.** A data-store connection error maps to HTTP 503
-  (retryable), not a generic 500, so that an outage is distinguished from a logic failure.
-- **Anti-hallucination guards.** The system never trusts an LLM-emitted ICD code, resolving
-  clinician-named diagnoses by a name-to-code vector lookup instead; it drops any `unresolved_question`
-  entry that claims a field is "not provided" when that field is in fact present in the case input, a
-  self-contradiction the synthesis LLM occasionally produces; and the relation-extraction guardrails
-  of §3.3.1 keep false contraindication edges out of the graph at build time.
+**Table 3.14.1: Degradation and anti-hallucination contracts.**
+
+| Condition | System response | Why |
+|---|---|---|
+| Stage 4 retrieval throws an exception | Skip Stage 5; return a zero-confidence (`0.0`) plan, with the failure noted in `unresolved_questions` | Never build a plan on absent evidence |
+| Stage 4 succeeds but returns no chunks | Still synthesise, but cap confidence at ≤ `0.25` and append an empty-evidence note | An empty result differs from an exception — graded by degree (`0.0` vs ≤ `0.25`) so neither reads as confident |
+| Data-store connection error | Return HTTP `503`, not a generic `500` | Flags a transient outage as retryable, distinct from a logic fault |
+| LLM emits an ICD code in the DDx | Discard the code; resolve diagnoses only by name-to-code vector lookup | Model-emitted codes are untrusted; codes must come from a controlled source |
+| An `unresolved_question` claims a field is missing that is actually present | Drop the entry before returning the plan | A synthesis artefact that would mislead the clinician about what data exists |
+| False contraindication edges during relation extraction | Filtered out at ingestion by the §3.3.1 guardrails | Stage 6 should verify against a clean graph, not patch errors at runtime |
 
 ---
 
-## 3.16 Observability and Offline Resilience Design
+## 3.15 Observability and Offline Resilience Design
 
 Because the target deployment is a rural clinic with unreliable power and connectivity, the pipeline
 was engineered to be observable and recoverable. Five layers provide this capability
@@ -1391,7 +1488,7 @@ concern.
 
 ---
 
-## 3.17 Feedback Ecosystem (Layer 3) Design
+## 3.16 Feedback Ecosystem (Layer 3) Design
 
 A feedback ecosystem was built to capture real-world clinician and pipeline signals for offline
 analysis, without touching the Stage 2 to 6 reasoning outputs. This was a deliberate decision,
@@ -1411,7 +1508,7 @@ on independently of the reasoning path.
 
 ---
 
-## 3.18 Comparative-Benchmark Protocol Design (Evaluation Design)
+## 3.17 Comparative-Benchmark Protocol Design (Evaluation Design)
 
 This section documents the design of the evaluation; the captured results are reported in Chapter 4.
 The benchmark compares ClearPath against a five-system panel (ClearPath, Qmed AskCPG, Gemini
@@ -1433,6 +1530,31 @@ this chapter was built to support.
 
 ---
 
+## 3.18 Prompt-Engineering Methodology
+
+Every language-model step is governed by an **externalised, version-controlled prompt file** — nine
+in `backend/agent/prompts/`, one per task — kept separate from the Python so a reviewer can audit the
+exact instruction behind any decision without reading code. On top of this auditable base, the prompts
+apply a set of deliberate, engineered controls rather than free-form instruction:
+
+| Technique | Where | What it enforces |
+|---|---|---|
+| Schema-constrained output | Stages 2, 5, 6 | JSON-mode + Pydantic validation — a malformed plan fails validation, never renders partially |
+| Override "Commandments" | Stage 5 synthesis | Five top-of-prompt rules that override every later instruction (cross-CPG conflict, refusal to predict individualised outcomes) |
+| Self-audit checklist | Stage 5 synthesis | The model verifies its own output against a 3-✓ checklist before returning |
+| Negation cascade | Stage 6 critic | Suppresses spurious flags when the plan already proposes the mitigation |
+| De-biasing rules | Stage 2 rerank | Specificity + distinct-disease preferences counter the embedding model's bias toward generic/unspecified codes |
+| Name→code anti-hallucination | Stage 2 | LLM emits diagnosis *names*, never ICD codes; codes are resolved by vector search, eliminating fabricated codes |
+| Explicit-complement guards | Ingestion | A contraindication edge is emitted only on an explicit grammatical complement, blocking section-heading hallucinations |
+| Determinism controls | All LLM steps | Seed-pinning, `temperature=0`, and `enable_thinking=False` for reasoning models hold output stable across reruns |
+| Invention guards | Summarisers | Forbidden to invent; emit `null` on no-data, with hard character caps and server-side truncation |
+
+The distinctive choice is that these controls are **declarative and inspectable** — they live in the
+prompt files and the schemas, not as opaque post-processing — which is what makes the reasoning path
+auditable end to end.
+
+---
+
 > **Figure checklist (for the report author):**
 > - **Fig. 3.1:** full 7-stage architecture (Mermaid D-ARCH), the primary architecture figure, full
 >   width.
@@ -1446,14 +1568,16 @@ this chapter was built to support.
 > - **Fig. 3.5b:** rPPG signal-processing pipeline (Mermaid D-RPPG) with RPPGScanModal screenshot.
 > - **Fig. 3.6:** Stage 2 DDx sub-pipeline (Mermaid D-DDX) or Step 2 screenshot.
 > - **Fig. 3.7:** WHO ICD-11 browser — Heart-Failure block hierarchy and exclusions (screenshot).
-> - **Fig. 3.7b:** routing cascade ladder (Mermaid D-ROUTE).
+> - **Fig. 3.7b:** nine-tier deterministic routing cascade (Mermaid D-ROUTE).
+> - **Fig. 3.7c:** Stage 4 evidence-graded scoped retrieval (Mermaid D-RETRIEVE).
 > - **Fig. 3.8:** Step 3 care-plan renderer screenshot.
-> - **Fig. 3.9:** safety-critic dual-source card screenshot with Mermaid D-CRITIC.
+> - **Fig. 3.8b:** pregnancy contraindication fan-out, KG "avoid" arm (Neo4j screenshot, pregnancy query).
+> - **Fig. 3.9:** Stage 6 safety-acknowledgement banner screenshot.
+> - **Fig. 3.9b:** Stage 6 dual-source safety critic (Mermaid D-CRITIC).
 > - **Fig. 3.10:** Doctor UI and CLI side-by-side screenshots.
 > - **Fig. 3.10b:** consultation wizard data flow (Mermaid D-WIZARD) with the four step screenshots.
 > - **Fig. 3.11:** returning-patient memory loop (Mermaid D-MEMORY) with PrepBriefCard screenshot.
 > - **Fig. 3.11b:** application-store schema, Supabase Schema Visualizer ER diagram.
-> - **Fig. 3.12:** optional embedding or threshold visual.
 >
 > All Mermaid sources render at <https://mermaid.live>; export SVG at high scale for print. The
 > colour convention used throughout is: teal for an LLM reasoning step, cyan for a deterministic

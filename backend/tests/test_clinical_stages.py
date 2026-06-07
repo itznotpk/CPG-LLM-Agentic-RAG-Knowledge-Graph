@@ -27,6 +27,7 @@ from agent.clinical_stages import (
     _generate_retrieval_queries,
     _format_evidence,
     _is_chapter_21_code,
+    _pin_chief_complaint_primary,
     _llm_rerank_ddx,
     stage_2_ddx,
     stage_3_route,
@@ -315,6 +316,57 @@ def test_demote_chapter21_handles_no_chapter21():
 
 def test_demote_chapter21_empty_input():
     assert _demote_chapter21_codes([]) == []
+
+
+# ---------------------------------------------------------------------------
+# CC-primary pin must not resurrect a vague explicit code (case-11 MF41 bug)
+# ---------------------------------------------------------------------------
+
+def _ddx_exp(code: str, score: float, explicit: bool) -> DDxResult:
+    return DDxResult(
+        code=code, title=code, similarity=score, final_score=score, cc_explicit=explicit
+    )
+
+
+def test_pin_does_not_promote_vague_chapter21_explicit():
+    """Case-11: MF41 (Chapter-21 symptom) is the only cc_explicit code but the
+    list also holds specific HA01.x ED codes. The pin must NOT lift MF41 to #1 —
+    that would undo the chapter-21 demotion. The specific code stays at rank 1."""
+    ddx = [
+        _ddx_exp("HA01.10", 0.626, False),
+        _ddx_exp("HA01.1", 0.622, False),
+        _ddx_exp("MF41", 0.552, True),  # vague symptom code, marked explicit
+    ]
+    out = _pin_chief_complaint_primary(ddx)
+    assert out[0].code == "HA01.10", f"specific code must lead, got {[r.code for r in out]}"
+    assert out[-1].code == "MF41"
+
+
+def test_pin_does_not_promote_residual_explicit_over_named():
+    """A '.Y/.Z' residual marked explicit must not be pinned over a named code."""
+    ddx = [
+        _ddx_exp("5A11", 0.70, False),
+        _ddx_exp("BA5Y", 0.66, True),  # residual, explicit
+    ]
+    out = _pin_chief_complaint_primary(ddx)
+    assert out[0].code == "5A11"
+
+
+def test_pin_promotes_specific_explicit_to_rank1():
+    """Normal path preserved: a specific clinician-named dx at rank 2 is pinned #1."""
+    ddx = [
+        _ddx_exp("BA00", 0.80, False),   # boosted comorbidity, not named
+        _ddx_exp("BA41.1", 0.78, True),  # clinician-named NSTEMI
+    ]
+    out = _pin_chief_complaint_primary(ddx)
+    assert out[0].code == "BA41.1"
+    assert "cc_explicit_primary" in (out[0].override_reason or "")
+
+
+def test_pin_noop_when_specific_explicit_already_first():
+    ddx = [_ddx_exp("BA41.1", 0.9, True), _ddx_exp("BA00", 0.7, False)]
+    out = _pin_chief_complaint_primary(ddx)
+    assert [r.code for r in out] == ["BA41.1", "BA00"]
 
 
 # ---------------------------------------------------------------------------

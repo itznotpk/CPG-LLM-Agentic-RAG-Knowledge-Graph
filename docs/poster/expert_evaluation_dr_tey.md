@@ -1,106 +1,125 @@
-# Poster: Expert Evaluation — Dr Tey (User Opinion) Section
+# Poster: Expert Evaluation — Clinician (User Opinion) Section
 
 ## Purpose
-This file captures the design brief for the "Dr Tey (User Opinion)" section of the poster.  
-Use it as a checklist when assembling slides/poster panels and as a reference for what data to collect from Dr Tey's evaluation session.
+This file is the design brief for the "Clinician Evaluation (User Opinion)" panel of the poster.
+**The scores below are the real captured results** from the structured rubric review
+(`docs/evaluation/doctor_evaluation_summary.md`, Universiti Malaya doctor, 2026-06-06), not
+placeholders. The three scenarios are the evaluation-framework cases:
+
+- **Scenario 1 = Case 8** — HFrEF + T2DM + Obesity (62M, LVEF 25%, NYHA II)
+- **Scenario 2 = Case 10** — Pregnancy HTN + GDM (35F, 30 weeks, Losartan on board)
+- **Scenario 3 = Case 11** — Stable CAD + T2DM + Obesity + ED (56M, on Isosorbide Mononitrate)
+
+Response variants scored:
+- **R1 = ClearPath** (structured UI: AI reasoning trace, safety flags, tabular care plan)
+- **R2, R3 = prose LLM baselines** (narrative format)
+
+> **Honesty note — read before designing the panel.** An earlier draft of this brief assumed a
+> "ClearPath 5/5 vs generic LLM 2/5" safety/reasoning contrast and a "generic LLM missed the
+> interaction" story. **The captured scores do not support that.** The prose baselines tied
+> ClearPath at the ceiling on safety and reasoning transparency, both caught the critical
+> interactions, and the strongest prose baseline (R2) actually edged ClearPath on the clinical-
+> quality grand total (111 vs 107/120). The defensible poster story is **structural** — ClearPath
+> matches a strong LLM on clinical content while adding clinician-confirmed transparency, safety
+> surfacing, and override control — not a head-to-head safety win. Build the panel on that.
 
 ---
 
-## 1. Spider / Radar Chart or Grouped Bar Chart of Scores
+## 1. Scores to Plot (real data)
 
-**What to show:**
-- Dr Tey's scores across both rubrics (Clinical Quality + UI/UX) for each response variant:
-  - Response 1 = ClearPath
-  - Response 2 or 3 = Generic LLM baseline
+### Clinical Quality rubric — aggregate across all 3 cases (/15 per aspect)
 
-**Dimensions to plot (Clinical Quality Rubric):**
-| Dimension | Abbrev for axis label |
-|---|---|
-| Safety (DDI & Contraindications) | Safety |
-| Reasoning Visibility / Transparency | Reasoning |
-| Citation Quality | Citations |
-| Answer Completeness | Completeness |
-| Trust to Use Clinically | Trust |
+| Dimension | R1 ClearPath | R2 prose | R3 prose |
+|---|---:|---:|---:|
+| Clinical Correctness | 13 | **15** | 13 |
+| Guideline Fidelity | 15 | 15 | 15 |
+| Safety (DDIs & Contraindications) | **15** | **15** | 14 |
+| Reasoning Transparency | 15 | 15 | 15 |
+| Evidence Citation Quality | 12 | **14** | 13 |
+| Uncertainty Handling | **13** | 12 | 12 |
+| Appropriate Deferral | 12 | 13 | 12 |
+| Trust to Use | 12 | 12 | 12 |
+| **Grand total (/120)** | **107** | **111** | **106** |
 
-**Dimensions to plot (UI/UX Rubric):**
-| Dimension | Abbrev for axis label |
-|---|---|
-| Workflow Fit | Workflow |
-| Safety Surfacing | Safety UI |
-| Information Density | Density |
-| Time to Decision | Speed |
+### Per-scenario totals (/40)
 
-**Design note:** A radar chart works best if scores are on the same scale (e.g. 1–5). Use a grouped bar chart if dimensions have different scales or if the radar becomes too cluttered with 8+ axes.
+| Scenario | R1 | R2 | R3 |
+|---|---:|---:|---:|
+| 1 — Case 8 (HFrEF + T2DM + Obesity) | 36 | 36 | 33 |
+| 2 — Case 10 (Preg HTN + GDM) | 35 | 37 | 36 |
+| 3 — Case 11 (Stable CAD + ED) | 36 | 38 | 37 |
 
-**Key visual story:** ClearPath should show a larger polygon / taller bars specifically on Safety and Reasoning axes — this is the "second opinion" value proposition made visible.
+### Workflow / UI-UX rubric — ClearPath (/5 per aspect, total 21/30)
+
+| Dimension | Score | Note |
+|---|---:|---|
+| Workflow fit | 2 | Works for long reviews, not fast triage |
+| Time-to-answer | 2 | Noticeable wait; tolerable for complex cases |
+| Information density | 3 | Some sections too dense or too sparse |
+| Reasoning visibility | **5** | Citations visible; full trace on demand |
+| Safety surfacing | 4 | No risk of missing CRITICAL/MAJOR flags |
+| Override & feedback | **5** | Can edit final plan; safety-acknowledgement flow present |
+
+**Chart recommendation:** a **grouped bar chart** of R1 vs R2 across the eight Clinical Quality
+dimensions is the honest visual — a radar implying a "larger ClearPath polygon" would overstate the
+result, because R1 and R2 are close and R2 leads on total. The true visual story is **parity on
+clinical content, ceiling ties on safety/reasoning, and a narrow ClearPath lead on uncertainty
+handling** — plus the separate UI/UX bars, where reasoning visibility and override score 5/5.
 
 ---
 
-## 2. One Direct Pull Quote from Dr Tey
+## 2. Pull Quote (real)
 
-Place a single authentic sentence from Dr Tey in a large, styled pull-quote box. This anchors the section with human credibility.
+Use the clinician's actual extended comment — it is more credible than a manufactured endorsement
+and it sets up the honest "great content, needs faster UX" narrative:
 
-**Target quote (placeholder — confirm post-evaluation):**
-> "I would use this as a starting point with minimal cross-checking."
-
-**Fallback if no strong verbal quote:** Use the Trust-to-Use score itself as the anchor:
-> Dr Tey rated ClearPath **4/5 on Trust to Use Clinically** — the highest score across all three responses.
+> "Accuracy is good enough but needs more simplification of the output for fast readability for
+> in-consult use. Clinics don't usually allow time for extensive reading."
+> — Doctor, Universiti Malaya
 
 ---
 
-## 3. Two Killer Differentiator Scores
+## 3. The Real Differentiators (where ClearPath genuinely led or tied at ceiling)
 
-Highlight these two metrics in a separate callout box or badge — they are the hardest for a generic LLM to replicate and most meaningful to a clinician audience.
+These are the defensible callouts — each is backed by a captured score, not an assumption.
 
-### a) Safety — DDI & Contraindications
-> "Caught all critical drug interaction flags including Gliclazide × HFrEF and PDE5i × Nitrate that a generic LLM missed."
+### a) Reasoning visibility & override control (the transparency thesis)
+> ClearPath scored **5/5 on reasoning visibility** and **5/5 on override & feedback** — citations
+> visible inline with the full reasoning trace on demand, and an editable plan with a safety-
+> acknowledgement flow. This is the auditable-second-opinion value, clinician-confirmed.
 
-- ClearPath score: `___/5`
-- Generic LLM score: `___/5`
+### b) Uncertainty handling
+> ClearPath led the prose baselines on uncertainty handling (**13 vs 12**), surfacing **8 referrals
+> on Case 8 against the prose responses' 3** — it flags what it cannot resolve rather than papering
+> over it.
 
-### b) Reasoning Visibility (Chain-of-Thought)
-> "Full chain-of-thought scored `___/5` vs `___/5` for generic LLM."
-
-- ClearPath score: `___/5`
-- Generic LLM score: `___/5`
-
-**Why these two matter to outsiders:** Both translate directly to patient safety — no clinical domain knowledge needed to understand "the AI showed its reasoning" and "the AI caught a dangerous drug interaction."
+### c) Guideline-traceable safety (a tie, stated honestly)
+> All responses scored **5/5 on safety** and caught the critical interactions (Losartan in
+> pregnancy; PDE5i × nitrate). ClearPath's edge is not detection but **traceability** — every
+> recommendation maps to a Malaysian MoH CPG section, and safety surfacing scored 4/5.
 
 ---
 
 ## 4. One Concrete Clinical Example (1–2 lines)
 
-Pick the most dramatic safety catch from the three evaluation scenarios.  
-**Recommended: Scenario 3 — PDE5 inhibitor + Nitrate interaction.**
+Keep the PDE5i × nitrate example — it is universally understandable — but frame it as a
+**reproducibility-by-structure** catch, not a "generic LLM missed it" contrast (it didn't):
 
-> ClearPath flagged a **CRITICAL drug interaction**: prescribing Sildenafil alongside the patient's existing Isosorbide Mononitrate (nitrate) could cause **fatal hypotension**. The generic LLM did not flag this.
-
-**Why Scenario 3:** PDE5i + nitrate = life-threatening hypotension is universally understandable by a non-clinical outsider. It is the strongest "so what" moment for the poster audience.
-
----
-
-## 5. Workflow Score Highlight
-
-From the UI/UX rubric, call out Dr Tey's scores on the two dimensions that directly validate ClearPath's core design claims:
-
-| Design Claim | Rubric Dimension | Dr Tey Score |
-|---|---|---|
-| Fits 10-minute consultation window | Workflow Fit | `___/5` |
-| Impossible-to-miss safety flags | Safety Surfacing | `___/5` |
-
-**Poster caption suggestion:**
-> "Designed for the 10-minute GP consultation — Dr Tey rated ClearPath `___/5` on Workflow Fit and `___/5` on Safety Surfacing."
+> On Case 11, ClearPath flagged the **CRITICAL** PDE5-inhibitor × isosorbide-mononitrate
+> interaction (fatal-hypotension risk) from a typed knowledge-graph drug–drug edge — a structural
+> catch that is reproducible by design, with the flag surfaced in an impossible-to-miss safety
+> banner.
 
 ---
 
-## Data Collection Checklist (post-evaluation session)
+## 5. The Honest Weakness (own it on the poster)
 
-- [ ] Record Dr Tey's per-dimension scores for all three responses (Clinical Quality rubric)
-- [ ] Record Dr Tey's per-dimension scores for all three responses (UI/UX rubric)
-- [ ] Note any direct verbal quote that can serve as the pull quote
-- [ ] Confirm which scenario Dr Tey found most clinically impactful
-- [ ] Confirm Trust-to-Use scores (1–5) for ClearPath vs generic baseline
-- [ ] Fill in the `___` placeholders in sections 3–5 above
+A single, clearly-stated limitation reads as credibility, not failure:
+
+> The clinician rated **workflow fit 2/5 and time-to-answer 2/5**: the default output is too verbose
+> and the wait too long for live in-consult use. Recommended deployment today is
+> **post-consultation review or medical teaching** — the primary improvement target is UI/UX
+> simplification and Stage-5 latency.
 
 ---
 
@@ -108,20 +127,33 @@ From the UI/UX rubric, call out Dr Tey's scores on the two dimensions that direc
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  DR TEY'S EVALUATION                                     │
+│  CLINICIAN EVALUATION  (n=1 expert review, cases 8/10/11) │
 │                                                          │
-│  [Radar Chart: ClearPath vs Generic LLM]                 │
+│  [Grouped bar: R1 ClearPath vs R2 prose — 8 dimensions]  │
 │                                                          │
 │  ┌─────────────────────────────────────────────────┐    │
-│  │  "I would use this as a starting point with     │    │
-│  │   minimal cross-checking."  — Dr Tey, GP        │    │
+│  │ "Accuracy is good enough but needs more         │    │
+│  │  simplification ... clinics don't usually allow │    │
+│  │  time for extensive reading."  — Doctor, UM     │    │
 │  └─────────────────────────────────────────────────┘    │
 │                                                          │
-│  ⚠ CRITICAL CATCH                                        │
-│  ClearPath flagged PDE5i + Nitrate → fatal hypotension.  │
-│  Generic LLM: no flag.                                   │
+│  ✔ Reasoning visibility 5/5  |  Override 5/5            │
+│  ✔ Safety 15/15 (all variants) — ClearPath traceable    │
+│  ✔ Uncertainty handling: led 13 vs 12 (8 referrals)     │
+│  ⚠ Workflow fit 2/5 · Latency 2/5 → post-consult/teach   │
 │                                                          │
-│  Safety: 5/5 vs 2/5  |  Reasoning: 5/5 vs 2/5           │
-│  Workflow Fit: ___/5  |  Safety Surfacing: ___/5         │
+│  Clinical-quality total: R1 107 · R2 111 · R3 106 /120  │
 └──────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## Data Collection Checklist (for any future multi-clinician round)
+
+This single-expert review is formative (n = 1). To upgrade it to a validation claim:
+
+- [ ] Recruit ≥ 3 clinicians (IRB track, per VALIDATION_PLAN §5)
+- [ ] Re-score all variants on both rubrics for cases 8 / 10 / 11 (+ ideally 9, 12)
+- [ ] Capture SUS / TAM / trust scales alongside the clinical-quality rubric
+- [ ] Report mean ± spread across clinicians, not a single score
+- [ ] Add the five-system competitor panel (Qmed AskCPG, NotebookLM, GPT-4/Gemini floor)

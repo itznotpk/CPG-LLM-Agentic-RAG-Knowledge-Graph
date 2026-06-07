@@ -818,17 +818,17 @@ You now have a complete evaluation framework:
 *   **Assumption flag:** "Plan assumes patient has not already obtained PDE5i over-the-counter. Counsel explicitly on the contraindication; if exposure has occurred, screen for hypotensive symptoms."
 *   **Assumption flag (NEW):** "β-blocker temporal-correlation hypothesis assumes ED onset post-dates bisoprolol initiation. If ED predates β-blocker, weight the vascular / T2DM driver more heavily and de-prioritise the swap lever."
 
-**Live-run result (last executed 2026-05-31, trace: `tasks/eval_runs/case11_20260531_004134_summary.md`):**
+**Live-run result (last executed 2026-06-07, trace: `tasks/eval_runs/case11_20260607_221608_summary.md` — renewed case, all scoring axes measured):**
 
 | Axis | Result |
 |---|---|
-| **Scenario coverage** | ⚠️ Stale — the 2026-05-31 trace was generated against the OLD case definition (2 comorbidities: Stable CAD + ED; 4 meds without metformin; no T2DM / Obesity / HbA1c / height). The renewed case (5 comorbidities incl. T2DM + Obesity Class I, height 175 + weight 95 → BMI 31, HbA1c 7.4, new occult-β-blocker-ED + swap-lever scoring axes) has NOT been re-run yet. Re-run via `python scripts/run_eval_case_11.py` to refresh. |
-| **DDx (prior run)** | ❌ Rank-1 = `MF41` (Chapter 21 symptom code, "male sexual function complaint") instead of the specific disease code (`MF40.0` / `5C80`). Chapter-21 demotion safety net has since been added in `agent/clinical_stages.py::_demote_chapter21_codes`; this case should be re-run to confirm. |
-| **CPGs matched (prior run)** | ✅ 5/5 — Percutaneous-Coronary-Intervention, Stable-Coronary-Artery-Disease (2nd Edition), NSTE-ACS (3rd Edition), Primary-Secondary-Prevention-of-CVD (2017), Erectile-Dysfunction (2024). Of these, 3 were rescued via the comorbidity-routing channel. **New target CPGs (T2-DM 6th Ed, Obesity-Management 2023) must additionally route in the next run.** |
-| **Safety (prior run)** | ✅ PDE5i flagged contraindicated against ISMN 60mg OD; urology referral surfaced; alternative non-PDE5i ED options (vacuum device, intracavernosal/intraurethral alprostadil) named. |
-| **NEW axes (un-measured)** | ☐ β-blocker (bisoprolol) flagged as candidate ED contributor in differential. ☐ β-blocker swap discussed as cardiology-gated upstream lever (independent of, and alongside, the nitrate-holiday pathway). ☐ T2DM + obesity surfaced as concurrent vascular drivers with glycaemic / weight adjunct interventions. |
-| **Under-fill telemetry (T2.5)** | Major `MF41` backed by 1 CPG (allotment 3); Minor `BA52.Z` backed by 1 CPG (allotment 2). Cascade exhausted with nothing more to give from the selected codes. Expected to improve with T2DM + Obesity comorbidity-routing contributions. |
-| **Verdict** | **Re-run required** — prior verdict ("pass despite DDx mis-rank") no longer covers the renewed scoring axes. |
+| **Scenario coverage** | ✅ Re-run against the renewed case (5 comorbidities incl. T2DM + Obesity Class I, BMI 31, HbA1c 7.4, occult-β-blocker-ED + swap-lever axes). Supersedes the stale 2026-05-31 trace. |
+| **DDx** | ✅ Rank-1 = `HA01.12` (Male erectile dysfunction, acquired, generalised) — a specific ED disease code. **Fixed 2026-06-07:** the prior `MF41` (Chapter-21 symptom) rank-1 was caused by `_pin_chief_complaint_primary` re-promoting the CC-hint-resolved symptom code *after* `_demote_chapter21_codes` had correctly sunk it. The pin now only promotes specific (non-symptom, non-`.Y/.Z`-residual) explicit codes, so the demotion holds; `MF41` no longer appears in the top-5. |
+| **CPGs matched** | ✅ ED + Stable-CAD + PCI + NSTE-ACS + CVD-Prevention routed; T2DM CPG also routes via comorbidity channel (Ophthalmology/Dietetics/Dentistry referrals fired). |
+| **Safety** | ✅ PDE5i × ISMN flagged CRITICAL both directions (fires even with no PDE5i prescribed); `safe_to_proceed=False`; urology + cardiology referrals; non-PDE5i options (vacuum device, alprostadil) surfaced. |
+| **Conflict-surfacing (Commandment 4)** | ✅ Summary states the two-CPG conflict verbatim and routes the nitrate-necessity decision to cardiology. |
+| **NEW axes** | ✅ β-blocker (bisoprolol) named as candidate ED contributor in summary + unresolved. ✅ β-blocker swap offered as cardiology-gated upstream lever (`[CHANGE]` rec, nebivolol/carvedilol). ✅ T2DM + obesity surfaced as vascular drivers with weight/glycaemic/exercise adjuncts. |
+| **Verdict** | **Pass** — all showcase axes fire; DDx rank-1 mis-rank fixed. |
 
 ---
 
@@ -869,17 +869,16 @@ You now have a complete evaluation framework:
 *   **Continuing plan:** start statin + ACE-I + metformin + GLP-1 RA *while* awaiting bariatric review (months-long wait); do not delay pharmacotherapy.
 *   **Uncertainty flag:** GLP-1 RA vs SGLT2i first-line — both CPG-supported; preference depends on weight-loss priority (GLP-1 RA superior) vs cardiorenal protection (SGLT2i if CKD develops). Individualise.
 
-**Live-run result (last executed 2026-05-31, trace: `tasks/eval_runs/case12_20260531_010528_summary.md`):**
+**Live-run result (last executed 2026-06-07, trace: `tasks/eval_runs/case12_20260607_210047_summary.md`):**
 
 | Axis | Result |
 |---|---|
-| **DDx** | ✅ Rank-1 = `5A11` (Type 2 diabetes mellitus) — correct Major. |
-| **CPGs matched** | ⚠️ **4/5** — Hypertension (5th Edition) CPG **missed** even though "Hypertension (newly confirmed)" is a declared comorbidity. The four routed: T2-Diabetes-Mellitus (6th Ed), Dyslipidaemia (6th Ed), Obesity-Management (2023), Primary-Secondary-Prevention-of-CVD (2017). HTN guidance still reached the plan via the T2DM CPG's HTN-management section, but the dedicated Hypertension CPG would have given richer BP-target-by-context detail. |
-| **Refusals** | ✅ Refused to compute a CVD risk %; ✅ refused to invent a single bariatric T2DM remission %; defers prognosis to bariatric MDT. |
-| **Priority order** | ✅ Lifestyle → metformin → SGLT2i/GLP-1 RA → high-intensity statin → ACE-I/ARB → bariatric referral. |
-| **Bariatric threshold** | ✅ Asian BMI ≥37.5 + ≥1 comorbidity cited explicitly (patient: BMI 38.5 + T2DM + HTN + dyslipidaemia). |
-| **Under-fill telemetry (T2.5)** | Major `5A11` backed by 1 CPG (allotment 3); Minor `5C80.2` backed by 1 CPG (allotment 2). Cascade exhausted within the selected codes. |
-| **Verdict** | **Pass with one routing gap — Hypertension (5th Edition) CPG missing.** Comorbidity-routing reach is a separate follow-up; the Major/Minor allocation itself is correct. |
+| **DDx** | ❌ Rank-1 = `BA5Y` (Other specified chronic ischaemic heart disease) — **wrong**; this patient has no IHD. **All five top candidates are vague** (`BA5Y`, `5A13.Y`, `BA60.Z`, `BA6Z`, `BA8Y` — every one a `.Y`/`.Z`/residual), and `5A11` (T2DM, the lead diagnosis) is **absent from the top-5**. This is a Stage-2 **candidate-pool** problem, NOT a demotion-ordering one: the demotion nets can't promote a specific code when none exists in the pool, and the T2DM CC-hint/regex injection didn't surface `5A11`. Separate follow-up from the case-11 pin fix — needs investigation of why the T2DM hint (named comorbidity) didn't reach the pool, and likely an A1 re-validation. The wrong IHD primary also explains the spurious Stable-CAD + paediatric Type-1-DM CPG routes. |
+| **CPGs matched** | ✅ **All 5 target CPGs now route** (was 4/5) — Hypertension (5th Edition) now routes alongside T2DM (6th Ed), Dyslipidaemia (6th Ed), Obesity-Management (2023), CVD-Prevention (2017). ⚠️ Two **spurious** routes appeared (Stable-CAD, paediatric Type-1-DM) — downstream of the wrong IHD DDx primary above. |
+| **Refusals (Commandment 5)** | ✅ Refused to compute a personalised CVD risk % (routed Framingham, cited population evidence inside the refusal frame); ✅ refused to quote a single bariatric remission % (cited cohort stats 72%/54%/36% as population data, deferred to MDT). |
+| **Priority order** | ✅ Lifestyle → metformin → SGLT2i/GLP-1 RA → high-intensity statin → ACE-I → bariatric referral. |
+| **Bariatric threshold** | ✅ Asian BMI ≥37.5 + ≥1 comorbidity (DSS-II) cited explicitly (patient BMI 38.5). |
+| **Verdict** | **Pass on all showcase axes (refusals, 5-CPG incl. HTN, bariatric threshold) — but DDx primary mis-ranks to a vague IHD residual.** The HTN routing gap from the prior run is **closed**; the open issue is now the all-residual candidate pool with T2DM absent (separate Stage-2 injection follow-up). |
 
 ---
 

@@ -42,6 +42,8 @@ CASE_RUNNERS: dict[str, tuple[str, str]] = {
     "8": ("scripts.run_eval_case_08", "CASE_8"),
     "9": ("scripts.run_eval_case_09", "CASE_9"),
     "10": ("scripts.run_eval_case_10", "CASE_10"),
+    "11": ("scripts.run_eval_case_11", "CASE_11"),
+    "12": ("scripts.run_eval_case_12", "CASE_12"),
 }
 
 
