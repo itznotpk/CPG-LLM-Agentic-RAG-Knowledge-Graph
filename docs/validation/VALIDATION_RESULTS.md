@@ -49,7 +49,7 @@ table for context and caveats.
 | **Targets-vs-results comparison** | ✅ Done | Single table comparing all 13 target rows to what we measured (below) |
 | **Layer D** (faithfulness) | ✅ Done (full n=30, independent judge) | **mean faith = 0.864** (849/979 claims), median 0.883, sd 0.116, 4 plans at 1.00, 0 judge errors/skips. Below ≥0.90 target (honest). |
 | **Layer E** (e2e) | ⚠️ Partial captured | n=10 throttled, **ICD acc = 0.30, CPG acc = 0.20**, forbidden-content = 0% ✅, mean elapsed 132.9 s |
-| **Determinism harness** | ✅ Done (cases 8/9/10, n=10, 2026-06-05) | **Top-1 stable 10/10 for cases 8 & 9** (BD11.2 HFrEF, BA41.1 NSTEMI); **case 10 top-1 flips** across near-tied families (GDM/preg-HTN/pre-eclampsia). Stage-2 query byte-identical across runs — residual variance is the **seedless Gemini reranker** + MiMo synthesis (same-plan 0.1–0.3). See Reproducibility section. |
+| **Determinism harness** | ✅ Done (cases 8/9/10/11, n=10) | **Top-1 stable 10/10 only with a single dominant primary** (8 BD11.2 HFrEF, 9 BA41.1 NSTEMI); **flips with co-equal explicit dx** (10 GDM↔preg-HTN; 11 ED↔T2DM). Stage-2 query byte-identical across runs — residual variance is the **seedless Gemini reranker** + MiMo synthesis (same-plan 0.1–0.3). Case-11 run also validated the MF41 pin fix (0/10 top-5s). See Reproducibility section. |
 | **Layer B** Retrieval | ✅ Done (148 graded) | vector Recall@10 = **0.874**, Hit@10 = **0.953**, MRR = 0.682, nDCG@10 = 0.669; RRF-hybrid ties (0.876 / 0.953 / 0.659 / 0.656) — vector retained |
 | **Layer C** Stage-4 re-rank ablation | ✅ Done (2026-06-04, multi-condition n=5 final) | Re-rank ablation: mean nDCG **+6.0%**, MRR **+10.0%** — **3 wins, 2 small regressions (mc_010 −0.060, mc_005 −0.034)**. Boost is **net positive**. Re-ranker cleared of blame for −0.173 (gold-set artifact). mc_008 pool-seeded re-labelled (fixed). mc_018 dropped (too slow). |
 | **Stakeholder SUS / TAM** | ❌ Blocked | Needs IRB + clinicians |
@@ -770,32 +770,38 @@ impractical for iterative eval. Removed from the gold set.
 
 ---
 
-## Non-acc · Reproducibility / determinism (cases 8 / 9 / 10)
+## Non-acc · Reproducibility / determinism (cases 8 / 9 / 10 / 11)
 
 **What it tests.** [`backend/scripts/rerun_stability.py`](../../backend/scripts/rerun_stability.py)
 reruns a canned case N times against the live API and reports top-K stability,
 expected-code presence, same-plan rate, and wall-time variance. **This measures
 determinism, not clinical correctness** (the harness's own docstring says so —
-diagnostic accuracy needs a clinician-annotated gold set). Run 2026-06-05,
-n=10 per case against `http://127.0.0.1:8058`, all 30 runs completed (0 skips).
+diagnostic accuracy needs a clinician-annotated gold set). Cases 8/9/10 run
+2026-06-05, case 11 run 2026-06-07, n=10 each against `http://127.0.0.1:8058`,
+all 40 runs completed (0 skips).
 
 ### Results (n=10 each)
 
-| Case | Framing | Top-1 stable | exact top3 J | exact top5 J | **family top5 J** | same-plan | meds μ±σ | wall μ±σ (s) | Gate |
-|---|---|---|---:|---:|---:|---:|---:|---:|---|
-| **8** T2DM+HFrEF+Obesity | Mode A | ✅ `BD11.2` 10/10 | 0.90 | 0.85 | **0.867** | 0.10 | 5.8±0.6 | 143.9±11.9 | ❌ |
-| **9** AF+Post-PCI+T2DM | Mode B (4-layer bypass) | ✅ `BA41.1` 10/10 | 0.471 | 0.483 | **0.582** | 0.30 | 7.5±5.3 | 147.1±58.1 | ❌ |
-| **10** HTN-preg+GDM | task-framed (bypass fires) | ❌ `JA63` 7/10 | 0.444 | 0.419 | **0.519** | 0.10 | 3.8±2.3 | 123.4±33.5 | ❌ |
+| Case | Framing | Top-1 stable | exact top3 J | exact top5 J | **family top5 J** | same-plan | wall μ±σ (s) | Gate |
+|---|---|---|---:|---:|---:|---:|---:|---|
+| **8** T2DM+HFrEF+Obesity | Mode A · single dominant primary | ✅ `BD11.2` 10/10 | 0.90 | 0.85 | **0.867** | 0.10 | 143.9±11.9 | ❌ |
+| **9** AF+Post-PCI+T2DM | Mode B bypass · dominant primary | ✅ `BA41.1` 10/10 | 0.471 | 0.483 | **0.582** | 0.30 | 147.1±58.1 | ❌ |
+| **10** HTN-preg+GDM | task-framed · co-equal dx | ❌ `JA63` 7/10 (JB42/JA20 else) | 0.444 | 0.419 | **0.519** | 0.10 | 123.4±33.5 | ❌ |
+| **11** Stable-CAD+T2DM+ED | task-framed · co-equal dx | ❌ `HA01.1` 6/10 ↔ `5A11` 4/10 | 0.556 | **0.933** | **0.933** | 0.30 | 162.5±91.4 | ❌ |
 
 Gate thresholds (top-1 stable · top3 J ≥0.95 · top5 J ≥0.90 · same-plan ≥0.80 ·
-expected codes present 100%): all three **fail** on Jaccard/same-plan; **top-1
-passes for cases 8 & 9**. Expected-code presence: case 8 `BD11.2` 1.0 / `5A11`
-1.0 / `5B81.0` 0.9; case 9 `BA41.1` 1.0 / `5A11` 0.3 / `BC81.3` 0.1 (AF also
-appears as the child `BC81.3Y` in 4 runs — exact undercounts, see below);
-case 10 `JA63` 0.7 / `JB42.Y` 0.4 / `BA00` 0.7.
+expected codes present 100%): all four **fail** on Jaccard/same-plan; **top-1
+passes only for the single-dominant-primary cases (8 & 9)**. Expected-code
+presence: case 8 `BD11.2` 1.0 / `5A11` 1.0 / `5B81.0` 0.9; case 9 `BA41.1` 1.0 /
+`5A11` 0.3 / `BC81.3` 0.1 (AF also appears as child `BC81.3Y` in 4 runs — exact
+undercounts); case 10 `JA63` 0.7 / `JB42.Y` 0.4 / `BA00` 0.7; case 11 ED
+(`HA01.1`) 10/10 + T2DM (`5A11`) 10/10 — **both always in top-5, contesting #1**
+(the `--expected HA01.12` leaf read 0.0 only because the batch surfaced the
+parent `HA01.1`, not that leaf).
 
 **Raw output:** `backend/tasks/eval_runs/stability_case8_20260605_035748.json` ·
-`stability_case9_20260605_194430.json` · `stability_case10_20260605_200903.json`.
+`stability_case9_20260605_194430.json` · `stability_case10_20260605_200903.json` ·
+`stability_case11_20260607_223321.json`.
 
 ### Key findings (honest)
 
@@ -831,6 +837,21 @@ case 10 `JA63` 0.7 / `JB42.Y` 0.4 / `BA00` 0.7.
    Mode-B bypass fires (proved by the byte-identical query). Its top-1
    instability is the reranker on near-tied obstetric candidates, not a missing
    determinism layer.
+6. **Case 11 (added 2026-06-07) confirms the pattern AND validates the MF41 pin
+   fix.** Top-5 set is highly stable (exact = family top5 J = **0.933** — only one
+   cardiac code swaps), but **top-1 flips `HA01.1` (ED, chief complaint, 6/10) ↔
+   `5A11` (T2DM, named comorbidity, 4/10)** — a second co-equal-explicit-dx case,
+   exactly like case 10. Both ED and T2DM are present in 10/10 runs; they contest
+   #1 because the reranker orders two specific clinician-named dx differently each
+   run. **The `_pin_chief_complaint_primary` fix holds across all 10 runs**: the
+   vague symptom code `MF41` (the pre-fix rank-1) appears in **0/10** top-5s — the
+   pin no longer resurrects it over specific codes. So the takeaway sharpens:
+   top-1 is stable iff a *single* dominant primary exists (8, 9); with two+
+   co-equal explicit dx (10, 11) the seedless reranker flips the leader. The
+   existing `CC_TIE_BREAK_EPSILON` tie-break only fires when both leaders are
+   `cc_explicit` AND within 0.20 — a candidate future lever for these co-equal
+   cases, but it needs the two dx to actually register as co-equal (open
+   follow-up, not done here).
 
 ### Honest framing for the poster / Chapter 4
 
@@ -887,3 +908,4 @@ variance as known limitations / future work (seedable reranker backend).
 | 2026-06-05 | **SIL/INF robustness (2/6 → 6/6)** | Fixed 4 fail-silent bugs the 06-04 pilot exposed: SIL-01 rerank-fallback now emits a `degraded` signal; SIL-02 empty-evidence plan capped to conf ≤0.25 + unresolved question (`_flag_empty_evidence`); INF-02 Stage-4 *exception* now skips synthesis → degraded plan (conf 0.0) instead of running Stage 5 on no evidence; INF-03 pgvector `ConnectionError` → HTTP 503 not 500. Contract change: `test_workflow_stage4_failure_continues` → `_skips_synthesis`. Guards mirrored across all 3 entrypoints (non-streaming + both streaming variants, incl. the UI's resynthesize path). Raw: `degradation_sil_20260605_024728.*` · `degradation_inf_20260605_024740.*` |
 | 2026-06-05 | **D Lever A (implemented, rerun pending)** | Judge now also sees the patient case (`_case_blob`) + a continue/maintenance fairness rule, so `[CONTINUE] current-dose` claims grounded in the patient's existing regimen (not the CPG) stop being marked unsupported — ~25% of the worst-3 failures. Runner caches generated plans (`faithfulness_plans_*.json`) + adds `--from-cache` / `--no-case-context` for a deterministic judge-only A/B. **Number pending re-run.** |
 | 2026-06-05 | **Determinism (cases 8/9/10, n=10)** | First full determinism run. **Top-1 stable 10/10 for cases 8 (`BD11.2`) & 9 (`BA41.1`); case 10 top-1 flips** across near-tied families (`JA63`/`JB42`/`JA20`). Stage-2 query byte-identical across runs (Layers 1–4 work); residual variance isolated to the seedless Gemini reranker + MiMo synthesis (same-plan 0.1–0.3). Family-level re-score does NOT rescue 9/10 (genuine churn, not leaf jitter); case 8 safety-flag set identical across runs. Gate fails on Jaccard/same-plan for all three. First batch (cases 8 clean, 9 contaminated by laptop-sleep, 10 skipped by mid-run `backend/` restructure) discarded; clean rerun is the cited one. Raw: `stability_case{8,9,10}_20260605_*.json`. Also aligned `run_eval_case_10.py` severity_staging to the README (removed 3 undocumented slots) + corrected its stale "non-bypass holdout" docstring. |
+| 2026-06-07 | **DDx rank-1 pin fix + case 11/12 correctness + case 11 determinism** | (1) Fixed `_pin_chief_complaint_primary` (clinical_stages.py) so it no longer re-promotes a vague Chapter-21 symptom / `.Y/.Z` residual explicit code over specific disease codes — was undoing `_demote_chapter21_codes` (case-11 `MF41` rank-1 bug). 4 new unit tests + full `test_clinical_stages.py` = 50 passed. (2) Cases 11 & 12 correctness re-run: case 11 now leads `HA01.12` (was `MF41`), all showcase axes fire (Commandment 4 conflict + β-blocker swap + refusals); case 12 refusals (Commandment 5) + 5/5 CPGs incl. HTN now route, but DDx primary mis-ranks to `BA5Y` (all-residual pool, `5A11` absent — separate Stage-2 injection follow-up). (3) Case 11 determinism n=10: top-5 set stable (family top5 J 0.933), but top-1 flips `HA01.1`(ED)↔`5A11`(T2DM) — second co-equal-dx case like 10; `MF41` absent 0/10 (pin fix holds). Wired cases 11/12 into `rerun_stability.py` CASE_RUNNERS. Raw: `stability_case11_20260607_223321.json`, `case11_20260607_221608_*`, `case12_20260607_210047_*`. |

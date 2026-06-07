@@ -1,0 +1,167 @@
+{
+  "case_id": "11",
+  "case_chief_complaint": "Erectile dysfunction affecting marital relationship over the past ~6 months. Requesting treatment options. Has not yet tried any therapy.",
+  "n_runs": 10,
+  "url": "http://127.0.0.1:8058",
+  "expected_codes": [
+    "HA01.12"
+  ],
+  "metrics": {
+    "n_runs": 10,
+    "top1_stability": {
+      "unique_top1_codes": 2,
+      "stable": false,
+      "values": [
+        "HA01.1",
+        "HA01.1",
+        "HA01.1",
+        "5A11",
+        "HA01.1",
+        "HA01.1",
+        "5A11",
+        "5A11",
+        "5A11",
+        "5A11"
+      ]
+    },
+    "top3_jaccard_mean": 0.556,
+    "top5_jaccard_mean": 0.933,
+    "expected_code_presence_rate": {
+      "HA01.12": 0.0
+    },
+    "same_plan_rate": 0.3,
+    "wall_time_seconds": {
+      "mean": 162.5,
+      "stdev": 91.4,
+      "min": 46.6,
+      "max": 246.2
+    }
+  },
+  "extras": {
+    "med_count": {
+      "mean": 2.0,
+      "stdev": 2.21
+    },
+    "referral_count": {
+      "mean": 0.0,
+      "stdev": 0.0
+    },
+    "safety_flag_jaccard_mean": 1.0,
+    "plan_text_jaccard_mean": 0.271
+  },
+  "gate": {
+    "checks": {
+      "top1_stable (== 1 unique)": false,
+      "top3_jaccard >= 0.95": false,
+      "top5_jaccard >= 0.90": true,
+      "same_plan_rate >= 0.80": false,
+      "HA01.12 present in 100% of runs": false
+    },
+    "overall_pass": false
+  },
+  "per_run_top5": [
+    [
+      "HA01.1",
+      "5A11",
+      "BA52.Z",
+      "BA8Y",
+      "5A13.7"
+    ],
+    [
+      "HA01.1",
+      "5A11",
+      "BA52.Z",
+      "BA40.1",
+      "BA8Y"
+    ],
+    [
+      "HA01.1",
+      "5A11",
+      "BA52.Z",
+      "BA40.1",
+      "BA8Y"
+    ],
+    [
+      "5A11",
+      "BA40.1",
+      "BA8Y",
+      "HA01.1",
+      "BA52.Z"
+    ],
+    [
+      "HA01.1",
+      "5A11",
+      "BA52.Z",
+      "BA40.1",
+      "BA8Y"
+    ],
+    [
+      "HA01.1",
+      "5A11",
+      "BA52.Z",
+      "BA40.1",
+      "BA8Y"
+    ],
+    [
+      "5A11",
+      "BA40.1",
+      "BA8Y",
+      "HA01.1",
+      "BA52.Z"
+    ],
+    [
+      "5A11",
+      "BA40.1",
+      "BA8Y",
+      "HA01.1",
+      "BA52.Z"
+    ],
+    [
+      "5A11",
+      "BA40.1",
+      "BA8Y",
+      "HA01.1",
+      "BA52.Z"
+    ],
+    [
+      "5A11",
+      "BA40.1",
+      "BA8Y",
+      "HA01.1",
+      "BA52.Z"
+    ]
+  ],
+  "per_run_wall_seconds": [
+    246.21899999980815,
+    74.06300000008196,
+    54.061999999918044,
+    239.625,
+    52.96900000004098,
+    231.46900000004098,
+    223.0319999998901,
+    219.5779999999795,
+    46.625,
+    236.89000000013039
+  ],
+  "skipped_runs": [],
+  "summary_row": {
+    "case_id": "11",
+    "n_runs": 10,
+    "top1_stable": false,
+    "top1_value": "5A11/HA01.1",
+    "top3_jaccard": 0.556,
+    "top5_jaccard": 0.933,
+    "same_plan_rate": 0.3,
+    "plan_text_jaccard": 0.271,
+    "med_count_mean": 2.0,
+    "med_count_stdev": 2.21,
+    "referral_count_mean": 0.0,
+    "referral_count_stdev": 0.0,
+    "safety_flag_jaccard": 1.0,
+    "wall_mean_s": 162.5,
+    "wall_stdev_s": 91.4,
+    "wall_min_s": 46.6,
+    "wall_max_s": 246.2,
+    "overall_pass": false
+  }
+}
