@@ -48,7 +48,7 @@ therefore arranged in three parts:
 | Reasoning | Grounding stores | pgvector + Neo4j connectivity & integrity | `verify_cpg_scope.py`, KG unit tests | ◑ partial |
 | Application | Data layer (Supabase) | Round-trip, RLS, migration, schema-type | planned (Supabase test project) | ○ planned |
 | Application | Authentication | Login, route gating, audit identity | planned (Vitest + Playwright) | ○ planned |
-| Application | Doctor UI | Mappers, reducer, components, E2E | planned (Vitest + MSW + Playwright) | ○ planned |
+| Application | Doctor UI | Mappers, reducer, components, E2E | Vitest L1 done (30 tests); reducer/component/E2E planned | ◑ partial |
 | Application | Delivery | Gmail send + enqueue/poll | `test_delivery*.py` (backend) + planned (frontend) | ◑ partial |
 | System | Latency, coverage, scope refusal | p50/p95, unit coverage, out-of-scope calibration | `run_latency_eval.py`, `pytest --cov`, `probe_d2_semantic_scope.py` | ✅ measured |
 | System | Expert clinician review | Clinical-quality + workflow scoring (cases 8/10/11) | Single-clinician structured rubric | ✅ measured (n = 1) |
@@ -705,9 +705,10 @@ its own first module.
 
 The Doctor UI is a Vite + React 18 + Tailwind single-page application whose entire consultation
 state lives in one reducer-backed context (`AppContext`), driving a four-step wizard (Input →
-Diagnosis → Care Plan → Output) that consumes the backend SSE stream. The current status is that
-**the frontend has no test runner at all** — the only automated check today is `npx vite build`
-(compile-only). A layered test plan is proposed, deliberately ordered by return on investment so
+Diagnosis → Care Plan → Output) that consumes the backend SSE stream. Until this layer was added the
+frontend had no test runner — the only automated check was `npx vite build` (compile-only). A
+**Vitest** harness has now been introduced (`npm test`), and **Layer L1 is implemented and passing**;
+the remaining layers below it are a defined plan, deliberately ordered by return on investment so
 that the cheapest, backend-free layers — which also lock in the exact bug-classes Chapter 3 keeps
 warning about — come first.
 
@@ -715,9 +716,9 @@ warning about — come first.
 
 | Layer | What it locks in (real invariants) | Tool | Status |
 |---|---|---|---|
-| L1 — Pure-logic unit | `clinicalMappers.js` (score clamp to [0,1] + tier badge; **top-level `carePlan` keys, no `disposition` phantom path**; `cpg_source` dedup); `helpers.js` (`safeJson`, avatar hash) | Vitest | ○ planned |
+| L1 — Pure-logic unit | `clinicalMappers.js` (score clamp to [0,1] + tier badge; **top-level `carePlan` keys, no `disposition` phantom path**; `cpg_source` dedup); `safetyClassify.js` (graph-exemption noise filter; plan / current-only / class-or-noise triage); `helpers.js` (`safeJson`, avatar hash) | Vitest | **✅ measured (30 tests)** |
 | L2 — Reducer unit | `AppContext` reducer: `APPLY_SAFETY_DECISIONS` across **all** med sections incl. `contraindicated`; `ADD/DELETE/UPDATE_CARE_ITEM`; SSE reducers; empty-selection guard throws | Vitest | ○ planned |
-| L3 — Component / interaction | DDx cards ("Why this rank?" discloses math→AI delta); **SafetyReviewBanner** (plan / current-only / class-or-noise classification; MODERATE noise filter **with `source==='graph'` exemption**; acknowledge gated on every plan-flag decided; `jumpToMed` deep-link); **contraindicated panel renders** | Vitest + React Testing Library + MSW | ○ planned |
+| L3 — Component / interaction | DDx cards ("Why this rank?" discloses math→AI delta); **SafetyReviewBanner** *rendering/interaction* (acknowledge gated on every plan-flag decided; `jumpToMed` deep-link); **contraindicated panel renders**. *(The banner's pure classification + noise-filter logic was extracted to `safetyClassify.js` and is now covered under L1.)* | Vitest + React Testing Library + MSW | ○ planned |
 | L4 — Integration / data-flow | SSE stream → `AppContext` slices (terminal `stage_update` counting rule; `clinician_override` first event); `finalizePlan` persists correct top-level keys (NULL-referrals regression guard); session persistence disabled → refresh resets (PHI-leak guard) | Vitest + MSW | ○ planned |
 | L5 — End-to-end browser | Full 4-step happy path (input → DDx select → plan + safety ack → PDF); out-of-scope graceful stop; returning-patient Step-0 prep brief; realtime dashboard update | Playwright | ○ planned |
 | L6 — Auth & access | Covered jointly with §4.9 (route gating, session expiry) | Playwright | ○ planned |
@@ -730,6 +731,30 @@ panel render, and the SSE terminal-event counting rule. L5–L6 give the screens
 evidence the reference reports lean on. In the interim, the Doctor UI screenshots already specified
 as figures in Chapter 3 (Fig. 3.5 intake, 3.6b diagnosis, 3.8 care plan, 3.9 safety banner, 3.10b–d
 wizard and output) serve as the manual functional-walkthrough record.
+
+**Layer L1 — implemented (2026-06-07).** Three pure-logic modules are now under Vitest:
+`clinicalMappers.test.js`, `safetyClassify.test.js`, and `helpers.test.js` — **30 tests, all passing
+in ≈1.2 s** with no backend, database, or browser. To make the Stage-6 banner's load-bearing rules
+testable, the classification logic was extracted from `SafetyReviewBanner.jsx` into a side-effect-free
+`lib/safetyClassify.js` (the component now imports it; `vite build` confirms the refactor compiles).
+The tests assert the precise invariants Chapter 3 documents as past failure classes: the DDx score is
+clamped to ≤ 100 % (the JA21 pre-eclampsia 1.07 case), the care plan exposes `referrals` /
+`interventions` / `monitoring` at the **top level with no `disposition` object** (the multi-week NULL
+bug), the `contraindicated` med section survives the mapping, the MODERATE noise filter **retains
+`source === 'graph'` flags**, and a flag is triaged to *plan / current-only / class-or-noise* with the
+matched med returned for deep-linking. Coverage over the three modules under test is **81.8 %
+statements / 85.7 % lines / 100 % functions** (`vitest run --coverage`); the lower branch figure
+(59 %) reflects untested formatting paths — CPG-name aliasing and dose-string parsing — not the
+clinical invariants, which are fully exercised. `clinicalApi.js` and `supabase.js` are deliberately
+excluded from this metric as side-effecting integration modules belonging to the next test tiers
+(§4.8–4.9).
+
+> **[FIGURE 4.16a: Doctor UI Layer-L1 test run and coverage.]**
+> *Left — the `npm test` terminal output: "Test Files 3 passed (3) · Tests 30 passed (30)" in ≈1.2 s.
+> Right — the per-module coverage table (`clinicalMappers.js` 81.9 %, `helpers.js` 100 %,
+> `safetyClassify.js` 100 % lines; 100 % functions overall). A compact, honest screenshot pairing the
+> green run with the coverage figures the prose quotes — concrete evidence that the documented
+> bug-classes are now regression-guarded, not just described.*
 
 > **[FIGURE 4.16: Frontend test pyramid.]**
 > *A test-pyramid diagram with the seven layers L1 (pure-logic, widest base) → L2 reducer → L3
@@ -1042,6 +1067,7 @@ competitor benchmark — are named precisely in this chapter as the agenda for t
 > - **Fig. 4.14** — application-store ER diagram + consultation-row screenshot.
 > - **Fig. 4.15** — login screenshot + provider-tree / audit-identity diagram.
 > - **Fig. 4.16** — frontend test pyramid (L1–L7).
+> - **Fig. 4.16a** — Doctor UI Layer-L1 test run (30 passing) + per-module coverage table. *(in hand — screenshot the `npm test` / `--coverage` output)*
 > - **Fig. 4.17** — delivery state machine + "Send to patient" status screenshot.
 > - **Fig. 4.18** — Case 11 rendered plan + dual-source safety banner screenshot.
 > - **Fig. 4.19** — per-stage latency stacked bar / waterfall.

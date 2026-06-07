@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ShieldCheck, ShieldAlert, ShieldX, ChevronDown, ChevronUp, ChevronRight, AlertOctagon } from 'lucide-react';
 import { Button, Badge } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
+import { classifyFlag, isFlagVisible } from '../../lib/safetyClassify';
 
 const SEVERITY_ORDER = { CRITICAL: 0, MAJOR: 1, MODERATE: 2 };
 
@@ -117,39 +118,6 @@ const DECISION_LABELS = {
  *                   downstream care-plan mutation by the parent.
  *   acknowledged  : bool
  */
-// Classify a flag against the current plan and the patient's existing meds.
-// Returns { kind, matchedMed? } where:
-//   `plan`           — drug appears in the active care plan → real decision required;
-//                       matchedMed = { id, name, section } enables deep-linking
-//   `current_only`   — drug is in the patient's current med list but NOT in the
-//                       new plan → informational ("review existing prescription"),
-//                       no plan mutation possible from the banner
-//   `class_or_noise` — neither → collapsed informational pile so the clinician
-//                       isn't asked to decide on something they aren't prescribing
-//                       (e.g. class-level ARB warning duplicating a specific
-//                       Losartan flag already shown above)
-function classifyFlag(flag, plannedMeds, currentMeds) {
-  const drugs = (flag.title || flag.detail || '').toLowerCase();
-
-  const findMatch = (meds, nameKey = 'name') => {
-    for (const med of meds) {
-      const rawName = typeof med === 'string' ? med : med?.[nameKey] || med?.drug || '';
-      if (!rawName) continue;
-      const low = String(rawName).toLowerCase();
-      if (low.length < 3) continue;
-      const tokenHit = low.split(/[\s,()]+/).some((tok) => tok.length >= 4 && /^[a-z]/.test(tok) && drugs.includes(tok));
-      if (drugs.includes(low) || tokenHit) return med;
-    }
-    return null;
-  };
-
-  const planned = findMatch(plannedMeds);
-  if (planned) return { kind: 'plan', matchedMed: planned };
-  const current = findMatch(currentMeds);
-  if (current) return { kind: 'current_only', matchedMed: typeof current === 'string' ? { name: current } : current };
-  return { kind: 'class_or_noise' };
-}
-
 export function SafetyReviewBanner({ report, onAcknowledge, acknowledged, plannedMeds = [], currentMeds = [], onJumpToMed }) {
   const { isDark } = useTheme();
   const [expandedSections, setExpandedSections] = useState({ CRITICAL: true, MAJOR: true, MODERATE: true });
@@ -182,7 +150,7 @@ export function SafetyReviewBanner({ report, onAcknowledge, acknowledged, planne
   };
 
   const allFlags = dedupFlags(
-    (report.flags || []).filter((f) => f.severity !== 'MODERATE' || f.source === 'graph')
+    (report.flags || []).filter(isFlagVisible)
   ).sort((a, b) => (SEVERITY_ORDER[a.severity] ?? 3) - (SEVERITY_ORDER[b.severity] ?? 3));
 
   // Classify each flag against the actual plan; only flags whose drug is in the
