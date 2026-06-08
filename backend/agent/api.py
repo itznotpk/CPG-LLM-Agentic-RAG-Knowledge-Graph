@@ -32,7 +32,8 @@ from .db_utils import (
     get_session,
     add_message,
     get_session_messages,
-    test_connection
+    test_connection,
+    supabase_pool,
 )
 from .graph_utils import initialize_graph, close_graph, test_graph_connection
 from .models import (
@@ -252,6 +253,7 @@ async def lifespan(app: FastAPI):
             await asyncio.wait_for(initialize_supabase_db(), timeout=15.0)
         except Exception as se:
             logger.warning(f"Supabase pool init failed (delivery disabled): {se}")
+            supabase_pool._init_failed = True
         
         # Initialize graph database (Optional - don't crash if it fails)
         try:

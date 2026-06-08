@@ -76,10 +76,13 @@ class _SupabasePool(DatabasePool):
     def __init__(self):
         self.database_url = os.getenv("SUPABASE_DB_URL")
         self.pool: Optional[Pool] = None
+        self._init_failed = False
 
     async def initialize(self):
         if not self.database_url:
             logger.warning("SUPABASE_DB_URL not set — Supabase pool disabled")
+            return
+        if self._init_failed:
             return
         if not self.pool:
             self.pool = await asyncpg.create_pool(
@@ -90,6 +93,13 @@ class _SupabasePool(DatabasePool):
                 command_timeout=60,
             )
             logger.info("Supabase connection pool initialized")
+
+    @asynccontextmanager
+    async def acquire(self):
+        if self.pool is None:
+            raise RuntimeError("Supabase pool is not initialized")
+        async with self.pool.acquire() as connection:
+            yield connection
 
 
 supabase_pool = _SupabasePool()

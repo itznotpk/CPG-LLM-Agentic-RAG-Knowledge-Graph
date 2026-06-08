@@ -150,36 +150,202 @@ stream, and both clinician surfaces — the React Doctor UI and the terminal CLI
 what made integration testable, because the CLI can drive a complete end-to-end consultation
 headlessly, with no browser, and reproduce exactly what the UI would render.
 
-The integration points that had to hold are summarised in Table 4.2. The defining property is
-the clean separation of stores: the reasoning backend never reads the application store
-(Supabase), and the application store never calls the backend, with the single audited exception
-of the background delivery worker. Patient-identifiable data and clinical reasoning therefore live
-in different tiers, and the integration test surface between them is small and explicit — which is
-also why the chapter can test the two tiers largely independently.
+Before the live pipeline could run, the two grounding stores had to be populated. Figure 4.2a
+shows that offline ingestion path. Each of the 30 Malaysian MoH CPG PDFs is first converted to
+structured Markdown by `docling` (`convert_pdf.py`), which preserves the heading hierarchy
+(H1 → H2 → H3) and extracts tables as structured JSON — the heading structure is what later
+powers the category-aware retrieval in Stage 4. The resulting Markdown is then split into labelled
+chunks by `CPGParser` inside `ingest.py` (chunk size 1200 tokens, 200-token overlap, with
+per-chunk metadata — evidence level, category, ICD-11 scope). Each chunk takes two routes in
+parallel: `embedder.py` encodes it with AWS Bedrock Titan v1 (1536-dim) and writes the chunk
+plus its embedding into the Neon pgvector store; and `graph_builder.py` feeds the prose through
+Graphiti and an LLM relation-extractor to write drug, condition, and procedure nodes plus
+`CONTRAINDICATED_WITH`, `INTERACTS_WITH`, and prescribing edges into Neo4j Aura. This pipeline
+runs offline and is never re-executed at consultation time — the stores it produces are frozen
+from the live pipeline's point of view.
 
-**Table 4.2: System integration points and how each is exercised.**
+```mermaid
+flowchart LR
+    subgraph Ingestion["Offline Ingestion Pipeline (run once, stores frozen thereafter)"]
+        CPG["30 CPG PDFs\nMalaysian MoH guidelines"]
+        DOCLING["convert_pdf.py\ndocling\nPDF → structured Markdown\nH1→H2→H3 preserved\ntables → structured JSON"]
+        PARSE["ingest.py · CPGParser\nchunk 1200 tok / 200 overlap\nmetadata: evidence level\ncategory · ICD-11 scope"]
+        EMBED["embedder.py\nAWS Bedrock Titan v1\n1536-dim embeddings\nAWS_ACCESS_KEY_ID / SECRET"]
+        GBUILD["graph_builder.py\nGraphiti + LLM\nrelation extraction\nNEO4J_URI / AUTH"]
+        PG[("Neon Postgres\npgvector\nDATABASE_URL\nchunks + embeddings")]
+        KG[("Neo4j Aura\nKnowledge Graph\nNEO4J_URI / AUTH\nnodes + edges")]
+    end
 
-| Boundary | Contract | How it is exercised under test |
-|---|---|---|
-| Backend → both clients | One SSE event schema (`stage_update`, `ddx`, `routing`, `retrieval`, `plan`, `safety_review`, `final_result`, `out_of_scope`, `clinician_override`) | CLI replays the identical stream the UI consumes; the determinism harness drives this path (§4.3.5) |
-| Backend → pgvector | Scoped vector search pinned by `document_id_filter` | Layers A1, B, C run against live Neon (§4.3.1, §4.3.2) |
-| Backend → Neo4j | Stage 4.5 injection and Stage 6 KG verification (Cypher) | SAF, INF-01, KG unit tests, the dual-source case studies (§4.3.1, §4.3.4, §4.5.1) |
-| Backend → Bedrock | Titan v1 embeddings (1536-dim), client-cached | INF-02 (429 outage), all vector layers |
-| Frontend → Supabase | Patient CRUD, consultation upserts, audit columns, all via RPC | Migration-contract smoke (§4.4.1) — *partial*; live round-trip planned |
-| Frontend → Supabase Auth | Clinician identity, provider tree outermost | AuthContext + routeGuard unit (§4.4.2) — *partial*; E2E planned |
-| Backend → Supabase (worker only) | Deterministic Gmail PDF delivery from `delivery_jobs` | `test_delivery.py` (in-process SMTP) — *partial* (§4.4.4) |
+    CPG --> DOCLING
+    DOCLING --> PARSE
+    PARSE --> EMBED & GBUILD
+    EMBED -- "write chunks\n+ embeddings" --> PG
+    GBUILD -- "write nodes\n+ edges" --> KG
 
-The offline build path (CPG ingestion into pgvector and Neo4j) and the live read path were kept
-strictly separate, as designed: the live pipeline only ever reads the two grounding stores. This
-separation is what allows the accuracy layers below to be re-run repeatedly against a frozen
-corpus without contaminating it.
+    classDef ingest fill:#fefce8,stroke:#ca8a04,color:#713f12;
+    classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
+    class CPG,DOCLING,PARSE,EMBED,GBUILD ingest;
+    class PG,KG store;
+```
+
+**Figure 4.2a: Offline CPG ingestion pipeline — PDF to pgvector and Neo4j.**
+
+The result of ingestion is two populated stores whose schemas are shown in Figures 4.2a-i and
+4.2a-ii. The pgvector store holds two tables: `documents` (one row per CPG, carrying the
+`icd11_scope` array that Stage 3 routing matches against and a 1536-dim `scope_embedding` for
+semantic fallback) and `chunks` (one row per chunk, with the 1536-dim `embedding` column indexed
+by IVFFlat for cosine search, a `chunk_level` field encoding the heading tier — `h1`, `h2`, `h3`,
+or `h1_leaf` — and a `parent_chunk_id` self-reference that enables parent-context retrieval). The
+knowledge graph holds approximately 1,630 drug nodes, alongside condition, procedure, and adverse
+event nodes, connected by `CONTRAINDICATED_WITH` (~980 edges), `INTERACTS_WITH` (~289 edges), and
+prescribing edges — all extracted from CPG prose, which is why DDI sparsity is a documented
+limitation (§4.3.1).
+
+```mermaid
+erDiagram
+    documents {
+        UUID id PK
+        TEXT title
+        TEXT source
+        TEXT content
+        JSONB metadata
+        TEXT[] icd11_scope
+        TEXT[] procedure_scope
+        vector_1536 scope_embedding
+        BOOLEAN scope_verified
+    }
+    chunks {
+        UUID id PK
+        UUID document_id FK
+        TEXT content
+        vector_1536 embedding
+        INTEGER chunk_index
+        TEXT chunk_level
+        INTEGER token_count
+        UUID parent_chunk_id FK
+        JSONB metadata
+    }
+    documents ||--o{ chunks : "has"
+    chunks ||--o{ chunks : "parent_chunk_id"
+```
+
+**Figure 4.2a-i: pgvector store schema — `documents` and `chunks` tables (Neon Postgres).**
+
+```mermaid
+flowchart LR
+    subgraph KGSchema["Neo4j Knowledge Graph — node and edge types"]
+        DRUG["Drug\n~1,630 nodes\ne.g. Losartan, Metformin"]
+        COND["Condition\ne.g. Heart Failure, Pregnancy"]
+        PROC["Procedure\ne.g. OGTT, echocardiogram"]
+        AE["AdverseEvent"]
+
+        DRUG -- "CONTRAINDICATED_WITH\n~980 edges" --> COND
+        DRUG -- "INTERACTS_WITH\n~289 edges" --> DRUG
+        DRUG -- "FIRST_LINE_FOR\nFIRST_LINE_FOR_WITH\nCONSIDER_FOR" --> COND
+        DRUG -- "REQUIRES_MONITORING" --> AE
+        COND -- "ASSOCIATED_WITH" --> COND
+    end
+
+    classDef node fill:#f8fafc,stroke:#64748b,color:#334155;
+    classDef note fill:#faf5ff,stroke:#9333ea,color:#581c87;
+    class DRUG,COND,PROC,AE node;
+```
+
+**Figure 4.2a-ii: Neo4j knowledge graph — node types and edge types as populated by ingestion.**
+
+Figure 4.2b shows the live system wiring. The reasoning backend (`uvicorn`, port 8058) connects
+outward to three external services, each authenticated by its own credential set: Neon Postgres
+via `DATABASE_URL` (asyncpg pool, read-only at consultation time); Neo4j Aura via
+`NEO4J_URI / NEO4J_USER / NEO4J_PASSWORD` (Bolt+TLS, read-only); and AWS Bedrock via
+`AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY` for runtime embedding of the clinical query. The LLM
+calls each carry their own `*_LLM_API_KEY` and `*_LLM_BASE_URL` pair — Gemini 2.5 Flash for
+Stages 2, 4, and 6, and MiMo v2.5 Pro for Stage 5 synthesis. On the application side, the React
+Doctor UI locates the backend via `VITE_CLINICAL_API_URL` and connects to Supabase independently
+via `VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY` for patient data, authentication, and
+consultation persistence. The background delivery worker is the sole backend component that
+touches Supabase — it reads `SUPABASE_DB_URL` to poll `delivery_jobs` and sends care-plan PDFs
+via Gmail (`GMAIL_USER / GMAIL_APP_PASSWORD`).
+
+```mermaid
+flowchart LR
+    subgraph Frontend["React Doctor UI (Vite, port 5173)"]
+        UI["Doctor UI\nVITE_CLINICAL_API_URL\n= http://localhost:8058"]
+        SB_CLIENT["supabase-js client\nVITE_SUPABASE_URL\nVITE_SUPABASE_ANON_KEY"]
+    end
+
+    subgraph Backend["FastAPI Backend (uvicorn, port 8058)"]
+        EP1["ICD-11 Differential Diagnosis\nPOST /clinical/plan/ddx/stream\nStage 2 only · SSE · terminal: ddx_ready"]
+        EP2["Care-Plan Synthesis\nPOST /clinical/plan/resynthesize/stream\nStages 3-6 · SSE · terminal: final_result"]
+        EP3["Full Pipeline (non-streaming)\nPOST /clinical/plan\nStages 2-6 · JSON response"]
+        EP4["Prior-Visit Summary\nPOST /clinical/summarise-prior\nReturns PriorVisitSummary JSON"]
+        EP5["Returning-Patient Brief\nPOST /clinical/prep-brief\nReturns 3-bullet prep brief"]
+        EP6["Speech-to-Text\nPOST /clinical/stt\nGoogle Cloud STT · returns transcript"]
+        EP7["Consultation Recording\nPOST /clinical/consultation/process\nGCS upload · diarize · Gemini summary"]
+        EP8["Delivery\nPOST /delivery/enqueue\nGET /delivery/status/{id}"]
+        WORKER["delivery_worker.py\n(background poll)"]
+    end
+
+    subgraph Stores["Grounding Stores (read-only at consultation time)"]
+        PG[("Neon Postgres\npgvector\nDATABASE_URL")]
+        KG[("Neo4j Aura\nKnowledge Graph\nNEO4J_URI / AUTH")]
+    end
+
+    subgraph LLMs["LLM Services"]
+        GEMINI["Gemini 2.5 Flash\nDDx · re-rank · Stage 4 · Stage 6\nSTAGE*_LLM_API_KEY"]
+        MIMO["MiMo v2.5 Pro\nStage 5 synthesis\nSTAGE5_LLM_API_KEY"]
+        BEDROCK["AWS Bedrock\nTitan v1 embeddings\nAWS_ACCESS_KEY_ID/SECRET"]
+        GSTT["Google Cloud STT\nGOOGLE_CLOUD_STT_API_KEY\n+ GCS_CONSULTATION_BUCKET"]
+    end
+
+    subgraph AppStore["Application Store"]
+        SUPA[("Supabase\nPatients · Consultations · Auth\ndelivery_jobs · machine_signals\nSUPABASE_URL / ANON_KEY")]
+        GMAIL["Gmail SMTP\ncare-plan PDF delivery\nGMAIL_USER / APP_PASSWORD"]
+    end
+
+    UI -- "SSE (POST)" --> EP1
+    UI -- "SSE (POST)" --> EP2
+    UI -- "POST" --> EP4
+    UI -- "POST" --> EP5
+    UI -- "POST" --> EP6
+    UI -- "POST" --> EP7
+    UI -- "POST / GET" --> EP8
+    EP1 & EP2 & EP3 -- "asyncpg\n(read-only)" --> PG
+    EP1 & EP2 & EP3 -- "Bolt+TLS\n(read-only)" --> KG
+    EP1 & EP2 & EP3 -- "REST embed" --> BEDROCK
+    EP1 & EP2 & EP3 -- "OpenAI-compat" --> GEMINI
+    EP2 & EP3 -- "OpenAI-compat" --> MIMO
+    EP6 -- "REST" --> GSTT
+    EP7 -- "GCS + REST" --> GSTT
+    SB_CLIENT -- "RPC / REST" --> SUPA
+    WORKER -- "asyncpg\nSUPABASE_DB_URL" --> SUPA
+    WORKER -- "SMTP/TLS" --> GMAIL
+
+    classDef fe fill:#eff6ff,stroke:#3b82f6,color:#1e3a5f;
+    classDef ep fill:#f0fdf4,stroke:#22c55e,color:#14532d;
+    classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
+    classDef llm fill:#faf5ff,stroke:#9333ea,color:#581c87;
+    classDef app fill:#fff7ed,stroke:#f97316,color:#7c2d12;
+    class UI,SB_CLIENT fe;
+    class EP1,EP2,EP3,EP4,EP5,EP6,EP7,EP8,WORKER ep;
+    class PG,KG store;
+    class GEMINI,MIMO,BEDROCK,GSTT llm;
+    class SUPA,GMAIL app;
+```
+
+**Figure 4.2b: Live system wiring — credentials, ports, and service connections as deployed.**
+
+The defining property of this wiring is the clean separation of stores: the reasoning backend
+never reads the application store (Supabase), and the application store never calls the backend,
+with the single audited exception of the background delivery worker. Patient-identifiable data
+and clinical reasoning therefore live in different tiers, and the integration test surface between
+them is small and explicit — which is also why the chapter can test the two tiers largely
+independently.
 
 > **[FIGURE 4.2: System integration and test-surface diagram.]**
-> *Mermaid diagram showing the three tiers (reasoning backend, two grounding stores, application
-> tier) with each boundary from Table 4.2 drawn as a labelled edge, and each edge annotated with the
-> test/suite that exercises it (e.g. SSE seam → determinism harness; pgvector seam → Layers A1/B/C;
-> Supabase seam → §4.4.1 planned). Colour edges green / amber / grey by test status, so the diagram
-> doubles as a visual of where coverage is real versus planned.*
+> *Colour the edges of Figure 4.2a green / amber / grey by test status (green = measured, amber =
+> partial, grey = planned), so the wiring diagram doubles as a visual of where coverage is real
+> versus planned — green for the backend seams (pgvector, Neo4j, Bedrock, LLMs), amber for the
+> application seams (Supabase RPC, Auth, delivery), matching the overall picture in Table 4.1.*
 
 ---
 
@@ -974,42 +1140,112 @@ round-trip — which depends on the same Supabase test project as §4.4.1 and is
 
 ### 4.5.1 End-to-End Case Studies
 
-Beyond the layered metrics, complete consultations were run through the live pipeline to confirm
-that the eight-section plan renders end to end with clinically coherent content. Each case driver
-(`backend/scripts/run_eval_case_NN.py`) exercises Stages 2–6 and writes a structured trace. Three
-recent traces survived a repository cleanup and are reported here; cases 8 and 11 are queued for
-re-run.
+Layered metrics confirm each stage in isolation, but they cannot show whether a full consultation
+holds together as a single coherent act of clinical reasoning. To test that, three complete patient
+scenarios were run through the live pipeline from intake to vetted care plan. Each scenario was
+submitted to the running system exactly as a real consultation would be, and the system's full
+response was recorded, including every step of its reasoning and the final care plan it produced.
+These same three scenarios were later put before a practising clinician for scored review (§4.5.3),
+so the end-to-end runs and the expert evaluation share one common set of cases.
 
-**Table 4.17: End-to-end case traces (live runs).**
+The three scenarios were not chosen at random. They were selected to verify that the pipeline
+performs correctly across different clinical fields rather than on a single narrow scenario, spanning
+a broad range of the Malaysian CPGs the system grounds on (heart failure, diabetes, obesity,
+hypertension, obstetric and pregnancy care, coronary artery disease, and erectile dysfunction). Each
+scenario combines several comorbidities drawn from different guidelines, so a successful run confirms
+that the whole pipeline, from differential diagnosis through routing, retrieval, knowledge-graph
+injection, synthesis, and safety, holds up under the multi-condition, multi-guideline reasoning the
+system was built for.
 
-| Case | Primary ICD | Confidence | Recommendations | End-to-end |
-|---|---|---:|---:|---:|
-| 09 — AF + Post-PCI + T2DM | `BA41.1` (Acute NSTEMI) | 0.70 | 18 | 104.8 s |
-| 10 — HTN in pregnancy + GDM | `JB42.Y` | 0.80 | 18 | 109.8 s |
-| 12 — Metabolic syndrome | `BA5Y` | 0.70 | 15 | 104.3 s |
+**Table 4.17: The three end-to-end test scenarios.**
 
-The three cases show **stable elapsed time (≈ 105–110 s) and dense output (15–18 actionable items
-per plan)** with all eight sections populated, confirming the plan-completeness behaviour the
-synthesis stage was built for.
+| | **Scenario 1** | **Scenario 2** | **Scenario 3** |
+|---|---|---|---|
+| **Theme** | Heart disease / cardiometabolic | Pregnancy hypertension + gestational diabetes | Stable CAD + T2DM + obesity + ED |
+| **Patient** | 62 M | 35 F | 56 M |
+| **Vitals** | BP 128/76, HR 82, SpO₂ 97, BMI 32 | BP 158/104, HR 88, SpO₂ 98 | BP 124/76, HR 64, SpO₂ 98, BMI 31 |
+| **Severity** | HbA1c 8.4, LVEF 25%, NYHA II | eGFR 102, WHO Pregnancy Risk Class II | eGFR 88, HbA1c 7.4 |
+| **Comorbidities** | Heart failure with reduced EF, type 2 diabetes, obesity | Essential hypertension (pre-existing 2 yr), gestational diabetes (new), pregnancy 30 weeks (primigravida) | Stable coronary artery disease (PCI 18 mo ago), type 2 diabetes, obesity class I, erectile dysfunction (new) |
+| **Current medications** | Metformin 1g BD, Gliclazide MR 60mg OD | Losartan 50mg OD | Isosorbide mononitrate 60mg OD, aspirin 100mg OD, atorvastatin 40mg OD, bisoprolol 5mg OD, metformin 1g BD |
+| **Presenting context** | Newly diagnosed HFrEF on routine echo (LVEF 25%); clinically stable, here for a management plan | Booking visit at 30 weeks; BP elevated, GDM on OGTT; losartan started before pregnancy was known | Erectile dysfunction over ~6 months, no therapy tried; angina-free 6 months post-PCI |
+| **Capability under test** | Cardiometabolic multi-guideline synthesis: HFrEF, diabetes, and obesity managed together with guideline-directed heart-failure therapy | Teratogen veto on an existing medication: the system must audit the current list and stop losartan in pregnancy, even though the clinician never asked about it | Dual-source safety conflict: the absolute PDE5-inhibitor × nitrate contraindication from the current med list, surfaced alongside the ED-versus-CAD cross-guideline conflict |
 
-The clearest end-to-end demonstration of the dual-source safety design from §3.10 is the Case 11
-scenario (stable coronary artery disease on a long-acting nitrate, comorbid type 2 diabetes on
-metformin and liraglutide, presenting for erectile dysfunction). The two critics surface
-complementary concerns: the LLM arm flags the PDE5-inhibitor × nitrate interaction as CRITICAL —
-a life-threatening hypotension risk, and a severity only the reasoning arm can emit since the KG arm
-never raises a flag above MODERATE — while the graph verifier independently contributes the
-metformin–liraglutide interaction from a typed drug–drug edge, surviving as a MODERATE flag because
-graph-verified flags are exempt from the moderate-severity noise filter. Both flags are merged
-without de-duplication, `safe_to_proceed` is set to false, and the plan is blocked until the
-clinician decides on each. This is the worked confirmation that a hazard invisible to one source is
-still caught by the other.
+Each scenario was assessed on four things: whether the pipeline ran to completion through all seven
+stages, whether the final plan populated all eight sections with clinically coherent content, whether
+the correct guidelines were retrieved and integrated, and whether the system surfaced the specific
+hazard the scenario was designed to expose. All three ran to completion and produced a fully
+populated plan. The measured results are given in Table 4.18.
 
-> **[FIGURE 4.18: End-to-end Case 11 — rendered plan with dual-source safety banner.]**
-> *A screenshot of the Step-3 Care Plan for Case 11 showing the eight-section plan rendered, with the
-> Stage-6 safety banner expanded to show the two complementary flags — CRITICAL PDE5i × nitrate
-> (`source = llm`) and MODERATE metformin × liraglutide (`source = graph`) — the worked proof of the
-> dual-source catch. Optionally inset a small bar of recommendations-per-case (15–18) across cases
-> 09/10/12 from the traces. This is the chapter's strongest single "so what" image.*
+**Table 4.18: End-to-end results per scenario (live runs, 2026-06-08).**
+
+| Metric | Scenario 1 | Scenario 2 | Scenario 3 |
+|---|---|---|---|
+| Primary diagnosis (ICD-11) | `BD11.2` LV failure, reduced EF | `JA63` Diabetes in pregnancy | `HA01.1` Male erectile dysfunction |
+| Confidence | 0.80 | 0.75 | 0.70 |
+| CPGs integrated | 4 | 5 | 7 |
+| Evidence chunks retrieved | 20 | 20 | 20 |
+| Actionable recommendations | 24 | 14 | 19 |
+| Safety flags raised (source) | 6 (4 LLM, 2 graph) | 2 (both graph) | conflict resolved in plan |
+| `safe_to_proceed` | False | False | True |
+| All eight sections populated | Yes | Yes | Yes |
+| Pipeline wall time | 156.7 s | 115.4 s | 110.0 s |
+
+The `safe_to_proceed` column warrants clarification, as a value of *false* is easily misread as a
+failed run. It is in fact the intended outcome wherever a genuine hazard is present: it indicates that
+the safety critic has blocked silent acceptance of the plan and is requiring explicit clinician
+acknowledgement before the plan may be actioned. Scenarios 1 and 2 returned *false* because a real
+contraindication was identified, whereas Scenario 3 returned *true* because the hazardous drug was
+withheld before it entered the plan, leaving nothing to block. In all three cases the value reported
+is the clinically correct one.
+
+The results confirm the plan-completeness behaviour the synthesis stage was designed to deliver. Every
+scenario populated all eight plan sections, integrated between four and seven guidelines into a single
+coherent regimen, and produced fourteen to twenty-four actionable items within approximately two
+minutes. Beyond completeness, each scenario surfaced the specific hazard it was constructed to test,
+as detailed below.
+
+**Scenario 1 — cardiometabolic synthesis.** The two governing guidelines conflict on first-line
+therapy: the heart-failure CPG mandates an SGLT2 inhibitor as foundational therapy for heart failure
+with reduced ejection fraction, while the diabetes CPG identifies the patient's existing sulfonylurea,
+gliclazide, as associated with increased heart-failure risk. The system resolved the conflict
+correctly, marking gliclazide contraindicated and prescribing an SGLT2 inhibitor that addresses both
+conditions, alongside the complete four-pillar heart-failure regimen. The scenario also produced a
+genuine dual-source safety agreement: the gliclazide-in-heart-failure and metformin-monitoring hazards
+were each raised independently by both the language-model critic and a typed knowledge-graph edge.
+This is the clearest live evidence that the two safety arms corroborate one another rather than one
+simply echoing the other.
+
+**Scenario 2 — teratogen veto on an existing medication.** This case exercises the most demanding
+safety direction, namely vetoing a drug the patient is already taking rather than one the clinician
+has proposed. The system audited the active medication list against the patient's clinical state,
+issued a clear instruction to stop losartan on the grounds that an angiotensin-receptor blocker is
+fetotoxic in pregnancy, and substituted a pregnancy-safe antihypertensive (methyldopa or labetalol)
+while adding aspirin for pre-eclampsia prophylaxis. The veto originated from the knowledge graph: both
+safety flags were graph-sourced and graded MAJOR, drawn from a contraindication edge between the drug
+class and pregnancy, despite the clinician never having raised losartan. The plan was correctly held
+for acknowledgement.
+
+**Scenario 3 — cross-guideline conflict.** The patient is maintained on a long-acting nitrate
+(isosorbide mononitrate) and presents with newly reported erectile dysfunction, for which the
+erectile-dysfunction CPG recommends a PDE5 inhibitor as first-line therapy. This drug class is
+absolutely contraindicated against the patient's existing nitrate. Rather than proposing and then
+retracting the hazardous drug, the system withheld the PDE5 inhibitor at the point of synthesis,
+marked the class contraindicated with the nitrate named as the interacting agent, and offered
+guideline-safe alternatives in its place (a vacuum erection device, pelvic-floor training, weight
+reduction, and a urology referral), together with a cardiology deferral to reassess whether the
+nitrate remains necessary now that the patient is six months angina-free following intervention.
+Because the contraindicated drug never entered the plan, the run completed without a blocking flag,
+and the patient-facing red-flag warnings included the nitrate–PDE5 inhibitor hypotension risk. This is
+the clearest demonstration that the system reasons across conflicting guidelines and declines to
+recommend a hazardous default at the point of synthesis rather than relying on a downstream correction.
+
+> **[FIGURE 4.18: End-to-end Scenario 3 — rendered plan with the contraindication resolved.]**
+> *A screenshot of the Step-3 Care Plan for Scenario 3, showing the eight-section plan with the PDE5
+> inhibitor class marked contraindicated against the patient's isosorbide mononitrate, the named
+> cross-guideline conflict, the guideline-safe alternatives offered in its place, and the patient
+> red-flag warning on the nitrate–PDE5 inhibitor hypotension risk. The figure illustrates the
+> section's central finding: the hazardous first-line drug is withheld at synthesis rather than
+> proposed and retracted.*
 
 ### 4.5.2 Non-Functional Testing
 

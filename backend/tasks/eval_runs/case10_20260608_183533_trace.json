@@ -1,0 +1,1023 @@
+{
+  "case": {
+    "chief_complaint": "Booking visit at 30 weeks (late booker). BP elevated; GDM diagnosed on OGTT. Plan for HTN + GDM management.",
+    "history": "CC: Booking visit at 30 weeks (late booker). BP elevated; GDM diagnosed on OGTT. Plan for HTN + GDM management.\nHPI: Primigravida, 30 weeks gestation by dates. Losartan started 2 years ago, before pregnancy was known. No headache, visual symptoms, or RUQ pain. No dyspnoea, orthopnoea, or oedema beyond physiological.\nPE / Labs: BP 158/104 confirmed on 2 readings 4h apart. Fasting glucose 7.4 mmol/L, OGTT 2h 11.2 mmol/L. Urinalysis: no proteinuria.\nFHx: Sister had peripartum cardiomyopathy (PPCM).",
+    "age": 35,
+    "sex": "F",
+    "comorbidities": [
+      "Essential Hypertension (pre-existing 2 years)",
+      "Gestational Diabetes Mellitus (newly diagnosed)",
+      "Pregnancy 30 weeks (primigravida)"
+    ],
+    "current_medications": [
+      "Losartan 50mg OD"
+    ],
+    "allergies": [],
+    "vitals": {
+      "sbp": 158,
+      "dbp": 104,
+      "hr": 88,
+      "spO2": 98,
+      "weight": 78,
+      "temp": 36.8
+    },
+    "severity_staging": {
+      "eGFR": "102",
+      "WHO Pregnancy Risk Class": "II"
+    }
+  },
+  "events": [
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "running",
+        "detail": "Analyzing symptoms and history\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Extracted symptom query: \"booking visit for Gestational diabetes mellitus, Essential hypertension, Transient ischaemic attack, Pulmonary embolism\"",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Condition hypotheses: Essential Hypertension, Gestational Diabetes Mellitus, Pregnancy",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Regex-injected codes (fallback): BA00, BB00",
+        "badge": "CC-boost"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "CC priority codes: JA63 (clinician-named), JA20.3 (90%), MF34 (90%)",
+        "badge": "CC-boost"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "complete",
+        "detail": "5 candidates \u00b7 top: JA63",
+        "data": [
+          {
+            "code": "JA63",
+            "title": "Diabetes mellitus in pregnancy",
+            "similarity": 0.8126,
+            "base_similarity": 0.8126,
+            "final_score": 0.8126,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.25,
+            "cc_confidence": 0.96,
+            "cc_explicit": true,
+            "score_breakdown": {
+              "base_similarity": 0.8126,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.25,
+              "cc_boost_raw": 0.96,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.8126,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.813",
+              "Final DDx score 0.813",
+              "Keyword overlap: diabetes, mellitus",
+              "LLM: Clinician explicitly named 'Diabetes mellitus in pregnancy', consistent with GDM diagnosis."
+            ],
+            "math_rank": 2,
+            "llm_rank": 2,
+            "rank_delta": 0,
+            "override_reason": "cc_explicit_primary: clinician-named chief-complaint dx pinned to #1"
+          },
+          {
+            "code": "JA63.2",
+            "title": "Diabetes mellitus arising in pregnancy",
+            "similarity": 0.8096,
+            "base_similarity": 0.8096,
+            "final_score": 0.8096,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.8096,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.8096,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.810",
+              "Final DDx score 0.810",
+              "Keyword overlap: diabetes, gestational, mellitus",
+              "LLM: GDM confirmed by OGTT (Fasting 7.4, 2h 11.2); no evidence of pre-existing type 1 or 2 DM."
+            ],
+            "math_rank": 3,
+            "llm_rank": 1,
+            "rank_delta": 2,
+            "override_reason": "specificity_over_generic: Gestational Diabetes Mellitus supported by OGTT results"
+          },
+          {
+            "code": "BA00",
+            "title": "Essential hypertension",
+            "similarity": 0.7851,
+            "base_similarity": 0.7851,
+            "final_score": 0.7851,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": 0.27,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.135,
+            "cc_confidence": 0.9,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.7851,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.135,
+              "cc_boost_raw": 0.9,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.7851,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.785",
+              "Final DDx score 0.785",
+              "Keyword overlap: essential, hypertension",
+              "LLM: Patient has pre-existing essential hypertension, on Losartan, with elevated BP 158/104."
+            ],
+            "math_rank": 4,
+            "llm_rank": 3,
+            "rank_delta": 1,
+            "override_reason": null
+          },
+          {
+            "code": "BA00.1",
+            "title": "Isolated diastolic hypertension",
+            "similarity": 0.6513,
+            "base_similarity": 0.6513,
+            "final_score": 0.6513,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6513,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6513,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.651",
+              "Final DDx score 0.651",
+              "Keyword overlap: hypertension",
+              "LLM: Both systolic (158) and diastolic (104) pressures are elevated, not isolated."
+            ],
+            "math_rank": 8,
+            "llm_rank": 8,
+            "rank_delta": 0,
+            "override_reason": "staging_discriminator: BP 158/104 indicates non-isolated hypertension"
+          },
+          {
+            "code": "BA00.2",
+            "title": "Isolated systolic hypertension",
+            "similarity": 0.6466,
+            "base_similarity": 0.6466,
+            "final_score": 0.6466,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6466,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6466,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.647",
+              "Final DDx score 0.647",
+              "Keyword overlap: hypertension",
+              "LLM: Both systolic (158) and diastolic (104) pressures are elevated, not isolated."
+            ],
+            "math_rank": 9,
+            "llm_rank": 9,
+            "rank_delta": 0,
+            "override_reason": "staging_discriminator: BP 158/104 indicates non-isolated hypertension"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "running",
+        "detail": "Matching ICD codes to clinical guidelines\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Diabetes-in-Pregnancy(2017)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Heart-Disease-in-Pregnancy(2nd Edition)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "stage3_quality_drop",
+      "data": {
+        "stage": 3,
+        "drops": [
+          {
+            "tier": "major",
+            "code": "JA63",
+            "expected_slots": 3,
+            "actual_slots": 1
+          },
+          {
+            "tier": "minor",
+            "code": "JA63.2",
+            "expected_slots": 2,
+            "actual_slots": 1
+          }
+        ],
+        "major_code": "JA63",
+        "selection_source": "clinician"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Primary JA63 backed by 1 CPG (expected 3)",
+        "badge": "under_evidenced",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Co-consideration JA63.2 backed by 1 CPG (expected 2)",
+        "badge": "under_evidenced",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Hypertension(5th Edition)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Primary-Secondary-Prevention-of-CVD(2017)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "CVD-Prevention-Women(2016)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "complete",
+        "detail": "5 CPGs matched",
+        "data": [
+          "Diabetes-in-Pregnancy(2017)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "Hypertension(5th Edition)",
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "CVD-Prevention-Women(2016)"
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "running",
+        "detail": "Retrieving relevant guideline chunks\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "Generating 7 targeted queries\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "error",
+        "detail": "Error code: 503 - [{'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]"
+      }
+    },
+    {
+      "event": "graph_navigator",
+      "data": {
+        "rules": [
+          {
+            "drug": "Metformin",
+            "condition": "Gestational Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Metformin should be continued in women who are already on the treatment before pregnancy.",
+            "source_document": "Section 5: Antenatal Management Of Diabetes In Pregnancy",
+            "cpg_chunk_id": "84724c82-06e7-4767-9dbf-73e3c934e3e9"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "running",
+        "detail": "Generating evidence-based care plan\u2026"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "complete",
+        "detail": "Care plan ready \u00b7 47491 ms total",
+        "badge": null
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 6,
+        "name": "Safety Review",
+        "status": "running",
+        "detail": "Running independent medication safety review..."
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 6,
+        "detail": "Safety review running\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 6,
+        "name": "Safety Review",
+        "status": "complete",
+        "detail": "1 major safety concern(s) found",
+        "badge": "review required"
+      }
+    },
+    {
+      "event": "safety_review",
+      "data": {
+        "flags": [
+          {
+            "title": "Losartan - contraindication in pregnancy",
+            "severity": "MAJOR",
+            "recommendation_index": 0,
+            "flag_type": "contraindication",
+            "detail": "Losartan, an ARB, is contraindicated in the second and third trimesters of pregnancy due to risk of fetal renal dysfunction, oligohydramnios, and neonatal death. The patient is 30 weeks pregnant.",
+            "suggested_alternative": "Discontinue Losartan immediately and switch to a pregnancy-safe antihypertensive such as labetalol or nifedipine.",
+            "source": "llm",
+            "kg_relation": null,
+            "source_document": null,
+            "graph_citation": null
+          }
+        ],
+        "safe_to_proceed": false,
+        "reviewer_notes": "",
+        "kg_verification_degraded": false
+      }
+    },
+    {
+      "event": "final_result",
+      "data": {
+        "treatment_plan": {
+          "icd_primary": "JA63",
+          "icd_alternates": [],
+          "summary": "Plan not generated \u2014 Stage 4 retrieval failed; re-run when the retrieval service recovers.",
+          "recommendations": [],
+          "monitoring": [],
+          "red_flags": [],
+          "follow_up": [],
+          "confidence": 0.0,
+          "unresolved_questions": [
+            "Stage 4 retrieval failed; re-run when the retrieval service recovers."
+          ],
+          "gate_audit": []
+        },
+        "ddx": [
+          {
+            "code": "JA63",
+            "title": "Diabetes mellitus in pregnancy",
+            "similarity": 0.8126,
+            "base_similarity": 0.8126,
+            "final_score": 0.8126,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.25,
+            "cc_confidence": 0.96,
+            "cc_explicit": true,
+            "score_breakdown": {
+              "base_similarity": 0.8126,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.25,
+              "cc_boost_raw": 0.96,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.8126,
+              "route_method": "exact"
+            },
+            "matched_cpg_title": "Section 11: Implementing The Guidelines",
+            "reasoning": [
+              "Vector similarity 0.813",
+              "Final DDx score 0.813",
+              "Keyword overlap: diabetes, mellitus",
+              "LLM: Clinician explicitly named 'Diabetes mellitus in pregnancy', consistent with GDM diagnosis."
+            ],
+            "math_rank": 2,
+            "llm_rank": 2,
+            "rank_delta": 0,
+            "override_reason": "cc_explicit_primary: clinician-named chief-complaint dx pinned to #1"
+          },
+          {
+            "code": "JA63.2",
+            "title": "Diabetes mellitus arising in pregnancy",
+            "similarity": 0.8096,
+            "base_similarity": 0.8096,
+            "final_score": 0.8096,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.8096,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.8096,
+              "route_method": "exact"
+            },
+            "matched_cpg_title": "Section 11: Implementing The Guidelines",
+            "reasoning": [
+              "Vector similarity 0.810",
+              "Final DDx score 0.810",
+              "Keyword overlap: diabetes, gestational, mellitus",
+              "LLM: GDM confirmed by OGTT (Fasting 7.4, 2h 11.2); no evidence of pre-existing type 1 or 2 DM."
+            ],
+            "math_rank": 3,
+            "llm_rank": 1,
+            "rank_delta": 2,
+            "override_reason": "specificity_over_generic: Gestational Diabetes Mellitus supported by OGTT results"
+          },
+          {
+            "code": "BA00",
+            "title": "Essential hypertension",
+            "similarity": 0.7851,
+            "base_similarity": 0.7851,
+            "final_score": 0.7851,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": 0.27,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.135,
+            "cc_confidence": 0.9,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.7851,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.135,
+              "cc_boost_raw": 0.9,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.7851,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.785",
+              "Final DDx score 0.785",
+              "Keyword overlap: essential, hypertension",
+              "LLM: Patient has pre-existing essential hypertension, on Losartan, with elevated BP 158/104."
+            ],
+            "math_rank": 4,
+            "llm_rank": 3,
+            "rank_delta": 1,
+            "override_reason": null
+          },
+          {
+            "code": "BA00.1",
+            "title": "Isolated diastolic hypertension",
+            "similarity": 0.6513,
+            "base_similarity": 0.6513,
+            "final_score": 0.6513,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6513,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6513,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.651",
+              "Final DDx score 0.651",
+              "Keyword overlap: hypertension",
+              "LLM: Both systolic (158) and diastolic (104) pressures are elevated, not isolated."
+            ],
+            "math_rank": 8,
+            "llm_rank": 8,
+            "rank_delta": 0,
+            "override_reason": "staging_discriminator: BP 158/104 indicates non-isolated hypertension"
+          },
+          {
+            "code": "BA00.2",
+            "title": "Isolated systolic hypertension",
+            "similarity": 0.6466,
+            "base_similarity": 0.6466,
+            "final_score": 0.6466,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6466,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6466,
+              "route_method": "out_of_scope"
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.647",
+              "Final DDx score 0.647",
+              "Keyword overlap: hypertension",
+              "LLM: Both systolic (158) and diastolic (104) pressures are elevated, not isolated."
+            ],
+            "math_rank": 9,
+            "llm_rank": 9,
+            "rank_delta": 0,
+            "override_reason": "staging_discriminator: BP 158/104 indicates non-isolated hypertension"
+          }
+        ],
+        "cpgs_matched": [
+          "Diabetes-in-Pregnancy(2017)",
+          "Heart-Disease-in-Pregnancy(2nd Edition)",
+          "Hypertension(5th Edition)",
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "CVD-Prevention-Women(2016)"
+        ],
+        "elapsed_ms": 47491.39640000067,
+        "stage_errors": [
+          {
+            "stage": "Stage 4 Retrieval",
+            "error_type": "InternalServerError",
+            "message": "Error code: 503 - [{'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]",
+            "recoverable": true
+          }
+        ],
+        "graph_navigator_rules": [
+          {
+            "drug": "Metformin",
+            "condition": "Gestational Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Metformin should be continued in women who are already on the treatment before pregnancy.",
+            "source_document": "Section 5: Antenatal Management Of Diabetes In Pregnancy",
+            "cpg_chunk_id": "84724c82-06e7-4767-9dbf-73e3c934e3e9"
+          }
+        ],
+        "safety_report": {
+          "flags": [
+            {
+              "title": "Losartan - contraindication in pregnancy",
+              "severity": "MAJOR",
+              "recommendation_index": 0,
+              "flag_type": "contraindication",
+              "detail": "Losartan, an ARB, is contraindicated in the second and third trimesters of pregnancy due to risk of fetal renal dysfunction, oligohydramnios, and neonatal death. The patient is 30 weeks pregnant.",
+              "suggested_alternative": "Discontinue Losartan immediately and switch to a pregnancy-safe antihypertensive such as labetalol or nifedipine.",
+              "source": "llm",
+              "kg_relation": null,
+              "source_document": null,
+              "graph_citation": null
+            }
+          ],
+          "safe_to_proceed": false,
+          "reviewer_notes": "",
+          "kg_verification_degraded": false
+        },
+        "cpg_references": [],
+        "follow_up_parsed": [],
+        "evidence": []
+      }
+    },
+    {
+      "event": "done",
+      "data": {}
+    }
+  ],
+  "final": {
+    "treatment_plan": {
+      "icd_primary": "JA63",
+      "icd_alternates": [],
+      "summary": "Plan not generated \u2014 Stage 4 retrieval failed; re-run when the retrieval service recovers.",
+      "recommendations": [],
+      "monitoring": [],
+      "red_flags": [],
+      "follow_up": [],
+      "confidence": 0.0,
+      "unresolved_questions": [
+        "Stage 4 retrieval failed; re-run when the retrieval service recovers."
+      ],
+      "gate_audit": []
+    },
+    "ddx": [
+      {
+        "code": "JA63",
+        "title": "Diabetes mellitus in pregnancy",
+        "similarity": 0.8126,
+        "base_similarity": 0.8126,
+        "final_score": 0.8126,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "cc_boost": 0.25,
+        "cc_confidence": 0.96,
+        "cc_explicit": true,
+        "score_breakdown": {
+          "base_similarity": 0.8126,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "cc_boost": 0.25,
+          "cc_boost_raw": 0.96,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.8126,
+          "route_method": "exact"
+        },
+        "matched_cpg_title": "Section 11: Implementing The Guidelines",
+        "reasoning": [
+          "Vector similarity 0.813",
+          "Final DDx score 0.813",
+          "Keyword overlap: diabetes, mellitus",
+          "LLM: Clinician explicitly named 'Diabetes mellitus in pregnancy', consistent with GDM diagnosis."
+        ],
+        "math_rank": 2,
+        "llm_rank": 2,
+        "rank_delta": 0,
+        "override_reason": "cc_explicit_primary: clinician-named chief-complaint dx pinned to #1"
+      },
+      {
+        "code": "JA63.2",
+        "title": "Diabetes mellitus arising in pregnancy",
+        "similarity": 0.8096,
+        "base_similarity": 0.8096,
+        "final_score": 0.8096,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "cc_boost": 0.0,
+        "cc_confidence": null,
+        "cc_explicit": false,
+        "score_breakdown": {
+          "base_similarity": 0.8096,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "cc_boost": 0.0,
+          "cc_boost_raw": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.8096,
+          "route_method": "exact"
+        },
+        "matched_cpg_title": "Section 11: Implementing The Guidelines",
+        "reasoning": [
+          "Vector similarity 0.810",
+          "Final DDx score 0.810",
+          "Keyword overlap: diabetes, gestational, mellitus",
+          "LLM: GDM confirmed by OGTT (Fasting 7.4, 2h 11.2); no evidence of pre-existing type 1 or 2 DM."
+        ],
+        "math_rank": 3,
+        "llm_rank": 1,
+        "rank_delta": 2,
+        "override_reason": "specificity_over_generic: Gestational Diabetes Mellitus supported by OGTT results"
+      },
+      {
+        "code": "BA00",
+        "title": "Essential hypertension",
+        "similarity": 0.7851,
+        "base_similarity": 0.7851,
+        "final_score": 0.7851,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": 0.27,
+        "exclusion_penalty": 0.0,
+        "cc_boost": 0.135,
+        "cc_confidence": 0.9,
+        "cc_explicit": false,
+        "score_breakdown": {
+          "base_similarity": 0.7851,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "cc_boost": 0.135,
+          "cc_boost_raw": 0.9,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.7851,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.785",
+          "Final DDx score 0.785",
+          "Keyword overlap: essential, hypertension",
+          "LLM: Patient has pre-existing essential hypertension, on Losartan, with elevated BP 158/104."
+        ],
+        "math_rank": 4,
+        "llm_rank": 3,
+        "rank_delta": 1,
+        "override_reason": null
+      },
+      {
+        "code": "BA00.1",
+        "title": "Isolated diastolic hypertension",
+        "similarity": 0.6513,
+        "base_similarity": 0.6513,
+        "final_score": 0.6513,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "cc_boost": 0.0,
+        "cc_confidence": null,
+        "cc_explicit": false,
+        "score_breakdown": {
+          "base_similarity": 0.6513,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "cc_boost": 0.0,
+          "cc_boost_raw": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.6513,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.651",
+          "Final DDx score 0.651",
+          "Keyword overlap: hypertension",
+          "LLM: Both systolic (158) and diastolic (104) pressures are elevated, not isolated."
+        ],
+        "math_rank": 8,
+        "llm_rank": 8,
+        "rank_delta": 0,
+        "override_reason": "staging_discriminator: BP 158/104 indicates non-isolated hypertension"
+      },
+      {
+        "code": "BA00.2",
+        "title": "Isolated systolic hypertension",
+        "similarity": 0.6466,
+        "base_similarity": 0.6466,
+        "final_score": 0.6466,
+        "inclusion_match": false,
+        "matched_term": null,
+        "inclusion_similarity": null,
+        "exclusion_match": false,
+        "matched_exclusion": null,
+        "exclusion_similarity": null,
+        "exclusion_penalty": 0.0,
+        "cc_boost": 0.0,
+        "cc_confidence": null,
+        "cc_explicit": false,
+        "score_breakdown": {
+          "base_similarity": 0.6466,
+          "inclusion_match": 0.0,
+          "inclusion_phrase": null,
+          "cc_boost": 0.0,
+          "cc_boost_raw": null,
+          "exclusion_penalty": 0.0,
+          "exclusion_phrase": null,
+          "final_score": 0.6466,
+          "route_method": "out_of_scope"
+        },
+        "matched_cpg_title": null,
+        "reasoning": [
+          "Vector similarity 0.647",
+          "Final DDx score 0.647",
+          "Keyword overlap: hypertension",
+          "LLM: Both systolic (158) and diastolic (104) pressures are elevated, not isolated."
+        ],
+        "math_rank": 9,
+        "llm_rank": 9,
+        "rank_delta": 0,
+        "override_reason": "staging_discriminator: BP 158/104 indicates non-isolated hypertension"
+      }
+    ],
+    "cpgs_matched": [
+      "Diabetes-in-Pregnancy(2017)",
+      "Heart-Disease-in-Pregnancy(2nd Edition)",
+      "Hypertension(5th Edition)",
+      "Primary-Secondary-Prevention-of-CVD(2017)",
+      "CVD-Prevention-Women(2016)"
+    ],
+    "elapsed_ms": 47491.39640000067,
+    "stage_errors": [
+      {
+        "stage": "Stage 4 Retrieval",
+        "error_type": "InternalServerError",
+        "message": "Error code: 503 - [{'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}]",
+        "recoverable": true
+      }
+    ],
+    "graph_navigator_rules": [
+      {
+        "drug": "Metformin",
+        "condition": "Gestational Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "Metformin should be continued in women who are already on the treatment before pregnancy.",
+        "source_document": "Section 5: Antenatal Management Of Diabetes In Pregnancy",
+        "cpg_chunk_id": "84724c82-06e7-4767-9dbf-73e3c934e3e9"
+      }
+    ],
+    "safety_report": {
+      "flags": [
+        {
+          "title": "Losartan - contraindication in pregnancy",
+          "severity": "MAJOR",
+          "recommendation_index": 0,
+          "flag_type": "contraindication",
+          "detail": "Losartan, an ARB, is contraindicated in the second and third trimesters of pregnancy due to risk of fetal renal dysfunction, oligohydramnios, and neonatal death. The patient is 30 weeks pregnant.",
+          "suggested_alternative": "Discontinue Losartan immediately and switch to a pregnancy-safe antihypertensive such as labetalol or nifedipine.",
+          "source": "llm",
+          "kg_relation": null,
+          "source_document": null,
+          "graph_citation": null
+        }
+      ],
+      "safe_to_proceed": false,
+      "reviewer_notes": "",
+      "kg_verification_degraded": false
+    },
+    "cpg_references": [],
+    "follow_up_parsed": [],
+    "evidence": []
+  }
+}

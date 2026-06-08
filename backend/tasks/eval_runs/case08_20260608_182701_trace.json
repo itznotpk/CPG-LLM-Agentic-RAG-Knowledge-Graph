@@ -1,0 +1,775 @@
+{
+  "case": {
+    "chief_complaint": "Newly diagnosed HFrEF on routine echo. Here for management plan.",
+    "history": "CC: Newly diagnosed HFrEF on routine echo. Here for management plan.\nHPI: Clinically stable, euvolemic, no dyspnoea at rest. NYHA II.\nPE: Echo today LVEF 25%. K+ 4.4 mmol/L (no severity-staging slot \u2014 recorded here).",
+    "age": 62,
+    "sex": "M",
+    "comorbidities": [
+      "Heart failure with reduced EF",
+      "Type 2 Diabetes Mellitus",
+      "Obesity"
+    ],
+    "current_medications": [
+      "Metformin 1g BD",
+      "Gliclazide MR 60mg OD"
+    ],
+    "allergies": [],
+    "vitals": {
+      "sbp": 128,
+      "dbp": 76,
+      "hr": 82,
+      "spO2": 97,
+      "weight": 98,
+      "height": 175,
+      "temp": 36.8
+    },
+    "severity_staging": {
+      "HbA1c": "8.4",
+      "LVEF": "25",
+      "NYHA": "II"
+    }
+  },
+  "events": [
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "running",
+        "detail": "Analyzing symptoms and history\u2026"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "error",
+        "detail": "No module named 'ddx'"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "running",
+        "detail": "Matching ICD codes to clinical guidelines\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "No DDx codes available to route",
+        "badge": "out_of_scope",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "error",
+        "detail": "No module named 'ddx'"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "running",
+        "detail": "Retrieving relevant guideline chunks\u2026"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "complete",
+        "detail": "0 evidence chunks retrieved"
+      }
+    },
+    {
+      "event": "graph_navigator",
+      "data": {
+        "rules": [
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Liraglutide",
+            "condition": "Obesity",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+            "source_document": "Section 8: Management",
+            "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+          },
+          {
+            "drug": "Liraglutide",
+            "condition": "Obesity",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+            "source_document": "Section 4: Management Of Obesity In Adults",
+            "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Orlistat",
+            "condition": "Obesity",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+            "source_document": "Section 7: Prevention of T2DM",
+            "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+          },
+          {
+            "drug": "Phentermine",
+            "condition": "Obesity",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+            "source_document": "Section 8: Management",
+            "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+          },
+          {
+            "drug": "Semaglutide",
+            "condition": "Obesity",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+            "source_document": "Section 4: Management Of Obesity In Adults",
+            "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Phentermine And Topiramate Combination",
+            "condition": "Obesity",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+            "source_document": "Section 4: Management Of Obesity In Adults",
+            "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "running",
+        "detail": "Generating evidence-based care plan\u2026"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "complete",
+        "detail": "Care plan ready \u00b7 156 ms total",
+        "badge": "conf. 0.20"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 6,
+        "name": "Safety Review",
+        "status": "running",
+        "detail": "Running independent medication safety review..."
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 6,
+        "detail": "Safety review running\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 6,
+        "name": "Safety Review",
+        "status": "complete",
+        "detail": "Safety review complete",
+        "badge": "passed"
+      }
+    },
+    {
+      "event": "safety_review",
+      "data": {
+        "flags": [
+          {
+            "title": "Gliclazide - suboptimal choice in severe heart failure",
+            "severity": "MODERATE",
+            "recommendation_index": 0,
+            "flag_type": "contraindication",
+            "detail": "Gliclazide, a sulfonylurea, may not be the optimal choice for patients with severe heart failure (LVEF 25%) due to potential for hypoglycemia and lack of cardiovascular benefits compared to other diabetes medications.",
+            "suggested_alternative": "Consider switching to a diabetes medication with proven cardiovascular benefits in heart failure, such as an SGLT2 inhibitor or GLP-1 receptor agonist, if appropriate.",
+            "source": "llm",
+            "kg_relation": null,
+            "source_document": null,
+            "graph_citation": null
+          }
+        ],
+        "safe_to_proceed": true,
+        "reviewer_notes": "The patient's current medication regimen includes gliclazide, which is generally considered a less optimal choice for patients with severe heart failure (LVEF 25%) compared to newer agents with cardiovascular benefits. This concern should be addressed during the clinician review.",
+        "kg_verification_degraded": false
+      }
+    },
+    {
+      "event": "final_result",
+      "data": {
+        "treatment_plan": {
+          "icd_primary": "Unknown",
+          "icd_alternates": [],
+          "summary": "No loaded Clinical Practice Guideline matched this presentation. Top ICD-11 candidates considered: none.",
+          "recommendations": [
+            {
+              "intervention": "Refer for clinician review using local non-CPG pathways",
+              "type": "referral",
+              "action": null,
+              "evidence_grade": null,
+              "cpg_source": "No loaded CPG match",
+              "rationale": "The routing layer found no exact, hierarchy, or sibling CPG match, and the maximum ICD inclusion score was 0.00.",
+              "contraindications_checked": []
+            }
+          ],
+          "monitoring": [],
+          "red_flags": [
+            "Escalate urgently if the patient is clinically unstable or has red-flag symptoms."
+          ],
+          "follow_up": [
+            "Reassess after specialist/local pathway review or after relevant CPG coverage is added."
+          ],
+          "confidence": 0.2,
+          "unresolved_questions": [
+            "No loaded CPG covers this query. Top ICD-11 candidates: none.",
+            "No treatment recommendation should be inferred from unrelated loaded CPGs.",
+            "No CPG evidence was retrieved for this case \u2014 recommendations below are not grounded in guideline text and must be verified manually."
+          ],
+          "gate_audit": []
+        },
+        "ddx": [],
+        "cpgs_matched": [],
+        "elapsed_ms": 156.3953999975638,
+        "stage_errors": [
+          {
+            "stage": "Stage 2 DDx",
+            "error_type": "ModuleNotFoundError",
+            "message": "No module named 'ddx'",
+            "recoverable": true
+          },
+          {
+            "stage": "Stage 3 Routing",
+            "error_type": "ModuleNotFoundError",
+            "message": "No module named 'ddx'",
+            "recoverable": true
+          }
+        ],
+        "graph_navigator_rules": [
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Liraglutide",
+            "condition": "Obesity",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+            "source_document": "Section 8: Management",
+            "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+          },
+          {
+            "drug": "Liraglutide",
+            "condition": "Obesity",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+            "source_document": "Section 4: Management Of Obesity In Adults",
+            "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Orlistat",
+            "condition": "Obesity",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+            "source_document": "Section 7: Prevention of T2DM",
+            "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+          },
+          {
+            "drug": "Phentermine",
+            "condition": "Obesity",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+            "source_document": "Section 8: Management",
+            "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+          },
+          {
+            "drug": "Semaglutide",
+            "condition": "Obesity",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+            "source_document": "Section 4: Management Of Obesity In Adults",
+            "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Phentermine And Topiramate Combination",
+            "condition": "Obesity",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+            "source_document": "Section 4: Management Of Obesity In Adults",
+            "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ],
+        "safety_report": {
+          "flags": [
+            {
+              "title": "Gliclazide - suboptimal choice in severe heart failure",
+              "severity": "MODERATE",
+              "recommendation_index": 0,
+              "flag_type": "contraindication",
+              "detail": "Gliclazide, a sulfonylurea, may not be the optimal choice for patients with severe heart failure (LVEF 25%) due to potential for hypoglycemia and lack of cardiovascular benefits compared to other diabetes medications.",
+              "suggested_alternative": "Consider switching to a diabetes medication with proven cardiovascular benefits in heart failure, such as an SGLT2 inhibitor or GLP-1 receptor agonist, if appropriate.",
+              "source": "llm",
+              "kg_relation": null,
+              "source_document": null,
+              "graph_citation": null
+            }
+          ],
+          "safe_to_proceed": true,
+          "reviewer_notes": "The patient's current medication regimen includes gliclazide, which is generally considered a less optimal choice for patients with severe heart failure (LVEF 25%) compared to newer agents with cardiovascular benefits. This concern should be addressed during the clinician review.",
+          "kg_verification_degraded": false
+        },
+        "cpg_references": [
+          "No loaded CPG match"
+        ],
+        "follow_up_parsed": [
+          {
+            "when": "",
+            "days_from_now": null,
+            "action": "Reassess after specialist/local pathway review or after relevant CPG coverage is added.",
+            "raw": "Reassess after specialist/local pathway review or after relevant CPG coverage is added."
+          }
+        ],
+        "evidence": []
+      }
+    },
+    {
+      "event": "done",
+      "data": {}
+    }
+  ],
+  "final": {
+    "treatment_plan": {
+      "icd_primary": "Unknown",
+      "icd_alternates": [],
+      "summary": "No loaded Clinical Practice Guideline matched this presentation. Top ICD-11 candidates considered: none.",
+      "recommendations": [
+        {
+          "intervention": "Refer for clinician review using local non-CPG pathways",
+          "type": "referral",
+          "action": null,
+          "evidence_grade": null,
+          "cpg_source": "No loaded CPG match",
+          "rationale": "The routing layer found no exact, hierarchy, or sibling CPG match, and the maximum ICD inclusion score was 0.00.",
+          "contraindications_checked": []
+        }
+      ],
+      "monitoring": [],
+      "red_flags": [
+        "Escalate urgently if the patient is clinically unstable or has red-flag symptoms."
+      ],
+      "follow_up": [
+        "Reassess after specialist/local pathway review or after relevant CPG coverage is added."
+      ],
+      "confidence": 0.2,
+      "unresolved_questions": [
+        "No loaded CPG covers this query. Top ICD-11 candidates: none.",
+        "No treatment recommendation should be inferred from unrelated loaded CPGs.",
+        "No CPG evidence was retrieved for this case \u2014 recommendations below are not grounded in guideline text and must be verified manually."
+      ],
+      "gate_audit": []
+    },
+    "ddx": [],
+    "cpgs_matched": [],
+    "elapsed_ms": 156.3953999975638,
+    "stage_errors": [
+      {
+        "stage": "Stage 2 DDx",
+        "error_type": "ModuleNotFoundError",
+        "message": "No module named 'ddx'",
+        "recoverable": true
+      },
+      {
+        "stage": "Stage 3 Routing",
+        "error_type": "ModuleNotFoundError",
+        "message": "No module named 'ddx'",
+        "recoverable": true
+      }
+    ],
+    "graph_navigator_rules": [
+      {
+        "drug": "Statin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+        "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+        "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+      },
+      {
+        "drug": "Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+        "source_document": "Section 6: T2DM in Special Populations",
+        "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+      },
+      {
+        "drug": "Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "SECOND_LINE_FOR",
+        "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      },
+      {
+        "drug": "Liraglutide",
+        "condition": "Obesity",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+        "source_document": "Section 8: Management",
+        "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+      },
+      {
+        "drug": "Liraglutide",
+        "condition": "Obesity",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+        "source_document": "Section 4: Management Of Obesity In Adults",
+        "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+      },
+      {
+        "drug": "Metformin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Metformin is the preferred choice as a first line therapy.",
+        "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+        "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+      },
+      {
+        "drug": "Metformin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "As first line therapy, metformin is the preferred choice.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      },
+      {
+        "drug": "Orlistat",
+        "condition": "Obesity",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+        "source_document": "Section 7: Prevention of T2DM",
+        "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+      },
+      {
+        "drug": "Phentermine",
+        "condition": "Obesity",
+        "relation": "RECOMMENDED_FOR",
+        "evidence": "These drugs may be considered for overweight and obese people with: BMI >25.0 kg/m\u00b2 plus 2 CV risk factors or BMI \u226527.0 kg/m\u00b2 after failing to lose weight despite 6 months of lifestyle modification",
+        "source_document": "Section 8: Management",
+        "cpg_chunk_id": "d61e9387-c70a-429e-b8fc-2196d49b6b25"
+      },
+      {
+        "drug": "Semaglutide",
+        "condition": "Obesity",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+        "source_document": "Section 4: Management Of Obesity In Adults",
+        "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+      },
+      {
+        "drug": "Basal Insulin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "[Level I] basal insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+      },
+      {
+        "drug": "Phentermine And Topiramate Combination",
+        "condition": "Obesity",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "the 3 most effective medications in terms of weight loss compared to placebo are high-dose semaglutide, combination of phentermine and topiramate and high dose liraglutide",
+        "source_document": "Section 4: Management Of Obesity In Adults",
+        "cpg_chunk_id": "fc159005-cb90-48b4-983b-6129fd5e9166"
+      },
+      {
+        "drug": "Gliclazide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Glimepiride",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Glipizide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+      },
+      {
+        "drug": "Dulaglutide",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+      },
+      {
+        "drug": "Metformin And Vildagliptin",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "FIRST_LINE_FOR",
+        "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+      },
+      {
+        "drug": "Glp-1Ra",
+        "condition": "Type 2 Diabetes Mellitus",
+        "relation": "SECOND_LINE_FOR",
+        "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+        "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+        "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+      }
+    ],
+    "safety_report": {
+      "flags": [
+        {
+          "title": "Gliclazide - suboptimal choice in severe heart failure",
+          "severity": "MODERATE",
+          "recommendation_index": 0,
+          "flag_type": "contraindication",
+          "detail": "Gliclazide, a sulfonylurea, may not be the optimal choice for patients with severe heart failure (LVEF 25%) due to potential for hypoglycemia and lack of cardiovascular benefits compared to other diabetes medications.",
+          "suggested_alternative": "Consider switching to a diabetes medication with proven cardiovascular benefits in heart failure, such as an SGLT2 inhibitor or GLP-1 receptor agonist, if appropriate.",
+          "source": "llm",
+          "kg_relation": null,
+          "source_document": null,
+          "graph_citation": null
+        }
+      ],
+      "safe_to_proceed": true,
+      "reviewer_notes": "The patient's current medication regimen includes gliclazide, which is generally considered a less optimal choice for patients with severe heart failure (LVEF 25%) compared to newer agents with cardiovascular benefits. This concern should be addressed during the clinician review.",
+      "kg_verification_degraded": false
+    },
+    "cpg_references": [
+      "No loaded CPG match"
+    ],
+    "follow_up_parsed": [
+      {
+        "when": "",
+        "days_from_now": null,
+        "action": "Reassess after specialist/local pathway review or after relevant CPG coverage is added.",
+        "raw": "Reassess after specialist/local pathway review or after relevant CPG coverage is added."
+      }
+    ],
+    "evidence": []
+  }
+}

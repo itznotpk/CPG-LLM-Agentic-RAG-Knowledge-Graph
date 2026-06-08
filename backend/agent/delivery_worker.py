@@ -69,6 +69,9 @@ def start() -> None:
     if not db_pool.database_url:
         logger.info("delivery worker disabled because SUPABASE_DB_URL is not configured")
         return
+    if db_pool.pool is None:
+        logger.info("delivery worker disabled because Supabase pool failed to initialize")
+        return
     _stop.clear()
     _task = asyncio.create_task(_loop())
     logger.info("delivery worker started")
