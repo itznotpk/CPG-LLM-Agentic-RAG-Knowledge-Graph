@@ -47,9 +47,23 @@ The single largest schedule lesson — recorded in §6.2 — is that the evaluat
 
 ## 6.4 Cost Consideration and Budget
 
-This is a software-only system, so there is no hardware bill of materials. The running cost falls into three buckets: **fixed monthly subscriptions**, a small **variable per-consultation API cost**, and a **one-time corpus build**. All figures are in Ringgit, converted from vendor pricing at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66; token-based figures are budgeting estimates derived from the prompt sizes in the implementation, not metered invoices.
+The project incurred two categories of spend: a **one-time hardware purchase** for the rPPG sensor prototype, and ongoing **cloud and API costs** for the software system. All software figures are in Ringgit, converted from vendor pricing at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66; token-based figures are budgeting estimates derived from prompt sizes, not metered invoices.
 
-**1. Fixed monthly subscriptions.** Five managed services plus the Stage 5 synthesis model, which is bought as a flat token plan rather than per-call (see note below).
+**1. Hardware (one-time purchase).** The rPPG contactless vitals module was prototyped on a low-cost microcontroller and pulse-oximeter breakout board, sourced locally from Robotronik.
+
+*Table 6.1: Hardware Bill of Materials*
+
+| Component | Purpose | Unit Cost (RM) |
+|---|---|---|
+| ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing and streams vitals over Wi-Fi | 26.99 |
+| MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse and blood oxygen for rPPG baseline validation | 9.99 |
+| Solderless Breadboard (830 tie-points) | Prototyping platform for sensor circuit | 3.69 |
+| Jumper Wires — Male-to-Female, 40-wire 20 cm | Sensor-to-microcontroller connections | 3.20 |
+| **Hardware total** | | **43.87** |
+
+**2. Fixed monthly subscriptions.** Five managed services plus the Stage 5 synthesis model, which is bought as a flat token plan rather than per-call.
+
+*Table 6.2: Fixed Monthly Cloud Subscriptions*
 
 | Component | Provider / tier | Monthly (RM) |
 |---|---|---|
@@ -63,7 +77,9 @@ This is a software-only system, so there is no hardware bill of materials. The r
 
 The MiMo Standard plan supplies 200M tokens/month. At ~17k tokens per synthesis call that covers ~11,000 consultations — well above pilot volume — so synthesis is effectively a fixed cost at this scale, not a per-consultation charge.
 
-**2. Variable per-consultation API cost.** The remaining calls are billed per use: the lightweight Gemini 2.5 Flash stages (extraction, DDx re-rank, query generation, safety critic) and the AWS Bedrock retrieval (Titan query embedding + Cohere Rerank v3.5 over the retrieved chunks).
+**3. Variable per-consultation API cost.** The remaining calls are billed per use: Gemini 2.5 Flash stages (extraction, DDx re-rank, query generation, safety critic) and AWS Bedrock retrieval (Titan query embedding + Cohere Rerank v3.5).
+
+*Table 6.3: Variable Per-Consultation API Cost*
 
 | Per-consultation call | Model | Cost (RM) |
 |---|---|---|
@@ -71,17 +87,29 @@ The MiMo Standard plan supplies 200M tokens/month. At ~17k tokens per synthesis 
 | Retrieval (query embedding + chunk rerank) | Titan v1 + Cohere Rerank v3.5 (Bedrock) | ~0.05 |
 | **Per consultation** | | **~0.10** |
 
-**3. One-time corpus build.** Before the system can answer anything, each CPG is chunked, embedded into the vector store (Titan), and parsed into the drug knowledge graph (Claude Haiku on Bedrock) as typed interaction, contraindication, and monitoring edges. This is paid once per guideline and only repeated when a CPG is revised. Across the 30-CPG corpus the API cost is modest (tens of Ringgit); the real input is the engineering and clinical-review time to verify the extracted edges, roughly 2–4 hours per document.
+**4. One-time corpus build.** Each CPG is chunked, embedded (Titan), and parsed into the drug knowledge graph (Claude Haiku on Bedrock). Paid once per guideline and repeated only on revision. API cost across 30 CPGs is modest (tens of Ringgit); the real input is 2–4 hours of engineering and clinical-review time per document.
 
-**Total operating run-rate.** At a pilot volume of 500 consultations/month:
+**5. Total operating run-rate.** At a pilot volume of 500 consultations/month:
+
+*Table 6.4: Monthly Operating Run-Rate at Pilot Scale*
 
 | Cost line | Type | Monthly (RM) |
 |---|---|---|
-| Fixed subscriptions | fixed | ~790 |
-| Per-consultation API (500 × ~RM 0.10) | variable | ~50 |
+| Fixed subscriptions | Fixed | ~790 |
+| Per-consultation API (500 × ~RM 0.10) | Variable | ~50 |
 | **Total run-rate** | | **~840** |
 
-**Development spend.** Development ran largely on free and trial tiers, so total cloud spend over the project lifetime is estimated at **RM 950–1,900**; the figures above are the projected production run-rate, not the as-built development cost. The dominant resource throughout was engineering time.
+**Total project spend.** Development ran largely on free and trial tiers. Total spend over the project lifetime:
+
+*Table 6.5: Total Project Expenditure*
+
+| Category | Cost (RM) |
+|---|---|
+| Hardware (rPPG prototype) | 43.87 |
+| Cloud and API (development period) | ~950–1,900 |
+| **Project total** | **~994–1,944** |
+
+The dominant resource throughout was engineering time, not monetary spend.
 
 ---
 
