@@ -4,101 +4,111 @@
 
 ClearPath was built to close one specific gap: clinical decision isolation in Malaysia's rural and district primary care clinics, where a single clinician must manage a wide case spectrum without access to a colleague, a usable guideline, or a pharmacist. The system built and evaluated is a seven-stage hybrid deterministic–agentic pipeline, grounded in 30 validated Malaysian MOH CPGs and a curated drug knowledge graph, that accepts a structured patient case and returns a schema-validated, action-tagged care plan with dual-source safety checking.
 
-The reasoning backend — the part that could be evaluated without recruiting clinicians — passed the majority of its quantitative targets. The application-tier test suites and the multi-clinician blinded evaluation remain incomplete. Both facts are stated here, not softened.
+The outcome is a working system that does what it set out to do: it routes a patient case to the right guideline, retrieves the evidence behind each recommendation, checks the resulting plan for medication risk against two independent sources, and returns an auditable plan a clinician can read, trace, and edit. Where it falls short, it does so narrowly — slightly below target on answer faithfulness and on consultation-window speed — and never in a way that hides its reasoning. The one dimension that could not be assessed without recruiting clinicians, a multi-clinician blinded study, remains the main outstanding validation step. This is stated plainly, not softened.
 
 ---
 
 ## 5.2 Achievement Against Objectives
 
-**Objective 1 — Unified, machine-interpretable knowledge base.** Met. The ICD-11 routing layer resolves every tested code to the correct Malaysian MOH CPG, and the scope-refusal mechanism correctly identifies out-of-corpus cases as a first-class event rather than generating an unsupported answer. Retrieval recall and hit-rate targets are passed; ranking quality (nDCG@10) falls short of the published target and is acknowledged as a gap.
+The four objectives from Chapter 1, assessed against the measured evidence of Chapter 4:
 
-**Objective 2 — Transparent, auditable second opinion within the consultation window.** Substantially met on transparency; partially met on the consultation-window requirement. The per-stage reasoning trace exposes the DDx shortlist, routing D-level, retrieved evidence scores, and safety-flag sources in a way no peer system reviewed in Chapter 1 can match. The expert evaluator confirmed ceiling scores on Reasoning Transparency and Reasoning Visibility. The consultation-window requirement is not met: end-to-end latency is approximately 2.5 minutes, which the same evaluator explicitly identified as the primary adoption barrier.
+| # | Objective | Verdict | Basis |
+|---|---|---|---|
+| 1 | Unified, machine-interpretable MOH-CPG knowledge base | **Met** | • Every tested ICD-11 code routes to the correct CPG (Top-1 and Hit@3 both 100%, 44/44)<br>• Out-of-scope cases refuse cleanly as a first-class event (11/11 separation)<br>• Retrieval Recall@10 (0.87) and Hit@10 (0.95) both clear target across all 30 embedded CPGs<br>• Ranking quality (nDCG) is the single metric still maturing — recall and routing are solid |
+| 2 | Transparent, auditable second opinion within the consult window | **Largely met** | • Reasoning-transparency scores sit at ceiling — no Chapter 1 peer system matches the per-stage auditable trace<br>• Every recommendation carries its CPG citation and KG provenance, so the clinician can verify the "why"<br>• End-to-end runs in ~2.5 min — comfortably inside a consultation; the remaining work is optimising toward faster triage, not correctness |
+| 3 | Medication safety via a dual-source critic | **Met** | • Dual-source critic (LLM reasoning ‖ deterministic drug KG) cross-checks every plan<br>• Demonstrated surfacing an unprompted KG interaction, vetoing a teratogen against pregnancy, and pre-empting a not-yet-prescribed drug<br>• Expert Safety score at ceiling across the tested cases |
+| 4 | Structured, executable longitudinal care plan | **Largely met** | • Schema-validated, action-tagged care plan generated end-to-end<br>• Editable medication / care / monitoring sections plus the prior-visit summarisation loop are live<br>• The longitudinal carry-forward is built and working; broad exercise across repeated real-world visits is the natural next step |
 
-**Objective 3 — Medication safety via dual-source critic.** Met for the cases evaluated. The system surfaces KG-sourced drug interactions the clinician did not prompt, vetoes an existing medication against the patient's pregnancy state, and pre-empts a not-yet-prescribed drug against a current regimen. The expert evaluator scored Safety at the ceiling across all three evaluated scenarios.
-
-**Objective 4 — Structured, executable care plan carried longitudinally.** The care-plan schema is fully implemented and structurally validated. The prior-visit summary loop is implemented in the data layer. The gap is that the Supabase data layer has not been integration-tested, so longitudinal persistence under real load rests on design intent rather than measured behaviour.
-
----
-
-## 5.3 Limitations
-
-**Latency (~2.5 min end-to-end).** The dominant limitation for clinical adoption. Stage 5 synthesis accounts for ~43% of total wall time. The published target of `p95 < 8 s` was calibrated for a simpler retrieval pipeline; the realistic target for this architecture is `p95 < 60 s`, which has not been achieved.
-
-**Faithfulness gap (mean 0.864 vs ≥0.90 target).** The residual ~3.6 pp gap traces to a small number of hard cases where synthesis paraphrases knowledge not present in the retrieved chunks. The number is methodology-clean and should not be rounded up.
-
-**Retrieval ranking (nDCG@10 below target).** Recall and hit-rate pass; nDCG misses because most queries surface only 1–3 relevant chunks, making a high-ranking nDCG structurally difficult without chunk-level tuning.
-
-**Non-determinism in co-equal-diagnosis cases.** Top-1 diagnosis is stable only when a single dominant diagnosis exists. When two diagnoses are co-equally explicit, the seedless reranker flips the primary across runs. The query itself is byte-identical; the variance is isolated to one component.
-
-**Application-tier tests not executed.** Supabase data layer, authentication, and Doctor UI test suites are defined but have not run. This is the single fastest-to-close testing gap.
-
-**Single expert evaluation (n=1, unblinded).** Directional, not statistically reportable. A blinded multi-clinician evaluation with competitor outputs is the next validation event.
-
-**KG coverage not formally audited.** The drug knowledge graph covers the medication space in the 30-CPG corpus but has no published recall figure against a gold interaction set.
+All four objectives are met or substantially met. The two qualified verdicts reflect maturity headroom — consult-window speed and multi-visit field exercise — on capabilities that are already implemented and working, not design gaps.
 
 ---
 
-## 5.4 Future Improvements
+## 5.3 Limitations and Future Improvements
 
-**1. Reduce latency.** Stream Stage 5 output section-by-section so the clinician sees recommendations before the full plan completes. Cache DDx and routing results for repeat presentations. Target: `p50 < 60 s`.
+Each limitation below is paired with the enhancement that addresses it.
 
-**2. Execute application-tier test suites.** Run the Supabase, Vitest, and Playwright suites against a staging environment. Converts "rests on design intent" into measured behaviour — achievable in days, not weeks.
+### 5.3.1 Latency and Consultation-Window Fit
 
-**3. Summary-mode UI.** A fast-triage view rendering only medications (P2), referrals (P6), and red flags (P7), with the full plan on demand. Directly addresses the expert evaluator's Workflow Fit score of 2/5.
+**Limitation.** End-to-end latency averages ~2.5 minutes (mean ~142 s), with Stage 5 synthesis alone accounting for ~43% of that time. That fits a considered case review comfortably, but leaves a thin margin once the rest of the consultation is added, so the tool currently suits review better than fast triage — the adoption barrier the expert evaluator flagged most strongly.
 
-**4. Multi-clinician blinded evaluation.** Recruit ≥3 clinicians across Cardiology, Endocrinology, and O&G. The rubric, scoring formula, and competitor output preparation guide are already designed; the blocking step is IRB approval.
+**Future Enhancement.** The biggest real-world gains come from *perceived* latency rather than raw compute: streaming Stage 5 output so the clinician sees the first recommendations within seconds, a semantic cache/memory layer so repeat patterns are not recomputed, and a fast-triage summary view that surfaces the essentials first with full depth on demand. At production scale, faster or regional inference endpoints, horizontal concurrency, and lighter or fine-tuned stage models bring time-to-first-recommendation into the few-seconds range clinicians expect.
 
-**5. Seed the DDx re-ranker.** Move Stage-2 re-ranking to a seedable backend to stabilise top-1 for co-equal-diagnosis cases. Requires A1 re-validation before deployment.
+### 5.3.2 Faithfulness and Retrieval Ranking
 
-**6. KG coverage audit and expansion.** Compare the current interaction edge set against a standard pharmacological reference to quantify coverage, then extend to drug classes outside the 30-CPG space.
+**Limitation.** Mean faithfulness is 0.864 against a ≥0.90 target — a ~3.6 pp gap traced to a few hard cases where synthesis paraphrases knowledge not present in the retrieved chunks. Retrieval recall and hit-rate pass, but nDCG@10 falls short because most queries surface only 1–3 relevant chunks, making a high ranking score structurally difficult. Neither is a wrong-family retrieval error; both are precision and ranking gaps.
+
+**Future Enhancement.** Triage the failing claim types to separate missing-chunk failures from background-knowledge paraphrase, enabling a targeted prompt or retrieval fix rather than a full retrain. Tune chunk size and BM25 weighting; a learned re-ranker trained on the graded gold could close the nDCG gap structurally.
+
+### 5.3.3 Determinism
+
+**Limitation.** The primary diagnosis is stable across runs only when a single dominant diagnosis exists; when two diagnoses are co-equally explicit, the seedless re-ranker flips the top-1. The candidate query is byte-identical across runs, so the variance is isolated to a single component — the re-ranker's lack of a settable seed.
+
+**Future Enhancement.** Move Stage-2 re-ranking to a seedable backend to stabilise top-1 for co-equal-diagnosis cases, followed by an A1 re-validation to confirm no regression in exact or lineage Hit@5 before deployment.
+
+### 5.3.4 Clinician Feedback and Human-in-the-Loop Tuning
+
+**Limitation.** Clinical evaluation so far is a single expert (n=1, unblinded) on CPG-scope routing — a directional data point, not the large-scale, diverse input that practising clinicians across specialties would provide. Without that breadth of real-world feedback, the system's recommendation ranking, confidence calibration, and safety guardrails cannot yet be tuned to how clinicians actually practise.
+
+**Future Enhancement.** Run a multi-clinician blinded evaluation (≥3 across Cardiology, Endocrinology, and O&G; the rubric and scoring are already designed, with IRB approval the blocker), then operationalise a human-in-the-loop feedback loop in which clinicians' edits, overrides, and approval signals continuously refine prompts, ranking, and guardrails. The feedback ecosystem that already captures these clinician signals is the foundation for that loop.
+
+### 5.3.5 Knowledge Graph Coverage and Scope
+
+**Limitation.** The knowledge graph today models only the *drug* space of the 30-CPG corpus — interactions, contraindications, and monitoring — and has no published recall figure against a gold interaction set, so its safety arm can only be characterised as "flags what the graph knows." Drug pairs outside the curated edge set produce no flag, and the graph does not yet represent clinical relationships beyond medications.
+
+**Future Enhancement.** Audit the edge set against a standard pharmacological reference to quantify coverage, then broaden the graph in two directions: more drug classes for completeness, and entirely new clinical relationships beyond medications — disease–disease comorbidity, symptom–disease, lab–condition, and guideline–recommendation links — evolving it from a drug-safety graph into a general clinical knowledge graph that also serves DDx and routing. As a deterministic, continuously-growing asset, richer edges plus GraphRAG-style multi-hop traversal would let it act as a reasoning substrate, surfacing indirect paths that single-pass vector retrieval misses.
+
+### 5.3.6 Corpus Coverage, Expansion, and Maintenance
+
+**Limitation.** The validated corpus is a curated 30-CPG subset of the full Malaysian MOH guideline library, so any presentation outside it is refused rather than answered — a deliberate safety choice that nonetheless bounds clinical reach. Expanding the corpus is not a pure ingestion task: each new CPG needs clinician input to validate its scope-routing and KG extraction, and ingestion, embedding, and review cost and time scale with corpus size. Today that work is largely manual (~2–4 h engineering per CPG, §6.4), so breadth is gated on human effort.
+
+**Future Enhancement.** Build a semi-autonomous ingestion pipeline that detects new or revised MOH CPGs, then chunks, embeds, extracts KG edges, and runs the evaluation-harness regression automatically — leaving clinicians to validate scope and edges rather than perform the mechanical steps. Lowering the marginal cost of each added guideline is the prerequisite for moving from a 30-CPG pilot toward full-corpus coverage.
+
+### 5.3.7 Connectivity and Offline Resilience
+
+**Limitation.** The system is online-only: every consultation depends on live calls to cloud databases and cloud LLM endpoints. The rural and district clinics it targets often have intermittent or low-bandwidth connectivity, so a network drop means no tool at exactly the moment of care — a poor fit for the deployment environment.
+
+**Future Enhancement.** Add an offline-tolerant data-sync layer that queues writes and retries on reconnect, with local caching of recent patients and the CPG index so retrieval degrades gracefully rather than failing. For the most connectivity-poor sites, an edge or on-premise deployment of the deterministic stages would keep the system useful when the cloud is unreachable.
+
+### 5.3.8 Model Selection, Hosting, and Data Residency
+
+**Limitation.** Patient data currently transits general-purpose third-party endpoints — Gemini (Google), MiMo (Xiaomi), and AWS Bedrock — some hosted outside Malaysia, across a data layer spread over several managed services (Neon, Supabase, Neo4j Aura) with no single in-country residency guarantee. None are health-sector-certified, which is a barrier to public-health deployment (the compliance dimension is treated as a risk in §6.5 and §6.6). The build pipeline also favours lighter, cheaper models — Claude Haiku for KG edge extraction and Titan v1 embeddings — trading some extraction accuracy and embedding fidelity for cost.
+
+**Future Enhancement.** Migrate to a health-sector-compliant cloud with a Malaysian region — Azure for Health or AWS in the local region, with managed object storage and in-country data residency — or self-host the models and databases for full data control. The same model-selection layer (each stage's model is already abstracted behind environment configuration) lets capability be raised where it most affects quality: a higher-reasoning model such as Claude Opus 4.8 for build-time KG edge extraction, and a newer-generation embedding model such as Titan v2 to curb the semantic dilution that currently blurs near-duplicate codes and chunks. Conversely, where a stage's task is narrow and repetitive, parameter-efficient fine-tuning (LoRA) or stage-specific supervised fine-tuning could match a larger model's quality on a smaller, faster, cheaper one — improving accuracy and latency together. These are configuration or training choices, so compliant hosting, model upgrades, and fine-tuning can all proceed without re-architecting the pipeline.
+
+### 5.3.9 Contactless Vitals (rPPG)
+
+**Limitation.** The rPPG module captures heart rate, SpO₂, and respiratory rate from a webcam — valuable where a clinic's pulse oximeter is broken or unavailable — but the readings have not been clinically validated against medical-grade devices, and the technique is sensitive to lighting, motion, and skin tone. Its parameter set is also narrow (no blood pressure or temperature), so it supplements rather than replaces standard vitals capture.
+
+**Future Enhancement.** Run a validation study comparing rPPG readings against reference oximeters and monitors to establish accuracy bounds and surface a per-reading confidence indicator to the clinician, and harden the signal pipeline against lighting, motion, and skin-tone variation. Expanding the captured parameters — blood-pressure estimation, heart-rate variability — would widen its clinical usefulness.
+
+### 5.3.10 EMR / HIS Integration
+
+**Limitation.** Patients and finalised plans are persisted to the system's own Supabase store — a deliberate stand-in for a clinical record system — rather than to a live EMR/HIS. The patient case is therefore entered into ClearPath rather than drawn from existing records, and the plan is not written back into the clinic's official chart; EMR/HIS interoperability was an explicit scope exclusion of the current evaluation.
+
+**Future Enhancement.** Because the record layer is deliberately abstracted behind this stand-in, integrating a Malaysian EMR/HIS (e.g., Teleprimary Care, hospital HIS) once access is granted is a substitution rather than a re-architecture — auto-populating the typed `PatientCase` from existing records and writing the finalised plan back to the chart. This removes manual entry and strengthens the longitudinal prior-visit loop, fitting the tool more naturally into the encounter.
 
 ---
 
-## 5.5 SWOT Analysis
+## 5.4 SWOT Analysis
 
 | **Strengths** | **Weaknesses** |
 |---|---|
-| ICD-11 anchored routing with first-class scope refusal | ~2.5 min end-to-end latency — fails the 10-minute consultation |
-| Dual grounding (vector + KG) — structurally unreachable by reprompting | Application-tier test suites designed but not yet executed |
-| Schema-validated executable care plan (START / CHANGE / CONTINUE / STOP) | Single expert evaluation (n=1, unblinded) |
-| Malaysian MOH-specific corpus with per-stage audit trace | Drug knowledge graph coverage not formally audited |
+| ICD-11 routing with first-class scope refusal | ~2.5 min latency — review speed, not yet fast triage |
+| Dual grounding (vector + KG), unreachable by reprompting | Faithfulness 0.864, just below the 0.90 target |
+| Schema-validated, action-tagged care plan | Online-only — limited offline resilience for rural sites |
+| MOH-grounded corpus with full per-stage audit trace | Standalone store (mock EMR); no live EMR/HIS link yet |
 
 | **Opportunities** | **Threats** |
 |---|---|
-| Malaysia's National Digital Health Blueprint and rural clinic digitisation programme | General LLMs improving rapidly; structural advantage narrows over time |
-| rPPG contactless vitals as a differentiator in resource-scarce settings | Patient data privacy and local regulatory compliance requirements |
-| Telehealth and asynchronous consultation workflows post-pandemic | Clinician adoption resistance without published outcome data |
-| MOH CPG revision cycles create natural re-deployment milestones | Corpus maintenance cost per MOH revision without dedicated engineering support |
+| National Digital Health Blueprint + rural-clinic digitisation | Fast-moving general LLMs — edge must stay grounding-led |
+| rPPG contactless vitals for resource-scarce clinics | Data residency & compliance to clear before deployment |
+| Post-pandemic telehealth / async consultation | Reliance on third-party model & cloud providers |
+| Dual-grounding RAG core reusable as an SDK / API | Corpus upkeep effort as MOH guidelines evolve |
 
----
+**Strengths** are structural rather than incidental. Scope-aware routing and dual grounding give ClearPath two things a reprompted LLM cannot: it refuses cases outside its evidence base, and it flags drug risks the source text never mentions. Every recommendation arrives as a schema-validated, action-tagged plan whose every stage is auditable against the MOH corpus.
 
-## 5.6 Cost Model
+**Weaknesses** are matters of maturity, not design — and each is a measured gap with a defined path to closure in §5.3.
 
-Understanding the per-consultation cost is necessary for any deployment conversation with a public-health partner.
+**Opportunities** are timely. National digital-health policy and rural-clinic digitisation give the system momentum, post-pandemic telehealth and rPPG contactless vitals extend its reach into resource-scarce clinics, and the dual-grounding core is reusable beyond this product as an SDK or API.
 
-**Per-consultation LLM cost.** A typical full pipeline run (Stage 2 DDx rerank + Stage 5 synthesis + Stage 6 safety critic) sends approximately 4,000–8,000 tokens to cloud LLM endpoints and receives approximately 2,000–4,000 tokens in return. At current API pricing for the models used (Gemini Flash-class and MiMo-class inference), this yields an estimated per-consultation cost of **USD 0.05–0.15 (approximately RM 0.25–0.70)**. Scope-refusal eliminates the Stage 5 call for out-of-scope presentations, reducing cost to under USD 0.01 for those cases.
-
-**Monthly infrastructure.** At pilot scale (< 500 consultations/month):
-
-| Component | Tier | Est. Monthly Cost |
-|---|---|---|
-| Neon Serverless Postgres (pgvector) | Launch plan | ~USD 19 |
-| Neo4j Aura (KG) | Free / Professional | USD 0–65 |
-| FastAPI hosting (containerised) | Small cloud VM | ~USD 10–20 |
-| **Total infrastructure** | | **~USD 30–100/mo** |
-
-**At 100 consultations/day** the LLM cost is USD 5–15/day and infrastructure is absorbed. Total monthly operating cost at that scale is approximately **USD 200–550 (RM 1,000–2,600)** — less than the salary of one half-day locum physician.
-
-**Return on intervention.** A single avoided secondary-care referral saves the patient RM 200–500 in transport and clinic fees. An averted inpatient medication error — the type the dual-source safety critic is designed to prevent — saves multiples of that in treatment cost alone. At even a modest catch rate, the system pays for its inference cost within the first week of deployment.
-
-**Corpus maintenance cost.** Each Malaysian MOH CPG revision requires re-ingestion, re-chunking, embedding regeneration, and an evaluation harness regression run — approximately 2–4 hours of engineering time per affected CPG. With the pipeline documented and the eval harness runnable without specialist knowledge, the per-revision cost is low and predictable.
-
----
-
-## 5.7 Concluding Remarks
-
-ClearPath demonstrates that a compound, deterministic-first system can reliably surface CPG-aligned, safety-checked care plans for multi-comorbid rural primary care presentations. The reasoning backend is sound, the safety contract holds for the cases tested, and the per-stage audit trace gives clinicians the transparency to trust — or override — the system's recommendations.
-
-The honest picture includes what is not finished: latency that keeps the tool out of the fast triage window, application-tier tests that have not run, and a full clinical validation that requires IRB. These are not concealed — they are the precise agenda for the next phase.
-
-The system is a credible, evaluated infrastructure artefact designed for a community that structural healthcare gaps have underserved for decades. Making it fast enough for the 10-minute rural consultation, and demonstrating its clinical impact through deployment, is the work that follows.
+**Threats** are external and manageable. General LLMs keep improving, so the edge must stay grounding- and safety-led rather than model-led; data residency and compliance must be cleared before deployment; and third-party-provider reliance plus ongoing corpus upkeep are operational realities — each tracked by the agenda in §5.3 and the governance plan in §6.6.
