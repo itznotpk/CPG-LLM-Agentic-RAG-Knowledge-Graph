@@ -357,7 +357,7 @@ rows and the comparison is fair.
 | **Vector** | 0.769 | **0.874** | **0.971** | 0.251 | **0.682** | **0.669** | **0.953** |
 | Hybrid (RRF, `rrf_k = 60`) | 0.773 | 0.876 | 0.971 | 0.251 | 0.659 | 0.656 | 0.953 |
 
-Two findings are reported honestly. First, **Recall@10 (0.874) and Hit@10 (0.953) pass their
+Two findings stand out. First, **Recall@10 (0.874) and Hit@10 (0.953) pass their
 targets** (≥ 0.85 and ≥ 0.95): almost every query surfaces a relevant passage, and most of the
 relevant set lands in the top 10. Second, **MRR (0.682) and nDCG@10 (0.669) fall just below the
 0.75 target, and Precision@5 (0.251) is far below 0.5** — but the precision figure is structurally
@@ -496,10 +496,9 @@ given that both synthesis and judging are non-deterministic.
 ### 4.3.4 Safety and Robustness Testing
 
 This is the safety arm of the evaluation, and it is where the iterate-and-fix narrative is
-strongest. The gold-set layers above measure average-case accuracy; this section probes whether the
-system behaves safely when inputs are adversarial, when a treatment plan is dangerous, when a stage
-silently fails, or when a dependency is down. In each suite a pilot run exposed concrete defects,
-each defect was fixed at the category level, and the suite was re-run.
+strongest: the gold-set layers above measure average-case accuracy, while this section probes whether
+the system behaves safely when inputs are adversarial, when a treatment plan is dangerous, when a
+stage silently fails, or when a dependency is down.
 
 #### 4.3.4.1 Safety-Critic Stress Tests (SAF)
 
@@ -647,9 +646,8 @@ multi-condition obstetric booking visit).
 | 9 — AF + Post-PCI + T2DM | Mode B (bypass) | ✅ `BA41.1` 10/10 | 0.483 | 0.582 | 0.30 | — | 147.1 ± 58.1 |
 | 10 — HTN-preg + GDM | Task-framed | ❌ `JA63` 7/10 | 0.419 | 0.519 | 0.10 | — | 123.4 ± 33.5 |
 
-The findings are reported with deliberate honesty, because an earlier draft of this result claimed
-uniform Jaccard = 1.000 across all three cases and is now known to have been over-optimistic; the
-numbers above are the corrected 2026-06-05 capture.
+The findings correct an earlier draft of this result that claimed uniform Jaccard = 1.000 across all
+three cases — an over-optimistic number; those above are the corrected 2026-06-05 capture.
 
 1. **Determinism is a top-1 property where a dominant diagnosis exists, not a whole-plan property.**
    The primary diagnosis is rock-stable (10/10) for cases 8 (HFrEF) and 9 (NSTEMI), confirming that
@@ -1041,9 +1039,10 @@ This result also corrected an unrealistic published target. The validation plan 
 `p95 < 8 s` figure calibrated for a retrieval-only RAG system; for a full pipeline carrying two heavy
 LLM calls (Stage 5 synthesis and Stage 6 critic) the realistic in-spec total is ~60–180 s in the
 current synchronous implementation. The target is recommended for revision to `p95 < 60 s
-end-to-end` with `Stage 5 < 35 s` as the sub-target, and Stage 5 is identified as the single best
-optimisation target. The measured 2.36 min comfortably clears the ten-minute consultation budget
-that framed the whole architecture.
+end-to-end` with `Stage 5 < 35 s` as the sub-target. The measured 2.36 min sits inside the
+ten-minute consultation budget that framed the architecture, but it is the slowest single step in
+that window — which is why the clinician experienced it as a wait (§4.5.3) and why Stage 5 is named
+the single best optimisation target.
 
 > **[FIGURE 4.19: Per-stage latency breakdown.]**
 > *A single horizontal stacked bar (or waterfall) of one end-to-end run, segmented by stage and
