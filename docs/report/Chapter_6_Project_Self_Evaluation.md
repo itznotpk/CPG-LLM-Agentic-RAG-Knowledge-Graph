@@ -102,7 +102,7 @@ A clinical decision-support system carries risks a consumer application does not
 | R7 | Technical | Non-deterministic top-1 in co-equal-diagnosis cases | Medium | Low | Variance localised to the seedless re-ranker and surfaced, not hidden; seedable-backend roadmap |
 | R8 | Data / Compliance | Patient PII exposure under PDPA 2010 | Medium | High | Data minimisation; client state resets on refresh (no patient data persists); audit trail; managed-DB encryption — production needs a formal PDPA review |
 | R9 | Regulatory | Software-medical-device classification / MOH governance | Medium | High | Non-autonomous positioning + clinician sign-off + scope refusal — formal SaMD/MDA classification is a deployment precondition |
-| R10 | Adoption | Latency too slow for the 10-minute consultation | High | Medium | Streaming Stage 5 and summary-mode UI on the roadmap (§5.3.1) |
+| R10 | Adoption | Latency leaves little margin in the ~10-minute consultation, slowing fast-triage uptake | High | Medium | Streaming Stage 5 and summary-mode UI on the roadmap (§5.3.1) |
 | R11 | Sustainability | CPG corpus goes stale on MOH revision | Medium | Medium | Low-friction re-ingestion + regression harness (~2–4 h engineering per revised document) |
 
 ### 6.5.2 System Design Response to Risks

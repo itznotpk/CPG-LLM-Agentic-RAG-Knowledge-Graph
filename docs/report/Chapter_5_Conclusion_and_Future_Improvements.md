@@ -73,7 +73,13 @@ Each limitation below is paired with the enhancement that addresses it.
 
 **Limitation.** Patient data currently transits general-purpose third-party endpoints — Gemini (Google), MiMo (Xiaomi), and AWS Bedrock — some hosted outside Malaysia, across a data layer spread over several managed services (Neon, Supabase, Neo4j Aura) with no single in-country residency guarantee. None are health-sector-certified, which is a barrier to public-health deployment (the compliance dimension is treated as a risk in §6.5 and §6.6). The build pipeline also favours lighter, cheaper models — Claude Haiku for KG edge extraction and Titan v1 embeddings — trading some extraction accuracy and embedding fidelity for cost.
 
-**Future Enhancement.** Migrate to a health-sector-compliant cloud with a Malaysian region — Azure for Health or AWS in the local region, with managed object storage and in-country data residency — or self-host the models and databases for full data control. The same model-selection layer (each stage's model is already abstracted behind environment configuration) lets capability be raised where it most affects quality: a higher-reasoning model such as Claude Opus 4.8 for build-time KG edge extraction, and a newer-generation embedding model such as Titan v2 to curb the semantic dilution that currently blurs near-duplicate codes and chunks. Conversely, where a stage's task is narrow and repetitive, parameter-efficient fine-tuning (LoRA) or stage-specific supervised fine-tuning could match a larger model's quality on a smaller, faster, cheaper one — improving accuracy and latency together. These are configuration or training choices, so compliant hosting, model upgrades, and fine-tuning can all proceed without re-architecting the pipeline.
+**Future Enhancement.** Three independent moves, all made low-risk by the fact that each stage's model and each data store already sit behind environment configuration:
+
+- **Compliant hosting and data residency.** Migrate to a health-sector-compliant cloud with a Malaysian region — Azure for Health or AWS in-region, with managed object storage and in-country data residency — or self-host the models and databases for full data control.
+- **Targeted model upgrades.** Raise capability only where it most affects quality: a higher-reasoning model such as Claude Opus 4.8 for build-time KG edge extraction, and a newer-generation embedding model such as Titan v2 to curb the semantic dilution that currently blurs near-duplicate codes and chunks.
+- **Stage-specific fine-tuning.** Where a stage's task is narrow and repetitive, parameter-efficient fine-tuning (LoRA) or supervised fine-tuning could match a larger model's quality on a smaller, faster, cheaper one — improving accuracy and latency together.
+
+Because each is a configuration or training choice rather than a structural one, all three can proceed without re-architecting the pipeline.
 
 ### 5.3.9 Contactless Vitals (rPPG)
 
