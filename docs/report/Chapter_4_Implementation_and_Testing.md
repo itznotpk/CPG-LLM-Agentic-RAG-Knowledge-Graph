@@ -5,9 +5,11 @@
 Chapter 3 specified what was built: a seven-stage hybrid deterministic–agentic pipeline,
 the two grounding stores it reasons over, and the delivery surface that streams its output
 to the clinician. This chapter reports what happened when that design was assembled into a
-running system and put under test. It is the empirical counterpart to the design chapter, and
-it executes the evaluation protocol whose *design* was set out in §3.17: the protocol defined
-what would be measured and how, while this chapter reports the captured results.
+running system and put under test. It is the empirical counterpart to the design chapter.
+Chapter 3 fixed the architecture but did not prescribe an evaluation protocol; this chapter
+therefore defines its own, where it is used. For each concern the protocol names three things — the
+metric, the harness that captures it, and the pass criterion — consolidated in the validation matrix
+of Table 4.1 and executed across the three parts below.
 
 The testing followed one governing rule, which is the same rule that governed the
 architecture — **report the system honestly rather than favourably**. Every measured number below
@@ -1029,7 +1031,7 @@ rubric (eight aspects) and a **Workflow / UI-UX** rubric (six aspects). The thre
 
 This is a **single-expert formative evaluation (n = 1)**, and it is reported as such — it is a
 qualitative design signal, not a statistical validation claim. It is distinct from, and does not
-substitute for, the multi-clinician SUS/TAM track described in §3.17, which remains blocked on IRB
+substitute for, the multi-clinician SUS/TAM track, which remains blocked on IRB
 recruitment of three or more clinicians.
 
 **Clinical Quality rubric — aggregate across all three cases (max 15 per aspect).**
@@ -1089,7 +1091,7 @@ The honest overall verdict from this expert review is therefore twofold: the sys
 **UI/UX simplification pass for in-consult deployment** — the latency result of §4.13.1 (Stage 5 as
 the dominant cost) and the information-density feedback are the same finding seen from two angles.
 
-The remaining comparative work — the five-system panel of §3.17 (Qmed AskCPG, Gemini NotebookLM, a
+The remaining comparative work — the five-system comparative panel (Qmed AskCPG, Gemini NotebookLM, a
 general GPT-4/Gemini floor) and the multi-clinician SUS/TAM track — is **defined but not yet
 executed**, and no unmeasured accuracy, chain-of-thought-depth, or confidence target is presented as
 a finding anywhere in this chapter.
@@ -1153,7 +1155,7 @@ The threads that run from Chapter 3's design into these results are direct. The 
 split made routing, scope refusal, and the re-ranker ablation reproducible and auditable. The
 dual-grounding architecture made the dual-source safety result of §4.12 possible. The fail-loud
 contract is exactly what the SIL/INF probes confirmed. And the prompt-engineering and determinism
-controls of §3.18 are what hold the Stage-2 query byte-identical across the reproducibility runs.
+controls of §3.17 are what hold the Stage-2 query byte-identical across the reproducibility runs.
 The single-expert review of §4.14 independently corroborates the safety and transparency results
 while sharpening the chapter's one unambiguous weakness — the in-consult workflow fit. The remaining
 gaps — exact-leaf differential scoring, retrieval ranking, faithfulness, the in-consult UI/UX
