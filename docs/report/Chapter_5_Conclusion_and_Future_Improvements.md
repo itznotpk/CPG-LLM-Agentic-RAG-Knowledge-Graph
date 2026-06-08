@@ -25,73 +25,20 @@ All four objectives are met or substantially met. The two qualified verdicts ref
 
 ## 5.3 Limitations and Future Improvements
 
-Each limitation below is paired with the enhancement that addresses it.
+*Table 5.3: Limitations paired with their future enhancement pathway.*
 
-### 5.3.1 Latency and Consultation-Window Fit
-
-**Limitation.** End-to-end latency averages ~2.5 minutes (mean ~142 s), with Stage 5 synthesis alone accounting for ~43% of that time. That fits a considered case review comfortably, but leaves a thin margin once the rest of the consultation is added, so the tool currently suits review better than fast triage — the adoption barrier the expert evaluator flagged most strongly.
-
-**Future Enhancement.** The biggest real-world gains come from *perceived* latency rather than raw compute: streaming Stage 5 output so the clinician sees the first recommendations within seconds, a semantic cache/memory layer so repeat patterns are not recomputed, and a fast-triage summary view that surfaces the essentials first with full depth on demand. At production scale, faster or regional inference endpoints, horizontal concurrency, and lighter or fine-tuned stage models bring time-to-first-recommendation into the few-seconds range clinicians expect.
-
-### 5.3.2 Faithfulness and Retrieval Ranking
-
-**Limitation.** Mean faithfulness is 0.864 against a ≥0.90 target — a ~3.6 pp gap traced to a few hard cases where synthesis paraphrases knowledge not present in the retrieved chunks. Retrieval recall and hit-rate pass, but nDCG@10 falls short because most queries surface only 1–3 relevant chunks, making a high ranking score structurally difficult. Neither is a wrong-family retrieval error; both are precision and ranking gaps.
-
-**Future Enhancement.** Triage the failing claim types to separate missing-chunk failures from background-knowledge paraphrase, enabling a targeted prompt or retrieval fix rather than a full retrain. Tune chunk size and BM25 weighting; a learned re-ranker trained on the graded gold could close the nDCG gap structurally.
-
-### 5.3.3 Determinism
-
-**Limitation.** The primary diagnosis is stable across runs only when a single dominant diagnosis exists; when two diagnoses are co-equally explicit, the seedless re-ranker flips the top-1. The candidate query is byte-identical across runs, so the variance is isolated to a single component — the re-ranker's lack of a settable seed.
-
-**Future Enhancement.** Move Stage-2 re-ranking to a seedable backend to stabilise top-1 for co-equal-diagnosis cases, followed by an A1 re-validation to confirm no regression in exact or lineage Hit@5 before deployment.
-
-### 5.3.4 Clinician Feedback and Human-in-the-Loop Tuning
-
-**Limitation.** Clinical evaluation so far is a single expert (n=1, unblinded) on CPG-scope routing — a directional data point, not the large-scale, diverse input that practising clinicians across specialties would provide. Without that breadth of real-world feedback, the system's recommendation ranking, confidence calibration, and safety guardrails cannot yet be tuned to how clinicians actually practise.
-
-**Future Enhancement.** Run a multi-clinician blinded evaluation (≥3 across Cardiology, Endocrinology, and O&G; the rubric and scoring are already designed, with IRB approval the blocker), then operationalise a human-in-the-loop feedback loop in which clinicians' edits, overrides, and approval signals continuously refine prompts, ranking, and guardrails. The feedback ecosystem that already captures these clinician signals is the foundation for that loop.
-
-### 5.3.5 Knowledge Graph Coverage and Scope
-
-**Limitation.** The knowledge graph today models only the *drug* space of the 30-CPG corpus — interactions, contraindications, and monitoring — and has no published recall figure against a gold interaction set, so its safety arm can only be characterised as "flags what the graph knows." Drug pairs outside the curated edge set produce no flag, and the graph does not yet represent clinical relationships beyond medications.
-
-**Future Enhancement.** Audit the edge set against a standard pharmacological reference to quantify coverage, then broaden the graph in two directions: more drug classes for completeness, and entirely new clinical relationships beyond medications — disease–disease comorbidity, symptom–disease, lab–condition, and guideline–recommendation links — evolving it from a drug-safety graph into a general clinical knowledge graph that also serves DDx and routing. As a deterministic, continuously-growing asset, richer edges plus GraphRAG-style multi-hop traversal would let it act as a reasoning substrate, surfacing indirect paths that single-pass vector retrieval misses.
-
-### 5.3.6 Corpus Coverage, Expansion, and Maintenance
-
-**Limitation.** The validated corpus is a curated 30-CPG subset of the full Malaysian MOH guideline library, so any presentation outside it is refused rather than answered — a deliberate safety choice that nonetheless bounds clinical reach. Expanding the corpus is not a pure ingestion task: each new CPG needs clinician input to validate its scope-routing and KG extraction, and ingestion, embedding, and review cost and time scale with corpus size. Today that work is largely manual (~2–4 h engineering per CPG, §6.4), so breadth is gated on human effort.
-
-**Future Enhancement.** Build a semi-autonomous ingestion pipeline that detects new or revised MOH CPGs, then chunks, embeds, extracts KG edges, and runs the evaluation-harness regression automatically — leaving clinicians to validate scope and edges rather than perform the mechanical steps. Lowering the marginal cost of each added guideline is the prerequisite for moving from a 30-CPG pilot toward full-corpus coverage.
-
-### 5.3.7 Connectivity and Offline Resilience
-
-**Limitation.** The system is online-only: every consultation depends on live calls to cloud databases and cloud LLM endpoints. The rural and district clinics it targets often have intermittent or low-bandwidth connectivity, so a network drop means no tool at exactly the moment of care — a poor fit for the deployment environment.
-
-**Future Enhancement.** Add an offline-tolerant data-sync layer that queues writes and retries on reconnect, with local caching of recent patients and the CPG index so retrieval degrades gracefully rather than failing. For the most connectivity-poor sites, an edge or on-premise deployment of the deterministic stages would keep the system useful when the cloud is unreachable.
-
-### 5.3.8 Model Selection, Hosting, and Data Residency
-
-**Limitation.** Patient data currently transits general-purpose third-party endpoints — Gemini (Google), MiMo (Xiaomi), and AWS Bedrock — some hosted outside Malaysia, across a data layer spread over several managed services (Neon, Supabase, Neo4j Aura) with no single in-country residency guarantee. None are health-sector-certified, which is a barrier to public-health deployment (the compliance dimension is treated as a risk in §6.5 and §6.6). The build pipeline also favours lighter, cheaper models — Claude Haiku for KG edge extraction and Titan v1 embeddings — trading some extraction accuracy and embedding fidelity for cost.
-
-**Future Enhancement.** Three independent moves, all made low-risk by the fact that each stage's model and each data store already sit behind environment configuration:
-
-- **Compliant hosting and data residency.** Migrate to a health-sector-compliant cloud with a Malaysian region — Azure for Health or AWS in-region, with managed object storage and in-country data residency — or self-host the models and databases for full data control.
-- **Targeted model upgrades.** Raise capability only where it most affects quality: a higher-reasoning model such as Claude Opus 4.8 for build-time KG edge extraction, and a newer-generation embedding model such as Titan v2 to curb the semantic dilution that currently blurs near-duplicate codes and chunks.
-- **Stage-specific fine-tuning.** Where a stage's task is narrow and repetitive, parameter-efficient fine-tuning (LoRA) or supervised fine-tuning could match a larger model's quality on a smaller, faster, cheaper one — improving accuracy and latency together.
-
-Because each is a configuration or training choice rather than a structural one, all three can proceed without re-architecting the pipeline.
-
-### 5.3.9 Contactless Vitals (rPPG)
-
-**Limitation.** The rPPG module captures heart rate, SpO₂, and respiratory rate from a webcam — valuable where a clinic's pulse oximeter is broken or unavailable — but the readings have not been clinically validated against medical-grade devices, and the technique is sensitive to lighting, motion, and skin tone. Its parameter set is also narrow (no blood pressure or temperature), so it supplements rather than replaces standard vitals capture.
-
-**Future Enhancement.** Run a validation study comparing rPPG readings against reference oximeters and monitors to establish accuracy bounds and surface a per-reading confidence indicator to the clinician, and harden the signal pipeline against lighting, motion, and skin-tone variation. Expanding the captured parameters — blood-pressure estimation, heart-rate variability — would widen its clinical usefulness.
-
-### 5.3.10 EMR / HIS Integration
-
-**Limitation.** Patients and finalised plans are persisted to the system's own Supabase store — a deliberate stand-in for a clinical record system — rather than to a live EMR/HIS. The patient case is therefore entered into ClearPath rather than drawn from existing records, and the plan is not written back into the clinic's official chart; EMR/HIS interoperability was an explicit scope exclusion of the current evaluation.
-
-**Future Enhancement.** Because the record layer is deliberately abstracted behind this stand-in, integrating a Malaysian EMR/HIS (e.g., Teleprimary Care, hospital HIS) once access is granted is a substitution rather than a re-architecture — auto-populating the typed `PatientCase` from existing records and writing the finalised plan back to the chart. This removes manual entry and strengthens the longitudinal prior-visit loop, fitting the tool more naturally into the encounter.
+| # | Area | Current Limitation | Future Enhancement |
+|---|---|---|---|
+| 1 | **Latency** | ~2.5 min end-to-end; Stage 5 synthesis = ~43% of total time. Suits case review but not fast triage — the barrier flagged most strongly by the expert evaluator. | Stream Stage 5 output section-by-section; semantic cache for repeat patterns; fast-triage summary view (medications, referrals, red flags only); lighter/fine-tuned stage models at production scale. |
+| 2 | **Faithfulness & Retrieval Ranking** | Mean faithfulness 0.864 vs ≥0.90 target; nDCG@10 below target because most queries surface only 1–3 relevant chunks, making high ranking scores structurally difficult. | Triage failing claim types (missing-chunk vs paraphrase); tune chunk size and BM25 weighting; train a learned re-ranker on the graded gold set. |
+| 3 | **Determinism** | Top-1 diagnosis stable only with a single dominant diagnosis; seedless re-ranker flips top-1 when two diagnoses are co-equally explicit. Variance is isolated to one component. | Switch Stage-2 re-ranking to a seedable backend; re-validate A1 on the 35-vignette gold before deployment to confirm no regression. |
+| 4 | **Clinician Validation** | Single expert evaluation (n=1, unblinded); insufficient breadth to tune recommendation ranking, confidence calibration, and safety guardrails to real clinical practice. | Multi-clinician blinded evaluation (≥3 across Cardiology, Endocrinology, O&G; rubric ready, IRB is the blocker); human-in-the-loop feedback loop from clinician edits and overrides. |
+| 5 | **KG Coverage** | Models only the drug space of the 30-CPG corpus; no recall figure against a gold interaction set; no clinical relationships beyond medications. | Audit edge set against a pharmacological reference; broaden to more drug classes and new relationship types (disease–disease, symptom–disease, lab–condition); GraphRAG multi-hop traversal. |
+| 6 | **Corpus Coverage & Maintenance** | 30-CPG subset of full MOH library; presentations outside refused by design. Each new CPG requires ~2–4 h manual engineering for ingestion, scope validation, and KG extraction. | Semi-autonomous ingestion pipeline: auto-chunk, embed, extract KG edges, and run harness regression; clinicians validate scope and edges only, not mechanical steps. |
+| 7 | **Offline Resilience** | Online-only — every consultation depends on live cloud calls. Network drop means no tool at the moment of care; poor fit for rural intermittent connectivity. | Offline data-sync layer with local caching of recent patients and CPG index; edge/on-premise deployment of deterministic stages for connectivity-poor sites. |
+| 8 | **Model Hosting & Data Residency** | Patient data transits third-party non-Malaysian endpoints (Gemini, MiMo, Bedrock) with no in-country residency guarantee and no health-sector certification — a barrier to public-health deployment. | Migrate to a health-compliant Malaysian-region cloud (Azure for Health or AWS in-region); upgrade KG extraction to a higher-reasoning model and Titan v2 embeddings; stage-specific LoRA fine-tuning where tasks are narrow. |
+| 9 | **Contactless Vitals (rPPG)** | Clinically unvalidated against medical-grade devices; sensitive to lighting, motion, and skin tone; narrow parameter set (no BP or temperature). | Validation study vs reference oximeters; per-reading confidence indicator; hardened signal pipeline; expanded parameters (BP estimation, heart-rate variability). |
+| 10 | **EMR / HIS Integration** | Plans stored in standalone Supabase mock-EMR; no live EMR/HIS link; patient data entered manually rather than drawn from existing records. | Substitute Supabase layer with a Malaysian EMR/HIS (e.g., Teleprimary Care, hospital HIS); auto-populate PatientCase from existing records; write finalised plan back to the chart. |
 
 ---
 
