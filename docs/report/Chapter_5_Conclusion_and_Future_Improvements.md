@@ -56,17 +56,19 @@ The reasoning backend — the part that could be evaluated without recruiting cl
 
 ## 5.5 SWOT Analysis
 
-| | **Strengths** | **Weaknesses** |
-|---|---|---|
-| | ICD-11 anchored routing with first-class scope refusal | ~2.5 min latency — fails the 10-minute consultation |
-| | Dual grounding (vector + KG) — structurally unreachable by reprompting | Application-tier test suites not executed |
-| | Schema-validated executable care plan (START/CHANGE/CONTINUE/STOP) | Single expert evaluation, unblinded |
-| | Malaysian MOH-specific corpus with per-stage audit trace | KG coverage boundary not formally measured |
-| **Opportunities** | **Threats** | |
-| Malaysia's National Digital Health Blueprint and rural clinic digitisation programme | General LLMs improving rapidly; scope advantage narrows over time | |
-| rPPG contactless vitals as a differentiator in resource-scarce settings | Patient data privacy and local regulatory compliance requirements | |
-| Telehealth and asynchronous consultation workflows post-pandemic | Clinician adoption resistance without proven outcome data | |
-| MOH CPG update cycles create natural re-deployment milestones | Corpus maintenance cost per MOH revision without dedicated engineering support | |
+| **Strengths** | **Weaknesses** |
+|---|---|
+| ICD-11 anchored routing with first-class scope refusal | ~2.5 min end-to-end latency — fails the 10-minute consultation |
+| Dual grounding (vector + KG) — structurally unreachable by reprompting | Application-tier test suites designed but not yet executed |
+| Schema-validated executable care plan (START / CHANGE / CONTINUE / STOP) | Single expert evaluation (n=1, unblinded) |
+| Malaysian MOH-specific corpus with per-stage audit trace | Drug knowledge graph coverage not formally audited |
+
+| **Opportunities** | **Threats** |
+|---|---|
+| Malaysia's National Digital Health Blueprint and rural clinic digitisation programme | General LLMs improving rapidly; structural advantage narrows over time |
+| rPPG contactless vitals as a differentiator in resource-scarce settings | Patient data privacy and local regulatory compliance requirements |
+| Telehealth and asynchronous consultation workflows post-pandemic | Clinician adoption resistance without published outcome data |
+| MOH CPG revision cycles create natural re-deployment milestones | Corpus maintenance cost per MOH revision without dedicated engineering support |
 
 ---
 
