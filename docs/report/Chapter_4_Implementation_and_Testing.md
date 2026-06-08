@@ -20,16 +20,16 @@ the application tier — it is labelled *planned*, not silently presented as if 
 The system has two tiers, and the chapter is organised to test them in the order a reader
 encounters the system from the ground up: the reasoning backend that produces the plan, and the
 application tier (frontend, identity, persistence, delivery) that surrounds it. The work is
-therefore arranged in three parts:
+therefore arranged in three groups (§4.3–§4.5):
 
-- **Part I — Reasoning-pipeline validation.** The backend eval harness: the grounding stores, the
+- **§4.3 — Reasoning-pipeline validation.** The backend eval harness: the grounding stores, the
   per-stage accuracy layers, faithfulness, safety and robustness, and reproducibility. This is
   where the bulk of the **measured** results live.
-- **Part II — Application-tier testing.** The Supabase data layer, authentication, the Doctor UI
+- **§4.4 — Application-tier testing.** The Supabase data layer, authentication, the Doctor UI
   frontend, and care-plan delivery. Here the picture is mixed: delivery and the knowledge-graph
   helpers carry real tests, while the data-layer, auth, and UI suites are a **defined plan** with
   most cases still to be run.
-- **Part III — System-level and human evaluation.** End-to-end case studies, non-functional
+- **§4.5 — System-level and human evaluation.** End-to-end case studies, non-functional
   testing (latency, coverage), the expert clinician review, and the consolidated results table.
 
 **Table 4.1: The validation matrix — where each concern is tested and its status.**
@@ -53,7 +53,70 @@ therefore arranged in three parts:
 | System | Latency, coverage, scope refusal | p50/p95, unit coverage, out-of-scope calibration | `run_latency_eval.py`, `pytest --cov`, `probe_d2_semantic_scope.py` | ✅ measured |
 | System | Expert clinician review | Clinical-quality + workflow scoring (cases 8/10/11) | Single-clinician structured rubric | ✅ measured (n = 1) |
 
-A recurring shape runs through Part I, and it mirrors the iterative validate-and-revise narrative of
+The reasoning-tier suites do not stand alone; each isolates one stage of the seven-stage pipeline so
+that a weakness can be attributed to the stage that owns it. Figure 4.1 draws that pipeline and maps
+every reasoning-tier test layer onto the stage it validates, so any result in §4.3 can be traced back
+to its place in the architecture, and any stage in the architecture back to the test that covers it.
+
+**Figure 4.1: The seven-stage pipeline with the reasoning-tier test layer mapped onto each stage.**
+
+```mermaid
+flowchart TB
+    %% ---- The seven-stage pipeline ----
+    S1["Stage 1 · Clinical Intake<br/><i>deterministic</i>"]
+    S2["Stage 2 · Differential Diagnosis<br/><i>LLM-assisted</i>"]
+    S3["Stage 3 · Deterministic Scoped Routing<br/><i>deterministic</i>"]
+    S4["Stage 4 · Evidence-Graded Retrieval<br/><i>LLM-assisted</i>"]
+    S45["Stage 4.5 · KG Injection<br/><i>deterministic</i>"]
+    S5["Stage 5 · Care-Plan Synthesis<br/><i>LLM-assisted</i>"]
+    S6["Stage 6 · Hybrid Safety Critic<br/><i>hybrid</i>"]
+    S7["Stage 7 · Clinician Delivery Surface<br/><i>deterministic</i>"]
+
+    S1 --> S2 --> S3 --> S4 --> S45 --> S5 --> S6 --> S7
+
+    %% ---- Grounding stores ----
+    PG[("pgvector store")]
+    KG[("Neo4j knowledge graph")]
+    PG -. embeddings .-> S2
+    PG -. scoped chunks .-> S4
+    KG -. prefer / avoid .-> S45
+    KG -. structural verify .-> S6
+
+    %% ---- Per-stage eval layers, each pointing at the stage it tests ----
+    LA1["Differential diagnosis<br/>§4.3.2.1"]
+    LA2["Routing<br/>§4.3.2.2"]
+    LB["Evidence retrieval<br/>§4.3.2.3"]
+    LC["Re-ranker lift<br/>§4.3.2.4"]
+    LGS["Grounding stores<br/>§4.3.1"]
+    LD["Faithfulness<br/>§4.3.3"]
+    SAFx["Safety-critic stress<br/>§4.3.4.1"]
+
+    LA1 -. tests .-> S2
+    LA2 -. tests .-> S3
+    LB -. tests .-> S4
+    LC -. tests .-> S4
+    LGS -. tests .-> PG
+    LGS -. tests .-> KG
+    LD -. tests .-> S5
+    SAFx -. tests .-> S6
+
+    %% ---- Cross-cutting suites span the whole chain ----
+    XCUT["Cross-cutting suites<br/>Adversarial / injection / multilingual §4.3.4.2<br/>Silent-degradation / infrastructure §4.3.4.3<br/>Determinism §4.3.5"]
+    XCUT == "tested end-to-end" ==> S1
+
+    classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
+    classDef agent fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
+    classDef crit fill:#fffbeb,stroke:#f59e0b,color:#92400e;
+    classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
+    classDef eval fill:#faf5ff,stroke:#9333ea,color:#581c87;
+    class S1,S3,S45,S7 det;
+    class S2,S4,S5 agent;
+    class S6 crit;
+    class PG,KG store;
+    class LA1,LA2,LB,LC,LGS,LD,SAFx,XCUT eval;
+```
+
+A recurring shape runs through §4.3, and it mirrors the iterative validate-and-revise narrative of
 a hardware build: a first pilot run exposed concrete defects, each defect was root-caused and fixed
 at the category level rather than patched case by case, and the suite was then re-run to confirm the
 fix without regressing a previously passing case. Three of the most consequential results — routing
@@ -61,7 +124,7 @@ accuracy, adversarial robustness, and silent-degradation detection — are repor
 before-and-after story, because the story is the evidence: the system found its own fail-silent bugs
 under test and closed them.
 
-> **[FIGURE 4.1: Test-coverage status map.]**
+> **[FIGURE 4.1b: Test-coverage status map.]**
 > *Render Table 4.1 as a colour-coded coverage grid (rows = suites, grouped by Reasoning /
 > Application / System tier; cell colour = ✅ measured / ◑ partial / ○ planned). One glance shows the
 > reasoning tier fully green and the application tier as the amber/grey band — the chapter's honest
@@ -96,13 +159,13 @@ also why the chapter can test the two tiers largely independently.
 
 | Boundary | Contract | How it is exercised under test |
 |---|---|---|
-| Backend → both clients | One SSE event schema (`stage_update`, `ddx`, `routing`, `retrieval`, `plan`, `safety_review`, `final_result`, `out_of_scope`, `clinician_override`) | CLI replays the identical stream the UI consumes; the determinism harness drives this path (§4.7) |
-| Backend → pgvector | Scoped vector search pinned by `document_id_filter` | Layers A1, B, C run against live Neon (§4.3, §4.4) |
-| Backend → Neo4j | Stage 4.5 injection and Stage 6 KG verification (Cypher) | SAF, INF-01, KG unit tests, the dual-source case studies (§4.3, §4.6, §4.12) |
+| Backend → both clients | One SSE event schema (`stage_update`, `ddx`, `routing`, `retrieval`, `plan`, `safety_review`, `final_result`, `out_of_scope`, `clinician_override`) | CLI replays the identical stream the UI consumes; the determinism harness drives this path (§4.3.5) |
+| Backend → pgvector | Scoped vector search pinned by `document_id_filter` | Layers A1, B, C run against live Neon (§4.3.1, §4.3.2) |
+| Backend → Neo4j | Stage 4.5 injection and Stage 6 KG verification (Cypher) | SAF, INF-01, KG unit tests, the dual-source case studies (§4.3.1, §4.3.4, §4.5.1) |
 | Backend → Bedrock | Titan v1 embeddings (1536-dim), client-cached | INF-02 (429 outage), all vector layers |
-| Frontend → Supabase | Patient CRUD, consultation upserts, audit columns, all via RPC | Migration-contract smoke (§4.8) — *partial*; live round-trip planned |
-| Frontend → Supabase Auth | Clinician identity, provider tree outermost | AuthContext + routeGuard unit (§4.9) — *partial*; E2E planned |
-| Backend → Supabase (worker only) | Deterministic Gmail PDF delivery from `delivery_jobs` | `test_delivery.py` (in-process SMTP) — *partial* (§4.11) |
+| Frontend → Supabase | Patient CRUD, consultation upserts, audit columns, all via RPC | Migration-contract smoke (§4.4.1) — *partial*; live round-trip planned |
+| Frontend → Supabase Auth | Clinician identity, provider tree outermost | AuthContext + routeGuard unit (§4.4.2) — *partial*; E2E planned |
+| Backend → Supabase (worker only) | Deterministic Gmail PDF delivery from `delivery_jobs` | `test_delivery.py` (in-process SMTP) — *partial* (§4.4.4) |
 
 The offline build path (CPG ingestion into pgvector and Neo4j) and the live read path were kept
 strictly separate, as designed: the live pipeline only ever reads the two grounding stores. This
@@ -113,18 +176,16 @@ corpus without contaminating it.
 > *Mermaid diagram showing the three tiers (reasoning backend, two grounding stores, application
 > tier) with each boundary from Table 4.2 drawn as a labelled edge, and each edge annotated with the
 > test/suite that exercises it (e.g. SSE seam → determinism harness; pgvector seam → Layers A1/B/C;
-> Supabase seam → §4.8 planned). Colour edges green / amber / grey by test status, so the diagram
+> Supabase seam → §4.4.1 planned). Colour edges green / amber / grey by test status, so the diagram
 > doubles as a visual of where coverage is real versus planned.*
 
 ---
 
-**PART I · REASONING-PIPELINE VALIDATION (BACKEND EVAL HARNESS)**
+## 4.3 Reasoning-Pipeline Validation (Backend Eval Harness)
 
----
+### 4.3.1 Grounding-Store Testing
 
-## 4.3 Grounding-Store Testing
-
-The pipeline reads from two grounding stores, so the stores are the foundation everything in Part I
+The pipeline reads from two grounding stores, so the stores are the foundation everything in §4.3
 depends on, and they are tested first. The key principle, inherited from the deterministic-first
 architecture, is that **both grounding stores are read-only at consultation time**: they are built
 offline (§3.3) and frozen. They are therefore validated less by standalone CRUD tests and more
@@ -149,12 +210,12 @@ assertions in isolation), which is named as a small future addition rather than 
 For the **knowledge graph**, the relation-extraction guardrails of §3.3.1 are unit-tested directly
 (`test_graph_builder_threshold_extract.py`), the positive-prescribing navigator is unit-tested
 (`test_graph_navigator.py`), and the runtime verification arm is exercised by the SAF stress suite
-(§4.6.1) and the INF-01 outage probe (§4.6.3). The Stage-4.5 *avoid arm* — previously the one
+(§4.3.4.1) and the INF-01 outage probe (§4.3.4.3). The Stage-4.5 *avoid arm* — previously the one
 store-to-stage path exercised only through higher layers — is now covered directly by
 `test_kg_avoid_arm.py` (10 tests, no live database): it asserts the drug-class expansion
 (`Losartan → ARB`) and the comorbidity aliasing (`"Pregnancy 30 weeks (primigravida)" → pregnancy`)
 that together let the system flag a **teratogen the patient is already taking** — the case-10
-losartan-in-pregnancy catch that the clinician scored 5/5 on safety (§4.14) — and verifies that the
+losartan-in-pregnancy catch that the clinician scored 5/5 on safety (§4.5.3) — and verifies that the
 expanded class name and aliased node actually reach the Cypher query, so the headline safety
 behaviour is regression-guarded rather than demonstrated only once. One honest limitation is recorded
 rather than hidden:
@@ -169,16 +230,16 @@ is why Stage 6 runs two independent critics in the first place.
 > AdverseEvent, …; and edge types — `CONTRAINDICATED_WITH` ≈ 980, `INTERACTS_WITH` ≈ 289,
 > `REQUIRES_MONITORING`, prescribing edges) drawn straight from a Cypher `count` query, with the
 > sparse `INTERACTS_WITH` bar annotated as the documented DDI-sparsity caveat. Optionally pair with a
-> Neo4j Browser screenshot of one drug ego-network (reuse Fig. 3.3c). This visualises §4.3's honest
+> Neo4j Browser screenshot of one drug ego-network (reuse Fig. 3.3c). This visualises §4.3.1's honest
 > "why a hazard may surface only from the LLM arm" point.*
 
-## 4.4 Component-Level Accuracy Testing
+### 4.3.2 Component-Level Accuracy Testing
 
 This section reports the per-stage accuracy layers (A1–C) plus the out-of-scope calibration
 probe. Each layer isolates one stage so that a weakness can be attributed to the stage that owns
 it rather than to the pipeline as a whole.
 
-### 4.4.1 Stage 2 — Differential Diagnosis (Layer A1)
+#### 4.3.2.1 Stage 2 — Differential Diagnosis (Layer A1)
 
 **What it tests.** Given a clinical vignette as the chief complaint, does `stage_2_ddx` return
 the correct ICD-11 code inside the top-5? Inputs and ground-truth codes come from
@@ -215,14 +276,14 @@ A run-to-run stability check across three clean runs returned exact Hit@5 of 0.7
 The jitter is traced to a known and documented cause: the Gemini re-ranker takes no random seed
 (its OpenAI-compatibility layer rejects the field), so it is not fully deterministic even at
 `temperature = 0`. This is recorded here as the empirical justification for reporting lineage as
-the stable headline metric, and it reappears in §4.7 as the dominant residual source of pipeline
+the stable headline metric, and it reappears in §4.3.5 as the dominant residual source of pipeline
 non-determinism.
 
 **A bug found under test.** The first A1 run scored Hit@5 = 0.286. Investigation showed this was
 not a model-quality result but a silent fallback: the Stage-2 re-ranker had returned
 newline-delimited JSON, the parser failed to find a JSON array, and the pipeline fell back to raw
 vector order with *no error surfaced anywhere*. This is precisely the silent-degradation class
-that §4.6.3 was built to catch, and the fix (a hardened `_extract_rerank_list` that recovers the
+that §4.3.4.3 was built to catch, and the fix (a hardened `_extract_rerank_list` that recovers the
 ranking from object-wrapped, fenced, and prose-prefixed outputs) is shared with the adversarial
 suite.
 
@@ -233,7 +294,7 @@ suite.
 > (correct family, wrong leaf) + 1 true miss (`ddx_011`), the visual proof that the gap is
 > leaf-specificity. Generate both from `eval/results/ddx_20260602_194144.json`.*
 
-### 4.4.2 Stage 3 — Deterministic Routing (Layer A2)
+#### 4.3.2.2 Stage 3 — Deterministic Routing (Layer A2)
 
 **What it tests.** Given a single ICD-11 code, does `route_icd_to_cpgs` return the governing
 Malaysian CPG inside the top-3? Inputs come from `routing_gold.jsonl` (44 codes).
@@ -279,7 +340,7 @@ an independent oracle — a deliberate and stated limitation.
 > deterministic ladder doing precise work with a small justified fallback tail. Generate from
 > `eval/results/routing_20260602_134121.json`.*
 
-### 4.4.3 Stage 4 — Evidence Retrieval (Layer B)
+#### 4.3.2.3 Stage 4 — Evidence Retrieval (Layer B)
 
 **What it tests.** Given a clinical question and a CPG document filter, do the retrieval tools
 return the gold chunk IDs inside top-k? The gold set is 148 rows, all 30 CPGs covered, labelled by
@@ -317,7 +378,7 @@ retained for its slightly better top-rank quality and simplicity. The chapter do
 > Precision@5 shortfall and the small MRR/nDCG miss legible at a glance. Generate from
 > `eval/results/retrieval_vector_20260602_200110.json` + `retrieval_hybrid_20260602_200834.json`.*
 
-### 4.4.4 Stage 4 — Category-Boost Re-ranker Lift (Layer C)
+#### 4.3.2.4 Stage 4 — Category-Boost Re-ranker Lift (Layer C)
 
 **What it tests.** Whether the category-aware re-ranking and top-20 cut described in §3.7 surfaces
 decision-relevant chunks better than raw vector order.
@@ -363,7 +424,7 @@ work.
 > only ordering differs" visual that isolates the re-ranker. A slope/arrow chart works equally well.
 > Generate from `eval/results/stage4_rerank_ablation_*.json`.*
 
-### 4.4.5 Out-of-Scope Calibration (Scope Refusal)
+#### 4.3.2.5 Out-of-Scope Calibration (Scope Refusal)
 
 The refusal behaviour that §3.6 made a primary design goal was validated by a dedicated
 deterministic probe (`probe_d2_semantic_scope.py`) that stresses the `SEMANTIC_SCOPE_THRESHOLD =
@@ -386,7 +447,7 @@ on conditions it holds no guideline for, rather than fabricating a plan from a b
 
 ---
 
-## 4.5 Synthesis Faithfulness (Layer D)
+### 4.3.3 Synthesis Faithfulness (Layer D)
 
 **What it tests.** Whether each claim in a synthesised care plan is grounded in the retrieved CPG
 evidence, judged claim-by-claim by an **independent** model — Gemini 2.5 Flash, deliberately *not*
@@ -430,7 +491,7 @@ given that both synthesis and judging are non-deterministic.
 
 ---
 
-## 4.6 Safety and Robustness Testing
+### 4.3.4 Safety and Robustness Testing
 
 This is the safety arm of the evaluation, and it is where the iterate-and-fix narrative is
 strongest. The gold-set layers above measure average-case accuracy; this section probes whether the
@@ -438,7 +499,7 @@ system behaves safely when inputs are adversarial, when a treatment plan is dang
 silently fails, or when a dependency is down. In each suite a pilot run exposed concrete defects,
 each defect was fixed at the category level, and the suite was re-run.
 
-### 4.6.1 Safety-Critic Stress Tests (SAF)
+#### 4.3.4.1 Safety-Critic Stress Tests (SAF)
 
 **What it tests.** Whether the Stage 6 hybrid critic (LLM pharmacist ‖ Neo4j verifier) catches
 dangerous plans. These cases inject pre-built `TreatmentPlan` objects directly into the critic,
@@ -462,7 +523,7 @@ block. The fix was a deterministic `_sulfonamide_cross_reactivity_guard` that es
 leaving mild reactions at MODERATE — a calibrated rule that catches the real hazard without
 re-introducing the blanket cross-reactivity myth and without regressing the two safe-plan controls.
 One honest caveat is recorded: the canonical SAF hazards are currently caught by the LLM arm plus
-this deterministic rule, not yet by KG edges (the DDI sparsity of §4.3), so the suite demonstrates
+this deterministic rule, not yet by KG edges (the DDI sparsity of §4.3.1), so the suite demonstrates
 LLM detection rather than full LLM–KG agreement; seeding the KG with these interaction edges is named
 as the structural follow-up.
 
@@ -473,7 +534,7 @@ as the structural follow-up.
 > This is the canonical clinical-classifier figure and makes the "closed the one miss" story
 > immediate. Generate from `eval/results/safety_stress_saf_*.json`.*
 
-### 4.6.2 Adversarial, Injection, and Multilingual Inputs (ADV / INJ / LNG)
+#### 4.3.4.2 Adversarial, Injection, and Multilingual Inputs (ADV / INJ / LNG)
 
 **What it tests.** Fourteen vignettes the gold sets cannot express: eight clinical-adversarial cases
 (ambiguous presentations, the self-diagnosis anchoring trap, cross-CPG conflict), three
@@ -503,7 +564,7 @@ The four pilot failures were fixed at the category level, not by tuning individu
   alternatives, and patient-provided text is untrusted, so a guideline reference or dose appearing
   only in the patient's notes can never become a recommendation or citation.
 
-A cross-cutting fix — the hardened re-rank JSON parser already noted in §4.4.1 — improved routing
+A cross-cutting fix — the hardened re-rank JSON parser already noted in §4.3.2.1 — improved routing
 quality on the multilingual cases as a side effect (LNG-01/02 now route to ACS-family CPGs rather
 than to broad prevention CPGs). The honest framing is that 14/14 is a passing **pilot map**, not a
 final validation claim; two quality caveats (ADV-01 category diversity, LNG two-metric scoring) are
@@ -516,7 +577,7 @@ tracked as follow-ups.
 > `eval/results/adversarial_*_20260604_*.json` (pilot) and `adversarial_mixed_20260605_040809.json`
 > (post-fix).*
 
-### 4.6.3 Silent-Degradation and Infrastructure Robustness (SIL / INF)
+#### 4.3.4.3 Silent-Degradation and Infrastructure Robustness (SIL / INF)
 
 **What it tests.** The highest-consequence failure mode for a clinical tool: *the answer arrived,
 but a stage internally failed and a fallback masked it*. Every gold-set layer above inspects the
@@ -560,7 +621,7 @@ about its own confidence, and those paths were closed.
 
 ---
 
-## 4.7 Reproducibility and Determinism
+### 4.3.5 Reproducibility and Determinism
 
 Reproducibility is reported as the project's headline empirical contribution. A pipeline that
 returns a different differential or a different plan each time the same vignette is submitted is not
@@ -617,11 +678,9 @@ backend named as the concrete future fix.
 
 ---
 
-**PART II · APPLICATION-TIER TESTING (FRONTEND, IDENTITY, PERSISTENCE, DELIVERY)**
+## 4.4 Application-Tier Testing (Frontend, Identity, Persistence, Delivery)
 
----
-
-Part I validated the reasoning the system produces. Part II concerns the application tier that
+§4.3 validated the reasoning the system produces. §4.4 concerns the application tier that
 surrounds it — the persistence layer that stores a consultation, the identity layer that signs it,
 the Doctor UI the clinician actually touches, and the delivery path that sends the plan to the
 patient. The honest status here is mixed and is stated up front: **the delivery backend and the
@@ -630,12 +689,12 @@ React frontend currently have none.** These sections therefore document a *defin
 modelled on how the reference projects tested their app and cloud tiers (unit the data layer →
 integration/sync test against the cloud → functional walkthrough per module → security/access) — and
 mark each item as covered or planned, so the gap is explicit rather than papered over. The figures in
-Part II are therefore a mix of **planned-test mock-ups and existing UI screenshots** that serve as
+§4.4 are therefore a mix of **planned-test mock-ups and existing UI screenshots** that serve as
 the manual functional-walkthrough record until the suites are written.
 
-## 4.8 Application-Data-Layer Testing (Supabase)
+### 4.4.1 Application-Data-Layer Testing (Supabase)
 
-Unlike the two read-only grounding stores of §4.3, Supabase is the **read-write application store**:
+Unlike the two read-only grounding stores of §4.3.1, Supabase is the **read-write application store**:
 it holds patient records, consultations, vitals, the Stage-6 acknowledgement audit trail, and the
 feedback signals, and it is written during every live consultation. It therefore needs the kind of
 testing the reference projects applied to their cloud tier — *does the data round-trip correctly, is
@@ -695,7 +754,7 @@ project, which must not be the production instance.
 > Pairs with a screenshot of the 12-test `supabaseContract.test.js` block passing. Makes the
 > otherwise-invisible "overload trap" guard concrete for the reader.*
 
-## 4.9 Authentication and Access-Control Testing
+### 4.4.2 Authentication and Access-Control Testing
 
 Authentication is load-bearing beyond access control: the `AuthProvider` sits outermost in the
 provider tree, so no consultation view can render without an authenticated clinician, and the
@@ -748,7 +807,7 @@ identity → audit-trail integration test. `vite build` confirms the `App.jsx` r
 > `routeGuard.test.js` 9). Shows the access contract as a decision matrix and as green tests in one
 > view.*
 
-## 4.10 Doctor UI / Frontend Testing
+### 4.4.3 Doctor UI / Frontend Testing
 
 The Doctor UI is a Vite + React 18 + Tailwind single-page application whose entire consultation
 state lives in one reducer-backed context (`AppContext`), driving a four-step wizard (Input →
@@ -768,8 +827,8 @@ warning about — come first.
 | L3 — Component / interaction | **SafetyReviewBanner** *rendering/interaction* — graph-MODERATE exemption visible, plan vs current-only vs class/noise panels, acknowledge gated on every plan-flag decided, `jumpToMed` deep-link **✅**; DDx-card "Why this rank?" disclosure + contraindicated-panel render still ○ (need `AppContext` host). *(The banner's pure classification logic is covered under L1.)* | Vitest + React Testing Library | **◑ partial (7 tests)** |
 | L4 — Integration / data-flow | `finalizePlan` persists the correct **top-level** keys (NULL-referrals regression guard) + Stage-6 audit fields; `confirmDiagnosis` empty-selection fail-loud throw; DDx run → terminal `stage_update` recorded, diagnosis mapped, wizard → Step 2 with consult id. Driven against the real `AppProvider` with the API boundary mocked. *(PHI-leak guard covered under L2.)* | Vitest (API-boundary mock) | **✅ measured (4 tests)** |
 | L5 — End-to-end browser | Full 4-step happy path (input → DDx select → plan + safety ack → PDF); out-of-scope graceful stop; returning-patient Step-0 prep brief; realtime dashboard update | Playwright | ○ planned |
-| L6 — Auth & access | Covered jointly with §4.9 (route gating, session expiry) | Playwright | ○ planned |
-| L7 — Non-functional / UX | `vite build` compile gate (in use); Lighthouse / accessibility; responsiveness; the n = 1 clinician UI/UX rubric of §4.14 | Lighthouse + §4.14 rubric | ◑ partial |
+| L6 — Auth & access | Covered jointly with §4.4.2 (route gating, session expiry) | Playwright | ○ planned |
+| L7 — Non-functional / UX | `vite build` compile gate (in use); Lighthouse / accessibility; responsiveness; the n = 1 clinician UI/UX rubric of §4.5.3 | Lighthouse + §4.5.3 rubric | ◑ partial |
 
 The **highest-ROI starting point is L1–L4 with Vitest + Mock Service Worker** (MSW): they are fast,
 need no live backend, and they encode exactly the failure classes that have cost real time before —
@@ -794,7 +853,7 @@ statements / 85.7 % lines / 100 % functions** (`vitest run --coverage`); the low
 (59 %) reflects untested formatting paths — CPG-name aliasing and dose-string parsing — not the
 clinical invariants, which are fully exercised. `clinicalApi.js` and `supabase.js` are deliberately
 excluded from this metric as side-effecting integration modules belonging to the next test tiers
-(§4.8–4.9).
+(§4.4.1–4.4.2).
 
 **Layer L2 — implemented (2026-06-08).** `AppContext.test.jsx` adds **29 tests** over the reducer that
 is the single source of truth for all consultation state. The reducer (plus `initialState` and the
@@ -881,7 +940,7 @@ already-parsed result. The application tier now stands at **99 passing tests acr
 > glance, and which screenshots (Fig. 3.5/3.6b/3.8/3.9/3.10b–d) stand in as the current walkthrough
 > evidence.*
 
-## 4.11 Care-Plan Delivery Testing
+### 4.4.4 Care-Plan Delivery Testing
 
 Care-plan delivery is the one application-tier feature that **already carries real automated tests**.
 The deterministic Gmail module (`delivery.py` plus a background worker polling `delivery_jobs`) is
@@ -900,7 +959,7 @@ covered by `test_delivery.py` and `test_delivery_worker.py`, which run an in-pro
 | Delivery round-trip | enqueue → worker picks up the job → status flips to `sent` (end-to-end sync) | ○ planned |
 
 The gap is the **frontend half** — the enqueue-and-poll UI path and one true end-to-end delivery
-round-trip — which depends on the same Supabase test project as §4.8 and is named alongside it.
+round-trip — which depends on the same Supabase test project as §4.4.1 and is named alongside it.
 
 > **[FIGURE 4.17: Delivery job state machine and status UI.]**
 > *Two-part: (a) the `delivery_jobs` state machine (`queued` → `sending` → `sent` / `failed`, with
@@ -911,11 +970,9 @@ round-trip — which depends on the same Supabase test project as §4.8 and is n
 
 ---
 
-**PART III · SYSTEM-LEVEL AND HUMAN EVALUATION**
+## 4.5 System-Level and Human Evaluation
 
----
-
-## 4.12 End-to-End Case Studies
+### 4.5.1 End-to-End Case Studies
 
 Beyond the layered metrics, complete consultations were run through the live pipeline to confirm
 that the eight-section plan renders end to end with clinically coherent content. Each case driver
@@ -954,9 +1011,9 @@ still caught by the other.
 > dual-source catch. Optionally inset a small bar of recommendations-per-case (15–18) across cases
 > 09/10/12 from the traces. This is the chapter's strongest single "so what" image.*
 
-## 4.13 Non-Functional Testing
+### 4.5.2 Non-Functional Testing
 
-### 4.13.1 End-to-End Latency
+#### 4.5.2.1 End-to-End Latency
 
 **What it tests.** The full Stage 2–6 wall-time with per-stage timestamps, to confirm the system
 fits the ten-minute consultation window and to locate the bottleneck.
@@ -993,7 +1050,7 @@ that framed the whole architecture.
 > dominant Stage-5 segment visually names the optimisation target. Generate from
 > `eval/results/latency_20260604_183851.json`.*
 
-### 4.13.2 Unit-Test Coverage
+#### 4.5.2.2 Unit-Test Coverage
 
 The pytest suite (348 tests) was run under a coverage gate. After adding a `.coveragerc` that omits
 the modules which legitimately cannot be unit-tested without live external services (FastAPI app,
@@ -1005,7 +1062,7 @@ missing optional SMTP dependency rather than a code defect — a runnable pass r
 The core modules sit at defensible levels: `models.py` 95%, `safety_critic.py` 88%, `routing.py`
 84%, `clinical_workflow.py` 80%, with the 2,240-line `clinical_stages.py` at 56% (its many
 LLM-call branches and error paths are exercised by the in-process eval runners, not by unit tests).
-This coverage is of the **reasoning backend**; the application tier (§4.8–§4.11) sits outside it and
+This coverage is of the **reasoning backend**; the application tier (§4.4.1–§4.4.4) sits outside it and
 its planned suites would raise the equivalent frontend figure from its current zero.
 
 > **[FIGURE 4.20: Per-module test coverage.]**
@@ -1015,7 +1072,7 @@ its planned suites would raise the equivalent frontend figure from its current z
 > (`clinical_stages.py`, the large LLM-branch module) is visible and explained. Generate from the
 > `pytest --cov` term-missing report.*
 
-## 4.14 Expert Clinician Evaluation
+### 4.5.3 Expert Clinician Evaluation
 
 The eval layers above measure the system against gold sets and probes; this section reports the one
 evaluation conducted against scored human clinical judgement. On 2026-06-06 a practising doctor from
@@ -1061,7 +1118,7 @@ This is an important honesty correction to the poster design brief
 the captured scores show the prose baseline also flagged these hazards in this session, so the
 defensible claim is that ClearPath's safety detection is **clinician-confirmed reliable**, not that
 it is uniquely capable of the catch. The dual-source mechanism's value is reproducibility-by-
-structure (§4.7, §4.12), not a one-off detection a strong LLM cannot match.
+structure (§4.3.5, §4.5.1), not a one-off detection a strong LLM cannot match.
 
 **Workflow / UI-UX rubric — ClearPath structured output (max 5 per aspect).**
 
@@ -1086,7 +1143,7 @@ medical teaching**, not live in-consult use in the current form.
 
 The honest overall verdict from this expert review is therefore twofold: the system has
 **clinically acceptable accuracy and strong, clinician-confirmed safety surfacing**, and it needs a
-**UI/UX simplification pass for in-consult deployment** — the latency result of §4.13.1 (Stage 5 as
+**UI/UX simplification pass for in-consult deployment** — the latency result of §4.5.2.1 (Stage 5 as
 the dominant cost) and the information-density feedback are the same finding seen from two angles.
 
 The remaining comparative work — the five-system panel of §3.17 (Qmed AskCPG, Gemini NotebookLM, a
@@ -1104,7 +1161,7 @@ a finding anywhere in this chapter.
 
 ---
 
-## 4.15 Summary of Results Against Targets
+### 4.5.4 Summary of Results Against Targets
 
 Table 4.19 consolidates every measured layer against its target. Read honestly, the picture is a
 system whose **retrieval recall, routing, scope refusal, safety-critic recall, and robustness all
@@ -1136,7 +1193,7 @@ diagnosed rather than hidden.
 | Expert review | Clinical-quality total (R1) | — | **107/120** (R2 prose 111) | n = 1 review |
 | Expert review | Reasoning visibility / safety surfacing | — | **5/5 / 4/5** | n = 1 review |
 
-The application tier (§4.8–§4.11) is deliberately absent from Table 4.19, because presenting a
+The application tier (§4.4.1–§4.4.4) is deliberately absent from Table 4.19, because presenting a
 planned suite as a passed result would violate the chapter's governing rule. Its honest status is:
 **delivery's backend is covered, the knowledge-graph helpers are unit-tested, and the Supabase data
 layer, authentication, and the React frontend are a defined but not-yet-executed plan** — the single
@@ -1151,10 +1208,10 @@ largest testing gap in the project and the clearest near-term work item.
 
 The threads that run from Chapter 3's design into these results are direct. The deterministic-first
 split made routing, scope refusal, and the re-ranker ablation reproducible and auditable. The
-dual-grounding architecture made the dual-source safety result of §4.12 possible. The fail-loud
+dual-grounding architecture made the dual-source safety result of §4.5.1 possible. The fail-loud
 contract is exactly what the SIL/INF probes confirmed. And the prompt-engineering and determinism
 controls of §3.18 are what hold the Stage-2 query byte-identical across the reproducibility runs.
-The single-expert review of §4.14 independently corroborates the safety and transparency results
+The single-expert review of §4.5.3 independently corroborates the safety and transparency results
 while sharpening the chapter's one unambiguous weakness — the in-consult workflow fit. The remaining
 gaps — exact-leaf differential scoring, retrieval ranking, faithfulness, the in-consult UI/UX
 simplification, the application-tier test suites, and the still-pending multi-clinician and
@@ -1162,13 +1219,14 @@ competitor benchmark — are named precisely in this chapter as the agenda for t
 
 ---
 
-> **Figure checklist (for the report author).** Twenty-two figures, one or more per subsection.
-> Metric charts (Fig. 4.1, 4.3–4.13, 4.19–4.22) render from the raw eval files under
+> **Figure checklist (for the report author).** Twenty-three figures, one or more per subsection.
+> Metric charts (Fig. 4.1b, 4.3–4.13, 4.19–4.22) render from the raw eval files under
 > `backend/eval/results/` and `tasks/eval_runs/` via a small matplotlib/seaborn script; UI and store
 > screenshots (Fig. 4.14–4.18) come from the live Doctor UI, Neo4j Browser, and the Supabase table
 > editor; the determinism panel (Fig. 4.13) is already pre-rendered in `tasks/eval_runs/figures/`.
 >
-> - **Fig. 4.1** — test-coverage status map (heatmap of Table 4.1).
+> - **Fig. 4.1** — seven-stage pipeline with the reasoning-tier test layer mapped onto each stage (Mermaid). *(in hand)*
+> - **Fig. 4.1b** — test-coverage status map (heatmap of Table 4.1).
 > - **Fig. 4.2** — system integration & test-surface diagram (Mermaid, edges coloured by status).
 > - **Fig. 4.3** — KG scale & edge-type integrity bar (+ optional Neo4j ego-network screenshot).
 > - **Fig. 4.4** — DDx three-granularity scorecard + miss-breakdown.
