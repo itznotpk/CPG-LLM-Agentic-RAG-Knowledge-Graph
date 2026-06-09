@@ -115,15 +115,26 @@ The MiMo Standard plan supplies 200M tokens/month. At ~17k tokens per synthesis 
 | Per-consultation API (500 × ~RM 0.10) | Variable | ~50 |
 | **Total run-rate** | | **~840** |
 
-**Total project spend.** Development ran largely on free and trial tiers. Total spend over the project lifetime:
+**6. Actual development software spend.** The following table records the actual software costs incurred by the team during the development period. Only services billed directly to the project are included; internal tooling used by individual members for general work is excluded.
 
-*Table 6.5: Total Project Expenditure*
+*Table 6.5: Actual Software Development Expenditure*
+
+| No. | PIC | Item | Cost (RM) |
+|---|---|---|---|
+| 1 | Zhi Pin | AWS (backend infrastructure & hosting) | 173.16 |
+| 2 | Zhu Heng | Gemini Flash API | 100.00 |
+| | | **Software total** | **273.16** |
+
+**Total project spend.**
+
+*Table 6.6: Total Project Expenditure*
 
 | Category | Cost (RM) |
 |---|---|
 | Hardware (rPPG prototype) | 43.87 |
-| Cloud and API (development period) | ~950–1,900 |
-| **Project total** | **~994–1,944** |
+| AWS — development period (Zhi Pin) | 173.16 |
+| Gemini Flash API — development period (Zhu Heng) | 100.00 |
+| **Project total** | **317.03** |
 
 The dominant resource throughout was engineering time, not monetary spend.
 
