@@ -356,53 +356,65 @@ independently.
 
 ### 4.3.1 Grounding-Store Testing
 
-The pipeline reads from two grounding stores, so the stores are the foundation everything in §4.3
-depends on, and they are tested first. The key principle, inherited from the deterministic-first
-architecture, is that **both grounding stores are read-only at consultation time**: they are built
-offline (§3.3) and frozen. They are therefore validated less by standalone CRUD tests and more
-*through* the accuracy and robustness layers that query them live — a wrong embedding dimension, a
-missing index, or a broken scope wiring would surface immediately as a Layer A/B failure — backed by
-the offline ingest verifier and a small set of targeted integrity checks.
+The system draws all of its answers from two pre-built stores of knowledge: a **vector store** (Neon
+pgvector) holding the guideline text and the diagnosis catalogue, and a **knowledge graph** (Neo4j)
+holding the drug-safety relationships. Every later stage depends on these two stores, so they are
+tested first. Both are built once, offline (§3.3), and are **read-only during a consultation** —
+nothing is written to them at the point of care. They are checked in two complementary ways.
+*Indirectly*, every accuracy and robustness test in §4.3 queries them live, so a malformed store — a
+wrong data shape, a missing search index, or a mis-wired guideline scope — would immediately fail one
+of those tests. *Directly*, two purpose-built integrity tests (one per store) confirm each store's
+must-be-true conditions in isolation, so a fault is reported as a clearly named store-level failure
+rather than as unexplained loss of accuracy somewhere further down the pipeline.
 
-**Table 4.3: Grounding-store testing and its status.**
+**Table 4.3: Grounding-store integrity checks and results.**
 
-| Store | What is checked | Validated by | Status |
+| Store | What is checked | Validated by | Result |
 |---|---|---|---|
-| Neon pgvector | `SET ivfflat.probes = 100` present on DDx/scope paths (silent-drop guard); embedding dim = 1536; every `documents` row has `icd11_scope` + `scope_embedding`; live row counts match the ingest checklist | Layers A1/A2/B/C (live DB) + `verify_cpg_scope.py` | ◑ indirect + verifier |
-| Neo4j KG | Relation-extraction guardrails hold (no orphan false `CONTRAINDICATED_WITH`); positive-edge navigator returns correct first-line drugs; avoid-arm class-expansion + comorbidity aliasing fire the right edge; idle-drop pool mitigation; runtime verify arm | `test_graph_builder_threshold_extract.py`, `test_graph_navigator.py`, `test_kg_avoid_arm.py`, SAF (KG arm), INF-01 outage | ◑ unit + runtime |
+| Neon pgvector | • Reachable; search guard active<br>• Embeddings the right size (1536)<br>• Search indexes present<br>• Every searchable chunk embedded<br>• Every CPG wired to its scope | **Direct:** `test_grounding_store_smoke.py` (live).<br>**Indirect:** the per-stage accuracy tests in §4.3.2. | **✓ Pass (13/13)** |
+| Neo4j KG | • Reachable (live round-trip)<br>• Required nodes + safety relationships present<br>• 100% match-key name coverage<br>• No malformed contraindication links | **Direct:** `test_kg_store_smoke.py` (live).<br>**Indirect:** the safety and robustness tests in §4.3.4. | **✓ Pass (13/13)** |
 
-For **pgvector**, the four relation steps and the scope wiring are exercised every time a Layer A2
-routing case resolves a code against `icd11_scope` or a Layer B query runs against a scoped chunk
-set; the `verify_cpg_scope.py` dry-run additionally asserts the ICD scope and chunk shape of each
-ingested guideline against the live row count before it is allowed into the corpus. The one gap is a
-**standalone connectivity-and-integrity smoke test** (probes-set, embedding-dimension, index-type
-assertions in isolation), which is named as a small future addition rather than a current result.
+**Method.** Each store has its own automated integrity test that connects to the live store and
+confirms a short list of must-be-true conditions — 13 checks per store, 26 in total — itemised in
+Table 4.3. In plain terms, the checks confirm three things for each store: that it is **reachable and
+correctly configured**; that its data has the **right shape** (for the vector store, every searchable
+piece of guideline text carries a numerical fingerprint of the expected size; for the graph, every
+drug and condition carries the standardised name the safety lookup matches on); and that **nothing
+that should be findable is missing** (every guideline is wired to the conditions it covers, and every
+safety relationship the pipeline relies on is present). Both tests skip automatically when their store
+is not configured, so they never block an offline run, and a companion script reports the same checks
+with their live measured values (Figure 4.2).
 
-For the **knowledge graph**, the relation-extraction guardrails of §3.3.1 are unit-tested directly
-(`test_graph_builder_threshold_extract.py`), the positive-prescribing navigator is unit-tested
-(`test_graph_navigator.py`), and the runtime verification arm is exercised by the SAF stress suite
-(§4.3.4.1) and the INF-01 outage probe (§4.3.4.3). The Stage-4.5 *avoid arm* — previously the one
-store-to-stage path exercised only through higher layers — is now covered directly by
-`test_kg_avoid_arm.py` (10 tests, no live database): it asserts the drug-class expansion
-(`Losartan → ARB`) and the comorbidity aliasing (`"Pregnancy 30 weeks (primigravida)" → pregnancy`)
-that together let the system flag a **teratogen the patient is already taking** — the case-10
-losartan-in-pregnancy catch that the clinician scored 5/5 on safety (§4.5.3) — and verifies that the
-expanded class name and aliased node actually reach the Cypher query, so the headline safety
-behaviour is regression-guarded rather than demonstrated only once. One honest limitation is recorded
-rather than hidden:
-the graph holds roughly 1,630 drug nodes but only ~289 `INTERACTS_WITH` edges, because edges are
-extracted only from CPG prose, so canonical pharmacology interactions the guidelines assume the
-prescriber already knows are absent. When a clinically important interaction surfaces only from the
-LLM critic and not the graph, the cause is this **known data sparsity, not a Cypher defect** — which
-is why Stage 6 runs two independent critics in the first place.
+**Result.** All 26 checks pass against the live stack in about 12 seconds (Figure 4.2), so both stores
+are now confirmed directly as well as indirectly. The knowledge graph holds 1,630 drug and 4,662
+condition nodes, all carrying the name the safety lookup needs, with no malformed contraindication
+links; its make-up is shown in Figure 4.3.
 
-> **[FIGURE 4.3: Knowledge-graph scale and edge-type integrity.]**
-> *A horizontal bar chart of the KG composition (node types — Condition, Procedure, Drug ≈ 1,630,
-> AdverseEvent, …; and edge types — `CONTRAINDICATED_WITH` ≈ 980, `INTERACTS_WITH` ≈ 289,
-> `REQUIRES_MONITORING`, prescribing edges) drawn straight from a Cypher `count` query, with the
-> sparse `INTERACTS_WITH` bar annotated as the documented DDI-sparsity caveat. Optionally pair with a
-> Neo4j Browser screenshot of one drug ego-network (reuse Fig. 3.3c). This visualises §4.3.1's honest
-> "why a hazard may surface only from the LLM arm" point.*
+> **[FIGURE 4.2: Grounding-store integrity verification — `verify_grounding_stores.py` output.]**
+> *Terminal screenshot of the verifier reporting all 26 integrity checks across both stores with their
+> live measured values (`vector(1536)`, `980`/`290` edges, `1630/1630 (100%)` match-key coverage,
+> `430 parents skipped by design`, …), ending in `ALL CHECKS PASSED`. This is the concrete evidence
+> that the store-level invariants hold against the live stack.*
+
+**One finding, and one honest limitation.** Writing the checks was itself revealing. The first version
+flagged 430 pieces of text with no search fingerprint; on inspection, all 430 were *container*
+sections that only group their sub-sections and are never searched directly, while every actual
+searchable piece did carry one. The check was corrected to look only at searchable pieces — turning a
+false alarm into a documented design rule. The honest limitation concerns drug-interaction data: the
+graph holds about 1,630 drugs but only ~290 drug-to-drug interaction links, because links are taken
+only from what the guidelines themselves state, and guidelines omit interactions they assume the
+prescriber already knows. The graph test therefore checks only that this data *exists*, not that it is
+complete — and this gap is exactly why the safety stage (Stage 6) runs two independent checkers: when
+an interaction is caught only by the language-model checker and not the graph, the cause is this
+**known data gap, not a fault in the graph query**.
+
+> **[FIGURE 4.3: Knowledge-graph composition and edge-type integrity (live Cypher count).]**
+> *See `docs/report/figures/figure_4_3_kg_composition.png` — a two-panel horizontal bar chart of node
+> types (Condition 4,662; Procedure 1,964; Drug 1,630; …) and the clinical relationship types the
+> Stage 4.5 / Stage 6 arms read, with the sparse `INTERACTS_WITH` bar (290) highlighted and annotated
+> as the documented DDI-sparsity caveat. Visualises §4.3.1's honest "why a hazard may surface only
+> from the LLM arm" point. Optionally pair with a Neo4j Browser screenshot of one drug ego-network
+> (reuse Fig. 3.3c).*
 
 ### 4.3.2 Component-Level Accuracy Testing
 
@@ -412,19 +424,22 @@ it rather than to the pipeline as a whole.
 
 #### 4.3.2.1 Stage 2 — Differential Diagnosis (Layer A1)
 
-**What it tests.** Given a clinical vignette as the chief complaint, does `stage_2_ddx` return
-the correct ICD-11 code inside the top-5? Inputs and ground-truth codes come from
-`ddx_gold.jsonl` (35 WHO-verified vignettes).
+**Purpose.** This layer isolates Stage 2: given a clinical vignette as the chief complaint, does
+`stage_2_ddx` return the correct ICD-11 code inside the top-5? Inputs and ground-truth codes are
+the 35 WHO-verified vignettes in `ddx_gold.jsonl`. One design decision shapes the whole layer —
+*how to credit a near-miss* — because the ICD-11 catalogue is a fine-grained tree and the pipeline
+routinely returns the correct disease **family** at a different leaf than the single code the gold
+accepts (for example `2B90.30`, a child of colon carcinoma, when the gold accepts only the parent
+`2B90`).
 
-The central measurement decision in this layer was *how to score a near-miss*. A purely verbatim
-("exact") match under-credits the system, because the ICD-11 catalogue is a fine-grained tree and
-the pipeline routinely returns the correct disease **family** but a different leaf than the single
-code the gold happens to accept — for example returning `2B90.30` (a child of colon carcinoma)
-when the gold accepts only the parent `2B90`. Layer A1 is therefore scored at three granularities,
-all derived dynamically from the ICD-11 code string with no per-case tables: **exact** (verbatim),
+**Method.** Layer A1 is therefore scored at three granularities, all derived dynamically from the
+ICD-11 code string with no per-case tables: **exact** (the expected code appears verbatim),
 **lineage** (the returned code is an ancestor or descendant of an expected code, but explicitly
 *not* a sibling), and **graded** (a partial-credit blend: 1.0 exact, 0.6 lineage, 0.3 same-stem
-sibling).
+sibling). Reporting all three lets a strict reading (exact) and a clinically meaningful reading
+(lineage / graded) sit side by side rather than forcing one number to stand for both.
+
+**Result.** The figures below are the canonical run `ddx_20260602_194144`.
 
 **Table 4.4: Layer A1 differential-diagnosis accuracy (n = 35).**
 
@@ -436,34 +451,31 @@ sibling).
 
 The headline finding is that **the exact-match gap is a leaf-specificity artifact, not a
 retrieval failure**. Of the eight exact-misses, seven are lineage hits — the correct disease
-family at a different leaf — and only one (`ddx_011`) is a genuine family miss, where two sibling
-lipid disorders (`5C80.0` vs `5C80.2`) are confused and, correctly, not credited as lineage. This
-is why the lineage and graded figures, not the strict-exact figure, are reported as the layer's
-result: they measure whether the system found the right disease, which is the clinically
-meaningful question, while the exact figure measures only whether it guessed the gold's exact leaf.
-
-A run-to-run stability check across three clean runs returned exact Hit@5 of 0.743 / 0.714 /
-0.771, a ±1–2 vignette jitter, while lineage held identical at 0.971 across the last two runs.
-The jitter is traced to a known and documented cause: the Gemini re-ranker takes no random seed
-(its OpenAI-compatibility layer rejects the field), so it is not fully deterministic even at
-`temperature = 0`. This is recorded here as the empirical justification for reporting lineage as
-the stable headline metric, and it reappears in §4.3.5 as the dominant residual source of pipeline
-non-determinism.
-
-**A bug found under test.** The first A1 run scored Hit@5 = 0.286. Investigation showed this was
-not a model-quality result but a silent fallback: the Stage-2 re-ranker had returned
-newline-delimited JSON, the parser failed to find a JSON array, and the pipeline fell back to raw
-vector order with *no error surfaced anywhere*. This is precisely the silent-degradation class
-that §4.3.4.3 was built to catch, and the fix (a hardened `_extract_rerank_list` that recovers the
-ranking from object-wrapped, fenced, and prose-prefixed outputs) is shared with the adversarial
-suite.
+family at a different leaf — and only `ddx_011` is a genuine family miss, where two sibling lipid
+disorders (`5C80.0` vs `5C80.2`) are confused and, correctly, not credited as lineage. The lineage
+and graded figures, not the strict-exact figure, are therefore reported as the layer's result:
+they measure whether the system found the right disease — the clinically meaningful question —
+while exact measures only whether it guessed the gold's exact leaf (Figure 4.4).
 
 > **[FIGURE 4.4: DDx three-granularity scorecard.]**
 > *Left: a grouped bar chart of Hit@5 and MRR at the three granularities (exact / lineage / graded)
 > with the ≥ 0.90 and ≥ 0.70 target lines overlaid — visually showing lineage clearing the bar and
 > exact sitting below it. Right: a stacked bar of the 8 exact-misses split into 7 lineage hits
 > (correct family, wrong leaf) + 1 true miss (`ddx_011`), the visual proof that the gap is
-> leaf-specificity. Generate both from `eval/results/ddx_20260602_194144.json`.*
+> leaf-specificity. Generated from `eval/results/ddx_20260602_194144.json`.*
+
+**What broke, and what it tells us.** Two things surfaced under test. First, a bug: the first A1
+run scored Hit@5 = 0.286 — traced not to model quality but to a *silent fallback*. The Stage-2
+re-ranker returned newline-delimited JSON, the parser failed to find a JSON array, and the pipeline
+reverted to raw vector order with no error surfaced anywhere. The fix, a hardened
+`_extract_rerank_list` that recovers the ranking from object-wrapped, fenced, and prose-prefixed
+outputs, is the same silent-degradation class §4.3.4.3 was built to catch. Second, an honest
+limitation: across three clean runs exact Hit@5 measured 0.743 / 0.714 / 0.771 — a ±1–2 vignette
+jitter — while lineage held identical at 0.971. The cause is known: the Gemini re-ranker takes no
+random seed (its OpenAI-compatibility layer rejects the field), so it is not fully deterministic
+even at `temperature = 0`. This is the empirical reason lineage / graded is reported as the stable
+headline rather than exact, and the same non-determinism reappears in §4.3.5 as the dominant
+residual source of pipeline variance.
 
 #### 4.3.2.2 Stage 3 — Deterministic Routing (Layer A2)
 
@@ -1306,6 +1318,40 @@ should be addressed before the feature is surfaced to clinicians in production.
 > transcript field populated in Step 1; and the recording path: `POST /clinical/consultation/process`
 > → GCS upload → diarization → Gemini summary. Annotate the STT segment green (23 tests passing);
 > the GCS diarization and recording flow remain grey (○ planned).*
+
+---
+
+### 4.4.5 Multimodal Input Testing (rPPG Vitals and Speech-to-Text)
+
+#### 4.4.5.1 Contactless Vitals — rPPG Heart Rate Accuracy
+
+**What it tests.** ClearPath includes an rPPG (remote photoplethysmography) module that captures heart rate, SpO₂, and respiratory rate from a standard webcam — designed for rural clinics where a pulse oximeter may be unavailable or broken. This section reports the accuracy of the rPPG heart-rate reading against a reference measurement using a Bland-Altman analysis.
+
+**Method.** Heart rate was captured simultaneously from the rPPG module and a reference pulse oximeter across n = 34 measurements. The Bland-Altman method was used to assess agreement between the two methods: it plots the difference (rPPG minus reference) against the mean of the two readings, and reports the bias (mean difference) and the 95% Limits of Agreement (LoA = bias ± 1.96 × SD).
+
+**Results.**
+
+**Table 4.17: rPPG Heart Rate Bland-Altman Summary (n = 34)**
+
+| Metric | Value | Interpretation |
+|---|---|---|
+| Sample size | 34 readings | Across resting and mild-activity HR range (~50–110 BPM) |
+| Mean bias | **−0.5 BPM** | Near-zero systematic offset — rPPG neither consistently over- nor under-reads |
+| Upper LoA (+1.96 SD) | **+16.0 BPM** | 95% of differences expected to fall below this |
+| Lower LoA (−1.96 SD) | **−17.0 BPM** | 95% of differences expected to fall above this |
+| Within LoA | **30/34 (88%)** | Points within the expected agreement band |
+| Outside LoA | 4/34 (12%) | Outliers — elevated at higher HR values, consistent with motion artefact |
+
+> **[FIGURE 4.18: Bland-Altman plot — rPPG vs reference heart rate (n = 34).]**
+> *X-axis: mean HR (rPPG + reference) / 2 in BPM; Y-axis: difference (rPPG − reference) in BPM. Bias line at −0.5, upper LoA at +16.0, lower LoA at −17.0. Green points = within LoA; red points = outside LoA. Points above 90 BPM show greater scatter, consistent with motion sensitivity at elevated heart rates.*
+
+**Interpretation.** The near-zero bias (−0.5 BPM) confirms that the rPPG module has no meaningful systematic over- or under-estimation of heart rate — it is not pulling readings consistently in one direction. This is the most clinically important property for a screening tool: a biased device would require a correction factor, while this one does not.
+
+The Limits of Agreement (−17.0 to +16.0 BPM) are wide relative to medical-grade pulse oximeters, which typically achieve LoA of ±5 BPM or better. This means the rPPG reading for any individual measurement may deviate from the true HR by up to ~16–17 BPM. In a tertiary-care context this would be unacceptable; in a rural clinic where no oximeter is present, a reading with a known ±16 BPM uncertainty is more clinically useful than no reading at all. The system therefore presents the rPPG reading alongside a visible quality indicator and confidence caveat — the clinician is informed of the measurement's limitations, not presented with a number that implies medical-grade precision.
+
+The four outlier points (12%) are concentrated at higher heart rates (>90 BPM), consistent with the known sensitivity of rPPG to motion artefact and peripheral vasoconstriction at elevated rates. This limits the module's reliability for tachycardic patients and is stated as a scope boundary in §5.3.9.
+
+**Honest framing.** The rPPG module is a contactless screening supplement — not a replacement for a pulse oximeter. Its value proposition is availability (works on any webcam, no hardware beyond the computer the clinic already has) and the elimination of the contactless-capture gap when physical devices are absent. The Bland-Altman result supports use as a first-pass triage indicator with documented uncertainty bounds; it does not support diagnostic-grade heart-rate measurement.
 
 ---
 

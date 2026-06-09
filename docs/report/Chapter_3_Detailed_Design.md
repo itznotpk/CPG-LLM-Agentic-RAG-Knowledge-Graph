@@ -110,41 +110,74 @@ the safety-critic agent.
 
 ```mermaid
 flowchart TB
-    subgraph Intake["Stage 1 · Intake (deterministic)"]
-        S1["Intake Module<br/>PatientCase assembler · rPPG + STT capture · derived BMI"]
-    end
-
-    subgraph Pipeline["Hybrid reasoning pipeline · LLM engine / deterministic module"]
+    subgraph S1["Stage 1 · Intake Module"]
         direction TB
-        S2["Stage 2 · Differential Diagnosis Engine<br/>pgvector ICD-11 search + LLM reranker"]
-        S3["Stage 3 · Routing Module<br/>deterministic D1–D6 scope cascade"]
-        S4["Stage 4 · Retrieval Engine<br/>LLM query generator + scoped pgvector + hierarchical prefetch"]
-        S45["Stage 4.5 · KG Injection Module<br/>Neo4j Cypher · prefer / avoid edges"]
-        S5["Stage 5 · Synthesis Engine<br/>LLM planner + post-synthesis validators"]
-        S6{{"Stage 6 · Safety Critic<br/>LLM pharmacist + Neo4j verifier"}}
-        S2 --> S3 --> S4 --> S45 --> S5 --> S6
+        A1["PatientCase Assembler"]
+        A2["rPPG + STT Capture"]
+        A3["Derived BMI"]
     end
 
-    PG[("Vector Store<br/>Postgres + pgvector (Neon)<br/>ICD-11 + CPG chunk embeddings")]
-    KG[("Knowledge Graph<br/>Neo4j Aura<br/>drug · condition · procedure")]
+    subgraph S2["Stage 2 · Differential Diagnosis Engine"]
+        direction TB
+        B1["pgvector ICD-11 Search"]
+        B2["Context-Aware LLM Re-ranker"]
+    end
 
-    S1 --> S2
+    subgraph S3["Stage 3 · Routing Module"]
+        direction TB
+        C1["Deterministic D1–D6 Scope Cascade"]
+    end
+
+    subgraph S4["Stage 4 · Retrieval Engine"]
+        direction TB
+        D1["LLM Query Generator"]
+        D2["Scoped pgvector Search"]
+        D3["Hierarchical Prefetch + Cross-Refs"]
+    end
+
+    subgraph S45["Stage 4.5 · KG Injection Module"]
+        direction TB
+        E1["Neo4j Cypher Lookup"]
+        E2["Prefer / Avoid Edges"]
+    end
+
+    subgraph S5["Stage 5 · Synthesis Engine"]
+        direction TB
+        F1["LLM Care-Plan Planner"]
+        F2["Post-Synthesis Validators"]
+    end
+
+    subgraph S6["Stage 6 · Safety Critic"]
+        direction TB
+        G1["LLM Pharmacist Critic"]
+        G2["Neo4j KG Verifier"]
+    end
+
+    subgraph S7["Stage 7 · Clinician Delivery Surface"]
+        direction TB
+        H1["React Doctor UI + CLI"]
+        H2["SSE Stream"]
+        H3["PDF Delivery"]
+    end
+
+    PG[("Vector Store<br/>Postgres + pgvector · Neon")]
+    KG[("Knowledge Graph<br/>Neo4j Aura")]
+
+    S1 --> S2 --> S3 --> S4 --> S45 --> S5 --> S6 --> S7
     PG -. embeddings .-> S2
-    PG -. scope_embedding .-> S3
+    PG -. scope embedding .-> S3
     PG -. scoped chunks .-> S4
-    KG -. prefer/avoid .-> S45
+    KG -. prefer / avoid .-> S45
     KG -. structural verify .-> S6
-
-    S6 --> UI["Stage 7 · Clinician Delivery Surface<br/>React Doctor UI + CLI · SSE stream · PDF delivery"]
-    UI -. override to re-synth .-> S5
+    S7 -. override to re-synthesis .-> S5
 
     classDef agent fill:#f0fdfa,stroke:#0d9488,color:#134e4a;
     classDef det fill:#ecfeff,stroke:#0891b2,color:#164e63;
     classDef crit fill:#fffbeb,stroke:#f59e0b,color:#92400e;
     classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
-    class S1,S3,S45 det;
-    class S2,S4,S5 agent;
-    class S6 crit;
+    class A1,A2,A3,B1,C1,D2,D3,E1,E2,F2,H1,H2,H3 det;
+    class B2,D1,F1 agent;
+    class G1,G2 crit;
     class PG,KG store;
 ```
 
@@ -179,23 +212,30 @@ flowchart TD
 
 ## 3.2 Technology Stack
 
-This section documents the implemented technology stack. The justification for selecting each
-database and framework over its alternatives is presented in the concept-selection analysis of
-Chapter 2 and is not repeated here; the purpose of this section is to record what was built and how
-the pieces fit together.
+This section records the implemented technology stack; the rationale for choosing each database and
+framework over its alternatives is given in the concept-selection analysis of Chapter 2 and is not
+repeated here.
 
-The system is organised as three tiers connected by one streaming contract. The reasoning backend is
-Python 3.11 on FastAPI, which exposes the entire pipeline over a single Server-Sent Events (SSE)
-stream. The clinician frontend is a React 18, Vite, and Tailwind single-page application, and a
-terminal CLI (`clinical_cli.py`) consumes the identical SSE stream for headless end-to-end runs.
-Three data stores serve distinct roles: PostgreSQL with pgvector on Neon (the vector store), Neo4j
-Aura accessed through Graphiti (the knowledge graph), and Supabase (the application and
-patient-records store). All embeddings are produced by AWS Bedrock Titan at 1536 dimensions. The two
-grounding stores are described in §3.2.2 and the application store in §3.11.6.
+The system is a three-tier architecture unified by one streaming contract. The reasoning backend
+(Python 3.11, FastAPI) exposes the entire pipeline over a single Server-Sent Events (SSE) stream,
+consumed identically by the React clinician frontend and a terminal CLI (`clinical_cli.py`) for
+headless end-to-end runs. Figure 3.3 summarises the full stack as three layers — the application and
+interface, the data and knowledge stores (vector store, knowledge graph, and application store), and
+the AI model services that supply the system's reasoning and embeddings. All vector embeddings are
+produced by AWS Bedrock Titan at 1536 dimensions; the two grounding stores are detailed in §3.2.2 and
+the application store in §3.11.6.
 
-> **[FIGURE 3.3: Technology-stack strip.]**
-> *Insert a horizontal logo strip (Python, FastAPI, React, Tailwind, PostgreSQL/pgvector on Neon,
-> Neo4j Aura, Supabase, AWS Bedrock) with a one-line role label under each.*
+> **[FIGURE 3.3: Technology-stack chevron — three layers.]**
+> *A three-chevron strip read left-to-right from the clinician-facing surface to the AI core, each
+> chevron a labelled layer with its logos and a one-line role label:*
+> - ***Layer 1 — Application & Interface:** Python and FastAPI (backend API) · React, Tailwind, and
+>   Vite (the Doctor UI).*
+> - ***Layer 2 — Data & Knowledge Stores:** PostgreSQL with pgvector on Neon (vector store) · Neo4j
+>   Aura through Graphiti (knowledge graph) · Supabase (application store).*
+> - ***Layer 3 — AI Model Services:** Google Vertex AI serving Gemini 2.5 Flash (fast interactive
+>   steps) · Xiaomi MiMo v2.5 Pro (care-plan synthesis) · AWS Bedrock serving Titan Text v1
+>   embeddings and Claude Haiku 4.5 (offline graph build). This layer mirrors the model tiering of
+>   Table 3.2.*
 
 ### 3.2.1 Language-model composition: spending reasoning where it matters
 
