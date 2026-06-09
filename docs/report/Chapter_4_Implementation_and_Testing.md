@@ -142,27 +142,69 @@ under test and closed them.
 
 ## 4.2 System Integration and Test Surface
 
-Before any layer could be measured, the three tiers specified in Chapter 3 had to be integrated
-into one running system behind a single contract. The integration was deliberately thin: the
-FastAPI reasoning backend exposes the entire Stage 2–6 pipeline over one Server-Sent Events (SSE)
-stream, and both clinician surfaces — the React Doctor UI and the terminal CLI
-(`backend/clinical_cli.py`) — consume that identical stream. This shared-contract decision is
-what made integration testable, because the CLI can drive a complete end-to-end consultation
-headlessly, with no browser, and reproduce exactly what the UI would render.
+This section describes the integration of the three tiers specified in Chapter 3 into one running
+system — the single contract that unifies them (§4.2.1), the offline pipeline that populates the
+two grounding stores (§4.2.2), the typed contracts that join the seven stages (§4.2.3), and the live
+service wiring as deployed (§4.2.4) — and then establishes that same wiring as the **test surface** against
+which the suites of §4.3 are run (§4.2.5).
 
-Before the live pipeline could run, the two grounding stores had to be populated. Figure 4.2a
-shows that offline ingestion path. Each of the 30 Malaysian MoH CPG PDFs is first converted to
-structured Markdown by `docling` (`convert_pdf.py`), which preserves the heading hierarchy
-(H1 → H2 → H3) and extracts tables as structured JSON — the heading structure is what later
-powers the category-aware retrieval in Stage 4. The resulting Markdown is then split into labelled
-chunks by `CPGParser` inside `ingest.py` (chunk size 1200 tokens, 200-token overlap, with
-per-chunk metadata — evidence level, category, ICD-11 scope). Each chunk takes two routes in
-parallel: `embedder.py` encodes it with AWS Bedrock Titan v1 (1536-dim) and writes the chunk
-plus its embedding into the Neon pgvector store; and `graph_builder.py` feeds the prose through
-Graphiti and an LLM relation-extractor to write drug, condition, and procedure nodes plus
-`CONTRAINDICATED_WITH`, `INTERACTS_WITH`, and prescribing edges into Neo4j Aura. This pipeline
-runs offline and is never re-executed at consultation time — the stores it produces are frozen
-from the live pipeline's point of view.
+**Section 4.2 at a glance.**
+
+| Subsection | Contents |
+|---|---|
+| §4.2.1 Single-Contract Integration | The single SSE contract; React Doctor UI and terminal CLI consume the identical stream |
+| §4.2.2 Offline Ingestion Pipeline | CPG PDF → Markdown → labelled chunks → pgvector and Neo4j (Figure 4.2b) |
+| §4.2.3 Inter-Stage Data Contracts | The typed Pydantic objects each stage consumes and emits, validated at the boundary |
+| §4.2.4 Live System Wiring | Backend ↔ pgvector / Neo4j / Bedrock / LLMs / Supabase worker; store separation (Figure 4.2c) |
+| §4.2.5 The Test Surface | Each wiring seam as a fault-injectable boundary (Table 4.2; Figure 4.2d) |
+
+### 4.2.1 Single-Contract Integration
+
+The three tiers from Chapter 3 are unified behind one deliberately thin contract: the FastAPI
+backend streams the entire pipeline over a single Server-Sent Events (SSE) channel, and both
+surfaces — the React Doctor UI and the headless command-line interface (`backend/clinical_cli.py`)
+— consume that identical stream. Because the payload is the same regardless of surface, the CLI can
+replay a full consultation headlessly, reproducing the UI's exact output. This is the property that
+makes the pipeline testable end-to-end without a browser.
+
+The stream is an ordered sequence of typed events that each surface simply renders, and it runs in
+two phases (Figure 4.2a). Phase 1 streams the differential diagnosis and pauses at `ddx_ready` for
+the clinician to confirm or override the primary ICD-11 code. Phase 2 then streams routing,
+retrieval, knowledge-graph injection (`graph_navigator`) and synthesis, closing with `safety_review`
+and the terminal `final_result`. A final human-in-the-loop gate requires the clinician to approve or
+reject the plan before it can leave the application: approval enqueues delivery, while rejection
+returns the wizard to an editable state.
+
+```mermaid
+sequenceDiagram
+    participant C as Clinician surface (UI / CLI)
+    participant B as Reasoning backend
+    Note over C,B: Phase 1 — DDx stream (POST /clinical/plan/ddx/stream)
+    C->>B: PatientCase
+    B-->>C: stage_update (Stage 2 · DDx)
+    B-->>C: thinking_delta · sub_step
+    B-->>C: ddx_suggestion (ranked ICD-11)
+    B-->>C: ddx_ready  «terminal»
+    Note over C,B: clinician confirms / overrides primary
+    Note over C,B: Phase 2 — Synthesis stream (POST /clinical/plan/resynthesize/stream)
+    C->>B: confirmed DDx (+ overrides)
+    B-->>C: stage_update (Stage 3 Route → Stage 4 Retrieve)
+    B-->>C: graph_navigator (Stage 4.5 KG inject)
+    B-->>C: stage_update (Stage 5 Synthesis)
+    B-->>C: safety_review (Stage 6)
+    B-->>C: final_result  «terminal»  ·  done
+```
+
+**Figure 4.2a: The SSE streaming contract as a two-phase event sequence — the DDx stream
+(terminating in `ddx_ready`) and the synthesis stream (terminating in `final_result`), both
+consumed identically by the Doctor UI and the headless CLI.**
+
+### 4.2.2 Offline Ingestion Pipeline
+
+The two grounding stores are built once, offline, by the ingestion pipeline of Figure 4.2b. Each
+of the 30 MoH CPG PDFs is converted to structured Markdown (preserving the H1–H3 heading hierarchy
+that category-aware retrieval later uses), split into labelled chunks, and written in parallel into
+two stores: chunk embeddings into Neon pgvector, and drug/condition relations into Neo4j Aura.
 
 ```mermaid
 flowchart LR
@@ -188,83 +230,61 @@ flowchart LR
     class PG,KG store;
 ```
 
-**Figure 4.2a: Offline CPG ingestion pipeline — PDF to pgvector and Neo4j.**
+**Figure 4.2b: Offline CPG ingestion pipeline — PDF to pgvector and Neo4j.**
 
-The result of ingestion is two populated stores whose schemas are shown in Figures 4.2a-i and
-4.2a-ii. The pgvector store holds two tables: `documents` (one row per CPG, carrying the
-`icd11_scope` array that Stage 3 routing matches against and a 1536-dim `scope_embedding` for
-semantic fallback) and `chunks` (one row per chunk, with the 1536-dim `embedding` column indexed
-by IVFFlat for cosine search, a `chunk_level` field encoding the heading tier — `h1`, `h2`, `h3`,
-or `h1_leaf` — and a `parent_chunk_id` self-reference that enables parent-context retrieval). The
-knowledge graph holds approximately 1,630 drug nodes, alongside condition, procedure, and adverse
-event nodes, connected by `CONTRAINDICATED_WITH` (~980 edges), `INTERACTS_WITH` (~289 edges), and
-prescribing edges — all extracted from CPG prose, which is why DDI sparsity is a documented
-limitation (§4.3.1).
+This pipeline runs only offline, so the stores are **frozen** from the live pipeline's point of
+view. That single property is the one that matters for testing: every accuracy and safety suite in §4.3
+runs against an unchanging index, so any change in a result can be attributed to the pipeline rather
+than to corpus drift — the precondition for the before-and-after comparisons reported later.
 
-```mermaid
-erDiagram
-    documents {
-        UUID id PK
-        TEXT title
-        TEXT source
-        TEXT content
-        JSONB metadata
-        TEXT[] icd11_scope
-        TEXT[] procedure_scope
-        vector_1536 scope_embedding
-        BOOLEAN scope_verified
-    }
-    chunks {
-        UUID id PK
-        UUID document_id FK
-        TEXT content
-        vector_1536 embedding
-        INTEGER chunk_index
-        TEXT chunk_level
-        INTEGER token_count
-        UUID parent_chunk_id FK
-        JSONB metadata
-    }
-    documents ||--o{ chunks : "has"
-    chunks ||--o{ chunks : "parent_chunk_id"
-```
+### 4.2.3 Inter-Stage Data Contracts
 
-**Figure 4.2a-i: pgvector store schema — `documents` and `chunks` tables (Neon Postgres).**
+The grounding stores supply the evidence; the seven stages that consume it are joined to one another
+by a second, internal contract that complements the external SSE contract of §4.2.1. Every stage
+consumes one typed object and emits the next, and each of these objects is a Pydantic model
+validated at the boundary rather than passed as a loose dictionary. (The store schemas these objects draw on are
+specified in the detailed design and are not repeated here.) The objects exchanged across the
+pipeline are summarised below.
 
-```mermaid
-flowchart LR
-    subgraph KGSchema["Neo4j Knowledge Graph — node and edge types"]
-        DRUG["Drug\n~1,630 nodes\ne.g. Losartan, Metformin"]
-        COND["Condition\ne.g. Heart Failure, Pregnancy"]
-        PROC["Procedure\ne.g. OGTT, echocardiogram"]
-        AE["AdverseEvent"]
+**Typed objects exchanged between stages.**
 
-        DRUG -- "CONTRAINDICATED_WITH\n~980 edges" --> COND
-        DRUG -- "INTERACTS_WITH\n~289 edges" --> DRUG
-        DRUG -- "FIRST_LINE_FOR\nFIRST_LINE_FOR_WITH\nCONSIDER_FOR" --> COND
-        DRUG -- "REQUIRES_MONITORING" --> AE
-        COND -- "ASSOCIATED_WITH" --> COND
-    end
+| Boundary | Object passed | Validated | Principal contents |
+|---|---|---|---|
+| Intake → Stage 2 | `PatientCase` | Pydantic | demographics, history, medications, allergies, vitals, prior-visit summary |
+| Stage 2 → clinician | `DDxSuggestion` (ranked) | Pydantic | ICD-11 candidates with scores and rank deltas |
+| Stage 3 → Stage 4 | `list[CPGDocRef]` | Pydantic | matched guideline `document_id`s, or an out-of-scope verdict |
+| Stage 4 (+4.5) → Stage 5 | `list[ChunkResult]` + `GraphSearchResult` | Pydantic | graded CPG chunks plus prefer / avoid knowledge-graph edges |
+| Stage 5 → Stage 6 | `TreatmentPlan` | Pydantic | eight care-plan sections of cited, evidence-graded recommendations |
+| Stage 6 → delivery | `SafetyReport` | Pydantic | severity-classified flags and the `safe_to_proceed` verdict |
 
-    classDef node fill:#f8fafc,stroke:#64748b,color:#334155;
-    classDef note fill:#faf5ff,stroke:#9333ea,color:#581c87;
-    class DRUG,COND,PROC,AE node;
-```
+Two properties of this typed seam matter for the testing that follows. First, because each object is
+validated where it is produced, a structurally malformed object fails loudly at the boundary rather
+than propagating silently into a later stage — the fail-loud contract that §4.3 relies on. Second,
+because the boundaries are explicit, a single stage can be exercised in isolation by feeding it a
+hand-built input object: the safety-critic suite of §4.3.4.1 injects a pre-built `TreatmentPlan`
+straight into Stage 6, bypassing Stages 1–5 entirely, and the per-stage accuracy layers of §4.3.2
+each drive one stage against a crafted input for the same reason. This internal contract is
+therefore the counterpart of the external SSE contract of §4.2.1, and together they are what let the
+suites of §4.3 attach to one stage at a time.
 
-**Figure 4.2a-ii: Neo4j knowledge graph — node types and edge types as populated by ingestion.**
+### 4.2.4 Live System Wiring
 
-Figure 4.2b shows the live system wiring. The reasoning backend (`uvicorn`, port 8058) connects
-outward to three external services, each authenticated by its own credential set: Neon Postgres
-via `DATABASE_URL` (asyncpg pool, read-only at consultation time); Neo4j Aura via
-`NEO4J_URI / NEO4J_USER / NEO4J_PASSWORD` (Bolt+TLS, read-only); and AWS Bedrock via
-`AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY` for runtime embedding of the clinical query. The LLM
-calls each carry their own `*_LLM_API_KEY` and `*_LLM_BASE_URL` pair — Gemini 2.5 Flash for
-Stages 2, 4, and 6, and MiMo v2.5 Pro for Stage 5 synthesis. On the application side, the React
-Doctor UI locates the backend via `VITE_CLINICAL_API_URL` and connects to Supabase independently
-via `VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY` for patient data, authentication, and
-consultation persistence. The background delivery worker is the sole backend component that
-touches Supabase — it reads `SUPABASE_DB_URL` to poll `delivery_jobs` and sends care-plan PDFs
-via Gmail (`GMAIL_USER / GMAIL_APP_PASSWORD`).
+Figure 4.2c shows the deployed wiring, and the connections it draws are summarised below. The key
+column for this chapter is **Access**: the reasoning backend reaches every grounding store and model
+service read-only or call-only, and only the application store (Supabase) is read-write — and only
+from the UI and the delivery worker, never from the reasoning path.
+
+**Backend service connections.**
+
+| Service | Role in the pipeline | Transport | Access | Credential |
+|---|---|---|---|---|
+| Neon Postgres (pgvector) | scoped vector search (Stages 2, 4) | asyncpg pool | read-only | `DATABASE_URL` |
+| Neo4j Aura | KG injection (4.5) + plan verify (6) | Bolt + TLS | read-only | `NEO4J_URI / USER / PASSWORD` |
+| AWS Bedrock (Titan v1) | runtime query embedding | REST | call-only | `AWS_ACCESS_KEY_ID / SECRET` |
+| Gemini 2.5 Flash | DDx, retrieval, safety critic (2, 4, 6) | OpenAI-compatible | call-only | `STAGE*_LLM_API_KEY` |
+| MiMo v2.5 Pro | care-plan synthesis (5) | OpenAI-compatible | call-only | `STAGE5_LLM_API_KEY` |
+| Supabase | patient data · auth · persistence | RPC/REST (UI); asyncpg (worker) | read-write | `SUPABASE_URL / ANON_KEY` |
+| Gmail SMTP | care-plan PDF delivery | SMTP + TLS | send-only | `GMAIL_USER / APP_PASSWORD` |
 
 ```mermaid
 flowchart LR
@@ -335,20 +355,65 @@ flowchart LR
     class SUPA,GMAIL app;
 ```
 
-**Figure 4.2b: Live system wiring — credentials, ports, and service connections as deployed.**
+**Figure 4.2c: Live system wiring — credentials, ports, and service connections as deployed.**
 
-The defining property of this wiring is the clean separation of stores: the reasoning backend
-never reads the application store (Supabase), and the application store never calls the backend,
-with the single audited exception of the background delivery worker. Patient-identifiable data
-and clinical reasoning therefore live in different tiers, and the integration test surface between
-them is small and explicit — which is also why the chapter can test the two tiers largely
-independently.
+The defining property of this wiring is the clean separation of stores: the backend never reads or
+writes the application store (Supabase), and Supabase never calls the backend — the one audited
+exception being the background delivery worker, which polls `delivery_jobs` to send the care-plan
+PDF. Patient-identifiable data and clinical reasoning therefore live in different tiers, which is
+precisely the property that lets the reasoning tier (§4.3) and the application tier (§4.4) be
+validated by two entirely separate harnesses without one contaminating the other.
 
-> **[FIGURE 4.2: System integration and test-surface diagram.]**
-> *Colour the edges of Figure 4.2a green / amber / grey by test status (green = measured, amber =
-> partial, grey = planned), so the wiring diagram doubles as a visual of where coverage is real
-> versus planned — green for the backend seams (pgvector, Neo4j, Bedrock, LLMs), amber for the
-> application seams (Supabase RPC, Auth, delivery), matching the overall picture in Table 4.1.*
+### 4.2.5 The Test Surface
+
+Every seam in Figure 4.2c is also a point at which the system can be driven or interrupted under
+test, which renders the wiring a **test surface**. The single SSE log lets the determinism
+harness (§4.3.5) replay and diff a whole consultation; every external dependency sits behind one
+narrow client, so it can be degraded in isolation for the infrastructure and silent-degradation
+suites (§4.3.4.3); and the Stage-6 critic accepts an injected plan, so the safety suite (§4.3.4.1)
+can test it alone. Table 4.2 maps each seam to its test and, where relevant, to the fault injected
+at it, linking the wiring of Figure 4.2c to the validation matrix of Table 4.1.
+
+**Table 4.2: The integration seams of Figure 4.2c as a test surface.**
+
+| Seam (from Fig. 4.2c) | Contract | Exercised under test | Fault injected (robustness) |
+|---|---|---|---|
+| Backend → both clients | One SSE event schema (`ddx`, `routing`, `retrieval`, `plan`, `safety_review`, `final_result`, `out_of_scope`) | CLI replays the identical stream the UI consumes; determinism harness diffs it (§4.3.5) | Malformed Stage-2 re-rank → degraded signal (SIL-01, §4.3.4.3) |
+| Backend → pgvector | Scoped vector search, read-only asyncpg | Layers A1, B, C against live Neon (§4.3.2) | Connection refused mid-pipeline → fail closed (INF-03, §4.3.4.3) |
+| Backend → Neo4j | Stage 4.5 inject + Stage 6 verify, read-only Bolt | SAF dual-source catch, KG unit tests (§4.3.4.1) | Driver timeout → KG-degraded, LLM critic still runs (INF-01, §4.3.4.3) |
+| Backend → Bedrock | Titan v1 runtime embedding | Every vector layer depends on it (§4.3.2) | 429 outage → no zero-vector reaches Stage 5 (INF-02, §4.3.4.3) |
+| Stage-6 critic entry | Critic accepts an injected `TreatmentPlan` | SAF-01…07 bypass Stages 1–5, test the critic alone (§4.3.4.1) | Pre-built hazardous / safe plans |
+| Frontend → Supabase | Patient CRUD, auth, persistence via RPC | Migration-contract + AuthContext units (§4.4) — *partial* | — (planned) |
+| Backend → Supabase (worker only) | Deterministic Gmail PDF from `delivery_jobs` | `test_delivery.py`, in-process SMTP (§4.4.4) — *partial* | — |
+
+Crucially, **fault-injectability is a design property, not scaffolding added afterwards**: because
+each seam is a single, narrow interface, a fault injected at one boundary cannot leak into another
+stage's result, so a failed case implicates exactly the component that owns it. Figure 4.2d overlays
+the three seam classes onto the pipeline.
+
+```mermaid
+flowchart LR
+    S1["Stage 1\nIntake"] --> S2["Stage 2\nDDx"] --> S4["Stage 4\nRetrieve"] --> S45["Stage 4.5\nKG inject"] --> S5["Stage 5\nSynthesis"] --> S6["Stage 6\nSafety Critic"] --> SSE(["SSE event stream"])
+
+    %% Seam 1 — stream replay
+    SSE -. "replay & diff" .-> DET["Determinism harness\n§4.3.5"]:::eval
+    S2 -. "malformed JSON · SIL-01" .-> S2
+
+    %% Seam 2 — dependency mocks
+    BR[("Bedrock")]:::store -. "429 · INF-02" .-> S2
+    PG[("pgvector")]:::store -. "refused conn · INF-03" .-> S4
+    KG[("Neo4j")]:::store -. "timeout · INF-01" .-> S6
+
+    %% Seam 3 — direct critic injection
+    INJ["Pre-built TreatmentPlan\nSAF bypasses Stages 1–5"]:::crit == "inject" ==> S6
+
+    classDef eval fill:#faf5ff,stroke:#9333ea,color:#581c87;
+    classDef store fill:#f8fafc,stroke:#64748b,color:#334155;
+    classDef crit fill:#fffbeb,stroke:#f59e0b,color:#92400e;
+```
+
+**Figure 4.2d: Test-surface overlay — the three seam classes (stream replay, dependency mocking,
+direct critic injection) that let each robustness suite isolate one stage.**
 
 ---
 
