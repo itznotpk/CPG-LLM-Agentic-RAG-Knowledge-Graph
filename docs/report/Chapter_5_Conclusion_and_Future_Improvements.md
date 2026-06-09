@@ -47,7 +47,7 @@ All four objectives are met or substantially met. The two qualified verdicts ref
 | **Strengths** | **Weaknesses** |
 |---|---|
 | ICD-11 routing with first-class scope refusal | ~2.5 min latency — review speed, not yet fast triage |
-| Dual grounding (vector + KG), unreachable by reprompting | Faithfulness 0.864, just below the 0.90 target |
+| Dual grounding (vector + KG), unreachable by reprompting | Single expert evaluation (n=1); clinical validation breadth limited |
 | Schema-validated, action-tagged care plan | Online-only — limited offline resilience for rural sites |
 | MOH-grounded corpus with full per-stage audit trace | Standalone store (mock EMR); no live EMR/HIS link yet |
 
@@ -60,7 +60,7 @@ All four objectives are met or substantially met. The two qualified verdicts ref
 
 **Strengths** are structural rather than incidental. Scope-aware routing and dual grounding give ClearPath two things a reprompted LLM cannot: it refuses cases outside its evidence base, and it flags drug risks the source text never mentions. Every recommendation arrives as a schema-validated, action-tagged plan whose every stage is auditable against the MOH corpus.
 
-**Weaknesses** are matters of maturity, not design — and each is a measured gap with a defined path to closure in §5.3.
+**Weaknesses** are matters of maturity, not design — each is an operational or validation gap with a defined path to closure in §5.3. Notably, the single-expert evaluation (n=1) limits how confidently the system's clinical ranking and guardrails can be tuned to real practice; this is the most significant outstanding gap before broader deployment.
 
 **Opportunities** are timely. National digital-health policy and rural-clinic digitisation give the system momentum, post-pandemic telehealth and rPPG contactless vitals extend its reach into resource-scarce clinics, and the dual-grounding core is reusable beyond this product as an SDK or API.
 
