@@ -125,24 +125,21 @@ For reference, Table 6.3 projects the system's recurring cost at a representativ
 
 *Table 6.3: Projected Monthly Operating Cost at Pilot Scale (500 Consultations / Month)*
 
-| No. | Cost Line | Provider / Model | Cost (RM) |
-|:---:|:----------|:----------------|----------:|
-| | **Fixed Monthly Subscriptions** | | |
+| No. | Cost Line | Provider / Tier | Monthly Cost (RM) |
+|:---:|:----------|:----------------|------------------:|
+| | **A — Fixed Monthly Subscriptions** | | |
 | 1 | Vector + relational store | Neon Postgres — Launch | ~89 |
-| 2 | Auth, app database, PDF storage | Supabase — Pro | ~118 |
+| 2 | Auth, application database & PDF storage | Supabase — Pro | ~118 |
 | 3 | Drug knowledge graph | Neo4j AuraDB — Professional (1 GB) | ~306 |
 | 4 | Backend API hosting | Render — Standard | ~118 |
 | 5 | Frontend hosting | Vercel — Pro | ~94 |
 | 6 | Stage 5 synthesis LLM | MiMo v2.5 Pro — Standard (¥99/mo, 200 M tokens) | ~65 |
-| | | **Fixed Monthly Subtotal** | **~790** |
-| | **Variable API Cost (per consultation)** | | |
-| 7 | Stages 2, 4, 6 — extraction, re-rank, query-gen, safety critic | Gemini 2.5 Flash | ~0.05 |
-| 8 | Query embedding + chunk rerank | Titan Embed v1 + Cohere Rerank v3.5 (Bedrock) | ~0.05 |
-| | | **Variable Subtotal per Consultation** | **~0.10** |
-| | **Monthly Total at 500 Consultations** | | |
-| | Fixed subscriptions | — | ~790 |
-| | Variable API (500 × RM 0.10) | — | ~50 |
-| | | **Estimated Monthly Total** | **~840** |
+| | | **Fixed Subtotal** | **~790** |
+| | **B — Variable API Cost (per consultation)** | | |
+| 7 | Extraction, DDx re-rank, query-gen & safety critic (Stages 2, 4, 6) | Gemini 2.5 Flash | ~0.05 |
+| 8 | Query embedding + chunk rerank | Titan Embed v1 + Cohere Rerank v3.5 (AWS Bedrock) | ~0.05 |
+| | | **Variable Cost per Consultation** | **~0.10** |
+| | | **Estimated Monthly Total (500 consultations)** | **~840** |
 
 The MiMo Standard plan supplies 200 million tokens per month. At approximately 17,000 tokens per synthesis call, this covers around 11,000 consultations — well above pilot volume — making Stage 5 synthesis effectively a fixed cost at this scale rather than a per-consultation charge. The one-time corpus build cost (30 CPGs chunked, embedded, and parsed into the knowledge graph) is a few tens of Ringgit in API calls, repeated only when a guideline is revised.
 
