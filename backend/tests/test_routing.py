@@ -449,7 +449,7 @@ async def test_hybrid_search_with_filter():
 
     args, _ = mock_conn.fetch.call_args
     assert "hybrid_search" not in args[0]
-    assert "ANY($6::uuid[])" in args[0]
+    assert "ANY($5::uuid[])" in args[0]
     assert results[0]["document_id"] == "doc-uuid-2"
 
 

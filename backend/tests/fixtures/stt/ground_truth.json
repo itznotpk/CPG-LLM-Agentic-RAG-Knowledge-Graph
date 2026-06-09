@@ -1,0 +1,8 @@
+{
+  "normal_sentence.mp3": "the patient presents with chest pain and shortness of breath",
+  "medical_terms.mp3": "hypertension and dyslipidemia are common cardiovascular risk factors",
+  "short_utterance.mp3": "yes",
+  "fast_speech.mp3": "please review the clinical practice guideline for hypertension management in adults",
+  "slow_speech.mp3": "the diagnosis is type 2 diabetes meletis",
+  "silence.wav": ""
+}
