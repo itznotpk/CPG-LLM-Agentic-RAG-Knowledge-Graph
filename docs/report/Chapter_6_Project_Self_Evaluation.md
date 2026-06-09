@@ -145,25 +145,7 @@ The MiMo Standard plan supplies 200 million tokens per month. At approximately 1
 
 ### 6.3.4 Total Project Expenditure
 
-Table 6.4 consolidates all actual project costs, itemising every hardware component and software service to provide a complete account of the RM 317.03 expended during the development period.
-
-*Table 6.4: Comprehensive Total Project Expenditure*
-
-| No. | Item | Cost (RM) |
-|:---:|:-----|----------:|
-| | **A — Hardware (One-Time Purchase)** | |
-| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | 26.99 |
-| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | 9.99 |
-| 3 | Solderless Breadboard (830 tie-points) | 3.69 |
-| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | 3.20 |
-| | *Hardware Subtotal* | *43.87* |
-| | **B — Software & Cloud (Development Period)** | |
-| 5 | AWS — backend infrastructure and hosting (Lim Zhi Pin) | 173.16 |
-| 6 | Gemini Flash API — LLM integration (Chua Zhu Heng) | 100.00 |
-| | *Software Subtotal* | *273.16* |
-| | **Grand Total** | **317.03** |
-
-The dominant resource throughout the project was engineering time rather than monetary expenditure. The RM 317.03 total covers only direct, project-specific charges; the projected recurring cost at pilot scale is addressed separately in §6.3.3.
+Total actual expenditure for the project was **RM 317.03**: RM 43.87 in hardware (§6.3.1) and RM 273.16 in software and cloud services (§6.3.2). The dominant resource throughout was engineering time rather than monetary spend. The projected recurring operating cost at pilot scale is addressed separately in §6.3.3.
 
 ---
 
