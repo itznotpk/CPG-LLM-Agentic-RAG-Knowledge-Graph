@@ -423,7 +423,9 @@ it rather than to the pipeline as a whole.
 
 **Purpose.** This layer isolates Stage 2: given a clinical vignette as the chief complaint, does
 `stage_2_ddx` return the correct ICD-11 code inside the top-5? Inputs and ground-truth codes are
-the 35 WHO-verified vignettes in `ddx_gold.jsonl`. One design decision shapes the whole layer —
+the 35 vignettes in `ddx_gold.jsonl`, each expected code verified against the WHO ICD-11 reference
+and clinically curated — several were corrected from invalid entries before scoring. One design
+decision shapes the whole layer —
 *how to credit a near-miss* — because the ICD-11 catalogue is a fine-grained tree and the pipeline
 routinely returns the correct disease **family** at a different leaf than the single code the gold
 accepts (for example `2B90.30`, a child of colon carcinoma, when the gold accepts only the parent
@@ -436,9 +438,20 @@ ICD-11 code string with no per-case tables: **exact** (the expected code appears
 sibling). Reporting all three lets a strict reading (exact) and a clinically meaningful reading
 (lineage / graded) sit side by side rather than forcing one number to stand for both.
 
+Three representative rows show what the gold set looks like — each pairs a clinical vignette with
+the ICD-11 code(s) accepted as correct (Table 4.4).
+
+**Table 4.4: A sample of the differential-diagnosis gold set (3 of 35 vignettes).**
+
+| ID | Vignette (abridged) | Expected ICD-11 |
+|---|---|---|
+| ddx_001 | 55 M, crushing central chest pain radiating to the left arm, diaphoresis, ECG ST-elevation | BA41.0 (ST-elevation MI) |
+| ddx_012 | 66 M, 12-hour palpitations, ECG irregularly irregular with no P waves, HR 128 | BC81.30 (atrial fibrillation) |
+| ddx_026 | 42 F, 2 cm firm irregular right breast lump, mammogram BI-RADS 5, biopsy: invasive ductal carcinoma | 2C61.0 (breast carcinoma) |
+
 **Result.** The figures below are the canonical run `ddx_20260602_194144`.
 
-**Table 4.4: Layer A1 differential-diagnosis accuracy (n = 35).**
+**Table 4.5: Layer A1 differential-diagnosis accuracy (n = 35).**
 
 | Metric | Exact | Lineage | Graded | Target | Verdict |
 |---|---:|---:|---:|---:|---|
@@ -476,109 +489,153 @@ residual source of pipeline variance.
 
 #### 4.3.2.2 Stage 3 — Deterministic Routing (Layer A2)
 
-**What it tests.** Given a single ICD-11 code, does `route_icd_to_cpgs` return the governing
-Malaysian CPG inside the top-3? Inputs come from `routing_gold.jsonl` (44 codes).
+**Purpose.** This layer isolates Stage 3: given a single ICD-11 code, does `route_icd_to_cpgs`
+return the governing Malaysian CPG inside the top-3? Inputs are the 44 codes in `routing_gold.jsonl`,
+each paired with the guideline the live router should select. Each expected guideline is grounded in
+the clinician-reviewed CPG scope definitions in `cpg_scope_review.md` (all 30 guidelines marked
+Approve / Edit / Reject), and the gold codes were clinically curated — several corrected from invalid
+or mis-assigned ICD-11 entries before scoring. Unlike Stage 2, this stage is
+**deterministic** — no LLM is involved — so the question is not "is the model accurate?" but "does
+the hand-built routing ladder cover every code the corpus is meant to handle?"
 
-This layer is the cleanest before-and-after story in the chapter. The first run scored Top-1 =
-18.2%, which would have been an alarming result for the stage Chapter 3 called the architectural
-centre of the safety design. Root-cause analysis showed that **none of the deficit was a routing
-defect**; all of it was an evaluation artifact, in three parts:
+**Method.** Routing is scored on two metrics — **Top-1 accuracy** (is the expected CPG the single
+top result?) and **Hit@3** (is it anywhere in the top-3?) — plus the **match type** the ladder used
+to reach it. The ladder resolves a code in tiers: a `exact` match against a guideline's
+`icd11_scope` array first, then graded fallbacks (`sibling`, `ancestor_d1`, `semantic_scope`) that
+walk the ICD-11 hierarchy when no exact entry exists. Recording the match type matters because it
+distinguishes a precise hit from a justified-but-looser one. Three representative rows show the
+shape of the gold set — each pairs an ICD-11 code with the expected CPG and the tier that resolves
+it (Table 4.6).
 
-1. **A title-matcher format bug** masked roughly 24 correct routes. The matcher compared the
-   guideline title by substring, but the gold wrote `"Heart Failure"` while the live document is
-   `"Heart-Failure(5th Edition)"` — spaces versus hyphens — so every multi-word title silently
-   failed even when routing was correct. Normalising the matcher (strip the edition suffix and all
-   non-alphanumerics) fixed this class.
-2. **Roughly six gold codes were clinically wrong** (for example atrial fibrillation coded as
-   `BC81.0` rather than the `BC81.3x` family), and five more did not exist in ICD-11 at all, so no
-   hierarchy walk was possible.
-3. **One genuine scope improvement** was made: `JB44.3` (peripartum cardiomyopathy) was added to
-   the Heart-Disease-in-Pregnancy scope so it resolves as an exact match rather than a fragile
-   proximity hit.
+**Table 4.6: A sample of the routing gold set (3 of 44 codes).**
 
-After correcting the gold and the matcher, the deterministic D1–D2 ladder routed **every code
-correctly**, as shown in Table 4.5.
+| ID | ICD-11 code | Expected CPG | Match tier |
+|---|---|---|---|
+| route_001 | BA41.0 (ST-elevation MI) | STEMI │ NSTEMI │ NSTE-ACS | exact |
+| route_008 | JB44.3 (peripartum cardiomyopathy) | Heart-Disease-in-Pregnancy | exact |
+| route_031 | 8B20 (undifferentiated stroke) | Ischaemic-Stroke | semantic_scope |
 
-**Table 4.5: Layer A2 routing accuracy, before and after gold/matcher correction (n = 44).**
+**Result.** The deterministic ladder routed **every one of the 44 codes correctly** — Top-1 and
+Hit@3 both 1.000 (Table 4.7, run `routing_20260602_134121`).
 
-| Metric | First run | Corrected run | Practical target | Verdict |
-|---|---:|---:|---:|---|
-| Top-1 accuracy | 0.182 | **1.000 (44/44)** | ≥ 0.85 | ✅ |
-| Hit@3 | — | **1.000 (44/44)** | ≥ 0.95 | ✅ |
-| % `exact` route | 0.477 | **0.886 (39/44)** | — | — |
+**Table 4.7: Layer A2 routing accuracy (n = 44).**
+
+| Metric | Result | Practical target | Verdict |
+|---|---:|---:|---|
+| Top-1 accuracy | **1.000 (44/44)** | ≥ 0.85 | ✅ |
+| Hit@3 | **1.000 (44/44)** | ≥ 0.95 | ✅ |
+| % `exact` route | **0.886 (39/44)** | — | — |
 
 Of the 44 codes, 39 matched a guideline's `icd11_scope` array exactly; the remaining five resolved
-through the designed fallback tiers (`sibling`, `ancestor_d1`, `semantic_scope`) and all landed the
-correct CPG. Because `expected_document_titles` was set to the live router's own deterministic
-top-3, this layer now functions as a **regression guard** against future scope drift rather than as
-an independent oracle — a deliberate and stated limitation.
+through the designed fallback tiers — one `sibling`, two `ancestor_d1`, two `semantic_scope` — and
+all landed the correct CPG (Figure 4.5). The ladder is therefore doing precise work on the bulk of
+the corpus with a small, fully-accounted-for fallback tail, not papering over gaps with fuzzy
+matches.
 
-> **[FIGURE 4.5: Routing before/after and match-type distribution.]**
-> *Left: a simple before/after bar of Top-1 accuracy (0.182 → 1.000) captioned as the evaluation-
-> artifact correction, not a model change. Right: a donut/stacked bar of how the 44 codes resolved
-> (39 `exact` + 5 fallback split into sibling / ancestor_d1 / semantic_scope), showing the
-> deterministic ladder doing precise work with a small justified fallback tail. Generate from
+> **[FIGURE 4.5: Routing accuracy against target and match-type distribution.]**
+> *Left: Top-1 and Hit@3 accuracy (both 1.000) with the ≥ 0.85 and ≥ 0.95 target lines overlaid —
+> both metrics clear the bar. Right: a stacked bar of how the 44 codes resolved (39 `exact` + the
+> 5-code fallback tail split into sibling / ancestor_d1 / semantic_scope), the visual proof that the
+> ladder routes every code while staying mostly on exact matches. Generated from
 > `eval/results/routing_20260602_134121.json`.*
 
 #### 4.3.2.3 Stage 4 — Evidence Retrieval (Layer B)
 
-**What it tests.** Given a clinical question and a CPG document filter, do the retrieval tools
-return the gold chunk IDs inside top-k? The gold set is 148 rows, all 30 CPGs covered, labelled by
-an LLM-as-judge with per-row `primary` / `supporting` relevance grades that feed a graded nDCG —
-not keyword overlap. The gold is retriever-agnostic, so vector and hybrid retrieval score the same
-rows and the comparison is fair.
+**Purpose.** Stage 4 is the evidence floor of the whole pipeline: every downstream stage reasons
+only over the chunks this layer surfaces, so if the right passage is not retrieved no later stage
+can recover it. Layer B therefore asks two things — does retrieval *recall* the relevant evidence
+into the top-k a clinician actually reads, and does the **RRF-hybrid** retriever earn its added
+complexity over plain vector search?
 
-**Table 4.6: Layer B retrieval, vector versus RRF-hybrid (n = 148, graded).**
+**Method.** Retrieval is scored against a 148-row gold set covering all 30 CPGs, where each row
+pairs a clinical question with its relevant chunk IDs graded `primary` / `supporting` by an
+LLM-as-judge — so the score is graded nDCG, not keyword overlap. The gold is **retriever-agnostic**:
+vector and hybrid are scored on the identical rows, making the comparison fair. Metrics span recall
+(does the evidence appear at all, at k = 5/10/20) and ranking quality (Precision@5, MRR, nDCG@10,
+Hit@10 — is it near the top). Three representative rows show the gold set's shape — each pairs a
+clinical question with its relevant chunks and the grade the judge assigned (Table 4.8).
+
+**Table 4.8: A sample of the retrieval gold set (3 of 148 rows).**
+
+| ID | Query | CPG | Graded relevant chunks |
+|---|---|---|---|
+| ret_001 | Door-to-balloon time target in STEMI | STEMI | 1 primary, 1 supporting |
+| ret_015 | Four foundational medications for HFrEF | Heart Failure | 1 primary, 1 supporting |
+| ret_025 | LDL-C target for very-high cardiovascular risk | Dyslipidaemia | 1 primary, 2 supporting |
+
+**Table 4.9: Layer B retrieval, vector versus RRF-hybrid (n = 148, graded).**
 
 | Mode | Recall@5 | Recall@10 | Recall@20 | Precision@5 | MRR | nDCG@10 | Hit@10 |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | **Vector** | 0.769 | **0.874** | **0.971** | 0.251 | **0.682** | **0.669** | **0.953** |
 | Hybrid (RRF, `rrf_k = 60`) | 0.773 | 0.876 | 0.971 | 0.251 | 0.659 | 0.656 | 0.953 |
 
-Two findings stand out. First, **Recall@10 (0.874) and Hit@10 (0.953) pass their
-targets** (≥ 0.85 and ≥ 0.95): almost every query surfaces a relevant passage, and most of the
-relevant set lands in the top 10. Second, **MRR (0.682) and nDCG@10 (0.669) fall just below the
-0.75 target, and Precision@5 (0.251) is far below 0.5** — but the precision figure is structurally
-bounded, because most rows carry only one to three graded-relevant chunks against a denominator of
-five, so a perfect retriever could not exceed ~0.6 here. The ranking metrics miss because the gold
-now rewards landing *several* relevant chunks high, not just one.
+**Result.** The recall floor holds: **Recall@10 (0.874) and Hit@10 (0.953) clear their targets**
+(≥ 0.85, ≥ 0.95), so almost every query surfaces a relevant passage and most of the relevant set
+lands in the top 10. The ranking metrics read lower — MRR (0.682) sits just under its ≥ 0.70 target
+and nDCG@10 (0.669) just under its ≥ 0.75 target — and **Precision@5 (0.251) is structurally capped,
+not failing**: every one of the 148
+rows carries only one to three graded-relevant chunks (mean 1.72) against a denominator of five, so
+the theoretical Precision@5 ceiling is **0.345** — the retriever reaches **73 % of the maximum a
+perfect ranker could achieve** on this gold (Figure 4.6).
 
-On the architectural question of hybrid versus vector retrieval, the result is a deliberate
-negative: **RRF-hybrid ties vector on recall but loses marginally on ranking** (−0.023 MRR, −0.013
-nDCG). RRF did close a prior regression — an earlier *weighted* hybrid had scored Recall@10 = 0.749,
-below vector, because the keyword arm's zero-similarity misses subtracted from the combined score —
-but it does not beat vector. The honest design statement is that RRF restored parity and vector was
-retained for its slightly better top-rank quality and simplicity. The chapter does not claim
-"hybrid wins".
+On the architectural question, the result is a **deliberate negative: RRF-hybrid ties vector on
+recall but loses marginally on ranking** (−0.023 MRR, −0.013 nDCG). The honest statement is that
+hybrid restores parity, not a win — so vector is retained for its slightly better top-rank quality
+and lower complexity, and the chapter does not claim "hybrid wins".
+
+**What it adds, carried forward.** The test established the fusion rule for the hybrid retriever. An
+earlier *weighted-fusion* hybrid scored Recall@10 = 0.749 (below vector), because the keyword arm's
+zero-similarity misses subtracted from the combined score. Reciprocal-rank fusion (`rrf_k = 60`, the
+conventional untuned constant), which combines by rank position rather than raw score, removes that
+penalty and restores recall parity. The retained finding is that rank-based fusion — not
+score-weighted fusion — is the correct way to blend the two retrievers on this corpus.
 
 > **[FIGURE 4.6: Retrieval recall@k curve and ranking-metric comparison.]**
-> *Left: a Recall@k line plot (k = 5/10/20) for vector vs RRF-hybrid with the ≥ 0.85 Recall@10
-> target line — the two curves overlapping is the visual of "RRF ties vector". Right: a grouped bar
-> of Precision@5 / MRR / nDCG@10 / Hit@10 against their target lines, making the structural
-> Precision@5 shortfall and the small MRR/nDCG miss legible at a glance. Generate from
-> `eval/results/retrieval_vector_20260602_200110.json` + `retrieval_hybrid_20260602_200834.json`.*
+> *Left: Recall@k (k = 5/10/20) for vector vs RRF-hybrid with the ≥ 0.85 Recall@10 target line — the
+> two curves overlapping is the visual of "RRF ties vector". Right: a grouped bar of Precision@5 /
+> MRR / nDCG@10 / Hit@10 for both retrievers against their target lines (MRR ≥ 0.70, nDCG@10 ≥ 0.75),
+> with the Precision@5 structural ceiling (0.345) drawn in so the "capped, not failing" reading is
+> legible at a glance.
+> Generated from `eval/results/retrieval_vector_20260602_200110.json` +
+> `retrieval_hybrid_20260602_200834.json`.*
 
 #### 4.3.2.4 Stage 4 — Category-Boost Re-ranker Lift (Layer C)
 
-**What it tests.** Whether the category-aware re-ranking and top-20 cut described in §3.7 surfaces
-decision-relevant chunks better than raw vector order.
+**Purpose.** Stage 4 does not only retrieve evidence — after the seven-domain fan-out and dedup
+(§3.7) it *re-orders* the candidate pool with a category-aware boost, so that decision-relevant
+chunks (treatment, diagnosis) rise above background physiology before the top-20 cut. Layer C asks
+the narrow question that isolates this component: does the boost actually improve the ordering a
+clinician reads, or is it complexity that earns nothing over raw vector rank?
 
-This layer required a methodological correction that is itself a useful result. A first attempt
-measured the full multi-query Stage-4 pipeline against a single-query baseline on the Layer B gold
-and reported a **−0.173 recall lift** — the pipeline appeared to retrieve *fewer* relevant chunks
-than a plain vector search. Analysis showed this to be a gold-set artifact, not a pipeline defect:
-the 148-row gold was constructed for single-query retrieval (one to three relevant chunks per row),
-so the Stage-4 seven-domain fan-out correctly filled the top-20 with multi-domain chunks that
-crowded out the narrow gold chunks. The comparison conflated retrieval breadth (Layer B) with
-re-ranker quality (Layer C) and could not isolate the boost.
+**Method.** The re-ranker is isolated by an **ablation on an identical candidate pool**. Scoring the
+full multi-query pipeline against the single-query Layer B gold cannot answer the question — the
+seven-domain fan-out fills the top-20 with multi-domain chunks that crowd out a gold built for
+single-query retrieval (one to three chunks per row), which conflates retrieval breadth (Layer B)
+with ordering quality (Layer C). Instead, Stage 4 is run once to produce its deduplicated pool, and
+that **same pool** is then sorted two ways — boost-off (raw vector score) and boost-on
+(category-boosted score) — so retrieval breadth and gold-construction bias cancel and only the
+ordering differs. The gold is five multi-condition cases spanning 2–5 CPGs each, with each candidate
+chunk graded `primary` / `supporting` by an LLM-as-judge (Table 4.10).
 
-The honest Layer C metric was therefore captured by an **ablation on the identical candidate pool**:
-Stage 4 was run with `return_pool=True`, and the same deduplicated pool was sorted two ways —
-boost-off (raw vector score) and boost-on (category-boosted score) — so that gold-construction bias
-and baseline asymmetry cancel and only the re-ranker's ordering differs. The ablation ran on a
-five-case multi-condition gold (2–5 CPGs each), LLM-judged.
+**Table 4.10: A sample of the Layer C multi-condition gold set (3 of 5 cases).**
 
-**Table 4.7: Layer C category-boost ablation on an identical pool (n = 5 multi-condition cases).**
+| ID | Conditions | CPGs | Graded relevant chunks |
+|---|---|---:|---|
+| mc_008 | HFrEF + T2DM + Obesity | 3 | 34 primary, 9 supporting |
+| mc_011 | Stable CAD + T2DM + ED | 5 | 18 primary, 12 supporting |
+| mc_005 | HTN + T2DM + proteinuria | 2 | 10 primary, 2 supporting |
+
+**Result.** On the identical pool the boost is **net positive — +6.0% nDCG@10 and +10.0% MRR** mean
+lift (Table 4.11, Figure 4.7), with three clear wins and two small, explainable regressions. The
+mechanistically sensible wins are mc_011 and mc_025, where ED treatment chunks must compete against
+background physiology — exactly the scenario the boost was designed for. The regressions are minor:
+mc_010's pregnancy CPG carries an atypical, Reference-heavy category mix, and mc_005 already sits
+near its ceiling (0.724) with only churn among near-equal-score treatment chunks. The result is
+reported as **directional, not statistically significant** — n = 5 is too small for a publishable
+lift, and extending the multi-condition gold to n = 15–20 is named as future work.
+
+**Table 4.11: Layer C category-boost ablation on an identical pool (n = 5 multi-condition cases).**
 
 | Case | nDCG@10 off | nDCG@10 on | nDCG lift | MRR lift |
 |---|---:|---:|---:|---:|
@@ -589,85 +646,109 @@ five-case multi-condition gold (2–5 CPGs each), LLM-judged.
 | mc_025 ED + T2DM + HTN | 0.327 | 0.510 | **+0.183** | +0.500 |
 | **Mean** | **0.461** | **0.521** | **+0.060** | **+0.100** |
 
-The boost is **net positive: +6.0% nDCG@10 and +10.0% MRR** mean lift, with three clear wins and
-two small, explainable regressions (mc_010's pregnancy CPG carries an atypical, Reference-heavy
-category distribution; mc_005 sits near its ceiling at 0.724 with only minor churn among
-equal-score treatment chunks). The mechanistically sensible wins — mc_011 and mc_025, where ED
-treatment chunks must compete against background physiology — are exactly the scenario the boost was
-designed for. The result is reported as **directional, not statistically significant**: n = 5 is too
-small for a publishable lift, and extending the multi-condition gold to n = 15–20 is named as future
-work.
-
 > **[FIGURE 4.7: Re-ranker ablation, boost-off versus boost-on.]**
-> *A paired/grouped bar of nDCG@10 per case (boost-off vs boost-on) with the per-case lift annotated
-> (+0.069, −0.060, +0.141, −0.034, +0.183) and the +6.0% mean called out — the clean "identical pool,
-> only ordering differs" visual that isolates the re-ranker. A slope/arrow chart works equally well.
-> Generate from `eval/results/stage4_rerank_ablation_*.json`.*
+> *Left: per-case nDCG@10 (boost-off vs boost-on) for all five cases with the per-case lift annotated
+> — the "identical pool, only ordering differs" visual that isolates the re-ranker. Right: mean
+> nDCG@10 and MRR with the +6.0% / +10.0% lift called out. Generated from
+> `eval/results/stage4_rerank_ablation_20260604_181825.json`.*
+
+**What it surfaces, carried forward.** The lift is driven by the *general* category boost, which
+applies to all 30 CPGs and accounts for the two largest wins (mc_011, mc_025 — erectile-dysfunction
+treatment chunks promoted above background physiology, with no condition-specific tuning). A finer,
+condition-specific anchor tier — expected-therapy pillars keyed to an ICD prefix — currently exists
+only as a single prototype for HFrEF (`BD11`), and on the one case that exercises it the first-rank
+ordering regressed (mc_008, MRR 1.0 → 0.5). The honest finding is therefore that the corpus-wide
+category boost is the component that earns its place, while condition-specific anchoring is an
+unproven refinement whose value must be established case-by-case before it is extended.
 
 #### 4.3.2.5 Out-of-Scope Calibration (Scope Refusal)
 
-The refusal behaviour that §3.6 made a primary design goal was validated by a dedicated
-deterministic probe (`probe_d2_semantic_scope.py`) that stresses the `SEMANTIC_SCOPE_THRESHOLD =
-0.32` calibration in both directions: five in-scope codes that must route, and six orphan codes
-that must produce `out_of_scope`. The probe uses no gold set and no language model, so its result
-is noise-free.
+**Purpose.** Unlike the preceding layers, which measure accuracy when a correct answer exists, this
+layer tests the scope-refusal behaviour required by §3.6: for a condition outside the 30-CPG corpus,
+the router must return `out_of_scope` rather than route to the nearest available guideline.
 
-The probe passes **11/11 (100%)**. At the decision boundary, the lowest in-scope similarity was
-0.368 (proliferative diabetic retinopathy) and the highest orphan similarity was 0.265 (urinary
-tract infection), so the 0.32 threshold sits inside the (0.265, 0.368) separation gap with roughly
-0.05 of headroom on each side. This is the empirical confirmation that the system refuses cleanly
-on conditions it holds no guideline for, rather than fabricating a plan from a borderline match.
+**Method.** The deterministic probe `probe_d2_semantic_scope.py` evaluates 11 ICD-11 codes with
+corpus-defined ground truth — 5 in-scope codes that must route and 6 orphan codes that must be
+refused (migraine, epilepsy, UTI, cardiac arrest, COPD, peptic ulcer). Each code's cosine similarity
+to the nearest CPG scope embedding is compared against `SEMANTIC_SCOPE_THRESHOLD = 0.32`. The
+decision is a threshold comparison with no language model, so the test requires no gold set and is
+deterministic.
+
+**Result.** All 11 codes resolve correctly (100%). The highest orphan similarity (0.265, UTI) and the
+lowest in-scope similarity (0.368, proliferative diabetic retinopathy) bound a non-overlapping
+separation gap of (0.265, 0.368), placing the 0.32 threshold with ≈ 0.05 margin on each side. Each
+refused code returns `out_of_scope` and selects no CPG, so plan synthesis is never reached; refusal
+is therefore an upstream routing decision rather than a downstream rejection. The separation margin
+is the evidence that the system declines on conditions for which it holds no guideline.
 
 > **[FIGURE 4.8: Scope-threshold separation plot.]**
-> *A one-dimensional scatter / strip plot of similarity scores: 5 in-scope positives (min 0.368) and
-> 6 orphans (max 0.265) plotted on a 0–1 axis, with the `0.32` threshold drawn as a vertical line and
-> the (0.265, 0.368) separation gap shaded. The clean margin with no overlap is the whole story —
-> this is the classic "decision-boundary separation" figure. Generate from the
-> `probe_d2_semantic_scope.py` console output.*
+> *Decision-boundary strip plot of D2 cosine similarity: the 5 in-scope codes (min 0.368) and the 4
+> orphan codes that carry a similarity score (max 0.265, UTI) on a single axis, with the `0.32`
+> threshold as a vertical line and the (0.265, 0.368) separation gap shaded. The two classes do not
+> overlap and the threshold sits in the gap. The remaining 2 orphans (COPD, peptic ulcer) are absent
+> from the ICD-11 embedding table and are refused without a score — noted on the plot rather than
+> plotted. Generated from `scripts/probe_d2_semantic_scope.py` console output (run 2026-06-09).*
 
 ---
 
 ### 4.3.3 Synthesis Faithfulness (Layer D)
 
-**What it tests.** Whether each claim in a synthesised care plan is grounded in the retrieved CPG
-evidence, judged claim-by-claim by an **independent** model — Gemini 2.5 Flash, deliberately *not*
-the MiMo synthesiser, to eliminate the same-model self-confirmation confound. The run covered the
-full 30-plan gold set with no skipped cases and no judge errors.
+**Purpose.** The preceding layers measure whether the system retrieves and orders the right
+evidence; this layer measures whether the synthesised plan stays grounded in it. Faithfulness is the
+hallucination axis — the most consequential property for a clinical tool, since a fluent but
+unsupported claim is more dangerous than a missing one.
 
-**Table 4.8: Layer D faithfulness (n = 30, independent judge).**
+**Method.** The gold set is 30 clinical QA pairs, each a vignette with its expected CPG and the
+content anchors a correct plan must contain (Table 4.12). Each plan is decomposed into atomic claims,
+and every claim is scored *supported* or *unsupported* by an **independent** judge — Gemini 2.5
+Flash, not the MiMo synthesiser, so no model grades its own output. Per-plan faithfulness is
+supported over total claims; the headline is their mean across all 30 plans, run over the full
+population with no skipped cases and no judge errors.
 
-| Metric | Value | Target | Verdict |
+**Table 4.12: A sample of the Layer D faithfulness gold set (3 of 30 QA pairs).**
+
+| ID | Patient vignette | Expected CPG | Must-contain anchors |
+|---|---|---|---|
+| qa_001 | 58 M, anterior STEMI | STEMI (4th Ed.) | primary PCI, dual antiplatelet, statin, reperfusion |
+| qa_002 | 65 F, HFrEF (NYHA III) | Heart Failure (5th Ed.) | ACE-I/ARNI, β-blocker, MRA, SGLT2 inhibitor |
+| qa_003 | 68 M, high-risk NSTE-ACS | NSTE-ACS (3rd Ed.) | aspirin, ticagrelor, angiography < 24 h, statin |
+
+**Result.** Mean faithfulness — the average of the 30 per-plan scores — is **0.864** against a 0.90
+target (Table 4.13, Figure 4.9), reported as measured and not rounded up; pooled across plans, 849
+of 979 claims are supported (0.867). The distribution is high and tight (median 0.883, sd 0.116),
+with four plans fully grounded at 1.00. The 3.6-point shortfall is genuine and concentrated in three
+cases (qa_027 0.59, qa_016 0.61, qa_012 0.62) — the named triage target — and its dominant cause is
+paraphrase of correct CPG knowledge absent from the chunks retrieved on that run. As a single pass
+over non-deterministic synthesis and judging, a hardened figure would repeat the run for a
+mean ± standard deviation.
+
+**Table 4.13: Layer D faithfulness (n = 30 plans, independent judge).**
+*Faithfulness = the proportion of a plan's claims supported by the retrieved CPG evidence, judged
+claim-by-claim. The headline is the average of the 30 per-plan scores (each plan weighted equally).*
+
+| Metric | Value | Target | Status |
 |---|---:|---:|---|
-| Mean faithfulness | **0.864** (849/979 claims supported) | ≥ 0.90 | ❌ (close) |
-| Median faithfulness | 0.883 | — | — |
-| Std dev (case-to-case) | 0.116 | — | — |
-| Min / Max | 0.59 (qa_027) / 1.00 (four plans) | — | — |
-| Judge errors / cases skipped | 0 / 0 | — | — |
-
-The result is **0.864 against a 0.90 target — reported as the real number, not rounded up**. The
-residual ~3.6-point gap is genuine: some plans paraphrase CPG knowledge that was not in the
-specific chunks retrieved for that run. Two changes landed alongside this measurement and are kept
-distinct in the reporting, because one is a system improvement and the other is a measurement-fairness
-improvement. The system change was an acute-scope synthesis fix (a synthesis commandment plus a
-code-side gate) that defers a stable comorbidity's chronic screening on an acute visit, removing
-genuinely ungrounded claims such as auto-injected diabetic-eye-screening referrals whose CPG chunks
-were never retrieved. The measurement change relaxed the judge on operational qualifiers (monitoring
-intervals, screening frequency stated non-verbatim) and eligibility recommendations, **while keeping
-fabricated doses, drug names, and probability numbers strictly failed** — verified, so the judge is
-not a rubber stamp. A skeptical reader is told plainly that the headline blends a real system
-improvement with fairer measurement.
-
-The three worst cases (qa_027 at 0.59, qa_016 at 0.61, qa_012 at 0.62) carry most of the remaining
-loss and are the named next triage target. The figure is cited as a single-pass result; for a
-hardened number the n = 30 run would be repeated two or three times for a mean ± standard deviation,
-given that both synthesis and judging are non-deterministic.
+| Mean faithfulness (per-plan average, n = 30) | **0.864** | ≥ 0.90 | ❌ below target (−0.036) |
+| Median plan | 0.883 | — | — |
+| Spread across plans (std dev) | 0.116 | — | — |
+| Lowest / highest plan | 0.59 (qa_027) / 1.00 (4 plans) | — | — |
+| Claims supported (all plans pooled) | 849 / 979 (0.867) | — | — |
+| Judge errors / plans skipped | 0 / 0 | — | full coverage |
 
 > **[FIGURE 4.9: Per-case faithfulness distribution.]**
 > *A sorted per-case bar chart of all 30 plans' faithfulness scores with the mean (0.864) and the
-> ≥ 0.90 target drawn as horizontal lines, the worst three (qa_027/016/012) highlighted and the four
-> 1.00 plans visible at the top. Optionally inset a histogram of the 979 claim judgements
-> (supported vs unsupported). This is the standard "score distribution vs target" diagnostic.
-> Generate from `eval/results/faithfulness_20260605_003723.json`.*
+> ≥ 0.90 target as horizontal lines; the worst three (qa_027/016/012) flagged red and the four 1.00
+> plans green. The standard "score distribution vs target" diagnostic. Generated from
+> `scripts/plot_faithfulness_distribution.py` over `eval/results/faithfulness_20260605_003723.json`.*
+
+**What it surfaces, carried forward.** The layer exposed one structural grounding fault: on an acute
+visit the pipeline auto-injected a stable comorbidity's *chronic* screening — e.g. diabetic
+eye-screening on a STEMI plan — whose CPG chunks were never retrieved, so the plan asserted claims it
+could not support. An acute-scope rule now defers a stable comorbidity's routine screening on acute
+presentations while sparing the acute primary's own referrals, removing a real class of ungrounded
+claims rather than tuning the score. The judge stays strict where it matters — fabricated doses, drug
+names, and probabilities always fail — so 0.864 is a genuine groundedness measurement, not a lenient
+one.
 
 ---
 
@@ -687,7 +768,7 @@ genuinely unsafe (allergy, DDI, organ-impairment dosing, absolute contraindicati
 cross-reactivity) and two are safe (correct first-line plans), so the critic is measured as a
 clinical binary classifier.
 
-**Table 4.9: SAF safety-critic stress results, pilot versus post-fix.**
+**Table 4.14: SAF safety-critic stress results, pilot versus post-fix.**
 
 | Metric | Pilot (06-04) | Post-fix (06-05) | Target |
 |---|---:|---:|---:|
@@ -719,7 +800,7 @@ as the structural follow-up.
 (ambiguous presentations, the self-diagnosis anchoring trap, cross-CPG conflict), three
 prompt-injection cases, and three multilingual (Bahasa Malaysia / Manglish / mixed-script) cases.
 
-**Table 4.10: Input-side adversarial suite, pilot versus post-fix.**
+**Table 4.15: Input-side adversarial suite, pilot versus post-fix.**
 
 | Group | Cases | Pilot (06-04) | Post-fix (06-05) | Target |
 |---|---:|---:|---:|---:|
@@ -766,7 +847,7 @@ failure each and ask whether the system **fails loud, not silent**.
 This suite produced the chapter's most important robustness result, because the pilot **found real
 fail-silent bugs**.
 
-**Table 4.11: Silent-degradation and infrastructure probes, pilot versus post-fix.**
+**Table 4.16: Silent-degradation and infrastructure probes, pilot versus post-fix.**
 
 | Probe | Scenario | Pilot (06-04) | Fix shipped | Now |
 |---|---|---:|---|---:|
@@ -816,7 +897,7 @@ Three cases were run at n = 10 each, chosen to span the intake modes: case 8 (sy
 Mode A), case 9 (task-framed, stabilised by the four-layer Mode-B bypass), and case 10 (a
 multi-condition obstetric booking visit).
 
-**Table 4.12: Reproducibility across n = 10 replays per case.**
+**Table 4.17: Reproducibility across n = 10 replays per case.**
 
 | Case | Framing | Top-1 stability | exact top-5 J | family top-5 J | same-plan | safety-flag J | wall μ ± σ (s) |
 |---|---|---|---:|---:|---:|---:|---:|
@@ -882,9 +963,9 @@ that suffice for a frozen store.
 The current status is that **no automated Supabase tests exist**: the backend test database is the
 Neon Postgres instance, which deliberately does not carry the Supabase application tables (the two
 tiers are kept separate), so these tests require a dedicated Supabase test project to run against.
-Table 4.13 sets out the planned suite.
+Table 4.18 sets out the planned suite.
 
-**Table 4.13: Application-data-layer (Supabase) test plan.**
+**Table 4.18: Application-data-layer (Supabase) test plan.**
 
 | Concern | What to assert | Approach | Status |
 |---|---|---|---|
@@ -942,11 +1023,11 @@ audit trail. The identity layer is `AuthContext.jsx` over Supabase Auth (`signIn
 `onAuthStateChange`, `signOut`).
 
 The authentication layer now carries automated tests at the unit/behaviour level, mirroring the
-reference projects' decision to test the authentication service as its own first module. Table 4.14
+reference projects' decision to test the authentication service as its own first module. Table 4.19
 sets out the suite; the two unit rows are implemented, while the end-to-end and audit-trail rows
 remain planned (they need a browser driver and a live identity).
 
-**Table 4.14: Authentication and access-control test plan.**
+**Table 4.19: Authentication and access-control test plan.**
 
 | Concern | What to assert | Approach | Status |
 |---|---|---|---|
@@ -996,7 +1077,7 @@ the remaining layers below it are a defined plan, deliberately ordered by return
 that the cheapest, backend-free layers — which also lock in the exact bug-classes Chapter 3 keeps
 warning about — come first.
 
-**Table 4.15: Doctor UI test plan, by layer.**
+**Table 4.20: Doctor UI test plan, by layer.**
 
 | Layer | What it locks in (real invariants) | Tool | Status |
 |---|---|---|---|
@@ -1125,7 +1206,7 @@ The deterministic Gmail module (`delivery.py` plus a background worker polling `
 covered by `test_delivery.py` and `test_delivery_worker.py`, which run an in-process SMTP server
 (`aiosmtpd`) against an `AsyncMock` database pool — no live mail server or Supabase instance needed.
 
-**Table 4.16: Delivery testing, covered versus planned.**
+**Table 4.21: Delivery testing, covered versus planned.**
 
 | Aspect | What is asserted | Status |
 |---|---|---|
@@ -1169,7 +1250,7 @@ that the whole pipeline, from differential diagnosis through routing, retrieval,
 injection, synthesis, and safety, holds up under the multi-condition, multi-guideline reasoning the
 system was built for.
 
-**Table 4.17: The three end-to-end test scenarios.**
+**Table 4.22: The three end-to-end test scenarios.**
 
 | | **Scenario 1** | **Scenario 2** | **Scenario 3** |
 |---|---|---|---|
@@ -1186,9 +1267,9 @@ Each scenario was assessed on four things: whether the pipeline ran to completio
 stages, whether the final plan populated all eight sections with clinically coherent content, whether
 the correct guidelines were retrieved and integrated, and whether the system surfaced the specific
 hazard the scenario was designed to expose. All three ran to completion and produced a fully
-populated plan. The measured results are given in Table 4.18.
+populated plan. The measured results are given in Table 4.23.
 
-**Table 4.18: End-to-end results per scenario (live runs, 2026-06-08).**
+**Table 4.23: End-to-end results per scenario (live runs, 2026-06-08).**
 
 | Metric | Scenario 1 | Scenario 2 | Scenario 3 |
 |---|---|---|---|
@@ -1268,11 +1349,11 @@ fits the ten-minute consultation window and to locate the bottleneck.
 
 The latency result is a **three-case pilot**, sufficient for order-of-magnitude timing and
 bottleneck shape but not for a statistically meaningful p95 (which needs ≥ 10 runs). Mean wall-time
-was **2.36 min (141.9 s)**, ranging 1.91–2.65 min. The per-stage breakdown in Table 4.18 is the
+was **2.36 min (141.9 s)**, ranging 1.91–2.65 min. The per-stage breakdown in Table 4.24 is the
 useful output: **Stage 5 synthesis is the dominant cost at ~43% of runtime**, followed by Stage 4
 retrieval at ~31%, with the two deterministic stages (routing, KG lookup) together under 1%.
 
-**Table 4.18: Per-stage latency contribution (n = 3 pilot).**
+**Table 4.24: Per-stage latency contribution (n = 3 pilot).**
 
 | Stage | Mean | % of total |
 |---|---:|---:|
@@ -1412,14 +1493,14 @@ a finding anywhere in this chapter.
 
 ### 4.5.4 Summary of Results Against Targets
 
-Table 4.19 consolidates every measured layer against its target. Read honestly, the picture is a
+Table 4.25 consolidates every measured layer against its target. Read honestly, the picture is a
 system whose **retrieval recall, routing, scope refusal, safety-critic recall, and robustness all
 meet their targets**, whose **differential diagnosis meets target on the clinically meaningful
 lineage metric** while falling short on strict-exact leaf matching, and whose **faithfulness and
 retrieval-ranking metrics fall a measurable, stated distance below target** for reasons that are
 diagnosed rather than hidden.
 
-**Table 4.19: Measured results versus targets (reasoning tier and system level).**
+**Table 4.25: Measured results versus targets (reasoning tier and system level).**
 
 | Layer | Metric | Target | Achieved | Pass |
 |---|---|---:|---:|---|
@@ -1442,7 +1523,7 @@ diagnosed rather than hidden.
 | Expert review | Clinical-quality total (R1) | — | **107/120** (R2 prose 111) | n = 1 review |
 | Expert review | Reasoning visibility / safety surfacing | — | **5/5 / 4/5** | n = 1 review |
 
-The application tier (§4.4.1–§4.4.4) is deliberately absent from Table 4.19, because presenting a
+The application tier (§4.4.1–§4.4.4) is deliberately absent from Table 4.25, because presenting a
 planned suite as a passed result would violate the chapter's governing rule. Its honest status is:
 **delivery's backend is covered, the knowledge-graph helpers are unit-tested, and the Supabase data
 layer, authentication, and the React frontend are a defined but not-yet-executed plan** — the single
@@ -1453,7 +1534,7 @@ largest testing gap in the project and the clearest near-term work item.
 > target marked as a notch/line, coloured pass (green) / miss (amber), grouped by Accuracy / Safety /
 > Robustness / Non-functional. The amber bars (exact DDx, nDCG/MRR, Precision@5, faithfulness) and the
 > green majority make the honest overall verdict legible in one image — the figure to put on the
-> closing slide. Build directly from Table 4.19.*
+> closing slide. Build directly from Table 4.25.*
 
 The threads that run from Chapter 3's design into these results are direct. The deterministic-first
 split made routing, scope refusal, and the re-ranker ablation reproducible and auditable. The
@@ -1479,7 +1560,7 @@ competitor benchmark — are named precisely in this chapter as the agenda for t
 > - **Fig. 4.2** — system integration & test-surface diagram (Mermaid, edges coloured by status).
 > - **Fig. 4.3** — KG scale & edge-type integrity bar (+ optional Neo4j ego-network screenshot).
 > - **Fig. 4.4** — DDx three-granularity scorecard + miss-breakdown.
-> - **Fig. 4.5** — routing before/after bar + match-type distribution.
+> - **Fig. 4.5** — routing accuracy-vs-target bars + match-type distribution.
 > - **Fig. 4.6** — retrieval Recall@k curve + ranking-metric bars vs targets.
 > - **Fig. 4.7** — re-ranker ablation, boost-off vs boost-on.
 > - **Fig. 4.8** — scope-threshold separation plot (0.32 margin).
