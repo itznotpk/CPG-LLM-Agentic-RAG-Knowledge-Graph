@@ -59,84 +59,114 @@ The project ran from August 2025 to June 2026 across four phases. The Gantt char
 
 The single largest schedule lesson — recorded in §6.1.2 — is that the evaluation phase (Phase 3) carried more diagnostic cost than planned because gold-set correction and the full faithfulness run landed late; an earlier evaluation start would have shortened the critical path.
 
+### 6.2.1 Phase 1 & 2 — System Design and Build (August 2025 – January 2026)
+
+During the first half of the project, all team members participated in stakeholder discovery — conducting interviews with rural clinicians, Ministry of Health doctors, and health-technology partners (Table 2.1) to anchor the system's requirements in real clinical need. Following the requirements phase, the team split across the core workstreams required to build the seven-stage pipeline and its surrounding infrastructure.
+
+**Chua Zhu Heng (Leader)** drove the overall system architecture and held the primary technical integration role. He designed the LLM orchestration layer, integrated the Gemini 2.5 Flash API across the extraction, re-ranking, and query-generation stages, and established the Stage 6 hybrid safety-critic design — combining LLM pharmacological reasoning with the typed Neo4j drug knowledge graph. He also structured the evaluation framework, defining the multi-layer validation strategy (Layers A–D) that would govern Phase 3.
+
+**Lim Zhi Pin** was responsible for the backend cloud infrastructure. He provisioned and configured the AWS deployment environment, set up the PostgreSQL/pgvector instance for the 30-CPG corpus, and integrated the Cohere Rerank v3.5 retrieval pipeline. He also led the testing strategy, designing the adversarial and safety stress-test cases that formed the backbone of the Layer C/D evaluation suite.
+
+**Satish Rao** led the rPPG (remote photoplethysmography) integration workstream, building the contactless vitals-capture pipeline that feeds heart rate into the patient case input. He also took primary ownership of CPG corpus preprocessing, writing the ingestion scripts that chunked, tagged, and embedded all 30 Malaysian MOH guidelines into the vector database.
+
+**Chin Pei Kang** developed the Doctor UI frontend (React), implementing the case-input forms, DDx selection interface, care-plan display, and the safety-flag acknowledgement workflow. He also hardened the DDx selection pipeline on the backend — implementing the ICD-11 CC-Boost resolver and the multi-granularity scoring logic to prevent empty or misrouted care plan generation.
+
+**Low Jia Qi** built the care-plan delivery and notification features, including the email care-plan PDF workflow and the DDx UI components. She also developed the SULAM interactive prototype and contributed to early frontend architecture decisions.
+
+### 6.2.2 Phase 3 & 4 — Evaluation and Reporting (January 2026 – June 2026)
+
+In the second half of the project, the team shifted focus to system validation, expert review, and final documentation.
+
+**Chua Zhu Heng** owned Evaluation Layers B, C, and D — running clinical QA retrieval benchmarks, correcting the gold sets when ICD-code defects were discovered, and executing the full Stage 4 and Stage 5 faithfulness evaluation runs. He resolved the most significant evaluation bugs (mismatched UUIDs, Layer B/C framework failures) and produced the consolidated validation results that underpin Chapter 4.
+
+**Lim Zhi Pin** executed the full adversarial and safety testing battery — running the injection (INJ), adversarial-prompt (ADV), language-robustness (LNG), and safety-critic (SAF-05) probes. He identified input- and output-side failures and proposed the targeted fixes that brought those test cases to pass.
+
+**Satish Rao** led the rPPG accuracy validation, running the 34-subject pilot and producing the Bland-Altman agreement analysis (bias −0.5 BPM) reported in §4.4.5.1. He took primary responsibility for assembling the final report, authoring Chapters 5 and 6 and making the cross-chapter consistency passes that unified the manuscript.
+
+**Chin Pei Kang** completed the frontend unit-test suite (Vitest, React Testing Library), ran the DDx and determinism evaluation layers, and wrote the technical sections of Chapters 1, 3, and 4. He also produced the expert-evaluation poster design and integrated the final validation visual assets — the DDx three-granularity scorecard and the knowledge-graph composition diagram — into the report.
+
+**Low Jia Qi** produced the project video plan and edited the final video submission. She contributed to the poster layout and supported documentation tasks during the final report sprint.
+
 ---
 
-## 6.3 Cost Consideration and Budget
+## 6.3 Project Cost
 
-The project incurred two categories of spend: a **one-time hardware purchase** for the rPPG sensor prototype, and ongoing **cloud and API costs** for the software system. All software figures are in Ringgit, converted from vendor pricing at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66; token-based figures are budgeting estimates derived from prompt sizes, not metered invoices.
+The project incurred costs across two categories: a one-time hardware purchase for the rPPG contactless vitals prototype and direct software expenditure for cloud and API services consumed during development. All costs are stated in Malaysian Ringgit (RM). Foreign-currency charges are converted at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66. Projected operating figures in §6.3.3 are estimates based on expected usage patterns; the actual development figures in §6.3.1 and §6.3.2 reflect invoiced amounts.
 
-**1. Hardware (one-time purchase).** The rPPG contactless vitals module was prototyped on a low-cost microcontroller and pulse-oximeter breakout board, sourced locally from Robotronik.
+### 6.3.1 Hardware Costs
+
+The rPPG module was prototyped using an ESP32 microcontroller paired with a MAX30100 pulse-oximeter breakout board, sourced locally from Robotronik. All four components were purchased as a single one-time outlay at the start of the project.
 
 *Table 6.1: Hardware Bill of Materials*
 
-| Component | Purpose | Unit Cost (RM) |
-|---|---|---|
-| ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing and streams vitals over Wi-Fi | 26.99 |
-| MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse and blood oxygen for rPPG baseline validation | 9.99 |
-| Solderless Breadboard (830 tie-points) | Prototyping platform for sensor circuit | 3.69 |
-| Jumper Wires — Male-to-Female, 40-wire 20 cm | Sensor-to-microcontroller connections | 3.20 |
-| **Hardware total** | | **43.87** |
+| No. | Component | Purpose | Cost (RM) |
+|:---:|:----------|:--------|----------:|
+| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing and streams vitals over Wi-Fi | 26.99 |
+| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse and blood-oxygen readings for rPPG baseline validation | 9.99 |
+| 3 | Solderless Breadboard (830 tie-points) | Prototyping platform for the sensor circuit | 3.69 |
+| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | Sensor-to-microcontroller connections | 3.20 |
+| | | **Hardware Subtotal** | **43.87** |
 
-**2. Fixed monthly subscriptions.** Five managed services plus the Stage 5 synthesis model, which is bought as a flat token plan rather than per-call.
+### 6.3.2 Software and Cloud Development Costs
 
-*Table 6.2: Fixed Monthly Cloud Subscriptions*
+Direct software costs were incurred by two team members for services billed to the project during the development period. Internal tooling and personal subscriptions used for general work are excluded from this account.
 
-| Component | Provider / tier | Monthly (RM) |
-|---|---|---|
-| Vector + relational store | Neon Postgres — Launch | ~89 |
-| Auth, app DB, PDF storage | Supabase — Pro | ~118 |
-| Drug knowledge graph | Neo4j AuraDB — Professional (1 GB) | ~306 |
-| Backend API hosting | Cloud Run / Render — Standard | ~118 |
-| Frontend hosting | Vercel — Pro | ~94 |
-| Stage 5 synthesis LLM | MiMo v2.5 Pro — Standard token plan (¥99/mo, 200M tokens) | ~65 |
-| **Fixed subtotal** | | **~790** |
+*Table 6.2: Actual Software Development Expenditure*
 
-The MiMo Standard plan supplies 200M tokens/month. At ~17k tokens per synthesis call that covers ~11,000 consultations — well above pilot volume — so synthesis is effectively a fixed cost at this scale, not a per-consultation charge.
+| No. | Team Member | Service | Cost (RM) |
+|:---:|:-----------|:--------|----------:|
+| 1 | Lim Zhi Pin | AWS — backend infrastructure and hosting | 173.16 |
+| 2 | Chua Zhu Heng | Gemini Flash API — LLM stage calls | 100.00 |
+| | | **Software Subtotal** | **273.16** |
 
-**3. Variable per-consultation API cost.** The remaining calls are billed per use: Gemini 2.5 Flash stages (extraction, DDx re-rank, query generation, safety critic) and AWS Bedrock retrieval (Titan query embedding + Cohere Rerank v3.5).
+### 6.3.3 Estimated Monthly Operating Costs (Projected)
 
-*Table 6.3: Variable Per-Consultation API Cost*
+For reference, Table 6.3 projects the system's recurring cost at a representative pilot volume of 500 consultations per month. Fixed subscriptions cover the six managed services required to run the backend pipeline, knowledge graph, and hosting infrastructure. Variable costs arise from per-consultation LLM and retrieval calls billed on usage.
 
-| Per-consultation call | Model | Cost (RM) |
-|---|---|---|
-| Stages 2, 4, 6 (extraction, re-rank, query-gen, safety critic) | Gemini 2.5 Flash | ~0.05 |
-| Retrieval (query embedding + chunk rerank) | Titan v1 + Cohere Rerank v3.5 (Bedrock) | ~0.05 |
-| **Per consultation** | | **~0.10** |
+*Table 6.3: Projected Monthly Operating Cost at Pilot Scale (500 Consultations / Month)*
 
-**4. One-time corpus build.** Each CPG is chunked, embedded (Titan), and parsed into the drug knowledge graph (Claude Haiku on Bedrock). Paid once per guideline and repeated only on revision. API cost across 30 CPGs is modest (tens of Ringgit); the real input is 2–4 hours of engineering and clinical-review time per document.
+| No. | Cost Line | Provider / Model | Cost (RM) |
+|:---:|:----------|:----------------|----------:|
+| | **Fixed Monthly Subscriptions** | | |
+| 1 | Vector + relational store | Neon Postgres — Launch | ~89 |
+| 2 | Auth, app database, PDF storage | Supabase — Pro | ~118 |
+| 3 | Drug knowledge graph | Neo4j AuraDB — Professional (1 GB) | ~306 |
+| 4 | Backend API hosting | Render — Standard | ~118 |
+| 5 | Frontend hosting | Vercel — Pro | ~94 |
+| 6 | Stage 5 synthesis LLM | MiMo v2.5 Pro — Standard (¥99/mo, 200 M tokens) | ~65 |
+| | | **Fixed Monthly Subtotal** | **~790** |
+| | **Variable API Cost (per consultation)** | | |
+| 7 | Stages 2, 4, 6 — extraction, re-rank, query-gen, safety critic | Gemini 2.5 Flash | ~0.05 |
+| 8 | Query embedding + chunk rerank | Titan Embed v1 + Cohere Rerank v3.5 (Bedrock) | ~0.05 |
+| | | **Variable Subtotal per Consultation** | **~0.10** |
+| | **Monthly Total at 500 Consultations** | | |
+| | Fixed subscriptions | — | ~790 |
+| | Variable API (500 × RM 0.10) | — | ~50 |
+| | | **Estimated Monthly Total** | **~840** |
 
-**5. Total operating run-rate.** At a pilot volume of 500 consultations/month:
+The MiMo Standard plan supplies 200 million tokens per month. At approximately 17,000 tokens per synthesis call, this covers around 11,000 consultations — well above pilot volume — making Stage 5 synthesis effectively a fixed cost at this scale rather than a per-consultation charge. The one-time corpus build cost (30 CPGs chunked, embedded, and parsed into the knowledge graph) is a few tens of Ringgit in API calls, repeated only when a guideline is revised.
 
-*Table 6.4: Monthly Operating Run-Rate at Pilot Scale*
+### 6.3.4 Total Project Expenditure
 
-| Cost line | Type | Monthly (RM) |
-|---|---|---|
-| Fixed subscriptions | Fixed | ~790 |
-| Per-consultation API (500 × ~RM 0.10) | Variable | ~50 |
-| **Total run-rate** | | **~840** |
+Table 6.4 consolidates all actual project costs, itemising every hardware component and software service to provide a complete account of the RM 317.03 expended during the development period.
 
-**6. Actual development software spend.** The following table records the actual software costs incurred by the team during the development period. Only services billed directly to the project are included; internal tooling used by individual members for general work is excluded.
+*Table 6.4: Comprehensive Total Project Expenditure*
 
-*Table 6.5: Actual Software Development Expenditure*
+| No. | Item | Cost (RM) |
+|:---:|:-----|----------:|
+| | **A — Hardware (One-Time Purchase)** | |
+| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | 26.99 |
+| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | 9.99 |
+| 3 | Solderless Breadboard (830 tie-points) | 3.69 |
+| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | 3.20 |
+| | *Hardware Subtotal* | *43.87* |
+| | **B — Software & Cloud (Development Period)** | |
+| 5 | AWS — backend infrastructure and hosting (Lim Zhi Pin) | 173.16 |
+| 6 | Gemini Flash API — LLM integration (Chua Zhu Heng) | 100.00 |
+| | *Software Subtotal* | *273.16* |
+| | **Grand Total** | **317.03** |
 
-| No. | PIC | Item | Cost (RM) |
-|---|---|---|---|
-| 1 | Zhi Pin | AWS (backend infrastructure & hosting) | 173.16 |
-| 2 | Zhu Heng | Gemini Flash API | 100.00 |
-| | | **Software total** | **273.16** |
-
-**Total project spend.**
-
-*Table 6.6: Total Project Expenditure*
-
-| Category | Cost (RM) |
-|---|---|
-| Hardware (rPPG prototype) | 43.87 |
-| AWS — development period (Zhi Pin) | 173.16 |
-| Gemini Flash API — development period (Zhu Heng) | 100.00 |
-| **Project total** | **317.03** |
-
-The dominant resource throughout was engineering time, not monetary spend.
+The dominant resource throughout the project was engineering time rather than monetary expenditure. The RM 317.03 total covers only direct, project-specific charges; the projected recurring cost at pilot scale is addressed separately in §6.3.3.
 
 ---
 
