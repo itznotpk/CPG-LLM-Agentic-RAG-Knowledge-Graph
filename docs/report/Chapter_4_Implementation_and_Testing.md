@@ -1229,6 +1229,40 @@ round-trip — which depends on the same Supabase test project as §4.4.1 and is
 
 ---
 
+### 4.4.5 Multimodal Input Testing (rPPG Vitals and Speech-to-Text)
+
+#### 4.4.5.1 Contactless Vitals — rPPG Heart Rate Accuracy
+
+**What it tests.** ClearPath includes an rPPG (remote photoplethysmography) module that captures heart rate, SpO₂, and respiratory rate from a standard webcam — designed for rural clinics where a pulse oximeter may be unavailable or broken. This section reports the accuracy of the rPPG heart-rate reading against a reference measurement using a Bland-Altman analysis.
+
+**Method.** Heart rate was captured simultaneously from the rPPG module and a reference pulse oximeter across n = 34 measurements. The Bland-Altman method was used to assess agreement between the two methods: it plots the difference (rPPG minus reference) against the mean of the two readings, and reports the bias (mean difference) and the 95% Limits of Agreement (LoA = bias ± 1.96 × SD).
+
+**Results.**
+
+**Table 4.17: rPPG Heart Rate Bland-Altman Summary (n = 34)**
+
+| Metric | Value | Interpretation |
+|---|---|---|
+| Sample size | 34 readings | Across resting and mild-activity HR range (~50–110 BPM) |
+| Mean bias | **−0.5 BPM** | Near-zero systematic offset — rPPG neither consistently over- nor under-reads |
+| Upper LoA (+1.96 SD) | **+16.0 BPM** | 95% of differences expected to fall below this |
+| Lower LoA (−1.96 SD) | **−17.0 BPM** | 95% of differences expected to fall above this |
+| Within LoA | **30/34 (88%)** | Points within the expected agreement band |
+| Outside LoA | 4/34 (12%) | Outliers — elevated at higher HR values, consistent with motion artefact |
+
+> **[FIGURE 4.18: Bland-Altman plot — rPPG vs reference heart rate (n = 34).]**
+> *X-axis: mean HR (rPPG + reference) / 2 in BPM; Y-axis: difference (rPPG − reference) in BPM. Bias line at −0.5, upper LoA at +16.0, lower LoA at −17.0. Green points = within LoA; red points = outside LoA. Points above 90 BPM show greater scatter, consistent with motion sensitivity at elevated heart rates.*
+
+**Interpretation.** The near-zero bias (−0.5 BPM) confirms that the rPPG module has no meaningful systematic over- or under-estimation of heart rate — it is not pulling readings consistently in one direction. This is the most clinically important property for a screening tool: a biased device would require a correction factor, while this one does not.
+
+The Limits of Agreement (−17.0 to +16.0 BPM) are wide relative to medical-grade pulse oximeters, which typically achieve LoA of ±5 BPM or better. This means the rPPG reading for any individual measurement may deviate from the true HR by up to ~16–17 BPM. In a tertiary-care context this would be unacceptable; in a rural clinic where no oximeter is present, a reading with a known ±16 BPM uncertainty is more clinically useful than no reading at all. The system therefore presents the rPPG reading alongside a visible quality indicator and confidence caveat — the clinician is informed of the measurement's limitations, not presented with a number that implies medical-grade precision.
+
+The four outlier points (12%) are concentrated at higher heart rates (>90 BPM), consistent with the known sensitivity of rPPG to motion artefact and peripheral vasoconstriction at elevated rates. This limits the module's reliability for tachycardic patients and is stated as a scope boundary in §5.3.9.
+
+**Honest framing.** The rPPG module is a contactless screening supplement — not a replacement for a pulse oximeter. Its value proposition is availability (works on any webcam, no hardware beyond the computer the clinic already has) and the elimination of the contactless-capture gap when physical devices are absent. The Bland-Altman result supports use as a first-pass triage indicator with documented uncertainty bounds; it does not support diagnostic-grade heart-rate measurement.
+
+---
+
 ## 4.5 System-Level and Human Evaluation
 
 ### 4.5.1 End-to-End Case Studies
