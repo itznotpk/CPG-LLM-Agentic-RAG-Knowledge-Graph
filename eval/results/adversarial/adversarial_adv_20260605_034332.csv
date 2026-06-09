@@ -1,0 +1,2 @@
+id,category,pass,reason,top5_ddx,routed_cpgs,safety_flags,elapsed_min,stage_errors
+ADV-02,Symptom-diagnosis mismatch,1.0,"sepsis_rank=1; dengue_rank=None; top3=1G41.0 Sepsis with septic shock | BA2Z Hypotension, unspecified | BA2Y Other specified hypotension","1G41.0 Sepsis with septic shock | BA2Z Hypotension, unspecified | BA2Y Other specified hypotension | MB21.Y Other specified symptoms and signs involving cognition | MC81.3 Paroxysmal tachycardia",Hypertension(5th Edition),,1.45,

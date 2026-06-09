@@ -1,34 +1,50 @@
 # CHAPTER 6: PROJECT SELF-EVALUATION
 
-## 6.1 Reflections on Design
+## 6.1 Reflection
 
-The central design decision — deterministic wherever possible, generative only where genuine clinical reasoning is required — proved to be the right governing principle, though its costs were underestimated.
+The core design principle — deterministic wherever possible, generative only where genuine clinical reasoning is required — proved highly successful, though its engineering overhead was originally underestimated.
 
-The deterministic layers delivered exactly what they promised. Building the routing layer as an explicit ICD-11 scope table rather than a retrieved similarity score meant the system could produce a first-class `out_of_scope` refusal instead of a confident answer backed by no clinical authority. This property cannot be added later by improving the retrieval model; it requires an architectural choice made upfront. Making it early was correct.
+### 6.1.1 Reflection on Design
 
-The dual-grounding architecture — CPG chunks in pgvector and typed drug-interaction edges in Neo4j — was the design decision with the clearest clinical payoff. Keeping the two stores independent and merging their outputs at Stage 6 (rather than concatenating everything into one context window) is what makes the dual-source safety claim structurally true: the KG flags what the graph knows regardless of whether the retrieved text discusses that drug pair. Any single-grounding system — however well prompted — cannot replicate this.
+#### 6.1.1.1 Deterministic Scope Table
 
-The choice to design the care plan as a Pydantic-validated typed schema, not a prose blob, paid off in every downstream layer: structured safety checks, consistent frontend rendering, and discrete claim-unit scoring for faithfulness evaluation. This should be the default for any clinical AI system with a defined output contract.
+Routing was built as an explicit ICD-11 scope table rather than vector similarity, enabling first-class `out_of_scope` refusals. This absolute safety guardrail requires an upfront architectural mandate and cannot be retrofitted via prompt tuning.
 
-The unresolved tension is latency. A sequential seven-stage pipeline with two heavy LLM calls was designed for correctness, not speed. At ~2.5 minutes end-to-end it leaves a thin margin in the rural consultation in its current form. The design lesson is that this is a debt requiring an *architectural* response, not a prompt change — pursued as the latency roadmap in §5.3.1.
+#### 6.1.1.2 Dual-Grounding Architecture
 
-One design gap that only surfaced during evaluation: no coverage metric was built for the drug knowledge graph from the start, so its recall against a gold interaction set remains uncharacterised (the limitation and its audit fix are detailed in §5.3.5). The design lesson is narrower than the limitation itself — building a coverage audit into the plan from the outset would have converted an open question into a measured boundary before evaluation, not after.
+Separating CPG text chunks (pgvector) from typed drug-interaction edges (Neo4j) ensures true dual-source safety. The knowledge graph flags contraindications deterministically, independent of whether the retrieved text mentions those specific drug risks.
+
+#### 6.1.1.3 Pydantic Schema Validation
+
+Enforcing a typed schema over the care plan — rather than a prose blob — streamlined automated safety checks, guaranteed consistent UI rendering, and enabled discrete claim-unit scoring for faithfulness evaluation.
+
+#### 6.1.1.4 Architectural Debt
+
+The sequential seven-stage pipeline favours clinical correctness over speed. The resulting ~2.5-minute latency leaves a narrow margin in fast-paced consultations — an architectural debt requiring a structural engineering remedy, not a prompt adjustment (§5.3.1).
+
+#### 6.1.1.5 Knowledge Graph Auditing
+
+Omitting a baseline coverage metric for the knowledge graph at inception left its recall against a gold interaction set unquantified. Incorporating an independent coverage audit from the outset would have defined this boundary before evaluation, not after.
 
 ---
 
-## 6.2 Reflections on Implementation
+### 6.1.2 Reflections on Implementation
 
-Three honest lessons from the build:
+#### 6.1.2.1 Proactive Safety Probing
 
-**Safety-contract testing must be planned, not added late.** The silent-degradation probes were added near the end of implementation, when the pipeline was believed to be stable. The first run exposed four fail-silent bugs — a zero-chunk retrieval returning a confident plan, a Stage 4 exception that fell through to synthesis on empty evidence, and others. None would have been caught by happy-path unit tests. Probing what the system does when dependencies fail, not just when they succeed, should be in the testing plan from day one for any system with a safety claim.
+Robustness testing must be a first-class development milestone, not a late addition. Introducing silent-degradation probes late in the cycle exposed four critical fail-silent bugs — including zero-chunk retrievals generating confident care plans — that standard happy-path unit tests never would have caught.
 
-**Gold-set correctness determines what the metrics actually measure.** Early evaluation runs produced numbers that appeared to indicate severe defects (routing accuracy of 18.2%, Stage-4 negative lift). Investigation in each case traced the result to gold-set artefacts — wrong ICD codes, non-existent sub-codes, a gold set designed for single-query evaluation being fed to a multi-query pipeline. The lesson is not that the system was fine all along; it is that investing in gold-set correctness before collecting metrics avoids expensive false diagnosis cycles.
+#### 6.1.2.2 Gold-Set Integrity
 
-**Determinism is a layered property.** The implementation work established that the pipeline has a well-defined deterministic surface (the candidate query is byte-identical across runs) and a well-defined stochastic surface (the seedless reranker, the synthesis model). Knowing this precisely — rather than treating determinism as a binary pass/fail — is the useful output of the reproducibility work. For a clinical system, knowing exactly which component introduces variance is the prerequisite for closing it.
+Evaluation metrics are only as reliable as the validation dataset behind them. Early anomalies (e.g., routing accuracy of 18.2%) were traced directly to gold-set defects — incorrect ICD codes, non-existent sub-codes. Prioritising gold-set correctness before running metrics avoids expensive false-diagnosis cycles.
+
+#### 6.1.2.3 Stratified Determinism
+
+Determinism in clinical AI is a layered property. Mapping the pipeline's deterministic surface (byte-identical candidate queries) against its stochastic nodes (seedless re-ranker, synthesis model) provided the exact diagnostic foundation needed to isolate and close runtime variance.
 
 ---
 
-## 6.3 Project Schedule and Work Plan
+## 6.2 Project Schedule and Work Plan
 
 The project ran from August 2025 to June 2026 across four phases. The Gantt chart below records the planned versus actual timeline; the phase summary that follows it states the principal deliverable of each phase.
 
@@ -41,83 +57,121 @@ The project ran from August 2025 to June 2026 across four phases. The Gantt char
 | 3 — Evaluation | Jan–May 2026 | Eval harness, validation runs (A1/A2/B/C/D), expert clinician review |
 | 4 — Report & deployment prep | May–Jun 2026 | Chapter write-up, robustness probes, determinism runs, final fixes |
 
-The single largest schedule lesson — recorded in §6.2 — is that the evaluation phase (Phase 3) carried more diagnostic cost than planned because gold-set correction and the full faithfulness run landed late; an earlier evaluation start would have shortened the critical path.
+The single largest schedule lesson — recorded in §6.1.2 — is that the evaluation phase (Phase 3) carried more diagnostic cost than planned because gold-set correction and the full faithfulness run landed late; an earlier evaluation start would have shortened the critical path.
+
+### 6.2.1 Phase 1 & 2 — System Design and Build (August 2025 – January 2026)
+
+During the first half of the project, all team members participated in stakeholder discovery — conducting interviews with rural clinicians, Ministry of Health doctors, and health-technology partners (Table 2.1) to anchor the system's requirements in real clinical need. Following the requirements phase, the team split across the core workstreams required to build the seven-stage pipeline and its surrounding infrastructure.
+
+**Chua Zhu Heng (Leader)** drove the overall system architecture and held the primary technical integration role. He designed the LLM orchestration layer, integrated the Gemini 2.5 Flash API across the extraction, re-ranking, and query-generation stages, and established the Stage 6 hybrid safety-critic design — combining LLM pharmacological reasoning with the typed Neo4j drug knowledge graph. He also structured the evaluation framework, defining the multi-layer validation strategy (Layers A–D) that would govern Phase 3.
+
+**Lim Zhi Pin** was responsible for the backend cloud infrastructure. He provisioned and configured the AWS deployment environment, set up the PostgreSQL/pgvector instance for the 30-CPG corpus, and integrated the Cohere Rerank v3.5 retrieval pipeline. He also led the testing strategy, designing the adversarial and safety stress-test cases that formed the backbone of the Layer C/D evaluation suite.
+
+**Satish Rao** led the rPPG (remote photoplethysmography) integration workstream, building the contactless vitals-capture pipeline that feeds heart rate into the patient case input. He also took primary ownership of CPG corpus preprocessing, writing the ingestion scripts that chunked, tagged, and embedded all 30 Malaysian MOH guidelines into the vector database.
+
+**Chin Pei Kang** developed the Doctor UI frontend (React), implementing the case-input forms, DDx selection interface, care-plan display, and the safety-flag acknowledgement workflow. He also hardened the DDx selection pipeline on the backend — implementing the ICD-11 CC-Boost resolver and the multi-granularity scoring logic to prevent empty or misrouted care plan generation.
+
+**Low Jia Qi** built the care-plan delivery and notification features, including the email care-plan PDF workflow and the DDx UI components. She also developed the SULAM interactive prototype and contributed to early frontend architecture decisions.
+
+### 6.2.2 Phase 3 & 4 — Evaluation and Reporting (January 2026 – June 2026)
+
+In the second half of the project, the team shifted focus to system validation, expert review, and final documentation.
+
+**Chua Zhu Heng** owned Evaluation Layers B, C, and D — running clinical QA retrieval benchmarks, correcting the gold sets when ICD-code defects were discovered, and executing the full Stage 4 and Stage 5 faithfulness evaluation runs. He resolved the most significant evaluation bugs (mismatched UUIDs, Layer B/C framework failures) and produced the consolidated validation results that underpin Chapter 4.
+
+**Lim Zhi Pin** executed the full adversarial and safety testing battery — running the injection (INJ), adversarial-prompt (ADV), language-robustness (LNG), and safety-critic (SAF-05) probes. He identified input- and output-side failures and proposed the targeted fixes that brought those test cases to pass.
+
+**Satish Rao** led the rPPG accuracy validation, running the 34-subject pilot and producing the Bland-Altman agreement analysis (bias −0.5 BPM) reported in §4.4.5.1. He took primary responsibility for assembling the final report, authoring Chapters 5 and 6 and making the cross-chapter consistency passes that unified the manuscript.
+
+**Chin Pei Kang** completed the frontend unit-test suite (Vitest, React Testing Library), ran the DDx and determinism evaluation layers, and wrote the technical sections of Chapters 1, 3, and 4. He also produced the expert-evaluation poster design and integrated the final validation visual assets — the DDx three-granularity scorecard and the knowledge-graph composition diagram — into the report.
+
+**Low Jia Qi** produced the project video plan and edited the final video submission. She contributed to the poster layout and supported documentation tasks during the final report sprint.
 
 ---
 
-## 6.4 Cost Consideration and Budget
+## 6.3 Project Cost
 
-The project incurred two categories of spend: a **one-time hardware purchase** for the rPPG sensor prototype, and ongoing **cloud and API costs** for the software system. All software figures are in Ringgit, converted from vendor pricing at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66; token-based figures are budgeting estimates derived from prompt sizes, not metered invoices.
+The project incurred costs across two categories: a one-time hardware purchase for the rPPG contactless vitals prototype and direct software expenditure for cloud and API services consumed during development. All costs are stated in Malaysian Ringgit (RM). Foreign-currency charges are converted at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66. Projected operating figures in §6.3.3 are estimates based on expected usage patterns; the actual development figures in §6.3.1 and §6.3.2 reflect invoiced amounts.
 
-**1. Hardware (one-time purchase).** The rPPG contactless vitals module was prototyped on a low-cost microcontroller and pulse-oximeter breakout board, sourced locally from Robotronik.
+### 6.3.1 Hardware Costs
+
+The rPPG module was prototyped using an ESP32 microcontroller paired with a MAX30100 pulse-oximeter breakout board, sourced locally from Robotronik. All four components were purchased as a single one-time outlay at the start of the project.
 
 *Table 6.1: Hardware Bill of Materials*
 
-| Component | Purpose | Unit Cost (RM) |
-|---|---|---|
-| ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing and streams vitals over Wi-Fi | 26.99 |
-| MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse and blood oxygen for rPPG baseline validation | 9.99 |
-| Solderless Breadboard (830 tie-points) | Prototyping platform for sensor circuit | 3.69 |
-| Jumper Wires — Male-to-Female, 40-wire 20 cm | Sensor-to-microcontroller connections | 3.20 |
-| **Hardware total** | | **43.87** |
+| No. | Component | Purpose | Cost (RM) |
+|:---:|:----------|:--------|----------:|
+| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing and streams vitals over Wi-Fi | 26.99 |
+| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse and blood-oxygen readings for rPPG baseline validation | 9.99 |
+| 3 | Solderless Breadboard (830 tie-points) | Prototyping platform for the sensor circuit | 3.69 |
+| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | Sensor-to-microcontroller connections | 3.20 |
+| | | **Hardware Subtotal** | **43.87** |
 
-**2. Fixed monthly subscriptions.** Five managed services plus the Stage 5 synthesis model, which is bought as a flat token plan rather than per-call.
+### 6.3.2 Software and Cloud Development Costs
 
-*Table 6.2: Fixed Monthly Cloud Subscriptions*
+Direct software costs were incurred by two team members for services billed to the project during the development period. Internal tooling and personal subscriptions used for general work are excluded from this account.
 
-| Component | Provider / tier | Monthly (RM) |
-|---|---|---|
-| Vector + relational store | Neon Postgres — Launch | ~89 |
-| Auth, app DB, PDF storage | Supabase — Pro | ~118 |
-| Drug knowledge graph | Neo4j AuraDB — Professional (1 GB) | ~306 |
-| Backend API hosting | Cloud Run / Render — Standard | ~118 |
-| Frontend hosting | Vercel — Pro | ~94 |
-| Stage 5 synthesis LLM | MiMo v2.5 Pro — Standard token plan (¥99/mo, 200M tokens) | ~65 |
-| **Fixed subtotal** | | **~790** |
+*Table 6.2: Actual Software Development Expenditure*
 
-The MiMo Standard plan supplies 200M tokens/month. At ~17k tokens per synthesis call that covers ~11,000 consultations — well above pilot volume — so synthesis is effectively a fixed cost at this scale, not a per-consultation charge.
+| No. | Team Member | Service | Cost (RM) |
+|:---:|:-----------|:--------|----------:|
+| 1 | Lim Zhi Pin | AWS — backend infrastructure and hosting | 173.16 |
+| 2 | Chua Zhu Heng | Gemini Flash API — LLM stage calls | 100.00 |
+| | | **Software Subtotal** | **273.16** |
 
-**3. Variable per-consultation API cost.** The remaining calls are billed per use: Gemini 2.5 Flash stages (extraction, DDx re-rank, query generation, safety critic) and AWS Bedrock retrieval (Titan query embedding + Cohere Rerank v3.5).
+### 6.3.3 Estimated Monthly Operating Costs (Projected)
 
-*Table 6.3: Variable Per-Consultation API Cost*
+For reference, Table 6.3 projects the system's recurring cost at a representative pilot volume of 500 consultations per month. Fixed subscriptions cover the six managed services required to run the backend pipeline, knowledge graph, and hosting infrastructure. Variable costs arise from per-consultation LLM and retrieval calls billed on usage.
 
-| Per-consultation call | Model | Cost (RM) |
-|---|---|---|
-| Stages 2, 4, 6 (extraction, re-rank, query-gen, safety critic) | Gemini 2.5 Flash | ~0.05 |
-| Retrieval (query embedding + chunk rerank) | Titan v1 + Cohere Rerank v3.5 (Bedrock) | ~0.05 |
-| **Per consultation** | | **~0.10** |
+*Table 6.3: Projected Monthly Operating Cost at Pilot Scale (500 Consultations / Month)*
 
-**4. One-time corpus build.** Each CPG is chunked, embedded (Titan), and parsed into the drug knowledge graph (Claude Haiku on Bedrock). Paid once per guideline and repeated only on revision. API cost across 30 CPGs is modest (tens of Ringgit); the real input is 2–4 hours of engineering and clinical-review time per document.
+| No. | Cost Line | Provider / Tier | Monthly Cost (RM) |
+|:---:|:----------|:----------------|------------------:|
+| | **A — Fixed Monthly Subscriptions** | | |
+| 1 | Vector + relational store | Neon Postgres — Launch | ~89 |
+| 2 | Auth, application database & PDF storage | Supabase — Pro | ~118 |
+| 3 | Drug knowledge graph | Neo4j AuraDB — Professional (1 GB) | ~306 |
+| 4 | Backend API hosting | Render — Standard | ~118 |
+| 5 | Frontend hosting | Vercel — Pro | ~94 |
+| 6 | Stage 5 synthesis LLM | MiMo v2.5 Pro — Standard (¥99/mo, 200 M tokens) | ~65 |
+| | | **Fixed Subtotal** | **~790** |
+| | **B — Variable API Cost (per consultation)** | | |
+| 7 | Extraction, DDx re-rank, query-gen & safety critic (Stages 2, 4, 6) | Gemini 2.5 Flash | ~0.05 |
+| 8 | Query embedding + chunk rerank | Titan Embed v1 + Cohere Rerank v3.5 (AWS Bedrock) | ~0.05 |
+| | | **Variable Cost per Consultation** | **~0.10** |
+| | | **Estimated Monthly Total (500 consultations)** | **~840** |
 
-**5. Total operating run-rate.** At a pilot volume of 500 consultations/month:
+The MiMo Standard plan supplies 200 million tokens per month. At approximately 17,000 tokens per synthesis call, this covers around 11,000 consultations — well above pilot volume — making Stage 5 synthesis effectively a fixed cost at this scale rather than a per-consultation charge. The one-time corpus build cost (30 CPGs chunked, embedded, and parsed into the knowledge graph) is a few tens of Ringgit in API calls, repeated only when a guideline is revised.
 
-*Table 6.4: Monthly Operating Run-Rate at Pilot Scale*
+### 6.3.4 Total Project Expenditure
 
-| Cost line | Type | Monthly (RM) |
-|---|---|---|
-| Fixed subscriptions | Fixed | ~790 |
-| Per-consultation API (500 × ~RM 0.10) | Variable | ~50 |
-| **Total run-rate** | | **~840** |
+Table 6.4 consolidates all actual project costs, itemising every hardware component and software service to provide a complete account of the RM 317.03 expended during the development period.
 
-**Total project spend.** Development ran largely on free and trial tiers. Total spend over the project lifetime:
+*Table 6.4: Comprehensive Total Project Expenditure*
 
-*Table 6.5: Total Project Expenditure*
+| No. | Item | Cost (RM) |
+|:---:|:-----|----------:|
+| | **A — Hardware (One-Time Purchase)** | |
+| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | 26.99 |
+| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | 9.99 |
+| 3 | Solderless Breadboard (830 tie-points) | 3.69 |
+| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | 3.20 |
+| | *Hardware Subtotal* | *43.87* |
+| | **B — Software & Cloud (Development Period)** | |
+| 5 | AWS — backend infrastructure and hosting (Lim Zhi Pin) | 173.16 |
+| 6 | Gemini Flash API — LLM integration (Chua Zhu Heng) | 100.00 |
+| | *Software Subtotal* | *273.16* |
+| | **Grand Total** | **317.03** |
 
-| Category | Cost (RM) |
-|---|---|
-| Hardware (rPPG prototype) | 43.87 |
-| Cloud and API (development period) | ~950–1,900 |
-| **Project total** | **~994–1,944** |
-
-The dominant resource throughout was engineering time, not monetary spend.
+The dominant resource throughout the project was engineering time rather than monetary expenditure. The RM 317.03 total covers only direct, project-specific charges; the projected recurring cost at pilot scale is addressed separately in §6.3.3.
 
 ---
 
-## 6.5 Risk Considerations and Assessment
+## 6.4 Risk Considerations and Assessment
 
 A clinical decision-support system carries risks a consumer application does not: a wrong output can contribute to patient harm, and the absence of a specialist to catch it is the very condition the tool is deployed into. The risks span five categories — **clinical & patient-safety**, **technical & operational**, **data privacy & regulatory compliance**, **adoption & human-factors**, and **sustainability & maintenance**. Each is assessed below for likelihood and impact and mapped to the mitigation already built into the system.
 
-### 6.5.1 Risk Assessment and Mitigation Strategies
+### 6.4.1 Risk Assessment and Mitigation Strategies
 
 | ID | Category | Risk | Likelihood | Impact | Mitigation (built-in) |
 |---|---|---|---|---|---|
@@ -133,21 +187,21 @@ A clinical decision-support system carries risks a consumer application does not
 | R10 | Adoption | Latency leaves little margin in the ~10-minute consultation, slowing fast-triage uptake | High | Medium | Streaming Stage 5 and summary-mode UI on the roadmap (§5.3.1) |
 | R11 | Sustainability | CPG corpus goes stale on MOH revision | Medium | Medium | Low-friction re-ingestion + regression harness (~2–4 h engineering per revised document) |
 
-### 6.5.2 System Design Response to Risks
+### 6.4.2 System Design Response to Risks
 
-The architecture was risk-driven, not retrofitted. The three highest-impact clinical risks each answer to a specific structural control rather than a prompt instruction: hallucination (R1) to an *independent* faithfulness critic that fails closed; a missed interaction (R2) to a *dual-source* safety critic whose LLM arm reasons past the graph's coverage boundary; and over-trust (R3) to mandatory, fully-traced human sign-off that keeps the clinician — not the model — as the decision-maker. The fail-loud testing posture (R6) converts the most dangerous failure mode, silent degradation, into a visible event. The residual high-impact risks the project cannot close from within — PDPA review, medical-device classification, multi-clinician validation — are not concealed but stated as explicit deployment preconditions (§6.6.3).
+The architecture was risk-driven, not retrofitted. The three highest-impact clinical risks each answer to a specific structural control rather than a prompt instruction: hallucination (R1) to an *independent* faithfulness critic that fails closed; a missed interaction (R2) to a *dual-source* safety critic whose LLM arm reasons past the graph's coverage boundary; and over-trust (R3) to mandatory, fully-traced human sign-off that keeps the clinician — not the model — as the decision-maker. The fail-loud testing posture (R6) converts the most dangerous failure mode, silent degradation, into a visible event. The residual high-impact risks the project cannot close from within — PDPA review, medical-device classification, multi-clinician validation — are not concealed but stated as explicit deployment preconditions (§6.5.3).
 
 ---
 
-## 6.6 Safety and Health
+## 6.5 Safety and Health
 
-For a clinical system, safety is not one consideration among many — it is the design centre. This section states affirmatively how the system protects patient safety, clinician wellbeing, and safe clinical use; the corresponding failure modes, their likelihood, and their mitigations are tabulated as a risk register in §6.5.
+For a clinical system, safety is not one consideration among many — it is the design centre. This section states affirmatively how the system protects patient safety, clinician wellbeing, and safe clinical use; the corresponding failure modes, their likelihood, and their mitigations are tabulated as a risk register in §6.3.
 
-### 6.6.1 Patient Safety by Design
+### 6.5.1 Patient Safety by Design
 
 Patient safety is enforced structurally, not by prompt instruction. The Stage 6 **dual-source safety critic** combines LLM pharmacological reasoning with a typed drug knowledge graph and blocks plan sign-off on any CRITICAL or MAJOR flag until the clinician resolves it. The synthesis stage operates under a cite-or-abstain rule — a recommendation must be traceable to a retrieved guideline chunk or the model must say "unknown" — and the entire output is schema-validated, so a malformed plan is rejected rather than shown half-finished. Two further behaviours protect against the most dangerous failure mode, confident wrongness: **scope refusal** emits a first-class `out_of_scope` event instead of fabricating a plan for a case outside the validated corpus, and the **fail-loud** contract (verified by the SIL/INF probes) ensures a degraded dependency surfaces as a visible error rather than a confident plan built on no evidence.
 
-### 6.6.2 Clinician Health and Ergonomics
+### 6.5.2 Clinician Health and Ergonomics
 
 A decision-support tool can harm patients not only by being wrong but by being badly designed for the human using it — a well-documented hazard in clinical informatics. Two ergonomic risks were treated as safety concerns, not cosmetics:
 
@@ -156,7 +210,7 @@ A decision-support tool can harm patients not only by being wrong but by being b
 
 Reducing the clinician's cognitive burden in a time-constrained consultation is itself a patient-safety measure: a clear, scannable, appropriately-alerting interface is less error-prone than a dense one.
 
-### 6.6.3 Clinical Governance and Safe Use
+### 6.5.3 Clinical Governance and Safe Use
 
 ClearPath is positioned as **decision support, not autonomous diagnosis**. The clinician reviews, edits, and signs off every plan and remains the accountable decision-maker; the system's role is to surface grounded options and catch what an isolated clinician might miss. This is backed by a complete **audit trail** — per-stage reasoning traces and a safety-acknowledgement record (who acknowledged which flag, and when) — so every recommendation and every override is reconstructable after the fact. Scope refusal functions here as a governance boundary: the system declines rather than reaches beyond its validated competence.
 
@@ -164,29 +218,29 @@ Safe deployment carries explicit preconditions, stated rather than assumed: a fo
 
 ---
 
-## 6.7 Sustainability: Economic, Environmental, Social, and Stakeholder
+## 6.6 Sustainability: Economic, Environmental, Social, and Stakeholder
 
 ClearPath is not only a technical artefact but a sustainable intervention in a resource-constrained health system. Its impact is evaluated below from four perspectives: economic, environmental, social, and stakeholder.
 
-### 6.7.1 Economic Sustainability
+### 6.6.1 Economic Sustainability
 
-ClearPath is software-only: it runs in a browser against managed cloud infrastructure, so a clinic needs no special hardware, workstation, or per-seat licence — only its existing computer and internet connection. At **~RM 0.10 per consultation** and a fixed run-rate of **~RM 840/month** for an entire clinic's caseload (§6.4), the economics scale favourably — the marginal cost of the next consultation is a few sen, and the fixed infrastructure is shared across every clinician on the platform.
+ClearPath is software-only: it runs in a browser against managed cloud infrastructure, so a clinic needs no special hardware, workstation, or per-seat licence — only its existing computer and internet connection. At **~RM 0.10 per consultation** and a fixed run-rate of **~RM 840/month** for an entire clinic's caseload (§6.3), the economics scale favourably — the marginal cost of the next consultation is a few sen, and the fixed infrastructure is shared across every clinician on the platform.
 
-The larger economic argument is downstream. Each consultation in which the tool surfaces a guideline the clinician lacked time to find, catches an interaction a pharmacist-vacant clinic would have missed, or averts an unnecessary referral displaces a cost far larger than the inference that produced it — avoided patient travel, avoided medication-related admission, avoided repeat visit. Against the documented CPG non-adherence gap (§6.8), even a modest improvement in adherence compounds across a national network of clinics. Ongoing maintenance is bounded — about 2–4 hours of engineering per revised guideline (§6.4).
+The larger economic argument is downstream. Each consultation in which the tool surfaces a guideline the clinician lacked time to find, catches an interaction a pharmacist-vacant clinic would have missed, or averts an unnecessary referral displaces a cost far larger than the inference that produced it — avoided patient travel, avoided medication-related admission, avoided repeat visit. Against the documented CPG non-adherence gap (§6.7), even a modest improvement in adherence compounds across a national network of clinics. Ongoing maintenance is bounded — about 2–4 hours of engineering per revised guideline (§6.3).
 
-### 6.7.2 Environmental Sustainability
+### 6.6.2 Environmental Sustainability
 
 The system's environmental footprint is light and largely digital. Per-consultation compute is dominated by the LLM inference calls — chiefly the Stage 5 synthesis on MiMo v2.5 Pro — while the deterministic early stages (routing, vector retrieval, rerank scoring) carry negligible energy cost. Two design choices actively reduce waste: **scope refusal** halts the pipeline before the expensive synthesis call on out-of-scope cases, spending no inference where the system has nothing valid to say; and the backend runs on **managed serverless infrastructure** (Neon, Aura) that scales with load rather than holding idle compute.
 
 The more meaningful environmental contribution is indirect. In the geographically dispersed districts of Sabah and Sarawak, an unnecessary secondary referral often means a patient travelling hundreds of kilometres — by road, river, or air — to a tertiary centre. Every referral that grounded decision support safely avoids is avoided travel, and the carbon of that displaced journey dwarfs the few grams attributable to the inference call. A correctly grounded care plan delivered at the point of first contact is, in this sense, an environmentally efficient substitute for the physical movement of patients across a large, low-density geography.
 
-### 6.7.3 Social Sustainability
+### 6.6.3 Social Sustainability
 
-Social sustainability is the dimension where ClearPath's purpose is clearest: it is an equity intervention. The structured second opinion, guideline-at-hand, and pharmacist-style medication check that urban practice takes for granted (§6.8) are brought to the rural clinic that structurally lacks them, narrowing the urban–rural care gap for the populations most exposed to it.
+Social sustainability is the dimension where ClearPath's purpose is clearest: it is an equity intervention. The structured second opinion, guideline-at-hand, and pharmacist-style medication check that urban practice takes for granted (§6.7) are brought to the rural clinic that structurally lacks them, narrowing the urban–rural care gap for the populations most exposed to it.
 
-It does so without deskilling the clinician — the system is decision support, not a replacement (§6.6.3) — and its grounding in Malaysian MOH guidelines rather than imported defaults keeps the advice culturally and clinically appropriate. By reasoning transparently and declining cases beyond its competence, it earns the professional trust on which adoption depends.
+It does so without deskilling the clinician — the system is decision support, not a replacement (§6.5.3) — and its grounding in Malaysian MOH guidelines rather than imported defaults keeps the advice culturally and clinically appropriate. By reasoning transparently and declining cases beyond its competence, it earns the professional trust on which adoption depends.
 
-### 6.7.4 Stakeholder Considerations
+### 6.6.4 Stakeholder Considerations
 
 The system was designed with several stakeholder groups in mind, each with distinct needs:
 
@@ -201,7 +255,7 @@ As the system matures, stakeholder engagement remains essential — collecting c
 
 ---
 
-## 6.8 Addressing the Local Community: Rural Malaysian Primary Care
+## 6.7 Addressing the Local Community: Rural Malaysian Primary Care
 
 ClearPath was built for a specific community: rural and district primary-care clinicians in Sabah and Sarawak, and the patients they serve under systematic resource constraint. Every architectural choice reflects that context — the corpus is exclusively Malaysian MOH guidelines (not AHA or ESC defaults adopted without local adaptation), the evaluation gold sets and safety-critic logic follow Malaysian clinical and prescribing practice, and the interface is built for a solo medical officer or medical assistant under time pressure, not a specialist in a resource-rich tertiary centre.
 

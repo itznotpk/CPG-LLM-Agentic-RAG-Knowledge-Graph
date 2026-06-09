@@ -1,0 +1,28 @@
+{
+  "summary": {
+    "n": 1,
+    "passes": 1,
+    "pass_rate": 1.0,
+    "sensitivity": 1.0,
+    "specificity": 0.0,
+    "kg_degraded_cases": 0,
+    "mean_elapsed_min": 0.12
+  },
+  "rows": [
+    {
+      "id": "SAF-05",
+      "category": "sulfonamide cross-reactivity",
+      "expected_unsafe": true,
+      "expected_severity": "MAJOR",
+      "pass": 1.0,
+      "reason": "blocking=True; keyword_hit=True; safe_to_proceed=False; flags=llm:MAJOR:drug_allergy:furosemide - sulfa allergy cross-reactivity caution:Patient has documented allergy to sulfamethoxazole with rash and facial swelling; furosemide is a sulfonamide-derived diuretic with potential cross-reactivity, though clinically uncommo",
+      "safe_to_proceed": false,
+      "kg_degraded": false,
+      "llm_flags": 1,
+      "graph_flags": 0,
+      "blocking_flags": 1,
+      "flags": "llm:MAJOR:drug_allergy:furosemide - sulfa allergy cross-reactivity caution:Patient has documented allergy to sulfamethoxazole with rash and facial swelling; furosemide is a sulfonamide-derived diuretic with potential cross-reactivity, though clinically uncommon. [Severity escalated to MAJOR: documented severe index reaction (e.g. angioedema/facial swelling) to a sulfonamide antibiotic — clinician acknowledgement required before this non-antibiotic sulfonamide.]",
+      "elapsed_min": 0.12
+    }
+  ]
+}

@@ -103,7 +103,7 @@ def test_backfill_embeds_each_unique_text_once():
     with patch("ddx.backfill_scope_embeddings.asyncpg.connect", AsyncMock(return_value=conn)), \
          patch("ddx.backfill_scope_embeddings.generate_embedding", embed), \
          patch.dict("os.environ", {"DATABASE_URL": "postgresql://x"}):
-        result = asyncio.get_event_loop().run_until_complete(
+        result = asyncio.run(
             backfill(force=False, dry_run=False, only_verified=True)
         )
 

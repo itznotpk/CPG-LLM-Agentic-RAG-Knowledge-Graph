@@ -108,7 +108,7 @@ async def test_stage5_filters_referrals_by_demographics():
         vitals={},
     )
     
-    ddx = [DDxResult(code="BA03", title="Hypertensive crisis", similarity=0.9)]
+    ddx = [DDxResult(code="BA00", title="Essential hypertension", similarity=0.9)]
     cpgs = [_ref("Management of Hypertension")]
     evidence = []
     
@@ -136,8 +136,8 @@ async def test_stage5_filters_referrals_by_demographics():
     mock_resp = AsyncMock()
     mock_resp.choices = [
         AsyncMock(message=AsyncMock(content=json.dumps({
-            "icd_primary": "BA03",
-            "icd_alternates": ["BA03.0"],
+            "icd_primary": "BA00",
+            "icd_alternates": ["BA00.0"],
             "diagnosis_justification": "Test justification",
             "recommendations": [
                 {

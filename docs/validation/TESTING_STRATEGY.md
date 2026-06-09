@@ -2,6 +2,9 @@
 
 This document defines a dedicated adversarial testing approach that **complements** the gold-set batch evaluation already covered elsewhere. Gold sets measure average-case performance against an expected answer; this strategy probes **failure modes, boundary conditions, and safety-critical edge cases** that gold sets structurally cannot cover.
 
+> **Summary Statement for Reports:**
+> *"Validated across 27 adversarial, safety, and failure-mode cases with a 71% → 100% post-fix pass rate — including 100% safety sensitivity and specificity (5/5 unsafe blocked, 2/2 safe cleared), 3/3 prompt-injection resistance, and 6/6 fail-closed behaviour under component failure — showing the system is engineered to refuse, not risk, an unsafe recommendation."*
+
 > **Companion docs (not duplicated here):**
 > - [VALIDATION.md](VALIDATION.md) — quick-start: per-layer commands, target metrics, minimum-viable validation
 > - [VALIDATION_PLAN.md](VALIDATION_PLAN.md) — full strategy: Layers A–E, latency, baseline comparison, clinician sessions

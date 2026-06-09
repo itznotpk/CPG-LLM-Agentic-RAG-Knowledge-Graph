@@ -291,7 +291,7 @@ def test_db_apply_approve_writes_scope():
         raw_section_text="",
     )
 
-    result = asyncio.get_event_loop().run_until_complete(
+    result = asyncio.run(
         apply_decisions(conn, [sec], verifier="Tester", dry_run=False)
     )
 
@@ -315,7 +315,7 @@ def test_db_apply_edit_writes_new_scope():
         raw_section_text="",
     )
 
-    asyncio.get_event_loop().run_until_complete(
+    asyncio.run(
         apply_decisions(conn, [sec], verifier="Tester", dry_run=False)
     )
 
@@ -334,7 +334,7 @@ def test_db_apply_reject_does_not_call_update():
         cpg_name="Test-CPG", decision="reject", raw_section_text=""
     )
 
-    asyncio.get_event_loop().run_until_complete(
+    asyncio.run(
         apply_decisions(conn, [sec], verifier="Tester", dry_run=False)
     )
 
@@ -357,7 +357,7 @@ def test_dry_run_makes_no_db_writes():
         CPGSectionDecision(cpg_name="C", decision="reject", raw_section_text=""),
     ]
 
-    asyncio.get_event_loop().run_until_complete(
+    asyncio.run(
         apply_decisions(conn, secs, verifier="Tester", dry_run=True)
     )
 
@@ -373,7 +373,7 @@ def test_zero_rows_is_skipped_not_error():
         raw_section_text="",
     )
 
-    result = asyncio.get_event_loop().run_until_complete(
+    result = asyncio.run(
         apply_decisions(conn, [sec], verifier="Tester", dry_run=False)
     )
 
