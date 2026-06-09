@@ -1239,7 +1239,7 @@ round-trip — which depends on the same Supabase test project as §4.4.1 and is
 
 **Results.**
 
-**Table 4.17: rPPG Heart Rate Bland-Altman Summary (n = 34)**
+**Table 4.22: rPPG Heart Rate Bland-Altman Summary (n = 34)**
 
 | Metric | Value | Interpretation |
 |---|---|---|
@@ -1284,7 +1284,7 @@ that the whole pipeline, from differential diagnosis through routing, retrieval,
 injection, synthesis, and safety, holds up under the multi-condition, multi-guideline reasoning the
 system was built for.
 
-**Table 4.22: The three end-to-end test scenarios.**
+**Table 4.23: The three end-to-end test scenarios.**
 
 | | **Scenario 1** | **Scenario 2** | **Scenario 3** |
 |---|---|---|---|
@@ -1301,9 +1301,9 @@ Each scenario was assessed on four things: whether the pipeline ran to completio
 stages, whether the final plan populated all eight sections with clinically coherent content, whether
 the correct guidelines were retrieved and integrated, and whether the system surfaced the specific
 hazard the scenario was designed to expose. All three ran to completion and produced a fully
-populated plan. The measured results are given in Table 4.23.
+populated plan. The measured results are given in Table 4.24.
 
-**Table 4.23: End-to-end results per scenario (live runs, 2026-06-08).**
+**Table 4.24: End-to-end results per scenario (live runs, 2026-06-08).**
 
 | Metric | Scenario 1 | Scenario 2 | Scenario 3 |
 |---|---|---|---|
@@ -1366,7 +1366,7 @@ and the patient-facing red-flag warnings included the nitrate–PDE5 inhibitor h
 the clearest demonstration that the system reasons across conflicting guidelines and declines to
 recommend a hazardous default at the point of synthesis rather than relying on a downstream correction.
 
-> **[FIGURE 4.18: End-to-end Scenario 3 — rendered plan with the contraindication resolved.]**
+> **[FIGURE 4.19: End-to-end Scenario 3 — rendered plan with the contraindication resolved.]**
 > *A screenshot of the Step-3 Care Plan for Scenario 3, showing the eight-section plan with the PDE5
 > inhibitor class marked contraindicated against the patient's isosorbide mononitrate, the named
 > cross-guideline conflict, the guideline-safe alternatives offered in its place, and the patient
@@ -1383,11 +1383,11 @@ fits the ten-minute consultation window and to locate the bottleneck.
 
 The latency result is a **three-case pilot**, sufficient for order-of-magnitude timing and
 bottleneck shape but not for a statistically meaningful p95 (which needs ≥ 10 runs). Mean wall-time
-was **2.36 min (141.9 s)**, ranging 1.91–2.65 min. The per-stage breakdown in Table 4.24 is the
+was **2.36 min (141.9 s)**, ranging 1.91–2.65 min. The per-stage breakdown in Table 4.25 is the
 useful output: **Stage 5 synthesis is the dominant cost at ~43% of runtime**, followed by Stage 4
 retrieval at ~31%, with the two deterministic stages (routing, KG lookup) together under 1%.
 
-**Table 4.24: Per-stage latency contribution (n = 3 pilot).**
+**Table 4.25: Per-stage latency contribution (n = 3 pilot).**
 
 | Stage | Mean | % of total |
 |---|---:|---:|
@@ -1407,7 +1407,7 @@ ten-minute consultation budget that framed the architecture, but it is the slowe
 that window — which is why the clinician experienced it as a wait (§4.5.3) and why Stage 5 is named
 the single best optimisation target.
 
-> **[FIGURE 4.19: Per-stage latency breakdown.]**
+> **[FIGURE 4.20: Per-stage latency breakdown.]**
 > *A single horizontal stacked bar (or waterfall) of one end-to-end run, segmented by stage and
 > labelled with each stage's percentage (Stage 5 43%, Stage 4 31%, Stage 2 16%, Stage 6 8%, KG/route
 > < 1%), with the ten-minute consultation budget marked far to the right to show the headroom. The
@@ -1429,7 +1429,7 @@ LLM-call branches and error paths are exercised by the in-process eval runners, 
 This coverage is of the **reasoning backend**; the application tier (§4.4.1–§4.4.4) sits outside it and
 its planned suites would raise the equivalent frontend figure from its current zero.
 
-> **[FIGURE 4.20: Per-module test coverage.]**
+> **[FIGURE 4.21: Per-module test coverage.]**
 > *A horizontal bar chart of line coverage per core module (`models.py` 95%, `safety_critic.py` 88%,
 > `routing.py` 84%, `clinical_workflow.py` 80%, `graph_clinical.py` 67%, `clinical_stages.py` 56%)
 > with the revised ≥ 60% gate drawn as a vertical line, so the one bar below the gate
@@ -1515,7 +1515,7 @@ general GPT-4/Gemini floor) and the multi-clinician SUS/TAM track — is **defin
 executed**, and no unmeasured accuracy, chain-of-thought-depth, or confidence target is presented as
 a finding anywhere in this chapter.
 
-> **[FIGURE 4.21: Clinician rubric scores.]**
+> **[FIGURE 4.22: Clinician rubric scores.]**
 > *Two charts: (a) a grouped bar of R1 vs R2 vs R3 across the eight Clinical-Quality dimensions
 > (honest — showing R1 near-parity with R2, the ceiling ties on safety/reasoning, and R1's narrow
 > uncertainty-handling lead), explicitly **not** a radar that would overstate ClearPath; (b) a bar of
@@ -1527,14 +1527,14 @@ a finding anywhere in this chapter.
 
 ### 4.5.4 Summary of Results Against Targets
 
-Table 4.25 consolidates every measured layer against its target. Read honestly, the picture is a
+Table 4.26 consolidates every measured layer against its target. Read honestly, the picture is a
 system whose **retrieval recall, routing, scope refusal, safety-critic recall, and robustness all
 meet their targets**, whose **differential diagnosis meets target on the clinically meaningful
 lineage metric** while falling short on strict-exact leaf matching, and whose **faithfulness and
 retrieval-ranking metrics fall a measurable, stated distance below target** for reasons that are
 diagnosed rather than hidden.
 
-**Table 4.25: Measured results versus targets (reasoning tier and system level).**
+**Table 4.26: Measured results versus targets (reasoning tier and system level).**
 
 | Layer | Metric | Target | Achieved | Pass |
 |---|---|---:|---:|---|
@@ -1557,18 +1557,18 @@ diagnosed rather than hidden.
 | Expert review | Clinical-quality total (R1) | — | **107/120** (R2 prose 111) | n = 1 review |
 | Expert review | Reasoning visibility / safety surfacing | — | **5/5 / 4/5** | n = 1 review |
 
-The application tier (§4.4.1–§4.4.4) is deliberately absent from Table 4.25, because presenting a
+The application tier (§4.4.1–§4.4.4) is deliberately absent from Table 4.26, because presenting a
 planned suite as a passed result would violate the chapter's governing rule. Its honest status is:
 **delivery's backend is covered, the knowledge-graph helpers are unit-tested, and the Supabase data
 layer, authentication, and the React frontend are a defined but not-yet-executed plan** — the single
 largest testing gap in the project and the clearest near-term work item.
 
-> **[FIGURE 4.22: Results-versus-target scorecard.]**
+> **[FIGURE 4.23: Results-versus-target scorecard.]**
 > *A single one-glance dashboard: each measured layer as a horizontal bar of achieved value with its
 > target marked as a notch/line, coloured pass (green) / miss (amber), grouped by Accuracy / Safety /
 > Robustness / Non-functional. The amber bars (exact DDx, nDCG/MRR, Precision@5, faithfulness) and the
 > green majority make the honest overall verdict legible in one image — the figure to put on the
-> closing slide. Build directly from Table 4.25.*
+> closing slide. Build directly from Table 4.26.*
 
 The threads that run from Chapter 3's design into these results are direct. The deterministic-first
 split made routing, scope refusal, and the re-ranker ablation reproducible and auditable. The
@@ -1583,10 +1583,10 @@ competitor benchmark — are named precisely in this chapter as the agenda for t
 
 ---
 
-> **Figure checklist (for the report author).** Twenty-three figures, one or more per subsection.
-> Metric charts (Fig. 4.1b, 4.3–4.13, 4.19–4.22) render from the raw eval files under
+> **Figure checklist (for the report author).** Twenty-four figures, one or more per subsection.
+> Metric charts (Fig. 4.1b, 4.3–4.13, 4.18, 4.20–4.23) render from the raw eval files under
 > `backend/eval/results/` and `tasks/eval_runs/` via a small matplotlib/seaborn script; UI and store
-> screenshots (Fig. 4.14–4.18) come from the live Doctor UI, Neo4j Browser, and the Supabase table
+> screenshots (Fig. 4.14–4.17, 4.19) come from the live Doctor UI, Neo4j Browser, and the Supabase table
 > editor; the determinism panel (Fig. 4.13) is already pre-rendered in `tasks/eval_runs/figures/`.
 >
 > - **Fig. 4.1** — seven-stage pipeline with the reasoning-tier test layer mapped onto each stage (Mermaid). *(in hand)*
@@ -1613,8 +1613,9 @@ competitor benchmark — are named precisely in this chapter as the agenda for t
 > - **Fig. 4.16c** — SafetyReviewBanner under test: graph-vs-LLM MODERATE + acknowledge-gate disabled→enabled. *(in hand)*
 > - **Fig. 4.16d** — finalizePlan data-flow: top-level keys → updateConsultation (phantom `disposition.*` struck through). *(in hand)*
 > - **Fig. 4.17** — delivery state machine + "Send to patient" status screenshot.
-> - **Fig. 4.18** — Case 11 rendered plan + dual-source safety banner screenshot.
-> - **Fig. 4.19** — per-stage latency stacked bar / waterfall.
-> - **Fig. 4.20** — per-module coverage bar vs the 60% gate.
-> - **Fig. 4.21** — clinician rubric grouped bars (clinical quality + UI/UX).
-> - **Fig. 4.22** — results-versus-target scorecard dashboard.
+> - **Fig. 4.18** — Bland-Altman plot — rPPG vs reference heart rate (n = 34).
+> - **Fig. 4.19** — Case 11 rendered plan + dual-source safety banner screenshot.
+> - **Fig. 4.20** — per-stage latency stacked bar / waterfall.
+> - **Fig. 4.21** — per-module coverage bar vs the 60% gate.
+> - **Fig. 4.22** — clinician rubric grouped bars (clinical quality + UI/UX).
+> - **Fig. 4.23** — results-versus-target scorecard dashboard.
