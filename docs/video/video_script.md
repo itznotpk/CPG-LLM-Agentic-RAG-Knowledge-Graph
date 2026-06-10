@@ -155,7 +155,7 @@ Wide shot of the full desk scene — laptop open, CPG splayed open beside it, pa
 > `ClearPath — Evidence-Based Clinical Practice Guidance System`
 
 **Narration (plays over the UI):**
-> "ClearPath is a clinical decision support system built for Malaysia's rural front line. Every recommendation is grounded in Ministry of Health Clinical Practice Guidelines, every reasoning step is visible, and every medication is checked before sign-off."
+> "This is the gap ClearPath was built to close. ClearPath is a clinical decision support system built for Malaysia's rural front line — grounded in Ministry of Health guidelines, with every reasoning step visible and every medication checked before sign-off."
 
 ---
 
@@ -266,7 +266,7 @@ After the table, screen fades to the ClearPath landing page one last time — cl
 > `[Team names] · [Institution]`
 
 **Narration:**
-> "ClearPath closes every structural gap that existing tools cannot — not by using a larger model, but by building reliability into the architecture itself. Grounded retrieval, scope enforcement, an independent safety layer, and a structured output that works inside the consultation, not around it."
+> "Remember that doctor — alone, with no specialist on call, and a guideline too long to read in time? ClearPath puts specialist-level guidance in their hands in seconds: grounded in the right CPG section, checked by an independent safety critic, and delivered as a structured plan they can act on immediately — and carry into the next visit. The gap wasn't the doctor. ClearPath is the tool."
 
 **Final beat (last 5 seconds — no narration, screen only):**
 ClearPath UI on screen, idle. Fade to black. Hold.
@@ -304,8 +304,8 @@ ClearPath UI on screen, idle. Fade to black. Hold.
 | 4b — Guideline Answer | ~40 | 0:20 |
 | 4c — Safety Critic | ~45 | 0:20 |
 | 4d — Care Plan | ~45 | 0:15 |
-| 5 — Closing | ~60 | 0:30 |
-| **Total** | **~420** | **~3:00** |
+| 5 — Closing | ~65 | 0:30 |
+| **Total** | **~425** | **~3:00** |
 
 ---
 
