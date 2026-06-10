@@ -9,120 +9,192 @@
 
 | Segment | Content | Duration |
 |---|---|---|
-| 1 | Problem Hook (real-life footage) | 0:40 |
-| 2 | Solution Demo — System Introduction | 0:55 |
-| 3 | Solution Demo — Agentic Pipeline | 1:05 |
-| 4 | Closing | 0:20 |
+| 1 | Problem Hook (real-life footage) | 0:30 |
+| 2 | Problem Statement (real-life footage) | 0:30 |
+| 3 | Solution Demo — System Introduction | 0:50 |
+| 4 | Solution Demo — Agentic Pipeline | 0:50 |
+| 5 | Closing | 0:20 |
 | **Total** | | **3:00** |
 
 ---
 
-## SEGMENT 1 — Problem Hook [0:00–0:40]
-*Real-life footage — merges the hook and problem statement into one continuous scene*
+## SEGMENT 1 — Problem Hook [0:00–0:30]
+*Real-life footage required*
 
 ---
 
 ### Shot 1 — Establishing [0:00–0:05]
-**Action:** Wide shot of a small clinic consultation room. Doctor sits alone at a desk — laptop open, stethoscope, a stack of thick CPG binders. Room feels quiet and understaffed.
+**Action:** Wide shot of a small clinic consultation room. A doctor sits alone at a desk. On the desk: a laptop (screen on but idle), a stethoscope, a pen, and a short stack of thick printed CPG documents. The room feels quiet and understaffed — no other staff visible.
 
-**Camera:** Static wide shot, slightly elevated. No text overlay. Let it breathe.
+**Camera:** Static wide shot from the corner of the room, slightly elevated.
+
+**No text overlay yet.** Let the scene breathe for 2–3 seconds.
 
 ---
 
 ### Shot 2 — Patient Enters [0:05–0:10]
-**Action:** A knock. Patient walks in looking unwell. Doctor gestures to sit, picks up a pen.
+**Action:** A knock. The door opens. A patient walks in looking unwell — tired, holding their chest or arm, slightly hesitant. The doctor gestures for them to sit. The doctor picks up a pen, ready to take notes — normal, routine body language.
 
-**Camera:** Medium shot from behind the doctor's shoulder.
+**Camera:** Medium shot from behind the doctor's shoulder, capturing the patient entering. Hold for 3–4 seconds.
 
-**Text card (lower-left):**
+**Text card appears (lower-left, white on dark semi-transparent bar):**
 > *"A patient presents with an unusual combination of symptoms."*
 
 ---
 
-### Shot 3 — Doctor Searches, Fails [0:10–0:20]
-**Action:** Doctor types into a browser — results are cluttered, unhelpful. Turns to a CPG binder, flips pages fast, can't find the right section. Patient waits in background.
+### Shot 3 — Doctor Looks Uncertain [0:10–0:17]
+**Action:** The patient speaks (no audio needed — can be silent or low ambient sound). The doctor's expression shifts — a slight furrowed brow, leaning back, tapping the pen. The case is clearly uncommon. The doctor glances at the laptop screen and starts typing a search query into a browser. The search results are visibly unhelpful — generic, cluttered. The doctor pauses, unsatisfied.
 
-**Camera:** Over-the-shoulder on the laptop screen, then close-up of hands flipping the CPG.
+**Camera:** Over-the-shoulder shot showing both the doctor's face (partial) and the laptop screen. Cut to a close-up of the browser search — results page visible but no clear answer.
+
+**Text card (lower-left):**
+> *"No specialist on call. No colleague nearby."*
+
+---
+
+### Shot 4 — Reaches for the CPG [0:17–0:24]
+**Action:** The doctor turns from the laptop and reaches across the desk, pulling one of the thick CPG binders toward them. They flip through it quickly — pages turning fast, fingers scanning dense text and tables, unable to land on the right section. The patient waits in the background, slightly anxious.
+
+**Camera:** Close-up of the hands flipping through the document, then pull back to include the patient waiting in soft focus behind.
+
+**Text card (lower-left):**
+> *"Each Clinical Practice Guideline exceeds 100 pages."*
+
+---
+
+### Shot 5 — Overwhelmed Pause [0:24–0:30]
+**Action:** The doctor stops flipping. Sets the document down. Looks at the patient, then back at the screen — a beat of visible uncertainty. A subtle exhale. This is the emotional anchor of the entire opening: a competent, well-meaning clinician, simply without the right tool.
+
+**Camera:** Medium close-up on the doctor's face. Hold for 3 seconds. Then — hard cut to black.
+
+**Text card fades in on black (centred, white text):**
+> *"45.6% of rural clinics in Sarawak have no resident doctor."*
+> *"Consultations average just 10.5 minutes."*
+
+*(Hold for 1 second before transitioning to Segment 2.)*
+
+---
+
+### Props & Costume Checklist
+- [ ] White coat or collared shirt (doctor-appropriate, not overly formal)
+- [ ] Stethoscope on desk or around neck
+- [ ] 2–3 thick printed documents labelled or resembling CPG booklets (MOH CPG covers are publicly available to print)
+- [ ] Laptop open to a browser with a generic medical search query typed in
+- [ ] Small clinic desk — plain, slightly cluttered but not chaotic
+- [ ] Patient actor: casual clothes, slightly tired/unwell appearance
+
+### Filming Notes
+- Shoot Shots 1–5 in sequence but film each shot 2–3 times for editing options
+- No dialogue needed — all emotional beats are visual; narration carries the audio
+- Ambient sound only (air-con hum, paper rustling, keyboard clicks) — do not use music in this segment
+- Total usable footage needed: ~45–60 seconds raw, edited down to 30 seconds
+
+### Narration (voiceover, plays over Shots 3–5)
+> "In Malaysia's rural clinics, a single doctor manages the full spectrum of medicine — alone. No specialist on call. No pharmacist. No colleague to consult. When a rare case walks through the door, the only tools available are a browser search and a guideline there's no time to read."
+
+---
+
+## SEGMENT 2 — Problem Statement [0:30–1:00]
+*Real-life b-roll footage under narration — 3 beats, each with its own shot*
+
+The narration is split into 3 beats. Each beat has matching background footage and a stat card. No slides needed — the visuals are all live footage with text overlays.
+
+---
+
+### Beat 1 — CPGs Are Too Long to Navigate [0:30–0:41]
+
+**Background footage:**
+Doctor at the desk, CPG open flat in front of them. Running a finger slowly down a dense page of text — tables, footnotes, small print. Turns a few pages, finds nothing quickly. Leans back and scratches their head, visibly frustrated. Patient still waiting in soft focus in the background.
+
+**Camera:** Close-up on the document pages first, then pull back to include the doctor's face — tired, not defeated, just stuck.
 
 **Text card (lower-left):**
 > *"Each CPG exceeds 100 pages."*
-> *"General-purpose AI has no guarantee of clinical accuracy."*
+> *"Non-adherence rates reach 39.3%."*
 
 **Narration:**
-> "In Malaysia's rural clinics, a single doctor manages the full spectrum of medicine — alone. No specialist on call. When a complex case walks in, the only tools available are a browser search and a guideline there's no time to read."
+> "Clinical Practice Guidelines are the standard of care — but each one runs over a hundred pages. In a ten-minute consultation, there's no time to find the right section, let alone read it. So clinicians default to what they remember, or refer the patient out."
 
 ---
 
-### Shot 4 — The Pause [0:20–0:25]
-**Action:** Doctor stops. Sets the document down. Looks at the patient — a beat of visible uncertainty. Hard cut to black.
+### Beat 2 — Existing AI Tools Don't Help [0:41–0:52]
 
-**Camera:** Medium close-up on the doctor's face. Hold 3 seconds, then cut.
+**Background footage:**
+Same doctor, now turned back to the laptop. Pulls up a ChatGPT-style interface or a generic AI chatbot. Types a clinical question. An answer appears — long, fluent, confident-looking. The doctor reads it, hesitates, scrolls — no citations, no sources, no way to verify. Slight shake of the head or a doubtful expression.
 
----
+**Camera:** Over-the-shoulder medium shot showing the screen and the doctor's reaction. Cut to a close-up of the screen — the AI response visible but no reference links shown.
 
-### Shot 5 — Stats on Black [0:25–0:40]
-**Action:** Black screen. Two stat cards fade in one at a time, then the ClearPath logo reveals.
-
-**Text cards (centred, white on black):**
-> *"45.6% of rural clinics in Sarawak have no resident doctor."*
-> *"CPG non-adherence rates reach 39.3%."*
-> *(pause 1 second)*
-> **ClearPath.**
+**Text card (lower-left):**
+> *"General-purpose AI reproduces false clinical facts in up to 83% of adversarial tests."*
 
 **Narration:**
-> "The problem isn't the doctor. It's the absence of the right tool. ClearPath is that tool."
+> "Turning to AI doesn't close the gap either. General-purpose models generate fluent, confident answers — with no guarantee they're grounded in local guidelines, and no way to audit the reasoning behind them."
 
 ---
 
-### Props & Filming Notes
-- [ ] White coat or collared shirt + stethoscope on desk
-- [ ] 2–3 thick CPG-style binders
-- [ ] Laptop open to a browser with a clinical query typed in
-- [ ] Patient actor: casual clothes, slightly tired appearance
-- [ ] No dialogue — all beats are visual; narration carries audio
-- [ ] Ambient sound only (air-con hum, paper rustling)
-- [ ] Total raw footage needed: ~60 seconds, edited to 40 seconds
+### Beat 3 — The Gap Is Structural [0:52–1:00]
+
+**Background footage:**
+Wide shot of the full desk scene — laptop open, CPG splayed open beside it, patient sitting across. The doctor looks between the two tools: the screen and the document. Neither is giving them what they need. Hold on this for 3–4 seconds.
+
+**Camera:** Static wide shot, slightly elevated. Let the scene speak. No fast cuts here.
+
+**Text card (centred, larger — this is the thesis statement of the problem):**
+> *"The gap isn't the doctor."*
+> *"It's the absence of the right tool."*
+
+**Narration:**
+> "The problem isn't clinical skill. It's infrastructure. A rural clinician in 2025 deserves the same quality of decision support as a hospital specialist — grounded in evidence, safe to act on, and available in real time."
 
 ---
 
-## SEGMENT 2 — Solution Demo: System Introduction [0:40–1:35]
-*Screen recording — Part A, 6 scenes*
+### Props & Filming Notes (Segment 2)
+- Reuse the same set and actor from Segment 1 — shoot both segments back to back
+- Beat 2 requires the laptop screen to be legible on camera; dim room lighting helps
+- For the AI chatbot screen: use a real interface or mock one up — the key visual is a long answer with no citations visible
+- Beat 3 is a held wide shot — resist the urge to cut; the stillness is intentional
+- All three beats can be filmed in 20–30 minutes if Segment 1 is already set up
+
+---
+
+## SEGMENT 3 — Solution Demo: System Introduction [1:00–1:50]
+*Screen recording — Part A, 7 scenes*
 
 > Full shot-by-shot detail in [segment3_solution_demo.md](segment3_solution_demo.md) — Part A
 
 | Scene | Content | Duration |
 |---|---|---|
-| **3a** | Landing page — headline, 4 stat counters, "Sign in" button | ~0:07 |
-| **3b** | Sign in → main dashboard loads | ~0:08 |
-| **3c** | Main dashboard — today's queue, Assistant Impact Today panel | ~0:10 |
-| **3d** | My Patients — expand patient record, comorbidities + consult history | ~0:12 |
-| **3e** | Start consultation — IC lookup, Continue | ~0:08 |
-| **3f** | Clinical assessment form — demographics pre-filled, vitals, notes | ~0:05 |
+| **3a** | Landing page — headline, 4 stat counters, "Sign in" button | ~0:06 |
+| **3b** | Sign in → main dashboard loads | ~0:07 |
+| **3c** | Main dashboard — today's queue, Assistant Impact Today panel | ~0:08 |
+| **3d** | My Patients — expand patient record, comorbidities + consult history | ~0:10 |
+| **3e** | Start consultation — IC lookup, Continue | ~0:07 |
+| **3f** | Clinical assessment form — demographics pre-filled, vitals, notes | ~0:07 |
 | **3g** | rPPG + STT callout — zoom-punch on both buttons | ~0:05 |
 
-**Total: ~0:55**
+**Total: ~0:50**
 
 ---
 
-## SEGMENT 3 — Solution Demo: Agentic Pipeline [1:35–2:40]
-*Screen recording — Part B, 6 scenes, continuous from Segment 2*
+## SEGMENT 4 — Solution Demo: Agentic Pipeline [1:50–2:40]
+*Screen recording — Part B, 6 scenes, continuous from Segment 3*
 
 > Full shot-by-shot detail in [segment3_solution_demo.md](segment3_solution_demo.md) — Part B
 
 | Scene | Content | Duration |
 |---|---|---|
-| **4a** | AI Reasoning Trace — 4-stage pipeline loading after assessment submit | ~0:08 |
-| **4b** | Differential Diagnosis — ICD-11 ranking, Major/Minor selection | ~0:15 |
-| **4c** | CPG Routing — registry scan, ICD validation, CPG exclusion logic | ~0:10 |
-| **4d** | Evidence Retrieval — RAG quality index, cosine similarity | ~0:07 |
-| **4e** | Recommended Care Plan — critical safety flag, medications, red flags, follow-up | ~0:15 |
-| **4f** | Final Care Plan — SOAP document, approve + distribute | ~0:10 |
+| **4a** | AI Reasoning Trace — 4-stage pipeline loading after assessment submit | ~0:07 |
+| **4b** | Differential Diagnosis — ICD-11 ranking, Major/Minor selection | ~0:12 |
+| **4c** | CPG Routing — registry scan, ICD validation, CPG exclusion logic | ~0:08 |
+| **4d** | Evidence Retrieval — RAG quality index, cosine similarity | ~0:06 |
+| **4e** | Recommended Care Plan — critical safety flag, medications, red flags, follow-up | ~0:12 |
+| **4f** | Final Care Plan — SOAP document, approve + distribute | ~0:05 |
 
-**Total: ~1:05**
+**Total: ~0:50**
 
 ---
 
-## SEGMENT 4 — Closing [2:40–3:00]
+## SEGMENT 5 — Closing [2:40–3:00]
 *Screen recording — static capability comparison slide, then logo hold*
 
 **Main focus — screen:**
@@ -158,7 +230,7 @@ Hold on table for 5 seconds, then cut to the ClearPath landing page for the fina
 - [ ] 15–20 seconds of usable b-roll is enough; the segment is 30 seconds total
 - [ ] Optional prop: printed CPG document opened to a dense page of text
 
-### Screen recording checklist (Segments 2 & 3)
+### Screen recording checklist (Segments 3 & 4)
 - [ ] Record at 1080p or higher — one continuous take preferred, isolated clips for backup
 - [ ] Use the real demo case: CHUA, 041206-10-1597, T2DM + Erectile Dysfunction post-PCI
 - [ ] Slow cursor movements and hover to guide viewer's eye
@@ -173,38 +245,27 @@ Hold on table for 5 seconds, then cut to the ClearPath landing page for the fina
 ### Word count per segment (for pacing reference)
 | Segment | Words | Target duration |
 |---|---|---|
-<<<<<<< HEAD
-| 1 — Problem Hook | ~65 | 0:40 |
-| **2 — Solution Demo Part A** | | |
-| 3a — Landing page | ~25 | 0:07 |
-| 3b — Sign in + dashboard | ~20 | 0:08 |
-| 3c — Main dashboard | ~30 | 0:10 |
-| 3d — Patient dashboard | ~30 | 0:12 |
-| 3e — Start consultation | ~15 | 0:08 |
-| 3f — Assessment form | ~25 | 0:05 |
-| 3g — rPPG & STT callout | ~40 | 0:05 |
-| *Part A subtotal* | *~185* | *~0:55* |
-| **3 — Solution Demo Part B** | | |
-| 4a — AI Reasoning Trace | ~40 | 0:08 |
-| 4b — DDx + ICD-11 | ~55 | 0:15 |
-| 4c — CPG Routing | ~35 | 0:10 |
-| 4d — Evidence Retrieval | ~30 | 0:07 |
-| 4e — Care Plan + Safety | ~70 | 0:15 |
-| 4f — Final approval | ~35 | 0:10 |
-| *Part B subtotal* | *~265* | *~1:05* |
-| 4 — Closing | ~35 | 0:20 |
-| **Total** | **~550** | **~3:00** |
-=======
 | 1 — Problem Hook | ~55 | 0:30 |
 | 2 — Problem Statement | ~75 | 0:30 |
-| 3 — System Introduction | ~50 | 0:15 |
-| 4a — Routing | ~50 | 0:20 |
-| 4b — Guideline Answer | ~40 | 0:20 |
-| 4c — Safety Critic | ~45 | 0:20 |
-| 4d — Care Plan | ~45 | 0:15 |
-| 5 — Closing | ~65 | 0:30 |
-| **Total** | **~425** | **~3:00** |
->>>>>>> origin/main
+| **3 — Solution Demo Part A** | | |
+| 3a — Landing page | ~22 | 0:06 |
+| 3b — Sign in + dashboard | ~18 | 0:07 |
+| 3c — Main dashboard | ~27 | 0:08 |
+| 3d — Patient dashboard | ~27 | 0:10 |
+| 3e — Start consultation | ~15 | 0:07 |
+| 3f — Assessment form | ~22 | 0:07 |
+| 3g — rPPG & STT callout | ~40 | 0:05 |
+| *Part A subtotal* | *~170* | *~0:50* |
+| **4 — Solution Demo Part B** | | |
+| 4a — AI Reasoning Trace | ~35 | 0:07 |
+| 4b — DDx + ICD-11 | ~45 | 0:12 |
+| 4c — CPG Routing | ~30 | 0:08 |
+| 4d — Evidence Retrieval | ~25 | 0:06 |
+| 4e — Care Plan + Safety | ~60 | 0:12 |
+| 4f — Final approval | ~25 | 0:05 |
+| *Part B subtotal* | *~220* | *~0:50* |
+| 5 — Closing | ~55 | 0:20 |
+| **Total** | **~575** | **~3:00** |
 
 ---
 
