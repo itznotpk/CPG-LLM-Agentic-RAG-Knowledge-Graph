@@ -2,7 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 // rPPG is mounted inside the main backend at /rppg.
 // Override with VITE_RPPG_URL for other machines (e.g. ws://192.168.x.x:8058/rppg).
-const RPPG_WS_URL = (import.meta.env.VITE_RPPG_URL || 'ws://127.0.0.1:8058/rppg') + '/ws';
+const RPPG_BASE    = import.meta.env.VITE_RPPG_URL || 'http://127.0.0.1:8058/rppg';
+const RPPG_WS_URL  = RPPG_BASE.replace(/^http/, 'ws') + '/ws';
+const RPPG_HTTP    = RPPG_BASE.replace(/^ws/, 'http');
 const FRAME_INTERVAL = 100; // ms between frames sent (10 fps)
 
 /**
@@ -41,6 +43,9 @@ export function useRPPGStream({ autoStart = true } = {}) {
   const start = useCallback(async () => {
     stop();
     setStatus('requesting');
+
+    // Reset server-side buffers so stale data from the previous patient doesn't bleed in.
+    try { await fetch(`${RPPG_HTTP}/api/reset`, { method: 'POST' }); } catch { /* optional */ }
 
     let stream;
     try {

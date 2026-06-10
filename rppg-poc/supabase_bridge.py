@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-RPPG_WS_URL       = os.getenv("RPPG_WS_URL",        "ws://127.0.0.1:8090/ws")
+RPPG_WS_URL       = os.getenv("RPPG_WS_URL",        "ws://127.0.0.1:8058/rppg/ws")
 SUPABASE_URL      = os.getenv("SUPABASE_URL",        "")
 SUPABASE_KEY      = os.getenv("SUPABASE_ANON_KEY",   "")
 QUALITY_THRESHOLD = float(os.getenv("QUALITY_THRESHOLD", "50"))

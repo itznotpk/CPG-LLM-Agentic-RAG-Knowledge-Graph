@@ -91,6 +91,7 @@ class _SupabasePool(DatabasePool):
                 max_size=5,
                 max_inactive_connection_lifetime=300,
                 command_timeout=60,
+                statement_cache_size=0,
             )
             logger.info("Supabase connection pool initialized")
 
