@@ -6,12 +6,13 @@
 ## SEGMENT 1 — Problem Hook [0:00–0:30]
 *Voiceover begins at Shot 3 (doctor turns to laptop). Silence over Shots 1–2.*
 
-> "In Malaysia's rural clinics, a single doctor manages the full spectrum of medicine — alone.
-> No specialist on call. No pharmacist. No colleague to consult.
-> When a rare case walks through the door, the only tools available are a browser search —
-> and a guideline there's no time to read."
+> "In Long Pa Sia, deep in the highlands of Sipitang, Dr. Satish is the only doctor for miles.
+> Today, a patient — Zhu Heng — walks in after a ten-kilometre trek down the hill trail,
+> exhausted, with chest tightness that doesn't fit anything routine.
+> No specialist on call. No signal to search with.
+> Just a guideline too thick to search under pressure."
 
-*(Hard cut to black. Text card holds on screen: "45.6% of rural clinics in Sarawak have no resident doctor. Consultations average just 10.5 minutes." No narration over this card — let it sit.)*
+*(Hard cut to black. Text card holds on screen: "Long Pa Sia, Sipitang — a 2–3 hour drive from the nearest hospital. For Zhu Heng, the clinic itself was a 10km walk." No narration over this card — let it sit.)*
 
 ---
 
