@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "n": 1,
+    "passes": 1,
+    "pass_rate": 1.0,
+    "mean_elapsed_min": 1.45
+  },
+  "rows": [
+    {
+      "id": "ADV-02",
+      "category": "Symptom-diagnosis mismatch",
+      "pass": 1.0,
+      "reason": "sepsis_rank=1; dengue_rank=None; top3=1G41.0 Sepsis with septic shock | BA2Z Hypotension, unspecified | BA2Y Other specified hypotension",
+      "top5_ddx": "1G41.0 Sepsis with septic shock | BA2Z Hypotension, unspecified | BA2Y Other specified hypotension | MB21.Y Other specified symptoms and signs involving cognition | MC81.3 Paroxysmal tachycardia",
+      "routed_cpgs": "Hypertension(5th Edition)",
+      "safety_flags": "",
+      "elapsed_min": 1.45,
+      "stage_errors": ""
+    }
+  ]
+}

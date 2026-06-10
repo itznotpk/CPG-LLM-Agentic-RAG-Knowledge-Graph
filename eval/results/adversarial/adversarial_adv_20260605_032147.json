@@ -1,0 +1,21 @@
+{
+  "summary": {
+    "n": 1,
+    "passes": 1,
+    "pass_rate": 1.0,
+    "mean_elapsed_min": 0.0
+  },
+  "rows": [
+    {
+      "id": "ADV-04",
+      "category": "Boundary out-of-scope",
+      "pass": 1.0,
+      "reason": "refs=0; cpgs=none",
+      "top5_ddx": "route_only:8A80.0",
+      "routed_cpgs": "",
+      "safety_flags": "",
+      "elapsed_min": 0.0,
+      "stage_errors": ""
+    }
+  ]
+}

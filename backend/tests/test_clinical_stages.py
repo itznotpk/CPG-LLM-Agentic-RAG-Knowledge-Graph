@@ -28,6 +28,7 @@ from agent.clinical_stages import (
     _format_evidence,
     _is_chapter_21_code,
     _pin_chief_complaint_primary,
+    _prefer_specific_hit,
     _llm_rerank_ddx,
     stage_2_ddx,
     stage_3_route,
@@ -367,6 +368,40 @@ def test_pin_noop_when_specific_explicit_already_first():
     ddx = [_ddx_exp("BA41.1", 0.9, True), _ddx_exp("BA00", 0.7, False)]
     out = _pin_chief_complaint_primary(ddx)
     assert [r.code for r in out] == ["BA41.1", "BA00"]
+
+
+def _hit(code: str, sim: float) -> dict:
+    return {"code": code, "similarity": sim, "title": code}
+
+
+def test_prefer_specific_swaps_chapter21_for_near_tied_disease():
+    """Case-11 root cause: 'erectile dysfunction' resolves to MF41 (Chapter-21
+    symptom, 0.705) as top-1 with the disease code HA01.1 (0.704) a hair behind.
+    The CC boost must land on HA01.1, not the symptom code the demotion sinks."""
+    hits = [_hit("MF41", 0.705), _hit("HA01.1", 0.704), _hit("HA01.1Z", 0.672)]
+    out = _prefer_specific_hit(hits[0], hits)
+    assert out["code"] == "HA01.1"
+
+
+def test_prefer_specific_swaps_residual_for_named():
+    """Residual top-1 (BA00.Y) swaps to the named BA00 within margin."""
+    hits = [_hit("BA00.Y", 0.696), _hit("BA00", 0.785), _hit("BA00.Z", 0.705)]
+    out = _prefer_specific_hit(hits[0], hits)
+    assert out["code"] == "BA00"
+
+
+def test_prefer_specific_noop_when_top1_already_specific():
+    hits = [_hit("HA01.1", 0.799), _hit("MF41", 0.741)]
+    out = _prefer_specific_hit(hits[0], hits)
+    assert out["code"] == "HA01.1"
+
+
+def test_prefer_specific_noop_when_no_close_named_code():
+    """A vague top-1 with no non-vague code within the 0.08 margin is left alone —
+    we don't force a clinically-distant code just to avoid vagueness."""
+    hits = [_hit("MF41", 0.705), _hit("HA01.1", 0.55)]  # gap 0.155 > margin
+    out = _prefer_specific_hit(hits[0], hits)
+    assert out["code"] == "MF41"
 
 
 # ---------------------------------------------------------------------------

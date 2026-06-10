@@ -298,6 +298,22 @@ safety critic of §3.10 possible: the LLM arm reasons over the text retrieved fr
 the KG arm reasons over the edges held in the graph store, and because the two arms fail in
 different ways, a hazard that is invisible to one is still caught by the other.
 
+Each field within these schemas is provisioned to serve a specific stage of the reasoning pipeline.
+Within the document store, `documents.icd11_scope` constitutes the array against which Stage 3
+routing matches a predicted ICD-11 code, whereas `documents.scope_embedding` provides the semantic
+fallback invoked when no exact code is matched. Within the chunk store, the `chunks.embedding`
+column, a 1536-dimension vector indexed with IVFFlat for cosine search, serves as the shared
+retrieval surface for both Stage 2 differential diagnosis and Stage 4 evidence retrieval; the
+`chunks.chunk_level` field, which encodes the heading tier (`h1`–`h3` or `h1_leaf`), together with
+the `chunks.parent_chunk_id` self-reference, enables Stage 4 to retrieve a precise leaf passage and
+subsequently widen to its parent section for additional context. Within the knowledge graph, the
+`CONTRAINDICATED_WITH` and `INTERACTS_WITH` edges are consumed at two distinct stages: by the Stage
+4.5 knowledge-graph injection, which supplies prefer/avoid guidance to synthesis, and by the Stage 6
+safety critic, which verifies the finished plan structurally. As these edges are derived from
+clinical-guideline prose rather than from a curated pharmacological database, their coverage is
+necessarily bounded by the relationships the guidelines explicitly state. Each schema therefore
+constitutes the formal contract between a grounding store and the stages that consume it.
+
 The schema of the vector store is shown in Fig. 3.3b, and a safety subgraph of the knowledge graph
 in Fig. 3.3c. The knowledge-graph edges are not bare links: each one carries its own provenance,
 namely the evidence sentence it was extracted from, the source CPG document and chunk, a severity,

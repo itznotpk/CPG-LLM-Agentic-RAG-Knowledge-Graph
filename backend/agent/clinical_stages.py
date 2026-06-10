@@ -2421,6 +2421,51 @@ def _pick_qualifier_match(name: str, hits: list[dict]) -> dict | None:
     return top
 
 
+# Similarity margin within which a specific named-disease code is preferred over
+# a vague Chapter-21 symptom / residual ".Y/.Z" code that the vector search
+# happened to rank (marginally) higher. Resolving a chief-complaint diagnosis to
+# the symptom code — e.g. "erectile dysfunction" → MF41 "Symptom or complaint of
+# male sexual function" (0.705) instead of the disease code HA01.1 (0.704) —
+# parks the CC-explicit boost on a code the demotion nets then sink, leaving the
+# real disease unboosted and unable to out-rank a high-similarity background
+# comorbidity (case 11: ED vs T2DM 0.824). Conservative: only near-ties swap.
+SPECIFIC_OVER_VAGUE_MARGIN = 0.08
+
+
+def _prefer_specific_hit(picked: dict | None, hits: list[dict]) -> dict | None:
+    """If the resolver picked a vague Chapter-21/residual code, swap to the best
+    non-vague code in `hits` within SPECIFIC_OVER_VAGUE_MARGIN of its similarity.
+
+    Keeps the CC boost on a specific named disease (HA01.1) rather than its
+    symptom/residual sibling (MF41), which `_demote_chapter21_codes` /
+    `_demote_residual_subcodes` would otherwise sink — wasting the boost. Returns
+    `picked` unchanged when it is already specific or no close non-vague code exists.
+    """
+    if not picked:
+        return picked
+    pcode = (picked.get("code") or "")
+    if not (_is_chapter_21_code(pcode) or _is_residual_icd_code(pcode)):
+        return picked
+    picked_sim = float(picked.get("similarity") or 0.0)
+    best = None
+    for h in hits:
+        code = (h.get("code") or "")
+        if _is_chapter_21_code(code) or _is_residual_icd_code(code):
+            continue
+        sim = float(h.get("similarity") or 0.0)
+        if sim >= picked_sim - SPECIFIC_OVER_VAGUE_MARGIN and (
+            best is None or sim > float(best.get("similarity") or 0.0)
+        ):
+            best = h
+    if best is not None and best is not picked:
+        logger.info(
+            "CC hint specific-over-vague: %s (%.3f) preferred over vague %s (%.3f)",
+            best.get("code"), float(best.get("similarity") or 0.0), pcode, picked_sim,
+        )
+        return best
+    return picked
+
+
 async def _extract_cc_icd_hints(
     cc: str,
     client: openai.AsyncOpenAI,
@@ -2540,7 +2585,7 @@ async def _extract_cc_icd_hints(
                 hits = await _search_ddx(name, top_k=5)
                 if not hits:
                     return None
-                return _pick_qualifier_match(name, hits)
+                return _prefer_specific_hit(_pick_qualifier_match(name, hits), hits)
             except Exception as exc:
                 logger.warning("CC hint resolve failed for %r: %s", name, exc)
                 return None
@@ -2620,8 +2665,10 @@ async def _regex_disease_hints(case: PatientCase) -> list[dict]:
     from ddx.search_ddx import search_ddx as _search_ddx
     async def _resolve(name: str):
         try:
-            hits = await _search_ddx(name, top_k=1)
-            return hits[0] if hits else None
+            hits = await _search_ddx(name, top_k=6)
+            if not hits:
+                return None
+            return _prefer_specific_hit(hits[0], hits)
         except Exception as exc:
             logger.warning("Regex hint resolve failed for %r: %s", name, exc)
             return None
