@@ -1,4 +1,4 @@
-# SEGMENT 3 — Solution Demo [1:00–3:30]
+# SEGMENT 3 — Solution Demo [~2:30 total]
 *Screen recording — ClearPath UI, 13 scenes, one continuous uninterrupted flow*
 
 **General recording instructions:**
@@ -12,11 +12,11 @@
 
 ---
 
-## Part A — System Introduction [1:00–2:10]
+## Part A — System Introduction [~1:10]
 
 ---
 
-### Scene 3a — Landing Page [1:00–1:08]
+### Scene 3a — Landing Page [8s]
 
 **Main focus — screen:**
 The ClearPath official landing page is on screen. Cursor idles — let the interface breathe for 3 seconds. Page is fully loaded: headline, feature stats (30 CPGs, 248 codes, 5-stage pipeline, 100% audit-logged), and the "Sign in" button visible.
@@ -29,7 +29,7 @@ The ClearPath official landing page is on screen. Cursor idles — let the inter
 
 ---
 
-### Scene 3b — Sign In [1:08–1:18]
+### Scene 3b — Sign In [10s]
 
 **Main focus — screen:**
 Click "Sign in →". The login screen slides in — left panel shows the ClearPath brand panel with ECG animation; right panel shows the sign-in form. Email and password fields are pre-filled (or typed slowly). Click "Sign in →".
@@ -41,7 +41,7 @@ Click "Sign in →". The login screen slides in — left panel shows the ClearPa
 
 ---
 
-### Scene 3c — Main Dashboard [1:18–1:30]
+### Scene 3c — Main Dashboard [12s]
 
 **Main focus — screen:**
 The main dashboard loads. Visible: today's patient queue (Scheduled 2, In Queue 2), the clinician's name (Dr Chin Pei Kang), and the "Assistant Impact Today" panel on the right — Time Saved, CPG Align, Citations, Referrals.
@@ -56,7 +56,7 @@ Cursor moves slowly across the queue, pausing on one patient card.
 
 ---
 
-### Scene 3d — Patient Dashboard [1:30–1:45]
+### Scene 3d — Patient Dashboard [15s]
 
 **Main focus — screen:**
 Click "My Patients" in the sidebar. The patient list loads — 18 patients total, "Follow-up Required (3)" tab visible. Click to expand one patient (UI 4 — 55-year-old with T2DM and Erectile Dysfunction). The expanded row shows:
@@ -75,7 +75,7 @@ Cursor hovers the "Latest" consultation record.
 
 ---
 
-### Scene 3e — Start Consultation [1:45–1:55]
+### Scene 3e — Start Consultation [10s]
 
 **Main focus — screen:**
 Click "Consultation" in the sidebar. The consultation wizard opens at Step 1 of 4 — "Data Input". A Patient Lookup box is centred on screen. Cursor moves to the IC field, types an IC number slowly (e.g. `600521-04-1834`). Click "Continue →".
@@ -88,7 +88,7 @@ Click "Consultation" in the sidebar. The consultation wizard opens at Step 1 of 
 
 ---
 
-### Scene 3f — Clinical Assessment Input [1:55–2:05]
+### Scene 3f — Clinical Assessment Input [10s]
 
 **Main focus — screen:**
 The full data input form loads. Left panel: demographics auto-filled (name, DOB, sex, allergies, comorbidities, current medications). Right panel: Vital signs form (BP, HR, RR, SpO₂, weight, height), Severity staging (optional), and Clinical notes (CC / HPI / PE fields).
@@ -108,7 +108,7 @@ Then cursor moves to the Clinical notes field, pauses on the "Record Consult" mi
 
 ---
 
-### Scene 3g — rPPG and STT Callout [2:05–2:10]
+### Scene 3g — rPPG and STT Callout [5s]
 
 **Main focus — screen:**
 Two quick close-up cuts (zoom-punch in post):
@@ -124,11 +124,11 @@ Two quick close-up cuts (zoom-punch in post):
 
 ---
 
-## Part B — Agentic Pipeline Demo [2:10–3:30]
+## Part B — Agentic Pipeline Demo [~1:20]
 
 ---
 
-### Scene 4a — AI Reasoning Trace (Analysis Loading) [2:10–2:20]
+### Scene 4a — AI Reasoning Trace (Analysis Loading) [10s]
 
 **Main focus — screen:**
 After clicking "Analyze assessment →" in Scene 3f, the screen transitions to the consultation pipeline view. The step indicator shows "Analysing..." (spinning icon between Data input and Diagnosis). The central panel shows the **AI Reasoning Trace** with 4 pipeline stages listed:
@@ -150,7 +150,7 @@ Cursor idles — let the loading state sit for 3 seconds so all pipeline stages 
 
 ---
 
-### Scene 4b — Differential Diagnosis + ICD-11 Mapping [2:20–2:45]
+### Scene 4b — Differential Diagnosis + ICD-11 Mapping [25s]
 
 **Main focus — screen:**
 DDx Analysis completes. Screen lands on **Step 2 of 4 — Diagnosis**. Two panels visible:
@@ -180,7 +180,7 @@ Cursor moves slowly down the right panel, hovering each card 1–2 seconds. Then
 
 ---
 
-### Scene 4c — CPG Routing [2:45–3:00]
+### Scene 4c — CPG Routing [15s]
 
 **Main focus — screen:**
 After clicking "Confirm →", screen transitions to **"Generating Care Plan"**. Pipeline progress panel shows 4 stage cards:
@@ -211,7 +211,7 @@ Cursor idles on the "What Is Happening" panel — let the registry scan output s
 
 ---
 
-### Scene 4d — Evidence Retrieval [3:00–3:10]
+### Scene 4d — Evidence Retrieval [10s]
 
 **Main focus — screen:**
 CPG Routing card turns green. **Evidence Retrieval** card activates:
@@ -240,7 +240,7 @@ Cursor hovers the RAG Match Quality Index bar — hold 2 seconds.
 
 ---
 
-### Scene 4e — Recommended Care Plan + Safety Review [3:10–3:22]
+### Scene 4e — Recommended Care Plan + Safety Review [12s]
 
 **Main focus — screen:**
 Screen lands on **Step 3 of 4 — Recommended Care Plan**. This is the most content-rich screen — allocate the most time here.
@@ -292,7 +292,7 @@ Cursor clicks "Keep + acknowledge risk" — banner resolves, "I have reviewed th
 
 ---
 
-### Scene 4f — Final Care Plan Document + Approval [3:22–3:30]
+### Scene 4f — Final Care Plan Document + Approval [8s]
 
 **Main focus — screen:**
 After clicking "Confirm Care Plan", screen transitions to **Step 4 of 4 — Final Care Plan**. All four step indicators are green checkmarks. Document renders:
