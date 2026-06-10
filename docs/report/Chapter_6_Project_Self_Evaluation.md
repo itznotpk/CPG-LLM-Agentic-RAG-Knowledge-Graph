@@ -16,7 +16,7 @@ Separating CPG text chunks (pgvector) from typed drug-interaction edges (Neo4j) 
 
 #### 6.1.1.3 Pydantic Schema Validation
 
-Enforcing a typed schema over the care plan — rather than a prose blob — streamlined automated safety checks, guaranteed consistent UI rendering, and enabled discrete claim-unit scoring for faithfulness evaluation.
+Enforcing strongly typed data contracts for all care-plan generation eliminated the structural brittleness inherent to free-form text outputs. This explicit standardization proved critical for enabling automated downstream validation, predictable interface rendering, and granular evaluation of factual faithfulness.
 
 #### 6.1.1.4 Architectural Debt
 
@@ -87,6 +87,23 @@ In the second half of the project, the team shifted focus to system validation, 
 
 **Low Jia Qi** produced the project video plan and edited the final video submission. She contributed to the poster layout and supported documentation tasks during the final report sprint.
 
+### 6.2.3 Summary of Individual Task Contributions
+
+Table 6.1a gives a consolidated, at-a-glance view of each member's overall contribution across the project, drawing on the Gantt chart (Figure 6.1) and the phase-by-phase breakdown in §6.2.1–6.2.2. Tasks marked "ALL" in the Gantt chart were carried out jointly by the whole team and are listed once at the top rather than repeated under each member.
+
+*Table 6.1a: Individual Contribution Summary*
+
+| Team Member | Key Contributions |
+|---|---|
+| **All Members (Shared)** | • Problem identification, concept development, and idea pitching<br>• System design documentation and validation of extracted clinical knowledge<br>• Backend functional testing, integration testing, and clinical validation with healthcare professionals<br>• Final system integration, documentation, and presentation |
+| **Chua Zhu Heng** (Knowledge Base & Grounding Infrastructure) | • Built the CPG ingestion pipeline — sourcing, Docling pre-processing, markdown structuring, and metadata/versioning<br>• Set up the pgvector vector database and defined inter-component data flow<br>• Integrated the structured knowledge base into the live consultation pipeline, including parent-child chunking, restructured KG relationships, and entity-based chunking for the DDx engine<br>• Added STT integration to the grounding infrastructure and led refinement based on clinical validation results |
+| **Chin Pei Kang** (AI Systems & Evaluation Engineering) | • Designed the RAG + LLM interaction pipeline, Neo4j graph schema, and knowledge-graph search<br>• Built the tool-routing strategy, two-stage formatting pipeline, and search tools<br>• Integrated and tested the ICD-11 DDx engine with the main RAG<br>• Built the patient-case test dataset and ran faithfulness/adversarial/safety stress testing, automated backend test harnesses, and RAG performance evaluations |
+| **Satish Rao** (Multimodal Intake & Hardware Integration) | • Defined the security and access-control model and implemented the audit trail and version control<br>• Led LLM response-quality calibration and built the citation/hallucination safeguards and CPG citation display<br>• Implemented the care-plan API endpoint<br>• Built and validated the contactless rPPG vital-sign pipeline end-to-end — research, signal processing, camera capture, hardware finalisation, and integration into the clinical consultation |
+| **Low Jia Qi** (System Architecture & Application Integration) | • Established the target specification and overall system architecture, including the database schema<br>• Structured CPG markdown content with metadata<br>• Designed the patient dashboard and user-interaction controls for the Doctor UI<br>• Finalised the full-stack integration — front-end clinician dashboard and the Supabase application data layer for a stable testing environment |
+| **Lim Zhi Pin** (Clinical Logic & Diagnostic Engineering) | • Conducted the stakeholder survey and interviews and defined the API input/output contracts<br>• Implemented API authentication, authorisation, and the API-unavailability fallback logic<br>• Built the ICD-11 knowledge base, symptom-to-code vector search, and DDx ranking logic<br>• Validated the differential diagnosis engine against clinical gold sets verified by collaborating healthcare professionals |
+
+> **Note on unassigned Gantt rows:** WBS items 6.3, 10.2, and 11.2–11.5 appear as numbering gaps in the Gantt chart with no task title or owner visible. If these correspond to real, undocumented tasks, they should be assigned to **Lim Zhi Pin** or **Low Jia Qi**, who carry the lightest Semester 2 load relative to the other members — please confirm the task titles for those rows so they can be added to the table above.
+
 ---
 
 ## 6.3 Project Cost
@@ -145,25 +162,7 @@ The MiMo Standard plan supplies 200 million tokens per month. At approximately 1
 
 ### 6.3.4 Total Project Expenditure
 
-Table 6.4 consolidates all actual project costs, itemising every hardware component and software service to provide a complete account of the RM 317.03 expended during the development period.
-
-*Table 6.4: Comprehensive Total Project Expenditure*
-
-| No. | Item | Cost (RM) |
-|:---:|:-----|----------:|
-| | **A — Hardware (One-Time Purchase)** | |
-| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | 26.99 |
-| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | 9.99 |
-| 3 | Solderless Breadboard (830 tie-points) | 3.69 |
-| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | 3.20 |
-| | *Hardware Subtotal* | *43.87* |
-| | **B — Software & Cloud (Development Period)** | |
-| 5 | AWS — backend infrastructure and hosting (Lim Zhi Pin) | 173.16 |
-| 6 | Gemini Flash API — LLM integration (Chua Zhu Heng) | 100.00 |
-| | *Software Subtotal* | *273.16* |
-| | **Grand Total** | **317.03** |
-
-The dominant resource throughout the project was engineering time rather than monetary expenditure. The RM 317.03 total covers only direct, project-specific charges; the projected recurring cost at pilot scale is addressed separately in §6.3.3.
+Total actual expenditure for the project was **RM 317.03**: RM 43.87 in hardware (§6.3.1) and RM 273.16 in software and cloud services (§6.3.2). The dominant resource throughout was engineering time rather than monetary spend. The projected recurring operating cost at pilot scale is addressed separately in §6.3.3.
 
 ---
 

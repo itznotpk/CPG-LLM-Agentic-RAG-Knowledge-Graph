@@ -143,7 +143,7 @@ Hold on table for 5 seconds, then cut to the ClearPath landing page for the fina
 > `[Team names] · [Institution]`
 
 **Narration:**
-> "ClearPath doesn't just retrieve guidelines — it routes, retrieves, safety-checks, and structures the output. Built for Malaysia. Built for the consultation room."
+> "Remember that doctor — alone, with no specialist on call, and a guideline too long to read in time? ClearPath puts specialist-level guidance in their hands in seconds: grounded in the right CPG section, checked by an independent safety critic, and delivered as a structured plan they can act on immediately — and carry into the next visit. The gap wasn't the doctor. ClearPath is the tool."
 
 **Final 5 seconds:** ClearPath landing page, no narration. Fade to black.
 
@@ -173,6 +173,7 @@ Hold on table for 5 seconds, then cut to the ClearPath landing page for the fina
 ### Word count per segment (for pacing reference)
 | Segment | Words | Target duration |
 |---|---|---|
+<<<<<<< HEAD
 | 1 — Problem Hook | ~65 | 0:40 |
 | **2 — Solution Demo Part A** | | |
 | 3a — Landing page | ~25 | 0:07 |
@@ -193,6 +194,17 @@ Hold on table for 5 seconds, then cut to the ClearPath landing page for the fina
 | *Part B subtotal* | *~265* | *~1:05* |
 | 4 — Closing | ~35 | 0:20 |
 | **Total** | **~550** | **~3:00** |
+=======
+| 1 — Problem Hook | ~55 | 0:30 |
+| 2 — Problem Statement | ~75 | 0:30 |
+| 3 — System Introduction | ~50 | 0:15 |
+| 4a — Routing | ~50 | 0:20 |
+| 4b — Guideline Answer | ~40 | 0:20 |
+| 4c — Safety Critic | ~45 | 0:20 |
+| 4d — Care Plan | ~45 | 0:15 |
+| 5 — Closing | ~65 | 0:30 |
+| **Total** | **~425** | **~3:00** |
+>>>>>>> origin/main
 
 ---
 
