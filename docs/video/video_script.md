@@ -199,16 +199,16 @@ Wide shot of the full desk scene — laptop open, CPG splayed open beside it, pa
 *Quick-cut montage — re-uses footage already recorded for Segments 3–4, no new screen recording required*
 
 **Main focus — screen:**
-A fast-paced highlight reel, six beats of ~5–6 seconds each. Each beat re-cuts and zoom-punches a moment already captured earlier in the demo, paired with a bold icon + label card (bottom-third, larger than the usual small overlay) so it reads as a deliberate "feature recap" rather than a repeat of the demo.
+A fast-paced highlight reel, four beats. Each beat re-cuts and zoom-punches a moment already captured earlier in the demo, paired with a bold icon + label card (bottom-third, larger than the usual small overlay) so it reads as a deliberate "feature recap" rather than a repeat of the demo.
 
 | Beat | Visual (re-cut from) | Label card |
 |---|---|---|
-| 1 — rPPG | Scene 3g — rPPG button zoom-punch | `📷 Contactless rPPG — heart rate & SpO₂ from the camera` |
-| 2 — STT | Scene 3g — Record Consult mic zoom-punch | `🎙 Voice-to-text — dictate notes directly into the record` |
-| 3 — DDx engine | Scene 4b — ranked differential diagnosis cards | `🧬 ICD-11 DDx engine — confidence-ranked across 248 codes` |
-| 4 — Grounded RAG | Scene 4d — RAG Match Quality Index / citation panel | `📚 Hybrid RAG — grounded & cited across 30 Malaysian CPGs` |
-| 5 — Safety critic | Scene 4e — red safety banner | `⚠ Independent safety critic — blocks unsafe sign-off` |
-| 6 — Care plan output | Scene 4f — final SOAP document + export options | `📋 Structured, audit-logged care plans — export to PDF/email` |
+| 1 — rPPG [~5-6s] | Scene 3g — rPPG button zoom-punch | `📷 Contactless rPPG — heart rate & SpO₂ from the camera` |
+| 2 — STT [~5-6s] | Scene 3g — Record Consult mic zoom-punch | `🎙 Voice-to-text — dictate notes directly into the record` |
+| 3 — DDx engine [~5-6s] | Scene 4b — ranked differential diagnosis cards | `🧬 ICD-11 DDx engine — confidence-ranked across 248 codes` |
+| 4 — Grounded, Safe & Structured Output [~12-15s] | Quick triple-cut: Scene 4d (RAG Match Quality Index / citation panel) → Scene 4e (red safety banner) → Scene 4f (final SOAP document + export options) | `📚 Grounded & cited across 30 Malaysian CPGs` → `⚠ Independent safety critic — blocks unsafe sign-off` → `📋 Structured, audit-logged care plans — export to PDF/email` |
+
+Beat 4 is a mini-montage within the beat — each of the three label cards swaps in sync with its corresponding visual cut (no need to hold all three on screen at once).
 
 Transitions: quick whip-pan or hard cut between beats — keep energy high, this is a recap montage, not a slow walkthrough.
 
