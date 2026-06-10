@@ -13,8 +13,9 @@
 | 2 | Problem Statement (real-life footage) | 0:30 |
 | 3 | Solution Demo — System Introduction | 0:50 |
 | 4 | Solution Demo — Agentic Pipeline | 0:50 |
-| 5 | Closing | 0:20 |
-| **Total** | | **3:00** |
+| 5 | Key Features Highlight | 0:35 |
+| 6 | Closing | 0:20 |
+| **Total** | | **~3:35** |
 
 ---
 
@@ -194,7 +195,29 @@ Wide shot of the full desk scene — laptop open, CPG splayed open beside it, pa
 
 ---
 
-## SEGMENT 5 — Closing [2:40–3:00]
+## SEGMENT 5 — Key Features Highlight [2:40–3:15]
+*Quick-cut montage — re-uses footage already recorded for Segments 3–4, no new screen recording required*
+
+**Main focus — screen:**
+A fast-paced highlight reel, six beats of ~5–6 seconds each. Each beat re-cuts and zoom-punches a moment already captured earlier in the demo, paired with a bold icon + label card (bottom-third, larger than the usual small overlay) so it reads as a deliberate "feature recap" rather than a repeat of the demo.
+
+| Beat | Visual (re-cut from) | Label card |
+|---|---|---|
+| 1 — rPPG | Scene 3g — rPPG button zoom-punch | `📷 Contactless rPPG — heart rate & SpO₂ from the camera` |
+| 2 — STT | Scene 3g — Record Consult mic zoom-punch | `🎙 Voice-to-text — dictate notes directly into the record` |
+| 3 — DDx engine | Scene 4b — ranked differential diagnosis cards | `🧬 ICD-11 DDx engine — confidence-ranked across 248 codes` |
+| 4 — Grounded RAG | Scene 4d — RAG Match Quality Index / citation panel | `📚 Hybrid RAG — grounded & cited across 30 Malaysian CPGs` |
+| 5 — Safety critic | Scene 4e — red safety banner | `⚠ Independent safety critic — blocks unsafe sign-off` |
+| 6 — Care plan output | Scene 4f — final SOAP document + export options | `📋 Structured, audit-logged care plans — export to PDF/email` |
+
+Transitions: quick whip-pan or hard cut between beats — keep energy high, this is a recap montage, not a slow walkthrough.
+
+**Narration:**
+> "Beyond the consultation flow, ClearPath brings a full toolkit to the point of care. Contactless rPPG reads heart rate and oxygen levels from the camera. Voice dictation turns spoken notes into structured records. The ICD-11 engine ranks differential diagnoses across 248 codes. Every recommendation is grounded and cited from 30 Malaysian CPGs. An independent safety critic checks medications before sign-off. And every care plan is structured, audit-logged, and ready to export."
+
+---
+
+## SEGMENT 6 — Closing [3:15–3:35]
 *Screen recording — static capability comparison slide, then logo hold*
 
 **Main focus — screen:**

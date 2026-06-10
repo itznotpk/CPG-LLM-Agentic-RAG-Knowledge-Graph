@@ -127,7 +127,20 @@
 
 ---
 
-## SEGMENT 5 — Closing [2:40–3:00]
+## SEGMENT 5 — Key Features Highlight [2:40–3:15]
+*Quick-cut montage — re-cuts of footage from Segments 3–4, paired with icon/label cards.*
+
+> "Beyond the consultation flow, ClearPath brings a full toolkit to the point of care.
+> Contactless rPPG reads heart rate and oxygen levels from the camera.
+> Voice dictation turns spoken notes into structured records.
+> The ICD-11 engine ranks differential diagnoses across 248 codes.
+> Every recommendation is grounded and cited from 30 Malaysian CPGs.
+> An independent safety critic checks medications before sign-off.
+> And every care plan is structured, audit-logged, and ready to export."
+
+---
+
+## SEGMENT 6 — Closing [3:15–3:35]
 *Comparison table on screen. Narration plays over it, then fades to ClearPath landing page.*
 
 > "Remember that doctor —
@@ -162,8 +175,9 @@
 | 4d — Evidence Retrieval | ~38 | 0:10 |
 | 4e — Care Plan + Safety | ~72 | 0:12 |
 | 4f — Final Approval | ~38 | 0:08 |
-| 5 — Closing | ~55 | 0:20 |
-| **Total** | **~686** | **~3:00** |
+| 5 — Key Features Highlight | ~71 | 0:35 |
+| 6 — Closing | ~55 | 0:20 |
+| **Total** | **~757** | **~3:35** |
 
 ---
 
@@ -172,5 +186,6 @@
 - Read each segment label aloud first to orient yourself — then pause 2 seconds before speaking the narration
 - **3g and 4f are short** — slow down, don't rush to fill time
 - **4e is the centrepiece** — pause naturally before "The system blocks sign-off..." to let the safety flag moment land
+- **Segment 5 (Key Features Highlight) is fast-paced** — read it slightly more energetically than the rest; each feature gets ~5–6 seconds, don't linger
 - Record every segment 2–3 times; keep the take that feels most conversational, not the most polished
-- Save files as: `narration_seg1.mp3`, `narration_seg2_beat1.mp3`, `narration_seg2_beat2.mp3`, `narration_seg2_beat3.mp3`, `narration_seg3a.mp3` … `narration_seg5.mp3`
+- Save files as: `narration_seg1.mp3`, `narration_seg2_beat1.mp3`, `narration_seg2_beat2.mp3`, `narration_seg2_beat3.mp3`, `narration_seg3a.mp3` … `narration_seg5.mp3`, `narration_seg6.mp3`
