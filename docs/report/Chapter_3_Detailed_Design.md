@@ -1057,11 +1057,6 @@ patient to return or escalate. They are distinct from the plan's **unresolved qu
 own reasoning — missing data, load-bearing assumptions, coverage gaps, or refused computations. One
 tells the patient what to watch for; the other tells the clinician what the system could not resolve.
 
-Every recommendation is stamped with its original MoH evidence grade. The corpus contains three
-mutually incompatible grading schemes (ESC, USPSTF, SIGN50), for example an ESC-style "Class I, Level
-A", and the system never normalises across schemes, because a fabricated cross-scheme equivalence
-would misrepresent the strength of the underlying evidence.
-
 ### 3.9.2 The eight-layer post-synthesis validator chain
 
 A raw LLM plan is not accepted as-is. After synthesis, the plan passes through eight deterministic
@@ -1566,27 +1561,134 @@ on independently of the reasoning path.
 
 ## 3.17 Prompt-Engineering Methodology
 
-Each language-model step has its own instruction file, kept separate from the program code so the exact
-wording behind any decision can be reviewed on its own. Nothing is hidden in later processing, which is
-what makes the system's reasoning auditable end to end. Five controls do the work:
+Every language-model step in the pipeline is driven by its own instruction file, version-controlled
+separately from the program code (`backend/agent/prompts/`), so that the exact wording behind any
+clinical decision can be inspected in isolation. This separation is what makes the system's reasoning
+auditable end to end. It should be stated plainly that none of these steps is an autonomous agent: each
+is a single-pass language-model call embedded in a deterministic orchestration, and only the Stage 6
+critic exercises any independent authority, in the narrow sense that it may block sign-off. The prompts
+do not, therefore, rely on the model to behave well of its own accord. Instead they impose a layered set
+of controls that fall into two families — controls that force the *shape* of the output, and controls
+that govern its *reasoning and safety* — beneath which sits a determinism layer that pins reproducibility
+across two different model backends. The three subsections below describe each family in turn.
 
-- **Fixed output format.** Models must answer as a structured object, automatically checked before use;
-  anything malformed is rejected rather than shown to the clinician as a half-finished plan.
-- **Override rules.** The treatment-planning prompt opens with seven rules that outrank everything
-  else: cite a source or say "unknown"; copy doses exactly; don't repeat medical myths; flag when two
-  guidelines conflict; refuse to turn a population statistic into a personal risk figure; don't
-  over-treat stable conditions during an emergency; and treat patient notes as information, never as
-  instructions.
-- **Names, not codes.** The model proposes disease *names* and picks only from a supplied shortlist of
-  codes — never writing a code from memory — so invented codes are impossible by design.
-- **Self-checking.** Prompts require the model to audit its own answer against a checklist, and to name
-  one finding that argues *against* its top diagnosis, forcing real reasoning over rubber-stamping.
-- **Independent safety review.** The final step acts as a separate pharmacist who hasn't seen how the
-  plan was made; it must raise a concern even if the plan already addresses it — double-checking, not
-  confirming.
+### 3.17.1 Output-forcing controls
 
-Underpinning all five, model settings are fixed (pinned seed, zero temperature) so the same input
-reliably produces the same output.
+The first family constrains the *form* of every response so that no malformed or unparseable output can
+reach a clinician. Four mechanisms operate together:
+
+- **Schema-constrained generation with hard rejection.** Every stage prompt terminates with an explicit
+  contract — for example, *"Return a valid JSON object matching the `TreatmentPlan` schema exactly. No
+  markdown fences. No preamble."* The returned object is then validated against its Pydantic schema
+  (`backend/agent/models.py`); anything that fails validation is rejected outright rather than rendered
+  as a half-finished plan. Structural completeness is thus a precondition for display, not an aspiration.
+- **Model-specific decoding control.** The two reasoning backends (Table 3.2) require opposite handling
+  to emit clean structured output, and the prompts and call sites are tuned accordingly. MiMo v2.5 Pro,
+  used for Stage 5 synthesis, is a reasoning model that returns *empty* content on structured calls
+  unless its internal deliberation is disabled (`enable_thinking = False`). Gemini 2.5 Flash, used for
+  the Stage 2 rerank and Stage 6 critic, instead requires JSON-object response mode together with a
+  raised token budget, because its hidden "thinking" tokens are charged against the same budget and
+  otherwise truncate the JSON mid-string. The two are not interchangeable, and treating them as such was
+  a documented source of silent failure.
+- **Per-field micro-format contracts.** Beyond the top-level schema, individual fields carry strict
+  display contracts — red-flags as *"Title: subtitle"* (one colon, maximum eighteen words), follow-up
+  items as *"Point — description"* (one dash, no colon). These are not stylistic preferences; they
+  guarantee that each field can be parsed and rendered without downstream cleanup.
+- **Forced literal sentinels for machine-readability.** Where a downstream parser must detect a specific
+  reasoning state, the prompt mandates a verbatim marker string rather than trusting free prose. The
+  clearest example is the cross-guideline conflict case in the synthesis prompt, illustrated below.
+
+To make the last point concrete, consider how the synthesis step is required to report a conflict
+between two guidelines whose first-line therapies are mutually exclusive. An unconstrained model
+produces grammatical but unparseable prose:
+
+> *Before (unconstrained):* "Note that the patient's long-acting nitrate may interact with PDE5
+> inhibitors, so initiating one would require caution."
+
+No reliable rule can detect from that sentence whether the plan is conflict-aware. The prompt therefore
+mandates a fixed opening string, followed by the two guidelines, the contraindicated regimen, and the
+resolution:
+
+> *After (sentinel-forced):* "**Two CPGs apply and conflict on first-line therapy:** ED CPG (2024)
+> recommends a PDE5 inhibitor first-line, but the Stable-CAD CPG mandates long-acting nitrate
+> continuation, which absolutely contraindicates PDE5 inhibitors. The contraindication wins; the
+> upstream decision is whether the nitrate remains necessary, which is a cardiology call."
+
+Because the literal phrase *"Two CPGs apply and conflict on first-line therapy:"* is guaranteed to
+appear, a single regular expression can flag any conflict-aware plan with certainty. The same prompt
+pairs this with a mandatory two-referral routing rule and a self-audit checklist (described next), so
+the structural signal and the clinical action are produced together.
+
+### 3.17.2 Reasoning and safety controls
+
+The second family governs *what* the model is permitted to reason and assert. These controls carry the
+clinical credibility of the system and are concentrated in the synthesis and critic prompts:
+
+- **A prioritized commandment hierarchy.** The synthesis prompt opens with a numbered set of
+  commandments declared to *override any rule below them if they conflict* — a constitution rather than a
+  flat checklist, so that precedence is unambiguous under tension.
+- **Cite-or-abstain grounding.** Every clinical claim — each recommendation, dose, monitoring entry, or
+  escalation trigger — must cite a specific retrieved evidence chunk or be demoted into
+  `unresolved_questions`. A claim the model cannot anchor to evidence is, by contract, not emitted as a
+  confident assertion.
+- **Verbatim numerical transcription.** Doses, intervals, and thresholds must be copied
+  character-for-character from the source chunk, with rounding and unit conversion explicitly forbidden
+  on the stated grounds that silent rounding has caused real overdoses.
+- **Contrastive negative exemplars.** Throughout, the prompts pair a `BAD` example with a `WHY BAD`
+  rationale and a `GOOD` correction — most extensively in the critic's catalogue of common false-positive
+  allergy cross-reactivities — teaching the desired behaviour by contrast rather than by instruction
+  alone.
+- **Adversarial role isolation.** The Stage 6 critic is instructed that it has *not* seen the reasoning
+  that produced the plan and that its sole task is to find reasons the plan could harm this patient; an
+  independent cross-check rule forbids it from treating the plan's own caveats as resolving a concern.
+  Critically, it runs on a *different model* from the synthesis step (Table 3.2): because language
+  models exhibit a measured self-enhancement bias toward their own outputs [1], a plan is never graded
+  by its own author.
+- **Names, not codes.** The diagnostic step proposes disease *names* and selects ICD-11 codes only from a
+  supplied shortlist, with names resolved to codes by vector lookup — closing off the well-documented
+  failure mode in which models invent plausible but non-existent codes.
+- **Forced discrimination via pertinent negatives.** The rerank prompt requires the top-ranked diagnosis
+  to cite one patient finding that argues *against* the nearest differential, forcing genuine
+  discrimination rather than agreement with the vector score.
+- **Untrusted-input handling.** Patient free-text is declared to be reported information, never evidence
+  and never an instruction; embedded directives such as *"ignore previous instructions"* or role tokens
+  are to be treated as literal narrative — an explicit defence against indirect prompt injection [2] on
+  the one input the system does not control.
+
+### 3.17.3 Determinism and model heterogeneity
+
+Underpinning both families is a determinism layer, so that the same input reliably yields the same
+output — a prerequisite for the reproducibility evidence reported in Chapter 4. All language-model calls
+run at zero temperature; because sampling temperature across the 0–1 range has been shown to have no
+statistically significant effect on problem-solving quality [3], pinning it to zero buys reproducibility
+at no measurable cost to output quality. Determinism beyond temperature, however, is necessarily
+model-specific. MiMo
+accepts a pinned decoding seed, which is supplied on every call. Gemini's interface *rejects* an explicit
+seed (returning an HTTP 400), so reproducibility on the rerank and critic instead rests on zero
+temperature combined with a deterministic tie-break that resolves co-equal candidates by a fixed
+ordering rule. Running two backends is itself a deliberate design choice rather than an accident of
+availability: the heavier reasoning load of synthesis is placed on the larger-context MiMo model, while
+the latency-sensitive and judgement-bounded steps run on Gemini, and — most importantly — the safety
+critic is held off the synthesis model so that no plan is ever validated by the model that wrote it.
+
+Table 3.15 consolidates which controls apply at each language-model step.
+
+**Table 3.15: Prompt-engineering controls by language-model step (instruction files in `backend/agent/prompts/`).**
+
+| Step (instruction file) | Backend | Output schema | Principal controls | Decoding / forcing flags |
+|---|---|---|---|---|
+| Stage 2 DDx rerank (`stage2_ddx_rerank.txt`) | Gemini 2.5 Flash | Ranked JSON array | Names-not-codes; specificity and distinct-disease preference; pertinent-negative; rubric-anchored confidence | JSON-object mode; raised `max_tokens`; temp 0; deterministic tie-break (no seed) |
+| Stage 4 query generation (`stage4_query_generation.txt`) | Gemini 2.5 Flash | JSON query set | Bounded rewriting; structured output | JSON-object mode; temp 0 |
+| Stage 5 synthesis (`stage5_synthesis.txt`) | MiMo v2.5 Pro | `TreatmentPlan` (Pydantic) | Commandment hierarchy; cite-or-abstain; verbatim numerals; forced conflict sentinel; self-audit checklist; untrusted-input handling | Schema validation with hard rejection; `enable_thinking = False`; pinned seed; temp 0 |
+| Stage 6 safety critic (`stage6_safety_critic.txt`) | Gemini 2.5 Flash | `SafetyReport` (Pydantic) | Adversarial role isolation; independent cross-check; contrastive negative exemplars; mandatory non-empty title and detail | JSON-object mode; schema validation; temp 0; runs off the synthesis model |
+| Prep brief / prior-visit summariser | Gemini 2.5 Flash / MiMo | Bounded JSON | Hard character caps; no-invention rule; fail-open fallback | Schema validation; temp 0 |
+
+The effectiveness of these controls is not asserted here but discharged with measured evidence in
+Chapter 4: the grounding controls are evaluated by the faithfulness score (Table 4.27), the adversarial
+critic by the safety-stress sensitivity and specificity results (Table 4.27), the schema-forcing controls
+by end-to-end section completeness (Table 4.25), and the determinism layer by the reproducibility
+analysis (Figure 4.12). The blinded clinician evaluation (Table 4.21) provides the corresponding
+qualitative reading on guideline fidelity and citation quality.
 
 ---
 
@@ -1618,3 +1720,20 @@ reliably produces the same output.
 > colour convention used throughout is: teal for an LLM reasoning step, cyan for a deterministic
 > step, amber for the safety-critic agent, red for a stop or block, and a slate cylinder for a data
 > store.
+
+---
+
+## References
+
+[1] L. Zheng, W.-L. Chiang, Y. Sheng, S. Zhuang, Z. Wu, Y. Zhuang, Z. Lin, Z. Li, D. Li, E. P. Xing,
+H. Zhang, J. E. Gonzalez, and I. Stoica, "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena," in
+*Advances in Neural Information Processing Systems (NeurIPS)*, 2023. [Online]. Available:
+<https://arxiv.org/abs/2306.05685>
+
+[2] K. Greshake, S. Abdelnabi, S. Mishra, C. Endres, T. Holz, and M. Fritz, "Not What You've Signed Up
+For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection," in *Proc. 16th
+ACM Workshop on Artificial Intelligence and Security (AISec '23)*, 2023. [Online]. Available:
+<https://arxiv.org/abs/2302.12173>
+
+[3] M. Renze and E. Guven, "The Effect of Sampling Temperature on Problem Solving in Large Language
+Models," arXiv preprint arXiv:2402.05201, 2024. [Online]. Available: <https://arxiv.org/abs/2402.05201>

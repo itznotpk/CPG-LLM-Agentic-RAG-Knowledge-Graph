@@ -12,14 +12,56 @@ The outcome is a working system that does what it set out to do: it routes a pat
 
 The four objectives from Chapter 1, assessed against the measured evidence of Chapter 4:
 
+*Table 5.1: Achievement against objectives.*
+
 | # | Objective | Verdict | Basis |
 |---|---|---|---|
-| 1 | Real-time, evidence-backed clinical second opinion | **Met** | • Maps presentation → ICD-11 differential, then deterministically scopes to the governing CPG — refusing cleanly when none applies (routing exact, 44/44; out-of-scope 11/11)<br>• Each recommendation citation-traceable to its CPG section and evidence-graded, replacing manual guideline search (Recall@10 0.87, Hit@10 0.95)<br>• Delivered within the consult window (~2.4 min); exact-leaf and ranking precision still maturing (DDx lineage Hit@5 0.97) |
+| 1 | Real-time, evidence-backed clinical second opinion | **Largely met** | • Maps presentation → ICD-11 differential, then deterministically scopes to the governing CPG — refusing cleanly when none applies (routing exact, 44/44; out-of-scope 11/11)<br>• Each recommendation citation-traceable to its CPG section and evidence-graded, replacing manual guideline search (Recall@10 0.87, Hit@10 0.95)<br>• Delivered within the consult window (~2.4 min) but not yet real-time for live triage — the in-consult speed qualifier shared with Objective 2; exact-leaf and ranking precision still maturing (DDx lineage Hit@5 0.97) |
 | 2 | Transparent, auditable second opinion with per-stage reasoning traces | **Largely met** | • Inspectable per-stage reasoning trace end-to-end — beyond any Chapter 1 peer (reasoning-visibility 5/5)<br>• Every recommendation traceable to its CPG citation and KG provenance for trust and accountability<br>• Runs within the consult window; in-consult speed is the remaining optimisation, not a correctness gap (~2.4 min) |
 | 3 | Dual-source medication safety critic | **Met** | • Dual-source critic (LLM reasoning ‖ deterministic drug KG) blocks sign-off until every critical flag is acknowledged<br>• Catches what one source misses — unprompted KG interaction, teratogen veto, pre-empted not-yet-prescribed drug<br>• Critic recall at target; expert Safety at ceiling (SAF 5/5; clinician 15/15) |
 | 4 | Structured, executable longitudinal care plan in routine workflow | **Largely met** | • Schema-validated, action-tagged eight-section plan, editable end-to-end<br>• Carried across visits via the prior-visit summarisation loop, slotting into the routine workflow<br>• Built and working; broad multi-visit real-world exercise is the natural next step |
 
-All four objectives are met or substantially met. The two qualified verdicts reflect maturity headroom — consult-window speed and multi-visit field exercise — on capabilities that are already implemented and working, not design gaps.
+All four objectives are met or substantially met. The three qualified verdicts reflect maturity headroom — consult-window speed (Objectives 1 and 2) and multi-visit field exercise (Objective 4) — on capabilities that are already implemented and working, not design gaps.
+
+### 5.2.1 Closure Against the Chapter 2 Measurable Contract
+
+Chapter 2 committed the design to a measurable contract: nine prioritised customer needs (Table 2.3), mapped through the Needs–Metrics Matrix (Table 2.4) onto thirteen target specifications (Table 2.5). This subsection retires that contract at both levels against the measured evidence of Chapter 4.
+
+*Table 5.2: Target-specification closure (the thirteen metrics of Table 2.5).*
+
+| # | Metric | Marginal target | Measured result | Status |
+|---|---|---|---|---|
+| 1 | System response time | ≤ 180 s | ~141.9 s mean (pilot, n=3) | Met |
+| 2 | Diagnosis relevance | ≥ 85% | Hit@5 lineage 0.97; exact 0.77 | Met (lineage) |
+| 3 | Care plan completeness | ≥ 85% | 8/8 sections, 3/3 end-to-end cases (§4.5.1) | Met (structural) |
+| 4 | Care plan appropriateness | ≥ 85% | Clinical Correctness 4.56/5 (clinician, blinded) | Met (clinician rubric) |
+| 5 | Clinical accuracy (faithfulness) | ≥ 85% | 0.864 mean per-claim | Close (below 0.90 ideal) |
+| 6 | Safety issue detection rate | ≥ 90% | SAF sensitivity 92% (8 runs); clinician Safety 5.00/5 | Met |
+| 7 | Unsafe plan block rate | 100% | Sign-off blocked on every critical flag (§4.5.1) | Met |
+| 8 | Citation coverage | ≥ 85% | Citation Quality 4.56/5; faithfulness 0.864 as proxy | Met (clinician rubric) |
+| 9 | Patient history carry-over | ≥ 90% | Prep-brief / MPIS sync functionally verified (§4.4.1.3) | Functionally met — not %-quantified |
+| 10 | Usability satisfaction | ≥ 3.8/5 | UI-UX 21/30; reasoning-visibility & override 5/5, workflow & latency 2/5 | Partially met |
+| 11 | Out-of-scope detection rate | ≥ 90% | Orphan refusal 11/11 (100%) | Met |
+| 12 | Reasoning-trace transparency | ≥ 90% | Reasoning-visibility 5/5; full per-stage trace | Met |
+| 13 | Appropriate referral/deferral | ≥ 85% | Appropriate Deferral 4.44/5 (clinician) | Met (clinician rubric) |
+
+Five of the thirteen (3, 4, 8, 9, 13) were assessed through the blinded clinician rubric (/5) and end-to-end functional runs rather than standalone percentage harnesses; they are reported against that evidence, not the original numeric threshold. Patient-history carry-over (9) is functionally verified but not yet percentage-quantified — a measured multi-visit study is carried forward as future work (§5.3, Limitation 4).
+
+*Table 5.2b: Customer-needs fulfilment (the nine needs of Table 2.3, rolled up through Table 2.4).*
+
+| # | Need (priority) | Serving metrics | Verdict and evidence |
+|---|---|---|---|
+| 1 | Real-time diagnostic suggestions (5) | response time, dx relevance | **Largely met** — DDx lineage Hit@5 0.97; within consult window (~2.4 min) but not real-time (see Objective 1) |
+| 2 | Complete actionable care plan (5) | response time, completeness, appropriateness, usability, referral/deferral | **Met** — 8/8 sections across all 3 cases; Clinical Correctness 4.56/5; Appropriate Deferral 4.44/5 |
+| 3 | Medication safety audit and block (5) | safety detection, unsafe-plan block | **Met** — SAF specificity 100% / sensitivity 92%; clinician Safety 5.00/5; sign-off blocked on critical flags |
+| 4 | CPG grounding and citations (4) | citation coverage | **Met** — Citation Quality 4.56/5; faithfulness 0.864; Recall@10 0.87 |
+| 5 | Out-of-scope refusal (4) | out-of-scope detection | **Met** — orphan refusal 11/11 (100%) |
+| 6 | Auditable reasoning (4) | reasoning-trace transparency | **Met** — reasoning-visibility 5/5; full per-stage trace |
+| 7 | Prior-visit continuity (3) | carry-over, usability | **Functionally met** — prep-brief / MPIS sync (§4.4.1.3); not %-quantified — multi-visit field exercise is future work |
+| 8 | Clinically accurate and expert-validated (5) | dx relevance, appropriateness, clinical accuracy | **Largely met** — DDx lineage 0.97, faithfulness 0.864, Clinical Correctness 4.56/5; expert validation conducted but on a single-session three-evaluator cohort (see §5.3, Limitation 4) |
+| 9 | Clinician final control (4) | usability | **Met** — override and sign-off enforced; override & feedback 5/5 |
+
+The projected competitor benchmark of Table 2.6 was realised through the blinded three-system clinician comparison of §4.5.3 (Table 4.21), which replaces the original mixed-unit projections with a single rigorous clinical-quality rubric scored by independent evaluators. ClearPath led every dimension (overall 4.59 vs Qmed AskCPG 4.18, NotebookLM 4.24), confirming the directional advantage Table 2.6 projected.
 
 ---
 

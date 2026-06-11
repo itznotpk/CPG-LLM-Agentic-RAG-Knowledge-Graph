@@ -2,7 +2,7 @@
 
 ## 6.1 Reflection
 
-The core design principle — deterministic wherever possible, generative only where genuine clinical reasoning is required — proved highly successful, though its engineering overhead was originally underestimated.
+The core design principle — deterministic wherever possible, generative only where genuine clinical reasoning is required — proved highly successful, though its engineering overhead was originally underestimated. In practice this drew a clear line through the seven-stage pipeline: scope routing, knowledge-graph injection, and the knowledge-graph arm of safety verification are fully deterministic (rule- and Cypher-driven, with no model call), while only differential re-ranking, retrieval-query generation, plan synthesis, and the safety critic's language arm invoke an LLM. Even those four are single-pass calls inside a fixed orchestration — not autonomous, self-directed agents — so the system is best described as a deterministic spine with bounded generative nodes, never free-running.
 
 ### 6.1.1 Reflection on Design
 
@@ -14,9 +14,9 @@ Routing was built as an explicit ICD-11 scope table rather than vector similarit
 
 Separating CPG text chunks (pgvector) from typed drug-interaction edges (Neo4j) ensures true dual-source safety. The knowledge graph flags contraindications deterministically, independent of whether the retrieved text mentions those specific drug risks.
 
-#### 6.1.1.3 Pydantic Schema Validation
+#### 6.1.1.3 Structure-First Data Contracts
 
-Enforcing a typed schema over the care plan — rather than a prose blob — streamlined automated safety checks, guaranteed consistent UI rendering, and enabled discrete claim-unit scoring for faithfulness evaluation.
+Typing the care plan as a Pydantic schema rather than a prose blob streamlined safety checks, guaranteed consistent UI rendering, and enabled discrete claim-unit faithfulness scoring. In reflection this was the output-side instance of a wider discipline: free-form text is tolerated only *inside* an LLM call, never where data is stored, addressed, or retrieved. The corpus carries the same intent — markdown heading depth defines chunk granularity (H1 parent → embedded H2 child → cap-split H3, linked by a parent chain that rehydrates section context at retrieval), and every chunk is tagged with typed metadata rather than left to raw similarity; the knowledge graph likewise stores guard-railed, append-only triples, so each ingested CPG monotonically *grows* a queryable clinical memory. Structuring meaning at ingestion rather than re-parsing prose at query time is precisely what made the deterministic routing (§6.1.1.1) and dual-source safety (§6.1.1.2) above auditable in the first place.
 
 #### 6.1.1.4 Architectural Debt
 
@@ -91,39 +91,33 @@ In the second half of the project, the team shifted focus to system validation, 
 
 ## 6.3 Project Cost
 
-The project incurred costs across two categories: a one-time hardware purchase for the rPPG contactless vitals prototype and direct software expenditure for cloud and API services consumed during development. All costs are stated in Malaysian Ringgit (RM). Foreign-currency charges are converted at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66. Projected operating figures in §6.3.3 are estimates based on expected usage patterns; the actual development figures in §6.3.1 and §6.3.2 reflect invoiced amounts.
+The project incurred costs across two categories: a one-time hardware purchase for the rPPG contactless-vitals prototype and direct software expenditure for cloud and API services consumed during development. All costs are stated in Malaysian Ringgit (RM); foreign-currency charges are converted at USD 1 ≈ RM 4.70 and CNY 1 ≈ RM 0.66. The actual development figures in §6.3.1 reflect invoiced amounts; the projected operating figures in §6.3.2 are estimates based on expected usage patterns.
 
-### 6.3.1 Hardware Costs
+### 6.3.1 Total Project Expenditure
 
-The rPPG module was prototyped using an ESP32 microcontroller paired with a MAX30100 pulse-oximeter breakout board, sourced locally from Robotronik. All four components were purchased as a single one-time outlay at the start of the project.
+Table 6.1 consolidates every actual cost incurred during development into a single account: the one-time rPPG hardware bill of materials (an ESP32 microcontroller and MAX30100 pulse-oximeter breakout with prototyping parts, sourced locally from Robotronik as a single outlay) and the cloud/API services billed to the project by two team members. Internal tooling and personal subscriptions used for general work are excluded, giving a complete development-period total of **RM 317.03**.
 
-*Table 6.1: Hardware Bill of Materials*
+*Table 6.1: Comprehensive Total Project Expenditure*
 
-| No. | Component | Purpose | Cost (RM) |
-|:---:|:----------|:--------|----------:|
-| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing and streams vitals over Wi-Fi | 26.99 |
-| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse and blood-oxygen readings for rPPG baseline validation | 9.99 |
+| No. | Item | Purpose / Detail | Cost (RM) |
+|:---:|:-----|:--------|----------:|
+| | **A — Hardware (one-time purchase)** | | |
+| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | Microcontroller — runs rPPG signal processing, streams vitals over Wi-Fi | 26.99 |
+| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | Captures pulse / blood-oxygen for rPPG baseline validation | 9.99 |
 | 3 | Solderless Breadboard (830 tie-points) | Prototyping platform for the sensor circuit | 3.69 |
 | 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | Sensor-to-microcontroller connections | 3.20 |
-| | | **Hardware Subtotal** | **43.87** |
+| | | *Hardware Subtotal* | *43.87* |
+| | **B — Software & Cloud (development period)** | | |
+| 5 | AWS — backend infrastructure & hosting (Lim Zhi Pin) | pgvector instance, retrieval pipeline, Bedrock embeddings | 173.16 |
+| 6 | Gemini Flash API — LLM stage calls (Chua Zhu Heng) | Extraction, DDx re-rank, query-gen, safety critic | 100.00 |
+| | | *Software Subtotal* | *273.16* |
+| | | **Grand Total** | **317.03** |
 
-### 6.3.2 Software and Cloud Development Costs
+### 6.3.2 Estimated Monthly Operating Cost (Projected)
 
-Direct software costs were incurred by two team members for services billed to the project during the development period. Internal tooling and personal subscriptions used for general work are excluded from this account.
+Distinct from the one-time development spend above, Table 6.2 projects the system's *recurring* cost at a representative pilot volume of 500 consultations per month. Fixed subscriptions cover the six managed services required to run the backend pipeline, knowledge graph, and hosting infrastructure; variable costs arise from per-consultation LLM and retrieval calls billed on usage.
 
-*Table 6.2: Actual Software Development Expenditure*
-
-| No. | Team Member | Service | Cost (RM) |
-|:---:|:-----------|:--------|----------:|
-| 1 | Lim Zhi Pin | AWS — backend infrastructure and hosting | 173.16 |
-| 2 | Chua Zhu Heng | Gemini Flash API — LLM stage calls | 100.00 |
-| | | **Software Subtotal** | **273.16** |
-
-### 6.3.3 Estimated Monthly Operating Costs (Projected)
-
-For reference, Table 6.3 projects the system's recurring cost at a representative pilot volume of 500 consultations per month. Fixed subscriptions cover the six managed services required to run the backend pipeline, knowledge graph, and hosting infrastructure. Variable costs arise from per-consultation LLM and retrieval calls billed on usage.
-
-*Table 6.3: Projected Monthly Operating Cost at Pilot Scale (500 Consultations / Month)*
+*Table 6.2: Projected Monthly Operating Cost at Pilot Scale (500 Consultations / Month)*
 
 | No. | Cost Line | Provider / Tier | Monthly Cost (RM) |
 |:---:|:----------|:----------------|------------------:|
@@ -143,27 +137,9 @@ For reference, Table 6.3 projects the system's recurring cost at a representativ
 
 The MiMo Standard plan supplies 200 million tokens per month. At approximately 17,000 tokens per synthesis call, this covers around 11,000 consultations — well above pilot volume — making Stage 5 synthesis effectively a fixed cost at this scale rather than a per-consultation charge. The one-time corpus build cost (30 CPGs chunked, embedded, and parsed into the knowledge graph) is a few tens of Ringgit in API calls, repeated only when a guideline is revised.
 
-### 6.3.4 Total Project Expenditure
+Three services sit outside this baseline because they bill only when an optional workflow is exercised. The voice-intake path (consultation audio → SOAP note) uses Google Speech-to-Text long-running recognition plus transient Google Cloud Storage, charged per minute of audio and incurred only when a clinician records a consultation; the care-plan email-delivery path runs over Gmail SMTP at no marginal cost; and domain registration with TLS is an annual rather than monthly charge. None materially alters the ~RM 840 monthly estimate at pilot scale, but each would scale with adoption and is noted here for completeness.
 
-Table 6.4 consolidates all actual project costs, itemising every hardware component and software service to provide a complete account of the RM 317.03 expended during the development period.
-
-*Table 6.4: Comprehensive Total Project Expenditure*
-
-| No. | Item | Cost (RM) |
-|:---:|:-----|----------:|
-| | **A — Hardware (One-Time Purchase)** | |
-| 1 | ESP32 NodeMCU 38-Pin (Wi-Fi + Bluetooth) | 26.99 |
-| 2 | MAX30100 Heart-Rate & SpO₂ Sensor (soldered) | 9.99 |
-| 3 | Solderless Breadboard (830 tie-points) | 3.69 |
-| 4 | Jumper Wires — Male-to-Female, 40-wire, 20 cm | 3.20 |
-| | *Hardware Subtotal* | *43.87* |
-| | **B — Software & Cloud (Development Period)** | |
-| 5 | AWS — backend infrastructure and hosting (Lim Zhi Pin) | 173.16 |
-| 6 | Gemini Flash API — LLM integration (Chua Zhu Heng) | 100.00 |
-| | *Software Subtotal* | *273.16* |
-| | **Grand Total** | **317.03** |
-
-The dominant resource throughout the project was engineering time rather than monetary expenditure. The RM 317.03 total covers only direct, project-specific charges; the projected recurring cost at pilot scale is addressed separately in §6.3.3.
+The dominant resource throughout the project was engineering time rather than monetary expenditure — the RM 317.03 development spend and the ~RM 840 projected monthly cost are both modest relative to the design, evaluation, and debugging effort the system required.
 
 ---
 
@@ -259,7 +235,7 @@ As the system matures, stakeholder engagement remains essential — collecting c
 
 ClearPath was built for a specific community: rural and district primary-care clinicians in Sabah and Sarawak, and the patients they serve under systematic resource constraint. Every architectural choice reflects that context — the corpus is exclusively Malaysian MOH guidelines (not AHA or ESC defaults adopted without local adaptation), the evaluation gold sets and safety-critic logic follow Malaysian clinical and prescribing practice, and the interface is built for a solo medical officer or medical assistant under time pressure, not a specialist in a resource-rich tertiary centre.
 
-Its design answers the three faces of clinical decision isolation identified in §1.2. The absence of a *colleague* is met by a structured, evidence-grounded second opinion (DDx and care-plan synthesis); the absence of a usable *guideline* by surfacing the relevant locally-validated CPG section within the consultation; the absence of a *pharmacist* by a dual-source medication audit that checks current and proposed drugs against both LLM reasoning and a typed interaction graph. These are not generic features but a direct response to documented rural practice: a 39.3% CPG non-adherence rate driven by time and search friction [6], an 88% second-assessment revision rate among complex cases [3], and medication-related harm that is roughly half of all preventable harm when no pharmacist is present [18]. ClearPath is the second pair of eyes these clinics structurally lack — not a replacement for the clinician.
+Its design answers the four operational gaps identified in §1.2, framed through the faces of clinical decision isolation rural clinicians actually experience. **Clinical decision isolation** — the absence of a *colleague* — is met by a structured, evidence-grounded second opinion (DDx and care-plan synthesis), against an 88% second-assessment revision rate among complex cases [3]. **Ungoverned retrieval** — the absence of a usable *guideline* at the point of care — is met by surfacing the relevant locally-validated MOH CPG section within the consultation, against a 39.3% non-adherence rate driven by time and search friction [6]. **Opaque reasoning** is met by stage-wise traces the clinician can audit end-to-end, so a recommendation is trusted or rejected on its evidence rather than accepted blind. **Non-executable output** is met by a typed, eight-section care plan that is actionable and persists across encounters, not unstructured prose. Underpinning all four, the absence of a *pharmacist* is countered by a dual-source medication audit that checks current and proposed drugs against both LLM reasoning and a typed interaction graph — mitigating medication-related harm that is roughly half of all preventable harm when no pharmacist is present [18]. These are not generic features but a direct response to documented rural practice: ClearPath is the second pair of eyes these clinics structurally lack — not a replacement for the clinician.
 
 What has been demonstrated is bounded honestly. The recommendations are guideline-grounded, safety-checked, and endorsed in a single structured expert evaluation (Universiti Malaya, n=1), which also identified speed and output density as the primary adoption gaps — directly shaping the §5.3 priorities. What has *not* been collected is clinical evidence of improved decisions under real rural conditions; that requires deployment, IRB approval, and a prospective study beyond this project's scope.
 
