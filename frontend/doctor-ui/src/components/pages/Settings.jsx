@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   User,
   Bell,
@@ -18,29 +18,203 @@ import {
   Monitor,
   Check,
   Edit3,
-  CheckCircle
+  Loader2,
+  RotateCcw,
+  Cpu,
+  BarChart3,
+  Download,
+  LogOut
 } from 'lucide-react';
 import { GlassCard } from '../shared/GlassCard';
 import { Button } from '../shared/Button';
 import { useTheme, accentColors } from '../../context/ThemeContext';
+import { useToast } from '../shared/Notification';
+import { supabase, updateProfile } from '../../lib/supabase';
+import { getEngineHealth } from '../../lib/clinicalApi';
+import { safeJson } from '../../lib/helpers';
+import { IDLE_TIMEOUT_KEY, DEFAULT_IDLE_MIN, getIdleTimeoutMin } from '../../hooks/useIdleLogout';
+
+export const ANALYTICS_DAYS_KEY = 'cp_analytics_days';
+export const getDefaultAnalyticsDays = () => {
+  const v = Number(localStorage.getItem(ANALYTICS_DAYS_KEY));
+  return [7, 30, 90].includes(v) ? v : 30;
+};
+
+const NOTIF_PREFS_KEY = 'cp_notification_prefs_v1';
+const NOTIF_DEFAULTS = { email: true, push: true, sms: false, emergencyAlerts: true };
+
+const loadNotifPrefs = () => {
+  try {
+    return { ...NOTIF_DEFAULTS, ...JSON.parse(localStorage.getItem(NOTIF_PREFS_KEY) || '{}'), emergencyAlerts: true };
+  } catch {
+    return NOTIF_DEFAULTS;
+  }
+};
 
 const Settings = ({ profile, setProfile }) => {
   const { theme, setTheme, accentColor, setAccentColor, effectiveTheme, isDark, accent } = useTheme();
+  const toast = useToast();
   const [activeTab, setActiveTab] = useState('profile');
-  const [notifications, setNotifications] = useState({
-    email: true,
-    push: true,
-    sms: false,
-    emergencyAlerts: true
-  });
+  const [notifications, setNotifications] = useState(loadNotifPrefs);
 
   const [isProfileEditing, setIsProfileEditing] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  // Draft edits live here, NOT on the profile prop — setProfile from App is
+  // refreshProfile (a DB re-fetch), so mutating through it never persisted.
+  const [form, setForm] = useState({});
 
-  const handleSaveProfile = () => {
-    setIsProfileEditing(false);
-    setShowSuccessMessage(true);
-    setTimeout(() => setShowSuccessMessage(false), 3000);
+  const startEditing = () => {
+    setForm({
+      name: profile?.name || '',
+      specialty: profile?.specialty || '',
+      phone: profile?.phone || '',
+      license: profile?.license || '',
+      facility: profile?.facility || '',
+    });
+    setIsProfileEditing(true);
+  };
+
+  const handleSaveProfile = async () => {
+    setIsSaving(true);
+    const { success, error } = await updateProfile({
+      full_name: form.name,
+      specialty: form.specialty,
+      phone: form.phone,
+      license_number: form.license,
+      facility: form.facility,
+    });
+    setIsSaving(false);
+    if (success) {
+      await setProfile(); // refreshProfile — reload from DB so the whole app updates
+      setIsProfileEditing(false);
+      toast.success('Profile saved');
+    } else {
+      toast.error(error?.message || 'Failed to save profile');
+    }
+  };
+
+  const persistNotif = (next) => {
+    try { localStorage.setItem(NOTIF_PREFS_KEY, JSON.stringify(next)); } catch { /* no-op */ }
+    setNotifications(next);
+  };
+
+  const toggleNotif = async (key) => {
+    if (key === 'emergencyAlerts') return; // always on
+    // Enabling push requires real browser permission — request it and only
+    // turn the toggle on when granted.
+    if (key === 'push' && !notifications.push && 'Notification' in window) {
+      const perm = await Notification.requestPermission();
+      if (perm !== 'granted') {
+        toast.warning('Browser notifications are blocked — allow them in your browser settings first');
+        return;
+      }
+    }
+    persistNotif({ ...notifications, [key]: !notifications[key] });
+  };
+
+  // ── System tab live state ──
+  const [conn, setConn] = useState({ status: 'checking' });
+  const checkConnection = async () => {
+    setConn({ status: 'checking' });
+    const t0 = performance.now();
+    const { count, error } = await supabase
+      .from('patients')
+      .select('nric', { count: 'exact', head: true });
+    if (error) setConn({ status: 'offline', detail: error.message });
+    else setConn({ status: 'connected', latencyMs: Math.round(performance.now() - t0), patients: count ?? 0 });
+  };
+  useEffect(() => { checkConnection(); }, []);
+
+  const [isSendingReset, setIsSendingReset] = useState(false);
+  const handlePasswordReset = async () => {
+    if (!profile?.email) { toast.error('No email on profile'); return; }
+    setIsSendingReset(true);
+    const { error } = await supabase.auth.resetPasswordForEmail(profile.email);
+    setIsSendingReset(false);
+    if (error) toast.error(error.message);
+    else toast.success(`Password reset link sent to ${profile.email}`);
+  };
+
+  const [timeoutMin, setTimeoutMin] = useState(getIdleTimeoutMin);
+  const changeTimeout = (min) => {
+    setTimeoutMin(min);
+    try { localStorage.setItem(IDLE_TIMEOUT_KEY, String(min)); } catch { /* no-op */ }
+    toast.success(`Auto-logout set to ${min >= 60 ? `${min / 60} hour` : `${min} minutes`} of inactivity`);
+  };
+
+  // AI clinical engine (FastAPI pipeline) — live health check, like the
+  // Patient Application Store row, so a clinician sees an outage BEFORE
+  // starting a consultation rather than mid-pipeline.
+  const [engine, setEngine] = useState({ status: 'checking' });
+  const checkEngine = async () => {
+    setEngine({ status: 'checking' });
+    try {
+      const h = await getEngineHealth();
+      setEngine({ status: 'online', latencyMs: h.latencyMs });
+    } catch (e) {
+      setEngine({ status: 'offline', detail: e.message === 'Failed to fetch' ? 'backend unreachable' : e.message });
+    }
+  };
+  useEffect(() => { checkEngine(); }, []);
+
+  // Default Clinical Performance window — consumed by AnalyticsView on mount.
+  const [analyticsDays, setAnalyticsDays] = useState(getDefaultAnalyticsDays);
+  const changeAnalyticsDays = (d) => {
+    setAnalyticsDays(d);
+    try { localStorage.setItem(ANALYTICS_DAYS_KEY, String(d)); } catch { /* no-op */ }
+    toast.success(`Clinical Performance now opens on the ${d}-day window`);
+  };
+
+  // Audit export: last 90 days of consultations as CSV.
+  const [isExporting, setIsExporting] = useState(false);
+  const exportConsultLog = async () => {
+    setIsExporting(true);
+    const since = new Date(Date.now() - 90 * 86400000).toISOString();
+    const { data, error } = await supabase
+      .from('consultations')
+      .select('id, consultation_number, created_at, patient_nric, diagnoses, safety_flags, referrals, next_review')
+      .gte('created_at', since)
+      .order('created_at', { ascending: false });
+    setIsExporting(false);
+    if (error) { toast.error(error.message); return; }
+    const esc = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+    const rows = [['Consultation', 'Date', 'Patient NRIC', 'Diagnoses', 'Safety flags', 'Referrals', 'Next review']];
+    (data || []).forEach(c => rows.push([
+      c.consultation_number ?? c.id,
+      new Date(c.created_at).toLocaleString('en-GB'),
+      c.patient_nric,
+      safeJson(c.diagnoses).map(d => (typeof d === 'object' ? d.name : d)).join('; '),
+      safeJson(c.safety_flags).length,
+      safeJson(c.referrals).length,
+      c.next_review || '',
+    ]));
+    const blob = new Blob([rows.map(r => r.map(esc).join(',')).join('\n')], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `consultation_log_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+    toast.success(`Exported ${data?.length || 0} consultations (last 90 days)`);
+  };
+
+  const resetDevicePrefs = () => {
+    [NOTIF_PREFS_KEY, 'cp_notif_read_v1', IDLE_TIMEOUT_KEY, ANALYTICS_DAYS_KEY].forEach(k => {
+      try { localStorage.removeItem(k); } catch { /* no-op */ }
+    });
+    setNotifications(NOTIF_DEFAULTS);
+    setTimeoutMin(DEFAULT_IDLE_MIN);
+    setAnalyticsDays(30);
+    toast.success('Device preferences reset to defaults');
+  };
+
+  const [isSigningOutAll, setIsSigningOutAll] = useState(false);
+  const handleSignOutAll = async () => {
+    setIsSigningOutAll(true);
+    const { error } = await supabase.auth.signOut({ scope: 'global' });
+    setIsSigningOutAll(false);
+    if (error) toast.error(error.message);
+    // success needs no toast — the auth listener redirects to /login
   };
 
   const tabs = [
@@ -83,7 +257,7 @@ const Settings = ({ profile, setProfile }) => {
               <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{profile.specialty}</p>
             </div>
             {!isProfileEditing && (
-              <Button variant="secondary" size="sm" icon={Edit3} onClick={() => setIsProfileEditing(true)}>
+              <Button variant="secondary" size="sm" icon={Edit3} onClick={startEditing}>
                 Edit Profile
               </Button>
             )}
@@ -94,9 +268,9 @@ const Settings = ({ profile, setProfile }) => {
                 <label className={`block text-sm mb-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Full Name</label>
                 <input
                   type="text"
-                  value={profile.name}
-                  onChange={(e) => setProfile({ ...profile, name: e.target.value })}
-                  className={`w-full px-4 py-2.5 rounded-xl border 
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className={`w-full px-4 py-2.5 rounded-xl border
                 focus:outline-none focus:border-[var(--accent-primary)]/50 transition-all
                 ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
                 />
@@ -105,9 +279,9 @@ const Settings = ({ profile, setProfile }) => {
                 <label className={`block text-sm mb-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Specialty</label>
                 <input
                   type="text"
-                  value={profile.specialty}
-                  onChange={(e) => setProfile({ ...profile, specialty: e.target.value })}
-                  className={`w-full px-4 py-2.5 rounded-xl border 
+                  value={form.specialty}
+                  onChange={(e) => setForm({ ...form, specialty: e.target.value })}
+                  className={`w-full px-4 py-2.5 rounded-xl border
                 focus:outline-none focus:border-[var(--accent-primary)]/50 transition-all
                 ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
                 />
@@ -126,10 +300,10 @@ const Settings = ({ profile, setProfile }) => {
             <input
               type="email"
               value={profile.email}
-              onChange={(e) => setProfile({ ...profile, email: e.target.value })}
-              className={`w-full px-4 py-2.5 rounded-xl border 
-                focus:outline-none focus:border-cyan-500/50 transition-all
-                ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
+              disabled
+              title="Email is your sign-in identity and can't be changed here"
+              className={`w-full px-4 py-2.5 rounded-xl border opacity-60 cursor-not-allowed
+                ${isDark ? 'bg-white/5 border-white/10 text-slate-400' : 'bg-slate-100 border-slate-200 text-slate-500'}`}
             />
           </div>
           <div>
@@ -138,9 +312,9 @@ const Settings = ({ profile, setProfile }) => {
             </label>
             <input
               type="tel"
-              value={profile.phone}
-              onChange={(e) => setProfile({ ...profile, phone: e.target.value })}
-              className={`w-full px-4 py-2.5 rounded-xl border 
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              className={`w-full px-4 py-2.5 rounded-xl border
                 focus:outline-none focus:border-cyan-500/50 transition-all
                 ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
             />
@@ -151,9 +325,9 @@ const Settings = ({ profile, setProfile }) => {
             </label>
             <input
               type="text"
-              value={profile.license}
-              onChange={(e) => setProfile({ ...profile, license: e.target.value })}
-              className={`w-full px-4 py-2.5 rounded-xl border 
+              value={form.license}
+              onChange={(e) => setForm({ ...form, license: e.target.value })}
+              className={`w-full px-4 py-2.5 rounded-xl border
                 focus:outline-none focus:border-cyan-500/50 transition-all
                 ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
             />
@@ -164,9 +338,9 @@ const Settings = ({ profile, setProfile }) => {
             </label>
             <input
               type="text"
-              value={profile.facility}
-              onChange={(e) => setProfile({ ...profile, facility: e.target.value })}
-              className={`w-full px-4 py-2.5 rounded-xl border 
+              value={form.facility}
+              onChange={(e) => setForm({ ...form, facility: e.target.value })}
+              className={`w-full px-4 py-2.5 rounded-xl border
                 focus:outline-none focus:border-cyan-500/50 transition-all
                 ${isDark ? 'bg-white/5 border-white/10 text-white' : 'bg-slate-100 border-slate-200 text-slate-800'}`}
             />
@@ -208,14 +382,16 @@ const Settings = ({ profile, setProfile }) => {
 
   const renderNotificationSettings = () => (
     <div className="space-y-6">
-      <p className={`${isDark ? 'text-slate-400' : 'text-slate-600'}`}>Configure how you receive notifications and alerts.</p>
+      <p className={`${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+        Configure how you receive notifications and alerts. Preferences are saved on this device.
+      </p>
 
       <div className="space-y-4">
         {[
           { key: 'email', label: 'Email Notifications', desc: 'Receive updates via email' },
           { key: 'push', label: 'Push Notifications', desc: 'Browser push notifications' },
           { key: 'sms', label: 'SMS Alerts', desc: 'Text message notifications' },
-          { key: 'emergencyAlerts', label: 'Emergency Alerts', desc: 'Critical patient alerts (always on)' }
+          { key: 'emergencyAlerts', label: 'Emergency Alerts', desc: 'Critical patient alerts (always on)', locked: true }
         ].map((item) => (
           <div key={item.key} className={`flex items-center justify-between p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
             <div>
@@ -223,8 +399,11 @@ const Settings = ({ profile, setProfile }) => {
               <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{item.desc}</p>
             </div>
             <button
-              onClick={() => setNotifications({ ...notifications, [item.key]: !notifications[item.key] })}
+              onClick={() => toggleNotif(item.key)}
+              disabled={item.locked}
+              title={item.locked ? 'Emergency alerts cannot be disabled' : ''}
               className={`w-12 h-6 rounded-full transition-all relative
+                ${item.locked ? 'cursor-not-allowed opacity-70' : ''}
                 ${notifications[item.key] ? 'bg-[var(--accent-primary)]' : isDark ? 'bg-slate-700' : 'bg-slate-300'}`}
             >
               <div className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all
@@ -339,13 +518,70 @@ const Settings = ({ profile, setProfile }) => {
             <div className="flex items-center gap-3">
               <Database className={`w-5 h-5 ${accent.text}`} />
               <div>
-                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>MPIS Integration</p>
-                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Malaysian Patient Information System</p>
+                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Patient Application Store</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  {conn.status === 'connected'
+                    ? `Patient registry reachable · ${conn.patients} records · ${conn.latencyMs} ms`
+                    : conn.status === 'offline'
+                      ? `Connection failed: ${conn.detail}`
+                      : 'Checking connection…'}
+                </p>
               </div>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-600 border border-emerald-500/30">
-              Connected
-            </span>
+            <div className="flex items-center gap-2">
+              {conn.status === 'connected' && (
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-600 border border-emerald-500/30">
+                  Connected
+                </span>
+              )}
+              {conn.status === 'offline' && (
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-rose-500/20 text-rose-600 border border-rose-500/30">
+                  Offline
+                </span>
+              )}
+              {conn.status === 'checking' && (
+                <Loader2 className={`w-4 h-4 animate-spin ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
+              )}
+              <Button variant="secondary" size="sm" icon={RotateCcw} onClick={checkConnection} disabled={conn.status === 'checking'}>
+                Re-test
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Cpu className={`w-5 h-5 ${accent.text}`} />
+              <div>
+                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>AI Clinical Engine</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  {engine.status === 'online'
+                    ? `CPG pipeline reachable · ${engine.latencyMs} ms`
+                    : engine.status === 'offline'
+                      ? `Unavailable: ${engine.detail} — consultations cannot run`
+                      : 'Checking pipeline…'}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              {engine.status === 'online' && (
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/20 text-emerald-600 border border-emerald-500/30">
+                  Online
+                </span>
+              )}
+              {engine.status === 'offline' && (
+                <span className="px-3 py-1 rounded-full text-xs font-medium bg-rose-500/20 text-rose-600 border border-rose-500/30">
+                  Offline
+                </span>
+              )}
+              {engine.status === 'checking' && (
+                <Loader2 className={`w-4 h-4 animate-spin ${isDark ? 'text-slate-400' : 'text-slate-500'}`} />
+              )}
+              <Button variant="secondary" size="sm" icon={RotateCcw} onClick={checkEngine} disabled={engine.status === 'checking'}>
+                Re-test
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -355,10 +591,14 @@ const Settings = ({ profile, setProfile }) => {
               <Shield className={`w-5 h-5 ${accent.text}`} />
               <div>
                 <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Security</p>
-                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Two-factor authentication enabled</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  Send a password reset link to {profile?.email || 'your email'}
+                </p>
               </div>
             </div>
-            <Button variant="secondary" size="sm">Manage</Button>
+            <Button variant="secondary" size="sm" onClick={handlePasswordReset} disabled={isSendingReset}>
+              {isSendingReset ? 'Sending…' : 'Reset password'}
+            </Button>
           </div>
         </div>
 
@@ -371,7 +611,6 @@ const Settings = ({ profile, setProfile }) => {
                 <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>English (Malaysia)</p>
               </div>
             </div>
-            <Button variant="secondary" size="sm">Change</Button>
           </div>
         </div>
 
@@ -381,15 +620,84 @@ const Settings = ({ profile, setProfile }) => {
               <Clock className={`w-5 h-5 ${accent.text}`} />
               <div>
                 <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Session Timeout</p>
-                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Auto-logout after 30 minutes of inactivity</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  Auto-logout after {timeoutMin >= 60 ? `${timeoutMin / 60} hour` : `${timeoutMin} minutes`} of inactivity
+                </p>
               </div>
             </div>
-            <select className={`px-3 py-1.5 rounded-lg text-sm border focus:outline-none focus:border-[var(--accent-primary)]/50
-              ${isDark ? 'bg-white/5 text-slate-300 border-white/10' : 'bg-white text-slate-600 border-slate-300'}`}>
+            <select
+              value={timeoutMin}
+              onChange={(e) => changeTimeout(Number(e.target.value))}
+              className={`px-3 py-1.5 rounded-lg text-sm border focus:outline-none focus:border-[var(--accent-primary)]/50
+              ${isDark ? 'bg-white/5 text-slate-300 border-white/10' : 'bg-white text-slate-600 border-slate-300'}`}
+            >
               <option value="15">15 mins</option>
-              <option value="30" selected>30 mins</option>
+              <option value="30">30 mins</option>
               <option value="60">1 hour</option>
             </select>
+          </div>
+        </div>
+
+        <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <BarChart3 className={`w-5 h-5 ${accent.text}`} />
+              <div>
+                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Default Performance Window</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  Clinical Performance opens on the last {analyticsDays} days
+                </p>
+              </div>
+            </div>
+            <select
+              value={analyticsDays}
+              onChange={(e) => changeAnalyticsDays(Number(e.target.value))}
+              className={`px-3 py-1.5 rounded-lg text-sm border focus:outline-none focus:border-[var(--accent-primary)]/50
+              ${isDark ? 'bg-white/5 text-slate-300 border-white/10' : 'bg-white text-slate-600 border-slate-300'}`}
+            >
+              <option value="7">7 days</option>
+              <option value="30">30 days</option>
+              <option value="90">90 days</option>
+            </select>
+          </div>
+        </div>
+
+        <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Download className={`w-5 h-5 ${accent.text}`} />
+              <div>
+                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>Export Consultation Log</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  Last 90 days as CSV — diagnoses, safety flags, referrals, reviews
+                </p>
+              </div>
+            </div>
+            <Button variant="secondary" size="sm" icon={isExporting ? Loader2 : Download} onClick={exportConsultLog} disabled={isExporting}>
+              {isExporting ? 'Exporting…' : 'Export CSV'}
+            </Button>
+          </div>
+        </div>
+
+        <div className={`p-4 rounded-xl border ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <RotateCcw className={`w-5 h-5 ${accent.text}`} />
+              <div>
+                <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>This Device</p>
+                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                  Reset local preferences, or sign out of every signed-in device
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <Button variant="secondary" size="sm" onClick={resetDevicePrefs}>
+                Reset preferences
+              </Button>
+              <Button variant="secondary" size="sm" icon={LogOut} onClick={handleSignOutAll} disabled={isSigningOutAll}>
+                {isSigningOutAll ? 'Signing out…' : 'Sign out all devices'}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -442,27 +750,16 @@ const Settings = ({ profile, setProfile }) => {
           {/* Profile Edit Footer */}
           {activeTab === 'profile' && isProfileEditing && (
             <div className={`flex justify-end gap-3 mt-8 pt-6 border-t ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-              <Button variant="ghost" onClick={() => setIsProfileEditing(false)}>
+              <Button variant="ghost" onClick={() => setIsProfileEditing(false)} disabled={isSaving}>
                 Cancel
               </Button>
-              <Button variant="primary" icon={Save} onClick={handleSaveProfile}>
-                Save Changes
+              <Button variant="primary" icon={isSaving ? Loader2 : Save} onClick={handleSaveProfile} disabled={isSaving}>
+                {isSaving ? 'Saving…' : 'Save Changes'}
               </Button>
             </div>
           )}
         </GlassCard>
       </div>
-
-      {/* Success Message Toast */}
-      {showSuccessMessage && (
-        <div className="fixed bottom-6 right-6 z-50 animate-fadeIn">
-          <div className={`flex items-center gap-3 px-6 py-4 rounded-xl shadow-lg
-            ${isDark ? 'bg-emerald-600/90' : 'bg-emerald-500'} text-white`}>
-            <CheckCircle className="w-5 h-5" />
-            <span className="font-medium">Profile saved successfully!</span>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -27,8 +27,9 @@ import {
 import FeedbackInsightsSection from './components/sections/FeedbackInsightsSection';
 import { StepIndicator, PatientBanner, CommandPalette } from './components/shared';
 import Home from './components/pages/Home';
+import { useIdleLogout } from './hooks/useIdleLogout';
 import MyPatients from './components/pages/MyPatients';
-import Settings from './components/pages/Settings';
+import Settings, { getDefaultAnalyticsDays } from './components/pages/Settings';
 import PatientChart from './components/pages/PatientChart';
 
 const steps = [
@@ -50,7 +51,8 @@ const ANALYTICS_TABS = [
 
 function AnalyticsView() {
   const { isDark } = useTheme();
-  const [days, setDays] = useState(30);
+  // Initial window comes from Settings → System → Default Performance Window.
+  const [days, setDays] = useState(getDefaultAnalyticsDays);
   const [tab, setTab] = useState('performance');
   const windows = [7, 30, 90];
   return (
@@ -103,6 +105,8 @@ function AppContent({ view }) {
   const { state, dispatch, goToStep } = useApp();
   const { isDark } = useTheme();
   const { profile: authProfile, signOut, refreshProfile } = useAuth();
+  // Auto-logout after the inactivity window configured in Settings → System.
+  useIdleLogout(signOut);
   const { currentStep } = state;
   const navigate = useNavigate();
   // 'chart' is a transient sub-view layered over the routed views.

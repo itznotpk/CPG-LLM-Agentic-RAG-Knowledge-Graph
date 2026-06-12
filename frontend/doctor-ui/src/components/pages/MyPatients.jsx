@@ -30,6 +30,7 @@ import { GlassCard } from '../shared/GlassCard';
 import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { getAllPatients, getAllPatientConsultations, downloadCarePlanPDF, getLatestVitals } from '../../lib/supabase';
+import { splitBulletItems, expandBulletMeds } from '../../lib/helpers';
 
 // Download a single diagnosis record as a plain-text report
 function downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay) {
@@ -948,7 +949,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                 <p className="text-xs font-bold uppercase tracking-wider text-violet-700 mb-3">Comorbidities</p>
                                 <div className="flex flex-wrap gap-2">
                                   {patient.comorbidities && patient.comorbidities.length > 0 ? (
-                                    (Array.isArray(patient.comorbidities) ? patient.comorbidities : [String(patient.comorbidities)]).map((c, i) => (
+                                    splitBulletItems(patient.comorbidities).map((c, i) => (
                                       <span key={i} className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium ${isDark ? 'bg-violet-500/15 text-violet-300 border border-violet-500/20' : 'bg-violet-50 text-violet-700 border border-violet-200'}`}>
                                         <span className="w-1.5 h-1.5 rounded-full bg-violet-500 flex-shrink-0" />
                                         {typeof c === 'object' ? c.name || JSON.stringify(c) : c}
@@ -1147,7 +1148,7 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                 <div className="max-h-48 overflow-y-auto pr-1" style={{ scrollbarWidth: 'thin' }}>
                                   {patient.currentMeds && patient.currentMeds.length > 0 ? (
                                     <div className="space-y-1.5">
-                                      {patient.currentMeds.map((med, idx) => {
+                                      {expandBulletMeds(patient.currentMeds).map((med, idx) => {
                                         const { name, detail } = parseMedication(med);
                                         return (
                                           <div key={idx} className={`flex items-start gap-2.5 p-2 rounded-lg ${isDark ? 'bg-white/[0.03]' : 'bg-slate-50'}`}>

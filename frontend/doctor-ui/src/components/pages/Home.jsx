@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   Play,
   ChevronRight,
@@ -13,7 +14,10 @@ import {
   TrendingDown,
   Minus,
   FileCheck,
-  ArrowRight
+  ArrowRight,
+  AlertTriangle,
+  CheckCircle2,
+  ArrowUpRight
 } from 'lucide-react';
 import { todaySchedule, patientRegistry } from '../../data/scheduleData';
 import { supabase, getAllPatients, getAllPatientConsultations } from '../../lib/supabase';
@@ -182,6 +186,20 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
   const [showNotifications, setShowNotifications] = useState(false);
   const { notifications, unreadCount, markRead, markAllRead } = useNotifications();
+
+  // Tap a notification → mark read and jump to the patient it concerns.
+  // MyPatients consumes selectPatientNric/statusFilter from location.state.
+  const openNotification = (notif) => {
+    markRead(notif.id);
+    if (!notif.nric) return;
+    setShowNotifications(false);
+    navigate('/patients', {
+      state: {
+        selectPatientNric: notif.nric,
+        ...(notif.statusFilter ? { statusFilter: notif.statusFilter } : {}),
+      },
+    });
+  };
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 60000);
@@ -423,52 +441,127 @@ const Home = ({ onStartConsult, onViewChart }) => {
               </span>
             )}
           </button>
+          {/* Click-outside catcher */}
           {showNotifications && (
-            <div className={`absolute right-0 top-full mt-2 w-80 rounded-xl shadow-2xl z-50 overflow-hidden
-              ${isDark ? 'bg-slate-800 border border-white/10' : 'bg-white border border-slate-200'}`}>
-              <div className={`p-4 border-b ${isDark ? 'border-white/10' : 'border-slate-100'}`}>
-                <div className="flex items-center justify-between">
-                  <h3 className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Notifications</h3>
-                  {unreadCount > 0 && (
-                    <button
-                      onClick={markAllRead}
-                      className="text-xs text-[var(--accent-primary)] hover:underline"
-                    >
-                      Mark all read
-                    </button>
-                  )}
-                </div>
-              </div>
-              <div className="max-h-80 overflow-y-auto">
-                {notifications.length === 0 ? (
-                  <div className={`px-4 py-8 text-center text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                    No notifications
-                  </div>
-                ) : notifications.map((notif) => (
-                  <div
-                    key={notif.id}
-                    onClick={() => markRead(notif.id)}
-                    className={`p-4 border-b cursor-pointer transition-colors
-                    ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-50 hover:bg-slate-50'}
-                    ${!notif.read ? (isDark ? 'bg-white/10' : 'bg-blue-50') : ''}`}
-                  >
-                    <div className="flex gap-3">
-                      <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0
-                        ${notif.type === 'urgent' ? 'bg-red-500' :
-                          notif.type === 'alert' ? 'bg-amber-500' :
-                            notif.type === 'success' ? 'bg-emerald-500' : 'bg-blue-500'}`}
-                      />
-                      <div className="flex-1 min-w-0">
-                        <p className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{notif.title}</p>
-                        <p className={`text-xs mt-0.5 truncate ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{notif.message}</p>
-                        <p className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{notif.time}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <div className="fixed inset-0 z-40" onClick={() => setShowNotifications(false)} />
           )}
+          <AnimatePresence>
+            {showNotifications && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -6 }}
+                transition={{ duration: 0.28, ease: [0.32, 0.72, 0, 1] }}
+                className="absolute right-0 top-full mt-3 w-[24rem] max-w-[calc(100vw-2rem)] z-50 origin-top-right"
+                style={{ borderRadius: 28 }}
+              >
+                {/* iOS liquid-glass stack: blur layer → glow layer → inner-highlight edge → content */}
+                <div
+                  className="absolute inset-0 backdrop-blur-xl"
+                  style={{
+                    borderRadius: 28,
+                    background: isDark ? 'rgba(15, 23, 42, 0.62)' : 'rgba(255, 255, 255, 0.55)',
+                  }}
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    borderRadius: 28,
+                    boxShadow: isDark
+                      ? '0 12px 32px rgba(0,0,0,0.45), 0 0 24px rgba(0,0,0,0.25), 0 0 32px rgba(255,255,255,0.04)'
+                      : '0 12px 32px rgba(15,23,42,0.16), 0 0 24px rgba(15,23,42,0.06), 0 0 32px rgba(255,255,255,0.25)',
+                  }}
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    borderRadius: 28,
+                    border: isDark ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(255,255,255,0.65)',
+                    boxShadow: isDark
+                      ? 'inset 1.5px 1.5px 1.5px rgba(255,255,255,0.10), inset -1.5px -1.5px 1.5px rgba(255,255,255,0.05)'
+                      : 'inset 2px 2px 2px rgba(255,255,255,0.55), inset -2px -2px 2px rgba(255,255,255,0.35)',
+                  }}
+                />
+
+                <div className="relative z-10 overflow-hidden" style={{ borderRadius: 28 }}>
+                  {/* Header */}
+                  <div className={`px-5 pt-4 pb-3 flex items-center justify-between border-b
+                    ${isDark ? 'border-white/10' : 'border-white/60'}`}>
+                    <div className="flex items-center gap-2">
+                      <h3 className={`font-semibold text-[15px] ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                        Notifications
+                      </h3>
+                      {unreadCount > 0 && (
+                        <span className={`px-1.5 py-0.5 rounded-full text-[10px] font-bold
+                          ${isDark ? 'bg-white/15 text-white' : 'bg-slate-800/10 text-slate-700'}`}>
+                          {unreadCount} new
+                        </span>
+                      )}
+                    </div>
+                    {unreadCount > 0 && (
+                      <button
+                        onClick={markAllRead}
+                        className="text-xs font-medium text-[var(--accent-primary)] hover:underline"
+                      >
+                        Mark all read
+                      </button>
+                    )}
+                  </div>
+
+                  {/* List */}
+                  <div className="max-h-[26rem] overflow-y-auto">
+                    {notifications.length === 0 ? (
+                      <div className={`px-5 py-10 text-center ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                        <Bell className="w-6 h-6 mx-auto mb-2 opacity-40" strokeWidth={1.5} />
+                        <p className="text-sm">You're all caught up</p>
+                      </div>
+                    ) : notifications.map((notif) => {
+                      const meta =
+                        notif.type === 'urgent' ? { Icon: ShieldAlert, chip: 'bg-rose-500/15 text-rose-500' } :
+                        notif.type === 'alert' ? { Icon: AlertTriangle, chip: 'bg-amber-500/15 text-amber-500' } :
+                        notif.type === 'success' ? { Icon: CheckCircle2, chip: 'bg-emerald-500/15 text-emerald-500' } :
+                        { Icon: Bell, chip: 'bg-blue-500/15 text-blue-500' };
+                      return (
+                        <button
+                          key={notif.id}
+                          onClick={() => openNotification(notif)}
+                          className={`w-full text-left px-4 py-3 flex gap-3 transition-colors group border-b last:border-b-0
+                            ${isDark ? 'border-white/5 hover:bg-white/10' : 'border-white/50 hover:bg-white/55'}
+                            ${!notif.read ? (isDark ? 'bg-white/[0.07]' : 'bg-white/40') : ''}`}
+                        >
+                          <span className={`w-9 h-9 rounded-2xl flex items-center justify-center flex-shrink-0 mt-0.5 ${meta.chip}`}>
+                            <meta.Icon className="w-[18px] h-[18px]" strokeWidth={1.75} />
+                          </span>
+                          <span className="flex-1 min-w-0">
+                            <span className="flex items-baseline justify-between gap-2">
+                              <span className={`text-sm font-semibold truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                {notif.title}
+                              </span>
+                              <span className={`text-[10px] flex-shrink-0 tabular-nums ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                                {notif.time}
+                              </span>
+                            </span>
+                            <span className={`block text-xs mt-0.5 line-clamp-2 ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                              {notif.message}
+                            </span>
+                            {notif.cta && (
+                              <span className="mt-1.5 inline-flex items-center gap-1 text-[11px] font-medium text-[var(--accent-primary)] opacity-80 group-hover:opacity-100">
+                                {notif.cta}
+                                <ArrowUpRight className="w-3 h-3" strokeWidth={2} />
+                              </span>
+                            )}
+                          </span>
+                          {!notif.read && (
+                            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)] flex-shrink-0 mt-2" />
+                          )}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 

@@ -1,5 +1,7 @@
 const CLINICAL_API_BASE = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
+import { splitBulletItems } from './helpers';
+
 // ─── shared helper ────────────────────────────────────────────────────────────
 function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities, consultationId) {
   return {
@@ -15,12 +17,16 @@ function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, st
       // the Step-1 form list for fresh patients (otherwise route_comorbidities
       // has nothing to fan in and CPGs like Obesity-Management(2023) silently
       // drop on every fresh-patient run).
-      comorbidities: (mpisData?.comorbidities && mpisData.comorbidities.length)
-        ? mpisData.comorbidities
-        : (patientState?.comorbidities || []),
-      current_medications: (mpisData?.currentMeds || []).map(
-        (m) => (typeof m === 'string' ? m : m.name || m.medication || '')
-      ).filter(Boolean),
+      // splitBulletItems: legacy MPIS records can join several items into one
+      // "●"-bulleted string — split so routing/KG matching sees clean names.
+      comorbidities: splitBulletItems(
+        (mpisData?.comorbidities && mpisData.comorbidities.length)
+          ? mpisData.comorbidities
+          : (patientState?.comorbidities || [])
+      ),
+      current_medications: splitBulletItems((mpisData?.currentMeds || []).map(
+        (m) => (typeof m === 'string' ? m : [m.name || m.medication, m.dose, m.frequency].filter(Boolean).join(' '))
+      )).filter(Boolean),
       allergies: mpisData?.allergies
         ? (typeof mpisData.allergies === 'string'
             ? mpisData.allergies.split(',').map((a) => a.trim()).filter(Boolean)
@@ -393,6 +399,16 @@ export async function enqueueDelivery(consultationId, clinicianName = null, reci
 export async function getDeliveryStatus(consultationId) {
   const r = await fetch(`${CLINICAL_API_BASE}/delivery/status/${consultationId}`);
   return r.ok ? r.json() : null;
+}
+
+// Ping the FastAPI /health endpoint — used by Settings → System to show live
+// AI-engine status. Throws on network failure or non-2xx.
+export async function getEngineHealth() {
+  const t0 = performance.now();
+  const r = await fetch(`${CLINICAL_API_BASE}/health`);
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  const data = await r.json();
+  return { ...data, latencyMs: Math.round(performance.now() - t0) };
 }
 
 export async function getPrepBrief({ priorVisit, currentMedications, patientAge, patientSex, comorbidities, patientNric }) {

@@ -9,6 +9,14 @@ import { Button, Skeleton, SkeletonDiagnosis, GlassCard, Badge } from '../shared
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
 import { VitalsLineChart } from '../shared/VitalsLineChart';
+import { splitBulletItems, expandBulletMeds } from '../../lib/helpers';
+
+// Normalise a meds list to objects, splitting "●"-joined entries into
+// separate medications (legacy MPIS records cram several into one string).
+function normalizeMeds(meds) {
+  return expandBulletMeds(meds).map(m =>
+    (typeof m === 'string' ? { name: m, dose: '', frequency: '' } : { ...m }));
+}
 
 // ── Medications text ⇄ structured helpers ──────────────────────────────
 // DB shape is [{ name, dose, frequency }]. The UI uses a single comma-separated
@@ -220,7 +228,7 @@ function ChartModal({ patient, isOpen, onClose }) {
                 Vital Signs History - {patient.name}
               </h2>
               <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                {vitalsData.length} historical readings from MPIS
+                {vitalsData.length} historical readings on record
               </p>
             </div>
           </div>
@@ -285,8 +293,8 @@ function draftToProfilePayload(draft) {
   const pendingCondition = draft.conditionInput?.trim();
   const pendingMed = draft.medInput?.trim();
   const allergies = pendingAllergy ? [...draft.allergies, pendingAllergy] : draft.allergies;
-  const comorbidities = pendingCondition ? [...draft.comorbidities, pendingCondition] : draft.comorbidities;
-  const currentMeds = pendingMed ? [...draft.currentMeds, { name: pendingMed, dose: '', frequency: '' }] : draft.currentMeds;
+  const comorbidities = pendingCondition ? [...draft.comorbidities, ...splitBulletItems(pendingCondition)] : draft.comorbidities;
+  const currentMeds = pendingMed ? [...draft.currentMeds, ...splitBulletItems(pendingMed).map(name => ({ name, dose: '', frequency: '' }))] : draft.currentMeds;
   return {
     allergies: allergies.join(', ') || null,
     comorbidities,
@@ -319,8 +327,8 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
       gender: patient?.gender || '',
       race: mpisData?.race || '',
       allergies: (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean),
-      comorbidities: mpisData?.comorbidities || [],
-      currentMeds: mpisData?.currentMeds || [],
+      comorbidities: splitBulletItems(mpisData?.comorbidities || []),
+      currentMeds: normalizeMeds(mpisData?.currentMeds || []),
     };
     if (d.name !== orig.name) n++;
     if (d.gender !== orig.gender) n++;
@@ -342,8 +350,8 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
       gender: patient?.gender || '',
       race: mpisData?.race || '',
       allergies: (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean),
-      comorbidities: mpisData?.comorbidities || [],
-      currentMeds: mpisData?.currentMeds ? mpisData.currentMeds.map(m => ({ ...m })) : [],
+      comorbidities: splitBulletItems(mpisData?.comorbidities || []),
+      currentMeds: normalizeMeds(mpisData?.currentMeds || []),
       // inline add state
       allergyInput: '',
       conditionInput: '',
@@ -512,7 +520,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
           Comorbidities
         </p>
         <div className="flex flex-wrap gap-1.5 mb-2">
-          {(isEditing ? draft.comorbidities : (mpisData?.comorbidities || [])).map((c, idx) => (
+          {(isEditing ? draft.comorbidities : splitBulletItems(mpisData?.comorbidities || [])).map((c, idx) => (
             <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/30' : 'bg-teal-50 text-teal-700 border-teal-200'}`}>
               {c}
               {isEditing && <button onClick={() => setDraft(d => ({ ...d, comorbidities: d.comorbidities.filter((_, i) => i !== idx) }))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>}
@@ -527,7 +535,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
             onChange={e => setDraft(d => ({ ...d, conditionInput: e.target.value }))}
             onKeyDown={e => {
               if (e.key === 'Enter' && draft.conditionInput?.trim()) {
-                setDraft(d => ({ ...d, comorbidities: [...d.comorbidities, d.conditionInput.trim()], conditionInput: '' }));
+                setDraft(d => ({ ...d, comorbidities: [...d.comorbidities, ...splitBulletItems(d.conditionInput)], conditionInput: '' }));
               }
             }}
           />
@@ -538,16 +546,16 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
       <div className={`px-5 py-4 border-b ${divider}`}>
         <p className={`${eyebrow} mb-3`}>
           Current medications
-          {(isEditing ? draft.currentMeds : mpisData?.currentMeds)?.length > 0 && (
+          {(isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds))?.length > 0 && (
             <span className="ml-1.5 normal-case font-normal">
-              {(isEditing ? draft.currentMeds : mpisData?.currentMeds).length} active
+              {(isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds)).length} active
             </span>
           )}
           {isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>remove from list if no longer active</span>}
         </p>
         <div className="space-y-2">
           <CurrentMedicationRows
-            meds={isEditing ? draft.currentMeds : (mpisData?.currentMeds || [])}
+            meds={isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds)}
             isDark={isDark}
             isEditing={isEditing}
             onRemove={(idx) => setDraft(d => ({ ...d, currentMeds: d.currentMeds.filter((_, i) => i !== idx) }))}
@@ -576,7 +584,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
               onChange={e => setDraft(d => ({ ...d, medInput: e.target.value }))}
               onKeyDown={e => {
                 if (e.key === 'Enter' && draft.medInput?.trim()) {
-                  setDraft(d => ({ ...d, currentMeds: [...d.currentMeds, { name: d.medInput.trim(), dose: '', frequency: '' }], medInput: '' }));
+                  setDraft(d => ({ ...d, currentMeds: [...d.currentMeds, ...splitBulletItems(d.medInput).map(name => ({ name, dose: '', frequency: '' }))], medInput: '' }));
                 }
               }}
             />
@@ -1024,10 +1032,10 @@ export function DataInputSection({ onViewChart }) {
     getPrepBrief({
       patientNric: patient.nsn,
       priorVisit,
-      currentMedications: mpisData?.currentMeds || [],
+      currentMedications: normalizeMeds(mpisData?.currentMeds),
       patientAge: patient.age || null,
       patientSex: patient.gender || null,
-      comorbidities: mpisData?.comorbidities || [],
+      comorbidities: splitBulletItems(mpisData?.comorbidities || []),
     }).then(result => {
       setPrepBrief(result);
     }).catch(() => {
@@ -1083,15 +1091,16 @@ export function DataInputSection({ onViewChart }) {
             gender: patient.gender,
             race: effectiveMpis?.race || null,
             allergies: effectiveMpis?.allergies || null,
-            comorbidities: effectiveMpis?.comorbidities || null,
+            comorbidities: splitBulletItems(effectiveMpis?.comorbidities || []),
           });
         }
 
-        // Always sync MPIS edits (allergies/comorbidities/meds + race) — covers both flows
+        // Always sync MPIS edits (allergies/comorbidities/meds + race) — covers both flows.
+        // splitBulletItems/normalizeMeds also heal legacy "●"-joined records on save.
         await updatePatientFromMPIS(nric, {
           allergies: effectiveMpis?.allergies || null,
-          comorbidities: effectiveMpis?.comorbidities || null,
-          currentMeds: effectiveMpis?.currentMeds || [],
+          comorbidities: splitBulletItems(effectiveMpis?.comorbidities || []),
+          currentMeds: normalizeMeds(effectiveMpis?.currentMeds),
           race: effectiveMpis?.race || null,
         });
 

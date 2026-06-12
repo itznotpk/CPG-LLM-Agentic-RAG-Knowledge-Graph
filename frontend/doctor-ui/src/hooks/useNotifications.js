@@ -92,6 +92,8 @@ export function useNotifications() {
           title: `Consultation${num} completed`,
           message: `${who(c.patient_nric)} — ${first}${dx.length > 1 ? ` +${dx.length - 1} more` : ''}`,
           ts: c.created_at,
+          nric: c.patient_nric,
+          cta: 'Open patient chart',
         });
       }
 
@@ -103,6 +105,8 @@ export function useNotifications() {
           title: `${critical.length} critical safety flag${critical.length > 1 ? 's' : ''}`,
           message: `${who(c.patient_nric)} — ${critical[0].title || critical[0].description || 'see safety review'}`,
           ts: c.created_at,
+          nric: c.patient_nric,
+          cta: 'Review safety flags',
         });
       }
 
@@ -113,6 +117,8 @@ export function useNotifications() {
           title: 'Safety override recorded',
           message: `${who(c.patient_nric)} — blocked plan acknowledged and overridden (audit logged)`,
           ts: c.created_at,
+          nric: c.patient_nric,
+          cta: 'Review override audit',
         });
       }
     });
@@ -126,6 +132,8 @@ export function useNotifications() {
           title: 'Care plan delivered',
           message: `${who(j.patient_nric)} — emailed to ${j.recipient}`,
           ts: j.delivered_at || j.updated_at,
+          nric: j.patient_nric,
+          cta: 'Open patient chart',
         });
       } else if (j.status === 'failed') {
         list.push({
@@ -134,6 +142,8 @@ export function useNotifications() {
           title: 'Care plan delivery failed',
           message: `${who(j.patient_nric)} — ${j.error || 'unknown error'}`,
           ts: j.updated_at,
+          nric: j.patient_nric,
+          cta: 'Open patient — resend plan',
         });
       }
     });
@@ -155,6 +165,9 @@ export function useNotifications() {
         title: 'Follow-up overdue',
         message: `${who(nric)} — review was due ${due.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' })} (${overdueDays}d ago)`,
         ts: nextReview,
+        nric,
+        statusFilter: 'follow-up',
+        cta: 'Open follow-up',
       });
     });
 

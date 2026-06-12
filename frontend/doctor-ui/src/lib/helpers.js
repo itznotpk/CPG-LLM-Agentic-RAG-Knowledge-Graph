@@ -11,6 +11,35 @@ export function safeJson(val) {
 }
 
 /**
+ * Some MPIS/legacy records cram several items into ONE string joined by
+ * "●"/"•" bullets (e.g. "● HFrEF ● T2DM ● Obesity"). Split into clean
+ * individual items. Accepts a string or an array (flattened); non-string
+ * entries (e.g. medication objects) pass through untouched.
+ */
+export function splitBulletItems(value) {
+  if (Array.isArray(value)) return value.flatMap(splitBulletItems);
+  if (value == null) return [];
+  if (typeof value !== 'string') return [value];
+  return value.split(/[●•]/).map(s => s.trim()).filter(Boolean);
+}
+
+/**
+ * Expand a current-medications list so bullet-joined entries render as
+ * separate medications. Object entries whose combined text contains a
+ * bullet are flattened to plain strings (the per-row parser re-derives
+ * name/detail); clean entries pass through unchanged.
+ */
+export function expandBulletMeds(meds) {
+  return (meds || []).flatMap(med => {
+    const text = med && typeof med === 'object'
+      ? [med.name || med.medication, med.dose, med.frequency].filter(Boolean).join(' ')
+      : String(med ?? '');
+    if (/[●•]/.test(text)) return splitBulletItems(text);
+    return med == null ? [] : [med];
+  });
+}
+
+/**
  * Return 2-character uppercase initials from a full name.
  */
 export function getInitials(name) {
