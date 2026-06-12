@@ -42,8 +42,7 @@ const steps = [
 
 // Analytics ("Clinical Performance") view — owns the shared time window so the
 // dashboard and the feedback-insights panel stay in sync from one control.
-// Two swappable categories rendered one at a time via the segmented control;
-// the hidden panel is unmounted (its realtime channel closes with it).
+// Two swappable categories behind a segmented control.
 const ANALYTICS_TABS = [
   { id: 'performance', label: 'Clinical Performance' },
   { id: 'feedback', label: 'Feedback & System Health' },
@@ -88,19 +87,14 @@ function AnalyticsView() {
           ))}
         </div>
       </div>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={tab}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -8 }}
-          transition={{ duration: 0.18 }}
-        >
-          {tab === 'performance'
-            ? <DashboardSection days={days} />
-            : <FeedbackInsightsSection days={days} />}
-        </motion.div>
-      </AnimatePresence>
+      {/* Both panels stay mounted (CSS-hidden) so switching is instant — no
+          refetch/loading flash — and realtime subs keep the hidden one fresh. */}
+      <div className={tab === 'performance' ? '' : 'hidden'}>
+        <DashboardSection days={days} />
+      </div>
+      <div className={tab === 'feedback' ? '' : 'hidden'}>
+        <FeedbackInsightsSection days={days} />
+      </div>
     </div>
   );
 }

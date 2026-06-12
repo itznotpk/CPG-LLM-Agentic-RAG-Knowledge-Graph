@@ -5,8 +5,6 @@ import {
   RefreshCw,
   ShieldAlert,
   MessageSquare,
-  GitPullRequestArrow,
-  AlertTriangle,
   Activity,
 } from 'lucide-react';
 import { GlassCard as Card } from '../shared';
@@ -109,7 +107,7 @@ export function FeedbackInsightsSection({ days = 30 }) {
     );
   }
 
-  const { human, recentComments, cpgRejection, machine, machineTop } = data;
+  const { human, recentComments, cpgRejection, machine, pipeline } = data;
   const hasAny = human.total > 0 || machine.total > 0;
 
   return (
@@ -147,14 +145,16 @@ export function FeedbackInsightsSection({ days = 30 }) {
       </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* ── CPG rejection rate ──────────────────────────────────────── */}
+        {/* ── CPG amendment rate ──────────────────────────────────────── */}
         <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
-          <div className="flex items-center gap-2 mb-4">
-            <GitPullRequestArrow className={`w-4 h-4 ${isDark ? 'text-amber-400' : 'text-amber-600'}`} />
-            <h3 className={`text-sm font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Most-amended CPGs</h3>
-          </div>
+          <h3 className={`text-sm font-semibold mb-1 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Most-amended CPGs</h3>
+          <p className={`text-[11px] mb-4 ${subtleText}`}>Guidelines whose plans clinicians most often reject or send back</p>
           {cpgRejection.length === 0 ? (
-            <p className={`text-xs ${subtleText}`}>No CPG-attributed feedback yet.</p>
+            <p className={`text-xs ${subtleText}`}>
+              Nothing here yet — this fills in when clinicians reject or regenerate a plan,
+              attributing the amendment to the CPGs it cited. An empty panel with decisions
+              recorded means plans are being approved as-is.
+            </p>
           ) : (
             <div className="space-y-3">
               {cpgRejection.map((c) => (
@@ -171,32 +171,63 @@ export function FeedbackInsightsSection({ days = 30 }) {
           )}
         </Card>
 
-        {/* ── Top recurring machine signals ───────────────────────────── */}
+        {/* ── Pipeline signals, parsed into what to act on ────────────── */}
         <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
-          <div className="flex items-center gap-2 mb-4">
-            <AlertTriangle className={`w-4 h-4 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} />
-            <h3 className={`text-sm font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Recurring pipeline signals</h3>
-          </div>
-          {machineTop.length === 0 ? (
+          <h3 className={`text-sm font-semibold mb-1 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>Recurring pipeline signals</h3>
+          <p className={`text-[11px] mb-4 ${subtleText}`}>Missing inputs that keep blocking CPG referral triggers</p>
+          {machine.total === 0 ? (
             <p className={`text-xs ${subtleText}`}>No pipeline signals recorded yet.</p>
           ) : (
-            <ul className="space-y-2.5">
-              {machineTop.map((s, i) => {
-                const meta = SIGNAL_META[s.signal_type] || { label: s.signal_type, color: 'teal' };
-                return (
-                  <li key={i} className={`flex items-start gap-2 pb-2.5 ${i < machineTop.length - 1 ? `border-b ${rowBorder}` : ''}`}>
-                    <SeverityDot severity={s.severity} />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className={`text-[10px] font-bold uppercase tracking-wider ${txt(meta.color)}`}>{meta.label}</span>
-                        <span className={`text-xs font-bold tabular-nums ${mutedText}`}>×{s.count}</span>
+            <div className="space-y-4">
+              {pipeline.missingData.length > 0 && (
+                <div className="space-y-2">
+                  {pipeline.missingData.map((m, i) => (
+                    <div key={i} className={`flex items-start justify-between gap-3 pb-2 ${i < pipeline.missingData.length - 1 ? `border-b ${rowBorder}` : ''}`}>
+                      <div className="min-w-0">
+                        <p className={`text-xs font-medium ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{m.reason}</p>
+                        <p className={`text-[10px] mt-0.5 ${subtleText}`}>
+                          blocks {m.specialties.join(', ')} referral{m.specialties.length > 1 ? 's' : ''}
+                        </p>
                       </div>
-                      <p className={`text-xs mt-0.5 break-words ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{s.detail}</p>
+                      <span className={`text-xs font-bold tabular-nums shrink-0 px-1.5 py-0.5 rounded-full ${isDark ? 'bg-amber-500/15 text-amber-400' : 'bg-amber-50 text-amber-600'}`}>
+                        ×{m.count}
+                      </span>
                     </div>
-                  </li>
-                );
-              })}
-            </ul>
+                  ))}
+                  <p className={`text-[10px] pt-1 ${subtleText}`}>
+                    Capturing these at intake (Step 1) lets the AI confirm or rule out the referral instead of leaving it pending.
+                  </p>
+                </div>
+              )}
+
+              {pipeline.otherTop.length > 0 && (
+                <ul className="space-y-2">
+                  {pipeline.otherTop.map((s, i) => {
+                    const meta = SIGNAL_META[s.signal_type] || { label: s.signal_type, color: 'teal' };
+                    return (
+                      <li key={i} className="flex items-start gap-2">
+                        <SeverityDot severity={s.severity} />
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className={`text-[10px] font-bold uppercase tracking-wider ${txt(meta.color)}`}>{meta.label}</span>
+                            <span className={`text-xs font-bold tabular-nums ${mutedText}`}>×{s.count}</span>
+                          </div>
+                          <p className={`text-xs mt-0.5 break-words ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{s.detail}</p>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+
+              {(pipeline.ruledOut > 0 || pipeline.suppressed > 0) && (
+                <p className={`text-[10px] pt-2 border-t ${rowBorder} ${subtleText}`}>
+                  {pipeline.ruledOut > 0 && <>{pipeline.ruledOut} referral trigger{pipeline.ruledOut > 1 ? 's' : ''} correctly ruled out by documented evidence</>}
+                  {pipeline.ruledOut > 0 && pipeline.suppressed > 0 && ' · '}
+                  {pipeline.suppressed > 0 && <>{pipeline.suppressed} low-priority suppression notice{pipeline.suppressed > 1 ? 's' : ''} hidden</>}
+                </p>
+              )}
+            </div>
           )}
         </Card>
       </div>

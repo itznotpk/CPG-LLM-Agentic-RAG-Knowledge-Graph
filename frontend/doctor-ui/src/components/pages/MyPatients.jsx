@@ -55,7 +55,7 @@ function downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay) {
 }
 
 // Helper component to display next review date from consultations
-function NextReviewDisplay({ patientNric, patientStatus, consultations, isDark, accent }) {
+function NextReviewDisplay({ patientNric, patientStatus, consultations, isDark }) {
   // Only show next review date for follow-up required patients
   if (patientStatus !== 'follow-up') {
     return <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>—</span>;
@@ -63,12 +63,7 @@ function NextReviewDisplay({ patientNric, patientStatus, consultations, isDark, 
 
   const consultation = consultations[patientNric];
 
-  // Not loaded yet - show dash
-  if (consultation === undefined) {
-    return <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>—</span>;
-  }
-
-  // No consultation or no next review
+  // Not loaded yet / no consultation / no next review - show dash
   if (!consultation || !consultation.nextReview) {
     return <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>—</span>;
   }
@@ -87,15 +82,19 @@ function NextReviewDisplay({ patientNric, patientStatus, consultations, isDark, 
     year: 'numeric'
   });
 
+  // Urgency-coloured chip so overdue/due-soon reviews pop out of the list
+  const chip = tcaDays < 0
+    ? 'bg-rose-500/10 text-rose-500 border-rose-500/20'
+    : tcaDays <= 3
+      ? 'bg-amber-500/10 text-amber-500 border-amber-500/20'
+      : 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border-teal-500/20';
+
   return (
-    <div className="flex items-center justify-center gap-2">
-      <Calendar className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
-      <div>
-        <p className={`text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</p>
-        <p className={`text-xs font-medium ${tcaDays <= 3 ? 'text-amber-500' : tcaDays < 0 ? 'text-red-500' : isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-          {tcaDays < 0 ? `Overdue: ${Math.abs(tcaDays)} ${Math.abs(tcaDays) === 1 ? 'Day' : 'Days'}` : `TCA: ${tcaDays} ${tcaDays === 1 ? 'Day' : 'Days'}`}
-        </p>
-      </div>
+    <div className="flex flex-col items-start gap-1">
+      <span className={`text-sm font-medium ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</span>
+      <span className={`inline-flex px-2 py-0.5 rounded-md text-[11px] font-bold uppercase tracking-wide border ${chip}`}>
+        {tcaDays < 0 ? `Overdue ${Math.abs(tcaDays)}d` : tcaDays === 0 ? 'Due today' : `TCA ${tcaDays}d`}
+      </span>
     </div>
   );
 }
@@ -107,7 +106,7 @@ function LatestConsultDisplay({ patientNric, consultations, isDark }) {
   // Not loaded yet
   if (consultation === undefined) {
     return (
-      <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'} flex items-center justify-center gap-1.5`}>
+      <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'} flex items-center gap-1.5`}>
         <Loader2 className="w-3.5 h-3.5 animate-spin text-slate-400" />
       </span>
     );
@@ -126,11 +125,17 @@ function LatestConsultDisplay({ patientNric, consultations, isDark }) {
     year: 'numeric'
   });
 
+  // Relative recency ("Today" / "Yesterday" / "12d ago") — quicker to scan than a
+  // raw timestamp when triaging which patients were seen recently.
+  const startOfDay = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; };
+  const daysAgo = Math.round((startOfDay(new Date()) - startOfDay(dateObj)) / 86400000);
+  const relative = daysAgo <= 0 ? 'Today' : daysAgo === 1 ? 'Yesterday' : `${daysAgo}d ago`;
+
   return (
-    <div className="flex flex-col items-center justify-center">
-      <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</span>
-      <span className={`text-[10px] ${isDark ? 'text-slate-500' : 'text-slate-400'} mt-0.5`}>
-        {dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
+    <div className="flex flex-col items-start">
+      <span className={`text-sm font-medium ds-numeric ${isDark ? 'text-white' : 'text-slate-800'}`}>{formattedDate}</span>
+      <span className={`text-[11px] mt-0.5 font-medium ${daysAgo <= 1 ? 'text-teal-500' : isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+        {relative} · {dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
       </span>
     </div>
   );
@@ -716,19 +721,19 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
         <div className="overflow-x-auto">
           <table className="w-full table-fixed">
             <colgroup>
-              <col className="w-12" />
-              <col className="w-[22%]" />
-              <col className="w-[16%]" />
-              <col className="w-[40%]" />
-              <col className="w-[18%]" />
+              <col className="w-10" />
+              <col className="w-[26%]" />
+              <col className="w-[15%]" />
+              <col className="w-[42%]" />
+              <col className="w-[17%]" />
             </colgroup>
             <thead>
-              <tr className={`border-b ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
-                <th className="w-12 p-4"></th>
-                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Patient</th>
-                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Latest Consult</th>
-                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Diagnoses</th>
-                <th className={`text-center p-4 text-sm font-bold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>Next Review (TCA)</th>
+              <tr className={`border-b ${isDark ? 'border-white/10 bg-white/[0.02]' : 'border-slate-200 bg-slate-50/60'}`}>
+                <th className="w-10 p-4"></th>
+                <th className={`text-left p-4 text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Patient</th>
+                <th className={`text-left p-4 text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Latest Consult</th>
+                <th className={`text-left p-4 text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Diagnoses</th>
+                <th className={`text-left p-4 text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Next Review (TCA)</th>
               </tr>
             </thead>
             <tbody>
@@ -778,16 +783,18 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                 <React.Fragment key={patient.id}>
                   <tr
                     id={`patient-row-${patient.nsn}`}
-                    className={`border-b transition-colors
+                    onClick={() => handlePatientExpand(patient)}
+                    className={`border-b cursor-pointer transition-colors border-l-[3px]
+                      ${patient.status === 'follow-up' ? 'border-l-amber-400/70' : 'border-l-transparent'}
                       ${selectedPatient?.id === patient.id
-                        ? isDark ? 'bg-[var(--accent-primary)]/10' : 'bg-[var(--accent-primary)]/5'
+                        ? isDark ? 'bg-[var(--accent-primary)]/10 border-white/5' : 'bg-[var(--accent-primary)]/5 border-slate-100'
                         : isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-100 hover:bg-slate-50'
                       }`}
                   >
                     {/* Dropdown Toggle Button */}
-                    <td className="p-4 w-12">
+                    <td className="p-4 w-10">
                       <button
-                        onClick={() => handlePatientExpand(patient)}
+                        onClick={(e) => { e.stopPropagation(); handlePatientExpand(patient); }}
                         aria-label="Expand Patient Details"
                         aria-expanded={selectedPatient?.id === patient.id}
                         className={`p-2 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 ${isDark ? 'hover:bg-white/10' : 'hover:bg-slate-200'}`}
@@ -801,53 +808,88 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                       </button>
                     </td>
                     <td className="p-4">
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${getAvatarColor(patient.gender)} font-semibold text-sm`}>
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${getAvatarColor(patient.gender)} font-semibold text-sm`}>
                           {getInitials(patient.name || '')}
                         </div>
-                        <p className={`font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.name || 'Unknown'}</p>
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-2">
+                            <p className={`font-semibold truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{patient.name || 'Unknown'}</p>
+                            {patient.status === 'follow-up' && (
+                              <span className="px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-500 border border-amber-500/20 flex-shrink-0">
+                                Follow-up
+                              </span>
+                            )}
+                          </div>
+                          <p className={`text-xs ds-numeric mt-0.5 truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                            {patient.nsn || '—'}
+                          </p>
+                        </div>
                       </div>
                     </td>
-                    <td className="p-4 text-center">
+                    <td className="p-4">
                       <LatestConsultDisplay
                         patientNric={patient.nsn}
                         consultations={patientConsultations}
                         isDark={isDark}
                       />
                     </td>
-                    <td className="p-4 pl-28">
-                      <div className="min-w-0 max-w-[420px]">
+                    <td className="p-4">
+                      <div className="min-w-0 flex flex-wrap items-center gap-1.5">
                         {(() => {
                           // Get diagnoses ONLY from the latest consultation
                           const consultation = patientConsultations[patient.nsn];
                           const consultDiagnoses = consultation?.diagnoses || [];
-
-                          let displayDiagnoses = [];
-
-                          if (consultDiagnoses.length > 0) {
-                            displayDiagnoses = consultDiagnoses.map(d => typeof d === 'object' ? d.name : d);
-                          }
+                          const displayDiagnoses = consultDiagnoses.map(d => (typeof d === 'object' ? d.name : d));
                           // No fallback to comorbidities - diagnoses come ONLY from consultations.diagnoses
 
-                          return displayDiagnoses.length > 0 ? (
-                            displayDiagnoses.map((dx, i) => (
-                              <p key={i} className={`text-sm ${i > 0 ? 'mt-1' : ''} ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                • {typeof dx === 'object' ? dx.name : dx}
-                              </p>
-                            ))
-                          ) : (
-                            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No diagnoses</p>
+                          if (displayDiagnoses.length === 0) {
+                            return <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No diagnoses</span>;
+                          }
+
+                          // Pills are far more scannable + differentiable than bullet lines;
+                          // primary diagnosis gets the accent tint, the rest stay neutral.
+                          const MAX_PILLS = 2;
+                          const extra = displayDiagnoses.length - MAX_PILLS;
+                          return (
+                            <>
+                              {displayDiagnoses.slice(0, MAX_PILLS).map((dx, i) => (
+                                <span
+                                  key={i}
+                                  title={dx}
+                                  className={`inline-flex max-w-full px-2.5 py-1 rounded-lg text-xs font-medium border truncate
+                                    ${i === 0
+                                      ? isDark
+                                        ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/25'
+                                        : 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/20'
+                                      : isDark
+                                        ? 'bg-white/5 text-slate-300 border-white/10'
+                                        : 'bg-slate-100 text-slate-600 border-slate-200'
+                                    }`}
+                                >
+                                  {dx}
+                                </span>
+                              ))}
+                              {extra > 0 && (
+                                <span
+                                  title={displayDiagnoses.slice(MAX_PILLS).join(' · ')}
+                                  className={`inline-flex px-2 py-1 rounded-lg text-xs font-semibold border
+                                    ${isDark ? 'bg-white/5 text-slate-400 border-white/10' : 'bg-slate-50 text-slate-500 border-slate-200'}`}
+                                >
+                                  +{extra} more
+                                </span>
+                              )}
+                            </>
                           );
                         })()}
                       </div>
                     </td>
-                    <td className="p-4 text-center">
+                    <td className="p-4">
                       <NextReviewDisplay
                         patientNric={patient.nsn}
                         patientStatus={patient.status}
                         consultations={patientConsultations}
                         isDark={isDark}
-                        accent={accent}
                       />
                     </td>
                   </tr>

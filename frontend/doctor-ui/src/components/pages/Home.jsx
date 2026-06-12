@@ -1,22 +1,19 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Clock,
   Play,
   ChevronRight,
   ChevronDown,
   Bell,
   Eye,
-  UserCheck,
+  ShieldAlert,
   BookOpen,
   Timer,
   TrendingUp,
   TrendingDown,
   Minus,
   FileCheck,
-  ArrowRight,
-  Calendar,
-  Database
+  ArrowRight
 } from 'lucide-react';
 import { todaySchedule, patientRegistry } from '../../data/scheduleData';
 import { supabase, getAllPatients, getAllPatientConsultations } from '../../lib/supabase';
@@ -27,25 +24,27 @@ import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../shared/Notification';
 import { useAuth } from '../../context/AuthContext';
 import PatientQuickView from '../shared/PatientQuickView';
+import { useNotifications } from '../../hooks/useNotifications';
 
 
 
+// Compact day-over-day pill. Shows the ABSOLUTE delta (+64m), not a percent —
+// at single-digit daily volumes "+300%" reads as noise and misleads.
 const TrendBadge = ({ current, previous, suffix = '' }) => {
   const delta = current - previous;
-  const pct = previous > 0 ? Math.round((delta / previous) * 100) : 0;
   if (delta === 0) return (
-    <span className="inline-flex items-center gap-0.5 text-sm font-medium text-slate-400">
-      <Minus className="w-3 h-3" strokeWidth={2} /> same as yesterday
+    <span className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold bg-slate-500/10 text-slate-400">
+      <Minus className="w-2.5 h-2.5" strokeWidth={2} /> vs yday
     </span>
   );
   const up = delta > 0;
   return (
-    <span className={`inline-flex items-center gap-0.5 text-sm font-semibold ${up ? 'text-emerald-500' : 'text-rose-400'
-      }`}>
+    <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-full text-[10px] font-semibold
+      ${up ? 'bg-emerald-500/10 text-emerald-500' : 'bg-rose-500/10 text-rose-400'}`}>
       {up
-        ? <TrendingUp className="w-3 h-3" strokeWidth={2.5} />
-        : <TrendingDown className="w-3 h-3" strokeWidth={2.5} />}
-      {up ? '+' : ''}{pct}%{suffix} vs yesterday
+        ? <TrendingUp className="w-2.5 h-2.5" strokeWidth={2.5} />
+        : <TrendingDown className="w-2.5 h-2.5" strokeWidth={2.5} />}
+      {up ? '+' : ''}{delta}{suffix} vs yday
     </span>
   );
 };
@@ -69,9 +68,11 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const [impact, setImpact] = useState({
     timeSavedMin: 0,
     cpgAligned: { count: 0, total: 1 },
+    completed: 0,
+    started: 0,
     citations: 0,
-    referrals: 0,
-    yesterday: { timeSavedMin: 0, cpgAlignedPct: 0, citations: 0, referrals: 0 },
+    intercepts: 0,
+    yesterday: { timeSavedMin: 0, cpgAlignedPct: 0, citations: 0, intercepts: 0 },
   });
 
   useEffect(() => {
@@ -82,21 +83,44 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
       const { data } = await supabase
         .from('consultations')
-        .select('created_at, cpg_references, referrals')
+        .select('created_at, updated_at, cpg_references, diagnoses, safety_flags')
         .gte('created_at', twoDaysAgo)
         .order('created_at', { ascending: false });
 
       if (!data) return;
 
+      // Manual baseline = 10.5 min, the average Malaysian consultation length
+      // cited in the project report's problem statement. Time saved is measured
+      // per completed plan: baseline minus the consult's actual wall time
+      // (created_at → last update), clamped to [0, baseline]. Abandoned
+      // mid-wizard rows (no diagnoses saved) count nothing.
+      const MANUAL_PLAN_BASELINE_MIN = 10.5;
+
       const compute = (rows) => {
-        let cpgCount = 0, cites = 0, refs = 0;
+        let cpgCount = 0, cites = 0, intercepts = 0, savedMin = 0, completed = 0;
         rows.forEach(c => {
+          const isCompleted = safeJson(c.diagnoses).length > 0;
           const cpgRefs = safeJson(c.cpg_references);
-          if (cpgRefs.length > 0) { cpgCount++; cites += cpgRefs.length; }
-          refs += safeJson(c.referrals).length;
+          if (cpgRefs.length > 0) cites += cpgRefs.length;
+          // Stage-6 intercepts: CRITICAL/MAJOR flags surfaced before sign-off.
+          safeJson(c.safety_flags).forEach(f => {
+            const sev = (f.severity || '').toUpperCase();
+            if (sev === 'CRITICAL' || sev === 'MAJOR') intercepts++;
+          });
+          if (!isCompleted) return;
+          completed++;
+          if (cpgRefs.length > 0) cpgCount++;
+          const durMin = (new Date(c.updated_at) - new Date(c.created_at)) / 60000;
+          savedMin += Math.min(Math.max(MANUAL_PLAN_BASELINE_MIN - durMin, 0), MANUAL_PLAN_BASELINE_MIN);
         });
-        const total = rows.length;
-        return { timeSavedMin: total * 8, cpgAligned: { count: cpgCount, total: Math.max(total, 1) }, citations: cites, referrals: refs };
+        return {
+          timeSavedMin: Math.round(savedMin),
+          cpgAligned: { count: cpgCount, total: Math.max(completed, 1) },
+          completed,
+          started: rows.length,
+          citations: cites,
+          intercepts,
+        };
       };
 
       const todayRows = data.filter(c => c.created_at.startsWith(todayStr));
@@ -105,7 +129,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
       const y = compute(yestRows);
       const yPct = Math.round((y.cpgAligned.count / y.cpgAligned.total) * 100);
 
-      setImpact({ ...t, yesterday: { timeSavedMin: y.timeSavedMin, cpgAlignedPct: yPct, citations: y.citations, referrals: y.referrals } });
+      setImpact({ ...t, yesterday: { timeSavedMin: y.timeSavedMin, cpgAlignedPct: yPct, citations: y.citations, intercepts: y.intercepts } });
     };
     fetchImpact();
   }, []);
@@ -157,8 +181,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
   const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
 
   const [showNotifications, setShowNotifications] = useState(false);
-  const [notifications, setNotifications] = useState([]);
-  const unreadCount = notifications.filter(n => !n.read).length;
+  const { notifications, unreadCount, markRead, markAllRead } = useNotifications();
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 60000);
@@ -408,7 +431,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   <h3 className={`font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Notifications</h3>
                   {unreadCount > 0 && (
                     <button
-                      onClick={() => setNotifications(prev => prev.map(n => ({ ...n, read: true })))}
+                      onClick={markAllRead}
                       className="text-xs text-[var(--accent-primary)] hover:underline"
                     >
                       Mark all read
@@ -424,7 +447,7 @@ const Home = ({ onStartConsult, onViewChart }) => {
                 ) : notifications.map((notif) => (
                   <div
                     key={notif.id}
-                    onClick={() => setNotifications(prev => prev.map(n => n.id === notif.id ? { ...n, read: true } : n))}
+                    onClick={() => markRead(notif.id)}
                     className={`p-4 border-b cursor-pointer transition-colors
                     ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-50 hover:bg-slate-50'}
                     ${!notif.read ? (isDark ? 'bg-white/10' : 'bg-blue-50') : ''}`}
@@ -464,7 +487,6 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   aria-label="Toggle Schedule"
                   className={`text-base font-semibold flex items-center gap-2 ${isDark ? 'text-white' : 'text-slate-800'} hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg`}
                 >
-                  <Clock aria-hidden="true" className={`w-4 h-4 ${accent.text}`} strokeWidth={1.5} />
                   Today's patients
                   <ChevronDown aria-hidden="true" className={`w-4 h-4 transition-transform duration-200 ${isScheduleExpanded ? '' : '-rotate-90'}`} strokeWidth={1.5} />
                 </button>
@@ -657,9 +679,6 @@ const Home = ({ onStartConsult, onViewChart }) => {
                   aria-label="Toggle Follow-Ups"
                   className="flex items-center gap-2 hover:opacity-80 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded-lg text-left"
                 >
-                  <div className={`p-1.5 rounded-lg ${isDark ? 'bg-amber-500/10 text-amber-400 border border-amber-500/20' : 'bg-amber-50 text-amber-600 border border-amber-100'}`}>
-                    <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
-                  </div>
                   <h3 className={`text-sm font-semibold flex items-center gap-1.5 ${isDark ? 'text-white' : 'text-slate-800'}`}>
                     Follow-Up Patients
                     <ChevronDown aria-hidden="true" className={`w-3.5 h-3.5 transition-transform duration-200 ${isFollowUpsExpanded ? '' : '-rotate-90'}`} strokeWidth={1.8} />
@@ -770,108 +789,108 @@ const Home = ({ onStartConsult, onViewChart }) => {
 
           {/* AI Assistant Impact Stats (2x2 Stats Dashboard Grid) */}
           <div>
-            <div className="mb-2 flex items-center gap-2">
-              <span className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border ${isDark ? 'bg-teal-500/10 text-teal-400 border-teal-500/20' : 'bg-teal-50 text-teal-600 border-teal-100'}`}>
-                <Database className="h-4 w-4" strokeWidth={1.8} />
-              </span>
-              <p className={`text-sm font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>Assistant Impact Today</p>
+            <div className="mb-3">
+              <h2 className={`text-base font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                Assistant Impact <span className={accent.text}>Today</span>
+              </h2>
             </div>
-            <GlassCard className="p-4" variant={isDark ? 'dark' : 'light'}>
+            <GlassCard className={`p-4 border-l-4 ${isDark ? 'border-l-teal-400/60' : 'border-l-teal-500'}`} variant={isDark ? 'dark' : 'light'}>
               <div className="grid grid-cols-2 gap-3.5">
                 {/* Time Reclaimed */}
-                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                <div className={`p-3.5 rounded-xl border
                   ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
                 >
-                  <div className="flex items-center gap-1 text-base font-bold text-teal-500 uppercase tracking-wider">
-                    <Timer className="w-3 h-3" />
-                    Time Saved
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-teal-500/15' : 'bg-teal-50'}`}>
+                        <Timer className={`w-3 h-3 ${isDark ? 'text-teal-400' : 'text-teal-600'}`} strokeWidth={2} />
+                      </span>
+                      <span className={`text-[10px] font-semibold uppercase tracking-wider truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Time Saved</span>
+                    </div>
+                    <TrendBadge current={impact.timeSavedMin} previous={impact.yesterday.timeSavedMin} suffix="m" />
                   </div>
-                  <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
-                    <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
-                      {impact.timeSavedMin}<span className="text-sm font-semibold ml-0.5">m</span>
-                    </p>
-                    <span className="text-sm text-slate-400">vs 8m/plan manual</span>
-                  </div>
-                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={impact.timeSavedMin} previous={impact.yesterday.timeSavedMin} />
-                  </div>
+                  <p className={`text-3xl font-bold leading-none ds-numeric ${isDark ? 'text-teal-400' : 'text-teal-600'}`}>
+                    {impact.timeSavedMin}<span className="text-base font-semibold ml-0.5">min</span>
+                  </p>
+                  <p className={`text-[11px] mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>vs 10.5 min avg Malaysian consultation</p>
                 </div>
 
                 {/* CPG Aligned with circular SVG progress ring */}
-                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                <div className={`p-3.5 rounded-xl border
                   ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
                 >
-                  <div className="flex items-center gap-1 text-base font-bold text-violet-500 uppercase tracking-wider">
-                    <FileCheck className="w-3 h-3" />
-                    CPG Align
-                  </div>
-                  <div className="mt-2 mb-1.5 flex items-center justify-between gap-1">
-                    <div className="flex items-baseline gap-1.5 flex-wrap">
-                      <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
-                        {cpgPct}%
-                      </p>
-                      <span className="text-sm text-slate-400">
-                        {impact.cpgAligned.count}/{impact.cpgAligned.total} plans
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-violet-500/15' : 'bg-violet-50'}`}>
+                        <FileCheck className={`w-3 h-3 ${isDark ? 'text-violet-400' : 'text-violet-600'}`} strokeWidth={2} />
                       </span>
+                      <span className={`text-[10px] font-semibold uppercase tracking-wider truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>CPG Align</span>
                     </div>
-                    {/* Compact SVG Circular ring */}
-                    <div className="relative w-8 h-8 flex-shrink-0 flex items-center justify-center">
-                      <svg className="w-full h-full transform -rotate-90">
-                        <circle cx="16" cy="16" r="13" className="stroke-slate-200 dark:stroke-slate-800" strokeWidth="2.5" fill="transparent" />
+                    <TrendBadge current={cpgPct} previous={impact.yesterday.cpgAlignedPct} suffix="pp" />
+                  </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className={`text-3xl font-bold leading-none ds-numeric ${isDark ? 'text-violet-400' : 'text-violet-600'}`}>
+                      {cpgPct}<span className="text-base font-semibold ml-0.5">%</span>
+                    </p>
+                    <div className="relative w-10 h-10 flex-shrink-0">
+                      <svg viewBox="0 0 40 40" className="w-full h-full transform -rotate-90">
+                        <circle cx="20" cy="20" r="16" className="stroke-slate-200 dark:stroke-slate-800" strokeWidth="3.5" fill="transparent" />
                         <circle
-                          cx="16"
-                          cy="16"
-                          r="13"
+                          cx="20"
+                          cy="20"
+                          r="16"
                           className={isDark ? "stroke-violet-400" : "stroke-violet-500"}
-                          strokeWidth="2.5"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
                           fill="transparent"
-                          strokeDasharray={2 * Math.PI * 13}
-                          strokeDashoffset={2 * Math.PI * 13 * (1 - cpgPct / 100)}
+                          strokeDasharray={2 * Math.PI * 16}
+                          strokeDashoffset={2 * Math.PI * 16 * (1 - cpgPct / 100)}
                         />
                       </svg>
                     </div>
                   </div>
-                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={cpgPct} previous={impact.yesterday.cpgAlignedPct} />
-                  </div>
+                  <p className={`text-[11px] mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                    {impact.cpgAligned.count} of {impact.completed} completed plan{impact.completed !== 1 ? 's' : ''}
+                    {impact.started > impact.completed ? ` · ${impact.started - impact.completed} incomplete excluded` : ''}
+                  </p>
                 </div>
 
                 {/* Citations Issued */}
-                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                <div className={`p-3.5 rounded-xl border
                   ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
                 >
-                  <div className="flex items-center gap-1 text-base font-bold text-sky-500 uppercase tracking-wider">
-                    <BookOpen className="w-3 h-3" />
-                    Citations
-                  </div>
-                  <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
-                    <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
-                      {impact.citations}
-                    </p>
-                    <span className="text-sm text-slate-400">evidence-backed</span>
-                  </div>
-                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-sky-500/15' : 'bg-sky-50'}`}>
+                        <BookOpen className={`w-3 h-3 ${isDark ? 'text-sky-400' : 'text-sky-600'}`} strokeWidth={2} />
+                      </span>
+                      <span className={`text-[10px] font-semibold uppercase tracking-wider truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Citations</span>
+                    </div>
                     <TrendBadge current={impact.citations} previous={impact.yesterday.citations} />
                   </div>
+                  <p className={`text-3xl font-bold leading-none ds-numeric ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
+                    {impact.citations}
+                  </p>
+                  <p className={`text-[11px] mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>guideline passages cited in plans</p>
                 </div>
 
-                {/* Referrals */}
-                <div className={`p-3 rounded-xl border flex flex-col justify-between
+                {/* Safety intercepts — Stage 6 critical/major risks caught pre-sign-off */}
+                <div className={`p-3.5 rounded-xl border
                   ${isDark ? 'bg-slate-900/40 border-white/5' : 'bg-slate-50/50 border-slate-100'}`}
                 >
-                  <div className="flex items-center gap-1 text-base font-bold text-amber-500 uppercase tracking-wider">
-                    <UserCheck className="w-3 h-3" />
-                    Referrals
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className={`p-1 rounded-md shrink-0 ${isDark ? 'bg-rose-500/15' : 'bg-rose-50'}`}>
+                        <ShieldAlert className={`w-3 h-3 ${isDark ? 'text-rose-400' : 'text-rose-500'}`} strokeWidth={2} />
+                      </span>
+                      <span className={`text-[10px] font-semibold uppercase tracking-wider truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Safety Intercepts</span>
+                    </div>
+                    <TrendBadge current={impact.intercepts} previous={impact.yesterday.intercepts} />
                   </div>
-                  <div className="mt-2 mb-1.5 flex items-baseline gap-1.5 flex-wrap">
-                    <p className={`text-2xl font-bold leading-none ds-numeric ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>
-                      {impact.referrals}
-                    </p>
-                    <span className="text-sm text-slate-400">CPG justified</span>
-                  </div>
-                  <div className="border-t border-slate-100 dark:border-white/5 pt-1.5">
-                    <TrendBadge current={impact.referrals} previous={impact.yesterday.referrals} />
-                  </div>
+                  <p className={`text-3xl font-bold leading-none ds-numeric ${isDark ? 'text-rose-400' : 'text-rose-500'}`}>
+                    {impact.intercepts}
+                  </p>
+                  <p className={`text-[11px] mt-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>critical/major risks flagged before sign-off</p>
                 </div>
               </div>
             </GlassCard>

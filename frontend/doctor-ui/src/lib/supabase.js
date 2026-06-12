@@ -1081,7 +1081,9 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
     recentComments: [],
     cpgRejection: [],      // [{ cpg, rejected, total, rate }]
     machine: { total: 0, byType: {} },
-    machineTop: [],        // [{ signal_type, detail, count, severity }]
+    // Structured pipeline rollup (parsed from gate_failure detail strings):
+    // missingData = the actionable list — which absent inputs keep blocking referrals.
+    pipeline: { missingData: [], ruledOut: 0, suppressed: 0, otherTop: [] },
     days,
   };
 
@@ -1101,9 +1103,16 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
     let safetyOverrides = 0;
     const cpgAgg = {}; // cpgName → { total, rejected }
     const extractCpgName = (ref) => {
+      let raw = null;
       if (!ref) return null;
-      if (typeof ref === 'string') return ref;
-      return ref.cpg || ref.cpg_source || ref.name || ref.title || ref.source_document || null;
+      if (typeof ref === 'string') raw = ref;
+      else raw = ref.cpgFullName || ref.cpg || ref.cpg_source || ref.name || ref.title || ref.source_document || null;
+      if (!raw) return null;
+      // Citation strings ("CPG Stable CAD §8.2.3 [chunk 1]") → doc short name;
+      // then strip edition/year parenthetical + hyphens so variants group.
+      const cite = /^CPG\s+(.+?)\s+§/.exec(raw);
+      if (cite) raw = cite[1];
+      return raw.replace(/[-_]/g, ' ').replace(/\s*\([^)]*\)\s*$/, '').replace(/\s+/g, ' ').trim() || null;
     };
     for (const row of H) {
       if (counts[row.action] != null) counts[row.action] += 1;
@@ -1140,29 +1149,60 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
       .slice(0, 8);
 
     // ── Machine rollup ──
+    // gate_failure details follow two backend formats (clinical_stages.py gate audit):
+    //   "Awaiting data for <Spec> referral — <Condition>: trigger '<T>' unverified (<reason>)"
+    //   "Ruled out <Spec> referral for <Condition> — trigger '<T>' not met: <evidence>"
+    // plus per-CPG suppression notices "(+ further referral triggers from X suppressed…)".
+    // The actionable rollup is missing-data reasons; ruled-out = gate working as designed.
+    const AWAITING_RE = /^Awaiting data for (.+?) referral\s*[—–-]+\s*.*?trigger\s+'(.+?)'\s+unverified(?:\s*\((.+?)\))?\s*$/;
+    const RULED_OUT_RE = /^Ruled out\s+.+?\s+referral/;
     const byType = {};
-    const detailAgg = {}; // `${type}::${detail}` → { signal_type, detail, count, severity }
+    const missingAgg = {}; // reason(lc) → { reason, count, specialties:Set }
+    const detailAgg = {};  // `${type}::${detail}` → { signal_type, detail, count, severity }
+    let ruledOut = 0;
+    let suppressed = 0;
     for (const row of M) {
       byType[row.signal_type] = (byType[row.signal_type] || 0) + 1;
-      const key = `${row.signal_type}::${(row.detail || '').slice(0, 120)}`;
+      const detail = (row.detail || '').trim();
+
+      if (row.signal_type === 'gate_failure') {
+        if (detail.startsWith('(+') || detail.includes('suppressed — review CPG')) { suppressed += 1; continue; }
+        if (RULED_OUT_RE.test(detail)) { ruledOut += 1; continue; }
+        const m = AWAITING_RE.exec(detail);
+        if (m) {
+          const reason = (m[3] || `'${m[2]}' undocumented`).trim();
+          const key = reason.toLowerCase();
+          if (!missingAgg[key]) missingAgg[key] = { reason, count: 0, specialties: new Set() };
+          missingAgg[key].count += 1;
+          missingAgg[key].specialties.add(m[1]);
+          continue;
+        }
+        // unparsed gate line → falls through to the generic detail list
+      }
+
+      const key = `${row.signal_type}::${detail.slice(0, 120)}`;
       if (!detailAgg[key]) {
-        detailAgg[key] = { signal_type: row.signal_type, detail: row.detail || '(no detail)', count: 0, severity: row.severity || 'info' };
+        detailAgg[key] = { signal_type: row.signal_type, detail: detail || '(no detail)', count: 0, severity: row.severity || 'info' };
       }
       detailAgg[key].count += 1;
       // escalate displayed severity to the worst seen for this group
       const rank = { info: 0, warning: 1, critical: 2 };
       if ((rank[row.severity] ?? 0) > (rank[detailAgg[key].severity] ?? 0)) detailAgg[key].severity = row.severity;
     }
-    const machineTop = Object.values(detailAgg)
+    const missingData = Object.values(missingAgg)
       .sort((a, b) => b.count - a.count)
-      .slice(0, 12);
+      .slice(0, 6)
+      .map(({ reason, count, specialties }) => ({ reason, count, specialties: [...specialties] }));
+    const otherTop = Object.values(detailAgg)
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 6);
 
     return {
       human: { ...counts, total, approvalRate, safetyOverrides },
       recentComments,
       cpgRejection,
       machine: { total: M.length, byType },
-      machineTop,
+      pipeline: { missingData, ruledOut, suppressed, otherTop },
       days,
     };
   } catch (err) {

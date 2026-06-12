@@ -36,6 +36,25 @@ function prettifyCpgName(name) {
     .trim();
 }
 
+// Referral specialty strings arrive as "Referral to Cardiology", "Cardiology
+// review", etc. — normalise to the bare specialty so rows group cleanly.
+function cleanSpecialty(s) {
+  return (s || '')
+    .replace(/^refer(ral)?\s+to\s+/i, '')
+    .replace(/\s+(review|consultation|referral)$/i, '')
+    .trim() || 'Unspecified';
+}
+
+// clinical_notes often lead with a "[Severity/Staging] - …" block; the real
+// chief complaint sits after a "CC:" marker. Prefer it when present.
+function extractComplaint(notes) {
+  if (!notes) return 'No notes';
+  const text = notes.replace(/<[^>]*>?/gm, '');
+  const ccMatch = /CC:\s*(.+)/s.exec(text);
+  const src = ccMatch ? ccMatch[1] : text;
+  return src.substring(0, 60) + (src.length > 60 ? '…' : '');
+}
+
 // ---------------------------------------------------------------------------
 // Sub-components
 // ---------------------------------------------------------------------------
@@ -119,8 +138,9 @@ function Sparkline({ data, isDark }) {
 
 export function DashboardSection({ days = 30 }) {
   const { isDark, accent } = useTheme();
-  const [logFilter, setLogFilter] = useState('all');
+  const [logFilter, setLogFilter] = useState('completed');
   const [searchTerm, setSearchTerm] = useState('');
+  const [specialtyFilter, setSpecialtyFilter] = useState(null); // set by clicking a Referral Overview row
   const [loading, setLoading] = useState(true);
   const [expandedFlag, setExpandedFlag] = useState(null); // flag-group key
 
@@ -146,9 +166,12 @@ export function DashboardSection({ days = 30 }) {
       const windowStart = new Date();
       windowStart.setDate(windowStart.getDate() - days);
 
+      // Only the columns this dashboard actually reads — select('*') dragged
+      // down every JSONB column (care plans, timings, summaries…) per row and
+      // made the initial sync take seconds.
       const { data: consultsData, error } = await supabase
         .from('consultations')
-        .select('*')
+        .select('id, created_at, patient_nric, clinical_notes, cpg_references, safety_flags, referrals, diagnoses')
         .gte('created_at', windowStart.toISOString())
         .order('created_at', { ascending: false });
 
@@ -231,6 +254,7 @@ export function DashboardSection({ days = 30 }) {
 
         // Referrals
         const refs = safeJson(c.referrals);
+        const rowSpecs = [];
         refs.forEach(r => {
           referralTotal++;
           const urg = (r.urgency || '').toLowerCase();
@@ -238,7 +262,8 @@ export function DashboardSection({ days = 30 }) {
           else if (urg === 'urgent') refUrgent++;
           else refRoutine++;
 
-          const spec = r.specialty || r.referral_to || r.type || 'Unspecified';
+          const spec = cleanSpecialty(r.specialty || r.referral_to || r.type);
+          if (!rowSpecs.includes(spec)) rowSpecs.push(spec);
           if (!specialtyMap[spec]) specialtyMap[spec] = { count: 0, emergency: 0, urgent: 0, routine: 0 };
           specialtyMap[spec].count++;
           if (urg === 'emergency') specialtyMap[spec].emergency++;
@@ -254,21 +279,21 @@ export function DashboardSection({ days = 30 }) {
           ddxStr = typeof first === 'string' ? first : (first.condition || first.name || first.diagnosis || 'Unknown');
           dxs.forEach(dx => {
             const name = typeof dx === 'string' ? dx : (dx.condition || dx.name || dx.diagnosis || 'Unknown');
-            if (name && name !== 'Unknown') dxMap[name] = (dxMap[name] || 0) + 1;
+            if (name && name !== 'Unknown') {
+              const key = name.toLowerCase();
+              if (!dxMap[key]) dxMap[key] = { display: name, count: 0 };
+              dxMap[key].count++;
+            }
           });
-        }
-
-        let complaintText = 'No notes';
-        if (c.clinical_notes) {
-          complaintText = c.clinical_notes.replace(/<[^>]*>?/gm, '').substring(0, 60);
-          if (c.clinical_notes.length > 60) complaintText += '…';
         }
 
         newLogs.push({
           id: c.id,
           patient: patientMap[c.patient_nric] || 'Unknown Patient',
-          complaint: complaintText,
+          complaint: extractComplaint(c.clinical_notes),
           ddx: ddxStr,
+          incomplete: ddxStr === 'Pending',
+          referralSpecs: rowSpecs,
           cpgCitations: cpgRefs.length,
           flagCount: flags.length,
           hasCritical: flags.some(f => (f.severity || '').toUpperCase() === 'CRITICAL'),
@@ -294,10 +319,10 @@ export function DashboardSection({ days = 30 }) {
       setConsultationLog(newLogs);
 
       setTopDiagnoses(
-        Object.entries(dxMap)
-          .sort((a, b) => b[1] - a[1])
+        Object.values(dxMap)
+          .sort((a, b) => b.count - a.count)
           .slice(0, 5)
-          .map(([name, count]) => ({ name, count, pct: Math.round((count / total30d) * 100) }))
+          .map(({ display, count }) => ({ name: display, count, pct: Math.round((count / total30d) * 100) }))
       );
 
       setCpgUsage(
@@ -366,14 +391,18 @@ export function DashboardSection({ days = 30 }) {
 
   const filteredLog = useMemo(() => {
     let list = [...consultationLog];
+    if (logFilter === 'completed') list = list.filter(c => !c.incomplete);
     if (logFilter === 'flagged') list = list.filter(c => c.flagCount > 0);
     if (logFilter === 'referred') list = list.filter(c => c.referralCount > 0);
+    if (specialtyFilter) list = list.filter(c => c.referralSpecs.includes(specialtyFilter));
     if (searchTerm) {
       const q = searchTerm.toLowerCase();
       list = list.filter(c => c.patient.toLowerCase().includes(q) || c.ddx.toLowerCase().includes(q));
     }
     return list;
-  }, [logFilter, searchTerm, consultationLog]);
+  }, [logFilter, searchTerm, specialtyFilter, consultationLog]);
+
+  const incompleteCount = useMemo(() => consultationLog.filter(c => c.incomplete).length, [consultationLog]);
 
   const divider = `border-b md:border-b-0 md:border-r ${isDark ? 'border-white/10' : 'border-slate-200'}`;
 
@@ -509,29 +538,42 @@ export function DashboardSection({ days = 30 }) {
               ))}
             </div>
 
-            {/* Top specialties */}
+            {/* Top specialties — click a row to filter the consultation log */}
             {referralBreakdown.length === 0 ? (
               <p className={`text-sm text-center ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No referrals in this period</p>
             ) : (
-              <div className="space-y-3">
-                {referralBreakdown.map(r => (
-                  <div key={r.specialty}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{r.specialty}</span>
-                      <div className="flex items-center gap-2">
-                        {r.emergency > 0 && <span className="text-[10px] text-red-500 font-semibold">{r.emergency}🔴</span>}
-                        {r.urgent    > 0 && <span className={`text-[10px] font-semibold ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>{r.urgent}⚠</span>}
-                        <span className={`text-xs ds-numeric ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{r.count} total</span>
+              <div className="space-y-1.5">
+                {referralBreakdown.map(r => {
+                  const active = specialtyFilter === r.specialty;
+                  return (
+                    <button
+                      key={r.specialty}
+                      onClick={() => { setSpecialtyFilter(active ? null : r.specialty); setLogFilter(active ? 'completed' : 'referred'); }}
+                      className={`w-full text-left px-2 py-1.5 -mx-2 rounded-lg transition-colors
+                        ${active
+                          ? 'bg-[var(--accent-primary)]/10 ring-1 ring-[var(--accent-primary)]/25'
+                          : isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`}
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <span className={`text-sm font-medium ${active ? 'text-[var(--accent-primary)]' : isDark ? 'text-white' : 'text-slate-800'}`}>{r.specialty}</span>
+                        <div className="flex items-center gap-2">
+                          {r.emergency > 0 && <span className="text-[10px] text-red-500 font-semibold">{r.emergency}🔴</span>}
+                          {r.urgent    > 0 && <span className={`text-[10px] font-semibold ${isDark ? 'text-amber-400' : 'text-amber-600'}`}>{r.urgent}⚠</span>}
+                          <span className={`text-xs ds-numeric ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{r.count}</span>
+                        </div>
                       </div>
-                    </div>
-                    <ProgressBar
-                      value={r.count}
-                      max={referralBreakdown[0].count}
-                      color={r.emergency > 0 ? 'red' : r.urgent > 0 ? 'amber' : 'teal'}
-                      isDark={isDark}
-                    />
-                  </div>
-                ))}
+                      <ProgressBar
+                        value={r.count}
+                        max={referralBreakdown[0].count}
+                        color={r.emergency > 0 ? 'red' : r.urgent > 0 ? 'amber' : 'teal'}
+                        isDark={isDark}
+                      />
+                    </button>
+                  );
+                })}
+                <p className={`text-[10px] pt-1.5 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
+                  Click a specialty to see its consultations in the log below
+                </p>
               </div>
             )}
           </Card>
@@ -545,18 +587,33 @@ export function DashboardSection({ days = 30 }) {
             Top Diagnoses (AI-assisted, {days} days)
           </p>
           <Card className="p-5" variant={isDark ? 'dark' : 'light'}>
-            <div className="space-y-4">
+            <div className="space-y-1.5">
               {topDiagnoses.length === 0
                 ? <p className={`text-sm text-center ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No diagnosis data</p>
-                : topDiagnoses.map((dx, i) => (
-                <div key={dx.name}>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className={`text-sm font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{dx.name}</span>
-                    <span className={`text-xs ds-numeric ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{dx.count} consults</span>
-                  </div>
-                  <ProgressBar value={dx.pct} color={['teal', 'violet', 'sky', 'amber', 'primary'][i % 5]} isDark={isDark} />
-                </div>
-              ))}
+                : topDiagnoses.map((dx, i) => {
+                const active = searchTerm === dx.name;
+                return (
+                  <button
+                    key={dx.name}
+                    onClick={() => setSearchTerm(active ? '' : dx.name)}
+                    className={`w-full text-left px-2 py-1.5 -mx-2 rounded-lg transition-colors
+                      ${active
+                        ? 'bg-[var(--accent-primary)]/10 ring-1 ring-[var(--accent-primary)]/25'
+                        : isDark ? 'hover:bg-white/5' : 'hover:bg-slate-50'}`}
+                  >
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className={`text-sm font-medium truncate ${active ? 'text-[var(--accent-primary)]' : isDark ? 'text-white' : 'text-slate-800'}`}>{dx.name}</span>
+                      <span className={`text-xs ds-numeric shrink-0 ml-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{dx.count} consults · {dx.pct}%</span>
+                    </div>
+                    <ProgressBar value={dx.pct} color={['teal', 'violet', 'sky', 'amber', 'primary'][i % 5]} isDark={isDark} />
+                  </button>
+                );
+              })}
+              {topDiagnoses.length > 0 && (
+                <p className={`text-[10px] pt-1.5 ${isDark ? 'text-slate-600' : 'text-slate-400'}`}>
+                  Click a diagnosis to see its consultations in the log below
+                </p>
+              )}
             </div>
           </Card>
         </div>
@@ -620,8 +677,18 @@ export function DashboardSection({ days = 30 }) {
               />
             </div>
             <div className="flex items-center gap-1.5">
+              {specialtyFilter && (
+                <button
+                  onClick={() => { setSpecialtyFilter(null); setLogFilter('completed'); }}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-colors
+                    bg-[var(--accent-primary)]/15 ${accent.text} border-[var(--accent-primary)]/25`}
+                >
+                  {specialtyFilter} ✕
+                </button>
+              )}
               {[
-                { key: 'all',      label: 'All' },
+                { key: 'completed', label: 'Completed' },
+                { key: 'all',      label: incompleteCount > 0 ? `All (+${incompleteCount} incomplete)` : 'All' },
                 { key: 'flagged',  label: 'Safety Flagged' },
                 { key: 'referred', label: 'Referred' },
               ].map(f => (
@@ -658,7 +725,7 @@ export function DashboardSection({ days = 30 }) {
                   </tr>
                 ) : (
                   filteredLog.map(c => (
-                    <tr key={c.id} className={`border-b last:border-0 transition-colors ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-100 hover:bg-slate-50'}`}>
+                    <tr key={c.id} className={`border-b last:border-0 transition-colors ${c.incomplete ? 'opacity-50' : ''} ${isDark ? 'border-white/5 hover:bg-white/5' : 'border-slate-100 hover:bg-slate-50'}`}>
                       <td className={`px-4 py-3 ds-numeric whitespace-nowrap text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
                         {new Date(c.date).toLocaleDateString('en-MY', { day: '2-digit', month: 'short' })}
                         {' '}
@@ -666,7 +733,11 @@ export function DashboardSection({ days = 30 }) {
                       </td>
                       <td className={`px-4 py-3 font-medium ${isDark ? 'text-white' : 'text-slate-800'}`}>{c.patient}</td>
                       <td className={`px-4 py-3 max-w-[180px] truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.complaint}</td>
-                      <td className={`px-4 py-3 font-medium max-w-[200px] truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>{c.ddx}</td>
+                      <td className={`px-4 py-3 font-medium max-w-[200px] truncate ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                        {c.incomplete
+                          ? <span className={`italic font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Incomplete — no diagnosis saved</span>
+                          : c.ddx}
+                      </td>
                       <td className="px-4 py-3">
                         <span className={`inline-flex items-center gap-1 text-xs ds-numeric ${isDark ? 'text-sky-400' : 'text-sky-600'}`}>
                           <BookOpen className="w-3 h-3" strokeWidth={2} />

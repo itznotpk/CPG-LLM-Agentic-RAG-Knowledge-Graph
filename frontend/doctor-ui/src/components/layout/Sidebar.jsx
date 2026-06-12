@@ -62,13 +62,13 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
         }`}
     >
       {/* Logo Section */}
-      <div className={`p-4 flex items-center ${resolvedCollapsed ? 'justify-center' : 'gap-3'} ${isDark ? 'border-b border-white/5' : 'border-b border-slate-100/50'}`}>
+      <div className={`p-4 flex items-center justify-center ${isDark ? 'border-b border-white/5' : 'border-b border-slate-100/50'}`}>
         {resolvedCollapsed ? (
           <span
             className="leading-none tracking-tight select-none font-bold italic"
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: '30px',
+              fontSize: '34px',
               color: 'var(--primary-700)',
               letterSpacing: '-0.02em',
             }}
@@ -76,26 +76,17 @@ const Sidebar = ({ currentView, onNavigate, isCollapsed, onToggleCollapse, profi
             CP<span style={{ color: 'var(--primary-500)' }}>.</span>
           </span>
         ) : (
-          <div className="flex items-center gap-2.5">
-            <img
-              src="/MHNexus.png"
-              alt="MHNexus Logo"
-              className="object-contain flex-shrink-0 w-12 h-12"
-            />
-            <div className="flex flex-col min-w-0">
-              <span
-                className="leading-none tracking-tight select-none font-bold italic"
-                style={{
-                  fontFamily: "var(--font-display)",
-                  fontSize: '24px',
-                  color: 'var(--primary-700)',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                ClearPath<span style={{ color: 'var(--primary-500)' }}>.</span>
-              </span>
-            </div>
-          </div>
+          <span
+            className="leading-none tracking-tight select-none font-bold italic text-center"
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: '40px',
+              color: 'var(--primary-700)',
+              letterSpacing: '-0.02em',
+            }}
+          >
+            ClearPath<span style={{ color: 'var(--primary-500)' }}>.</span>
+          </span>
         )}
       </div>
 
