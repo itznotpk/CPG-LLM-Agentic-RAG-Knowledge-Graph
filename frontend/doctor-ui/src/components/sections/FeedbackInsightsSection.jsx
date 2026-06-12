@@ -121,7 +121,7 @@ export function FeedbackInsightsSection({ days = 30 }) {
             Feedback &amp; System Health
           </h2>
           <p className={`mt-1 text-sm ${mutedText}`}>
-            Clinician feedback &amp; pipeline signals
+            Clinician feedback &amp; pipeline signals · last {days} days
           </p>
         </div>
         {loading && <span className={`text-xs mt-1 ${subtleText} animate-pulse`}>Syncing…</span>}

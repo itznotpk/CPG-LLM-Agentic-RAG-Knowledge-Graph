@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, User, Heart, Activity, Thermometer, Wind, Scale, Droplets } from 'lucide-react';
-import { GlassCard, GlassPanel, Button, Badge } from '../shared';
+import { ArrowLeft } from 'lucide-react';
+import { GlassCard, GlassPanel, Button } from '../shared';
 import { VitalsLineChart } from '../shared/VitalsLineChart';
 import { useTheme } from '../../context/ThemeContext';
 import { useApp } from '../../context/AppContext';
+import { getPatientVitalsHistory } from '../../lib/supabase';
 
-// Tab configuration for vital signs
+// Tab configuration for vital signs. Every metric key here maps to a real
+// `live_vitals` column (sbp/dbp/hr/spo2/rr/temp) so each tab plots live data.
 const vitalsTabs = [
     {
         id: 'bloodPressure',
         label: 'Blood Pressure',
-        icon: Heart,
         metrics: [
             { key: 'bpSystolic', label: 'Systolic', unit: 'mmHg', color: 'var(--accent-primary)' },
             { key: 'bpDiastolic', label: 'Diastolic', unit: 'mmHg', color: '#94a3b8', dashed: true },
@@ -19,7 +20,6 @@ const vitalsTabs = [
     {
         id: 'heartRate',
         label: 'Heart Rate',
-        icon: Activity,
         metrics: [
             { key: 'hr', label: 'Heart Rate', unit: 'bpm', color: 'var(--accent-primary)' },
         ]
@@ -27,23 +27,20 @@ const vitalsTabs = [
     {
         id: 'oxygenation',
         label: 'SpO2',
-        icon: Wind,
         metrics: [
             { key: 'spo2', label: 'Oxygen Saturation', unit: '%', color: 'var(--accent-primary)' },
         ]
     },
     {
-        id: 'weight',
-        label: 'Weight',
-        icon: Scale,
+        id: 'respiratoryRate',
+        label: 'Resp. Rate',
         metrics: [
-            { key: 'weight', label: 'Weight', unit: 'kg', color: 'var(--accent-primary)' },
+            { key: 'rr', label: 'Respiratory Rate', unit: '/min', color: 'var(--accent-primary)' },
         ]
     },
     {
         id: 'temperature',
         label: 'Temperature',
-        icon: Thermometer,
         metrics: [
             { key: 'temp', label: 'Temperature', unit: '°C', color: 'var(--accent-primary)' },
         ]
@@ -59,41 +56,29 @@ function PatientChart({ patient, onBack }) {
     // Get MPIS data for this patient if available
     const patientNric = patient?.nsn || patient?.nric;
 
-    // Auto-load historical data on mount
+    // Auto-load historical data on mount. Vitals are reconstructed from the
+    // `live_vitals` table (one row per consultation) — NOT from a non-existent
+    // patients.vitals_history column, which is why the chart used to be empty.
     useEffect(() => {
+        if (!patientNric) { setVitalsData([]); setIsLoading(false); return; }
+
+        let cancelled = false;
         const loadData = async () => {
             setIsLoading(true);
-
-            // Simulate brief loading for smooth UX
-            await new Promise(resolve => setTimeout(resolve, 500));
-
-            // Load historical data from patient object (Supabase only)
-            const rawHistory = patient?.vitalsHistory || [];
-            console.log('📊 PatientChart loading vitals for:', patientNric, 'History:', rawHistory);
-
-            if (rawHistory.length > 0) {
-                // Normalize all entries to objects
-                const normalizedHistory = rawHistory.map(d => {
-                    try {
-                        return typeof d === 'string' ? JSON.parse(d) : d;
-                    } catch (e) {
-                        return d;
-                    }
-                });
-                setVitalsData(normalizedHistory);
-            } else {
-                // No data available
-                setVitalsData([]);
+            const { vitals } = await getPatientVitalsHistory(patientNric);
+            if (!cancelled) {
+                setVitalsData(vitals || []);
+                setIsLoading(false);
             }
-
-            setIsLoading(false);
         };
 
         loadData();
-    }, [patientNric, patient?.vitalsHistory]);
+        return () => { cancelled = true; };
+    }, [patientNric]);
 
 
     const currentTabConfig = vitalsTabs.find(t => t.id === activeTab);
+    const initials = (patient?.name || '??').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
 
     // Aligned & Dynamic: Get current vitals from AppContext if this is the active patient
     const { state } = useApp();
@@ -108,7 +93,7 @@ function PatientChart({ patient, onBack }) {
             hr: parseInt(state.vitals.hr) || 0,
             temp: parseFloat(state.vitals.temp) || 0,
             spo2: parseInt(state.vitals.spo2) || 0,
-            weight: parseFloat(state.vitals.weight) || 0,
+            rr: parseInt(state.vitals.rr) || 0,
         };
         historyToDisplay.push(currentEntry);
     }
@@ -126,152 +111,135 @@ function PatientChart({ patient, onBack }) {
                 </Button>
                 <div>
                     <h1 className={`text-2xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                        Patient Chart
+                        Patient Vital Chart
                     </h1>
-                    <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
-                        Vital Signs History
-                    </p>
                 </div>
             </div>
 
-            {/* Patient Info Card */}
-            <GlassCard className="p-5">
-                <div className="flex items-center gap-4">
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center ${isDark ? 'bg-[var(--accent-primary)]/20' : 'bg-[var(--accent-primary)]/10'
-                        }`}>
-                        <User className="w-8 h-8 text-[var(--accent-primary)]" />
-                    </div>
-                    <div className="flex-1">
-                        <h2 className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                            {patient?.name || 'Unknown Patient'}
-                        </h2>
-                        <p className={`text-sm mt-1 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                            <code className="ds-mono not-italic">{patientNric || 'N/A'}</code>
-                            {' • '}
-                            {patient?.age || 'N/A'} yrs
-                            {' • '}
-                            {patient?.gender ? patient.gender.charAt(0).toUpperCase() + patient.gender.slice(1) : 'N/A'}
-                        </p>
-                    </div>
-                    {patient?.comorbidities && patient.comorbidities.length > 0 && (
-                        <div className="flex flex-wrap gap-2">
-                            {patient.comorbidities.slice(0, 3).map((condition, i) => (
-                                <Badge key={i} variant="warning" size="sm">{condition}</Badge>
-                            ))}
+            {/* 2-row × 3-col grid:
+                Row 1 — patient banner (1 col) aligns level + height with the
+                        parameter switcher tabs (2 cols).
+                Row 2 — metric stat cards (1 col) align height with the trend graph
+                        (2 cols). Grid row stretch keeps each pair the same height. */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                {/* Row 1 · Patient banner — same width as the stat cards below it */}
+                <GlassCard className="lg:col-span-1 p-3.5 flex items-center">
+                    <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-[var(--accent-primary)]/15 flex-shrink-0">
+                            <span className="text-base font-bold text-[var(--accent-primary)]">{initials}</span>
                         </div>
+                        <div className="min-w-0">
+                            <h2 className={`text-base font-bold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                                {patient?.name || 'Unknown Patient'}
+                            </h2>
+                            <p className={`text-xs mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                <code className="ds-mono not-italic">{patientNric || 'N/A'}</code>
+                                {' • '}{patient?.age || 'N/A'} yrs
+                                {' • '}{patient?.gender ? patient.gender.charAt(0).toUpperCase() + patient.gender.slice(1) : 'N/A'}
+                            </p>
+                        </div>
+                    </div>
+                </GlassCard>
+
+                {/* Row 1 · Parameter switcher — full-width bar, level + height with banner */}
+                <GlassCard className="lg:col-span-2 p-2 flex items-center">
+                    <div className="flex w-full gap-1">
+                        {vitalsTabs.map((tab) => {
+                            const isActive = activeTab === tab.id;
+                            return (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${isActive
+                                        ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)]'
+                                        : (isDark ? 'text-slate-400 hover:bg-white/5' : 'text-slate-500 hover:bg-slate-100')
+                                        }`}
+                                >
+                                    {tab.label}
+                                </button>
+                            );
+                        })}
+                    </div>
+                </GlassCard>
+
+                {/* Row 2 · Metric stat cards — natural size */}
+                <div className="lg:col-span-1 space-y-4">
+                    {isLoading ? (
+                        <GlassCard className="p-4 h-32 flex items-center justify-center">
+                            <div className="animate-spin rounded-full h-6 w-6 border-2 border-[var(--accent-primary)] border-t-transparent" />
+                        </GlassCard>
+                    ) : (latestVitals && currentTabConfig) ? (
+                        currentTabConfig.metrics.map((metric) => {
+                            const values = historyToDisplay.map(d => d[metric.key]).filter(v => v !== undefined && !isNaN(v));
+                            const latest = latestVitals[metric.key];
+                            const min = values.length > 0 ? Math.min(...values) : null;
+                            const max = values.length > 0 ? Math.max(...values) : null;
+                            const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : null;
+                            const fmt = (v) => (v != null ? v.toFixed(metric.key === 'temp' ? 1 : 0) : '-');
+
+                            return (
+                                <GlassCard key={metric.key} className="p-4">
+                                    <div className="flex items-center justify-between mb-3">
+                                        <h4 className={`text-sm font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+                                            {metric.label}
+                                        </h4>
+                                        <span className={`text-[10px] font-medium ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{metric.unit}</span>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-y-3 gap-x-2">
+                                        <div>
+                                            <div className={`text-[10px] uppercase tracking-wide ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Latest</div>
+                                            <div className="text-2xl font-bold leading-tight" style={{ color: metric.color }}>{fmt(latest)}</div>
+                                        </div>
+                                        <div>
+                                            <div className={`text-[10px] uppercase tracking-wide ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Average</div>
+                                            <div className={`text-2xl font-bold leading-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>{fmt(avg)}</div>
+                                        </div>
+                                        <div>
+                                            <div className={`text-[10px] uppercase tracking-wide ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Min</div>
+                                            <div className="text-2xl font-bold leading-tight text-emerald-500">{fmt(min)}</div>
+                                        </div>
+                                        <div>
+                                            <div className={`text-[10px] uppercase tracking-wide ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Max</div>
+                                            <div className="text-2xl font-bold leading-tight text-red-500">{fmt(max)}</div>
+                                        </div>
+                                    </div>
+                                </GlassCard>
+                            );
+                        })
+                    ) : (
+                        <GlassCard className="p-4">
+                            <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No vital signs data available</p>
+                        </GlassCard>
                     )}
                 </div>
-            </GlassCard>
 
-            {/* Tabs */}
-            <div className="flex gap-2 overflow-x-auto pb-2">
-                {vitalsTabs.map((tab) => {
-                    const Icon = tab.icon;
-                    const isActive = activeTab === tab.id;
-
-                    return (
-                        <button
-                            key={tab.id}
-                            onClick={() => setActiveTab(tab.id)}
-                            className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm whitespace-nowrap transition-all ${isActive
-                                ? 'bg-[var(--accent-primary)] text-white shadow-lg'
-                                : isDark
-                                    ? 'bg-white/10 text-slate-300 hover:bg-white/20'
-                                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                                }`}
-                        >
-                            <Icon className="w-4 h-4" />
-                            {tab.label}
-                        </button>
-                    );
-                })}
-            </div>
-
-            {/* Two-Column Layout: Chart Left, Stats Right */}
-            <div className="flex flex-col lg:flex-row gap-6">
-                {/* Left: Vital Signs Chart */}
-                <GlassPanel className="p-6 flex-1 lg:w-2/3">
-                    <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center gap-3">
-                            <div className="p-2 bg-[var(--accent-primary)]/20 rounded-xl">
-                                {currentTabConfig && <currentTabConfig.icon className="w-5 h-5 text-[var(--accent-primary)]" />}
-                            </div>
-                            <div>
-                                <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                    {currentTabConfig?.label} Trends
-                                </h3>
-                                <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                    {isLoading
-                                        ? 'Loading historical data...'
-                                        : `${vitalsData.length} data points`
-                                    }
-                                </p>
-                            </div>
-                        </div>
+                {/* Row 2 · Trend graph */}
+                <GlassPanel className="lg:col-span-2 p-5">
+                    <div className="mb-4">
+                        <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                            {currentTabConfig?.label} Trends
+                        </h3>
+                        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                            {isLoading
+                                ? 'Loading historical data...'
+                                : `${historyToDisplay.length} data point${historyToDisplay.length === 1 ? '' : 's'}`
+                            }
+                        </p>
                     </div>
 
                     {isLoading ? (
-                        <div className="flex items-center justify-center h-48">
+                        <div className="flex items-center justify-center h-64">
                             <div className="animate-spin rounded-full h-8 w-8 border-2 border-[var(--accent-primary)] border-t-transparent" />
                         </div>
                     ) : (
                         <VitalsLineChart
                             data={historyToDisplay}
                             metrics={currentTabConfig?.metrics || []}
-                            height={250}
+                            height={300}
                         />
                     )}
                 </GlassPanel>
-
-                {/* Right: Quick Stats */}
-                {!isLoading && latestVitals && currentTabConfig && (
-                    <div className="lg:w-1/3 space-y-4">
-                        {currentTabConfig.metrics.map((metric) => {
-                            const values = historyToDisplay.map(d => d[metric.key]).filter(v => v !== undefined && !isNaN(v));
-                            const latest = latestVitals[metric.key];
-                            const min = values.length > 0 ? Math.min(...values) : null;
-                            const max = values.length > 0 ? Math.max(...values) : null;
-                            const avg = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : null;
-
-                            return (
-                                <GlassCard key={metric.key} className="p-4">
-                                    <h4 className={`text-sm font-medium mb-3 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                                        {metric.label}
-                                    </h4>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div className="text-center">
-                                            <div className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Latest</div>
-                                            <div className="text-xl font-bold" style={{ color: metric.color }}>
-                                                {latest != null ? latest.toFixed(metric.key === 'temp' ? 1 : 0) : '-'}
-                                            </div>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Average</div>
-                                            <div className={`text-xl font-bold ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                                {avg != null ? avg.toFixed(metric.key === 'temp' ? 1 : 0) : '-'}
-                                            </div>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Min</div>
-                                            <div className="text-xl font-bold text-green-500">
-                                                {min != null ? min.toFixed(metric.key === 'temp' ? 1 : 0) : '-'}
-                                            </div>
-                                        </div>
-                                        <div className="text-center">
-                                            <div className={`text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Max</div>
-                                            <div className="text-xl font-bold text-red-500">
-                                                {max != null ? max.toFixed(metric.key === 'temp' ? 1 : 0) : '-'}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className={`text-xs text-center mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                                        {metric.unit}
-                                    </div>
-                                </GlassCard>
-                            );
-                        })}
-                    </div>
-                )}
             </div>
         </div>
     );

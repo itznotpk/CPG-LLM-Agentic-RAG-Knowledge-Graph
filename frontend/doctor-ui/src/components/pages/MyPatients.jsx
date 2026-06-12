@@ -29,7 +29,7 @@ import {
 import { GlassCard } from '../shared/GlassCard';
 import { Button } from '../shared/Button';
 import { useTheme } from '../../context/ThemeContext';
-import { getAllPatients, getPatientConsultation, getAllPatientConsultations, downloadCarePlanPDF } from '../../lib/supabase';
+import { getAllPatients, getAllPatientConsultations, downloadCarePlanPDF, getLatestVitals } from '../../lib/supabase';
 
 // Download a single diagnosis record as a plain-text report
 function downloadDiagnosisReport(dx, patient, dateToDisplay, timeToDisplay) {
@@ -136,75 +136,225 @@ function LatestConsultDisplay({ patientNric, consultations, isDark }) {
   );
 }
 
-// Helper component to display clinical notes for a patient
-function ClinicalNotesDisplay({ patientNric, consultations, setConsultations, loadingNric, setLoadingNric, isDark }) {
-  const [localLoading, setLocalLoading] = React.useState(false);
+// BMI chip for the patient banner. Pulls the latest live_vitals row (weight +
+// height) and derives BMI = kg / m². Renders nothing when the patient has no
+// weight/height recorded, so it's additive — the meta row stays clean otherwise.
+function PatientBmiBadge({ nric, isDark }) {
+  const [bmi, setBmi] = React.useState(null);
 
   React.useEffect(() => {
-    // If we already have data cached, don't fetch again
-    if (consultations[patientNric] !== undefined) return;
-
-    const fetchConsultation = async () => {
-      setLocalLoading(true);
-      setLoadingNric(patientNric);
-
-      try {
-        const result = await getPatientConsultation(patientNric);
-        setConsultations(prev => ({
-          ...prev,
-          [patientNric]: result.found ? result.consultation : null
-        }));
-      } catch (err) {
-        console.error('Error fetching consultation:', err);
-        setConsultations(prev => ({
-          ...prev,
-          [patientNric]: null
-        }));
-      } finally {
-        setLocalLoading(false);
-        setLoadingNric(null);
+    let cancelled = false;
+    if (!nric) { setBmi(null); return; }
+    getLatestVitals(nric).then(({ vitals }) => {
+      if (cancelled) return;
+      const w = Number(vitals?.weight), h = Number(vitals?.height);
+      if (w > 0 && h > 0) {
+        const m = h / 100;
+        setBmi(+(w / (m * m)).toFixed(1));
+      } else {
+        setBmi(null);
       }
-    };
+    }).catch(() => { if (!cancelled) setBmi(null); });
+    return () => { cancelled = true; };
+  }, [nric]);
 
-    fetchConsultation();
-  }, [patientNric, consultations, setConsultations, setLoadingNric]);
+  if (bmi == null) return null;
 
-  const consultation = consultations[patientNric];
-  const isLoading = loadingNric === patientNric || localLoading;
-
-  if (isLoading) {
-    return (
-      <div className="flex items-center gap-2">
-        <Loader2 className="w-4 h-4 animate-spin text-slate-400" strokeWidth={1.5} />
-        <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading clinical notes...</span>
-      </div>
-    );
-  }
-
-  if (!consultation || !consultation.clinicalNotes) {
-    return (
-      <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-        No clinical notes recorded
-      </p>
-    );
-  }
-
-  // Format the date
-  const consultDate = consultation.consultationTime
-    ? new Date(consultation.consultationTime).toLocaleString()
-    : 'Unknown date';
+  // BMI category → label + colour (Asian-population cutoffs are stricter, but the
+  // standard WHO bands keep this consistent with the rest of the UI).
+  const cat = bmi < 18.5 ? { label: 'Underweight', c: 'text-amber-500' }
+    : bmi < 25 ? { label: 'Normal', c: 'text-emerald-500' }
+    : bmi < 30 ? { label: 'Overweight', c: 'text-amber-500' }
+    : { label: 'Obese', c: 'text-red-500' };
 
   return (
-    <div>
-      <div className={`p-3 rounded-lg ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
-        <p className={`text-sm whitespace-pre-wrap ${isDark ? 'text-white' : 'text-slate-800'}`}>
-          {consultation.clinicalNotes}
-        </p>
+    <>
+      <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
+      <span className="inline-flex items-center gap-1">
+        <span className={`font-semibold ${cat.c}`}>BMI {bmi}</span>
+        <span className={`text-xs ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>· {cat.label}</span>
+      </span>
+    </>
+  );
+}
+
+// Parse free-text clinical notes into structured blocks for readable rendering.
+// Recognises bracket sections ("[Severity/Staging]" + "- key: value" lines) and
+// inline labelled fields ("CC:", "HPI:", "PE/Labs:" …). Anything else is plain text.
+function parseClinicalNotes(raw) {
+  const blocks = [];
+  let group = null; // active bracket section accumulating "- key: value" items
+  for (const line of raw.split('\n')) {
+    const t = line.trim();
+    if (!t) { group = null; continue; }
+
+    const bracket = t.match(/^\[(.+)\]$/);
+    if (bracket) {
+      group = { type: 'group', title: bracket[1].trim(), items: [] };
+      blocks.push(group);
+      continue;
+    }
+
+    const bullet = t.match(/^[-•]\s*(.+)$/);
+    if (bullet && group) {
+      const kv = bullet[1].match(/^(.+?):\s*(.+)$/);
+      group.items.push(kv ? { k: kv[1].trim(), v: kv[2].trim() } : { k: null, v: bullet[1].trim() });
+      continue;
+    }
+
+    const field = t.match(/^([A-Za-z][A-Za-z/ &]{0,24}):\s*(.*)$/);
+    if (field) {
+      group = null;
+      blocks.push({ type: 'field', label: field[1].trim(), value: field[2].trim() });
+      continue;
+    }
+
+    // continuation / loose prose — fold into the previous field or text block
+    const last = blocks[blocks.length - 1];
+    if (last && (last.type === 'field' || last.type === 'text')) {
+      last.value = `${last.value} ${t}`.trim();
+    } else {
+      blocks.push({ type: 'text', value: t });
+    }
+    group = null;
+  }
+  return blocks;
+}
+
+// Split a medication entry into a bold drug name + secondary detail line.
+function parseMedication(med) {
+  const text = (med && typeof med === 'object'
+    ? (med.name || med.medication || 'Unknown')
+    : String(med || '')).trim();
+  const extra = (med && typeof med === 'object')
+    ? [med.dose, med.frequency].filter(Boolean).join(' · ')
+    : '';
+
+  // Drug name = text up to the first dose number or "(…)" qualifier.
+  const idxs = [];
+  const dose = text.match(/\s(?=\d)/);
+  if (dose) idxs.push(dose.index);
+  const paren = text.indexOf(' (');
+  if (paren > 0) idxs.push(paren);
+  const splitIdx = idxs.length ? Math.min(...idxs) : text.length;
+
+  let name = text.slice(0, splitIdx).replace(/[,;:\-\s]+$/, '').trim();
+  let detail = text.slice(splitIdx).trim();
+  if (!name || name.length > 45) {
+    const words = text.split(/\s+/);
+    name = words.slice(0, 3).join(' ');
+    detail = words.slice(3).join(' ');
+  }
+  if (extra) detail = detail ? `${detail} · ${extra}` : extra;
+  return { name, detail };
+}
+
+// Clinical notes for a patient, with a dropdown to switch between past visits.
+// Consumes the already-fetched `selectedPatientConsultations` list (newest-first)
+// — no extra round-trip — and structures the selected visit's notes.
+function ClinicalNotesDisplay({ consultations, loading, isDark }) {
+  const list = Array.isArray(consultations) ? consultations : [];
+  const withNotes = list.filter(c => c && c.clinicalNotes && String(c.clinicalNotes).trim());
+  const [selectedId, setSelectedId] = React.useState(null);
+
+  // Default to the most recent visit that has notes; re-sync when the list changes.
+  React.useEffect(() => {
+    if (withNotes.length === 0) { setSelectedId(null); return; }
+    setSelectedId(prev => (withNotes.some(c => c.id === prev) ? prev : withNotes[0].id));
+  }, [list]);
+
+  // Visit number is derived from position in the FULL list so it matches the
+  // Consultation History numbering (which counts visits without notes too).
+  const labelFor = (c) => {
+    const idxInAll = list.findIndex(x => x.id === c.id);
+    const visitNo = idxInAll >= 0 ? list.length - idxInAll : '?';
+    const d = c.consultationTime
+      ? new Date(c.consultationTime).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+      : '';
+    return `Visit ${visitNo}${d ? ` · ${d}` : ''}`;
+  };
+
+  const Header = ({ children }) => (
+    <div className="flex items-center justify-between gap-2 mb-3">
+      <p className="text-xs font-bold uppercase tracking-wider text-blue-500">Clinical Notes</p>
+      {children}
+    </div>
+  );
+
+  if (loading) {
+    return (
+      <>
+        <Header />
+        <div className="flex items-center gap-2">
+          <Loader2 className="w-4 h-4 animate-spin text-slate-400" strokeWidth={1.5} />
+          <span className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Loading clinical notes...</span>
+        </div>
+      </>
+    );
+  }
+
+  if (withNotes.length === 0) {
+    return (
+      <>
+        <Header />
+        <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>No clinical notes recorded</p>
+      </>
+    );
+  }
+
+  const selected = withNotes.find(c => c.id === selectedId) || withNotes[0];
+  const consultDate = selected.consultationTime ? new Date(selected.consultationTime).toLocaleString() : 'Unknown date';
+  const blocks = parseClinicalNotes(selected.clinicalNotes);
+
+  return (
+    <>
+      <Header>
+        {withNotes.length > 1 && (
+          <select
+            value={selectedId ?? ''}
+            onChange={(e) => setSelectedId(Number(e.target.value))}
+            className={`text-xs rounded-md px-2 py-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500/30 ${isDark ? 'bg-white/10 text-slate-200 ring-1 ring-white/10' : 'bg-white text-slate-600 ring-1 ring-slate-200'}`}
+          >
+            {withNotes.map(c => (
+              <option key={c.id} value={c.id}>{labelFor(c)}</option>
+            ))}
+          </select>
+        )}
+      </Header>
+      <div className="max-h-36 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
+      <div className={`p-3 rounded-lg space-y-3 ${isDark ? 'bg-white/5' : 'bg-slate-50'}`}>
+        {blocks.map((b, i) => {
+          if (b.type === 'group') {
+            return (
+              <div key={i}>
+                <p className={`text-[10px] font-semibold uppercase tracking-wide mb-1.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{b.title}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {b.items.map((it, j) => (
+                    <span key={j} className={`inline-flex items-center gap-1.5 text-xs px-2 py-0.5 rounded-md ${isDark ? 'bg-white/10 text-slate-300' : 'bg-white text-slate-700 border border-slate-200'}`}>
+                      {it.k && <span className="font-semibold">{it.k}</span>}
+                      <span className="ds-numeric">{it.v}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          }
+          if (b.type === 'field') {
+            return (
+              <div key={i} className="flex gap-2.5">
+                <span className="text-[10px] font-bold uppercase tracking-wide text-blue-500 mt-1 flex-shrink-0 w-16">{b.label}</span>
+                <p className={`text-sm leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{b.value}</p>
+              </div>
+            );
+          }
+          return <p key={i} className={`text-sm leading-snug ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{b.value}</p>;
+        })}
+      </div>
       </div>
       <p className={`text-xs mt-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
         Last updated: {consultDate}
       </p>
-    </div>
+    </>
   );
 }
 
@@ -221,7 +371,6 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
   const [showMedicalHistory, setShowMedicalHistory] = useState(false);
   const [historyPatient, setHistoryPatient] = useState(null);
   const [patientConsultations, setPatientConsultations] = useState({}); // Cache consultations by NRIC
-  const [loadingConsultation, setLoadingConsultation] = useState(null);
   const [selectedPatientConsultations, setSelectedPatientConsultations] = useState([]);
   const [loadingHistory, setLoadingHistory] = useState(false);
 
@@ -706,50 +855,55 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                   {/* Expandable Detail Row — Redesigned Premium Layout */}
                   {selectedPatient?.id === patient.id && (
                     <tr>
-                      <td colSpan="5" className={`p-0 ${isDark ? 'bg-white/5' : 'bg-slate-50/80'}`}>
-                        <div id={`patient-detail-${patient.nsn}`} className="px-6 py-5">
+                      <td colSpan="5" className="p-0">
+                        <div
+                          id={`patient-detail-${patient.nsn}`}
+                          className={`mx-3 my-3 px-6 py-5 rounded-3xl backdrop-blur-2xl ring-1 ${
+                            isDark
+                              ? 'bg-slate-900/40 ring-white/10 shadow-2xl shadow-black/40'
+                              : 'bg-white/55 ring-slate-900/[0.06] shadow-xl shadow-slate-400/20'
+                          }`}
+                        >
 
                           {/* ═══ HEADER BAR: Avatar + Demographics + Badges ═══ */}
-                          <div className={`flex items-center gap-5 p-5 rounded-2xl mb-5 ${isDark ? 'bg-gradient-to-r from-white/[0.06] to-white/[0.02] border border-white/10' : 'bg-gradient-to-r from-white to-slate-50 border border-slate-200 shadow-sm'}`}>
+                          <div className={`flex items-center gap-4 px-5 py-4 rounded-xl mb-5 ${isDark ? 'bg-white/[0.04] ring-1 ring-white/[0.06]' : 'bg-white/60 ring-1 ring-slate-200/60'}`}>
                             {/* Large Avatar */}
-                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${getAvatarColor(patient.gender)} font-bold text-xl flex-shrink-0 shadow-md`}>
+                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${getAvatarColor(patient.gender)} font-bold text-lg flex-shrink-0`}>
                               {getInitials(patient.name || '')}
                             </div>
 
                             {/* Name & Demographics */}
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-3 flex-wrap">
+                              <div className="flex items-center gap-2.5 flex-wrap">
                                 <h3 className={`text-lg font-bold tracking-tight ${isDark ? 'text-white' : 'text-slate-800'}`}>
                                   {patient.name || 'Unknown Patient'}
                                 </h3>
                                 {getStatusBadge(patient.status)}
                               </div>
-                              <div className={`flex items-center gap-4 mt-1.5 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                <span className="flex items-center gap-1.5">
-                                  <FileText className="w-3.5 h-3.5" strokeWidth={1.5} />
-                                  {patient.nsn || '—'}
-                                </span>
+                              <div className={`flex items-center gap-3 mt-2 text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                <span className="font-medium tracking-tight">{patient.nsn || '—'}</span>
                                 <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
                                 <span>{patient.age ? `${patient.age} yrs` : '—'}</span>
                                 <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
                                 <span>{patient.gender || '—'}</span>
                                 <span className={`w-px h-3.5 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
                                 <span>{patient.race || '—'}</span>
+                                <PatientBmiBadge nric={patient.nsn} isDark={isDark} />
                               </div>
                             </div>
                           </div>
 
                           {/* ═══ TWO-COLUMN BODY ═══ */}
-                          <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-1 gap-5" style={{ height: '520px' }}>
+                          {/* items-stretch (grid default) makes both columns equal height;
+                              the History card flex-fills the left column so its lower border
+                              lines up with the Current Medications card on the right. */}
+                          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
                             {/* ─── LEFT COLUMN (50%) ─── */}
-                            <div className="lg:col-span-1 flex flex-col gap-5 min-h-0 overflow-hidden">
+                            <div className="lg:col-span-1 flex flex-col gap-5 min-h-0">
                               {/* Comorbidities Tags */}
-                              <div className={`p-4 rounded-2xl ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
-                                <div className="flex items-center gap-2 mb-3">
-                                  <Activity className="w-4 h-4 text-violet-700" strokeWidth={1.8} />
-                                  <p className="text-xs font-bold uppercase tracking-wider text-violet-700">Comorbidities</p>
-                                </div>
+                              <div className={`p-4 rounded-xl ${isDark ? 'bg-white/[0.03] ring-1 ring-white/[0.06]' : 'bg-white/55 ring-1 ring-slate-200/60'}`}>
+                                <p className="text-xs font-bold uppercase tracking-wider text-violet-700 mb-3">Comorbidities</p>
                                 <div className="flex flex-wrap gap-2">
                                   {patient.comorbidities && patient.comorbidities.length > 0 ? (
                                     (Array.isArray(patient.comorbidities) ? patient.comorbidities : [String(patient.comorbidities)]).map((c, i) => (
@@ -759,18 +913,15 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                       </span>
                                     ))
                                   ) : (
-                                    <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No comorbidities recorded</span>
+                                    <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>N/A</span>
                                   )}
                                 </div>
                               </div>
 
                               {/* Consultation History Timeline */}
-                              <div className={`p-4 rounded-2xl flex-1 flex flex-col min-h-0 overflow-hidden ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
-                                <div className="flex items-center justify-between mb-4">
-                                  <div className="flex items-center gap-2">
-                                    <History className="w-4 h-4 text-emerald-700" strokeWidth={1.8} />
-                                    <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Consultation History</p>
-                                  </div>
+                              <div className={`p-4 rounded-xl flex-1 flex flex-col min-h-0 ${isDark ? 'bg-white/[0.03] ring-1 ring-white/[0.06]' : 'bg-white/55 ring-1 ring-slate-200/60'}`}>
+                                <div className="flex items-center justify-between mb-3">
+                                  <p className="text-xs font-bold uppercase tracking-wider text-emerald-700">Consultation History</p>
                                   {selectedPatientConsultations.length > 0 && (
                                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-100 text-slate-500'}`}>
                                       {selectedPatientConsultations.length} record{selectedPatientConsultations.length > 1 ? 's' : ''}
@@ -790,16 +941,26 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
 
                                   if (selectedPatientConsultations.length > 0) {
                                     return (
-                                      <div className="relative flex-1 min-h-0 overflow-y-auto pr-1" style={{ scrollbarWidth: 'thin' }}>
-                                        {/* Timeline line */}
-                                        <div className={`absolute left-[11px] top-2 bottom-2 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
+                                      // relative + flex-1 with an absolutely-positioned scroll layer:
+                                      // the inner list does not contribute to column height, so the card
+                                      // stays bounded to the (taller) right column and scrolls like the
+                                      // Current Medications card instead of overflowing past it.
+                                      <div className="relative flex-1 min-h-0">
+                                        <div className="absolute inset-0 overflow-y-auto pr-1" style={{ scrollbarWidth: 'thin' }}>
+                                          <div className="relative">
+                                            {/* Timeline line */}
+                                            <div className={`absolute left-[11px] top-2 bottom-2 w-px ${isDark ? 'bg-white/10' : 'bg-slate-200'}`} />
 
-                                        <div className="space-y-3">
+                                            <div className="space-y-3">
                                           {selectedPatientConsultations.map((consult, index) => {
                                             const dateObj = consult.consultationTime ? new Date(consult.consultationTime) : new Date(consult.createdAt || 0);
                                             const dateToDisplay = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric', timeZone: 'Asia/Singapore' });
                                             const timeToDisplay = dateObj.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Singapore' });
                                             const diagnoses = consult.diagnoses || [];
+                                            // Chronological visit number (list is newest-first); prefer the
+                                            // DB consultation_number when present, else derive from position.
+                                            const visitNo = consult.consultationNumber ?? consult.consultation_number ?? (selectedPatientConsultations.length - index);
+                                            const dlLabel = consult.reportPdfUrl ? 'Download care plan PDF' : 'Download diagnosis report';
 
                                             return (
                                               <div key={consult.id || index} className="flex gap-3 relative">
@@ -809,45 +970,69 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                                 </div>
 
                                                 {/* Consultation card */}
-                                                <div className={`flex-1 p-3.5 rounded-xl border transition-colors group ${isDark ? 'bg-white/[0.03] border-white/10 hover:border-[var(--accent-primary)]/30' : 'bg-slate-50/70 border-slate-200 hover:border-[var(--accent-primary)]/40'}`}>
-                                                  <div className="flex items-center justify-between">
-                                                    <div className="flex items-center gap-2 flex-wrap">
+                                                <div className={`flex-1 p-3.5 rounded-xl ring-1 transition-colors group ${isDark ? 'bg-white/[0.03] ring-white/10 hover:ring-[var(--accent-primary)]/30' : 'bg-white/70 ring-slate-200 hover:ring-[var(--accent-primary)]/40'}`}>
+                                                  {/* Row 1 — visit badges + download */}
+                                                  <div className="flex items-start justify-between gap-2">
+                                                    <div className="flex items-center gap-1.5 flex-wrap">
                                                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider ${index === 0 ? `bg-[var(--accent-primary)]/20 ${accent.text}` : isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-200 text-slate-500'}`}>
-                                                        {index === 0 ? 'Latest' : 'Consultation'}
+                                                        Visit {visitNo}
                                                       </span>
-                                                      <span className={`text-xs font-semibold ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
-                                                        {dateToDisplay} at {timeToDisplay}
+                                                      {index === 0 && (
+                                                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider ${isDark ? 'bg-emerald-500/15 text-emerald-400' : 'bg-emerald-50 text-emerald-600'}`}>
+                                                          Latest
+                                                        </span>
+                                                      )}
+                                                    </div>
+                                                    {/* Download with hover tooltip */}
+                                                    <div className="relative group/dl flex-shrink-0">
+                                                      <button
+                                                        aria-label={dlLabel}
+                                                        onClick={() => {
+                                                          if (consult.reportPdfUrl) {
+                                                            const fileName = `CarePlan_${(patient.name || 'Patient').replace(/\s+/g, '_')}_${dateToDisplay.replace(/\s+/g, '_')}.pdf`;
+                                                            downloadCarePlanPDF(consult.reportPdfUrl, fileName);
+                                                          } else {
+                                                            const firstDx = diagnoses[0] || 'No_Diagnosis';
+                                                            const dxName = typeof firstDx === 'object' ? firstDx.name : firstDx;
+                                                            downloadDiagnosisReport(dxName, patient, dateToDisplay, timeToDisplay);
+                                                          }
+                                                        }}
+                                                        className={`p-2 rounded-lg transition-all opacity-60 group-hover:opacity-100 ${isDark ? 'hover:bg-white/10 text-slate-400 hover:text-white' : 'hover:bg-slate-200 text-slate-400 hover:text-teal-600'} active:scale-90`}
+                                                      >
+                                                        <Download className="w-3.5 h-3.5" strokeWidth={2} />
+                                                      </button>
+                                                      <span className={`pointer-events-none absolute right-0 top-full mt-1 z-20 whitespace-nowrap rounded-md px-2 py-1 text-[10px] font-medium opacity-0 translate-y-1 group-hover/dl:opacity-100 group-hover/dl:translate-y-0 transition-all duration-150 shadow-lg ${isDark ? 'bg-slate-800 text-slate-100 ring-1 ring-white/10' : 'bg-slate-800 text-white'}`}>
+                                                        {dlLabel}
                                                       </span>
                                                     </div>
-                                                    <button
-                                                      title={consult.reportPdfUrl ? 'Download Care Plan PDF' : 'Download Diagnosis Report'}
-                                                      onClick={() => {
-                                                        if (consult.reportPdfUrl) {
-                                                          const fileName = `CarePlan_${(patient.name || 'Patient').replace(/\s+/g, '_')}_${dateToDisplay.replace(/\s+/g, '_')}.pdf`;
-                                                          downloadCarePlanPDF(consult.reportPdfUrl, fileName);
-                                                        } else {
-                                                          const firstDx = diagnoses[0] || 'No_Diagnosis';
-                                                          const dxName = typeof firstDx === 'object' ? firstDx.name : firstDx;
-                                                          downloadDiagnosisReport(dxName, patient, dateToDisplay, timeToDisplay);
-                                                        }
-                                                      }}
-                                                      className={`p-2 rounded-lg transition-all opacity-60 group-hover:opacity-100 ${isDark ? 'hover:bg-white/10 text-slate-400 hover:text-white' : 'hover:bg-slate-200 text-slate-400 hover:text-teal-600'} active:scale-90`}
-                                                    >
-                                                      <Download className="w-3.5 h-3.5" strokeWidth={2} />
-                                                    </button>
                                                   </div>
+
+                                                  {/* Row 2 — date / time meta */}
+                                                  <div className={`flex items-center gap-1.5 mt-2 text-xs ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                                                    <Calendar className="w-3.5 h-3.5" strokeWidth={1.8} />
+                                                    <span className={`font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{dateToDisplay}</span>
+                                                    <span className={`w-px h-3 ${isDark ? 'bg-white/15' : 'bg-slate-300'}`} />
+                                                    <Clock className="w-3.5 h-3.5" strokeWidth={1.8} />
+                                                    <span>{timeToDisplay}</span>
+                                                  </div>
+
+                                                  {/* Row 3 — diagnoses + ICD-11 codes */}
                                                   {diagnoses.length > 0 ? (
-                                                    <div className="mt-2 space-y-1">
-                                                      {diagnoses.map((dx, i) => (
-                                                        <p key={i} className={`text-sm ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-                                                          <span className="font-medium">{typeof dx === 'object' ? dx.name : dx}</span>
-                                                          {typeof dx === 'object' && dx.icdCode && (
-                                                            <span className={`ml-2 text-[10px] font-mono px-1.5 py-0.5 rounded ${isDark ? 'bg-white/10 text-slate-500' : 'bg-slate-200/80 text-slate-500'}`}>
-                                                              {dx.icdCode}
-                                                            </span>
-                                                          )}
-                                                        </p>
-                                                      ))}
+                                                    <div className={`mt-3 pt-3 border-t space-y-1.5 ${isDark ? 'border-white/10' : 'border-slate-200'}`}>
+                                                      {diagnoses.map((dx, i) => {
+                                                        const dxName = typeof dx === 'object' ? dx.name : dx;
+                                                        const code = typeof dx === 'object' ? dx.icdCode : null;
+                                                        return (
+                                                          <div key={i} className="flex items-start justify-between gap-2">
+                                                            <p className={`text-sm leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{dxName}</p>
+                                                            {code && (
+                                                              <span className={`flex-shrink-0 w-20 text-center text-[10px] font-mono px-1.5 py-0.5 rounded ${isDark ? 'bg-white/10 text-slate-400' : 'bg-slate-100 text-slate-500 ring-1 ring-slate-200'}`}>
+                                                                {code}
+                                                              </span>
+                                                            )}
+                                                          </div>
+                                                        );
+                                                      })}
                                                     </div>
                                                   ) : (
                                                     <p className={`text-xs mt-2 italic ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No diagnoses recorded</p>
@@ -856,6 +1041,8 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                                               </div>
                                             );
                                           })}
+                                            </div>
+                                          </div>
                                         </div>
                                       </div>
                                     );
@@ -872,34 +1059,25 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                             </div>
 
                             {/* ─── RIGHT COLUMN (50%) ─── */}
-                            <div className="lg:col-span-1 flex flex-col gap-5 min-h-0 overflow-hidden">
+                            <div className="lg:col-span-1 flex flex-col gap-5">
 
                               {/* Allergies + Recent Vitals — Side by Side */}
                               <div className="grid grid-cols-2 gap-4">
                                 {/* Allergies Box */}
-                                <div className={`p-4 rounded-2xl flex flex-col ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <AlertTriangle className="w-4 h-4 text-red-500" strokeWidth={1.8} />
-                                    <p className="text-xs font-bold uppercase tracking-wider text-red-500">Allergies</p>
-                                  </div>
+                                <div className={`p-4 rounded-xl flex flex-col ${isDark ? 'bg-white/[0.03] ring-1 ring-white/[0.06]' : 'bg-white/55 ring-1 ring-slate-200/60'}`}>
+                                  <p className="text-xs font-bold uppercase tracking-wider text-red-500 mb-3">Allergies</p>
                                   {patient.allergies ? (
                                     <p className="text-sm font-semibold text-red-500 leading-snug">
                                       {Array.isArray(patient.allergies) ? patient.allergies.join(', ') : String(patient.allergies)}
                                     </p>
                                   ) : (
-                                    <div className="flex items-center gap-1.5">
-                                      <CheckCircle className="w-3.5 h-3.5 text-emerald-500 flex-shrink-0" strokeWidth={2} />
-                                      <p className={`text-xs font-medium ${isDark ? 'text-emerald-400' : 'text-emerald-600'}`}>No known allergies</p>
-                                    </div>
+                                    <span className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>N/A</span>
                                   )}
                                 </div>
 
                                 {/* Recent Vital Signs Box */}
-                                <div className={`p-4 rounded-2xl ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
-                                  <div className="flex items-center gap-2 mb-3">
-                                    <Activity className="w-4 h-4 text-amber-800" strokeWidth={1.8} />
-                                    <p className="text-xs font-bold uppercase tracking-wider text-amber-800">Recent Vitals</p>
-                                  </div>
+                                <div className={`p-4 rounded-xl ${isDark ? 'bg-white/[0.03] ring-1 ring-white/[0.06]' : 'bg-white/55 ring-1 ring-slate-200/60'}`}>
+                                  <p className="text-xs font-bold uppercase tracking-wider text-amber-800 mb-3">Recent Vitals</p>
                                   <Button
                                     variant="primary"
                                     size="sm"
@@ -913,40 +1091,32 @@ const MyPatients = ({ onViewChart, onNewPatient }) => {
                               </div>
 
                               {/* Clinical Notes */}
-                              <div className={`p-4 rounded-2xl ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
-                                <div className="flex items-center gap-2 mb-3">
-                                  <Stethoscope className="w-4 h-4 text-blue-500" strokeWidth={1.8} />
-                                  <p className="text-xs font-bold uppercase tracking-wider text-blue-500">Clinical Notes</p>
-                                </div>
-                                <div className="max-h-36 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
-                                  <ClinicalNotesDisplay
-                                    patientNric={patient.nsn}
-                                    consultations={patientConsultations}
-                                    setConsultations={setPatientConsultations}
-                                    loadingNric={loadingConsultation}
-                                    setLoadingNric={setLoadingConsultation}
-                                    isDark={isDark}
-                                  />
-                                </div>
+                              <div className={`p-4 rounded-xl ${isDark ? 'bg-white/[0.03] ring-1 ring-white/[0.06]' : 'bg-white/55 ring-1 ring-slate-200/60'}`}>
+                                <ClinicalNotesDisplay
+                                  consultations={selectedPatientConsultations}
+                                  loading={loadingHistory}
+                                  isDark={isDark}
+                                />
                               </div>
 
                               {/* Current Medications */}
-                              <div className={`p-4 rounded-2xl flex-1 flex flex-col ${isDark ? 'bg-white/[0.04] border border-white/10' : 'bg-white border border-slate-200 shadow-sm'}`}>
-                                <div className="flex items-center gap-2 mb-3">
-                                  <Pill className="w-4 h-4 text-amber-500" strokeWidth={1.8} />
-                                  <p className="text-xs font-bold uppercase tracking-wider text-amber-500">Current Medications</p>
-                                </div>
-                                <div className="max-h-36 overflow-y-auto" style={{ scrollbarWidth: 'thin' }}>
+                              <div className={`p-4 rounded-xl flex flex-col ${isDark ? 'bg-white/[0.03] ring-1 ring-white/[0.06]' : 'bg-white/55 ring-1 ring-slate-200/60'}`}>
+                                <p className="text-xs font-bold uppercase tracking-wider text-amber-500 mb-3">Current Medications</p>
+                                <div className="max-h-48 overflow-y-auto pr-1" style={{ scrollbarWidth: 'thin' }}>
                                   {patient.currentMeds && patient.currentMeds.length > 0 ? (
                                     <div className="space-y-1.5">
-                                      {patient.currentMeds.map((med, idx) => (
-                                        <div key={idx} className={`flex items-start gap-2 text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
-                                          <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-amber-500`} />
-                                          <span>{typeof med === 'object'
-                                            ? `${med.name || med.medication || 'Unknown'} ${med.dose || ''} ${med.frequency || ''}`.trim()
-                                            : String(med)}</span>
-                                        </div>
-                                      ))}
+                                      {patient.currentMeds.map((med, idx) => {
+                                        const { name, detail } = parseMedication(med);
+                                        return (
+                                          <div key={idx} className={`flex items-start gap-2.5 p-2 rounded-lg ${isDark ? 'bg-white/[0.03]' : 'bg-slate-50'}`}>
+                                            <span className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 bg-amber-500" />
+                                            <div className="min-w-0">
+                                              <p className={`text-sm font-semibold leading-snug ${isDark ? 'text-white' : 'text-slate-800'}`}>{name}</p>
+                                              {detail && <p className={`text-xs leading-snug mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{detail}</p>}
+                                            </div>
+                                          </div>
+                                        );
+                                      })}
                                     </div>
                                   ) : (
                                     <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>

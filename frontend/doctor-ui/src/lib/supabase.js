@@ -907,11 +907,12 @@ export const getLatestPriorVisitSummary = async (patientNric) => {
  */
 export const saveLiveVitals = async ({ nric, consultationId, vitals, source = 'manual', quality = null }) => {
   if (!nric) return { error: new Error('saveLiveVitals: missing patient nric') };
-  const { hr, bpSystolic, bpDiastolic, spo2, rr, temp } = vitals || {};
+  const { hr, bpSystolic, bpDiastolic, spo2, rr, temp, weight, height } = vitals || {};
   // live_vitals keeps one row PER CONSULTATION (UNIQUE consultation_id). Upsert on
   // consultation_id so re-applying vitals within a visit overwrites in place while
   // each consultation retains its own snapshot. consultation_id should be non-null
-  // here (the row is written once the consultation exists).
+  // here (the row is written once the consultation exists). weight/height are
+  // persisted so BMI can be derived on the patient cards (no weight trend graph).
   const { error } = await supabase.from('live_vitals').upsert({
     patient_nric:    nric,
     consultation_id: consultationId || null,
@@ -922,11 +923,79 @@ export const saveLiveVitals = async ({ nric, consultationId, vitals, source = 'm
     dbp:             bpDiastolic ? Number(bpDiastolic) : null,
     rr:              rr    ? Number(rr)    : null,
     temp:            temp  ? Number(temp)  : null,
+    weight:          weight ? Number(weight) : null,
+    height:          height ? Number(height) : null,
     quality:         quality != null ? +Number(quality).toFixed(1) : null,
     updated_at:      new Date().toISOString(),
   }, { onConflict: 'consultation_id' });
   if (error) console.error('Error saving live vitals:', error);
   return { error };
+};
+
+/**
+ * Load a patient's longitudinal vitals for the Patient Chart trends graph.
+ * Vitals live in `live_vitals` (one row per consultation) — there is NO
+ * `patients.vitals_history` column — so a patient's history is reconstructed by
+ * reading every `live_vitals` row for their NRIC, ordered chronologically.
+ * Maps the DB column names (sbp/dbp) to the chart's expected keys
+ * (bpSystolic/bpDiastolic). Every charted metric — BP, HR, SpO2, RR, Temp — is
+ * sourced from a real live_vitals column. Weight is intentionally NOT charted
+ * because live_vitals has no weight column (no data source exists yet).
+ *
+ * @param {string} nric patient NRIC (patients PK / live_vitals.patient_nric)
+ * @returns {Promise<{ vitals: Array, error?: Error }>}
+ */
+export const getPatientVitalsHistory = async (nric) => {
+  if (!nric) return { vitals: [] };
+  const { data, error } = await supabase
+    .from('live_vitals')
+    .select('hr, spo2, sbp, dbp, rr, temp, source, quality, updated_at')
+    .eq('patient_nric', nric)
+    .order('updated_at', { ascending: true });
+
+  if (error) {
+    console.error('Error loading vitals history:', error);
+    return { vitals: [], error };
+  }
+
+  const vitals = (data || []).map((r) => {
+    const ts = r.updated_at ? new Date(r.updated_at) : null;
+    return {
+      date: ts ? ts.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' }) : '—',
+      timestamp: r.updated_at || null,
+      bpSystolic: r.sbp ?? 0,
+      bpDiastolic: r.dbp ?? 0,
+      hr: r.hr ?? 0,
+      spo2: r.spo2 ?? 0,
+      rr: r.rr ?? 0,
+      temp: r.temp ?? 0,
+    };
+  });
+  return { vitals };
+};
+
+/**
+ * Fetch a patient's most recent live_vitals row (incl. weight/height) so the
+ * patient cards can derive BMI. Returns null when the patient has no vitals.
+ *
+ * @param {string} nric patient NRIC
+ * @returns {Promise<{ vitals: Object|null, error?: Error }>}
+ */
+export const getLatestVitals = async (nric) => {
+  if (!nric) return { vitals: null };
+  const { data, error } = await supabase
+    .from('live_vitals')
+    .select('weight, height, hr, spo2, rr, sbp, dbp, temp, updated_at')
+    .eq('patient_nric', nric)
+    .order('updated_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error loading latest vitals:', error);
+    return { vitals: null, error };
+  }
+  return { vitals: data || null };
 };
 
 /**

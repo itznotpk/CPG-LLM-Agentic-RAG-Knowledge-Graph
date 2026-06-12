@@ -1,5 +1,5 @@
 import React from 'react';
-import { Brain, Activity, UserPlus, X, Database, Heart, BarChart2, Wind, Scale, Thermometer, Loader2, ClipboardList, Pill, HelpCircle } from 'lucide-react';
+import { Brain, Activity, UserPlus, X, Database, Heart, BarChart2, Wind, Scale, Thermometer, Loader2, Pill, HelpCircle, Sparkles, FileText } from 'lucide-react';
 import { getPrepBrief } from '../../lib/clinicalApi';
 import { ClinicalNotes } from './ClinicalNotes';
 import { PipelineProgress } from './PipelineProgress';
@@ -481,7 +481,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
       {/* ── Prior Visit Summary (only when previous consultation exists) ── */}
       {priorVisit && (
         <div className={`px-5 py-4 border-b ${divider}`}>
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-3">
             <p className={eyebrow}>Last consultation</p>
             {priorVisit.visit_date && (
               <span className={`text-[11px] font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
@@ -490,60 +490,21 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
               </span>
             )}
           </div>
-          <div className={`text-sm space-y-1.5 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-            {priorVisit.prior_icd_primary && (
-              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>ICD:</span> {priorVisit.prior_icd_primary}</p>
-            )}
-            {priorVisit.prior_plan_summary && (
-              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Plan:</span> {priorVisit.prior_plan_summary}</p>
-            )}
-            {priorVisit.key_labs_delta && (
-              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Labs:</span> {priorVisit.key_labs_delta}</p>
-            )}
-            {priorVisit.what_changed && (
-              <p><span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Change:</span> {priorVisit.what_changed}</p>
-            )}
+          <div className={`rounded-lg border px-3.5 py-3 space-y-2.5 ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-50 border-slate-200'}`}>
+            {[
+              { label: 'ICD',    value: priorVisit.prior_icd_primary,  color: isDark ? 'text-sky-400' : 'text-sky-600' },
+              { label: 'Plan',   value: priorVisit.prior_plan_summary, color: isDark ? 'text-teal-400' : 'text-teal-600' },
+              { label: 'Labs',   value: priorVisit.key_labs_delta,     color: isDark ? 'text-violet-400' : 'text-violet-600' },
+              { label: 'Change', value: priorVisit.what_changed,       color: isDark ? 'text-amber-400' : 'text-amber-600' },
+            ].filter(r => r.value).map(({ label, value, color }) => (
+              <div key={label}>
+                <p className={`text-[10px] font-semibold uppercase tracking-wide mb-0.5 ${color}`}>{label}</p>
+                <p className={`text-sm leading-snug ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{value}</p>
+              </div>
+            ))}
           </div>
         </div>
       )}
-
-      {/* ── Known Allergies ── */}
-      <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-2`}>
-          Known allergies
-        </p>
-        <div className="flex flex-wrap gap-1.5 mb-2">
-          {(isEditing ? draft.allergies : (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean)).map((a, idx) => (
-            <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-red-500/10 text-red-400 border-red-500/30' : 'bg-red-50 text-red-600 border-red-200'}`}>
-              <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />{a}
-              {isEditing && <button onClick={() => setDraft(d => ({ ...d, allergies: d.allergies.filter((_, i) => i !== idx) }))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>}
-            </span>
-          ))}
-          {!isEditing && !(mpisData?.allergies) && <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No known allergies</p>}
-        </div>
-        {isEditing && (
-          <>
-            <input
-              type="text" placeholder="Add another allergy…" className={inputCls}
-              value={draft.allergyInput || ''}
-              onChange={e => setDraft(d => ({ ...d, allergyInput: e.target.value }))}
-              onKeyDown={e => {
-                if (e.key === 'Enter' && draft.allergyInput?.trim()) {
-                  setDraft(d => ({ ...d, allergies: [...d.allergies, d.allergyInput.trim()], allergyInput: '' }));
-                }
-              }}
-            />
-            <div className="flex gap-2 mt-2">
-              {['NSAIDs', 'Sulfa', 'Latex', 'Aspirin'].map(s => (
-                <button key={s} onClick={() => setDraft(d => ({ ...d, allergies: d.allergies.includes(s) ? d.allergies : [...d.allergies, s] }))}
-                  className={`text-xs px-2 py-1 rounded-md border transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}>
-                  +{s}
-                </button>
-              ))}
-            </div>
-          </>
-        )}
-      </div>
 
       {/* ── Comorbidities ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
@@ -574,7 +535,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
       </div>
 
       {/* ── Current Medications ── */}
-      <div className="px-5 py-4">
+      <div className={`px-5 py-4 border-b ${divider}`}>
         <p className={`${eyebrow} mb-3`}>
           Current medications
           {(isEditing ? draft.currentMeds : mpisData?.currentMeds)?.length > 0 && (
@@ -621,6 +582,44 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
             />
           )}
         </div>
+      </div>
+
+      {/* ── Known Allergies ── */}
+      <div className="px-5 py-4">
+        <p className={`${eyebrow} mb-2`}>
+          Known allergies
+        </p>
+        <div className="flex flex-wrap gap-1.5 mb-2">
+          {(isEditing ? draft.allergies : (mpisData?.allergies || '').split(',').map(s => s.trim()).filter(Boolean)).map((a, idx) => (
+            <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-red-500/10 text-red-400 border-red-500/30' : 'bg-red-50 text-red-600 border-red-200'}`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />{a}
+              {isEditing && <button onClick={() => setDraft(d => ({ ...d, allergies: d.allergies.filter((_, i) => i !== idx) }))}><X className="w-3 h-3 ml-0.5 opacity-60 hover:opacity-100" strokeWidth={2} /></button>}
+            </span>
+          ))}
+          {!isEditing && !(mpisData?.allergies) && <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>No known allergies</p>}
+        </div>
+        {isEditing && (
+          <>
+            <input
+              type="text" placeholder="Add another allergy…" className={inputCls}
+              value={draft.allergyInput || ''}
+              onChange={e => setDraft(d => ({ ...d, allergyInput: e.target.value }))}
+              onKeyDown={e => {
+                if (e.key === 'Enter' && draft.allergyInput?.trim()) {
+                  setDraft(d => ({ ...d, allergies: [...d.allergies, d.allergyInput.trim()], allergyInput: '' }));
+                }
+              }}
+            />
+            <div className="flex gap-2 mt-2">
+              {['NSAIDs', 'Sulfa', 'Latex', 'Aspirin'].map(s => (
+                <button key={s} onClick={() => setDraft(d => ({ ...d, allergies: d.allergies.includes(s) ? d.allergies : [...d.allergies, s] }))}
+                  className={`text-xs px-2 py-1 rounded-md border transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}>
+                  +{s}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
       </div>
 
       {/* ── Footer ── */}
@@ -960,29 +959,34 @@ function PrepBriefCard({ brief, loading }) {
   if (!brief) return null;
 
   const rows = [
-    { icon: ClipboardList, label: 'Since last visit', value: brief.since_last_visit, color: 'text-sky-500' },
-    { icon: Pill,          label: 'Medications',      value: brief.med_flags,        color: 'text-violet-500' },
-    { icon: HelpCircle,    label: 'Ask today',         value: brief.ask_today,        color: 'text-amber-500' },
+    { icon: FileText,   label: 'Last visit summary', value: brief.since_last_visit, color: 'text-teal-500' },
+    { icon: Pill,       label: 'Medications',        value: brief.med_flags,        color: 'text-violet-500' },
+    { icon: HelpCircle, label: 'Ask today',          value: brief.ask_today,        color: 'text-amber-500' },
   ].filter(r => r.value);
 
   if (rows.length === 0) return null;
 
   return (
-    <div className={`rounded-xl border px-4 py-3 space-y-2 ${
-      isDark ? 'bg-slate-800/60 border-slate-700' : 'bg-amber-50 border-amber-200'
+    <div className={`rounded-xl border overflow-hidden ${
+      isDark ? 'bg-slate-800/40 border-slate-700' : 'bg-white border-slate-200'
     }`}>
-      <p className={`text-[10px] font-semibold uppercase tracking-widest mb-2 ${isDark ? 'text-slate-500' : 'text-amber-600'}`}>
-        Pre-visit brief
-      </p>
-      {rows.map(({ icon: Icon, label, value, color }) => (
-        <div key={label} className="flex items-start gap-2">
-          <Icon size={13} className={`${color} shrink-0 mt-0.5`} />
-          <p className={`text-xs leading-snug ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
-            <span className={`font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'} mr-1`}>{label}:</span>
-            {value}
-          </p>
-        </div>
-      ))}
+      <div className={`flex items-center gap-2 px-4 py-2.5 border-b ${isDark ? 'border-slate-700' : 'border-slate-100'}`}>
+        <Sparkles size={13} className="text-teal-500 shrink-0" />
+        <p className={`text-[10px] font-semibold uppercase tracking-widest ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          Pre-visit brief
+        </p>
+      </div>
+      <div className="px-4 py-3 space-y-3">
+        {rows.map(({ icon: Icon, label, value, color }) => (
+          <div key={label} className="flex items-start gap-2.5">
+            <Icon size={14} className={`${color} shrink-0 mt-0.5`} />
+            <div className="min-w-0">
+              <p className={`text-[10px] font-semibold uppercase tracking-wide mb-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{label}</p>
+              <p className={`text-xs leading-snug ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{value}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

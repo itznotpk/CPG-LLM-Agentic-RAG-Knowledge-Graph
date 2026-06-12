@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import {
-  ArrowRight, Hash, Workflow, BookOpen, FileCheck2,
-  BrainCircuit, ShieldAlert, Eye, Camera, Activity, ListChecks,
-  Heart, Stethoscope,
+  ArrowRight, Workflow, BookOpen, FileCheck2,
+  BrainCircuit, ShieldAlert, Eye, Camera, Activity,
+  Heart, Stethoscope, ChevronDown, AlertTriangle, ShieldX,
+  Baby, Pill, FlaskConical, Mic, Network, Send, FileText,
 } from 'lucide-react';
 
 /**
@@ -18,6 +19,7 @@ export default function Landing({ onSignIn }) {
       <Hero onSignIn={onSignIn} />
       <Stats />
       <HowItWorks />
+      <Architecture />
       <Features />
       <Cases />
       <CTA onSignIn={onSignIn} />
@@ -42,6 +44,7 @@ function Nav({ onSignIn }) {
         </a>
         <div className="hidden md:flex items-center gap-7 text-sm">
           <a href="#how" className="text-slate-600 hover:text-teal-700 transition-colors">How it works</a>
+          <a href="#architecture" className="text-slate-600 hover:text-teal-700 transition-colors">Architecture</a>
           <a href="#features" className="text-slate-600 hover:text-teal-700 transition-colors">Features</a>
           <a href="#cases" className="text-slate-600 hover:text-teal-700 transition-colors">Use cases</a>
           <button
@@ -103,9 +106,11 @@ function Hero({ onSignIn }) {
             Clinician's <em className="italic text-teal-700 not-italic-fix">second opinion</em>, at the speed of a glance.
           </h1>
 
-          <p className="text-lg text-slate-600 max-w-[50ch] mb-9 leading-[1.6]">
-            ClearPath reads vitals, history, and chief complaint — then drafts a
-            CPG-aligned care plan with citations in under a minute.
+          <p className="text-lg text-slate-600 max-w-[52ch] mb-9 leading-[1.6]">
+            A citation-traceable second opinion for rural primary care. ClearPath reads
+            vitals, history, and chief complaint, then drafts a care plan — every claim
+            cited to a Malaysian MOH guideline and screened by an independent safety
+            critic — inside a standard consultation.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -251,10 +256,10 @@ function HeroVisual() {
 /* ---------- STATS ---------- */
 function Stats() {
   const items = [
-    { Icon: BookOpen, n: '30', unit: 'CPGs', label: 'MOH-endorsed guidelines indexed' },
-    { Icon: Hash, n: '248', unit: 'codes', label: 'WHO ICD-11 codes mapped to scope' },
-    { Icon: Workflow, n: '5', unit: 'stage', label: 'Agentic reasoning pipeline, end-to-end' },
-    { Icon: FileCheck2, n: '100', unit: '%', label: 'Decisions audit-logged with citations' },
+    { Icon: Workflow, n: '100', unit: '%', label: 'Guideline-routing accuracy (44/44, Top-1)' },
+    { Icon: FileCheck2, n: '86.4', unit: '%', label: 'Care-plan claims cited to evidence (849/979)' },
+    { Icon: ShieldAlert, n: '92', unit: '%', label: 'Safety-critic hazard sensitivity (100% specificity)' },
+    { Icon: Stethoscope, n: '4.93', unit: '/5', label: 'Clinician clinical-safety score, blinded evaluation' },
   ];
   return (
     <section className="bg-white border-y border-slate-200">
@@ -344,6 +349,135 @@ function HowItWorks() {
   );
 }
 
+/* ---------- ARCHITECTURE (7-stage pipeline) ---------- */
+const STAGE_TYPES = {
+  capture: { label: 'Multimodal capture', cls: 'bg-slate-100 text-slate-600 border-slate-200' },
+  llm: { label: 'LLM reasoning', cls: 'bg-teal-50 text-teal-700 border-teal-200' },
+  rule: { label: 'Deterministic', cls: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
+  mixed: { label: 'LLM + deterministic', cls: 'bg-amber-50 text-amber-700 border-amber-200' },
+};
+
+const STAGES = [
+  {
+    n: '1', Icon: Activity, type: 'capture', title: 'Patient Intake & Vitals',
+    desc: 'Vitals captured contactlessly from the camera (rPPG) or the ward monitor; the consultation is voice-recorded and turned into a SOAP note. History, labs, and chief complaint are entered or dictated.',
+    tags: ['rPPG', 'voice → SOAP'],
+  },
+  {
+    n: '2', Icon: BrainCircuit, type: 'llm', title: 'Differential Diagnosis',
+    desc: 'The presentation is mapped to ranked ICD-11 differentials. A four-layer determinism stack keeps the candidate pool stable across reruns; an LLM re-ranks for this specific patient.',
+    tags: ['ICD-11', 'LLM rerank', 'reproducible'],
+  },
+  {
+    n: '3', Icon: Workflow, type: 'rule', title: 'Deterministic Scoped Routing',
+    desc: 'A six-level rule cascade (D1–D6) resolves each diagnosis to the governing Malaysian MOH guidelines — no LLM, no blind keyword search. Out-of-scope presentations are refused, not guessed.',
+    tags: ['D1–D6 cascade', 'scope-gated'],
+  },
+  {
+    n: '4', Icon: BookOpen, type: 'mixed', title: 'Evidence-Graded Retrieval',
+    desc: 'LLM-written queries pull the relevant paragraphs from the routed guidelines via hybrid vector + keyword search — each chunk carrying its original MOH evidence grade.',
+    tags: ['hybrid RRF', 'graded evidence'],
+  },
+  {
+    n: '4.5', Icon: Network, type: 'rule', title: 'Knowledge-Graph Injection',
+    desc: 'Before synthesis, drug–condition and drug–drug edges from the clinical knowledge graph are injected as structured “prefer / avoid” evidence — pure Cypher, no LLM.',
+    tags: ['Neo4j', 'prefer / avoid'],
+    half: true,
+  },
+  {
+    n: '5', Icon: FileText, type: 'llm', title: 'Care-Plan Synthesis',
+    desc: 'An LLM drafts the eight-section executable care plan, constrained to the retrieved evidence and passed through an eight-layer post-synthesis validator chain (dedup, coverage, anti-hallucination).',
+    tags: ['8-section plan', 'cite-or-abstain'],
+  },
+  {
+    n: '6', Icon: ShieldAlert, type: 'mixed', title: 'Hybrid Safety Critic',
+    desc: 'An independent dual-source critic — an LLM pharmacist in parallel with a knowledge-graph verifier — screens every drug for allergy, interaction, dose, and contraindication. Any critical concern blocks sign-off.',
+    tags: ['LLM ∥ KG', 'blocks sign-off'],
+  },
+  {
+    n: '7', Icon: Send, type: 'rule', title: 'Delivery',
+    desc: 'On clinician approval, a fully cited care-plan PDF is generated, audit-logged, and delivered to the consented patient. A structured prior-visit summary is written for continuity.',
+    tags: ['cited PDF', 'audit-logged'],
+  },
+];
+
+function Architecture() {
+  return (
+    <section className="px-8 py-24" id="architecture" style={{ background: 'linear-gradient(180deg, #fafbfc, #fff)' }}>
+      <div className="max-w-[1280px] mx-auto">
+        <SectionHead
+          eyebrow="Architecture"
+          title={<><span className="whitespace-nowrap">Seven stages —</span> <em className="italic text-teal-700">deterministic by default</em>.</>}
+          sub="Safety comes from the system around the model, not its size. The pipeline is rule-driven wherever a rule will do, and reserves language models strictly for the reasoning that can't be expressed as rules — each one constrained to cited evidence."
+        />
+
+        {/* legend */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 mb-12">
+          {Object.values(STAGE_TYPES).map((t) => (
+            <span key={t.label} className={`inline-flex items-center gap-1.5 text-[11px] font-medium px-2.5 py-1 rounded-full border ${t.cls}`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />
+              {t.label}
+            </span>
+          ))}
+        </div>
+
+        {/* vertical pipeline */}
+        <div className="relative max-w-[860px] mx-auto">
+          {STAGES.map((s, i) => {
+            const t = STAGE_TYPES[s.type];
+            const isLast = i === STAGES.length - 1;
+            return (
+              <motion.div
+                key={s.n}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
+                className="relative flex gap-5 pb-6 last:pb-0"
+              >
+                {/* connector line */}
+                {!isLast && (
+                  <div className="absolute left-[27px] top-[58px] bottom-0 w-px bg-gradient-to-b from-slate-300 to-slate-200" />
+                )}
+                {/* stage number badge */}
+                <div className={`relative shrink-0 w-14 h-14 rounded-2xl border-2 inline-flex items-center justify-center font-mono font-bold bg-white
+                  ${s.type === 'llm' ? 'border-teal-300 text-teal-700' : s.type === 'rule' ? 'border-indigo-200 text-indigo-700' : s.type === 'mixed' ? 'border-amber-200 text-amber-700' : 'border-slate-200 text-slate-500'}
+                  ${s.half ? 'text-[13px]' : 'text-lg'}`}
+                >
+                  {s.n}
+                </div>
+                {/* stage card */}
+                <div className={`flex-1 bg-white border border-slate-200 rounded-[18px] p-5 hover:border-teal-300 hover:shadow-[0_20px_40px_-18px_rgba(15,23,42,0.14)] transition-all ${s.half ? 'border-dashed' : ''}`}>
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <div className="flex items-center gap-2.5">
+                      <span className="w-8 h-8 rounded-lg bg-teal-50 border border-teal-100 text-teal-700 inline-flex items-center justify-center shrink-0">
+                        <s.Icon className="w-[17px] h-[17px]" strokeWidth={1.8} />
+                      </span>
+                      <h3 className="text-[16px] font-semibold tracking-tight text-slate-900">
+                        {s.half && <span className="font-mono text-[11px] text-slate-400 mr-1.5">Stage {s.n}</span>}
+                        {s.title}
+                      </h3>
+                    </div>
+                    <span className={`shrink-0 inline-flex items-center text-[10.5px] font-semibold px-2 py-1 rounded-md border ${t.cls}`}>
+                      {t.label}
+                    </span>
+                  </div>
+                  <p className="text-[13.5px] text-slate-600 leading-relaxed mb-3 pl-[42px]">{s.desc}</p>
+                  <div className="flex flex-wrap gap-2 pl-[42px]">
+                    {s.tags.map((tag) => (
+                      <span key={tag} className="font-mono text-[10.5px] text-slate-500 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-md">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------- FEATURES ---------- */
 function Features() {
   const feats = [
@@ -352,7 +486,7 @@ function Features() {
     { Icon: Eye, t: 'Transparent reasoning', d: 'Watch the agent think — every retrieval, critic, and ranking step is visible live, and each recommendation tags the exact CPG paragraph it came from.', meta: ['chain of thought', 'paragraph-level cites'] },
     { Icon: Camera, t: 'rPPG vital capture', d: 'Pulse, SpO₂, respiratory rate — measured from the camera feed. No cuff, no probe, no friction.', meta: ['contactless', '15-sec scan'] },
     { Icon: Activity, t: 'Clinician override', d: 'Disagree? Pick a different differential and ClearPath re-routes the entire plan against the new working diagnosis.', meta: ['re-synth', 'versioned'] },
-    { Icon: ListChecks, t: 'Audit trail', d: 'Every consultation, plan, and citation is persisted with timestamps in the session record — a full, reviewable history of each decision.', meta: ['session log', 'timestamped'] },
+    { Icon: Mic, t: 'Voice-to-SOAP', d: 'Record the whole consultation — ClearPath transcribes it with speaker diarisation and writes a structured SOAP note straight into your clinical notes. Audio is deleted the moment it’s transcribed.', meta: ['diarised', 'auto-SOAP'] },
   ];
   return (
     <section className="px-8 py-24" id="features" style={{ background: 'linear-gradient(180deg, #fafbfc, #fff)' }}>
@@ -370,14 +504,18 @@ function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-              className="group relative bg-white border border-slate-200 rounded-[20px] p-8 overflow-hidden hover:-translate-y-1 hover:border-teal-300 hover:shadow-[0_24px_48px_-16px_rgba(15,23,42,0.12)] transition-all"
+              className="group relative bg-white border border-slate-200 rounded-[20px] p-8 overflow-hidden hover:-translate-y-1.5 hover:border-teal-400 hover:shadow-[0_28px_56px_-16px_rgba(20,184,166,0.28)] transition-all duration-300"
             >
-              <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+              {/* top accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: 'linear-gradient(90deg, transparent, #14b8a6, transparent)' }} />
-              <span className="w-12 h-12 bg-teal-50 border border-teal-100 text-teal-700 rounded-[14px] inline-flex items-center justify-center mb-5">
+              {/* soft teal glow that fades in on hover */}
+              <div className="absolute -top-16 -right-16 w-44 h-44 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{ background: 'radial-gradient(circle, rgba(20,184,166,0.18), transparent 70%)', filter: 'blur(20px)' }} />
+              <span className="relative w-12 h-12 bg-teal-50 border border-teal-100 text-teal-700 rounded-[14px] inline-flex items-center justify-center mb-5 transition-all duration-300 group-hover:bg-teal-600 group-hover:border-teal-600 group-hover:text-white group-hover:scale-105 group-hover:shadow-[0_8px_20px_-6px_rgba(20,184,166,0.5)]">
                 <Icon className="w-[22px] h-[22px]" strokeWidth={1.8} />
               </span>
-              <h3 className="text-[19px] font-semibold tracking-tight mb-2.5">{t}</h3>
+              <h3 className="relative text-[19px] font-semibold tracking-tight mb-2.5 transition-colors duration-300 group-hover:text-teal-700">{t}</h3>
               <p className="text-sm text-slate-600 mb-4 leading-relaxed">{d}</p>
               <div className="font-mono text-[11px] text-slate-500 flex gap-3 flex-wrap">
                 {meta.map((m) => (
@@ -393,71 +531,185 @@ function Features() {
 }
 
 /* ---------- CASES ---------- */
+const CASES = [
+  {
+    Icon: Heart,
+    capability: 'Comorbid-CPG reconciliation',
+    tag: 'Case 08 · Cardiometabolic',
+    title: 'New HFrEF in a patient already on diabetes therapy',
+    patient: [['62 M', 'demographics'], ['LVEF 25%', 'echo'], ['NYHA II', 'class'], ['HbA1c 8.4%', 'glycaemia']],
+    body: 'Newly diagnosed heart failure on routine echo, here for a management plan while on metformin and a sulfonylurea. ClearPath routes the Heart Failure and T2DM guidelines together and drafts guideline-directed therapy across both.',
+    signal: {
+      tone: 'caution', Icon: Pill, label: 'Sulfonylurea flagged independently',
+      text: 'Gliclazide may worsen heart-failure outcomes — raised as its own safety flag even though the draft plan only proposed to “review” it.',
+    },
+    cpgs: ['Heart Failure (5th Ed)', 'Type 2 Diabetes (6th Ed)'],
+    outcomes: [['2', 'CPGs routed'], ['GDMT', 'drafted'], ['8-section', 'plan']],
+    detail: [
+      'Reconciles two chronic-disease guidelines into one non-conflicting plan.',
+      'Initiates foundational HFrEF therapy (driven by LVEF 25%, NYHA II) with every step cited.',
+      'No eGFR was supplied — the plan says so rather than inventing a renal value to justify dosing.',
+    ],
+  },
+  {
+    Icon: Baby,
+    capability: 'Knowledge-graph teratogen veto',
+    tag: 'Case 10 · Obstetric',
+    title: 'Late booking visit — a teratogen hiding in the current meds',
+    patient: [['35 F', 'demographics'], ['30 wks', 'gestation'], ['158/104', 'BP'], ['OGTT +', 'GDM']],
+    body: 'A primigravida books at 30 weeks with high BP and new gestational diabetes — and a losartan prescription started two years ago, before the pregnancy was known. The clinician never asks about it.',
+    signal: {
+      tone: 'critical', Icon: ShieldX, label: 'Existing med vetoed',
+      text: 'The knowledge graph stops losartan on its own — an ARB is teratogenic in pregnancy — auditing a drug the patient is actively taking, not one the plan proposed.',
+    },
+    cpgs: ['Heart Disease in Pregnancy (2nd Ed)', 'Diabetes in Pregnancy (2017)'],
+    outcomes: [['1', 'teratogen vetoed'], ['2', 'obstetric CPGs'], ['PPCM', 'bridge']],
+    detail: [
+      'Sex- and pregnancy-aware routing unlocks the obstetric guidelines other cases exclude.',
+      'A family history of peripartum cardiomyopathy bridges in the cardiac-pregnancy guidance.',
+      'Safe-in-pregnancy antihypertensive alternatives are named where the contraindicated drug is removed.',
+    ],
+  },
+  {
+    Icon: AlertTriangle,
+    capability: 'Cross-guideline conflict surfacing',
+    tag: 'Case 11 · Conflict + safety',
+    title: 'Erectile dysfunction in stable coronary disease',
+    patient: [['56 M', 'demographics'], ['PCI 18 mo', 'cardiac'], ['on nitrate', 'current Rx'], ['BMI 31', 'obesity']],
+    body: 'Two guidelines apply and disagree: the ED guideline makes a PDE5 inhibitor first-line, while the stable-CAD regimen keeps a long-acting nitrate. ClearPath names the conflict instead of silently picking a side.',
+    signal: {
+      tone: 'critical', Icon: ShieldX, label: 'CRITICAL · PDE5i × nitrate',
+      text: 'The absolute nitrate contraindication is pre-empted from the current-med list, and the upstream β-blocker as an occult ED contributor is raised as a swap lever.',
+    },
+    cpgs: ['Erectile Dysfunction CPG', 'Stable Coronary Artery Disease CPG'],
+    outcomes: [['2', 'CPGs conflict'], ['1', 'CRITICAL flag'], ['1', 'upstream lever']],
+    detail: [
+      'Emits the explicit line “Two CPGs apply and conflict on first-line therapy”, not a quiet override.',
+      'Routes both an upstream-decision referral and the original-problem workup as structured recommendations.',
+      'Surfaces bisoprolol as a possible medication-induced cause — a lever the first pass missed.',
+    ],
+  },
+];
+
+const SIGNAL_TONES = {
+  caution: { box: 'bg-amber-50 border-amber-200', icon: 'text-amber-600', label: 'text-amber-800' },
+  critical: { box: 'bg-rose-50 border-rose-200', icon: 'text-rose-600', label: 'text-rose-800' },
+};
+
 function Cases() {
-  const cases = [
-    {
-      Icon: Stethoscope, tag: 'T2DM follow-up',
-      title: 'Uncontrolled diabetes with hypertension',
-      body: '67yo F, HbA1c 8.5%, BP 142/88. Routed against MOH T2DM (6th Ed) and Hypertension (5th Ed); intensification proposed with the plan screened by the safety critic.',
-      outcomes: [['2', 'CPGs cited'], ['4', 'DDx ranked'], ['0', 'Safety flags']],
-    },
-    {
-      Icon: Heart, tag: 'cardiac',
-      title: 'Reduced ejection fraction',
-      body: '58yo M, exertional dyspnoea, EF 38%. Differentials ranked against MOH Heart Failure (5th Ed), with guideline-directed therapy drafted and every claim cited to a paragraph.',
-      outcomes: [['1', 'CPG cited'], ['3', 'DDx ranked'], ['1', 'Safety flag']],
-    },
-    {
-      Icon: Activity, tag: 'clinician override',
-      title: 'Dyslipidaemia, re-routed',
-      body: 'Clinician rejects the top differential and selects another; ClearPath re-synthesises the whole plan against the new working diagnosis using MOH Dyslipidaemia (6th Ed).',
-      outcomes: [['1', 'CPG cited'], ['1', 'Re-synth'], ['Full', 'Trace']],
-    },
-  ];
+  const [open, setOpen] = useState(null);
   return (
     <section className="px-8 py-24" id="cases" style={{ background: 'linear-gradient(180deg, #fff, #fafbfc)' }}>
       <div className="max-w-[1280px] mx-auto">
         <SectionHead
           eyebrow="Clinical scenarios"
-          title={<><span className="whitespace-nowrap">Real consults,</span> <em className="italic text-teal-700">traced end-to-end</em>.</>}
-          sub="Anonymised samples of how ClearPath reasons through the complexity of clinical work."
+          title={<><span className="whitespace-nowrap">Three hard consults,</span> <em className="italic text-teal-700">traced end-to-end</em>.</>}
+          sub="The evaluation cases ClearPath is benchmarked on — each one a distinct failure mode that a single-guideline tool would miss. Open a card to see what the pipeline catches."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {cases.map(({ Icon, tag, title, body, outcomes }, i) => (
-            <motion.article
-              key={title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="bg-white border border-slate-200 rounded-[20px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_24px_48px_-16px_rgba(15,23,42,0.12)] transition-all"
-            >
-              <div className="aspect-video relative flex items-center justify-center overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #f0fdfa, #f1f5f9)' }}>
-                <div className="absolute inset-0"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(rgba(15,23,42,0.05) 1px, transparent 1px),' +
-                      'linear-gradient(90deg, rgba(15,23,42,0.05) 1px, transparent 1px)',
-                    backgroundSize: '24px 24px',
-                  }} />
-                <Icon className="w-14 h-14 text-teal-600 relative" strokeWidth={1.4} />
-              </div>
-              <div className="p-6">
-                <span className="inline-block font-mono text-[10px] text-teal-700 bg-teal-50 border border-teal-100 px-2 py-1 rounded-md tracking-wider uppercase font-semibold mb-3">{tag}</span>
-                <h3 className="text-[18px] font-semibold mb-2 tracking-tight">{title}</h3>
-                <p className="text-[13.5px] text-slate-600 mb-4 leading-relaxed">{body}</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  {outcomes.map(([v, l]) => (
-                    <div key={l} className="flex-1">
-                      <div className="font-display italic text-2xl text-teal-700 leading-none">{v}</div>
-                      <div className="text-[10.5px] text-slate-500 mt-1 tracking-wide uppercase font-medium">{l}</div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+          {CASES.map((c, i) => {
+            const { Icon, capability, tag, title, patient, body, signal, cpgs, outcomes, detail } = c;
+            const tone = SIGNAL_TONES[signal.tone];
+            const isOpen = open === i;
+            const SignalIcon = signal.Icon;
+            return (
+              <motion.article
+                key={title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+                className="flex flex-col bg-white border border-slate-200 rounded-[20px] overflow-hidden hover:-translate-y-1 hover:shadow-[0_24px_48px_-16px_rgba(15,23,42,0.12)] transition-all"
+              >
+                {/* header: capability + case icon */}
+                <div className="relative px-6 pt-6 pb-5 overflow-hidden"
+                  style={{ background: 'linear-gradient(135deg, #f0fdfa, #f1f5f9)' }}>
+                  <div className="absolute inset-0"
+                    style={{
+                      backgroundImage:
+                        'linear-gradient(rgba(15,23,42,0.05) 1px, transparent 1px),' +
+                        'linear-gradient(90deg, rgba(15,23,42,0.05) 1px, transparent 1px)',
+                      backgroundSize: '24px 24px',
+                    }} />
+                  <div className="relative flex items-start justify-between gap-3">
+                    <div>
+                      <div className="font-mono text-[10px] text-teal-700 tracking-wider uppercase font-semibold mb-1.5">{tag}</div>
+                      <div className="text-[15px] font-semibold text-slate-900 leading-snug max-w-[22ch]">{capability}</div>
                     </div>
-                  ))}
+                    <span className="shrink-0 w-11 h-11 rounded-[12px] bg-white/80 border border-teal-100 text-teal-600 inline-flex items-center justify-center">
+                      <Icon className="w-[22px] h-[22px]" strokeWidth={1.6} />
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
-          ))}
+
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-[17px] font-semibold mb-3 tracking-tight leading-snug">{title}</h3>
+
+                  {/* patient snapshot chips */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {patient.map(([v, l]) => (
+                      <span key={l} title={l} className="font-mono text-[11px] text-slate-700 bg-slate-50 border border-slate-200 px-2 py-1 rounded-md">{v}</span>
+                    ))}
+                  </div>
+
+                  <p className="text-[13.5px] text-slate-600 mb-4 leading-relaxed">{body}</p>
+
+                  {/* signature catch */}
+                  <div className={`rounded-xl border ${tone.box} px-3.5 py-3 mb-4`}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <SignalIcon className={`w-4 h-4 ${tone.icon}`} strokeWidth={2} />
+                      <span className={`text-[11px] font-bold tracking-wide uppercase ${tone.label}`}>{signal.label}</span>
+                    </div>
+                    <p className="text-[12.5px] text-slate-700 leading-relaxed">{signal.text}</p>
+                  </div>
+
+                  {/* routed CPGs */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {cpgs.map((g) => (
+                      <span key={g} className="inline-flex items-center gap-1.5 text-[11px] text-teal-700 bg-teal-50 border border-teal-100 px-2 py-1 rounded-md">
+                        <BookOpen className="w-3 h-3" strokeWidth={1.8} />{g}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* outcome stats */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-slate-100 mt-auto">
+                    {outcomes.map(([v, l]) => (
+                      <div key={l} className="flex-1">
+                        <div className="font-display italic text-[22px] text-teal-700 leading-none">{v}</div>
+                        <div className="text-[10px] text-slate-500 mt-1 tracking-wide uppercase font-medium">{l}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* expand: what the pipeline did */}
+                  <button
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="mt-4 w-full flex items-center justify-between text-[12px] font-semibold text-slate-700 hover:text-teal-700 transition-colors"
+                  >
+                    <span>{isOpen ? 'Hide reasoning trace' : 'See what the pipeline did'}</span>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} strokeWidth={2} />
+                  </button>
+                  <motion.div
+                    initial={false}
+                    animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                    transition={{ duration: 0.28, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    <ul className="mt-3 flex flex-col gap-2.5 list-none p-0">
+                      {detail.map((d) => (
+                        <li key={d} className="flex gap-2.5 text-[12.5px] text-slate-600 leading-relaxed">
+                          <FlaskConical className="w-3.5 h-3.5 text-teal-500 mt-0.5 shrink-0" strokeWidth={1.8} />
+                          <span>{d}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </div>
+              </motion.article>
+            );
+          })}
         </div>
       </div>
     </section>

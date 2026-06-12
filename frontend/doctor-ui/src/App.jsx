@@ -42,29 +42,65 @@ const steps = [
 
 // Analytics ("Clinical Performance") view — owns the shared time window so the
 // dashboard and the feedback-insights panel stay in sync from one control.
+// Two swappable categories rendered one at a time via the segmented control;
+// the hidden panel is unmounted (its realtime channel closes with it).
+const ANALYTICS_TABS = [
+  { id: 'performance', label: 'Clinical Performance' },
+  { id: 'feedback', label: 'Feedback & System Health' },
+];
+
 function AnalyticsView() {
   const { isDark } = useTheme();
   const [days, setDays] = useState(30);
+  const [tab, setTab] = useState('performance');
   const windows = [7, 30, 90];
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-end gap-1.5">
-        <span className={`text-xs mr-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Window</span>
-        {windows.map((d) => (
-          <button
-            key={d}
-            onClick={() => setDays(d)}
-            className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border
-              ${days === d
-                ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] border-[var(--accent-primary)]/25'
-                : isDark ? 'text-slate-400 hover:bg-white/5 border-transparent' : 'text-slate-500 hover:bg-slate-50 border-transparent'}`}
-          >
-            {d}d
-          </button>
-        ))}
+      <div className="flex flex-wrap items-center justify-between gap-3">
+        <div className={`inline-flex items-center gap-1 p-1 rounded-xl border
+          ${isDark ? 'bg-white/5 border-white/10' : 'bg-slate-100 border-slate-200'}`}>
+          {ANALYTICS_TABS.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors
+                ${tab === t.id
+                  ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)]'
+                  : isDark ? 'text-slate-400 hover:bg-white/5' : 'text-slate-500 hover:bg-white'}`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+        <div className="flex items-center gap-1.5">
+          <span className={`text-xs mr-1 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Window</span>
+          {windows.map((d) => (
+            <button
+              key={d}
+              onClick={() => setDays(d)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors border
+                ${days === d
+                  ? 'bg-[var(--accent-primary)]/15 text-[var(--accent-primary)] border-[var(--accent-primary)]/25'
+                  : isDark ? 'text-slate-400 hover:bg-white/5 border-transparent' : 'text-slate-500 hover:bg-slate-50 border-transparent'}`}
+            >
+              {d}d
+            </button>
+          ))}
+        </div>
       </div>
-      <DashboardSection days={days} />
-      <FeedbackInsightsSection days={days} />
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={tab}
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.18 }}
+        >
+          {tab === 'performance'
+            ? <DashboardSection days={days} />
+            : <FeedbackInsightsSection days={days} />}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 }
