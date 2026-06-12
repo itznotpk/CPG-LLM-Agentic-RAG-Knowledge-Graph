@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {
   CheckCircle, AlertCircle, Loader2, Circle,
-  BrainCircuit, ChevronDown, ChevronUp, RefreshCw,
+  BrainCircuit, ChevronDown, ChevronUp, RefreshCw, FileText,
 } from 'lucide-react';
 import { GlassCard } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
@@ -37,14 +37,18 @@ const MATCH_TYPE_COLORS = {
   out_of_scope: 'bg-slate-600/30 text-slate-400 border-slate-500/40',
 };
 
+// Keys are normalised (lowercased, spaces → underscores) so both the engine's
+// snake_case keys and the LLM's free-form ones (e.g. "Sibling Cluster") map to
+// the same plain-language label.
 const OVERRIDE_KEY_MAP = {
-  'red_flag_cant_miss': "Red Flag (Can't Miss)",
-  'specificity_over_generic': 'Specificity over Generic',
-  'clinical_contradiction': 'Clinical Contradiction',
-  'clinical_contradiction_rule': 'Clinical Contradiction Rule',
-  'presentation_fit': 'Presentation Fit',
-  'age_gender_compat': 'Demographic Compatibility',
-  'sex_compat': 'Sex Compatibility'
+  'red_flag_cant_miss': "Can't-miss red flag",
+  'specificity_over_generic': 'More exact diagnosis',
+  'clinical_contradiction': 'Conflicts with the clinical picture',
+  'clinical_contradiction_rule': 'Conflicts with a clinical rule',
+  'presentation_fit': 'Better fits this patient',
+  'age_gender_compat': "Fits the patient's age and sex",
+  'sex_compat': "Fits the patient's sex",
+  'sibling_cluster': 'Merged look-alike codes',
 };
 
 function formatOverrideReason(reason) {
@@ -55,18 +59,25 @@ function formatOverrideReason(reason) {
     if (colonIdx !== -1) {
       const key = part.slice(0, colonIdx).trim();
       const val = part.slice(colonIdx + 1).trim();
-      const prettyKey = OVERRIDE_KEY_MAP[key] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+      const norm = key.toLowerCase().replace(/\s+/g, '_');
+      const prettyKey = OVERRIDE_KEY_MAP[norm] || key.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
       return `${prettyKey}: ${val}`;
     }
     return part.trim().replace(/_/g, ' ');
   }).join('; ');
 }
 
-// Deep engine-internal sub-steps — collapsed under an "Advanced" dropdown rather
-// than shown inline (regex code injection + the clinician-named priority codes).
-function isAdvancedSubStep(detail) {
-  if (!detail) return false;
-  return detail.startsWith('Regex-injected codes') || detail.startsWith('CC priority codes:');
+// Deep engine-internal sub-steps — collapsed under a "How the AI built its
+// shortlist" dropdown rather than shown inline (regex code injection + the
+// clinician-named priority codes pulled from the chief complaint).
+function isAdvancedSubStep(sub) {
+  if (!sub) return false;
+  if (sub.kind === 'regex_codes' || sub.kind === 'cc_priority') return true;
+  const detail = sub.detail || '';
+  return detail.startsWith('Regex-injected codes')
+    || detail.startsWith('CC priority codes:')
+    || detail.startsWith('Extra codes caught')
+    || detail.startsWith('Diagnoses the AI pulled');
 }
 
 // Compact before/after re-rank + score-breakdown table for the DDx stage.
@@ -144,7 +155,7 @@ function DDxCandidateRow({ c, i, isDark }) {
       {/* Row 3: override reason, if the AI re-ranked against the math order */}
       {c.override_reason && (
         <div className="mt-1 flex items-start gap-1 text-[11px] text-amber-400">
-          <span className="shrink-0">⤷ override:</span>
+          <span className="shrink-0 font-semibold">Why the AI re-ranked:</span>
           <span className="italic">{formatOverrideReason(c.override_reason)}</span>
         </div>
       )}
@@ -169,29 +180,294 @@ function DDxCandidateTable({ candidates, isDark }) {
   );
 }
 
+// Plain-language rich renders for the stage-2 extraction sub-steps. The engine
+// emits these as raw "Key: value" / comma-list strings that get truncated on a
+// single line — too coding-ish for a clinician. We detect them by prefix and
+// render the full query in a callout, and each hypothesised condition as its
+// own chip (matching the medication-pill style elsewhere in the app).
+const SYMPTOM_QUERY_PREFIX = 'Extracted symptom query:';
+const SYMPTOM_FALLBACK_PREFIX = '⚠ Symptom extraction fell back to raw notes:';
+const HYPOTHESES_PREFIX = 'Condition hypotheses:';
+
+function stripQuotes(s) {
+  return s.trim().replace(/^["“]/, '').replace(/["”]$/, '').trim();
+}
+
+function SymptomQueryCallout({ query, isDark, fellBack }) {
+  return (
+    <div className={`rounded-lg px-3 py-2 border ${
+      fellBack
+        ? (isDark ? 'bg-amber-900/15 border-amber-500/25' : 'bg-amber-50 border-amber-200')
+        : (isDark ? 'bg-indigo-900/15 border-indigo-500/20' : 'bg-indigo-50 border-indigo-200')
+    }`}>
+      <p className={`text-[11px] font-semibold uppercase tracking-wide ${
+        fellBack ? (isDark ? 'text-amber-300' : 'text-amber-700')
+                 : (isDark ? 'text-indigo-300' : 'text-indigo-600')
+      }`}>
+        {fellBack ? 'Searched your notes directly' : 'What the AI searched for'}
+      </p>
+      <p className={`mt-0.5 text-sm leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>
+        “{query}”
+      </p>
+    </div>
+  );
+}
+
+function ConditionHypotheses({ conditions, isDark }) {
+  if (!conditions.length) return null;
+  return (
+    <div>
+      <p className={`text-[11px] font-semibold uppercase tracking-wide ${isDark ? 'text-indigo-300' : 'text-indigo-600'}`}>
+        Conditions considered
+      </p>
+      <div className="mt-1.5 flex flex-wrap gap-1.5">
+        {conditions.map((c, i) => (
+          <span
+            key={i}
+            className={`text-xs px-2.5 py-1 rounded-full border font-medium ${
+              isDark ? 'bg-blue-500/15 text-blue-200 border-blue-500/30'
+                     : 'bg-blue-50 text-blue-700 border-blue-200'
+            }`}
+          >
+            {c}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Chips for the codes the AI pulled straight from the chief complaint, with a
+// plain-language confidence tag (clinician-named vs AI's own confidence %).
+function CcPriorityChips({ items, isDark }) {
+  if (!items?.length) return null;
+  return (
+    <div>
+      <p className={`text-[11px] font-semibold uppercase tracking-wide ${isDark ? 'text-amber-300' : 'text-amber-700'}`}>
+        Diagnoses from the chief complaint
+      </p>
+      <div className="mt-1.5 flex flex-wrap gap-1.5">
+        {items.map((it, i) => (
+          <span
+            key={i}
+            className={`text-xs px-2.5 py-1 rounded-full border font-medium inline-flex items-center gap-1 ${
+              isDark ? 'bg-amber-500/15 text-amber-200 border-amber-500/30' : 'bg-amber-50 text-amber-700 border-amber-200'
+            }`}
+          >
+            {it.name || it.code}
+            <span className={`text-[10px] font-normal ${isDark ? 'text-amber-300/70' : 'text-amber-600'}`}>
+              {it.explicit ? '· you named this' : `· AI ${Math.round((it.confidence || 0) * 100)}% sure`}
+            </span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Chips for the deterministic text-match safety net — codes written in the notes
+// that the AI extractor might otherwise have dropped.
+function RegexCodesChips({ items, isDark }) {
+  if (!items?.length) return null;
+  return (
+    <div>
+      <p className={`text-[11px] font-semibold uppercase tracking-wide ${isDark ? 'text-amber-300' : 'text-amber-700'}`}>
+        Extra codes found in your notes
+      </p>
+      <p className={`text-[10px] mt-0.5 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+        Safety net — added in case the AI missed a diagnosis written in the notes.
+      </p>
+      <div className="mt-1.5 flex flex-wrap gap-1.5">
+        {items.map((it, i) => (
+          <span
+            key={i}
+            className={`text-xs px-2.5 py-1 rounded-full border font-medium ${
+              isDark ? 'bg-amber-500/15 text-amber-200 border-amber-500/30' : 'bg-amber-50 text-amber-700 border-amber-200'
+            }`}
+          >
+            {it.name ? `${it.name} (${it.code})` : it.code}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// One retrieved guideline passage: which CPG + section it came from, plus a
+// short preview of the text.
+function ChunkCard({ c, isDark }) {
+  return (
+    <div className={`rounded-lg px-2.5 py-1.5 border text-[11px] ${isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-white border-slate-200'}`}>
+      <div className="flex items-center gap-1.5 min-w-0">
+        <FileText className="w-3 h-3 shrink-0 text-[var(--accent-primary)]" strokeWidth={1.5} />
+        <span className={`font-medium truncate ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{c.cpg}</span>
+        {c.section && <span className="text-slate-500 truncate">› {c.section}</span>}
+      </div>
+      {c.snippet && (
+        <p className={`mt-0.5 leading-snug ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{c.snippet}</p>
+      )}
+    </div>
+  );
+}
+
+// A single evidence question + the new passages it pulled (expandable).
+function EvidenceQueryRow({ query, data, isDark }) {
+  const [open, setOpen] = useState(false);
+  const chunks = data?.chunks || [];
+  const n = data?.new ?? chunks.length;
+  const hasChunks = chunks.length > 0;
+  return (
+    <div>
+      <div className="flex items-start gap-2">
+        <button
+          onClick={() => hasChunks && setOpen((o) => !o)}
+          className={`flex-1 min-w-0 flex items-start gap-1.5 text-left ${hasChunks ? 'cursor-pointer' : 'cursor-default'}`}
+        >
+          {hasChunks && (open
+            ? <ChevronUp className="w-3 h-3 mt-0.5 shrink-0 text-slate-500" strokeWidth={1.5} />
+            : <ChevronDown className="w-3 h-3 mt-0.5 shrink-0 text-slate-500" strokeWidth={1.5} />)}
+          <span className={`text-xs leading-snug break-words ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{query}</span>
+        </button>
+        <span
+          title={`This question pulled ${n} guideline passage${n === 1 ? '' : 's'} that earlier questions hadn't already found.`}
+          className={`shrink-0 text-[11px] px-2 py-0.5 rounded-full border font-medium ${
+            n > 0
+              ? (isDark ? 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30' : 'bg-emerald-50 text-emerald-700 border-emerald-200')
+              : (isDark ? 'bg-slate-700/40 text-slate-400 border-slate-600/40' : 'bg-slate-100 text-slate-500 border-slate-200')
+          }`}
+        >
+          {n > 0 ? `+${n} new passage${n === 1 ? '' : 's'}` : 'no new passages'}
+        </span>
+      </div>
+      {open && hasChunks && (
+        <div className="mt-1.5 ml-4 space-y-1.5">
+          {chunks.map((c, i) => <ChunkCard key={i} c={c} isDark={isDark} />)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// The final deduplicated evidence count — a plain summary line. The per-question
+// rows above already let the clinician drill into the actual passages, so we no
+// longer dump all 20 chunk cards here.
+function EvidenceSummary({ detail, isDark }) {
+  return (
+    <span className={`text-xs font-semibold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{detail}</span>
+  );
+}
+
+// Returns a rich block for the special sub-steps, or null for plain ones.
+function renderRichSub(sub, isDark) {
+  const d = sub?.detail || '';
+  if (sub?.kind === 'cc_priority') return <CcPriorityChips items={sub.data} isDark={isDark} />;
+  if (sub?.kind === 'regex_codes') return <RegexCodesChips items={sub.data} isDark={isDark} />;
+  if (sub?.kind === 'evidence_query') return <EvidenceQueryRow query={d} data={sub.data} isDark={isDark} />;
+  if (sub?.kind === 'evidence_summary') return <EvidenceSummary detail={d} data={sub.data} isDark={isDark} />;
+  if (d.startsWith(SYMPTOM_QUERY_PREFIX))
+    return <SymptomQueryCallout query={stripQuotes(d.slice(SYMPTOM_QUERY_PREFIX.length))} isDark={isDark} />;
+  if (d.startsWith(SYMPTOM_FALLBACK_PREFIX))
+    return <SymptomQueryCallout query={stripQuotes(d.slice(SYMPTOM_FALLBACK_PREFIX.length))} isDark={isDark} fellBack />;
+  if (d.startsWith(HYPOTHESES_PREFIX)) {
+    const list = d.slice(HYPOTHESES_PREFIX.length).split(',').map((s) => s.trim()).filter(Boolean);
+    return <ConditionHypotheses conditions={list} isDark={isDark} />;
+  }
+  return null;
+}
+
+// FALLBACK only. Anchor vs AI-generated questions are now distinguished by the
+// backend's structural `anchor` flag on each evidence_query sub-step. This text
+// match is used solely for older trace events emitted before that flag existed.
+const ANCHOR_QUERY_SIGNATURES = [
+  'baseline investigations, tests, and imaging',
+  'lifestyle modifications, diet, exercise',
+  'specialist referrals indicated and their urgency',
+  'ace inhibitor or arni (sacubitril/valsartan)',
+  'beta-blocker bisoprolol carvedilol metoprolol',
+  'mineralocorticoid receptor antagonist spironolactone eplerenone',
+  'sglt2 inhibitor dapagliflozin empagliflozin',
+];
+
+function isAnchorQuery(detail) {
+  const d = (detail || '').toLowerCase().trim();
+  return ANCHOR_QUERY_SIGNATURES.some((sig) => d.startsWith(sig.slice(0, 40)));
+}
+
 // Stage sub-steps: normal steps inline; deep internals (regex-injected codes,
 // CC priority codes) tucked under a collapsible "Advanced details" dropdown.
 function SubSteps({ subs, isDark }) {
   const [advOpen, setAdvOpen] = useState(false);
   if (!subs || subs.length === 0) return null;
-  const normal = subs.filter((s) => !isAdvancedSubStep(s.detail));
-  const advanced = subs.filter((s) => isAdvancedSubStep(s.detail));
+  const normal = subs.filter((s) => !isAdvancedSubStep(s));
+  const advanced = subs.filter((s) => isAdvancedSubStep(s));
+
+  const groupHeader = (text) => (
+    <p className={`text-[10px] font-semibold uppercase tracking-wide pt-1.5 pb-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+      {text}
+    </p>
+  );
 
   const renderSub = (sub, i, arr) => {
     const connector = i === arr.length - 1 ? '└' : '├';
+    const rich = renderRichSub(sub, isDark);
+    if (rich) {
+      return (
+        <div key={i} className="flex gap-2">
+          <span className="text-slate-600 font-sans text-xs shrink-0 pt-0.5">{connector}</span>
+          <div className="flex-1 min-w-0">{rich}</div>
+        </div>
+      );
+    }
     const matchColor = sub.badge ? (MATCH_TYPE_COLORS[sub.badge] || MATCH_TYPE_COLORS.semantic) : null;
     return (
-      <div key={i} className="flex items-center gap-2">
-        <span className="text-slate-600 font-sans text-xs shrink-0">{connector}</span>
-        <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{sub.detail}</span>
-        {sub.badge && <StageBadge text={sub.badge} colorClass={matchColor} />}
+      <div key={i} className="flex items-start gap-2">
+        <span className="text-slate-600 font-sans text-xs shrink-0 pt-0.5">{connector}</span>
+        <span className={`text-xs leading-snug break-words flex-1 min-w-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{sub.detail}</span>
+        {sub.badge && <div className="shrink-0"><StageBadge text={sub.badge} colorClass={matchColor} /></div>}
       </div>
     );
   };
 
+  // Stage-4 evidence questions: split the mixed list into the AI's case-specific
+  // questions and the always-asked anchor checks, and show them as two labelled
+  // groups (AI-generated first). Surrounding sub-steps (the "Searching…" header
+  // and the final count line) keep their original positions.
+  const hasEvidenceQueries = normal.some((s) => s.kind === 'evidence_query');
+  let normalContent;
+  if (hasEvidenceQueries) {
+    const queries = normal.filter((s) => s.kind === 'evidence_query');
+    const leading = normal.filter((s) => s.kind !== 'evidence_query' && s.kind !== 'evidence_summary');
+    const trailing = normal.filter((s) => s.kind === 'evidence_summary');
+    // Prefer the backend's structural `anchor` flag; fall back to text-matching
+    // only for older events that predate the flag.
+    const isAnchor = (s) => (typeof s.anchor === 'boolean' ? s.anchor : isAnchorQuery(s.detail));
+    const aiQs = queries.filter((s) => !isAnchor(s));
+    const anchorQs = queries.filter((s) => isAnchor(s));
+    normalContent = (
+      <>
+        {leading.map((s, i) => renderSub(s, i, leading))}
+        {aiQs.length > 0 && (
+          <div className="space-y-1">
+            {groupHeader(`AI-generated questions (${aiQs.length})`)}
+            {aiQs.map((s, i) => renderSub(s, i, aiQs))}
+          </div>
+        )}
+        {anchorQs.length > 0 && (
+          <div className="space-y-1">
+            {groupHeader(`Always-asked checks (${anchorQs.length})`)}
+            {anchorQs.map((s, i) => renderSub(s, i, anchorQs))}
+          </div>
+        )}
+        {trailing.map((s, i) => renderSub(s, i, trailing))}
+      </>
+    );
+  } else {
+    normalContent = normal.map((s, i) => renderSub(s, i, normal));
+  }
+
   return (
     <div className="mt-1.5 space-y-1 pl-3 border-l border-slate-700/50">
-      {normal.map((s, i) => renderSub(s, i, normal))}
+      {normalContent}
       {advanced.length > 0 && (
         <div className="space-y-1">
           <button
@@ -199,7 +475,7 @@ function SubSteps({ subs, isDark }) {
             className="flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-400 transition-colors"
           >
             {advOpen ? <ChevronUp className="w-3 h-3" strokeWidth={1.5} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.5} />}
-            {advOpen ? 'Hide advanced details' : `Advanced details (${advanced.length})`}
+            {advOpen ? 'Hide shortlist details' : `How the AI built its shortlist (${advanced.length})`}
           </button>
           {advOpen && advanced.map((s, i) => renderSub(s, i, advanced))}
         </div>

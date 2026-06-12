@@ -2871,22 +2871,44 @@ async def stage_2_ddx(
             cc_hints_map[hint["code"]] = hint
             regex_added.append(hint["code"])
     if regex_added and emit is not None:
+        regex_items = [
+            {"code": code, "name": cc_hints_map.get(code, {}).get("resolved_name")}
+            for code in regex_added
+        ]
+        regex_label = ", ".join(
+            f'{it["name"]} ({it["code"]})' if it["name"] else it["code"]
+            for it in regex_items
+        )
         await emit("sub_step", {
             "stage": 2,
-            "detail": "Regex-injected codes (fallback): " + ", ".join(regex_added),
-            "badge": "CC-boost",
+            "kind": "regex_codes",
+            "detail": "Extra codes caught by text-matching your notes: " + regex_label,
+            "badge": "safety-net",
+            "data": regex_items,
         })
 
     if cc_icd_hints:
         if emit is not None:
-            detail_parts = [
-                f'{h["code"]} ({"clinician-named" if h.get("explicit") else f"{h["confidence"]:.0%}"})'
+            cc_items = [
+                {
+                    "code": h["code"],
+                    "name": h.get("resolved_name"),
+                    "confidence": h["confidence"],
+                    "explicit": bool(h.get("explicit")),
+                }
                 for h in cc_icd_hints
             ]
+            detail_parts = []
+            for it in cc_items:
+                qual = "you named this" if it["explicit"] else f'AI {it["confidence"]:.0%} sure'
+                label = f'{it["name"]} ({it["code"]})' if it["name"] else it["code"]
+                detail_parts.append(f'{label} — {qual}')
             await emit("sub_step", {
                 "stage": 2,
-                "detail": "CC priority codes: " + ", ".join(detail_parts),
-                "badge": "CC-boost",
+                "kind": "cc_priority",
+                "detail": "Diagnoses the AI pulled from the chief complaint: " + ", ".join(detail_parts),
+                "badge": "from chief complaint",
+                "data": cc_items,
             })
 
     queries = [q for q in ([query] + hypotheses) if q and len(q.strip()) >= 3 and any(char.isalpha() for char in q)]
@@ -3862,6 +3884,47 @@ def stage4_boosted_score(chunk: ChunkResult) -> float:
     return min(chunk.score * boost, 1.0)
 
 
+def _meaningful_snippet(text: str, max_len: int = 240) -> str:
+    """Trim a passage to a readable preview that ends on a sentence (or at worst
+    a whole word) boundary — never mid-word — so the trace shows a complete
+    thought rather than a hard character cut."""
+    text = " ".join((text or "").split())
+    if len(text) <= max_len:
+        return text
+    window = text[:max_len]
+    for end in (". ", "! ", "? "):
+        idx = window.rfind(end)
+        if idx >= 100:
+            return window[: idx + 1].strip()
+    sp = window.rfind(" ")
+    return (window[:sp] if sp >= 100 else window).rstrip() + "…"
+
+
+def _chunk_brief(c: ChunkResult) -> dict:
+    """Compact, clinician-readable view of a retrieved chunk for the reasoning
+    trace UI: which guideline it came from, the section heading if known, and a
+    short plain-text preview of the passage."""
+    section = None
+    if isinstance(c.metadata, dict):
+        section = (
+            c.metadata.get("section_title")
+            or c.metadata.get("title")
+            or c.metadata.get("section")
+        )
+        sh = c.metadata.get("section_hierarchy")
+        if not section and isinstance(sh, (list, tuple)) and sh:
+            section = str(sh[-1])
+        elif not section and isinstance(sh, str):
+            section = sh
+    snippet = _meaningful_snippet(c.content or "")
+    return {
+        "cpg": c.document_title,
+        "section": section,
+        "snippet": snippet,
+        "score": round(float(c.score), 3),
+    }
+
+
 async def stage_4_retrieve(
     case: PatientCase,
     ddx: list[DDxResult],
@@ -3888,7 +3951,7 @@ async def stage_4_retrieve(
     if emit:
         await emit("sub_step", {
             "stage": 4,
-            "detail": f"Generating {queries_per_code} targeted queries…",
+            "detail": "Searching the matched guidelines with targeted questions…",
             "status": "running",
         })
 
@@ -3918,6 +3981,11 @@ async def stage_4_retrieve(
         logger.info("Stage 4: injected %d anchor queries (condition + universal) for %s",
                     len(anchor_queries), primary_code)
 
+    # Authoritative set of fixed-anchor query strings, so the trace can label
+    # each emitted question as an always-asked anchor vs an AI-generated one
+    # without the UI having to pattern-match text.
+    anchor_set = set(anchor_queries)
+
     seen_chunk_ids: set[str] = set()
     all_chunks: list[ChunkResult] = []
 
@@ -3936,12 +4004,13 @@ async def stage_4_retrieve(
         if isinstance(result, Exception):
             logger.warning("Query %r failed: %s", q, result)
             continue
-        new_chunks = 0
+        new_chunk_objs: list[ChunkResult] = []
         for chunk in result:
             if chunk.chunk_id not in seen_chunk_ids:
                 seen_chunk_ids.add(chunk.chunk_id)
                 all_chunks.append(chunk)
-                new_chunks += 1
+                new_chunk_objs.append(chunk)
+        new_chunks = len(new_chunk_objs)
         # Instrumentation (5a deferral): flag a domain that came back thin so we
         # can later measure whether auto-re-query would have helped. <2 new
         # chunks per 5-chunk query means most hits were already-seen duplicates.
@@ -3951,9 +4020,20 @@ async def stage_4_retrieve(
             total = len(result)
             await emit("sub_step", {
                 "stage": 4,
-                "detail": f'"{q[:60]}{"…" if len(q) > 60 else ""}"',
-                "badge": f"{new_chunks} new / {total} hits",
+                "kind": "evidence_query",
+                # Full question text (no truncation) so a clinician can read what
+                # was actually asked of the guidelines.
+                "detail": q,
+                # True for the always-asked fixed anchors, False for the AI's
+                # case-specific questions — drives the trace grouping.
+                "anchor": q in anchor_set,
+                "badge": f"+{new_chunks} new",
                 "status": "complete",
+                "data": {
+                    "new": new_chunks,
+                    "total": total,
+                    "chunks": [_chunk_brief(c) for c in new_chunk_objs],
+                },
             })
 
     all_chunks.sort(key=stage4_boosted_score, reverse=True)
@@ -3969,7 +4049,11 @@ async def stage_4_retrieve(
     if emit:
         await emit("sub_step", {
             "stage": 4,
-            "detail": f"{len(final)} unique chunks after deduplication",
+            "kind": "evidence_summary",
+            # Plain count line only — the per-question rows above already let the
+            # clinician drill into the passages each question pulled, so listing
+            # all 20 again here is redundant noise.
+            "detail": f"Selected {len(final)} guideline passages (duplicates removed)",
             "status": "complete",
         })
 
@@ -5649,9 +5733,15 @@ async def generate_prep_brief(
     Returns dict with keys: since_last_visit, med_flags, ask_today.
     Falls back to a minimal dict on LLM failure — never raises.
     """
-    base_url = os.getenv("PREP_BRIEF_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL")
-    api_key  = os.getenv("PREP_BRIEF_LLM_API_KEY")  or os.getenv("GEMINI_API_KEY")
-    model    = os.getenv("PREP_BRIEF_LLM_MODEL", "gemini-2.5-flash")
+    # Prefer prep-brief-specific vars, then Gemini, then fall back to the active
+    # LLM_* provider (MiMo). Without this fallback the client below raises when
+    # only MiMo is configured — bypassing the graceful fallback and 500-ing.
+    base_url = (os.getenv("PREP_BRIEF_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL")
+                or os.getenv("LLM_BASE_URL"))
+    api_key  = (os.getenv("PREP_BRIEF_LLM_API_KEY") or os.getenv("GEMINI_API_KEY")
+                or os.getenv("LLM_API_KEY"))
+    model    = (os.getenv("PREP_BRIEF_LLM_MODEL") or os.getenv("LLM_CHOICE")
+                or "gemini-2.5-flash")
 
     fallback = {
         "since_last_visit": prior_visit.get("what_changed") or "Prior visit data available — review chart.",
@@ -5672,8 +5762,8 @@ async def generate_prep_brief(
         },
     }, ensure_ascii=False)
 
-    client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
     try:
+        client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
         resp = await client.chat.completions.create(
             model=model,
             messages=[
