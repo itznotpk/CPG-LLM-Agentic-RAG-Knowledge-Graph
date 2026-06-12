@@ -5,8 +5,6 @@ import {
   ArrowLeft,
   Sparkles,
   Target,
-
-  Info,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -79,8 +77,12 @@ export function DiagnosisSection() {
   const willResynth = selectedDiagnoses.some((d) => !aiTopCodes.has(d.icdCode));
 
   const [confirmError, setConfirmError] = React.useState(null);
+  // Only surfaced AFTER the user clicks Confirm without marking a Major — the
+  // reminder is not shown upfront.
+  const [showSelectReminder, setShowSelectReminder] = React.useState(false);
   const handleConfirm = async () => {
-    if (!majorCode) return;
+    if (!majorCode) { setShowSelectReminder(true); return; }
+    setShowSelectReminder(false);
     setConfirmError(null);
     try {
       await confirmDiagnosis({ selectedCodes, majorCode });
@@ -184,7 +186,7 @@ export function DiagnosisSection() {
             size="sm"
             icon={isGeneratingPlan ? null : CheckCircle}
             loading={isGeneratingPlan}
-            disabled={!canConfirm}
+            disabled={isGeneratingPlan}
             onClick={handleConfirm}
             glow={canConfirm}
             title={canConfirm ? undefined : 'Mark one diagnosis as Major to continue'}
@@ -213,17 +215,33 @@ export function DiagnosisSection() {
         {/* RIGHT PANEL: Decision & DDx */}
         <div className="lg:col-span-7 space-y-4">
 
-      {/* Clinical Correlation note — yellow banner */}
-      <div className={`flex items-center gap-2.5 text-sm px-4 py-3 rounded-xl
-        ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
-                 : 'bg-amber-50 text-amber-700 border border-amber-200'}`}>
-        <AlertCircle className="w-4 h-4 shrink-0" strokeWidth={1.5} />
-        <span>Cycle a diagnosis: Off → Minor → Major. Mark exactly one as Major before confirming.</span>
-        <a href="#" className="ml-auto text-amber-600 font-semibold text-sm hover:text-amber-700 whitespace-nowrap flex items-center gap-1"
-           onClick={(e) => e.preventDefault()}>
-          <Info className="w-3.5 h-3.5" /> Learn more
-        </a>
-      </div>
+      {/* Status banner — "Ready to confirm" once a Major is marked; the
+          "select a Major" reminder only appears after a Confirm attempt with none. */}
+      {(majorCode || showSelectReminder) && (
+        <div className={`flex items-center gap-2.5 px-4 py-3 rounded-xl ${
+          majorCode
+            ? (isDark ? 'bg-emerald-900/20 text-emerald-300 border border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border border-emerald-200')
+            : (isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20' : 'bg-amber-50 text-amber-700 border border-amber-200')
+        }`}>
+          {majorCode
+            ? <CheckCircle className="w-5 h-5 shrink-0" strokeWidth={1.5} />
+            : <AlertCircle className="w-5 h-5 shrink-0" strokeWidth={1.5} />}
+          <div>
+            <span className="font-semibold text-sm">
+              {majorCode ? 'Ready to confirm.' : 'Select one diagnosis as Major to proceed.'}
+            </span>
+            <span className={`text-xs block mt-0.5 ${
+              majorCode
+                ? (isDark ? 'text-emerald-400/70' : 'text-emerald-600/70')
+                : (isDark ? 'text-amber-400/70' : 'text-amber-600/70')
+            }`}>
+              {majorCode
+                ? `Major: ${sortedDifferentials.find(d => d.icdCode === majorCode)?.name || majorCode}. ${selectedCodes.length - 1} minor(s) selected.`
+                : 'You can adjust the priority of each diagnosis based on clinical judgement.'}
+            </span>
+          </div>
+        </div>
+      )}
 
       {confirmError && (
         <div className={`flex items-start gap-2 text-sm px-4 py-3 rounded-xl
@@ -532,25 +550,6 @@ export function DiagnosisSection() {
           })}
         </div>
       </GlassCard>
-
-      {/* Bottom status banner */}
-      <div className={`flex items-center gap-2.5 px-4 py-3 rounded-xl ${
-        majorCode
-          ? (isDark ? 'bg-emerald-900/20 text-emerald-300 border border-emerald-500/20' : 'bg-emerald-50 text-emerald-700 border border-emerald-200')
-          : (isDark ? 'bg-teal-900/20 text-teal-300 border border-teal-500/20' : 'bg-teal-50 text-teal-700 border border-teal-200')
-      }`}>
-        <CheckCircle className="w-5 h-5 shrink-0" strokeWidth={1.5} />
-        <div>
-          <span className="font-semibold text-sm">
-            {majorCode ? 'Ready to confirm.' : 'Select one diagnosis as Major to proceed.'}
-          </span>
-          <span className={`text-xs block mt-0.5 ${isDark ? 'text-teal-400/70' : 'text-teal-600/70'}`}>
-            {majorCode
-              ? `Major: ${sortedDifferentials.find(d => d.icdCode === majorCode)?.name || majorCode}. ${selectedCodes.length - 1} minor(s) selected.`
-              : 'You can adjust the priority of each diagnosis based on clinical judgement.'}
-          </span>
-        </div>
-      </div>
 
       {/* Re-synthesis notice */}
       {willResynth && !isGeneratingPlan && (

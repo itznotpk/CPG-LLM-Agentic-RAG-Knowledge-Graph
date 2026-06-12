@@ -277,8 +277,28 @@ function ChartModal({ patient, isOpen, onClose }) {
   );
 }
 
+// Build the MPIS profile payload from an edit draft, flushing any text typed
+// into the add-fields but not yet committed with Enter so it isn't dropped.
+// Shared by the inline Save button and the Analyze auto-flush.
+function draftToProfilePayload(draft) {
+  const pendingAllergy = draft.allergyInput?.trim();
+  const pendingCondition = draft.conditionInput?.trim();
+  const pendingMed = draft.medInput?.trim();
+  const allergies = pendingAllergy ? [...draft.allergies, pendingAllergy] : draft.allergies;
+  const comorbidities = pendingCondition ? [...draft.comorbidities, pendingCondition] : draft.comorbidities;
+  const currentMeds = pendingMed ? [...draft.currentMeds, { name: pendingMed, dose: '', frequency: '' }] : draft.currentMeds;
+  return {
+    allergies: allergies.join(', ') || null,
+    comorbidities,
+    currentMeds,
+  };
+}
+
 // Patient Info Display Card — read-only by default, Edit unlocks all fields
-function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
+// `flushRef` (optional): parent populates flushRef.current with a function that
+// commits an in-progress edit to context and returns the merged mpisData, so the
+// Analyze button can absorb an unsaved profile edit.
+function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) {
   const { isDark } = useTheme();
   const { dispatch, state } = useApp();
   const priorVisit = state?.priorVisit;
@@ -308,6 +328,11 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
     if (JSON.stringify(d.allergies) !== JSON.stringify(orig.allergies)) n++;
     if (JSON.stringify(d.comorbidities) !== JSON.stringify(orig.comorbidities)) n++;
     if (JSON.stringify(d.currentMeds) !== JSON.stringify(orig.currentMeds)) n++;
+    // Count text typed into the add-fields but not yet committed with Enter —
+    // these are flushed on Save, so they count as pending changes.
+    if (d.allergyInput?.trim()) n++;
+    if (d.conditionInput?.trim()) n++;
+    if (d.medInput?.trim()) n++;
     return n;
   };
 
@@ -335,11 +360,7 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
     setIsSaving(true); setSaveError('');
     try {
       const { updatePatientFromMPIS } = await import('../../lib/supabase');
-      const payload = {
-        allergies: draft.allergies.join(', ') || null,
-        comorbidities: draft.comorbidities,
-        currentMeds: draft.currentMeds,
-      };
+      const payload = draftToProfilePayload(draft);
       const { success, error } = await updatePatientFromMPIS(patient.nsn, payload);
       if (!success || error) { setSaveError(error?.message || 'Failed to save'); return; }
 
@@ -350,6 +371,24 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart }) {
     } catch (err) { setSaveError(err.message || 'Failed to save'); }
     finally { setIsSaving(false); }
   };
+
+  // Expose a flush to the parent so the Analyze button can absorb an unsaved
+  // profile edit. Commits the draft to context (not the DB — the Analyze flow
+  // persists it) and returns the merged mpisData for the caller to write.
+  React.useEffect(() => {
+    if (!flushRef) return;
+    flushRef.current = () => {
+      if (!isEditing || !draft) return null;
+      const payload = draftToProfilePayload(draft);
+      const merged = { ...mpisData, ...payload };
+      dispatch({ type: 'SET_MPIS_DATA', payload: merged });
+      dispatch({ type: 'SET_PATIENT', payload: { name: draft.name, gender: draft.gender } });
+      setSavedAt(new Date());
+      setIsEditing(false); setDraft(null);
+      return merged;
+    };
+    return () => { if (flushRef) flushRef.current = null; };
+  }, [flushRef, isEditing, draft, mpisData, patient]);
 
   const initials = (patient?.name || '??').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
   const savedTime = savedAt ? savedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : null;
@@ -960,6 +999,8 @@ export function DataInputSection({ onViewChart }) {
   const [isChartModalOpen, setIsChartModalOpen] = React.useState(false);
   const [prepBrief, setPrepBrief] = React.useState(null);
   const [prepBriefLoading, setPrepBriefLoading] = React.useState(false);
+  // Lets handleAnalyze commit an in-progress profile edit before analyzing.
+  const profileFlushRef = React.useRef(null);
 
   // Auto-populate NRIC when navigating from Home page's Start Consult
   React.useEffect(() => {
@@ -1016,6 +1057,12 @@ export function DataInputSection({ onViewChart }) {
       alert("Please enter Clinical Notes (the chief complaint) before starting the analysis.");
       return;
     }
+    // If the profile card is mid-edit and the user clicked Analyze without
+    // pressing "Save changes", commit that edit now so it isn't lost. The flush
+    // returns the merged mpisData; fall back to current state when not editing.
+    const flushed = profileFlushRef.current?.();
+    const effectiveMpis = flushed || mpisData;
+
     // Push every Step 1 card to Supabase before kicking off analysis.
     // Severity/staging has no column — it's embedded into clinical_notes by analyzeAssessment().
     try {
@@ -1030,18 +1077,18 @@ export function DataInputSection({ onViewChart }) {
             fullName: patient.name,
             dateOfBirth: patient.dob,
             gender: patient.gender,
-            race: mpisData?.race || null,
-            allergies: mpisData?.allergies || null,
-            comorbidities: mpisData?.comorbidities || null,
+            race: effectiveMpis?.race || null,
+            allergies: effectiveMpis?.allergies || null,
+            comorbidities: effectiveMpis?.comorbidities || null,
           });
         }
 
         // Always sync MPIS edits (allergies/comorbidities/meds + race) — covers both flows
         await updatePatientFromMPIS(nric, {
-          allergies: mpisData?.allergies || null,
-          comorbidities: mpisData?.comorbidities || null,
-          currentMeds: mpisData?.currentMeds || [],
-          race: mpisData?.race || null,
+          allergies: effectiveMpis?.allergies || null,
+          comorbidities: effectiveMpis?.comorbidities || null,
+          currentMeds: effectiveMpis?.currentMeds || [],
+          race: effectiveMpis?.race || null,
         });
 
         // Always push vitals snapshot
@@ -1199,6 +1246,7 @@ export function DataInputSection({ onViewChart }) {
                   mpisData={mpisData}
                   onClear={handleClear}
                   onViewChart={() => setIsChartModalOpen(true)}
+                  flushRef={profileFlushRef}
                 />
                 {state.priorVisit && <PrepBriefCard brief={prepBrief} loading={prepBriefLoading} />}
               </>

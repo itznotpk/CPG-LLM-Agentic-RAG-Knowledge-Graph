@@ -62,98 +62,148 @@ function formatOverrideReason(reason) {
   }).join('; ');
 }
 
+// Deep engine-internal sub-steps — collapsed under an "Advanced" dropdown rather
+// than shown inline (regex code injection + the clinician-named priority codes).
+function isAdvancedSubStep(detail) {
+  if (!detail) return false;
+  return detail.startsWith('Regex-injected codes') || detail.startsWith('CC priority codes:');
+}
+
 // Compact before/after re-rank + score-breakdown table for the DDx stage.
 // All fields come from the stage-2 stage_update `data` (DDxResult.model_dump()).
-function DDxCandidateTable({ candidates, isDark }) {
-  if (!candidates?.length) return null;
+function fmtScore(n, sign = false) {
+  if (n === null || n === undefined) return '—';
+  const v = Number(n);
+  const s = v.toFixed(2);
+  return sign && v > 0 ? `+${s}` : s;
+}
 
-  const fmt = (n, sign = false) => {
-    if (n === null || n === undefined) return '—';
-    const v = Number(n);
-    const s = v.toFixed(2);
-    return sign && v > 0 ? `+${s}` : s;
-  };
+function DDxCandidateRow({ c, i, isDark }) {
+  const [open, setOpen] = useState(false);
+  const sb = c.score_breakdown || {};
+  const mathRank = c.math_rank;
+  const aiRank = c.llm_rank ?? i + 1;
+  const delta = c.rank_delta;
+  const moved = typeof delta === 'number' && delta !== 0;
+  const arrow = !moved ? '=' : delta > 0 ? `↑${delta}` : `↓${Math.abs(delta)}`;
+  const arrowColor = !moved ? 'text-slate-500' : delta > 0 ? 'text-emerald-400' : 'text-red-400';
+  const incl = Number(sb.inclusion_match || 0);
+  const ccBoost = Number(sb.cc_boost || 0);
+  const ccRaw = sb.cc_boost_raw;
+  const excl = Number(sb.exclusion_penalty || 0);
 
   return (
+    <div className={`rounded-lg px-3 py-2 text-xs border ${isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-slate-50 border-slate-200'}`}>
+      {/* Row 1: rank, code, title, before→after */}
+      <div className="flex items-center gap-2">
+        <span className="font-sans font-bold text-slate-400 shrink-0">#{aiRank}</span>
+        <span className="font-sans text-[var(--accent-primary)] shrink-0">{c.code}</span>
+        <span className={`truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.title}</span>
+        {mathRank != null && (
+          <span className="ml-auto shrink-0 font-sans text-[11px] text-slate-500">
+            math #{mathRank} → AI #{aiRank}{' '}
+            <span className={`font-bold ${arrowColor}`}>{arrow}</span>
+          </span>
+        )}
+      </div>
+
+      {/* Row 2: score breakdown — collapsed under a dropdown (base + incl − excl) */}
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="mt-1 flex items-center gap-1 font-sans text-[11px] text-slate-500 hover:text-slate-400 transition-colors"
+      >
+        {open ? <ChevronUp className="w-3 h-3" strokeWidth={1.5} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.5} />}
+        {open ? 'Hide score breakdown' : 'Score breakdown'}
+      </button>
+      {open && (
+        <div className={`mt-1 font-sans text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+          <span title="base vector similarity">base {fmtScore(sb.base_similarity)}</span>
+          <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
+            {'  + incl '}{fmtScore(incl, true)}
+          </span>
+          <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
+            {'  − excl '}{fmtScore(excl)}
+          </span>
+          <span
+            className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}
+            title="Evidence (math) score — base + inclusion − exclusion. The list order is the AI clinical rank, which can differ from this."
+          >
+            {'  = evidence '}{fmtScore(sb.final_score)}
+          </span>
+          {ccBoost > 0 && (
+            <span
+              className="ml-2 inline-flex items-center gap-1 text-[10px] text-sky-400"
+              title={ccRaw != null ? `Clinician named this diagnosis (CC confidence ${Math.round(ccRaw * 100)}%) — used by LLM rerank only, not in math` : 'Clinician-named — used by LLM rerank only, not in math'}
+            >
+              · clinician-named (LLM signal)
+            </span>
+          )}
+        </div>
+      )}
+
+      {/* Row 3: override reason, if the AI re-ranked against the math order */}
+      {c.override_reason && (
+        <div className="mt-1 flex items-start gap-1 text-[11px] text-amber-400">
+          <span className="shrink-0">⤷ override:</span>
+          <span className="italic">{formatOverrideReason(c.override_reason)}</span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DDxCandidateTable({ candidates, isDark }) {
+  if (!candidates?.length) return null;
+  return (
     <div className="mt-2 space-y-1.5">
-      {/* Legend: the list is ordered by the AI's clinical rank, which deliberately
-          differs from the raw math/evidence score below each card — the AI reweights
-          candidates against patient context, so #1 can carry a lower evidence score
-          than a card beneath it. Spelling this out stops the order looking "broken". */}
+      {/* Legend: the list is ordered by the AI's clinical rank, which can differ
+          from the raw math/evidence score (the AI reweights against patient context). */}
       <div className={`font-sans text-[10px] leading-snug ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
         Ordered by AI clinical rank. The <span className="font-semibold">evidence</span> score is
         the raw retrieval signal — the AI may rank against it using patient context.
       </div>
-      {candidates.map((c, i) => {
-        const sb = c.score_breakdown || {};
-        const mathRank = c.math_rank;
-        const aiRank = c.llm_rank ?? i + 1;
-        const delta = c.rank_delta;
-        const moved = typeof delta === 'number' && delta !== 0;
-        const arrow = !moved ? '=' : delta > 0 ? `↑${delta}` : `↓${Math.abs(delta)}`;
-        const arrowColor = !moved
-          ? 'text-slate-500'
-          : delta > 0 ? 'text-emerald-400' : 'text-red-400';
-        const incl = Number(sb.inclusion_match || 0);
-        const ccBoost = Number(sb.cc_boost || 0);
-        const ccRaw = sb.cc_boost_raw;
-        const excl = Number(sb.exclusion_penalty || 0);
+      {candidates.map((c, i) => (
+        <DDxCandidateRow key={c.code || i} c={c} i={i} isDark={isDark} />
+      ))}
+    </div>
+  );
+}
 
-        return (
-          <div
-            key={c.code || i}
-            className={`rounded-lg px-3 py-2 text-xs border ${isDark ? 'bg-slate-800/40 border-slate-700/50' : 'bg-slate-50 border-slate-200'}`}
+// Stage sub-steps: normal steps inline; deep internals (regex-injected codes,
+// CC priority codes) tucked under a collapsible "Advanced details" dropdown.
+function SubSteps({ subs, isDark }) {
+  const [advOpen, setAdvOpen] = useState(false);
+  if (!subs || subs.length === 0) return null;
+  const normal = subs.filter((s) => !isAdvancedSubStep(s.detail));
+  const advanced = subs.filter((s) => isAdvancedSubStep(s.detail));
+
+  const renderSub = (sub, i, arr) => {
+    const connector = i === arr.length - 1 ? '└' : '├';
+    const matchColor = sub.badge ? (MATCH_TYPE_COLORS[sub.badge] || MATCH_TYPE_COLORS.semantic) : null;
+    return (
+      <div key={i} className="flex items-center gap-2">
+        <span className="text-slate-600 font-sans text-xs shrink-0">{connector}</span>
+        <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{sub.detail}</span>
+        {sub.badge && <StageBadge text={sub.badge} colorClass={matchColor} />}
+      </div>
+    );
+  };
+
+  return (
+    <div className="mt-1.5 space-y-1 pl-3 border-l border-slate-700/50">
+      {normal.map((s, i) => renderSub(s, i, normal))}
+      {advanced.length > 0 && (
+        <div className="space-y-1">
+          <button
+            onClick={() => setAdvOpen((o) => !o)}
+            className="flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-400 transition-colors"
           >
-            {/* Row 1: rank, code, title, before→after */}
-            <div className="flex items-center gap-2">
-              <span className="font-sans font-bold text-slate-400 shrink-0">#{aiRank}</span>
-              <span className="font-sans text-[var(--accent-primary)] shrink-0">{c.code}</span>
-              <span className={`truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>{c.title}</span>
-              {mathRank != null && (
-                <span className="ml-auto shrink-0 font-sans text-[11px] text-slate-500">
-                  math #{mathRank} → AI #{aiRank}{' '}
-                  <span className={`font-bold ${arrowColor}`}>{arrow}</span>
-                </span>
-              )}
-            </div>
-
-            {/* Row 2: score breakdown — CC-boost is no longer in the math formula;
-                 it stays available as a soft signal to the LLM rerank (separately
-                 surfaced via the clinician-named badge / override_reason below). */}
-            <div className={`mt-1 font-sans text-[11px] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-              <span title="base vector similarity">base {fmt(sb.base_similarity)}</span>
-              <span className={incl > 0 ? 'text-emerald-400' : 'opacity-40'} title={sb.inclusion_phrase || 'inclusion-term match'}>
-                {'  + incl '}{fmt(incl, true)}
-              </span>
-              <span className={excl > 0 ? 'text-red-400' : 'opacity-40'} title={sb.exclusion_phrase || 'exclusion-term penalty'}>
-                {'  − excl '}{fmt(excl)}
-              </span>
-              <span
-                className={`font-bold ${isDark ? 'text-slate-200' : 'text-slate-700'}`}
-                title="Evidence (math) score — base + inclusion − exclusion. The list order is the AI clinical rank, which can differ from this."
-              >
-                {'  = evidence '}{fmt(sb.final_score)}
-              </span>
-              {ccBoost > 0 && (
-                <span
-                  className="ml-2 inline-flex items-center gap-1 text-[10px] text-sky-400"
-                  title={ccRaw != null ? `Clinician named this diagnosis (CC confidence ${Math.round(ccRaw * 100)}%) — used by LLM rerank only, not in math` : 'Clinician-named — used by LLM rerank only, not in math'}
-                >
-                  · clinician-named (LLM signal)
-                </span>
-              )}
-            </div>
-
-            {/* Row 3: override reason, if the AI re-ranked against the math order */}
-            {c.override_reason && (
-              <div className="mt-1 flex items-start gap-1 text-[11px] text-amber-400">
-                <span className="shrink-0">⤷ override:</span>
-                <span className="italic">{formatOverrideReason(c.override_reason)}</span>
-              </div>
-            )}
-          </div>
-        );
-      })}
+            {advOpen ? <ChevronUp className="w-3 h-3" strokeWidth={1.5} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.5} />}
+            {advOpen ? 'Hide advanced details' : `Advanced details (${advanced.length})`}
+          </button>
+          {advOpen && advanced.map((s, i) => renderSub(s, i, advanced))}
+        </div>
+      )}
     </div>
   );
 }
@@ -372,27 +422,8 @@ export function PipelineProgress({
                       </p>
                     ) : null}
 
-                    {/* Sub-steps */}
-                    {stage.subSteps.length > 0 && (
-                      <div className="mt-1.5 space-y-1 pl-3 border-l border-slate-700/50">
-                        {stage.subSteps.map((sub, i) => {
-                          const isLastSub = i === stage.subSteps.length - 1;
-                          const connector = isLastSub ? '└' : '├';
-                          const matchColor = sub.badge ? (MATCH_TYPE_COLORS[sub.badge] || MATCH_TYPE_COLORS.semantic) : null;
-                          return (
-                            <div key={i} className="flex items-center gap-2">
-                              <span className="text-slate-600 font-sans text-xs shrink-0">{connector}</span>
-                              <span className={`text-xs truncate ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                                {sub.detail}
-                              </span>
-                              {sub.badge && (
-                                <StageBadge text={sub.badge} colorClass={matchColor} />
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
+                    {/* Sub-steps — normal inline; deep internals under "Advanced details" */}
+                    <SubSteps subs={stage.subSteps} isDark={isDark} />
 
                     {/* DDx candidates: before/after re-rank + score breakdown (stage 2) */}
                     {stage.stage === 2 && Array.isArray(stage.data) && stage.data.length > 0 && (

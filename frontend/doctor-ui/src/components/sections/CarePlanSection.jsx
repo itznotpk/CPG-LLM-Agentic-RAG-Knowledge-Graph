@@ -1354,11 +1354,11 @@ const UNRESOLVED_CATEGORY_CONFIG = {
     hint: 'Drug–drug interactions and dose adjustment concerns.',
     headerBg: 'bg-orange-50 dark:bg-orange-950/30',
     headerText: 'text-orange-600 dark:text-orange-400',
-    bodyBg: 'bg-orange-50 dark:bg-orange-950/30',
+    bodyBg: 'bg-transparent',
     bodyBorder: 'border-orange-100 dark:border-orange-900/30',
     bulletBg: 'bg-orange-400 dark:bg-orange-500',
-    titleColor: 'text-slate-700 dark:text-slate-200',
-    descColor: 'text-slate-500 dark:text-slate-400',
+    titleColor: 'text-slate-900 dark:text-slate-50',
+    descColor: 'text-slate-600 dark:text-slate-300',
     countBg: 'bg-orange-100 text-orange-700 dark:bg-orange-900/50 dark:text-orange-300',
     icon: 'pill',
   },
@@ -1367,25 +1367,25 @@ const UNRESOLVED_CATEGORY_CONFIG = {
     hint: 'CPG does not specify — apply clinical judgement.',
     headerBg: 'bg-blue-50 dark:bg-blue-950/30',
     headerText: 'text-blue-600 dark:text-blue-400',
-    bodyBg: 'bg-blue-50 dark:bg-blue-950/30',
+    bodyBg: 'bg-transparent',
     bodyBorder: 'border-blue-100 dark:border-blue-900/30',
     bulletBg: 'bg-blue-400 dark:bg-blue-500',
-    titleColor: 'text-slate-700 dark:text-slate-200',
-    descColor: 'text-slate-500 dark:text-slate-400',
+    titleColor: 'text-slate-900 dark:text-slate-50',
+    descColor: 'text-slate-600 dark:text-slate-300',
     countBg: 'bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300',
     icon: 'book',
   },
   missing_data: {
     label: 'Missing Data',
     hint: 'Patient data not available — verify before proceeding.',
-    headerBg: 'bg-slate-50 dark:bg-slate-800/40',
-    headerText: 'text-slate-600 dark:text-slate-400',
-    bodyBg: 'bg-slate-50 dark:bg-slate-800/40',
-    bodyBorder: 'border-slate-100 dark:border-slate-700/50',
-    bulletBg: 'bg-slate-400 dark:bg-slate-500',
-    titleColor: 'text-slate-700 dark:text-slate-200',
-    descColor: 'text-slate-500 dark:text-slate-400',
-    countBg: 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300',
+    headerBg: 'bg-violet-50 dark:bg-violet-950/30',
+    headerText: 'text-violet-600 dark:text-violet-400',
+    bodyBg: 'bg-transparent',
+    bodyBorder: 'border-violet-100 dark:border-violet-900/30',
+    bulletBg: 'bg-violet-400 dark:bg-violet-500',
+    titleColor: 'text-slate-900 dark:text-slate-50',
+    descColor: 'text-slate-600 dark:text-slate-300',
+    countBg: 'bg-violet-100 text-violet-700 dark:bg-violet-900/50 dark:text-violet-300',
     icon: 'alert',
   },
 };
@@ -1396,6 +1396,12 @@ function UnresolvedCategorySection({ categoryKey, items, isDark }) {
   const [open, setOpen] = useState(true);
   const cfg = UNRESOLVED_CATEGORY_CONFIG[categoryKey];
   if (!cfg || items.length === 0) return null;
+
+  // Drive text colour from the app theme (isDark), NOT Tailwind `dark:` variants:
+  // Tailwind dark mode here follows the OS (prefers-color-scheme), so when the app
+  // theme is light but the OS is dark, `dark:` text renders light-on-light.
+  const titleColor = isDark ? 'text-slate-100' : 'text-slate-900';
+  const descColor  = isDark ? 'text-slate-300' : 'text-slate-600';
 
   const iconEl = categoryKey === 'medication_interaction'
     ? <Pill className="w-3.5 h-3.5" strokeWidth={2} />
@@ -1432,11 +1438,11 @@ function UnresolvedCategorySection({ categoryKey, items, isDark }) {
               <div key={i} className="flex gap-2 items-start">
                 <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${cfg.bulletBg}`} />
                 <div className="flex-1 min-w-0">
-                  <p className={`text-[12px] font-semibold leading-snug ${cfg.titleColor}`}>
+                  <p className={`text-[12px] font-semibold leading-snug ${titleColor}`}>
                     {parsed.title}
                   </p>
                   {parsed.desc && (
-                    <p className={`text-[11px] leading-relaxed mt-0.5 ${cfg.descColor}`}>
+                    <p className={`text-[11px] leading-relaxed mt-0.5 ${descColor}`}>
                       {parsed.desc}
                     </p>
                   )}
