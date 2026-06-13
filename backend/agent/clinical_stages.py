@@ -13,6 +13,7 @@ import asyncio
 import json
 import logging
 import os
+import re
 from typing import Literal
 
 import openai
@@ -3943,6 +3944,50 @@ def stage4_boosted_score(chunk: ChunkResult) -> float:
     return min(chunk.score * boost, 1.0)
 
 
+# Disease tokens that appear as the trailing segment of a CPG source filename
+# (e.g. "section-10-supportive-breastcancer.md") mapped to a clean guideline
+# label. Unknown tokens fall back to a title-cased form of the raw token.
+_CPG_SOURCE_LABELS = {
+    "heartfailure": "Heart Failure",
+    "breastcancer": "Breast Cancer",
+    "t2dm": "Type 2 Diabetes Mellitus",
+    "diabetes": "Diabetes Mellitus",
+    "diabetesmellitus": "Diabetes Mellitus",
+    "obesity": "Obesity Management",
+    "hypertension": "Hypertension",
+    "dyslipidaemia": "Dyslipidaemia",
+    "dyslipidemia": "Dyslipidaemia",
+    "ckd": "Chronic Kidney Disease",
+    "copd": "COPD",
+    "asthma": "Asthma",
+    "pah": "Pulmonary Arterial Hypertension",
+    "stroke": "Stroke",
+}
+
+
+def _cpg_label_from_source(source: str | None, fallback: str = "") -> str:
+    """Derive a clean guideline name from the chunk's source filename. In this
+    corpus the document *title* holds the section heading, so the only place the
+    actual CPG name survives is the source file (e.g. the trailing disease token
+    of "section-10-supportive-breastcancer.md")."""
+    if not source:
+        return fallback
+    base = re.split(r"[\\/]", source)[-1]
+    base = re.sub(r"\.(md|pdf|txt|markdown)$", "", base, flags=re.I)
+    token = base.split("-")[-1].strip().lower()
+    if not token or token.isdigit():
+        return fallback
+    return _CPG_SOURCE_LABELS.get(token, token.title())
+
+
+def _strip_markdown(text: str) -> str:
+    """Strip the markdown scaffolding (heading hashes, blockquote Context lines,
+    bold/asterisks, code ticks) so the trace preview reads as plain prose."""
+    text = re.sub(r"^\s*>\s*\*\*Context:\*\*.*$", "", text, flags=re.M)  # > **Context:** …
+    text = re.sub(r"[#>*`]+", " ", text)
+    return " ".join(text.split())
+
+
 def _meaningful_snippet(text: str, max_len: int = 240) -> str:
     """Trim a passage to a readable preview that ends on a sentence (or at worst
     a whole word) boundary — never mid-word — so the trace shows a complete
@@ -3963,6 +4008,10 @@ def _chunk_brief(c: ChunkResult) -> dict:
     """Compact, clinician-readable view of a retrieved chunk for the reasoning
     trace UI: which guideline it came from, the section heading if known, and a
     short plain-text preview of the passage."""
+    # In this corpus `document_title` IS the section heading (e.g. "Section 13:
+    # Chronic Heart Failure"); the canonical guideline name only survives in the
+    # source filename. So derive the CPG name from the source, and use the title
+    # as the section — de-duplicating so the card never shows the same string twice.
     section = None
     if isinstance(c.metadata, dict):
         section = (
@@ -3975,9 +4024,15 @@ def _chunk_brief(c: ChunkResult) -> dict:
             section = str(sh[-1])
         elif not section and isinstance(sh, str):
             section = sh
-    snippet = _meaningful_snippet(c.content or "")
+    section = section or c.document_title
+
+    cpg = _cpg_label_from_source(c.document_source, fallback=c.document_title)
+    if section and section.strip().lower() == cpg.strip().lower():
+        section = None
+
+    snippet = _meaningful_snippet(_strip_markdown(c.content or ""), max_len=160)
     return {
-        "cpg": c.document_title,
+        "cpg": cpg,
         "section": section,
         "snippet": snippet,
         "score": round(float(c.score), 3),

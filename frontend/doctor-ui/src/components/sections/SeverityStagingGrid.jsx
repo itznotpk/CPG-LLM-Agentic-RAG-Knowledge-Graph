@@ -101,7 +101,7 @@ export function SeverityStagingGrid() {
   };
 
   const handleSampleFill = () => {
-    // EVALUATION_FRAMEWORK_README.md Case 11: eGFR 88 · HbA1c 7.4.
+    // EVALUATION_FRAMEWORK_README.md Case 08: HbA1c 8.4 · LVEF 25 · NYHA II.
     dispatch({
       type: 'SET_SEVERITY_STAGING',
       payload: { ...severityStaging, ...sampleSeverityStaging },

@@ -74,8 +74,8 @@ export function VitalsGrid() {
   const bmiCategory = getBMICategory(bmi);
 
   const handleDemoFill = () =>
-    // EVALUATION_FRAMEWORK_README.md Case 11 vitals: BP 128/80 · HR 64 · SpO2 98
-    // · Weight 95 · Height 175 · Temp 36.6 (BMI 31.0 → Obesity Class I).
+    // EVALUATION_FRAMEWORK_README.md Case 08 vitals: BP 128/76 · HR 82 · SpO2 97
+    // · Weight 98 · Height 175 · Temp 36.8 (BMI 32.0 → Obesity).
     dispatch({
       type: 'SET_VITALS',
       payload: {

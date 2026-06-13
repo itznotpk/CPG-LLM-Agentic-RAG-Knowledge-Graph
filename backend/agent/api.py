@@ -2096,7 +2096,12 @@ class DeliveryEnqueueRequest(_BaseModel):
 @app.post("/delivery/enqueue")
 async def delivery_enqueue(body: DeliveryEnqueueRequest):
     """Enqueue a care-plan delivery job for the given consultation."""
-    from .db_utils import db_pool as _pool
+    # patients / consultations / delivery_jobs live in the Supabase DB, not the
+    # primary pgvector Postgres — use supabase_pool so the email persists and the
+    # job actually lands on the queue the worker polls.
+    from .db_utils import supabase_pool as _pool
+    if _pool.pool is None:
+        raise HTTPException(status_code=503, detail="delivery store (Supabase) not configured")
     recipient = (body.recipient or "").strip() or None
     try:
         async with _pool.acquire() as conn:
@@ -2143,7 +2148,10 @@ async def delivery_enqueue(body: DeliveryEnqueueRequest):
 @app.get("/delivery/status/{consultation_id}")
 async def delivery_status(consultation_id: int):
     """Return the latest delivery job for a consultation."""
-    from .db_utils import db_pool as _pool
+    # delivery_jobs lives in the Supabase DB, not the primary pgvector Postgres.
+    from .db_utils import supabase_pool as _pool
+    if _pool.pool is None:
+        return None
     async with _pool.acquire() as conn:
         row = await conn.fetchrow(
             """

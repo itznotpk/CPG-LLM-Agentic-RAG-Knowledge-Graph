@@ -178,14 +178,43 @@ function Section({ title, icon: Icon, children, defaultOpen = true, rightAction,
 /* ============================================================
    Clinical Summary — hero card
    ============================================================ */
+// Split a clinical-summary paragraph into individual sentences for a scannable
+// bullet layout. Splits on ". " only when followed by a capital letter or "(",
+// so decimals (BMI 32, LVEF 25%) and inline abbreviations stay intact.
+function splitSummarySentences(text) {
+  return String(text || '')
+    .trim()
+    .split(/(?<=\.)\s+(?=[A-Z(])/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
 function ClinicalSummary({ summary, readSummaryButton }) {
   const { isDark } = useTheme();
+  const sentences = splitSummarySentences(summary);
+  // The first sentence is the patient one-liner (who they are); the rest are the
+  // assessment/plan points. Lead with the patient line, bullet the reasoning.
+  const [lead, ...points] = sentences;
   return (
     <GlassCard className="p-5">
       <div className="flex items-start justify-between gap-4">
-        <div className="flex-1">
+        <div className="flex-1 min-w-0">
           <div className="text-[10px] uppercase tracking-[0.08em] font-semibold text-[var(--accent-primary)] mb-2">Clinical Summary</div>
-          <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{summary}</p>
+          {sentences.length <= 1 ? (
+            <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{summary}</p>
+          ) : (
+            <>
+              <p className={`text-sm leading-relaxed font-medium mb-3 ${isDark ? 'text-slate-200' : 'text-slate-800'}`}>{lead}</p>
+              <ul className="flex flex-col gap-1.5">
+                {points.map((s, i) => (
+                  <li key={i} className={`flex gap-2 text-sm leading-relaxed ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    <span className="mt-[7px] shrink-0 w-1.5 h-1.5 rounded-full bg-[var(--accent-primary)]" />
+                    <span className="min-w-0">{s}</span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
         {readSummaryButton}
       </div>
@@ -214,9 +243,9 @@ function ActionTag({ action }) {
 }
 
 /* Editable inline text — click to edit, blur/enter to save */
-export function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '', renderDisplay = null }) {
+export function InlineEdit({ value, onChange, className = '', multiline = false, placeholder = '', renderDisplay = null, autoEdit = false }) {
   const { isDark } = useTheme();
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(autoEdit && !value);
   const [draft, setDraft] = useState(value || '');
   const ref = useRef(null);
 
@@ -306,6 +335,48 @@ function formatCpgRef(raw) {
     .trim();
 }
 
+// Split a packed CPG reference string into individual references (one per `;`).
+function formatCpgRefs(raw) {
+  return formatCpgRef(raw)
+    .split(/\s*;\s*/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
+
+// Parse an interchangeable-medication string into a clean class label + options.
+// Handles three shapes the synthesiser emits:
+//   "Class (Agent A or Agent B)"  → { label: "Class", options: ["Agent A", "Agent B"] }
+//   "Agent A or Agent B"          → { label: "",      options: ["Agent A", "Agent B"] }
+//   "Single agent"                → { label: "",      options: ["Single agent"] }
+// The "or" inside a parenthetical is the option separator, so we never split on
+// the wrapping class name and we strip the now-redundant parentheses.
+// Capitalise the first letter of a string (e.g. a drug name) without touching
+// the rest — "bisoprolol 1.25mg OD" → "Bisoprolol 1.25mg OD". Leaves a string
+// that already starts with a capital / non-letter (a number, "(") unchanged.
+function capitalizeFirst(s) {
+  return String(s || '').replace(/^(\s*)([a-z])/, (_, sp, c) => sp + c.toUpperCase());
+}
+
+function parseAgentOptions(raw) {
+  const s = String(raw || '').trim();
+  if (!s) return { label: '', options: [] };
+  const clean = (arr) => arr.map((x) => capitalizeFirst(x.trim())).filter(Boolean);
+
+  const open = s.indexOf('(');
+  if (open !== -1) {
+    const label = s.slice(0, open).trim();
+    const inner = s.slice(open + 1).replace(/\)\s*$/, '').trim(); // drop trailing ")"
+    if (/\s+or\s+/i.test(inner)) {
+      return { label, options: clean(inner.split(/\s+or\s+/i)) };
+    }
+  }
+
+  if (/\s+or\s+/i.test(s)) {
+    return { label: '', options: clean(s.split(/\s+or\s+/i)) };
+  }
+  return { label: '', options: clean([s]) };
+}
+
 function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule, highlighted }) {
   const { isDark } = useTheme();
   // originalAction = the category the med belongs to (determines content rendering)
@@ -321,10 +392,88 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
         <ActionDropdown action={action} onChange={onActionChange} />
       </td>
       <td className="py-3 pr-4 align-top">
-        <div className={`flex items-center gap-2 flex-wrap font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
-          <InlineEdit value={med.name} onChange={(v) => onFieldChange('name', v)} placeholder="Medication name" />
-          <GraphVerifiedBadge rule={graphRule} />
-        </div>
+        {(() => {
+          // The full set of interchangeable agents is preserved in `nameOptions`
+          // once a pick is made, so both options stay visible and the choice is reversible.
+          const optionSource = med.nameOptions || med.name || '';
+          const { label: classLabel, options: opts } = parseAgentOptions(optionSource);
+          if (opts.length < 2) {
+            return (
+              <div className={`flex items-center gap-2 flex-wrap font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
+                <InlineEdit value={med.name} onChange={(v) => onFieldChange('name', v)} placeholder="Medication name" renderDisplay={(v) => capitalizeFirst(v)} />
+                <GraphVerifiedBadge rule={graphRule} />
+              </div>
+            );
+          }
+          // Interchangeable class-equivalent agents — clinician picks one.
+          // A selection has been made if `nameOptions` is set (then `name` holds the pick).
+          const selected = med.nameOptions ? med.name : null;
+          // Custom = a pick has been made but it isn't one of the suggested agents
+          // (the clinician entered their own medication instead).
+          const isCustom = med.nameOptions != null && !opts.includes(med.name);
+          const ensureOptions = () => {
+            if (!med.nameOptions) onFieldChange('nameOptions', med.name); // remember the original "A or B"
+          };
+          const pick = (opt) => { ensureOptions(); onFieldChange('name', opt); };
+          const startCustom = () => { ensureOptions(); onFieldChange('name', ''); };
+          return (
+            <div>
+              <div className={`flex items-center gap-1.5 mb-1 text-[10px] font-semibold uppercase tracking-wide ${isDark ? 'text-amber-300/80' : 'text-amber-600'}`}>
+                {selected ? 'Selected — tap to switch' : 'Choose one'}
+                {classLabel && <span className={`normal-case font-medium ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>· {classLabel}</span>}
+                <GraphVerifiedBadge rule={graphRule} />
+              </div>
+              <div className="flex flex-col gap-1">
+                {opts.map((opt, i) => {
+                  const isSel = selected === opt;
+                  return (
+                    <button
+                      key={i}
+                      onClick={() => pick(opt)}
+                      className={`flex items-center gap-2 text-left px-2.5 py-1.5 rounded-md border text-sm font-semibold transition-colors ${
+                        isSel
+                          ? (isDark ? 'bg-emerald-500/15 border-emerald-400/50 text-emerald-200' : 'bg-emerald-50 border-emerald-300 text-emerald-800')
+                          : (isDark ? 'bg-white/[0.03] border-white/10 text-slate-200 hover:bg-amber-500/15 hover:border-amber-400/40'
+                                    : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-amber-50 hover:border-amber-300')}`}
+                      title={isSel ? 'Selected for the patient' : 'Select this option for the patient'}
+                    >
+                      <span className={`shrink-0 ${isSel ? '' : 'opacity-0'}`}>
+                        <Check className="w-3.5 h-3.5" strokeWidth={2.5} />
+                      </span>
+                      <span>{opt}</span>
+                    </button>
+                  );
+                })}
+
+                {/* Custom entry — when neither suggested agent is the clinician's choice. */}
+                {isCustom ? (
+                  <div className={`flex items-center gap-2 px-2.5 py-1.5 rounded-md border text-sm font-semibold ${
+                    isDark ? 'bg-emerald-500/15 border-emerald-400/50 text-emerald-200' : 'bg-emerald-50 border-emerald-300 text-emerald-800'}`}>
+                    <Check className="w-3.5 h-3.5 shrink-0" strokeWidth={2.5} />
+                    <InlineEdit
+                      value={med.name}
+                      onChange={(v) => onFieldChange('name', v)}
+                      placeholder="Type medication name & dose"
+                      autoEdit
+                      className="flex-1"
+                    />
+                  </div>
+                ) : (
+                  <button
+                    onClick={startCustom}
+                    className={`flex items-center gap-2 text-left px-2.5 py-1.5 rounded-md border border-dashed text-sm font-medium transition-colors ${
+                      isDark ? 'border-white/15 text-slate-400 hover:bg-white/[0.04] hover:text-slate-200'
+                             : 'border-slate-300 text-slate-500 hover:bg-slate-50 hover:text-slate-700'}`}
+                    title="Neither option fits — enter your own medication"
+                  >
+                    <Plus className="w-3.5 h-3.5 shrink-0" strokeWidth={2} />
+                    <span>Add my own</span>
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        })()}
         <div className={`mt-0.5 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           {originalAction === 'change' ? (
             <InlineEdit
@@ -368,7 +517,23 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
       </td>
       <td className="py-3 align-top w-[140px]">
         <div className="flex items-start justify-between">
-          <span className={`text-[11px] font-sans ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{formatCpgRef(med.cpgRef)}</span>
+          {(() => {
+            const refs = formatCpgRefs(med.cpgRef);
+            if (refs.length === 0) return <span className="text-[11px]" />;
+            if (refs.length === 1) {
+              return <span className={`text-[11px] font-sans ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{refs[0]}</span>;
+            }
+            return (
+              <ul className={`text-[11px] font-sans space-y-0.5 ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>
+                {refs.map((r, i) => (
+                  <li key={i} className="flex gap-1">
+                    <span className="select-none">•</span>
+                    <span>{r}</span>
+                  </li>
+                ))}
+              </ul>
+            );
+          })()}
           <button
             onClick={onDelete}
             className={`p-1 rounded-md opacity-0 group-hover/row:opacity-100 transition-all flex-shrink-0 ml-1
@@ -466,8 +631,13 @@ function RedFlagRow({ text }) {
   // and scannable so a clinician can ignore the criteria detail unless they need it.
   const splitText = (raw) => {
     if (!raw) return { title: '', sub: null };
+    // Split on the first "Label: criteria" colon. The label can be long when it
+    // carries a parenthetical (e.g. "Acute decompensation (… oedema): review"),
+    // so rather than a fixed length cap we only require that the label isn't
+    // itself running prose (no sentence boundary before the colon) and that
+    // there is real text after it. This keeps every flag split into title + sub.
     const colonIdx = raw.indexOf(': ');
-    if (colonIdx !== -1 && colonIdx < 60) {
+    if (colonIdx !== -1 && colonIdx < raw.length - 2 && !/[.!?]\s/.test(raw.slice(0, colonIdx))) {
       return { title: raw.slice(0, colonIdx).trim(), sub: raw.slice(colonIdx + 2).trim() };
     }
     const dashIdx = raw.indexOf(' — ');

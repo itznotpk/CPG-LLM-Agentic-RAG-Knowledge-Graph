@@ -1,49 +1,45 @@
 // Sample data for the CPG LLM demo application
 
-// Stage-1 demo fill — EVALUATION_FRAMEWORK_README.md Case 11
-// (Stable CAD + T2DM + Obesity + ED). Name/Age/Sex are taken verbatim from the
-// case card; DOB/NRIC are synthesised to satisfy the UI's identity fields
-// (age 56 → born 1970; NRIC last digit odd = Male).
+// Stage-1 demo fill — EVALUATION_FRAMEWORK_README.md Case 08
+// (T2DM + HFrEF + Obesity — "Metabolic Heart Failure"). Age/Sex are taken
+// verbatim from the case card; DOB/NRIC are synthesised to satisfy the UI's
+// identity fields (age 62 → born 1964; NRIC last digit odd = Male).
 export const samplePatientData = {
-  name: "Demo Case 11",
-  dob: "1970-01-01",
-  nsn: "700101-10-5673",
+  name: "Demo Case 08",
+  dob: "1964-01-01",
+  nsn: "640101-10-5671",
   gender: "Male",
-  age: 56,
+  age: 62,
 };
 
 // Mock MPIS Patient Database for NRIC lookup
 export const mpisPatientDatabase = {
-  "700101-10-5673": {
+  "640101-10-5671": {
     patient: {
-      name: "Demo Case 11",
-      dob: "1970-01-01",
-      nsn: "700101-10-5673",
+      name: "Demo Case 08",
+      dob: "1964-01-01",
+      nsn: "640101-10-5671",
       gender: "Male",
-      age: 56,
+      age: 62,
     },
     mpisData: {
       race: "Malay",
       ethnicity: "Malaysian",
       allergies: "None known",
       comorbidities: [
-        "Stable Coronary Artery Disease (PCI 18 months ago)",
+        "Heart failure with reduced EF (newly diagnosed, LVEF 25%)",
         "Type 2 Diabetes Mellitus",
-        "Obesity Class I",
-        "Erectile Dysfunction (new)",
+        "Obesity",
       ],
       currentMeds: [
-        { name: "Isosorbide Mononitrate", dose: "60mg", frequency: "OD" },
-        { name: "Aspirin", dose: "100mg", frequency: "OD" },
-        { name: "Atorvastatin", dose: "40mg", frequency: "OD" },
-        { name: "Bisoprolol", dose: "5mg", frequency: "OD" },
         { name: "Metformin", dose: "1g", frequency: "BD" },
+        { name: "Gliclazide MR", dose: "60mg", frequency: "OD" },
       ],
       vitalsHistory: [
-        { date: "2025-08-20", bpSystolic: 132, bpDiastolic: 82, hr: 66, temp: 36.6, spo2: 98, weight: 96 },
-        { date: "2025-10-15", bpSystolic: 130, bpDiastolic: 80, hr: 64, temp: 36.5, spo2: 98, weight: 95.5 },
-        { date: "2025-12-10", bpSystolic: 129, bpDiastolic: 81, hr: 65, temp: 36.6, spo2: 98, weight: 95 },
-        { date: "2026-01-08", bpSystolic: 128, bpDiastolic: 80, hr: 64, temp: 36.6, spo2: 98, weight: 95 },
+        { date: "2025-09-12", bpSystolic: 134, bpDiastolic: 80, hr: 84, temp: 36.7, spo2: 97, weight: 99 },
+        { date: "2025-11-20", bpSystolic: 130, bpDiastolic: 78, hr: 83, temp: 36.8, spo2: 97, weight: 98.5 },
+        { date: "2026-01-15", bpSystolic: 129, bpDiastolic: 77, hr: 82, temp: 36.8, spo2: 97, weight: 98 },
+        { date: "2026-03-10", bpSystolic: 128, bpDiastolic: 76, hr: 82, temp: 36.8, spo2: 97, weight: 98 },
       ],
     },
   },
@@ -105,32 +101,33 @@ export const mpisPatientDatabase = {
   },
 };
 
-// Clinical Notes — verbatim CC/HPI/PE textarea block from Case 11.
+// Clinical Notes — verbatim CC/HPI/PE textarea block from Case 08.
 export const sampleClinicalNotes = {
-  history: `CC: Erectile dysfunction affecting marital relationship over the past ~6 months. Has not yet tried any therapy.
+  history: `CC: Newly diagnosed HFrEF on routine echo. Here for management plan.
 
-HPI: PCI 18 months ago; angina-free for 6 months on current secondary-prevention regimen. Long-standing T2DM — stable on current regimen. Sedentary office worker. ED symptoms started insidiously; patient has NOT linked them to any medication. No reduced libido, no nocturnal/morning erections: pattern more consistent with organic / pharmacologic aetiology than psychogenic.
+HPI: Clinically stable, euvolemic, no dyspnoea at rest. NYHA II. Long-standing T2DM on metformin + sulfonylurea. Obese.
 
-PE/Labs: LDL 1.6 mmol/L. Peripheral pulses intact.`,
+PE/Labs: Echo today LVEF 25%. K+ 4.4 mmol/L.`,
 };
 
-// Vitals — Case 11. BP 128/80 · HR 64 · SpO2 98 · Weight 95 · Height 175 · Temp 36.6
-// (BMI 31.0 → Obesity Class I). RR not specified by the case; left at a normal default.
+// Vitals — Case 08. BP 128/76 · HR 82 · SpO2 97 · Weight 98 · Height 175 · Temp 36.8
+// (BMI 32.0 → Obesity). RR not specified by the case; left at a normal default.
 export const sampleVitals = {
   bpSystolic: 128,
-  bpDiastolic: 80,
-  hr: 64,
-  temp: 36.6,
+  bpDiastolic: 76,
+  hr: 82,
+  temp: 36.8,
   rr: 16,
-  spo2: 98,
-  weight: 95,
+  spo2: 97,
+  weight: 98,
   height: 175,
 };
 
-// Severity staging (+ Add stage) — Case 11: eGFR 88 · HbA1c 7.4.
+// Severity staging (+ Add stage) — Case 08: HbA1c 8.4 · LVEF 25 · NYHA II.
 export const sampleSeverityStaging = {
-  eGFR: "88",
-  HbA1c: "7.4",
+  HbA1c: "8.4",
+  LVEF: "25",
+  NYHA: "II",
 };
 
 export const sampleMPISData = {
@@ -138,17 +135,13 @@ export const sampleMPISData = {
   ethnicity: "Malaysian",
   allergies: "None known",
   comorbidities: [
-    "Stable Coronary Artery Disease (PCI 18 months ago)",
+    "Heart failure with reduced EF (newly diagnosed, LVEF 25%)",
     "Type 2 Diabetes Mellitus",
-    "Obesity Class I",
-    "Erectile Dysfunction (new)",
+    "Obesity",
   ],
   currentMeds: [
-    { name: "Isosorbide Mononitrate", dose: "60mg", frequency: "OD" },
-    { name: "Aspirin", dose: "100mg", frequency: "OD" },
-    { name: "Atorvastatin", dose: "40mg", frequency: "OD" },
-    { name: "Bisoprolol", dose: "5mg", frequency: "OD" },
     { name: "Metformin", dose: "1g", frequency: "BD" },
+    { name: "Gliclazide MR", dose: "60mg", frequency: "OD" },
   ],
 };
 

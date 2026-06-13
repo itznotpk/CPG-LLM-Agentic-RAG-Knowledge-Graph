@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import {
   Check, AlertCircle, Loader2, BrainCircuit, ChevronDown, ChevronUp,
-  RefreshCw, Search, Sparkles, BookOpen, Pencil, AlertTriangle, X, FileText,
+  RefreshCw, Search, Sparkles, BookOpen, Pencil, X, FileText,
 } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 
@@ -460,19 +460,29 @@ function CPGBody({ derived, isDark }) {
         <>
           <Eyebrow tone="green" isDark={isDark} className="mb-1.5">Applied guidelines</Eyebrow>
           <div className="flex flex-col gap-1.5 mb-2.5">
-            {applied.map((s, i) => (
-              <div key={i} className={`flex items-center gap-2 px-[11px] py-[9px] rounded-lg border ${
-                isDark ? 'bg-[rgba(22,163,74,0.07)] border-[rgba(22,163,74,0.2)]' : 'bg-green-50 border-green-100'}`}>
-                <span className={`shrink-0 ${isDark ? 'text-[#86efac]' : 'text-green-600'}`}><Check className="w-[13px] h-[13px]" strokeWidth={2.2} /></span>
-                <span className={`flex-1 text-[13px] ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{s.detail}</span>
-                {s.badge && (
-                  <span className={`text-[11px] font-medium px-2 py-0.5 rounded-full border shrink-0 ${
-                    isDark ? 'bg-[rgba(22,163,74,0.15)] border-[rgba(22,163,74,0.3)] text-[#86efac]' : 'bg-green-100 border-green-200 text-green-700'}`}>
-                    {s.badge}
-                  </span>
-                )}
-              </div>
-            ))}
+            {applied.map((s, i) => {
+              const warn = s.badge === 'under_evidenced' || s.badge === 'no_cpg_found';
+              const rowCls = warn
+                ? (isDark ? 'bg-[rgba(234,140,46,0.08)] border-[rgba(234,140,46,0.25)]' : 'bg-orange-50 border-orange-100')
+                : (isDark ? 'bg-[rgba(22,163,74,0.07)] border-[rgba(22,163,74,0.2)]' : 'bg-green-50 border-green-100');
+              const iconCls = warn
+                ? (isDark ? 'text-[#fcb96b]' : 'text-orange-500')
+                : (isDark ? 'text-[#86efac]' : 'text-green-600');
+              const badgeCls = warn
+                ? (isDark ? 'bg-[rgba(234,140,46,0.15)] border-[rgba(234,140,46,0.35)] text-[#fcb96b]' : 'bg-orange-100 border-orange-200 text-orange-700')
+                : (isDark ? 'bg-[rgba(22,163,74,0.15)] border-[rgba(22,163,74,0.3)] text-[#86efac]' : 'bg-green-100 border-green-200 text-green-700');
+              return (
+                <div key={i} className={`flex items-center gap-2 px-[11px] py-[9px] rounded-lg border ${rowCls}`}>
+                  <span className={`shrink-0 ${iconCls}`}><Check className="w-[13px] h-[13px]" strokeWidth={2.2} /></span>
+                  <span className={`flex-1 text-[13px] ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>{s.detail}</span>
+                  {s.badge && (
+                    <span className={`text-[11px] font-medium px-2 py-0.5 rounded-full border shrink-0 ${badgeCls}`}>
+                      {s.badge}
+                    </span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </>
       )}
@@ -531,30 +541,51 @@ function CPGBody({ derived, isDark }) {
 
 function ChunkCard({ c, isDark }) {
   return (
-    <div className={`rounded-lg px-2.5 py-1.5 border text-[11px] ${isDark ? 'bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.06)]' : 'bg-white border-slate-200'}`}>
-      <div className="flex items-center gap-1.5 min-w-0">
-        <FileText className="w-3 h-3 shrink-0 text-[var(--accent-primary)]" strokeWidth={1.5} />
-        <span className={`font-medium truncate ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{c.cpg}</span>
-        {c.section && <span className="text-slate-500 truncate">› {c.section}</span>}
+    <div className={`rounded-lg px-2.5 py-2 border text-[11px] ${isDark ? 'bg-[rgba(255,255,255,0.03)] border-[rgba(255,255,255,0.06)]' : 'bg-white border-slate-200'}`}>
+      <div className="flex items-start gap-1.5 min-w-0">
+        <FileText className="w-3 h-3 shrink-0 mt-px text-[var(--accent-primary)]" strokeWidth={1.5} />
+        <div className="min-w-0">
+          <div className={`font-semibold leading-snug ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{c.cpg}</div>
+          {c.section && <div className={`leading-snug ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>{c.section}</div>}
+        </div>
       </div>
-      {c.snippet && <p className={`mt-0.5 text-[11px] leading-snug ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{c.snippet}</p>}
+      {c.snippet && <p className={`mt-1 text-[11px] leading-snug line-clamp-2 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>{c.snippet}</p>}
     </div>
   );
+}
+
+// The Stage-4 queries are HyDE sentences (declarative "what we expect to find"
+// search bait), generated one per clinical domain. Showing the full sentence
+// reads like an asserted fact, so the row shows a short domain label instead and
+// the full sentence drops into the expand. The label is derived from the query
+// TEXT (not its position), so it can't drift out of sync with reordering.
+function summariseQuery(q) {
+  const d = (q || '').toLowerCase();
+  if (/contraindicat|must not|should not|avoided in|interact/.test(d)) return 'Contraindications & interactions';
+  if (/dose (adjust|reduc|modif)|maximum daily dose|renal impairment|egfr\s*\d|hepatic impairment/.test(d)) return 'Dose adjustment';
+  if (/monitor|serum potassium|renal function|\blft\b|\binr\b|electrolyte|blood pressure check/.test(d)) return 'Monitoring';
+  if (/escalat|referral|refer to|specialist|hospitalis|hospitaliz|switch of therapy|treatment failure/.test(d)) return 'Escalation & referral';
+  if (/lifestyle|diet|sodium|fluid restriction|exercise|smoking|alcohol|weight loss|vaccinat|counsel|patient education/.test(d)) return 'Lifestyle & counselling';
+  if (/follow-up|follow up|reviewed every|review (interval|within|every)|reassess|weeks until|every \d/.test(d)) return 'Follow-up & review';
+  if (/first-line|pharmacotherap|initial (pharmac|therap)|should include|recommended/.test(d)) return 'Pharmacotherapy';
+  return 'Guideline search';
 }
 
 function EvidenceRow({ sub, isDark }) {
   const [open, setOpen] = useState(false);
   const chunks = sub.data?.chunks || [];
   const n = sub.data?.new ?? chunks.length;
-  const hasChunks = chunks.length > 0;
+  const label = summariseQuery(sub.detail);
   return (
     <div className={`rounded-lg border overflow-hidden transition-colors ${
       isDark ? 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.06)] hover:border-[rgba(255,255,255,0.12)]' : 'bg-white border-slate-100 hover:border-slate-200'}`}>
-      <div className={`flex items-start gap-2 px-2.5 py-[9px] ${hasChunks ? 'cursor-pointer' : ''}`} onClick={() => hasChunks && setOpen(o => !o)}>
+      <div className="flex items-start gap-2 px-2.5 py-[9px] cursor-pointer" onClick={() => setOpen(o => !o)} title={sub.detail}>
         <span className="text-slate-400 mt-0.5 shrink-0">
-          {hasChunks && (open ? <ChevronUp className="w-3 h-3" strokeWidth={1.6} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.6} />)}
+          {open ? <ChevronUp className="w-3 h-3" strokeWidth={1.6} /> : <ChevronDown className="w-3 h-3" strokeWidth={1.6} />}
         </span>
-        <span className={`flex-1 text-xs leading-[1.55] ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>{sub.detail}</span>
+        <span className={`flex-1 text-xs leading-[1.55] ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+          <span className={isDark ? 'text-slate-500' : 'text-slate-400'}>Searched for: </span>{label}
+        </span>
         <span className={`text-[11px] font-semibold px-[7px] py-0.5 rounded-full border shrink-0 mt-px ${
           n > 0
             ? (isDark ? 'bg-[rgba(20,184,166,0.1)] border-[rgba(20,184,166,0.2)] text-[#5eead4]' : 'bg-teal-50 border-teal-100 text-teal-700')
@@ -563,8 +594,9 @@ function EvidenceRow({ sub, isDark }) {
           {n > 0 ? `+${n}` : '0'}
         </span>
       </div>
-      {open && hasChunks && (
+      {open && (
         <div className={`px-2.5 pt-2 pb-2.5 border-t flex flex-col gap-1.5 ${isDark ? 'border-[rgba(255,255,255,0.06)] bg-[rgba(255,255,255,0.02)]' : 'border-slate-100 bg-slate-50'}`}>
+          <p className={`text-[11px] leading-[1.5] italic ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>“{sub.detail}”</p>
           {chunks.map((c, i) => <ChunkCard key={i} c={c} isDark={isDark} />)}
         </div>
       )}
@@ -851,11 +883,6 @@ export function PipelineProgress({
                 </TimelineItem>
               );
             })}
-          </div>
-
-          {/* Footer */}
-          <div className={`px-[18px] py-2.5 border-t text-[11px] ${isDark ? 'bg-[rgba(255,255,255,0.02)] border-[rgba(255,255,255,0.06)] text-slate-600' : 'bg-slate-50 border-slate-100 text-slate-400'}`}>
-            Powered by Gemini 2.5 Flash · Evidence grounded in Malaysian CPGs
           </div>
         </>
       )}
