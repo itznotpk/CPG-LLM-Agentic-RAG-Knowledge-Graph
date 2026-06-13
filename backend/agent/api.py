@@ -696,6 +696,18 @@ async def execute_agent(
         return error_response, [], fallback_sources
 
 
+def _make_chatbox_model():
+    """Build the pydantic-ai OpenAIModel for the care-plan chatbox.
+    Reads CHATBOX_LLM_* vars; falls back to the main LLM config."""
+    from pydantic_ai.providers.openai import OpenAIProvider
+    from pydantic_ai.models.openai import OpenAIModel
+    base_url = os.getenv("CHATBOX_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key  = os.getenv("CHATBOX_LLM_API_KEY")  or os.getenv("LLM_API_KEY", "")
+    model    = os.getenv("CHATBOX_LLM_CHOICE")    or os.getenv("LLM_CHOICE", "gpt-4o-mini")
+    provider = OpenAIProvider(base_url=base_url, api_key=api_key)
+    return OpenAIModel(model, provider=provider)
+
+
 async def _probe_llm(base_url: str | None, api_key: str | None, model: str, timeout: float = 8.0) -> bool:
     """Send a minimal completion to check reachability. Returns True if the provider responds."""
     if not base_url or not api_key:
@@ -1290,6 +1302,287 @@ async def chat_stream(request: ChatRequest):
         
     except Exception as e:
         logger.error(f"Streaming chat failed: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/clinical/explain/stream")
+async def clinical_explain_stream(request: Request):
+    """
+    Streaming care-plan explainer chatbox.
+
+    Works in two modes:
+      1. Inline (during consultation, before save): caller passes inline_plan with the
+         raw TreatmentPlan JSON from state — no DB lookup needed.
+      2. Saved (after save): caller passes consultation_id — grounding loaded from Supabase.
+
+    Request JSON:
+      message              str        — clinician's question (required)
+      inline_plan          dict?      — raw TreatmentPlan + patient context from frontend state
+      consultation_id      int?       — Supabase consultation id (used when inline_plan absent)
+      session_id           str?       — optional multi-turn session id
+      recommendation_index int?       — 0-based index of the rec the Dr is asking about
+    """
+    try:
+        payload = await request.json()
+        message: str = payload.get("message", "").strip()
+        consultation_id: int | None = payload.get("consultation_id")
+        session_id: str | None = payload.get("session_id") or str(uuid.uuid4())
+        rec_index: int | None = payload.get("recommendation_index")
+        inline_plan: dict | None = payload.get("inline_plan")  # frontend state passed directly
+
+        if not message:
+            raise HTTPException(status_code=422, detail="message is required")
+        if not inline_plan and not consultation_id:
+            raise HTTPException(status_code=422, detail="Either inline_plan or consultation_id is required")
+
+        # ── Build grounding from inline plan (during consultation) ────────────
+        if inline_plan:
+            treatment = inline_plan.get("treatment_plan") or inline_plan
+            recs_raw: list = treatment.get("recommendations") or []
+            monitoring_raw: list = treatment.get("monitoring") or []
+            cpg_refs: list = []
+            patient_info = inline_plan.get("patient") or {}
+            patient_name = patient_info.get("name") or "Patient"
+            patient_gender = patient_info.get("gender") or patient_info.get("sex") or "—"
+            icd_primary = treatment.get("icd_primary") or "—"
+            summary = treatment.get("summary") or ""
+            diagnoses_label = icd_primary
+
+            all_recs = recs_raw  # already flat TreatmentPlan.recommendations
+
+            # Collect CPG refs from recommendations
+            for r in recs_raw:
+                src = r.get("cpg_source", "")
+                if src and src not in cpg_refs:
+                    cpg_refs.append(src)
+
+            monitoring = monitoring_raw
+
+        # ── Load grounding from Supabase (after plan is saved) ───────────────
+        else:
+            async with supabase_pool.acquire() as conn:
+                row = await conn.fetchrow(
+                    """
+                    SELECT c.care_plan_summary,
+                           c.medication_recommendations,
+                           c.interventions,
+                           c.monitoring,
+                           c.referrals,
+                           c.lifestyle_goals,
+                           c.cpg_references,
+                           c.diagnoses,
+                           p.full_name AS patient_name,
+                           p.gender
+                      FROM consultations c
+                      LEFT JOIN patients p ON p.nric = c.patient_nric
+                     WHERE c.id = $1
+                    """,
+                    consultation_id,
+                )
+            if not row:
+                raise HTTPException(status_code=404, detail=f"Consultation {consultation_id} not found")
+
+            def _json(col):
+                val = row[col]
+                if val is None:
+                    return []
+                if isinstance(val, str):
+                    try:
+                        return json.loads(val)
+                    except Exception:
+                        return val
+                return val
+
+            meds = _json("medication_recommendations") or []
+            interventions_db = _json("interventions") or []
+            referrals_db = _json("referrals") or []
+            lifestyle_db = _json("lifestyle_goals") or []
+
+            all_recs = []
+            for item in meds:
+                all_recs.append({"type": "pharmacological", **item})
+            for item in interventions_db:
+                all_recs.append({"type": "procedure/investigation", **item})
+            for item in referrals_db:
+                all_recs.append({"type": "referral", **item})
+            for item in lifestyle_db:
+                all_recs.append({"type": "lifestyle", **item})
+
+            monitoring = _json("monitoring") or []
+            cpg_refs = _json("cpg_references") or []
+            diagnoses_raw = _json("diagnoses") or []
+            primary_dx = diagnoses_raw[0] if diagnoses_raw else {}
+            diagnoses_label = (
+                (primary_dx.get("icd_code") or primary_dx.get("icdCode") or "?")
+                + " "
+                + (primary_dx.get("name") or primary_dx.get("title") or "")
+            ).strip()
+            patient_name = row["patient_name"] or "Unknown"
+            patient_gender = row["gender"] or "—"
+            summary = row["care_plan_summary"] or ""
+
+        # ── Render rec lines ──────────────────────────────────────────────────
+        rec_lines = []
+        for i, r in enumerate(all_recs):
+            focus = " ← FOCUS" if rec_index is not None and i == rec_index else ""
+            label = f"[Rec {i}]{focus}"
+            intervention = r.get("intervention") or r.get("medication") or r.get("action") or r.get("goal") or str(r)
+            rationale = r.get("rationale") or r.get("reason") or "—"
+            cpg_source = r.get("cpg_source") or r.get("source") or r.get("cpg_ref") or "—"
+            evidence = r.get("evidence_grade") or "—"
+            rec_type = r.get("type") or ""
+            rec_lines.append(
+                f"  {label} {rec_type.upper()}: {intervention}\n"
+                f"    Rationale: {rationale}\n"
+                f"    CPG Source: {cpg_source}  |  Evidence: {evidence}"
+            )
+
+        mon_lines = []
+        for m in (monitoring or []):
+            if isinstance(m, str):
+                mon_lines.append(f"  • {m}")
+            else:
+                param = m.get("parameter") or m.get("item") or str(m)
+                schedule = m.get("schedule") or m.get("frequency") or "—"
+                target = m.get("target") or "—"
+                mon_lines.append(f"  • {param} — {schedule} (target: {target})")
+
+        grounding = f"""=== CARE PLAN CONTEXT (grounding — cite from this) ===
+
+Patient: {patient_name}  |  Gender: {patient_gender}
+Primary Diagnosis: {diagnoses_label}
+
+CARE PLAN SUMMARY:
+{summary or '(no summary)'}
+
+RECOMMENDATIONS:
+{chr(10).join(rec_lines) if rec_lines else '  (none)'}
+
+MONITORING:
+{chr(10).join(mon_lines) if mon_lines else '  (none)'}
+
+CPG REFERENCES:
+{chr(10).join(f'  • {r}' for r in cpg_refs) if cpg_refs else '  (none)'}
+
+=== END CARE PLAN CONTEXT ===
+"""
+
+        # ── Load explainer system prompt ──────────────────────────────────────
+        _prompt_dir = os.path.join(os.path.dirname(__file__), "prompts")
+        with open(os.path.join(_prompt_dir, "explain_careplan.txt"), encoding="utf-8") as f:
+            explain_system_prompt = f.read()
+
+        # ── Build agent with explainer system prompt ──────────────────────────
+        from pydantic_ai import Agent as _Agent, RunContext as _RunContext
+        from typing import List as _List, Dict as _Dict, Any as _Any
+        from .tools import (
+            VectorSearchInput, HybridSearchInput, GraphSearchInput,
+            vector_search_tool, hybrid_search_tool, graph_search_tool,
+            get_drug_info_tool, DrugInteractionInput,
+        )
+        explain_agent = _Agent(
+            _make_chatbox_model(),
+            deps_type=AgentDependencies,
+            system_prompt=explain_system_prompt,
+        )
+
+        @explain_agent.tool
+        async def vector_search(ctx: _RunContext[AgentDependencies], query: str, limit: int = 8) -> _List[_Dict[str, _Any]]:
+            """Search CPG chunks by semantic similarity."""
+            results = await vector_search_tool(VectorSearchInput(query=query, limit=limit))
+            return [{"content": r.content, "score": r.score, "document_title": r.document_title, "document_source": r.document_source} for r in results]
+
+        @explain_agent.tool
+        async def hybrid_search(ctx: _RunContext[AgentDependencies], query: str, limit: int = 8) -> _List[_Dict[str, _Any]]:
+            """Search CPG chunks using hybrid vector + keyword search."""
+            results = await hybrid_search_tool(HybridSearchInput(query=query, limit=limit))
+            return [{"content": r.content, "score": r.score, "document_title": r.document_title, "document_source": r.document_source} for r in results]
+
+        @explain_agent.tool
+        async def graph_search(ctx: _RunContext[AgentDependencies], query: str) -> _List[_Dict[str, _Any]]:
+            """Search the CPG knowledge graph for facts and relationships."""
+            results = await graph_search_tool(GraphSearchInput(query=query))
+            return [{"fact": r.fact, "uuid": r.uuid} for r in results]
+
+        @explain_agent.tool
+        async def get_drug_information(ctx: _RunContext[AgentDependencies], drug_name: str) -> _Dict[str, _Any]:
+            """Get drug contraindications, dosages, and adverse events from the CPG corpus."""
+            return await get_drug_info_tool(DrugInteractionInput(drug_name=drug_name))
+
+        # ── Full prompt = grounding block + (optional rec focus) + question ───
+        focus_note = ""
+        if rec_index is not None and rec_index < len(all_recs):
+            r = all_recs[rec_index]
+            name = r.get("intervention") or r.get("medication") or r.get("goal") or f"Rec {rec_index}"
+            focus_note = f"\n[The clinician is asking about Rec {rec_index}: {name}]\n"
+
+        full_prompt = grounding + focus_note + "\nClinician question: " + message
+
+        deps = AgentDependencies(session_id=session_id)
+
+        async def generate_stream():
+            try:
+                yield f"data: {json.dumps({'type': 'session', 'session_id': session_id})}\n\n"
+
+                full_response = ""
+                tools_used = []
+                sources = []
+
+                llm_provider = os.getenv("CHATBOX_LLM_PROVIDER", os.getenv("LLM_PROVIDER", "openai")).lower()
+
+                if llm_provider == "bedrock":
+                    result = await explain_agent.run(full_prompt, deps=deps)
+                    full_response = result.output
+                    tools_used = extract_tool_calls(result)
+                    sources = extract_sources(result)
+                    yield f"data: {json.dumps({'type': 'text', 'content': full_response})}\n\n"
+                else:
+                    async with explain_agent.iter(full_prompt, deps=deps) as run:
+                        async for node in run:
+                            if explain_agent.is_model_request_node(node):
+                                async with node.stream(run.ctx) as request_stream:
+                                    async for event in request_stream:
+                                        from pydantic_ai.messages import PartStartEvent, PartDeltaEvent, TextPartDelta
+                                        if isinstance(event, PartStartEvent) and event.part.part_kind == "text":
+                                            yield f"data: {json.dumps({'type': 'text', 'content': event.part.content})}\n\n"
+                                            full_response += event.part.content
+                                        elif isinstance(event, PartDeltaEvent) and isinstance(event.delta, TextPartDelta):
+                                            yield f"data: {json.dumps({'type': 'text', 'content': event.delta.content_delta})}\n\n"
+                                            full_response += event.delta.content_delta
+                        try:
+                            result = run.result
+                            if result:
+                                tools_used = extract_tool_calls(result)
+                                sources = extract_sources(result)
+                        except Exception as e:
+                            logger.warning(f"explain: failed to extract tools/sources: {e}")
+
+                if tools_used:
+                    yield f"data: {json.dumps({'type': 'tools', 'tools': [{'tool_name': t.tool_name, 'args': t.args} for t in tools_used]})}\n\n"
+                if sources:
+                    yield f"data: {json.dumps({'type': 'sources', 'sources': sources})}\n\n"
+
+                yield f"data: {json.dumps({'type': 'end'})}\n\n"
+
+            except Exception as e:
+                import traceback
+                logger.error(f"explain stream error: {e}\n{traceback.format_exc()}")
+                yield f"data: {json.dumps({'type': 'error', 'content': str(e)})}\n\n"
+
+        return StreamingResponse(
+            generate_stream(),
+            media_type="text/plain",
+            headers={
+                "Cache-Control": "no-cache",
+                "Connection": "keep-alive",
+                "Content-Type": "text/event-stream",
+            },
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"clinical/explain/stream failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 

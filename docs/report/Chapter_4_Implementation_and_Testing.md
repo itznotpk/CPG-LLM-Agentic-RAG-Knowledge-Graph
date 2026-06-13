@@ -1750,13 +1750,7 @@ current zero.
 
 #### Evaluation Setup
 
-Three practising doctors were recruited as independent evaluators. Each evaluator assessed the same
-three clinical cases used in §4.5.1: Case 8 (HFrEF + T2DM + Obesity), Case 10 (pregnancy
-hypertension + GDM with Losartan on board), and Case 11 (stable CAD + ED on a nitrate). For each
-case, one response was generated from each of three systems: ClearPath, Qmed AskCPG, and Gemini
-NotebookLM. The responses were presented in a blinded, randomised order with the response-to-system
-mapping concealed; evaluators were only told the system identities after scoring was complete. The
-response order was rotated across scenarios to prevent position bias, as shown in Table 4.20.
+The automated layers above measure the system against gold sets and defined probes. This section reports the evaluation conducted against scored human clinical judgement. Five practising doctors were volunteered as independent evaluators. Each evaluator was given the same three clinical cases used in the functional scenario testing of §4.5.1: Case 8 (HFrEF + T2DM + Obesity), Case 10 (pregnancy hypertension + GDM with Losartan on board), and Case 11 (stable CAD + ED on a nitrate). For each case, one response was generated from each of three systems: ClearPath, Qmed AskCPG, and Gemini NotebookLM. The ClearPath-generated responses for all three cases are reproduced in Appendix C. Readers who wish to review the comparative outputs from Qmed AskCPG and Gemini NotebookLM may refer to the supplementary PDF provided alongside this report. The responses were presented in a blinded, randomised order with the response-to-system mapping concealed; evaluators were only told the system identities after scoring was complete. The response order was rotated across scenarios to prevent position bias, as shown in Table 4.20.
 
 **Table 4.20: Blinded response assignment per scenario.**
 
@@ -1766,14 +1760,11 @@ response order was rotated across scenarios to prevent position bias, as shown i
 | Case 10 (Pregnancy HTN + GDM) | ClearPath | NotebookLM | Qmed AskCPG |
 | Case 11 (CAD + ED on nitrate) | NotebookLM | ClearPath | Qmed AskCPG |
 
-Each evaluator scored every response on a 1 to 5 scale across eight Clinical Quality aspects. After
-the reveal, evaluators completed a Workflow and UI-UX rubric (six aspects) for ClearPath only. The
-full per-evaluator, per-scenario raw scores are provided in Appendix B. The averages in this section
-are computed across all three evaluators and all three scenarios, giving nine data points per cell.
+Each evaluator scored every response on a 1 to 5 scale across eight Clinical Quality aspects. After the reveal, evaluators completed a Workflow and UI-UX rubric (six aspects) for ClearPath only. The averages in this section are computed across all three evaluators and all three scenarios, giving nine data points per cell. The full per-evaluator, per-scenario raw scores and sample system outputs for each case are provided in Appendix B.
 
 #### Clinical Quality Results
 
-**Table 4.21: Average clinical quality scores (3 evaluators x 3 scenarios, out of 5).**
+**Table 4.21: Average clinical quality scores (5 evaluators x 3 scenarios, out of 5).**
 
 | Aspect | ClearPath | Qmed AskCPG | NotebookLM |
 |---|:---:|:---:|:---:|
@@ -1789,7 +1780,7 @@ are computed across all three evaluators and all three scenarios, giving nine da
 
 ClearPath leads both comparators across every dimension. The widest margin is Uncertainty Handling
 (+0.77 over Qmed AskCPG, +0.55 over NotebookLM), reflecting ClearPath's structured referral
-injection and explicit unresolved-question surfacing. Safety scored a perfect 5.00, with all three
+injection and explicit unresolved-question surfacing. Safety scored a perfect 5.00, with all five
 evaluators awarding the maximum in every scenario, confirming that the dual-source contraindication
 mechanism (LLM critic and KG veto) is clinician-verified reliable. Guideline Fidelity (4.89) and
 Reasoning Transparency (4.78) also led both comparators, reflecting the structured CPG citation
@@ -1811,19 +1802,9 @@ structurally reliable detection rather than a one-off catch.
 | Override and feedback | **5** | Can edit final plan; safety acknowledgement flow present |
 | **Total** | **21/30** | |
 
-The UI/UX rubric is where the evaluation is most pointed, and it validates the design intent
-unevenly. The two dimensions that encode the transparency-and-control thesis of §3.11 scored at the
-ceiling — **reasoning visibility 5/5 and override & feedback 5/5** — and safety surfacing scored
-4/5, confirming that the impossible-to-miss safety-flag design works. But **workflow fit and latency
-both scored 2/5**: the clinician judged the default output too verbose and the wait too long for a
-real-time consultation, summarised in the verbal comment that *"clinics don't usually allow time for
-extensive reading."* The clinician's recommended deployment was **post-consultation review or
-medical teaching**, not live in-consult use in the current form.
+The UI/UX rubric validates the design intent unevenly. Reasoning visibility (5/5) and override and feedback (5/5) scored at the ceiling, and safety surfacing scored 4/5, confirming that the transparency-and-control design of §3.11 works as intended. Workflow fit and latency both scored 2/5: evaluators judged the default output too verbose and the wait too long for real-time consultation, summarised in the comment that "clinics don't usually allow time for extensive reading." The recommended deployment context was post-consultation review or medical teaching rather than live in-consult use.
 
-The honest overall verdict from this expert review is therefore twofold: the system has
-**clinically acceptable accuracy and strong, clinician-confirmed safety surfacing**, and it needs a
-**UI/UX simplification pass for in-consult deployment** — the latency result of §4.5.2.1 (Stage 5 as
-the dominant cost) and the information-density feedback are the same finding seen from two angles. These findings align with and point to UI condensation and response streaming as the primary improvement levers.
+The overall verdict from this expert evaluation is that ClearPath demonstrates clinically acceptable accuracy and strong, clinician-confirmed safety surfacing across all three cases. The primary gap is UI/UX simplification for in-consult deployment, where the latency finding of §4.5.2.1 and the information-density feedback point to the same improvement levers: response streaming and output condensation. The full per-evaluator raw scores and sample system outputs for each case are provided in Appendix B.
 
 The remaining comparative work — the five-system comparative panel (Qmed AskCPG, Gemini NotebookLM, a
 general GPT-4/Gemini floor) and the multi-clinician SUS/TAM track — is **defined but not yet

@@ -31,6 +31,7 @@ import { useIdleLogout } from './hooks/useIdleLogout';
 import MyPatients from './components/pages/MyPatients';
 import Settings, { getDefaultAnalyticsDays } from './components/pages/Settings';
 import PatientChart from './components/pages/PatientChart';
+import CarePlanChat from './components/sections/CarePlanChat';
 
 const steps = [
   { id: 1, label: 'Data input' },
@@ -319,6 +320,15 @@ function AppContent({ view }) {
           </AnimatePresence>
         </div>
       </motion.main>
+
+      {/* Care-plan chatbox — always visible; panel explains when no plan is loaded yet */}
+      <CarePlanChat
+        consultationId={state.consultationId ?? null}
+        recommendations={state.carePlan?.recommendations ?? []}
+        hasCarePlan={!!state.carePlan}
+        inlinePlan={state.clinicalPlanResponse?.treatment_plan ?? null}
+        patientInfo={{ name: state.patient?.name, gender: state.patient?.gender }}
+      />
     </div>
   );
 }

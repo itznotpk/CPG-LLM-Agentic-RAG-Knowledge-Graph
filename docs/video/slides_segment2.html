@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClearPath — Segment 2 Slides</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding: 40px 24px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    /* ── Slide shell ── */
+    .slide {
+      position: relative;
+      width: 1280px;
+      height: 720px;
+      background: #F5F3EF;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* ── Slide number badge ── */
+    .slide-label {
+      position: absolute;
+      top: 28px;
+      right: 40px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: #888;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* ── Beat tag (orange line + label) ── */
+    .beat-tag {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      color: #C0460A;
+      text-transform: uppercase;
+    }
+    .beat-tag::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: #C0460A;
+    }
+
+    /* ── Camera placeholder (bottom-left) ── */
+    .cam-box {
+      position: absolute;
+      bottom: 32px;
+      left: 40px;
+      width: 340px;
+      height: 240px;
+      border-radius: 18px;
+      background: #2a2a2a;
+      border: 3px solid #3a3a3a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      overflow: hidden;
+    }
+    .cam-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* ── Content area (right of cam) ── */
+    .content {
+      position: absolute;
+      top: 0;
+      left: 420px;
+      right: 40px;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 56px 0 56px 0;
+    }
+
+    .headline {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.08;
+      color: #1a1a2e;
+      letter-spacing: -0.02em;
+    }
+    .headline .accent {
+      color: #1a5fb4;
+    }
+
+    /* ── Stat cards row ── */
+    .stat-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: #fff;
+      border: 1.5px solid #e0dbd2;
+      border-radius: 12px;
+      padding: 14px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 180px;
+    }
+    .stat-number {
+      font-size: 32px;
+      font-weight: 800;
+      color: #C0460A;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .stat-desc {
+      font-size: 12px;
+      color: #555;
+      font-weight: 500;
+      line-height: 1.4;
+      max-width: 160px;
+    }
+
+    /* ── Evidence image pair ── */
+    .evidence-row {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .evidence-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .evidence-img {
+      width: 220px;
+      height: 130px;
+      border-radius: 10px;
+      background: #ddd;
+      border: 1.5px solid #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      overflow: hidden;
+    }
+    .evidence-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .evidence-cap {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      color: #888;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* ── Verdict box ── */
+    .verdict {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .verdict-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: #888;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .verdict-value {
+      font-size: 28px;
+      font-weight: 800;
+      color: #1a1a2e;
+      letter-spacing: -0.01em;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: #C0460A;
+      border-radius: 2px;
+    }
+
+    /* ── Slide nav hint ── */
+    .nav-hint {
+      color: #666;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-align: center;
+      font-family: monospace;
+    }
+
+    /* ── Subtitle / body text ── */
+    .body-text {
+      font-size: 18px;
+      color: #444;
+      line-height: 1.55;
+      max-width: 640px;
+      font-weight: 400;
+    }
+    .body-text strong {
+      color: #1a1a2e;
+      font-weight: 700;
+    }
+
+    /* ── Horizontal rule between slides ── */
+    .sep {
+      width: 1280px;
+      border: none;
+      border-top: 1px solid #333;
+    }
+
+    /* ── Beat 3 thesis variant ── */
+    .thesis-block {
+      background: #1a1a2e;
+      border-radius: 16px;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 620px;
+    }
+    .thesis-line {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+    .thesis-line.accent {
+      color: #5b9bd5;
+    }
+
+    /* ── Two-column layout variant (Beat 2) ── */
+    .col-pair {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .col-evidence {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .screen-mock {
+      width: 260px;
+      height: 160px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1.5px solid #ccc;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .screen-mock-bar {
+      height: 28px;
+      background: #e8e8e8;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+    .screen-mock-body {
+      flex: 1;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      overflow: hidden;
+    }
+    .line-block {
+      height: 8px;
+      border-radius: 4px;
+      background: #e0e0e0;
+    }
+    .line-block.w-full { width: 100%; }
+    .line-block.w-90 { width: 90%; }
+    .line-block.w-80 { width: 80%; }
+    .line-block.w-70 { width: 70%; }
+    .line-block.w-50 { width: 50%; }
+    .no-cite {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      color: #bbb;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .no-cite-badge {
+      background: #fce8e8;
+      color: #c0392b;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 9px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <p class="nav-hint">↓ Three slides — Beat 1 · Beat 2 · Beat 3 — scroll to view all</p>
+
+  <!-- ═══════════════════════════════════════════════
+       BEAT 1 — Clinical Decision Isolation [0:30–0:41]
+       No real-time CPG-aligned diagnostic support
+       ═══════════════════════════════════════════════ -->
+  <div class="slide" id="beat1">
+    <div class="slide-label">02 — PROBLEM STATEMENT</div>
+
+    <div class="cam-box">
+      <!-- Replace with: <video autoplay muted playsinline><source src="webcam.mp4"></video> -->
+      Webcam feed
+    </div>
+
+    <div class="content">
+      <div class="beat-tag">Beat 1 · Clinical Decision Isolation</div>
+
+      <div class="headline">
+        No specialist.<br>
+        <span class="accent">No guideline<br>that fits the moment.</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div style="display:flex;gap:16px;align-items:stretch;">
+
+        <!-- Stat 1 -->
+        <div style="background:#fff;border:1.5px solid #e0dbd2;border-radius:14px;padding:18px 20px;flex:1;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:13px;color:#555;font-weight:600;line-height:1.4;">A second opinion changes<br>the diagnosis in</div>
+          <div style="font-size:52px;font-weight:900;color:#C0460A;line-height:1;letter-spacing:-0.03em;">88%</div>
+          <div style="font-size:11px;color:#888;line-height:1.4;">of complex cases referred for review <span style="color:#bbb;">[3]</span></div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div style="background:#fff;border:1.5px solid #e0dbd2;border-radius:14px;padding:18px 20px;flex:1;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:13px;color:#555;font-weight:600;line-height:1.4;">Shortage of doctors<br>in Sabah</div>
+          <div style="font-size:52px;font-weight:900;color:#C0460A;line-height:1;letter-spacing:-0.03em;">68%</div>
+          <div style="font-size:11px;color:#888;line-height:1.4;text-transform:uppercase;letter-spacing:0.06em;">Only 2,884 of 9,000 needed · State Minister, Apr 2026</div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div style="background:#fff;border:1.5px solid #e0dbd2;border-radius:14px;padding:18px 20px;flex:1;display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:13px;color:#555;font-weight:600;line-height:1.4;">CPG non-adherence rate<br>in primary care</div>
+          <div style="font-size:52px;font-weight:900;color:#C0460A;line-height:1;letter-spacing:-0.03em;">39.3%</div>
+          <div style="font-size:11px;color:#888;line-height:1.4;">Guidelines exist — but can't be used in real time.</div>
+        </div>
+
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-label">The cost</div>
+        <div class="verdict-value">When a rare case walks in — no senior to call, no guideline within reach, no structured safety net.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sep" />
+
+  <!-- ═══════════════════════════════════════════════
+       BEAT 2 — Ungoverned Retrieval
+       ═══════════════════════════════════════════════ -->
+  <div class="slide" id="beat2">
+    <div class="slide-label">02 — PROBLEM STATEMENT</div>
+
+    <div class="cam-box">
+      Webcam feed
+    </div>
+
+    <div class="content">
+      <div class="beat-tag">Beat 2 · Ungoverned Retrieval</div>
+
+      <div class="headline">
+        Confident answers.<br>
+        <span class="accent">Wrong sources.</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div style="display:flex;gap:20px;align-items:stretch;">
+
+        <!-- Stats column -->
+        <div style="display:flex;flex-direction:column;gap:14px;min-width:220px;">
+          <div style="background:#fff;border:1.5px solid #e0dbd2;border-radius:14px;padding:16px 20px;display:flex;flex-direction:column;gap:4px;">
+            <div style="font-size:12px;color:#555;font-weight:600;line-height:1.4;">False clinical facts<br>reproduced by AI</div>
+            <div style="font-size:52px;font-weight:900;color:#C0460A;line-height:1;letter-spacing:-0.03em;">65.9%</div>
+            <div style="font-size:10px;color:#aaa;">across 6 leading models — up to 83% in adversarial tests <span style="color:#ccc;">[12]</span></div>
+          </div>
+        </div>
+
+        <!-- Source comparison visual -->
+        <div style="display:flex;flex-direction:column;gap:8px;flex:1;">
+          <div style="font-size:10px;color:#aaa;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;">What the model retrieves from</div>
+
+          <!-- Global (bad) -->
+          <div style="background:#fff;border:1.5px solid #f3c6a0;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;">
+            <div style="font-size:28px;">🌐</div>
+            <div style="flex:1;">
+              <div style="font-size:12px;font-weight:700;color:#1a1a2e;margin-bottom:2px;">Generic Global Datasets</div>
+              <div style="font-size:11px;color:#888;line-height:1.4;">International literature · No Malaysia validation · No scope boundary</div>
+            </div>
+            <div style="background:#fce8e8;color:#c0392b;font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;">≠ MOH CPG</div>
+          </div>
+
+          <!-- Arrow -->
+          <div style="text-align:center;font-size:11px;color:#bbb;letter-spacing:0.1em;text-transform:uppercase;">what's needed instead</div>
+
+          <!-- Local (good) -->
+          <div style="background:#edf7f0;border:1.5px solid #a8d5b5;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px;">
+            <div style="font-size:28px;">🇲🇾</div>
+            <div style="flex:1;">
+              <div style="font-size:12px;font-weight:700;color:#1a1a2e;margin-bottom:2px;">MOH Malaysia CPGs</div>
+              <div style="font-size:11px;color:#3a7a4f;line-height:1.4;">Locally validated · Scoped to competence · Refuses out-of-scope cases</div>
+            </div>
+            <div style="background:#d4edda;color:#1a7a3f;font-size:10px;font-weight:700;padding:4px 10px;border-radius:6px;white-space:nowrap;">✓ Grounded</div>
+          </div>
+
+          <div style="font-size:11px;color:#888;line-height:1.5;margin-top:4px;">
+            An <strong style="color:#1a1a2e;">architecture problem</strong> — retrieval grounding, scope control, and independent verification can't come from model size alone.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-label">What we expect</div>
+        <div class="verdict-value" style="font-size:22px;">Retrieval grounded in verified local guidelines — with built-in refusal.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sep" />
+
+  <!-- ═══════════════════════════════════════════════
+       BEAT 3 — Opaque Reasoning + Non-Executable Outputs
+       Black-box process → unactionable result
+       ═══════════════════════════════════════════════ -->
+  <div class="slide" id="beat3">
+    <div class="slide-label">02 — PROBLEM STATEMENT</div>
+
+    <div class="cam-box">
+      Webcam feed
+    </div>
+
+    <div class="content">
+      <div class="beat-tag">Beat 3 · Opaque Reasoning &amp; Non-Executable Outputs</div>
+
+      <div class="headline">
+        Black-box process.<br>
+        <span class="accent">Unactionable output.</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Full pipeline: input → black box → unstructured blob vs what's needed -->
+      <div style="display:flex;align-items:stretch;gap:12px;">
+
+        <!-- Input -->
+        <div style="background:#fff;border:1.5px solid #e0dbd2;border-radius:10px;padding:14px 16px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-width:120px;">
+          <div style="font-size:10px;color:#aaa;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">Clinical Query</div>
+          <div style="font-size:13px;color:#1a1a2e;font-weight:600;line-height:1.5;">"Chest pain,<br>T2DM,<br>post-PCI"</div>
+        </div>
+
+        <div style="display:flex;align-items:center;font-size:20px;color:#ccc;">→</div>
+
+        <!-- Black box (opaque reasoning) -->
+        <div style="background:#1a1a2e;border-radius:12px;padding:16px 20px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-width:150px;">
+          <div style="font-size:32px;color:#fff;margin-bottom:6px;">?</div>
+          <div style="font-size:9px;color:#555;letter-spacing:0.1em;text-transform:uppercase;line-height:1.6;">No reasoning trace<br>No audit trail<br>No source cited</div>
+        </div>
+
+        <div style="display:flex;align-items:center;font-size:20px;color:#ccc;">→</div>
+
+        <!-- Bad output: unstructured -->
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:10px;color:#c0392b;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">What AI delivers</div>
+          <div style="background:#fff;border:1.5px solid #f3c6a0;border-radius:10px;padding:12px 14px;width:170px;flex:1;">
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div class="line-block w-full"></div>
+              <div class="line-block w-90"></div>
+              <div class="line-block w-full"></div>
+              <div class="line-block w-80"></div>
+              <div class="line-block w-70"></div>
+              <div class="line-block w-90"></div>
+            </div>
+            <div style="margin-top:8px;font-size:10px;color:#c0392b;font-weight:700;">Unstructured · Unactionable</div>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;font-size:20px;color:#ccc;padding:0 4px;">vs</div>
+
+        <!-- Good output: structured + transparent -->
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <div style="font-size:10px;color:#1a7a3f;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;">What clinicians need</div>
+
+          <!-- SOAP Plan -->
+          <div style="background:#fff;border:1.5px solid #a8d5b5;border-radius:10px;padding:10px 12px;width:190px;">
+            <div style="font-size:9px;color:#1a7a3f;font-weight:700;letter-spacing:0.06em;margin-bottom:5px;">SOAP PLAN</div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <div style="display:flex;gap:5px;align-items:center;">
+                <div style="width:7px;height:7px;border-radius:2px;background:#1a7a3f;flex-shrink:0;"></div>
+                <div class="line-block w-80" style="background:#c5e8cf;"></div>
+              </div>
+              <div style="display:flex;gap:5px;align-items:center;">
+                <div style="width:7px;height:7px;border-radius:2px;background:#1a7a3f;flex-shrink:0;"></div>
+                <div class="line-block w-70" style="background:#c5e8cf;"></div>
+              </div>
+              <div style="display:flex;gap:5px;align-items:center;">
+                <div style="width:7px;height:7px;border-radius:2px;background:#1a7a3f;flex-shrink:0;"></div>
+                <div class="line-block w-90" style="background:#c5e8cf;"></div>
+              </div>
+            </div>
+            <div style="margin-top:6px;font-size:9px;color:#1a7a3f;font-weight:700;">Structured · Executable</div>
+          </div>
+
+          <!-- Transparent Reasoning -->
+          <div style="background:#fff;border:1.5px solid #a8d5b5;border-radius:10px;padding:10px 12px;width:190px;">
+            <div style="font-size:9px;color:#1a7a3f;font-weight:700;letter-spacing:0.06em;margin-bottom:5px;">REASONING TRACE</div>
+            <div style="display:flex;flex-direction:column;gap:4px;">
+              <div style="display:flex;gap:5px;align-items:center;">
+                <div style="font-size:9px;color:#3a7a4f;font-weight:700;flex-shrink:0;">①</div>
+                <div class="line-block w-90" style="background:#c5e8cf;"></div>
+              </div>
+              <div style="display:flex;gap:5px;align-items:center;">
+                <div style="font-size:9px;color:#3a7a4f;font-weight:700;flex-shrink:0;">②</div>
+                <div class="line-block w-70" style="background:#c5e8cf;"></div>
+              </div>
+              <div style="display:flex;gap:5px;align-items:center;">
+                <div style="font-size:9px;color:#3a7a4f;font-weight:700;flex-shrink:0;">③</div>
+                <div class="line-block w-80" style="background:#c5e8cf;"></div>
+              </div>
+            </div>
+            <div style="margin-top:6px;font-size:9px;color:#1a7a3f;font-weight:700;">Transparent · Auditable</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="verdict">
+        <div class="verdict-label">The combined failure</div>
+        <div class="verdict-value" style="font-size:22px;">No visible reasoning. No actionable output. Nothing a doctor can act on.</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="nav-hint" style="margin-top:8px;">
+    ← Beats 1–3 complete · Next: Segment 3 — Solution Demo →
+  </p>
+
+</body>
+</html>

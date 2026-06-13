@@ -411,6 +411,86 @@ export async function getEngineHealth() {
   return { ...data, latencyMs: Math.round(performance.now() - t0) };
 }
 
+/**
+ * Stream an explanation of the care plan from the AI chatbox.
+ *
+ * @param {object} opts
+ * @param {string}   opts.message               — clinician's question
+ * @param {number}   [opts.consultationId]      — saved Supabase consultation id (after save)
+ * @param {object}   [opts.inlinePlan]          — { treatment_plan, patient } from state (before save)
+ * @param {string}   [opts.sessionId]           — optional multi-turn session id
+ * @param {number}   [opts.recommendationIndex] — 0-based rec the Dr clicked
+ * @param {Function} opts.onToken               — called with each streamed text chunk
+ * @param {Function} [opts.onSources]           — called once with sources array
+ * @returns {Promise<string>} resolves with full response text when stream ends
+ */
+export async function explainCarePlan({ message, consultationId, inlinePlan, sessionId, recommendationIndex, onToken, onSources }) {
+  const response = await fetch(`${CLINICAL_API_BASE}/clinical/explain/stream`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      message,
+      ...(consultationId != null ? { consultation_id: consultationId } : {}),
+      ...(inlinePlan != null ? { inline_plan: inlinePlan } : {}),
+      ...(sessionId != null ? { session_id: sessionId } : {}),
+      ...(recommendationIndex != null ? { recommendation_index: recommendationIndex } : {}),
+    }),
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Explain API error ${response.status}: ${text}`);
+  }
+
+  return new Promise((resolve, reject) => {
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+    let fullText = '';
+
+    const pump = async () => {
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) { resolve(fullText); return; }
+          buffer += decoder.decode(value, { stream: true });
+
+          const frames = buffer.split('\n\n');
+          buffer = frames.pop();
+
+          for (const frame of frames) {
+            if (!frame.trim()) continue;
+            let dataStr = '';
+            for (const line of frame.split('\n')) {
+              if (line.startsWith('data: ')) dataStr = line.slice(6).trim();
+            }
+            if (!dataStr) continue;
+            let payload;
+            try { payload = JSON.parse(dataStr); } catch { continue; }
+
+            if (payload.type === 'text') {
+              fullText += payload.content;
+              onToken?.(payload.content);
+            } else if (payload.type === 'sources') {
+              onSources?.(payload.sources);
+            } else if (payload.type === 'end') {
+              resolve(fullText);
+              return;
+            } else if (payload.type === 'error') {
+              reject(new Error(payload.content || 'Explain stream error'));
+              return;
+            }
+          }
+        }
+      } catch (err) {
+        reject(err);
+      }
+    };
+
+    pump();
+  });
+}
+
 export async function getPrepBrief({ priorVisit, currentMedications, patientAge, patientSex, comorbidities, patientNric }) {
   const r = await fetch(`${CLINICAL_API_BASE}/clinical/prep-brief`, {
     method: 'POST',
