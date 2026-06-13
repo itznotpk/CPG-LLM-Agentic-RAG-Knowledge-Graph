@@ -294,6 +294,18 @@ function ActionDropdown({ action, onChange }) {
   );
 }
 
+// Format a raw CPG citation for display: drop the "[chunk N]" suffix and
+// rewrite the "§14.1.6.3" section marker as "[Section 14.1.6.3]".
+// e.g. "CPG Diabetes and Heart Failure §14.1.6.3 [chunk 8]"
+//   →  "CPG Diabetes and Heart Failure [Section 14.1.6.3]"
+function formatCpgRef(raw) {
+  return String(raw || '')
+    .replace(/\s*\[chunk[^\]]*\]/gi, '')      // remove [chunk N]
+    .replace(/§\s*([\w.]+)/g, '[Section $1]') // § X → [Section X]
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
 function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule, highlighted }) {
   const { isDark } = useTheme();
   // originalAction = the category the med belongs to (determines content rendering)
@@ -356,7 +368,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
       </td>
       <td className="py-3 align-top w-[140px]">
         <div className="flex items-start justify-between">
-          <span className={`text-[11px] font-sans ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{med.cpgRef || ''}</span>
+          <span className={`text-[11px] font-sans ${isDark ? 'text-slate-500' : 'text-slate-500'}`}>{formatCpgRef(med.cpgRef)}</span>
           <button
             onClick={onDelete}
             className={`p-1 rounded-md opacity-0 group-hover/row:opacity-100 transition-all flex-shrink-0 ml-1
@@ -455,7 +467,7 @@ function RedFlagRow({ text }) {
   const splitText = (raw) => {
     if (!raw) return { title: '', sub: null };
     const colonIdx = raw.indexOf(': ');
-    if (colonIdx !== -1 && colonIdx < 40) {
+    if (colonIdx !== -1 && colonIdx < 60) {
       return { title: raw.slice(0, colonIdx).trim(), sub: raw.slice(colonIdx + 2).trim() };
     }
     const dashIdx = raw.indexOf(' — ');

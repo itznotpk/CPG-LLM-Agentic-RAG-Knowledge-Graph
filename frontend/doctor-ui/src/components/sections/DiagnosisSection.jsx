@@ -551,19 +551,6 @@ export function DiagnosisSection() {
         </div>
       </GlassCard>
 
-      {/* Re-synthesis notice */}
-      {willResynth && !isGeneratingPlan && (
-        <div className={`flex items-center gap-2 text-xs px-4 py-2 rounded-xl
-          ${isDark ? 'bg-amber-900/20 text-amber-300 border border-amber-500/20'
-                   : 'bg-amber-50    text-amber-700 border border-amber-200'}`}>
-          <AlertCircle className="w-3.5 h-3.5 shrink-0" strokeWidth={1.5} />
-          Your selection differs from the AI recommendation — the care plan will be
-          re-generated specifically for{' '}
-          <strong>{selectedDiagnoses.map(d => d.name).join(', ')}</strong>.
-        </div>
-      )}
-
-
       {isGeneratingPlan && (
         <div className="flex flex-col items-center gap-4 py-6 animate-fadeIn">
           <div className={`flex items-center gap-2 ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>

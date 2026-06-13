@@ -139,8 +139,8 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
     { key: 'life', label: 'Lifestyle Recommendation', icon: Heart, n: lifestyle.length },
   ];
 
-  const PROC_COLS = 'minmax(0,168px) minmax(0,1fr) 120px 30px 28px';
-  const MON_COLS = 'minmax(0,150px) minmax(0,1fr) 172px 28px';
+  const PROC_COLS = 'minmax(0,302px) minmax(0,1fr) 120px 30px 28px';
+  const MON_COLS = 'minmax(0,281px) minmax(0,1fr) 268px 28px';
 
   const headerCls = `text-[10.5px] font-bold tracking-[0.06em] uppercase pb-2.5 ${
     isDark ? 'text-slate-500' : 'text-slate-400'
