@@ -1149,7 +1149,7 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
       .slice(0, 8);
 
     // ── Machine rollup ──
-    // gate_failure details follow two backend formats (clinical_stages.py gate audit):
+    // gate_decision (legacy: gate_failure) details follow two backend formats (clinical_stages.py gate audit):
     //   "Awaiting data for <Spec> referral — <Condition>: trigger '<T>' unverified (<reason>)"
     //   "Ruled out <Spec> referral for <Condition> — trigger '<T>' not met: <evidence>"
     // plus per-CPG suppression notices "(+ further referral triggers from X suppressed…)".
@@ -1165,7 +1165,9 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
       byType[row.signal_type] = (byType[row.signal_type] || 0) + 1;
       const detail = (row.detail || '').trim();
 
-      if (row.signal_type === 'gate_failure') {
+      // gate_decision is the current type; gate_failure is the legacy alias for
+      // rows written before the rename — both are the referral gate's decision log.
+      if (row.signal_type === 'gate_decision' || row.signal_type === 'gate_failure') {
         if (detail.startsWith('(+') || detail.includes('suppressed — review CPG')) { suppressed += 1; continue; }
         if (RULED_OUT_RE.test(detail)) { ruledOut += 1; continue; }
         const m = AWAITING_RE.exec(detail);

@@ -988,6 +988,16 @@ async def _sse_stream(request: Request, producer, log_label: str, consultation_i
     )
 
 
+# Most coverage-gap lines are intentional transparency nudges (out-of-CPG-scope
+# drug choices, load-bearing assumptions) and stay "info". A line reporting that
+# something the pipeline EXPECTED is absent from the plan is a genuine miss the
+# clinician must action — the backend phrases these as "<X> not surfaced in
+# plan" (see clinical_stages.py: "Expected referral/therapy not surfaced..."),
+# so we promote those to "warning" without an enumerated keyword list.
+def _coverage_gap_severity(detail: str) -> str:
+    return "warning" if "not surfaced in plan" in detail.lower() else "info"
+
+
 async def _harvest_machine_signals(result, consultation_id) -> None:
     """Persist pipeline insights the workflow already computed (gate failures,
     unresolved/coverage gaps, stage errors) to the machine_signals table — the
@@ -1004,15 +1014,20 @@ async def _harvest_machine_signals(result, consultation_id) -> None:
         rid = _request_id_var.get()
         plan = getattr(result, "treatment_plan", None)
 
+        # gate_audit is the referral gate's DECISION log (awaiting-data /
+        # ruled-out / suppressed), never an error log — real gate exceptions go
+        # to the Python logger. Filing it under "gate_failure" made the feedback
+        # dashboard read every normal decision as a failure. Emit as
+        # "gate_decision"; the frontend treats it as an alias of the old type.
         for line in getattr(plan, "gate_audit", []) or []:
             await log_machine_signal(
-                "gate_failure", consultation_id=consultation_id, request_id=rid,
+                "gate_decision", consultation_id=consultation_id, request_id=rid,
                 detail=str(line), severity="info",
             )
         for q in getattr(plan, "unresolved_questions", []) or []:
             await log_machine_signal(
                 "coverage_gap", consultation_id=consultation_id, request_id=rid,
-                detail=str(q), severity="info",
+                detail=str(q), severity=_coverage_gap_severity(str(q)),
             )
         for err in getattr(result, "stage_errors", []) or []:
             await log_machine_signal(

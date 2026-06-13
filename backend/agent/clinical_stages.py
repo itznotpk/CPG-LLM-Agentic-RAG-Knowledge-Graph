@@ -41,6 +41,53 @@ def _make_openai_client(base_url: str, api_key: str, provider: str = "", **kwarg
 logger = logging.getLogger(__name__)
 
 
+# Transient-error retry for LLM calls. Gemini's OpenAI-compat endpoint returns
+# 503 ("This model is currently experiencing high demand") and 429 under load;
+# these are recoverable spikes, not faults — yet every `stage_error` row in
+# machine_signals was exactly one of these, uncaught, on the Stage-4 query-gen
+# call. Retry with exponential backoff before letting the failure propagate.
+_LLM_RETRY_STATUS = {408, 409, 429, 500, 502, 503, 504}
+
+
+def _is_transient_llm_error(exc: Exception) -> bool:
+    """True for rate-limit / 5xx / timeout / connection blips worth retrying."""
+    if isinstance(exc, (
+        openai.APITimeoutError,
+        openai.APIConnectionError,
+        openai.RateLimitError,
+        openai.InternalServerError,
+    )):
+        return True
+    status = getattr(exc, "status_code", None) or getattr(exc, "status", None)
+    return status in _LLM_RETRY_STATUS
+
+
+async def _llm_call_with_retry(make_awaitable, *, what: str, attempts: int = 3, base_delay: float = 1.0):
+    """Await ``make_awaitable()`` with exponential backoff on transient errors.
+
+    ``make_awaitable`` is a zero-arg callable returning a *fresh* awaitable each
+    invocation (a coroutine is single-use, so the call site must rebuild it).
+    Non-transient errors re-raise immediately; transient ones retry up to
+    ``attempts`` times (delays 1s, 2s, …) and re-raise the last on exhaustion.
+    """
+    last_exc: Exception | None = None
+    for i in range(attempts):
+        try:
+            return await make_awaitable()
+        except Exception as exc:  # noqa: BLE001 — re-raised below unless transient
+            if not _is_transient_llm_error(exc) or i == attempts - 1:
+                raise
+            last_exc = exc
+            delay = base_delay * (2 ** i)
+            logger.warning(
+                "%s: transient LLM error (attempt %d/%d) — retrying in %.0fs: %s",
+                what, i + 1, attempts, delay, exc,
+            )
+            await asyncio.sleep(delay)
+    assert last_exc is not None  # unreachable: loop either returns or raises
+    raise last_exc
+
+
 # Drug-class matcher used by the post-Stage-5 coverage-gap detector. Mirrors
 # the JS DRUG_CLASS_KEYWORDS map in Doctor UI/src/components/sections/CarePlanSection.jsx
 # — keep the two in sync when adding classes.
@@ -3816,11 +3863,23 @@ Generate exactly {n} queries (one per domain as instructed)."""
         else [{"role": "user", "content": user_content}]
     )
 
-    resp = await client.chat.completions.create(
-        model=model,
-        messages=messages,
-        temperature=0.2,
-    )
+    try:
+        resp = await _llm_call_with_retry(
+            lambda: client.chat.completions.create(
+                model=model,
+                messages=messages,
+                temperature=0.2,
+            ),
+            what="Stage 4 query generation",
+        )
+    except Exception as exc:  # noqa: BLE001
+        # Exhausted retries (or a hard error). Do NOT kill Stage 4 over the
+        # query-gen LLM: stage_4_retrieve always prepends deterministic anchor
+        # queries (investigations / lifestyle / referrals / condition pillars)
+        # that drive real vector retrieval on their own. Returning [] degrades
+        # to anchor-only retrieval — strictly better than a no-evidence plan.
+        logger.error("stage_4: query generation failed after retries — falling back to anchors only: %s", exc)
+        return []
     raw = resp.choices[0].message.content.strip()
     raw = raw.strip("` \n")
     if raw.startswith("json"):
@@ -5447,7 +5506,14 @@ Produce a TreatmentPlan JSON object matching this schema:
             existing_referral_specs: set[str] = set()
             for rec in plan.recommendations:
                 if rec.type == "referral":
-                    spec = (getattr(rec, "specialty", None) or "").strip().lower()
+                    # The Recommendation model has NO `specialty` field — referrals
+                    # live in `intervention` free text ("Refer to Cardiology — …").
+                    # Reading getattr(rec,'specialty') always returned ""/None, so
+                    # this set was permanently empty and EVERY required referral
+                    # was reported "not surfaced" even when the LLM emitted it
+                    # (consult-186 false positive). Infer + normalise from the
+                    # intervention, matching how dedup keys referrals.
+                    spec = _infer_referral_specialty(rec)
                     if spec:
                         existing_referral_specs.add(spec)
 
@@ -5455,9 +5521,10 @@ Produce a TreatmentPlan JSON object matching this schema:
                 referral_required = _required_referral_for(code)
                 if not referral_required:
                     continue
-                # Extract specialty name from the referral requirement
-                # Format: "Specialty — description" or just "Specialty"
-                spec_part = referral_required.split(" —")[0].strip().lower()
+                # Normalise the required specialty through the SAME function so the
+                # comparison is key-vs-key (e.g. "Cardiology (heart failure
+                # specialist) — …" → "cardiology"), not raw-string-vs-key.
+                spec_part = _normalise_specialty_phrase(referral_required.split(" —")[0])
                 if spec_part not in seen_specialties:
                     seen_specialties.add(spec_part)
                     if spec_part not in existing_referral_specs:

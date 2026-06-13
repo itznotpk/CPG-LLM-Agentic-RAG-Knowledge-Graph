@@ -165,7 +165,8 @@ async def log_machine_signal(
     trap. Best-effort: never raises, never blocks the pipeline. Requires
     add_machine_signals.sql to have been run on Supabase.
 
-    signal_type ∈ {'gate_failure','data_quality','kg_gap','coverage_gap','stage_error'}.
+    signal_type ∈ {'gate_decision','data_quality','kg_gap','coverage_gap','stage_error'}
+    ('gate_failure' is the legacy alias for 'gate_decision', kept for old rows).
     """
     pool = supabase_pool.pool
     if pool is None:

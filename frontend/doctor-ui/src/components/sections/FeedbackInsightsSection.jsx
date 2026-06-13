@@ -13,7 +13,8 @@ import { supabase, getFeedbackInsights } from '../../lib/supabase';
 
 // signal_type → display label + colour
 const SIGNAL_META = {
-  gate_failure: { label: 'Referral gate', color: 'amber' },
+  gate_decision: { label: 'Referral gate', color: 'amber' },
+  gate_failure: { label: 'Referral gate', color: 'amber' }, // legacy alias (pre-rename rows)
   coverage_gap: { label: 'Coverage gap', color: 'sky' },
   data_quality: { label: 'Data quality', color: 'violet' },
   stage_error:  { label: 'Stage error', color: 'red' },
