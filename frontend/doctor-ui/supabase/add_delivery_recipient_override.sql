@@ -14,6 +14,11 @@ CREATE OR REPLACE FUNCTION enqueue_delivery_job(
     p_recipient       TEXT DEFAULT NULL
 )
 RETURNS TABLE(job_id UUID, status TEXT, recipient TEXT) AS $$
+-- The OUT columns `status`/`recipient` shadow delivery_jobs columns of the same
+-- name. Without this directive, the `ON CONFLICT ... WHERE status IN (...)` arbiter
+-- predicate raises "column reference \"status\" is ambiguous" and EVERY enqueue
+-- fails. use_column makes ambiguous identifiers resolve to the table column.
+#variable_conflict use_column
 DECLARE
     v_patient_nric TEXT;
     v_email        TEXT;

@@ -557,17 +557,20 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   const [editing, setEditing] = useState(false);
   const [emailFormOpen, setEmailFormOpen] = useState(false);
   const [emailInput, setEmailInput] = useState('');
+  const [emailLang, setEmailLang] = useState('en');
   const { isDark } = useTheme();
   const paperRef = useRef(null);
 
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.trim());
   const openEmailForm = () => {
     setEmailInput(patient?.email || '');
+    // Default the cover language to the patient's stored preference, else English.
+    setEmailLang(patient?.preferred_language || patient?.preferredLanguage || 'en');
     setEmailFormOpen(true);
   };
   const submitEmailForm = () => {
     if (!emailValid) return;
-    onSendToPatient(emailInput.trim());
+    onSendToPatient(emailInput.trim(), emailLang);
     setEmailFormOpen(false);
   };
 
@@ -929,8 +932,27 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                   border: '1px solid rgba(100,116,139,0.3)',
                 }}
               />
+              <label style={{
+                display: 'block', fontSize: 12, fontWeight: 600,
+                color: '#0f766e', marginBottom: 6,
+              }}>
+                Email language
+              </label>
+              <select
+                value={emailLang}
+                onChange={(e) => setEmailLang(e.target.value)}
+                style={{
+                  width: '100%', boxSizing: 'border-box', padding: '8px 10px',
+                  borderRadius: 6, fontSize: 13, marginBottom: 8,
+                  border: '1px solid rgba(100,116,139,0.3)', background: '#fff',
+                }}
+              >
+                <option value="en">English</option>
+                <option value="ms">Bahasa Melayu</option>
+                <option value="zh">中文</option>
+              </select>
               <p style={{ margin: '0 0 8px 0', fontSize: 11, color: '#64748b', lineHeight: 1.4 }}>
-                The care plan PDF will be emailed to this address.
+                The care plan PDF will be emailed to this address; the cover note is written in the selected language.
               </p>
               <div style={{ display: 'flex', gap: 8 }}>
                 <button

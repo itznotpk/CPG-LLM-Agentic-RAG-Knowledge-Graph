@@ -14,6 +14,7 @@ import smtplib
 import ssl
 import tempfile
 from email.message import EmailMessage
+from email.utils import make_msgid
 from pathlib import Path
 from typing import Optional
 from uuid import UUID
@@ -237,6 +238,11 @@ def _build_message(to: str, subject: str, body: str, attachment: Path,
     msg["From"] = f"{GMAIL_FROM_NAME} <{GMAIL_USER}>"
     msg["To"] = to
     msg["Subject"] = subject
+    # Set a real RFC-5322 Message-ID up front so _send_email can record it for
+    # the delivery audit trail (Gmail preserves a client-supplied Message-ID).
+    # Domain mirrors the sending address; falls back to the local host otherwise.
+    _domain = GMAIL_USER.split("@", 1)[1] if "@" in GMAIL_USER else None
+    msg["Message-ID"] = make_msgid(domain=_domain) if _domain else make_msgid()
     msg.set_content(body)
     if html:
         # multipart/alternative — clients that render HTML show this; the rest
@@ -266,6 +272,7 @@ async def _send_email(msg: EmailMessage) -> str:
 
 async def deliver_care_plan(job_id: UUID) -> None:
     """Entrypoint called by the worker. Pure deterministic flow."""
+    pdf_path: Optional[Path] = None
     try:
         job = await _load_job(job_id)
         # The recipient is resolved at enqueue time: either the clinician-supplied
@@ -305,3 +312,11 @@ async def deliver_care_plan(job_id: UUID) -> None:
         logger.exception("delivery failed job=%s", job_id)
         await _mark_failed(job_id, str(exc))
         raise
+    finally:
+        # Always remove the downloaded PDF — _fetch_pdf writes a delete=False temp
+        # file, so without this every send leaks a temp file on disk.
+        if pdf_path is not None:
+            try:
+                pdf_path.unlink(missing_ok=True)
+            except Exception:
+                logger.warning("could not remove temp pdf %s", pdf_path)

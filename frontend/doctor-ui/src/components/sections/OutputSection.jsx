@@ -153,20 +153,23 @@ export function OutputSection() {
 
   const handleBack = () => goToStep(3);
 
-  const handleSendToPatient = async (recipientEmail) => {
+  const handleSendToPatient = async (recipientEmail, language = 'en') => {
     if (!consultationId) return;
     try {
       // Sign the email with the logged-in clinician (current session).
       const clinicianName = authProfile?.full_name || null;
-      const job = await enqueueDelivery(consultationId, clinicianName, recipientEmail);
+      // The enqueue endpoint persists email + language synchronously before the
+      // job lands, so the worker can't race the prefs write below.
+      const job = await enqueueDelivery(consultationId, clinicianName, recipientEmail, language);
       setDelivery(job);
 
-      // Persist the address on the patient record so future consultations
-      // default to it (the send form is the only place we capture a patient email).
+      // Persist the address + language on the patient record so future
+      // consultations default to them (the send form is the only place we capture
+      // a patient email / preferred cover language).
       const nric = resolvedPatient?.nsn || resolvedPatient?.id || resolvedPatient?.nric;
       if (nric && recipientEmail) {
         const { updatePatientDeliveryPrefs } = await import('../../lib/supabase');
-        updatePatientDeliveryPrefs(nric, { email: recipientEmail, consented: true })
+        updatePatientDeliveryPrefs(nric, { email: recipientEmail, consented: true, preferredLanguage: language })
           .catch((e) => console.warn('Could not save patient email:', e));
       }
     } catch (err) {

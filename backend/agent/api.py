@@ -2102,6 +2102,18 @@ class DeliveryEnqueueRequest(_BaseModel):
     # it overrides the patient's stored email and bypasses the on-file/consent
     # gate (the clinician is explicitly directing the send).
     recipient: Optional[str] = None
+    # Preferred email language for the cover (en | ms | zh). When set it is
+    # persisted to patients.preferred_language so the worker renders the cover
+    # in that language and future sends default to it. Invalid values are ignored.
+    language: Optional[str] = None
+
+
+_VALID_DELIVERY_LANGS = {"en", "ms", "zh"}
+_EMAIL_RE = _re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
+
+
+def _valid_email(addr: str) -> bool:
+    return bool(addr) and bool(_EMAIL_RE.match(addr.strip()))
 
 
 @app.post("/delivery/enqueue")
@@ -2114,25 +2126,43 @@ async def delivery_enqueue(body: DeliveryEnqueueRequest):
     if _pool.pool is None:
         raise HTTPException(status_code=503, detail="delivery store (Supabase) not configured")
     recipient = (body.recipient or "").strip() or None
+    # Reject a malformed recipient up front — a typo'd address would otherwise be
+    # accepted, queued, and silently bounce after the worker "sends" it.
+    if recipient and not _valid_email(recipient):
+        raise HTTPException(status_code=400, detail="recipient is not a valid email address")
+    # Normalise the requested language; ignore anything outside the supported set
+    # so a bad value can never break rendering (worker also falls back to 'en').
+    lang = (body.language or "").strip().lower() or None
+    if lang and lang not in _VALID_DELIVERY_LANGS:
+        lang = None
     try:
         async with _pool.acquire() as conn:
-            if recipient:
+            if recipient or lang:
                 # Find the patient NRIC for this consultation and persist the email
+                # and/or preferred language SYNCHRONOUSLY — before enqueue — so the
+                # worker (which reads patients.preferred_language at delivery time)
+                # can never race a fire-and-forget client write.
                 patient_nric = await conn.fetchval(
                     "SELECT patient_nric FROM consultations WHERE id = $1",
                     body.consultation_id
                 )
                 if patient_nric:
-                    await conn.execute(
-                        """
-                        UPDATE patients 
-                        SET email = $1, 
-                            email_consent_at = now(), 
-                            updated_at = now()
-                        WHERE nric = $2
-                        """,
-                        recipient, patient_nric
-                    )
+                    if recipient:
+                        await conn.execute(
+                            """
+                            UPDATE patients
+                            SET email = $1,
+                                email_consent_at = now(),
+                                updated_at = now()
+                            WHERE nric = $2
+                            """,
+                            recipient, patient_nric
+                        )
+                    if lang:
+                        await conn.execute(
+                            "UPDATE patients SET preferred_language = $1, updated_at = now() WHERE nric = $2",
+                            lang, patient_nric
+                        )
 
             rows = await conn.fetch(
                 "SELECT * FROM enqueue_delivery_job($1::integer, $2::text, $3::text)",

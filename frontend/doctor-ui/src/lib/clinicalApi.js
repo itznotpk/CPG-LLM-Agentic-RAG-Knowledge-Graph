@@ -390,7 +390,7 @@ export async function resynthesizePlanStream(
   });
 }
 
-export async function enqueueDelivery(consultationId, clinicianName = null, recipient = null) {
+export async function enqueueDelivery(consultationId, clinicianName = null, recipient = null, language = null) {
   const r = await fetch(`${CLINICAL_API_BASE}/delivery/enqueue`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -398,6 +398,7 @@ export async function enqueueDelivery(consultationId, clinicianName = null, reci
       consultation_id: consultationId,
       clinician_name: clinicianName,
       recipient,
+      ...(language ? { language } : {}),
     }),
   });
   if (!r.ok) throw new Error(await r.text());
