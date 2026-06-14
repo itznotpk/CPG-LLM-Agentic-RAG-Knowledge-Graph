@@ -81,6 +81,9 @@ export const initialState = {
   safetyReport: null,      // SafetyReport | null — set on safety_review SSE event
   ddxSuggestion: null,     // DDxSuggestion payload (top-5 candidates + headless default) — captured before tier selection
   ddxQualityDrops: [],     // [{tier, code, expected_slots, actual_slots}] from stage3_quality_drop SSE
+  ddxExcludedCodes: [],    // accumulated ICD codes already shown across Step-2 regenerations (union of every top-5 seen)
+  isRegeneratingDdx: false,// true while a Step-2 "Regenerate differentials" run is in flight
+  ddxRegenExhausted: false,// true when the last regenerate returned no further distinct candidates
 };
 
 // Snapshot persistence intentionally disabled — refreshes start from a clean
@@ -353,6 +356,12 @@ export function appReducer(state, action) {
       return { ...state, resynthOverride: action.payload };
     case 'SET_DDX_SUGGESTION':
       return { ...state, ddxSuggestion: action.payload };
+    case 'SET_DDX_EXCLUDED_CODES':
+      return { ...state, ddxExcludedCodes: action.payload || [] };
+    case 'SET_REGENERATING_DDX':
+      return { ...state, isRegeneratingDdx: !!action.payload };
+    case 'SET_DDX_REGEN_EXHAUSTED':
+      return { ...state, ddxRegenExhausted: !!action.payload };
     case 'SET_DDX_QUALITY_DROPS':
       return { ...state, ddxQualityDrops: action.payload || [] };
     case 'APPEND_DDX_QUALITY_DROP':
@@ -660,6 +669,9 @@ export function AppProvider({ children }) {
 
     try {
       dispatch({ type: 'RESET_PIPELINE' });
+      // Fresh consultation DDx → clear any accumulated regeneration exclusions.
+      dispatch({ type: 'SET_DDX_EXCLUDED_CODES', payload: [] });
+      dispatch({ type: 'SET_DDX_REGEN_EXHAUSTED', payload: false });
 
       // Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and pause.
       // The care plan (Stages 3–5) is NOT generated until the clinician confirms
@@ -732,6 +744,60 @@ export function AppProvider({ children }) {
         dispatch({ type: 'SET_STEP', payload: 2 });
         throw fallbackErr;
       }
+    }
+  };
+
+  // Step-2 "Regenerate differentials": re-run ONLY Stage 2 with the previously
+  // shown top-5 (accumulated across presses) excluded from the candidate pool, and
+  // optional clinician free-text guidance steering retrieval + the rerank. Stays on
+  // Step 2; never touches Stages 3–6 (those run later on Confirm).
+  const regenerateDDx = async ({ feedback = '' } = {}) => {
+    // Accumulate: union of every code seen so far + the current top-5.
+    const currentTop = (state.diagnosis?.differentials || [])
+      .slice(0, 5)
+      .map((d) => d.icdCode)
+      .filter(Boolean);
+    const excludeCodes = Array.from(new Set([...(state.ddxExcludedCodes || []), ...currentTop]));
+
+    dispatch({ type: 'SET_DDX_EXCLUDED_CODES', payload: excludeCodes });
+    dispatch({ type: 'SET_DDX_REGEN_EXHAUSTED', payload: false });
+    dispatch({ type: 'SET_REGENERATING_DDX', payload: true });
+    // Clear the stale Stage-2 trace so the panel reflects this fresh run.
+    dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 2 });
+
+    try {
+      const { ddx } = await runDDxStream(
+        { ...state.patient, priorVisit: state.priorVisit },
+        state.vitals,
+        state.clinicalNotes,
+        state.mpisData,
+        (stageUpdate) => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...stageUpdate, eventType: 'stage_update' } }),
+        (thinkingDelta) => dispatch({ type: 'APPEND_THINKING_CHUNK', payload: { node: thinkingDelta.node, chunk: thinkingDelta.chunk } }),
+        (subStep) => dispatch({ type: 'APPEND_PIPELINE_EVENT', payload: { ...subStep, eventType: 'sub_step' } }),
+        state.severityStaging || {},
+        undefined,
+        (ddxSuggestion) => dispatch({ type: 'SET_DDX_SUGGESTION', payload: ddxSuggestion }),
+        { excludeCodes, regenFeedback: feedback?.trim() || undefined },
+      );
+
+      if (ddx && ddx.length > 0) {
+        const diagnosis = mapDdxToDiagnosis(ddx, []); // routing still runs on Confirm
+        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null } });
+        dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
+        dispatch({
+          type: 'SET_PIPELINE_SUMMARY',
+          payload: { elapsed_ms: null, ddxCount: ddx.length, cpgCount: 0, chunkCount: null },
+        });
+      } else {
+        // Pool exhausted — keep the prior list and tell the clinician.
+        dispatch({ type: 'SET_DDX_REGEN_EXHAUSTED', payload: true });
+      }
+      return ddx;
+    } catch (err) {
+      console.error('DDx regeneration failed:', err);
+      throw err;
+    } finally {
+      dispatch({ type: 'SET_REGENERATING_DDX', payload: false });
     }
   };
 
@@ -1175,6 +1241,7 @@ export function AppProvider({ children }) {
     loadDemoData,
     syncMPIS,
     analyzeAssessment,
+    regenerateDDx,
     confirmDiagnosis,
     finalizePlan,
     uploadFinalCarePlanPDF,

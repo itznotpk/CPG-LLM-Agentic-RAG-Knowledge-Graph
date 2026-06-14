@@ -56,6 +56,11 @@ class ClinicalPlanRequest(_BaseModel):
     case: PatientCase
     session_id: str | None = None
     consultation_id: int | None = None  # Supabase row id; tags SSE log entries
+    # Step-2 DDx regeneration (clinical_ddx_stream only). Optional free-text clinician
+    # guidance steers the rerank + retrieval; exclude_codes drops already-shown ICD
+    # codes from the candidate pool so a re-run surfaces genuinely different candidates.
+    regen_feedback: str | None = None
+    exclude_codes: list[str] = _Field(default_factory=list)
 
 
 class SelectedDiagnosis(_BaseModel):
@@ -1103,7 +1108,11 @@ async def clinical_ddx_stream(request: Request, payload: ClinicalPlanRequest):
     from .clinical_workflow import run_ddx_only_streaming
 
     async def producer(emit):
-        await run_ddx_only_streaming(payload.case, emit)
+        await run_ddx_only_streaming(
+            payload.case, emit,
+            exclude_codes=payload.exclude_codes,
+            regen_feedback=payload.regen_feedback,
+        )
 
     return await _sse_stream(request, producer, "clinical_ddx_stream")
 

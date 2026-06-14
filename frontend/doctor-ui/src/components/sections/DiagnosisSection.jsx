@@ -5,6 +5,7 @@ import {
   ArrowLeft,
   Sparkles,
   Target,
+  RefreshCw,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -43,12 +44,28 @@ function parseOverrideReason(reason) {
 }
 
 export function DiagnosisSection() {
-  const { state, confirmDiagnosis, goToStep } = useApp();
+  const { state, confirmDiagnosis, goToStep, regenerateDDx } = useApp();
   const { isDark } = useTheme();
-  const { diagnosis, isGeneratingPlan } = state;
+  const { diagnosis, isGeneratingPlan, isRegeneratingDdx, ddxExcludedCodes, ddxRegenExhausted } = state;
   const [traceCollapsed, setTraceCollapsed] = React.useState(true);
   const [expandedWhy, setExpandedWhy] = React.useState({});
   const [sortBy, setSortBy] = React.useState('rank');
+  // Step-2 regeneration: collapsible panel + optional guidance text.
+  const [regenOpen, setRegenOpen] = React.useState(false);
+  const [regenFeedback, setRegenFeedback] = React.useState('');
+
+  // Card interaction is locked both during plan generation and a regeneration run.
+  const locked = isGeneratingPlan || isRegeneratingDdx;
+
+  const handleRegenerate = async () => {
+    try {
+      await regenerateDDx({ feedback: regenFeedback });
+      setRegenFeedback('');
+      setRegenOpen(false);
+    } catch {
+      // regenerateDDx logs + the pipeline trace surfaces the error; keep the panel open.
+    }
+  };
 
   if (!diagnosis) return null;
 
@@ -321,10 +338,10 @@ export function DiagnosisSection() {
               <div
                 key={diff.id}
                 role="button"
-                tabIndex={isGeneratingPlan ? -1 : 0}
-                onClick={() => !isGeneratingPlan && cycleTier(diff.icdCode)}
+                tabIndex={locked ? -1 : 0}
+                onClick={() => !locked && cycleTier(diff.icdCode)}
                 onKeyDown={(e) => {
-                  if (isGeneratingPlan) return;
+                  if (locked) return;
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
                     cycleTier(diff.icdCode);
@@ -337,7 +354,7 @@ export function DiagnosisSection() {
                   ${!isSelected && !isDark ? 'hover:border-slate-300 hover:shadow-md' : ''}
                   ${!isSelected && isDark ? 'hover:border-slate-600 hover:bg-slate-800/60' : ''}
                   ${isSelected ? 'shadow-md' : 'shadow-sm'}
-                  ${isGeneratingPlan ? 'cursor-not-allowed opacity-70' : ''}`}
+                  ${locked ? 'cursor-not-allowed opacity-70' : ''}`}
                 style={{ overflow: 'hidden' }}
               >
                 {/* Main content area */}
@@ -443,7 +460,7 @@ export function DiagnosisSection() {
                       <TierSegmentedControl
                         value={tier}
                         onChange={(next) => setTier(diff.icdCode, next)}
-                        disabled={isGeneratingPlan}
+                        disabled={locked}
                         ariaLabel={`Tier for ${diff.icdCode} ${diff.name}`}
                       />
                     </div>
@@ -548,6 +565,80 @@ export function DiagnosisSection() {
               </div>
             );
           })}
+        </div>
+
+        {/* Regenerate differentials — re-runs Stage 2 with the prior top-5 excluded
+            (accumulated across presses) and optional clinician guidance. */}
+        <div className={`mt-4 pt-4 border-t ${isDark ? 'border-slate-700/50' : 'border-slate-200'}`}>
+          {!regenOpen ? (
+            <div className="flex items-center justify-between gap-3 flex-wrap">
+              <button
+                type="button"
+                onClick={() => setRegenOpen(true)}
+                disabled={locked}
+                className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed
+                  ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
+              >
+                <RefreshCw className={`w-3.5 h-3.5 ${isRegeneratingDdx ? 'animate-spin' : ''}`} strokeWidth={1.5} />
+                Not quite right? Regenerate differentials
+              </button>
+              {ddxExcludedCodes?.length > 0 && (
+                <span className={`text-[11px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  {ddxExcludedCodes.length} earlier suggestion{ddxExcludedCodes.length === 1 ? '' : 's'} excluded
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="space-y-2.5">
+              <label className={`block text-xs font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                Add guidance <span className="font-normal opacity-70">(optional)</span>
+              </label>
+              <textarea
+                value={regenFeedback}
+                onChange={(e) => setRegenFeedback(e.target.value)}
+                disabled={isRegeneratingDdx}
+                rows={2}
+                placeholder="e.g. consider endocrine causes, patient is pregnant, rule out infection…"
+                className={`w-full text-sm rounded-lg px-3 py-2 resize-none focus:outline-none focus:ring-2 focus:ring-teal-400/50 disabled:opacity-60
+                  ${isDark ? 'bg-slate-800/60 border border-slate-700 text-slate-100 placeholder-slate-500'
+                           : 'bg-white border border-slate-200 text-slate-800 placeholder-slate-400'}`}
+              />
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <span className={`text-[11px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  The current top {Math.min(5, sortedDifferentials.length)} will be excluded from the new ranking.
+                </span>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => { setRegenOpen(false); setRegenFeedback(''); }}
+                    disabled={isRegeneratingDdx}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    icon={isRegeneratingDdx ? null : RefreshCw}
+                    loading={isRegeneratingDdx}
+                    disabled={isRegeneratingDdx}
+                    onClick={handleRegenerate}
+                  >
+                    {isRegeneratingDdx ? 'Regenerating…' : 'Regenerate'}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {ddxRegenExhausted && !isRegeneratingDdx && (
+            <div className={`mt-3 flex items-start gap-2 text-xs px-3 py-2 rounded-lg
+              ${isDark ? 'bg-slate-800/60 text-slate-300 border border-slate-700/50'
+                       : 'bg-slate-50 text-slate-600 border border-slate-200'}`}>
+              <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" strokeWidth={1.5} />
+              <span>No further distinct diagnoses to suggest — showing the previous ranking.</span>
+            </div>
+          )}
         </div>
       </GlassCard>
 

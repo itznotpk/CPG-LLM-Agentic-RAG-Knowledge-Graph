@@ -212,6 +212,20 @@ describe('pipeline accumulators + resets', () => {
   });
 });
 
+describe('DDx regeneration state', () => {
+  it('SET_DDX_EXCLUDED_CODES stores the accumulated code list', () => {
+    const next = appReducer(initialState, { type: 'SET_DDX_EXCLUDED_CODES', payload: ['BA41.1', 'BC81.3'] });
+    expect(next.ddxExcludedCodes).toEqual(['BA41.1', 'BC81.3']);
+  });
+  it('SET_DDX_EXCLUDED_CODES coerces a missing payload to []', () => {
+    expect(appReducer(initialState, { type: 'SET_DDX_EXCLUDED_CODES' }).ddxExcludedCodes).toEqual([]);
+  });
+  it('SET_REGENERATING_DDX + SET_DDX_REGEN_EXHAUSTED coerce to boolean', () => {
+    expect(appReducer(initialState, { type: 'SET_REGENERATING_DDX', payload: 1 }).isRegeneratingDdx).toBe(true);
+    expect(appReducer(initialState, { type: 'SET_DDX_REGEN_EXHAUSTED', payload: 0 }).ddxRegenExhausted).toBe(false);
+  });
+});
+
 describe('vitals source tagging', () => {
   it('defaults the source to manual and clears quality', () => {
     const next = appReducer(initialState, { type: 'SET_VITALS', payload: { hr: '72' } });

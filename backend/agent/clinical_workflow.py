@@ -412,6 +412,8 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
 async def run_ddx_only_streaming(
     case: PatientCase,
     emit,                           # async callable: emit(event_type: str, data: dict) -> None
+    exclude_codes: list[str] | None = None,
+    regen_feedback: str | None = None,
 ) -> list[DDxResult]:
     """
     Stop-and-confirm phase 1: run ONLY Stage 2 (DDx) and stream it, then stop.
@@ -424,17 +426,45 @@ async def run_ddx_only_streaming(
     Emits the same Stage-2 events as the full workflow, plus a terminal `ddx_ready`
     event carrying the candidate list so the caller can render the confirmation gate.
     Never raises — on Stage-2 failure it emits an error stage_update and returns [].
+
+    Regeneration (Step-2 "Regenerate differentials"): `exclude_codes` drops
+    already-shown ICD codes from the candidate pool so a re-run surfaces genuinely
+    different candidates even under the deterministic pipeline; `regen_feedback`
+    is optional free-text clinician guidance that steers retrieval + the rerank.
     """
     await emit("stage_update", {
         "stage": 2, "name": "DDx Analysis",
         "status": "running", "detail": "Analyzing symptoms and history…"
     })
+    # Surface regeneration intent in the trace before the work starts.
+    if exclude_codes:
+        await emit("sub_step", {
+            "stage": 2,
+            "detail": f"Regenerating — excluding {len(exclude_codes)} previously-shown diagnoses",
+            "badge": "regenerate",
+        })
+    if regen_feedback:
+        await emit("sub_step", {
+            "stage": 2,
+            "detail": f"Clinician guidance: \"{regen_feedback}\"",
+            "badge": "regenerate",
+        })
     try:
-        ddx = await stage_2_ddx(case, top_k=5, emit=emit)
+        ddx = await stage_2_ddx(
+            case, top_k=5, emit=emit,
+            exclude_codes=exclude_codes, regen_feedback=regen_feedback,
+        )
         top = ddx[0].code if ddx else "none"
+        # Pool-exhaustion after exclusion is a legitimate (non-error) terminal state:
+        # there are simply no further distinct candidates to suggest. Tell the
+        # clinician plainly so the UI keeps the prior list instead of going blank.
+        if not ddx and exclude_codes:
+            detail = "No further distinct diagnoses remain"
+        else:
+            detail = f"{len(ddx)} candidates · top: {top}"
         await emit("stage_update", {
             "stage": 2, "name": "DDx Analysis", "status": "complete",
-            "detail": f"{len(ddx)} candidates · top: {top}",
+            "detail": detail,
             "data": [d.model_dump() for d in ddx],
         })
         logger.info("DDx-only Stage 2: %d candidates. Top: %s", len(ddx), top)

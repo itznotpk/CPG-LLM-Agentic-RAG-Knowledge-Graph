@@ -155,6 +155,58 @@ describe('confirmDiagnosis — empty-selection fail-loud guard', () => {
   });
 });
 
+describe('regenerateDDx — exclusion accumulation + feedback steering', () => {
+  const seedTop5 = () => ({
+    differentials: ['A', 'B', 'C', 'D', 'E'].map((c, i) => ({ id: i + 1, icdCode: c, name: c })),
+    selectedDiagnosisIds: [],
+  });
+
+  it('excludes the current top-5 + passes feedback, then accumulates across a second press', async () => {
+    api.runDDxStream.mockImplementation(async (...args) => {
+      const onStage = args[4];
+      onStage?.({ stage: 2, name: 'Differential Diagnosis', status: 'complete', detail: '2 DDx' });
+      return { ddx: [
+        { title: 'F', code: 'F', score_breakdown: { final_score: 0.6 } },
+        { title: 'G', code: 'G', score_breakdown: { final_score: 0.5 } },
+      ] };
+    });
+
+    mountProvider();
+    await act(async () => {
+      ctx.current.dispatch({ type: 'SET_DIAGNOSIS', payload: seedTop5() });
+    });
+
+    await act(async () => { await ctx.current.regenerateDDx({ feedback: 'consider endocrine causes' }); });
+
+    // First press: opts (11th positional arg) carries the prior top-5 + feedback.
+    const opts1 = api.runDDxStream.mock.calls[0][10];
+    expect(opts1.excludeCodes).toEqual(['A', 'B', 'C', 'D', 'E']);
+    expect(opts1.regenFeedback).toBe('consider endocrine causes');
+    // Diagnosis swapped to the new candidates; accumulator persisted.
+    expect(ctx.current.state.diagnosis.differentials.map((d) => d.icdCode)).toEqual(['F', 'G']);
+    expect(ctx.current.state.ddxExcludedCodes).toEqual(['A', 'B', 'C', 'D', 'E']);
+
+    // Second press (no feedback) accumulates the now-shown F/G onto the prior set.
+    await act(async () => { await ctx.current.regenerateDDx({}); });
+    const opts2 = api.runDDxStream.mock.calls[1][10];
+    expect(opts2.excludeCodes).toEqual(['A', 'B', 'C', 'D', 'E', 'F', 'G']);
+    expect(opts2.regenFeedback).toBeUndefined();
+  });
+
+  it('keeps the prior list and flags exhaustion when the pool returns empty', async () => {
+    api.runDDxStream.mockResolvedValue({ ddx: [] });
+    mountProvider();
+    await act(async () => {
+      ctx.current.dispatch({ type: 'SET_DIAGNOSIS', payload: seedTop5() });
+    });
+    await act(async () => { await ctx.current.regenerateDDx({}); });
+
+    expect(ctx.current.state.diagnosis.differentials.map((d) => d.icdCode)).toEqual(['A', 'B', 'C', 'D', 'E']);
+    expect(ctx.current.state.ddxRegenExhausted).toBe(true);
+    expect(ctx.current.state.isRegeneratingDdx).toBe(false);
+  });
+});
+
 describe('analyzeAssessment — SSE result → state slices', () => {
   it('records the terminal stage_update, maps the DDx, and lands on Step 2 with a consultation id', async () => {
     api.runDDxStream.mockImplementation(async (patient, vitals, notes, mpis, onStage) => {

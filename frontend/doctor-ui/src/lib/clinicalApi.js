@@ -127,13 +127,21 @@ export async function runDDxStream(
   stagingData,
   structuredComorbidities,
   onDDxSuggestion,
+  opts = {},   // { excludeCodes?: string[], regenFeedback?: string } — Step-2 regeneration
 ) {
   const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities);
+  // Regeneration: drop already-shown codes from the candidate pool and (optionally)
+  // steer with clinician free-text. Both are siblings of `case` in ClinicalPlanRequest.
+  const reqBody = {
+    ...body,
+    ...(opts.excludeCodes?.length ? { exclude_codes: opts.excludeCodes } : {}),
+    ...(opts.regenFeedback ? { regen_feedback: opts.regenFeedback } : {}),
+  };
 
   const response = await fetch(`${CLINICAL_API_BASE}/clinical/plan/ddx/stream`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
+    body: JSON.stringify(reqBody),
   });
 
   if (!response.ok) {

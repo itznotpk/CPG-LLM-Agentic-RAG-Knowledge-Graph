@@ -1899,6 +1899,7 @@ async def _llm_rerank_ddx(
     case: PatientCase,
     candidates: list[DDxResult],
     emit=None,                      # async callable(event_type, data) | None
+    regen_feedback: str | None = None,
 ) -> list[DDxResult]:
     """
     Re-rank DDx candidates using Gemini 2.5 Flash extended thinking.
@@ -1993,6 +1994,18 @@ async def _llm_rerank_ddx(
 
     system_prompt = _load_prompt("stage2_ddx_rerank.txt")
 
+    # Regeneration steering: the clinician reviewed the previous ranking and asked
+    # to reconsider. Inject their guidance as the highest-priority block (the prior
+    # top-5 are already removed from `candidates` at the pool level upstream).
+    feedback_block = ""
+    if regen_feedback and regen_feedback.strip():
+        feedback_block = (
+            "\nCLINICIAN REGENERATION FEEDBACK (highest priority — the clinician reviewed the "
+            "previous ranking and asked you to reconsider with this guidance):\n"
+            f"\"{regen_feedback.strip()}\"\n"
+            "Weight this guidance above the math signals where it applies to a candidate.\n"
+        )
+
     user_prompt = f"""Patient:
 - Chief complaint: {case.chief_complaint}
 - Age / sex: {case.age or "unknown"} / {case.sex or "unknown"}
@@ -2002,7 +2015,7 @@ async def _llm_rerank_ddx(
 - Allergies: {", ".join(case.allergies) or "none"}
 - Vitals: {vitals_str}
 - Severity staging / key labs: {severity_str}
-
+{feedback_block}
 Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
 {candidate_lines}"""
 
@@ -2819,6 +2832,8 @@ async def stage_2_ddx(
     top_k: int = 5,
     rerank: bool = True,
     emit=None,                      # async callable | None; passed through to _llm_rerank_ddx
+    exclude_codes: list[str] | None = None,
+    regen_feedback: str | None = None,
 ) -> list[DDxResult]:
     """
     Return top-k ICD-11 differential diagnoses for the patient case.
@@ -2827,8 +2842,18 @@ async def stage_2_ddx(
     Pass 2: Gemini 2.5 Flash thinking re-ranks by clinical probability.
     Set rerank=False to skip Pass 2 (e.g. in unit tests or latency-sensitive paths).
     When emit is provided, thinking tokens are streamed as thinking_delta events.
+
+    Regeneration support (Step-2 "Regenerate differentials"):
+    - `exclude_codes` — ICD codes already shown to the clinician; dropped from the
+      candidate pool after all injections so the re-run yields different candidates.
+    - `regen_feedback` — optional free-text guidance added as an extra retrieval
+      query AND injected into the rerank prompt as highest-priority steering.
     """
     from ddx.search_ddx import search_ddx
+
+    # Normalise the exclusion set once (codes are matched case-sensitively against
+    # the canonical ICD-11 code strings stored on each pool entry).
+    exclude_set = {c for c in (exclude_codes or []) if c}
 
     # Honour STAGE2_LLM_* override for extraction (same fallback as _llm_rerank_ddx).
     # When Google API is quota-exhausted, both rerank and extraction use MiMo.
@@ -2876,7 +2901,9 @@ async def stage_2_ddx(
                 "badge": "DDx",
             })
 
-    fetch_k = top_k * 2 if rerank else top_k
+    # Deepen retrieval when regenerating so the pool refills past the excluded codes
+    # (otherwise excluding ~5 codes from a ~10-deep pool can starve the new top-k).
+    fetch_k = (top_k * 2 if rerank else top_k) + len(exclude_set)
 
     # Multi-query retrieval to bridge the symptom→disease gap. We search BOTH the
     # symptom phrase (recall on symptom codes) AND a few LLM-named condition
@@ -2959,7 +2986,18 @@ async def stage_2_ddx(
                 "data": cc_items,
             })
 
-    queries = [q for q in ([query] + hypotheses) if q and len(q.strip()) >= 3 and any(char.isalpha() for char in q)]
+    # Regeneration: the clinician's free-text guidance becomes an extra retrieval
+    # query so feedback-relevant codes (e.g. "endocrine causes") actually enter the
+    # pool — not just a rerank hint over the existing candidates.
+    feedback_query = regen_feedback.strip() if regen_feedback else ""
+    if feedback_query and emit is not None:
+        await emit("sub_step", {
+            "stage": 2,
+            "detail": f"Searching on your guidance: \"{feedback_query}\"",
+            "badge": "regenerate",
+        })
+
+    queries = [q for q in ([query] + hypotheses + [feedback_query]) if q and len(q.strip()) >= 3 and any(char.isalpha() for char in q)]
     if not queries:
         queries = [case.chief_complaint]
     search_results = await asyncio.gather(
@@ -3031,6 +3069,17 @@ async def stage_2_ddx(
                     "badge": "red-flag",
                 })
 
+    # Regeneration exclusion: drop already-shown codes AFTER all injections
+    # (CC-hints / regex / red-flag vitals) so nothing can re-add them, and BEFORE
+    # ranking so downstream pins/demotes can't resurrect them either.
+    if exclude_set:
+        before = len(pool)
+        pool = {code: r for code, r in pool.items() if code not in exclude_set}
+        logger.info(
+            "DDx regeneration: excluding %d codes; pool %d → %d",
+            len(exclude_set), before, len(pool),
+        )
+
     # Sort by (similarity + cc_boost) so CC-boosted codes surface to top-K for
     # the LLM reranker. The cc_boost is additive — a high-confidence CC code with
     # moderate vector similarity will still outrank a low-relevance code with high
@@ -3062,7 +3111,7 @@ async def stage_2_ddx(
     results.sort(key=lambda r: r.final_score or 0, reverse=True)
 
     if rerank and results:
-        results = await _llm_rerank_ddx(case, results, emit=emit)
+        results = await _llm_rerank_ddx(case, results, emit=emit, regen_feedback=regen_feedback)
 
     # Deterministic safety net: push Chapter 21 (symptoms / signs / findings)
     # codes below similarly-scored disease codes. Backstops case-11-style
