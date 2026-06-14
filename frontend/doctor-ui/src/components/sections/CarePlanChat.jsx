@@ -222,6 +222,17 @@ export default function CarePlanChat({
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
+  // When the consultation is reset (both plan sources go null), clear local chat state
+  useEffect(() => {
+    if (!inlinePlan && !consultationId) {
+      setOpen(false);
+      setMessages([]);
+      setInput('');
+      setSources([]);
+      setRecIndex(null);
+    }
+  }, [inlinePlan, consultationId]);
+
   useEffect(() => {
     if (initialRecIndex !== null) {
       setRecIndex(initialRecIndex);
@@ -492,18 +503,17 @@ export default function CarePlanChat({
               </div>
             ))}
 
-            {/* Sources */}
-            {sources.length > 0 && !loading && (
+            {/* Sources — only show when last reply was a real clinical answer, not a refusal */}
+            {sources.length > 0 && !loading && messages[messages.length - 1]?.role === 'assistant' && !messages[messages.length - 1]?.error && (
               <div style={{
                 fontSize: 11, color: fgMuted,
                 borderTop: `1px solid ${border}`,
                 paddingTop: 7, marginTop: 2,
               }}>
-                <div style={{ fontWeight: 600, marginBottom: 3 }}>Sources retrieved:</div>
+                <div style={{ fontWeight: 600, marginBottom: 3 }}>CPG sources used:</div>
                 {sources.slice(0, 4).map((s, i) => (
                   <div key={i} style={{ marginBottom: 2 }}>
                     • {s.document_title || s.tool || 'CPG'}
-                    {s.score != null ? ` (${(s.score * 100).toFixed(0)}%)` : ''}
                   </div>
                 ))}
               </div>

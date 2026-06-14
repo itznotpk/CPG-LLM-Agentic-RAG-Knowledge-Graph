@@ -1559,7 +1559,9 @@ CPG REFERENCES:
 
                 if tools_used:
                     yield f"data: {json.dumps({'type': 'tools', 'tools': [{'tool_name': t.tool_name, 'args': t.args} for t in tools_used]})}\n\n"
-                if sources:
+                # Only emit sources when the AI actually called a retrieval tool to build its answer.
+                # Refusals never call tools, so this naturally suppresses the footer on off-topic questions.
+                if sources and tools_used:
                     yield f"data: {json.dumps({'type': 'sources', 'sources': sources})}\n\n"
 
                 yield f"data: {json.dumps({'type': 'end'})}\n\n"
