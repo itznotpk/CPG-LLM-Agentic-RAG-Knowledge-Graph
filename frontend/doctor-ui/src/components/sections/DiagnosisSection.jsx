@@ -15,6 +15,8 @@ import {
 } from '../shared';
 import { useApp } from '../../context/AppContext';
 import { useTheme } from '../../context/ThemeContext';
+import { useAuth } from '../../context/AuthContext';
+import { saveHumanSignal } from '../../lib/supabase';
 import { PipelineProgress } from './PipelineProgress';
 import { PlanGenerationProcess } from './PlanGenerationProcess';
 
@@ -46,6 +48,8 @@ function parseOverrideReason(reason) {
 export function DiagnosisSection() {
   const { state, confirmDiagnosis, goToStep, regenerateDDx } = useApp();
   const { isDark } = useTheme();
+  const { user, profile } = useAuth();
+  const clinicianName = profile?.full_name || user?.email || 'Unknown clinician';
   const { diagnosis, isGeneratingPlan, isRegeneratingDdx, ddxExcludedCodes, ddxRegenExhausted } = state;
   const [traceCollapsed, setTraceCollapsed] = React.useState(true);
   const [expandedWhy, setExpandedWhy] = React.useState({});
@@ -58,8 +62,21 @@ export function DiagnosisSection() {
   const locked = isGeneratingPlan || isRegeneratingDdx;
 
   const handleRegenerate = async () => {
+    const feedback = regenFeedback;   // capture before the success path clears it
     try {
-      await regenerateDDx({ feedback: regenFeedback });
+      await regenerateDDx({ feedback });
+      // Log the regeneration to the Layer-3 feedback ecosystem (human_signals).
+      // Best-effort + non-blocking: a failed insert must never disrupt the UI.
+      // No CPGs are routed at the DDx stage, so cpg_references is null.
+      saveHumanSignal({
+        consultationId: state.currentConsultationId,
+        nric: state.patient?.nsn,
+        action: 'regenerate',
+        comment: feedback,
+        clinicianId: profile?.id,
+        clinicianName,
+        cpgReferences: null,
+      }).catch((err) => console.error('human_signals capture failed:', err));
       setRegenFeedback('');
       setRegenOpen(false);
     } catch {
