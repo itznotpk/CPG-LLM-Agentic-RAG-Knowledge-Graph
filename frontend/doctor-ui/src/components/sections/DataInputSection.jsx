@@ -11,6 +11,14 @@ import { useTheme } from '../../context/ThemeContext';
 import { VitalsLineChart } from '../shared/VitalsLineChart';
 import { splitBulletItems, expandBulletMeds } from '../../lib/helpers';
 
+// Canned sample drawn from EVALUATION_FRAMEWORK_README.md Case 8
+// (T2DM + HFrEF + Obesity). Lets a demo pre-fill the comorbidity / medication
+// fields with one click instead of typing each entry.
+const CASE8_SAMPLE = {
+  comorbidities: ['Heart failure with reduced EF', 'Type 2 Diabetes Mellitus', 'Obesity'],
+  medications: ['Metformin 1g BD', 'Gliclazide MR 60mg OD'],
+};
+
 // Normalise a meds list to objects, splitting "●"-joined entries into
 // separate medications (legacy MPIS records cram several into one string).
 function normalizeMeds(meds) {
@@ -516,9 +524,18 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
 
       {/* ── Comorbidities ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-2`}>
-          Comorbidities
-        </p>
+        <div className="flex items-center justify-between mb-2">
+          <p className={eyebrow}>Comorbidities</p>
+          {isEditing && (
+            <button
+              type="button"
+              onClick={() => setDraft(d => ({ ...d, comorbidities: CASE8_SAMPLE.comorbidities }))}
+              className={`text-[11px] px-2 py-0.5 rounded-md border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+            >
+              Load sample
+            </button>
+          )}
+        </div>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {(isEditing ? draft.comorbidities : splitBulletItems(mpisData?.comorbidities || [])).map((c, idx) => (
             <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/30' : 'bg-teal-50 text-teal-700 border-teal-200'}`}>
@@ -544,15 +561,26 @@ function PatientInfoCard({ patient, mpisData, onClear, onViewChart, flushRef }) 
 
       {/* ── Current Medications ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-3`}>
-          Current medications
-          {(isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds))?.length > 0 && (
-            <span className="ml-1.5 normal-case font-normal">
-              {(isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds)).length} active
-            </span>
+        <div className="flex items-start justify-between mb-3">
+          <p className={eyebrow}>
+            Current medications
+            {(isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds))?.length > 0 && (
+              <span className="ml-1.5 normal-case font-normal">
+                {(isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds)).length} active
+              </span>
+            )}
+            {isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>remove from list if no longer active</span>}
+          </p>
+          {isEditing && (
+            <button
+              type="button"
+              onClick={() => setDraft(d => ({ ...d, currentMeds: CASE8_SAMPLE.medications.map(name => ({ name, dose: '', frequency: '' })) }))}
+              className={`flex-shrink-0 text-[11px] px-2 py-0.5 rounded-md border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+            >
+              Load sample
+            </button>
           )}
-          {isEditing && <span className={`ml-2 normal-case text-[10px] font-normal ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>remove from list if no longer active</span>}
-        </p>
+        </div>
         <div className="space-y-2">
           <CurrentMedicationRows
             meds={isEditing ? draft.currentMeds : normalizeMeds(mpisData?.currentMeds)}
@@ -816,7 +844,16 @@ function NewPatientForm({ nsn, onClear }) {
 
       {/* ── Comorbidities ── */}
       <div className={`px-5 py-4 border-b ${divider}`}>
-        <p className={`${eyebrow} mb-2`}>Comorbidities</p>
+        <div className="flex items-center justify-between mb-2">
+          <p className={eyebrow}>Comorbidities</p>
+          <button
+            type="button"
+            onClick={() => setConditions(CASE8_SAMPLE.comorbidities)}
+            className={`text-[11px] px-2 py-0.5 rounded-md border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+          >
+            Load sample
+          </button>
+        </div>
         <div className="flex flex-wrap gap-1.5 mb-2">
           {conditions.map((c, idx) => (
             <span key={idx} className={`inline-flex items-center gap-1 text-xs font-medium px-2.5 py-1 rounded-full border ${isDark ? 'bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border-[var(--accent-primary)]/30' : 'bg-teal-50 text-teal-700 border-teal-200'}`}>
@@ -833,9 +870,18 @@ function NewPatientForm({ nsn, onClear }) {
 
       {/* ── Current Medications ── */}
       <div className="px-5 py-4">
-        <p className={`${eyebrow} mb-3`}>
-          Current medications{meds.length > 0 && <span className="ml-1.5 normal-case font-normal">{meds.length} active</span>}
-        </p>
+        <div className="flex items-center justify-between mb-3">
+          <p className={eyebrow}>
+            Current medications{meds.length > 0 && <span className="ml-1.5 normal-case font-normal">{meds.length} active</span>}
+          </p>
+          <button
+            type="button"
+            onClick={() => setMeds(CASE8_SAMPLE.medications.map(name => ({ name, dose: '', frequency: '' })))}
+            className={`text-[11px] px-2 py-0.5 rounded-md border font-medium transition-colors ${isDark ? 'border-white/20 text-slate-400 hover:bg-white/10' : 'border-slate-200 text-slate-500 hover:bg-slate-50'}`}
+          >
+            Load sample
+          </button>
+        </div>
         <div className="space-y-2">
           <CurrentMedicationRows
             meds={meds}
