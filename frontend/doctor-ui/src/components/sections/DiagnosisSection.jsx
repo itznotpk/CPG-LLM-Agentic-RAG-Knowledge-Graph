@@ -6,6 +6,7 @@ import {
   Sparkles,
   Target,
   RefreshCw,
+  PencilLine,
 } from 'lucide-react';
 import {
   GlassCard,
@@ -46,7 +47,7 @@ function parseOverrideReason(reason) {
 }
 
 export function DiagnosisSection() {
-  const { state, confirmDiagnosis, goToStep, regenerateDDx } = useApp();
+  const { state, confirmDiagnosis, confirmManualDiagnosis, goToStep, regenerateDDx } = useApp();
   const { isDark } = useTheme();
   const { user, profile } = useAuth();
   const clinicianName = profile?.full_name || user?.email || 'Unknown clinician';
@@ -57,6 +58,11 @@ export function DiagnosisSection() {
   // Step-2 regeneration: collapsible panel + optional guidance text.
   const [regenOpen, setRegenOpen] = React.useState(false);
   const [regenFeedback, setRegenFeedback] = React.useState('');
+  // Manual-diagnosis escape hatch: clinician's intended diagnosis isn't in the
+  // AI's top-5, so they type it and route directly (no regeneration).
+  const [manualOpen, setManualOpen] = React.useState(false);
+  const [manualName, setManualName] = React.useState('');
+  const [manualError, setManualError] = React.useState(null);
 
   // Card interaction is locked both during plan generation and a regeneration run.
   const locked = isGeneratingPlan || isRegeneratingDdx;
@@ -81,6 +87,32 @@ export function DiagnosisSection() {
       setRegenOpen(false);
     } catch {
       // regenerateDDx logs + the pipeline trace surfaces the error; keep the panel open.
+    }
+  };
+
+  const handleManualRoute = async () => {
+    const name = manualName.trim();
+    if (!name) { setManualError('Enter a diagnosis name.'); return; }
+    setManualError(null);
+    try {
+      await confirmManualDiagnosis({ name });
+      // Log to the human_signals feedback ecosystem — best-effort, non-blocking.
+      saveHumanSignal({
+        consultationId: state.currentConsultationId,
+        nric: state.patient?.nsn,
+        action: 'manual_diagnosis',
+        comment: name,
+        clinicianId: profile?.id,
+        clinicianName,
+        cpgReferences: null,
+      }).catch((err) => console.error('human_signals capture failed:', err));
+      setManualName('');
+      setManualOpen(false);
+    } catch (err) {
+      // Resolution failure (no ICD match) or synthesis error surfaces here —
+      // keep the panel open so the clinician can refine the name and retry.
+      console.error('Manual diagnosis routing failed:', err);
+      setManualError(err?.message || 'Could not route this diagnosis. Try a more specific name.');
     }
   };
 
@@ -645,6 +677,74 @@ export function DiagnosisSection() {
                   </Button>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Manual diagnosis — clinician's intended diagnosis isn't in the top-5,
+              so they type it and route CPGs directly (server resolves the ICD-11
+              code) instead of regenerating the whole list. */}
+          {!manualOpen ? (
+            <div className="mt-2.5">
+              <button
+                type="button"
+                onClick={() => { setManualOpen(true); setManualError(null); }}
+                disabled={locked}
+                className={`inline-flex items-center gap-1.5 text-xs font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed
+                  ${isDark ? 'text-slate-300 hover:text-white' : 'text-slate-600 hover:text-slate-900'}`}
+              >
+                <PencilLine className="w-3.5 h-3.5" strokeWidth={1.5} />
+                Diagnosis not listed? Enter it directly
+              </button>
+            </div>
+          ) : (
+            <div className="mt-3 space-y-2.5">
+              <label className={`block text-xs font-medium ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                Your diagnosis
+              </label>
+              <input
+                type="text"
+                value={manualName}
+                onChange={(e) => { setManualName(e.target.value); if (manualError) setManualError(null); }}
+                onKeyDown={(e) => { if (e.key === 'Enter' && !locked) { e.preventDefault(); handleManualRoute(); } }}
+                disabled={locked}
+                placeholder="e.g. Acute pericarditis"
+                className={`w-full text-sm rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-teal-400/50 disabled:opacity-60
+                  ${isDark ? 'bg-slate-800/60 border border-slate-700 text-slate-100 placeholder-slate-500'
+                           : 'bg-white border border-slate-200 text-slate-800 placeholder-slate-400'}`}
+              />
+              <div className="flex items-center justify-between gap-3 flex-wrap">
+                <span className={`text-[11px] ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
+                  We'll match this to an ICD-11 code and route the relevant CPGs.
+                </span>
+                <div className="flex items-center gap-2">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    onClick={() => { setManualOpen(false); setManualName(''); setManualError(null); }}
+                    disabled={locked}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    variant="primary"
+                    size="sm"
+                    icon={locked ? null : PencilLine}
+                    loading={isGeneratingPlan}
+                    disabled={locked || !manualName.trim()}
+                    onClick={handleManualRoute}
+                  >
+                    {isGeneratingPlan ? 'Routing…' : 'Route diagnosis'}
+                  </Button>
+                </div>
+              </div>
+              {manualError && (
+                <div className={`flex items-start gap-2 text-xs px-3 py-2 rounded-lg
+                  ${isDark ? 'bg-rose-900/30 text-rose-200 border border-rose-500/30'
+                           : 'bg-rose-50 text-rose-800 border border-rose-200'}`}>
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0 mt-0.5" strokeWidth={1.5} />
+                  <span>{manualError}</span>
+                </div>
+              )}
             </div>
           )}
 

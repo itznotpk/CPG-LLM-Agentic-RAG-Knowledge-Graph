@@ -324,12 +324,15 @@ export async function resynthesizePlanStream(
       patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities,
     ).case,
     selected_diagnoses: selectedDiagnoses.map((d) => ({
-      code:        d.icdCode,
+      code:        d.icdCode || '',
       title:       d.name,
       probability: (d.probability || 80) / 100,
       reasoning:   d.reasoning || [],
       // tier is informational; the backend uses `major_code` as the source of truth.
       tier:        d.tier || (d.icdCode === majorCode ? 'major' : (majorCode ? 'minor' : null)),
+      // Free-text diagnosis the AI didn't surface — the server resolves it to an
+      // ICD-11 code via search_ddx before CPG routing.
+      manual:      !!d.manual,
     })),
     ...(majorCode ? { major_code: majorCode } : {}),
   };

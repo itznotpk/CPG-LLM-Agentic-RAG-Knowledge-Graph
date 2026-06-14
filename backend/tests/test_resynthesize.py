@@ -137,6 +137,23 @@ def test_resynth_request_rejects_empty_selection(minimal_case):
     assert len(req.selected_diagnoses) == 1
 
 
+def test_resynth_request_accepts_manual_diagnosis(minimal_case):
+    """A clinician-typed diagnosis arrives with manual=True and no ICD code —
+    the API handler resolves it via search_ddx before routing, so the request
+    contract must accept an empty `code` when `manual` is set."""
+    from agent.api import ResynthesizeRequest
+
+    req = ResynthesizeRequest(
+        case=minimal_case,
+        selected_diagnoses=[
+            {"title": "Acute pericarditis", "manual": True, "tier": "major"}
+        ],
+    )
+    assert req.selected_diagnoses[0].code == ""
+    assert req.selected_diagnoses[0].manual is True
+    assert req.selected_diagnoses[0].title == "Acute pericarditis"
+
+
 @pytest.mark.asyncio
 async def test_resynth_stage3_failure_continues(minimal_case, selected_ddx, mock_plan):
     """Stage 3 failure is fault-tolerant — pipeline continues to Stage 5."""

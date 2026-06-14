@@ -64,7 +64,11 @@ class ClinicalPlanRequest(_BaseModel):
 
 
 class SelectedDiagnosis(_BaseModel):
-    code: str
+    # `code` may be empty when `manual` is set — the clinician typed a free-text
+    # diagnosis the AI didn't surface, and the server resolves it to an ICD-11
+    # code via search_ddx before routing. For AI-suggested picks `code` is the
+    # confirmed ICD-11 code and `manual` is False.
+    code: str = ""
     title: str
     probability: float = 0.9
     reasoning: list[str] = []
@@ -72,6 +76,9 @@ class SelectedDiagnosis(_BaseModel):
     # Optional for backward-compat: when omitted, the first diagnosis is treated as Major
     # and the rest as Minor.
     tier: str | None = None
+    # True when `title` is a clinician's free-text diagnosis with no confirmed ICD
+    # code — the server runs search_ddx to resolve `code` before CPG routing.
+    manual: bool = False
 
 
 class ResynthesizeRequest(_BaseModel):
@@ -1124,9 +1131,44 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
     """
     from .clinical_workflow import run_resynthesize_streaming
     from .clinical_stages import DDxResult
+    from ddx.search_ddx import search_ddx
+
+    # Free-text diagnoses the AI didn't suggest arrive with manual=True and no
+    # ICD code. CPG routing is ICD-code-based, so resolve each to its best ICD-11
+    # match via search_ddx before building the DDxResult list. Mutating in place
+    # keeps the major_code resolution below working off the now-populated codes.
+    MANUAL_MIN_SIMILARITY = 0.45
+    manual_resolution_failed: str | None = None
+    for d in payload.selected_diagnoses:
+        if not (d.manual or not (d.code or "").strip()):
+            continue
+        try:
+            hits = await search_ddx(d.title, top_k=3)
+        except Exception as e:  # noqa: BLE001 - surfaced to clinician below
+            manual_resolution_failed = (
+                f"Could not look up '{d.title}': {e}"
+            )
+            break
+        top = hits[0] if hits else None
+        if not top or top.get("similarity", 0) < MANUAL_MIN_SIMILARITY:
+            manual_resolution_failed = (
+                f"No ICD-11 match found for '{d.title}'. Try a more specific or "
+                f"standard disease name."
+            )
+            break
+        d.code = top.get("code")
+        # Keep the clinician's wording but annotate the resolved ICD title so the
+        # trace/override banner shows exactly what was routed.
+        resolved_title = top.get("title")
+        if resolved_title and resolved_title.strip().lower() != d.title.strip().lower():
+            d.title = f"{d.title} → {resolved_title}"
+        d.manual = False
 
     async def producer(emit):
         from .db_utils import save_pipeline_timings
+        if manual_resolution_failed:
+            await emit("error", {"detail": manual_resolution_failed})
+            return
         selected_ddx = [
             DDxResult(
                 code=d.code,
@@ -1139,7 +1181,11 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
         # Resolve Major: explicit payload.major_code wins; else the entry
         # tagged tier=="major"; else the first selected diagnosis.
         major_code = payload.major_code
-        if major_code is None:
+        # A manual Major arrives with an empty/placeholder code; the resolution
+        # loop above filled in d.code, so re-derive Major from the tier tag when
+        # the supplied major_code no longer matches any resolved code.
+        resolved_codes = {d.code for d in payload.selected_diagnoses}
+        if major_code is None or major_code not in resolved_codes:
             tagged = next(
                 (d.code for d in payload.selected_diagnoses if (d.tier or "").lower() == "major"),
                 None,

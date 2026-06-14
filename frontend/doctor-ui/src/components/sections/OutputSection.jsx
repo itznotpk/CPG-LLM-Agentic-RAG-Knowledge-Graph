@@ -14,8 +14,13 @@ export function OutputSection() {
   const {
     patient, patientData, carePlan, diagnosis, vitals,
     clinicalNotes, nextReviewDate, mpisData, currentUser,
-    consultationId, consultationDuration,
+    consultationDuration,
   } = state;
+  // The reducer stores the active consultation id under `currentConsultationId`
+  // (there is no `consultationId` key in app state). Reading the wrong name left
+  // this undefined, which silently blocked "Email to Patient" — keep the local
+  // alias so the rest of this component can use the shorter name.
+  const consultationId = state.currentConsultationId;
 
   const fcpRef = useRef(null);
   const [pdfUploaded, setPdfUploaded] = useState(false);
@@ -154,7 +159,16 @@ export function OutputSection() {
   const handleBack = () => goToStep(3);
 
   const handleSendToPatient = async (recipientEmail, language = 'en') => {
-    if (!consultationId) return;
+    if (!consultationId) {
+      // Without a consultation id the enqueue endpoint has nothing to attach the
+      // job to, so the fetch never fires. Surface it instead of bailing silently —
+      // otherwise this looks like "the email button does nothing".
+      console.error('Send to patient blocked: consultationId is missing from app state', {
+        consultationId, recipientEmail,
+      });
+      toast.error('Cannot email yet — this consultation has not finished saving. Reopen it and try again.');
+      return;
+    }
     try {
       // Sign the email with the logged-in clinician (current session).
       const clinicianName = authProfile?.full_name || null;

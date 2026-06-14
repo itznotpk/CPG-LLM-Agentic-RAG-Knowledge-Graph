@@ -807,10 +807,18 @@ export function AppProvider({ children }) {
     // Get selected diagnoses. Override path: when the DDxSelectionPanel posts
     // {selected_codes, major_code}, prefer those over the legacy multi-select.
     const overrideCodes = Array.isArray(options.selectedCodes) ? options.selectedCodes : null;
-    const overrideMajor = options.majorCode || null;
+    // Manual path: the clinician typed a diagnosis the AI never surfaced, so it
+    // isn't in state.diagnosis.differentials. These come through verbatim and the
+    // backend resolves each to an ICD-11 code (manual:true) before CPG routing.
+    const manualDiagnoses = Array.isArray(options.manualDiagnoses) && options.manualDiagnoses.length
+      ? options.manualDiagnoses
+      : null;
+    let overrideMajor = options.majorCode || (manualDiagnoses ? manualDiagnoses[0]?.icdCode : null) || null;
 
     let selectedDiagnoses;
-    if (overrideCodes && overrideCodes.length) {
+    if (manualDiagnoses) {
+      selectedDiagnoses = manualDiagnoses;
+    } else if (overrideCodes && overrideCodes.length) {
       const codeSet = new Set(overrideCodes);
       selectedDiagnoses = (state.diagnosis?.differentials || []).filter((d) => codeSet.has(d.icdCode));
       // Order Major first so downstream (Stage 5 framing) treats it as primary.
@@ -984,6 +992,27 @@ export function AppProvider({ children }) {
     if (planGenerated) {
       dispatch({ type: 'SET_STEP', payload: 3 });
     }
+  };
+
+  // Clinician's diagnosis isn't among the AI's top-5 — route it directly instead
+  // of regenerating. The free-text name is sent with manual:true; the backend
+  // resolves it to an ICD-11 code (search_ddx) and runs the same Stage 3–5
+  // synthesis path as a normal Confirm. Treated as the Major diagnosis.
+  const confirmManualDiagnosis = async ({ name } = {}) => {
+    const trimmed = (name || '').trim();
+    if (!trimmed) {
+      throw new Error('Enter a diagnosis name before routing.');
+    }
+    const manualDiagnosis = {
+      id: `manual-${Date.now()}`,
+      name: trimmed,
+      icdCode: '',          // resolved server-side
+      probability: 90,
+      reasoning: ['Clinician-entered diagnosis (not in AI top-5)'],
+      tier: 'major',
+      manual: true,
+    };
+    await confirmDiagnosis({ manualDiagnoses: [manualDiagnosis] });
   };
 
   const finalizePlan = async ({ safetyOverride = null } = {}) => {
@@ -1243,6 +1272,7 @@ export function AppProvider({ children }) {
     analyzeAssessment,
     regenerateDDx,
     confirmDiagnosis,
+    confirmManualDiagnosis,
     finalizePlan,
     uploadFinalCarePlanPDF,
     goToStep,
