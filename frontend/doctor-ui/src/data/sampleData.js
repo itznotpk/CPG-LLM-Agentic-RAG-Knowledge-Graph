@@ -103,11 +103,9 @@ export const mpisPatientDatabase = {
 
 // Clinical Notes — verbatim CC/HPI/PE textarea block from Case 08.
 export const sampleClinicalNotes = {
-  history: `CC: Newly diagnosed HFrEF on routine echo. Here for management plan.
-
-HPI: Clinically stable, euvolemic, no dyspnoea at rest. NYHA II. Long-standing T2DM on metformin + sulfonylurea. Obese.
-
-PE/Labs: Echo today LVEF 25%. K+ 4.4 mmol/L.`,
+  history: `CC: Newly diagnosed HFrEF on routine echo. Here for a management plan.
+HPI: Clinically stable, euvolemic, no dyspnoea at rest.
+PE/Labs:  Echo today LVEF 25%. K+ 4.4 mmol/L.`,
 };
 
 // Vitals — Case 08. BP 128/76 · HR 82 · SpO2 97 · Weight 98 · Height 175 · Temp 36.8
