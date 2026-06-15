@@ -24,7 +24,7 @@
 
 ---
 
-**One Line Summary:** A deterministic, auditable clinical practice guidance pipeline that streams evidence-graded specialist second opinions to isolated rural clinics in under a minute.
+**One Line Summary:** A deterministic, auditable clinical practice guidance pipeline that streams evidence-graded specialist second opinions to isolated rural clinics in minutes, well inside the standard consultation window.
 
 **Key Insight:** Authoritative medical guidelines are only useful if they can be referenced within a standard 10-minute consultation window. By transforming massive static CPG PDFs into a contextual, real-time routing engine audited by an adversarial safety critic, we shift clinical guideline utilization from active, high-friction search to passive, intelligent decision-support at the speed of a glance.
 
@@ -249,12 +249,12 @@ ClearPath represents a complete clinical end-product, designed for visual tablet
     <td align="left" valign="top" style="padding: 10px;">
       <ul>
         <li><strong>Patient Queue Pulse:</strong> Prioritises clinical triage by surfacing critical cases and overdue follow-ups dynamically.</li>
-        <li><strong>Workflow Analytics:</strong> Real DB-backed tiles (Time Saved = 8 min × today's consultation count, CPG Align %, Citations, Referrals — no static mocks) refresh on Supabase realtime <code>postgres_changes</code> events.</li>
+        <li><strong>Workflow Analytics:</strong> Real DB-backed tiles (measured Time Saved = Σ <code>clamp(20-min manual baseline − actual plan wall-time, 0, 20)</code> over completed plans, CPG Align %, Citations, Safety Intercepts — no static mocks) refresh on Supabase realtime <code>postgres_changes</code> events.</li>
         <li><strong>4-Step Consultation Wizard:</strong> Input → Diagnosis → CarePlan → Output, with SSE-streamed pipeline trace and one-click clinician override that re-fires Stage 5 synthesis.</li>
         <li><strong>8-Section Plan Renderer:</strong> Action-tagged medication chips, monitoring trip-wires, urgency-coloured referrals, and a one-click PDF export → Gmail delivery handoff.</li>
       </ul>
       <p align="center">
-        <a href="Doctor%20UI/">Explore Frontend Workspace →</a>
+        <a href="frontend/doctor-ui/">Explore Frontend Workspace →</a>
       </p>
     </td>
     <td align="left" valign="top" style="padding: 10px;">
@@ -285,5 +285,45 @@ The table below illustrates how a single remote consultation is processed step-b
 | **Stage 4.5: KG inject** | Retrieved chunks + `patient_meds=[Losartan]` + comorbidities | `_query_comorbidity_flags` expands Losartan → {ARB, Angiotensin Receptor Blocker}; expands "Pregnancy 30 weeks (primigravida)" → {pregnancy}; runs Cypher. | ClinicalFlags: `(ARB)-[:CONTRAINDICATED_WITH]->(Pregnancy)`, `(Arb)-[:CONTRAINDICATED_WITH]->(Pregnancy)` | Drug-class + comorbidity aliasing is what makes a class-level KG edge visible against a free-text comorbidity. |
 | **Stage 5: Synthesis** | Retrieved chunks + KG edges + prior-visit | LLM synthesis → 8-section plan → 8-layer validator chain → STOP-with-switch splitter pairs `[STOP] Losartan` with `[START] Methyldopa`. | TreatmentPlan: STOP Losartan • START Methyldopa 250 mg TDS [Grade C] • START Labetalol alt • START Metformin 500 mg [§5.3] • START low-dose aspirin [Grade I/A] • obstetrician referral + monitoring + follow-up. | Recommendations stamped with original MoH grading scheme; never cross-normalised. |
 | **Stage 6: Critic** | PatientCase + drafted TreatmentPlan | `asyncio.gather`(LLM critic, KG verify); merge without dedup. | SafetyReport: **3 flags** — [CRITICAL/llm] Losartan teratogen, [MAJOR/graph] ARB×Pregnancy, [MAJOR/graph] Arb×Pregnancy. `safe_to_proceed=False`. | LLM catches narrative reasoning; KG catches the structural edge even when the same paragraph wasn't in the LLM's window. Both fire here — the merged view is what the clinician sees. |
+
+---
+
+## Validation & Measured Results
+
+These are **measured pilot results**, not aspirational targets. Evaluation runs over a corpus of **30 Malaysian MoH CPGs** whose ICD-11 routing relationships and per-layer gold sets were curated and clinically validated by expert clinicians. Evidence sources are the CPG corpus + Neo4j knowledge graph only — there is **no UpToDate or AHA/ESC integration**. Numbers below are reproducible via the backend eval harness (`backend/eval/run_*.py`) and the end-to-end case runners (`backend/scripts/run_eval_case_08…12.py`).
+
+### Results against targets
+
+| Layer | Metric | Target | Achieved | Verdict |
+|---|---|---|---|---|
+| **A1 — DDx** | Hit@5 / MRR | ≥0.90 / ≥0.70 | **0.971 / 0.810** | ✅ Pass |
+| **A2 — Routing** | Top-1 | ≥0.85 | **1.000** (44/44) | ✅ Pass |
+| **B — Retrieval** | Recall@10 / Hit@10 | ≥0.85 / ≥0.95 | **0.874 / 0.953** | ✅ Pass |
+| **B — Retrieval** | nDCG@10 / MRR | ≥0.75 / ≥0.70 | 0.669 / 0.682 | ⚠️ Short (diagnosed) |
+| **B — Retrieval** | Precision@5 | ≥0.50 | 0.251 | ⚠️ Short (graded gold dilutes) |
+| **C — Re-ranker** | nDCG@10 lift | >0 | **+6.0%** | ✅ Directional |
+| **D — Faithfulness** | Mean per-claim grounded | ≥0.90 | 0.864 (849/979 claims) | ⚠️ Short (diagnosed) |
+| **Scope refusal** | Orphan refusal | 100% | **11/11** | ✅ Pass |
+| **SAF — Safety critic** | Sensitivity / Specificity | >90% / 100% | **92% / 100%** | ✅ Pass |
+| **ADV/INJ/LNG** | Adversarial + injection + multilingual | ≥85% | **14/14** | ✅ Pass |
+| **SIL/INF** | Fail-loud on silent degradation + infra outage | 6/6 | **6/6** | ✅ Pass |
+| **Determinism** | Top-1 stability (dominant dx) | Stable | **10/10** (cases 8, 9) | ✅ Pass |
+| **Latency** | End-to-end | <5 min budget | **~2.1 min** (pilot) | ✅ Pass |
+| **Coverage** | In-scope backend lines | ≥60% | **64.93%** (355 tests, 174 s) | ✅ Pass |
+
+Read honestly: routing, retrieval recall, scope refusal, safety-critic recall, robustness, determinism, and latency all meet target; DDx meets target on the clinically meaningful lineage metric; **faithfulness and retrieval-ranking fall a measured, stated distance below target** — reported rather than hidden.
+
+### End-to-end latency (pilot, 3 cases)
+
+Measured across HFrEF+T2DM+Obesity (62 M), Pregnancy-HTN+GDM (35 F), and Stable-CAD+ED-on-nitrate (56 M): **mean 127 s · p50 115 s · p95 157 s** — inside the 10-minute consultation window. The two LLM-heavy stages dominate: **Stage 5 synthesis ≈ 43%** and **Stage 4 retrieval ≈ 31%** of wall-time; the two deterministic stages (Stage 3 routing + Stage 4.5 KG lookup) together consume **<1%**, confirming the graph and routing layers add negligible overhead. Stage 5 is the single highest-leverage optimisation target.
+
+### Blinded clinician evaluation
+
+Five practising doctors scored ClearPath against **Qmed AskCPG** and **Gemini NotebookLM** in blinded, randomised order across three cases (8, 10, 11), on a 1–5 scale over 8 clinical-quality aspects + a 6-aspect workflow/UI rubric:
+
+* **ClearPath led every clinical-quality dimension.** Safety **4.93/5** (highest of any aspect), Guideline Fidelity **4.85**, Reasoning Transparency **4.82**. Widest margin was **Uncertainty Handling** (+0.80 over Qmed AskCPG, +0.69 over NotebookLM) — its structured referral injection + explicit unresolved-question surfacing. All three systems reliably caught both Losartan-in-pregnancy and the PDE5i×nitrate contraindication.
+* **Workflow:** Reasoning visibility **5/5** and override/feedback **5/5** (ceiling) validated the transparency-and-control thesis; safety surfacing **4/5**. Workflow fit and time-to-answer scored **3+/5** — evaluators judged the default output too verbose and synthesis too slow for live in-consult use, recommending **post-consultation review / teaching** as the near-term deployment context. This aligns with the Stage 5 latency finding above; **UI condensation + response streaming** are the primary improvement levers.
+
+> **Caveat on scope.** These are pilot-scale results (3 end-to-end cases, 5 evaluators). The p95 and clinician scores stabilise only with the planned wider run. They supersede the *aspirational* placeholder figures (87% accuracy, 6.2 CoT depth, 4.3/5 confidence) that still appear in `EVALUATION_FRAMEWORK_README.md` — do not cite those as results.
 
 ---
