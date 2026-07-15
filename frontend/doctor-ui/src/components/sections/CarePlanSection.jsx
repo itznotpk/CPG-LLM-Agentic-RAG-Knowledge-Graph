@@ -1801,7 +1801,7 @@ export function CarePlanSection() {
     (Array.isArray(carePlan.followUp) ? carePlan.followUp.length : carePlan.followUp ? 1 : 0);
   const refsCount = carePlan.cpgReferences?.length || 0;
   const refsGroupCount = carePlan.cpgReferenceGroups?.length || 0;
-  const ebmEvidence = mapEbmEvidence(clinicalPlanResponse);
+  const ebmEvidence = mapEbmEvidence(clinicalPlanResponse?.treatment_plan);
 
   const tabs = [
     { key: 'overview', label: 'Overview',          icon: LayoutGrid },
