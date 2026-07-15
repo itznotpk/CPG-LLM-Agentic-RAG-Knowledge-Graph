@@ -369,6 +369,25 @@ class MonitoringItem(BaseModel):
     cpg_ref: Optional[str] = Field(None, description="CPG section reference, e.g. 'CPG PAH §7.3'")
 
 
+class EbmEvidence(BaseModel):
+    """A single graded literature citation fetched live from Europe PMC (Stage 4.6).
+
+    NOT persisted as a corpus — assembled per-consultation and discarded. `cpg_gap`
+    marks evidence the synthesis used to fill a question no routed CPG covered.
+    """
+
+    title: str
+    abstract_snippet: str = Field("", description="Truncated abstract for prompt/UI")
+    journal: str = ""
+    year: Optional[int] = None
+    pub_type: str = Field("", description="Raw Europe PMC publication type, normalised")
+    evidence_tier: Literal["high", "moderate", "low"] = "low"
+    pmid: Optional[str] = None
+    doi: Optional[str] = None
+    url: str = ""
+    cpg_gap: bool = Field(False, description="True if this backed a literature-only rec (no local CPG)")
+
+
 class TreatmentPlan(BaseModel):
     """Stage 5 output — the final structured plan returned to the doctor."""
 
@@ -382,6 +401,7 @@ class TreatmentPlan(BaseModel):
     confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score for the plan (0.0–1.0)")
     unresolved_questions: List[str] = Field(default_factory=list, description="Clinical questions that could not be resolved from available evidence")
     gate_audit: List[str] = Field(default_factory=list, description="Referrals evaluated and ruled out by the trigger gate, with reasoning — for clinician transparency")
+    ebm_evidence: List[EbmEvidence] = Field(default_factory=list, description="Live Europe PMC citations informing this plan (Stage 4.6)")
 
     @model_validator(mode="after")
     def actionable_or_unresolved(self) -> "TreatmentPlan":
