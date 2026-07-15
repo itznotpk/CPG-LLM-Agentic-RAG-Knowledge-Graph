@@ -442,3 +442,20 @@ export function mapTreatmentPlanToCarePlan(plan, evidence = []) {
     unresolvedQuestions: plan.unresolved_questions,
   };
 }
+
+const _TIER_ORDER = { high: 0, moderate: 1, low: 2 };
+
+export function mapEbmEvidence(plan) {
+  const list = plan?.ebm_evidence;
+  if (!Array.isArray(list)) return [];
+  return list
+    .map((e) => ({
+      title: e.title || '',
+      journal: e.journal || '',
+      year: e.year || null,
+      tier: e.evidence_tier || 'low',
+      url: e.url || '',
+      cpgGap: !!e.cpg_gap,
+    }))
+    .sort((a, b) => (_TIER_ORDER[a.tier] ?? 3) - (_TIER_ORDER[b.tier] ?? 3));
+}
