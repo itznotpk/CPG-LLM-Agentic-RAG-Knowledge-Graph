@@ -614,6 +614,37 @@ def _normalize_drug_name(intervention: str) -> str:
     return first_part.lower().strip()
 
 
+_PLAN_TERM_STOPWORDS = {
+    "start", "continue", "consider", "refer", "review", "for", "to", "the", "and",
+    "with", "daily", "bd", "od", "tds", "mg", "if", "on", "of", "in", "patient",
+}
+
+
+def extract_plan_terms(plan: TreatmentPlan, *, max_terms: int = 6) -> list[str]:
+    """Pull candidate drug/intervention terms from a draft plan's recommendations.
+
+    Heuristic, deterministic: tokenises each recommendation's intervention text,
+    drops dosing/stop words, keeps the first distinct meaningful token per
+    recommendation. Used only to focus the Europe PMC query — precision here is
+    not safety-critical.
+    """
+    seen: list[str] = []
+    seen_lower: set[str] = set()
+    for rec in getattr(plan, "recommendations", []) or []:
+        text = (getattr(rec, "intervention", "") or "").strip()
+        for raw in re.findall(r"[A-Za-z][A-Za-z\-]{3,}", text):
+            tok = raw.strip("-")
+            low = tok.lower()
+            if low in _PLAN_TERM_STOPWORDS or low in seen_lower:
+                continue
+            seen.append(tok)
+            seen_lower.add(low)
+            break  # one term per recommendation keeps the query focused
+        if len(seen) >= max_terms:
+            break
+    return seen[:max_terms]
+
+
 def _is_duplicate_medication(rec1: Recommendation, rec2: Recommendation, threshold: float = 0.85) -> bool:
     """Check if two pharmacological recommendations are for the same medication.
 
