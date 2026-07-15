@@ -4276,6 +4276,73 @@ SYNTHESIS_SCHEMA = TreatmentPlan.model_json_schema()
 
 
 # ---------------------------------------------------------------------------
+# Stage 5.5 — Refine draft plan with live EBM literature (Europe PMC)
+# ---------------------------------------------------------------------------
+
+STAGE5_5_REFINE_SYSTEM = _load_prompt("stage5_5_refine.txt")
+
+
+def _format_ebm_for_prompt(ebm: list) -> str:
+    lines = []
+    for i, e in enumerate(ebm):
+        lines.append(
+            f"[EBM {i}] ({e.evidence_tier} tier, {e.journal} {e.year or ''}) "
+            f"{e.title}\n  {e.abstract_snippet}"
+        )
+    return "\n".join(lines) if lines else "none"
+
+
+async def _refine_llm_call(case, ddx, draft_plan, ebm_evidence):
+    """Isolated LLM call for Stage 5.5 refinement — patched in tests."""
+    base_url = os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
+    api_key = os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
+    model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
+
+    client = openai.AsyncOpenAI(
+        base_url=base_url,
+        api_key=api_key,
+    )
+
+    user_prompt = (
+        f"DRAFT PLAN JSON:\n{draft_plan.model_dump_json()}\n\n"
+        f"EBM LITERATURE:\n{_format_ebm_for_prompt(ebm_evidence)}\n\n"
+        f"Return the refined TreatmentPlan JSON."
+    )
+
+    resp = await client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": STAGE5_5_REFINE_SYSTEM},
+            {"role": "user", "content": user_prompt},
+        ],
+        temperature=0.1,
+        response_format={"type": "json_object"},
+    )
+    return TreatmentPlan.model_validate_json(resp.choices[0].message.content)
+
+
+async def stage_5_5_refine(
+    case: PatientCase,
+    ddx: list,
+    draft_plan: TreatmentPlan,
+    ebm_evidence: list,
+    *,
+    cpg_covered: bool = True,
+) -> TreatmentPlan:
+    """Second synthesis pass: fold EBM literature into the draft. Fail-open to draft."""
+    if not ebm_evidence:
+        return draft_plan  # nothing to add — no LLM cost
+    try:
+        refined = await _refine_llm_call(case, ddx, draft_plan, ebm_evidence)
+    except Exception as e:  # noqa: BLE001 — refinement is additive; fall back to draft
+        logger.warning("stage_5_5_refine failed, keeping draft: %s", e)
+        draft_plan.ebm_evidence = list(ebm_evidence)
+        return draft_plan
+    refined.ebm_evidence = list(ebm_evidence)
+    return refined
+
+
+# ---------------------------------------------------------------------------
 # Prior-visit summariser — called once at consultation save-time.
 # Output is stored as JSONB in Supabase consultations.prior_visit_summary and
 # read back on the next visit as PatientCase.prior_visit.

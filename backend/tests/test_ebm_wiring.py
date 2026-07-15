@@ -38,3 +38,38 @@ def test_extract_plan_terms_pulls_and_dedupes_and_caps():
 
 def test_extract_plan_terms_empty_plan():
     assert extract_plan_terms(_plan([]), max_terms=6) == []
+
+
+import pytest
+from agent.models import EbmEvidence, PatientCase
+import agent.clinical_stages as cs
+
+
+def _ev():
+    return EbmEvidence(title="t", abstract_snippet="a", journal="j", year=2024,
+                       pub_type="systematic-review", evidence_tier="high",
+                       pmid="1", url="u")
+
+
+async def test_refine_no_ebm_returns_draft_unchanged(monkeypatch):
+    called = {"llm": 0}
+    async def _no_llm(*a, **k):
+        called["llm"] += 1
+        raise AssertionError("must not call LLM when no EBM")
+    monkeypatch.setattr(cs, "_refine_llm_call", _no_llm, raising=False)
+    draft = _plan(["Start aspirin"])
+    case = PatientCase(chief_complaint="cp")
+    out = await cs.stage_5_5_refine(case, [], draft, [])
+    assert out is draft
+    assert called["llm"] == 0
+
+
+async def test_refine_with_ebm_attaches_evidence(monkeypatch):
+    draft = _plan(["Start aspirin"])
+    refined = _plan(["Start aspirin", "[Literature-based, no local CPG] add colchicine"])
+    async def _fake_llm(*a, **k):
+        return refined
+    monkeypatch.setattr(cs, "_refine_llm_call", _fake_llm, raising=False)
+    case = PatientCase(chief_complaint="cp")
+    out = await cs.stage_5_5_refine(case, [], draft, [_ev()])
+    assert out.ebm_evidence and out.ebm_evidence[0].pmid == "1"
