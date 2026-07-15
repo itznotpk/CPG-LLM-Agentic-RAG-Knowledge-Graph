@@ -222,6 +222,7 @@ export async function runClinicalPlanStream(
   structuredComorbidities,
   onSafetyReview,
   consultationId,
+  onEbmEvidence,
 ) {
   const body = buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities, consultationId);
 
@@ -273,6 +274,7 @@ export async function runClinicalPlanStream(
             else if (eventType === 'thinking_delta' && onThinkingChunk)  onThinkingChunk(payload);
             else if (eventType === 'sub_step'       && onSubStep)        onSubStep(payload);
             else if (eventType === 'safety_review'  && onSafetyReview)  onSafetyReview(payload);
+            else if (eventType === 'ebm_evidence'   && onEbmEvidence)   onEbmEvidence(payload);
             else if (eventType === 'final_result') {
               if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
               resolve(payload);
@@ -315,6 +317,7 @@ export async function resynthesizePlanStream(
   consultationId,
   majorCode,
   onQualityDrop,
+  onEbmEvidence,
 ) {
   const BASE_URL = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
@@ -379,6 +382,7 @@ export async function resynthesizePlanStream(
             else if (eventType === 'clinician_override'  && onClinicianOverride)  onClinicianOverride(payload);
             else if (eventType === 'stage3_quality_drop' && onQualityDrop)        onQualityDrop(payload);
             else if (eventType === 'safety_review'       && onSafetyReview)       onSafetyReview(payload);
+            else if (eventType === 'ebm_evidence'        && onEbmEvidence)        onEbmEvidence(payload);
             else if (eventType === 'final_result') {
               if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
               resolve(payload);

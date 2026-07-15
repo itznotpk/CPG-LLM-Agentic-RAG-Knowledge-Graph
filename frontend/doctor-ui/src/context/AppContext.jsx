@@ -84,6 +84,7 @@ export const initialState = {
   ddxExcludedCodes: [],    // accumulated ICD codes already shown across Step-2 regenerations (union of every top-5 seen)
   isRegeneratingDdx: false,// true while a Step-2 "Regenerate differentials" run is in flight
   ddxRegenExhausted: false,// true when the last regenerate returned no further distinct candidates
+  ebmEvidence: [],         // EBM literature evidence — set on ebm_evidence SSE event during plan generation
 };
 
 // Snapshot persistence intentionally disabled — refreshes start from a clean
@@ -368,6 +369,8 @@ export function appReducer(state, action) {
       return { ...state, ddxQualityDrops: [...(state.ddxQualityDrops || []), action.payload] };
     case 'SET_SAFETY_REPORT':
       return { ...state, safetyReport: action.payload };
+    case 'SET_EBM_EVIDENCE':
+      return { ...state, ebmEvidence: action.payload || [] };
     case 'APPEND_THINKING_CHUNK': {
       const { node, chunk } = action.payload;
       return {
@@ -949,6 +952,7 @@ export function AppProvider({ children }) {
           const drops = qualityDropEvent?.drops || [];
           drops.forEach((d) => dispatch({ type: 'APPEND_DDX_QUALITY_DROP', payload: d }));
         },
+        (p) => dispatch({ type: 'SET_EBM_EVIDENCE', payload: p.evidence }),
       );
 
       const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);
