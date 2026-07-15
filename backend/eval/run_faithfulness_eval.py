@@ -155,10 +155,20 @@ async def _generate_cache(gold: list) -> list[dict]:
         except Exception as e:
             print(f"[skip] case {item['id']}: pipeline error {e}")
             continue
+        cpg_evidence_texts = [c.content for c in evidence]
+        # `plan` is the TreatmentPlan Pydantic object stage_5_synthesize returns
+        # (not a dict), so ebm_evidence is a List[EbmEvidence] of attribute-access
+        # objects, not dicts. Append their abstracts so literature-grounded claims
+        # aren't judged "unsupported" for lacking CPG-text grounding.
+        ebm_texts = [
+            f"[Literature: {e.journal} {e.year or ''}] {e.title}. {e.abstract_snippet}"
+            for e in (plan.ebm_evidence or [])
+        ]
+        evidence_for_judge = cpg_evidence_texts + ebm_texts
         cache.append({
             "id": item["id"],
             "claims": treatment_plan_claims(plan),
-            "context": "\n\n".join(c.content for c in evidence),
+            "context": "\n\n".join(evidence_for_judge),
             "patient": _case_blob(case),
         })
     return cache
