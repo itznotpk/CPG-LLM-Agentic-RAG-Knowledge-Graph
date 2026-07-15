@@ -1,4 +1,6 @@
+import pytest
 from agent.models import EbmEvidence, TreatmentPlan, Recommendation
+from agent.ebm_lookup import evidence_tier_for
 
 
 def test_ebm_evidence_defaults_and_treatmentplan_field():
@@ -15,7 +17,7 @@ def test_ebm_evidence_defaults_and_treatmentplan_field():
     )
     assert ev.cpg_gap is False
     plan = TreatmentPlan(
-        icd_primary="BA41.1",
+        idc_primary="BA41.1",
         summary="s",
         recommendations=[Recommendation(
             intervention="Start ticagrelor",
@@ -28,3 +30,16 @@ def test_ebm_evidence_defaults_and_treatmentplan_field():
     assert plan.ebm_evidence == []
     plan.ebm_evidence = [ev]
     assert plan.ebm_evidence[0].evidence_tier == "high"
+
+
+@pytest.mark.parametrize("pub_types, expected", [
+    (["systematic-review"], "high"),
+    (["Meta-Analysis"], "high"),
+    (["Randomized Controlled Trial"], "moderate"),
+    (["Guideline"], "moderate"),
+    (["Journal Article"], "low"),
+    ([], "low"),
+    (["case-reports"], "low"),
+])
+def test_evidence_tier_for(pub_types, expected):
+    assert evidence_tier_for(pub_types) == expected
