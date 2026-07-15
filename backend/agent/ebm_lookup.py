@@ -5,6 +5,8 @@ import datetime as _dt
 import logging
 from typing import Literal
 
+from .models import EbmEvidence
+
 logger = logging.getLogger(__name__)
 
 _HIGH = {"systematic-review", "systematic review", "meta-analysis", "meta analysis"}
@@ -40,3 +42,36 @@ def build_europepmc_query(diseases: list[str], terms: list[str], *, recency_year
     this_year = _dt.date.today().year
     parts.append(f"(PUB_YEAR:[{this_year - recency_years} TO {this_year}])")
     return " AND ".join(parts)
+
+
+def parse_europepmc_response(payload: dict, *, snippet_chars: int = 500) -> list[EbmEvidence]:
+    """Parse Europe PMC API response into graded EbmEvidence objects.
+
+    Drops articles without abstracts (never feed empty abstracts to synthesis).
+    Truncates abstracts to snippet_chars.
+    """
+    results = (payload or {}).get("resultList", {}).get("result", []) or []
+    out: list[EbmEvidence] = []
+    for r in results:
+        abstract = (r.get("abstractText") or "").strip()
+        if not abstract:
+            continue  # never feed empty abstracts to synthesis
+        pub_types = (r.get("pubTypeList") or {}).get("pubType", []) or []
+        pmid = r.get("pmid") or r.get("id")
+        year_raw = r.get("pubYear")
+        try:
+            year = int(year_raw) if year_raw else None
+        except (TypeError, ValueError):
+            year = None
+        out.append(EbmEvidence(
+            title=(r.get("title") or "").strip(),
+            abstract_snippet=abstract[:snippet_chars],
+            journal=(r.get("journalTitle") or "").strip(),
+            year=year,
+            pub_type=", ".join(pub_types),
+            evidence_tier=evidence_tier_for(pub_types),
+            pmid=pmid,
+            doi=r.get("doi"),
+            url=f"https://europepmc.org/article/MED/{pmid}" if pmid else "",
+        ))
+    return out

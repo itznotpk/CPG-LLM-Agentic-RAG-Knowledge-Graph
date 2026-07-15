@@ -61,3 +61,38 @@ def test_build_query_empty_terms_still_valid():
     q = build_europepmc_query(["Atrial Fibrillation"], [])
     assert "Atrial Fibrillation" in q
     assert q.strip() != ""
+
+
+# Tests for parse_europepmc_response
+from agent.ebm_lookup import parse_europepmc_response
+
+_SAMPLE = {
+    "resultList": {"result": [
+        {
+            "id": "12345678", "pmid": "12345678", "doi": "10.1002/abc",
+            "title": "Ticagrelor in NSTEMI: a systematic review",
+            "journalTitle": "Cochrane Database Syst Rev", "pubYear": "2024",
+            "abstractText": "A" * 900,
+            "pubTypeList": {"pubType": ["Journal Article", "systematic-review"]},
+        },
+        {  # no abstract -> should be dropped
+            "id": "999", "title": "No abstract paper", "pubYear": "2023",
+            "pubTypeList": {"pubType": ["Journal Article"]},
+        },
+    ]}
+}
+
+
+def test_parse_builds_models_grades_and_truncates_and_drops_abstractless():
+    out = parse_europepmc_response(_SAMPLE, snippet_chars=500)
+    assert len(out) == 1
+    ev = out[0]
+    assert ev.pmid == "12345678"
+    assert ev.evidence_tier == "high"
+    assert len(ev.abstract_snippet) <= 500
+    assert ev.url == "https://europepmc.org/article/MED/12345678"
+
+
+def test_parse_empty_payload_returns_empty():
+    assert parse_europepmc_response({}) == []
+    assert parse_europepmc_response({"resultList": {"result": []}}) == []
