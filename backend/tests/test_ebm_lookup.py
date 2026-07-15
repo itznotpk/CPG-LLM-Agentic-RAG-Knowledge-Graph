@@ -96,3 +96,64 @@ def test_parse_builds_models_grades_and_truncates_and_drops_abstractless():
 def test_parse_empty_payload_returns_empty():
     assert parse_europepmc_response({}) == []
     assert parse_europepmc_response({"resultList": {"result": []}}) == []
+
+
+import agent.ebm_lookup as ebm
+
+
+class _FakeResp:
+    def __init__(self, status_code=200, json_data=None):
+        self.status_code = status_code
+        self._json = json_data or {}
+    def json(self):
+        return self._json
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            import httpx
+            raise httpx.HTTPStatusError("err", request=None, response=None)
+
+
+class _FakeClient:
+    def __init__(self, resp=None, exc=None):
+        self._resp, self._exc = resp, exc
+        self.calls = 0
+    async def __aenter__(self): return self
+    async def __aexit__(self, *a): return False
+    async def get(self, url, params=None):
+        self.calls += 1
+        if self._exc:
+            raise self._exc
+        return self._resp
+
+
+async def test_fetch_returns_parsed_and_caches(monkeypatch):
+    ebm._EBM_CACHE.clear()
+    fake = _FakeClient(resp=_FakeResp(200, _SAMPLE))
+    monkeypatch.setattr(ebm.httpx, "AsyncClient", lambda *a, **k: fake)
+    out = await ebm.fetch_ebm_evidence(["NSTEMI"], ["ticagrelor"], limit=5)
+    assert len(out) == 1 and out[0].pmid == "12345678"
+    # second identical call is served from cache (no new client call)
+    calls_before = fake.calls
+    out2 = await ebm.fetch_ebm_evidence(["NSTEMI"], ["ticagrelor"], limit=5)
+    assert out2[0].pmid == "12345678"
+    assert fake.calls == calls_before  # cache hit
+
+
+async def test_fetch_fail_open_on_exception(monkeypatch):
+    ebm._EBM_CACHE.clear()
+    import httpx
+    fake = _FakeClient(exc=httpx.ConnectError("boom"))
+    monkeypatch.setattr(ebm.httpx, "AsyncClient", lambda *a, **k: fake)
+    out = await ebm.fetch_ebm_evidence(["NSTEMI"], ["ticagrelor"], limit=5, timeout_s=0.1)
+    assert out == []  # never raises, returns empty
+
+
+async def test_fetch_empty_diseases_short_circuits(monkeypatch):
+    ebm._EBM_CACHE.clear()
+    called = {"n": 0}
+    def _boom(*a, **k):
+        called["n"] += 1
+        raise AssertionError("should not hit network")
+    monkeypatch.setattr(ebm.httpx, "AsyncClient", _boom)
+    assert await ebm.fetch_ebm_evidence([], ["ticagrelor"]) == []
+    assert called["n"] == 0

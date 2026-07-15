@@ -1,13 +1,18 @@
 """Stage 4.6 — live Europe PMC evidence fetch. NOT ingested/chunked; fail-open."""
 from __future__ import annotations
 
+import asyncio
 import datetime as _dt
+import httpx
 import logging
 from typing import Literal
 
 from .models import EbmEvidence
 
 logger = logging.getLogger(__name__)
+
+_EUROPEPMC_URL = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+_EBM_CACHE: dict[str, list] = {}
 
 _HIGH = {"systematic-review", "systematic review", "meta-analysis", "meta analysis"}
 _MODERATE = {"randomized controlled trial", "randomised controlled trial", "rct", "guideline", "practice guideline"}
@@ -75,3 +80,47 @@ def parse_europepmc_response(payload: dict, *, snippet_chars: int = 500) -> list
             url=f"https://europepmc.org/article/MED/{pmid}" if pmid else "",
         ))
     return out
+
+
+def _cache_key(diseases: list[str], terms: list[str], limit: int, recency_years: int) -> str:
+    d = ",".join(sorted(x.strip().lower() for x in diseases if x))
+    t = ",".join(sorted(x.strip().lower() for x in terms if x))
+    return f"{d}|{t}|{limit}|{recency_years}"
+
+
+async def fetch_ebm_evidence(
+    diseases: list[str],
+    terms: list[str],
+    *,
+    limit: int = 5,
+    timeout_s: float = 4.0,
+    recency_years: int = 7,
+    attempts: int = 2,
+) -> list["EbmEvidence"]:
+    """Live Europe PMC fetch. FAIL-OPEN: returns [] on any error. Never raises."""
+    diseases = [d for d in (diseases or []) if d and d.strip()]
+    if not diseases:
+        return []
+    key = _cache_key(diseases, terms or [], limit, recency_years)
+    if key in _EBM_CACHE:
+        return _EBM_CACHE[key]
+
+    query = build_europepmc_query(diseases, terms or [], recency_years=recency_years)
+    params = {
+        "query": query, "format": "json", "pageSize": str(limit),
+        "resultType": "core", "sort": "P_PDATE_D desc",
+    }
+    for attempt in range(attempts):
+        try:
+            async with httpx.AsyncClient(timeout=timeout_s) as client:
+                resp = await client.get(_EUROPEPMC_URL, params=params)
+                resp.raise_for_status()
+                parsed = parse_europepmc_response(resp.json())[:limit]
+                _EBM_CACHE[key] = parsed
+                logger.info("ebm: %d citations for %s", len(parsed), diseases)
+                return parsed
+        except Exception as e:  # noqa: BLE001 — fail-open by contract
+            logger.warning("ebm fetch attempt %d/%d failed: %s", attempt + 1, attempts, e)
+            if attempt + 1 < attempts:
+                await asyncio.sleep(0.5 * (attempt + 1))
+    return []
