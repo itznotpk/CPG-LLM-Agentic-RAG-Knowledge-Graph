@@ -38,6 +38,8 @@ import { saveHumanSignal } from '../../lib/supabase';
 import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
 import CareMonitoringPanel from './CareMonitoringPanel';
+import EvidenceLiteraturePanel from './EvidenceLiteraturePanel';
+import { mapEbmEvidence } from '../../lib/clinicalMappers';
 
 /* ============================================================
    Graph-verified badge — folds Graph Navigator KG edges into the
@@ -1799,6 +1801,7 @@ export function CarePlanSection() {
     (Array.isArray(carePlan.followUp) ? carePlan.followUp.length : carePlan.followUp ? 1 : 0);
   const refsCount = carePlan.cpgReferences?.length || 0;
   const refsGroupCount = carePlan.cpgReferenceGroups?.length || 0;
+  const ebmEvidence = mapEbmEvidence(clinicalPlanResponse);
 
   const tabs = [
     { key: 'overview', label: 'Overview',          icon: LayoutGrid },
@@ -1806,6 +1809,7 @@ export function CarePlanSection() {
     { key: 'care',     label: 'Care & Monitoring', icon: Activity,     count: careCount },
     { key: 'followup', label: 'Follow-up & Safety', icon: Calendar,    count: followupCount },
     { key: 'refs',     label: 'References',        icon: BookOpen,     count: refsCount },
+    { key: 'evidence', label: 'Evidence',          icon: BookOpen,     count: ebmEvidence.length },
   ];
 
   return (
@@ -2078,6 +2082,8 @@ export function CarePlanSection() {
               </div>
             </Section>
           )}
+
+          {tab === 'evidence' && <EvidenceLiteraturePanel evidence={ebmEvidence} />}
 
           {/* Approval workflow — stays visible across all tabs */}
           <div className="mt-6">
