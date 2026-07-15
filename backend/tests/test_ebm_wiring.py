@@ -95,3 +95,32 @@ async def test_resynth_emits_ebm_and_refines(monkeypatch):
     )
     assert plan.ebm_evidence and plan.ebm_evidence[0].pmid == "1"
     assert any(t == "ebm_evidence" for t, _ in events)
+
+
+def test_run_clinical_workflow_wires_ebm_pass_before_stage6():
+    import inspect
+    import agent.clinical_workflow as wf
+    src = inspect.getsource(wf.run_clinical_workflow)
+    ebm_idx = src.index("_apply_ebm_pass")
+    stage6_idx = src.index("Stage 6")
+    assert ebm_idx != -1 and stage6_idx != -1
+    assert ebm_idx < stage6_idx, (
+        "_apply_ebm_pass must be invoked before Stage 6 (safety critic) "
+        "in run_clinical_workflow"
+    )
+    # guarded by the same success condition as the plan assignment above it
+    assert "if not stage4_failed:" in src
+
+
+def test_run_clinical_workflow_streaming_wires_ebm_pass_before_stage6():
+    import inspect
+    import agent.clinical_workflow as wf
+    src = inspect.getsource(wf.run_clinical_workflow_streaming)
+    ebm_idx = src.index("_apply_ebm_pass")
+    stage6_idx = src.index("Stage 6")
+    assert ebm_idx != -1 and stage6_idx != -1
+    assert ebm_idx < stage6_idx, (
+        "_apply_ebm_pass must be invoked before Stage 6 (safety critic) "
+        "in run_clinical_workflow_streaming"
+    )
+    assert "if not stage4_failed:" in src

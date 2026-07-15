@@ -280,6 +280,11 @@ def _flag_empty_evidence(plan: TreatmentPlan) -> None:
         plan.unresolved_questions = list(plan.unresolved_questions or []) + [_EMPTY_EVIDENCE_QUESTION]
 
 
+async def _noop_emit(*args, **kwargs):
+    """No-op emit for entrypoints (e.g. non-streaming) that have no SSE callback."""
+    pass
+
+
 async def _apply_ebm_pass(*, case, ddx, draft_plan, cpgs, emit):
     """Stage 4.6 + 5.5: fetch EBM keyed off dx + draft terms, refine, emit. Fail-open."""
     try:
@@ -410,6 +415,11 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
             treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
         if not evidence:
             _flag_empty_evidence(treatment_plan)
+
+    if not stage4_failed:
+        treatment_plan = await _apply_ebm_pass(
+            case=case, ddx=ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=_noop_emit,
+        )
 
     # Stage 6 — Safety review (fail-open, never raises)
     from .safety_critic import run_safety_critic
@@ -651,6 +661,11 @@ async def run_clinical_workflow_streaming(
         treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
         if not evidence:
             _flag_empty_evidence(treatment_plan)
+
+    if not stage4_failed:
+        treatment_plan = await _apply_ebm_pass(
+            case=case, ddx=ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=emit,
+        )
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",
