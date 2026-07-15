@@ -17,7 +17,7 @@ def test_ebm_evidence_defaults_and_treatmentplan_field():
     )
     assert ev.cpg_gap is False
     plan = TreatmentPlan(
-        idc_primary="BA41.1",
+        icd_primary="BA41.1",
         summary="s",
         recommendations=[Recommendation(
             intervention="Start ticagrelor",
