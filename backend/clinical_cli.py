@@ -186,6 +186,12 @@ async def run_stream(url: str, endpoint: str, payload: dict) -> dict | None:
             badge_str = f"  [{badge}]" if badge else ""
             print(f"  → {detail}{badge_str}")
 
+        elif event_type == "ebm_evidence":
+            ev = data.get("evidence", [])
+            print(f"  [EBM] {len(ev)} literature citation(s)")
+            for e in ev[:5]:
+                print(f"    - ({e.get('evidence_tier')}) {e.get('title')} — {e.get('journal')} {e.get('year') or ''}")
+
         elif event_type == "final_result":
             final_result = data
 
