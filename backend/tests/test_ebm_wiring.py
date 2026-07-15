@@ -73,3 +73,25 @@ async def test_refine_with_ebm_attaches_evidence(monkeypatch):
     case = PatientCase(chief_complaint="cp")
     out = await cs.stage_5_5_refine(case, [], draft, [_ev()])
     assert out.ebm_evidence and out.ebm_evidence[0].pmid == "1"
+
+
+async def test_resynth_emits_ebm_and_refines(monkeypatch):
+    import agent.clinical_workflow as wf
+    events = []
+    async def emit(t, p=None): events.append((t, p))
+
+    # stub the two-pass pieces
+    draft = _plan(["Start aspirin"])
+    monkeypatch.setattr(wf, "extract_plan_terms", lambda p, **k: ["aspirin"])
+    async def _fetch(diseases, terms, **k): return [_ev()]
+    monkeypatch.setattr(wf, "fetch_ebm_evidence", _fetch)
+    async def _refine(case, ddx, dp, ebm, **k):
+        dp.ebm_evidence = list(ebm); return dp
+    monkeypatch.setattr(wf, "stage_5_5_refine", _refine)
+
+    plan = await wf._apply_ebm_pass(  # small extracted helper (see Step 3)
+        case=PatientCase(chief_complaint="cp"), ddx=[], draft_plan=draft,
+        cpgs=[], emit=emit,
+    )
+    assert plan.ebm_evidence and plan.ebm_evidence[0].pmid == "1"
+    assert any(t == "ebm_evidence" for t, _ in events)

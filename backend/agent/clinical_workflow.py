@@ -13,11 +13,14 @@ from .clinical_stages import (  # noqa: F401 (stage_2_ddx imported for test patc
     STAGE3_HEADLESS_GAP,
     _auto_select_codes,
     _build_symptom_text,
+    extract_plan_terms,
     stage_2_ddx,
     stage_3_route,
     stage_4_retrieve,
     stage_5_synthesize,
+    stage_5_5_refine,
 )
+from .ebm_lookup import fetch_ebm_evidence
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
 from .routing import CPGDocRef, route_icd_to_cpgs
@@ -275,6 +278,28 @@ def _flag_empty_evidence(plan: TreatmentPlan) -> None:
         plan.confidence = 0.25
     if _EMPTY_EVIDENCE_QUESTION not in (plan.unresolved_questions or []):
         plan.unresolved_questions = list(plan.unresolved_questions or []) + [_EMPTY_EVIDENCE_QUESTION]
+
+
+async def _apply_ebm_pass(*, case, ddx, draft_plan, cpgs, emit):
+    """Stage 4.6 + 5.5: fetch EBM keyed off dx + draft terms, refine, emit. Fail-open."""
+    try:
+        diseases = [d.title for d in ddx[:3] if getattr(d, "title", None)]
+        terms = extract_plan_terms(draft_plan)
+        await emit("stage_update", {
+            "stage": 4.6, "name": "Literature Evidence",
+            "status": "running", "detail": "Searching Europe PMC for recent evidence…",
+        })
+        ebm = await fetch_ebm_evidence(diseases, terms)
+        refined = await stage_5_5_refine(case, ddx, draft_plan, ebm, cpg_covered=bool(cpgs))
+        await emit("stage_update", {
+            "stage": 4.6, "name": "Literature Evidence", "status": "complete",
+            "detail": f"{len(ebm)} citation(s) found" if ebm else "No new literature",
+        })
+        await emit("ebm_evidence", {"evidence": [e.model_dump() for e in refined.ebm_evidence]})
+        return refined
+    except Exception as e:  # noqa: BLE001 — additive, never block the plan
+        logger.warning("EBM pass failed (non-fatal): %s", e)
+        return draft_plan
 
 
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
@@ -831,6 +856,11 @@ async def run_resynthesize_streaming(
             treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
         if not evidence:
             _flag_empty_evidence(treatment_plan)
+
+    if not stage4_failed:
+        treatment_plan = await _apply_ebm_pass(
+            case=case, ddx=selected_ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=emit,
+        )
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis", "status": "complete",
