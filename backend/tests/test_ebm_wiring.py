@@ -75,6 +75,36 @@ async def test_refine_with_ebm_attaches_evidence(monkeypatch):
     assert out.ebm_evidence and out.ebm_evidence[0].pmid == "1"
 
 
+async def test_refine_drops_draft_rec_falls_back_to_draft(monkeypatch):
+    draft = _plan(["Start aspirin", "Refer to cardiology for PCI"])
+    # refined only keeps aspirin — silently drops the cardiology referral
+    refined = _plan(["Start aspirin"])
+    async def _fake_llm(*a, **k):
+        return refined
+    monkeypatch.setattr(cs, "_refine_llm_call", _fake_llm, raising=False)
+    case = PatientCase(chief_complaint="cp")
+    out = await cs.stage_5_5_refine(case, [], draft, [_ev()])
+    assert out is draft
+    assert out.ebm_evidence and out.ebm_evidence[0].pmid == "1"
+
+
+async def test_refine_keeps_all_drafts_and_adds_literature_rec(monkeypatch):
+    draft = _plan(["Start aspirin", "Refer to cardiology for PCI"])
+    refined = _plan([
+        "Start aspirin 75mg OD",  # superset text — draft term is a substring
+        "Refer to cardiology for PCI",
+        "[Literature-based, no local CPG] add colchicine",
+    ])
+    async def _fake_llm(*a, **k):
+        return refined
+    monkeypatch.setattr(cs, "_refine_llm_call", _fake_llm, raising=False)
+    case = PatientCase(chief_complaint="cp")
+    out = await cs.stage_5_5_refine(case, [], draft, [_ev()])
+    assert out is refined
+    assert any("colchicine" in r.intervention.lower() for r in out.recommendations)
+    assert out.ebm_evidence and out.ebm_evidence[0].pmid == "1"
+
+
 async def test_resynth_emits_ebm_and_refines(monkeypatch):
     import agent.clinical_workflow as wf
     events = []

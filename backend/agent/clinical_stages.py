@@ -4321,6 +4321,36 @@ async def _refine_llm_call(case, ddx, draft_plan, ebm_evidence):
     return TreatmentPlan.model_validate_json(resp.choices[0].message.content)
 
 
+def _normalize_intervention_text(intervention: str) -> str:
+    """Whitespace-normalize an intervention string for no-drop comparison."""
+    return " ".join((intervention or "").lower().split())
+
+
+def _refined_plan_drops_draft_recs(draft_plan: TreatmentPlan, refined: TreatmentPlan) -> list[str]:
+    """Return the normalized intervention text of any draft rec missing from refined.
+
+    A draft rec "survives" if its normalized intervention is a substring of any
+    refined rec's normalized intervention, or vice versa (the refine pass may
+    append citation context to a rec's text).
+    """
+    refined_norms = [
+        _normalize_intervention_text(r.intervention) for r in refined.recommendations
+    ]
+    missing = []
+    for rec in draft_plan.recommendations:
+        draft_norm = _normalize_intervention_text(rec.intervention)
+        if not draft_norm:
+            continue
+        survives = any(
+            draft_norm in rn or rn in draft_norm
+            for rn in refined_norms
+            if rn
+        )
+        if not survives:
+            missing.append(rec.intervention)
+    return missing
+
+
 async def stage_5_5_refine(
     case: PatientCase,
     ddx: list,
@@ -4338,6 +4368,26 @@ async def stage_5_5_refine(
         logger.warning("stage_5_5_refine failed, keeping draft: %s", e)
         draft_plan.ebm_evidence = list(ebm_evidence)
         return draft_plan
+
+    # Structural no-drop guard: every draft CPG-derived rec must survive into
+    # the refined plan (provenance contract). Guard itself must never raise —
+    # on a guard-internal error, prefer the draft (safer than trusting an
+    # unverified refined plan).
+    try:
+        missing = _refined_plan_drops_draft_recs(draft_plan, refined)
+    except Exception as e:  # noqa: BLE001 — guard failure must fail SAFE (draft), not open
+        logger.warning("stage_5_5_refine no-drop guard errored, keeping draft: %s", e)
+        draft_plan.ebm_evidence = list(ebm_evidence)
+        return draft_plan
+    if missing:
+        logger.warning(
+            "stage_5_5_refine dropped %d draft recommendation(s), discarding refined plan "
+            "and keeping draft: %s",
+            len(missing), missing,
+        )
+        draft_plan.ebm_evidence = list(ebm_evidence)
+        return draft_plan
+
     refined.ebm_evidence = list(ebm_evidence)
     return refined
 
