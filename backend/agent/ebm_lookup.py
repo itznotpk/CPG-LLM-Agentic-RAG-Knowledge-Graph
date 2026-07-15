@@ -1,6 +1,7 @@
 """Stage 4.6 — live Europe PMC evidence fetch. NOT ingested/chunked; fail-open."""
 from __future__ import annotations
 
+import datetime as _dt
 import logging
 from typing import Literal
 
@@ -8,6 +9,11 @@ logger = logging.getLogger(__name__)
 
 _HIGH = {"systematic-review", "systematic review", "meta-analysis", "meta analysis"}
 _MODERATE = {"randomized controlled trial", "randomised controlled trial", "rct", "guideline", "practice guideline"}
+
+_PUB_TYPE_FILTER = (
+    '(PUB_TYPE:"systematic review" OR PUB_TYPE:"meta-analysis" '
+    'OR PUB_TYPE:"randomized controlled trial" OR PUB_TYPE:"guideline")'
+)
 
 
 def evidence_tier_for(pub_types: list[str]) -> Literal["high", "moderate", "low"]:
@@ -18,3 +24,19 @@ def evidence_tier_for(pub_types: list[str]) -> Literal["high", "moderate", "low"
     if norm & _MODERATE:
         return "moderate"
     return "low"
+
+
+def build_europepmc_query(diseases: list[str], terms: list[str], *, recency_years: int = 7) -> str:
+    """Build a Europe PMC search query scoped to graded, recent, abstract-bearing evidence."""
+    diseases = [d.strip() for d in diseases if d and d.strip()]
+    terms = [t.strip() for t in terms if t and t.strip()]
+    disease_clause = " OR ".join(f'"{d}"' for d in diseases) or '""'
+    parts = [f"({disease_clause})"]
+    if terms:
+        term_clause = " OR ".join(f'"{t}"' for t in terms)
+        parts.append(f"({term_clause})")
+    parts.append(_PUB_TYPE_FILTER)
+    parts.append("HAS_ABSTRACT:Y")
+    this_year = _dt.date.today().year
+    parts.append(f"(PUB_YEAR:[{this_year - recency_years} TO {this_year}])")
+    return " AND ".join(parts)
