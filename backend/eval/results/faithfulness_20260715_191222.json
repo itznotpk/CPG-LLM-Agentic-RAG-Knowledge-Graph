@@ -1,0 +1,10 @@
+{
+  "summary": {
+    "n": 0,
+    "judge_model": "gemini-2.5-flash",
+    "mean_faithfulness": 0.0,
+    "hallucination_rate": 0.0,
+    "total_judge_errored": 0
+  },
+  "rows": []
+}

@@ -1,0 +1,1228 @@
+{
+  "case": {
+    "chief_complaint": "Post-PCI day 1. Need full antithrombotic plan and review of current medications.",
+    "history": "CC: Post-PCI day 1. Need full antithrombotic plan and review of current medications.\nHPI: NSTEMI s/p primary PCI with DES yesterday. AF with CHA2DS2-VASc 4. Amiodarone running since last year for rate control. Fluconazole day 9 of 14 for oesophageal candidiasis.\nPE / Labs: INR 2.4 today (no severity slot \u2014 recorded here).",
+    "age": 67,
+    "sex": "F",
+    "comorbidities": [
+      "Non-valvular Atrial Fibrillation (CHA2DS2-VASc 4)",
+      "NSTEMI status-post primary PCI with Drug-Eluting Stent (yesterday)",
+      "Type 2 Diabetes Mellitus",
+      "Oesophageal candidiasis"
+    ],
+    "current_medications": [
+      "Warfarin 5mg OD",
+      "Amiodarone 200mg OD",
+      "Metformin 1g BD",
+      "Sitagliptin 100mg OD",
+      "Fluconazole 100mg OD"
+    ],
+    "allergies": [],
+    "vitals": {
+      "sbp": 132,
+      "dbp": 78,
+      "hr": 72,
+      "spO2": 97,
+      "weight": 64,
+      "temp": 36.7,
+      "egfr": 64
+    },
+    "severity_staging": {
+      "HbA1c": "7.1",
+      "eGFR": "64",
+      "INR": "2.4",
+      "CHA2DS2-VASc": "4"
+    }
+  },
+  "events": [
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "running",
+        "detail": "Analyzing symptoms and history\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Extracted symptom query: \"post pci for Acute non-ST elevation myocardial infarction, Acute ST elevation myocardial infarction, Atrial fibrillation,\"",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "detail": "Condition hypotheses: Non-valvular Atrial Fibrillation, Non-ST Elevation Myocardial Infarction, Type 2 Diabetes Mellitus, Oesophageal candidiasis",
+        "badge": "DDx"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "kind": "regex_codes",
+        "detail": "Extra codes caught by text-matching your notes: Acute non-ST elevation myocardial infarction (BA41.1), Atrial fibrillation (BC81.3), Type 2 diabetes mellitus (5A11), Pulmonary embolism (BB00)",
+        "badge": "safety-net",
+        "data": [
+          {
+            "code": "BA41.1",
+            "name": "Acute non-ST elevation myocardial infarction"
+          },
+          {
+            "code": "BC81.3",
+            "name": "Atrial fibrillation"
+          },
+          {
+            "code": "5A11",
+            "name": "Type 2 diabetes mellitus"
+          },
+          {
+            "code": "BB00",
+            "name": "Pulmonary embolism"
+          }
+        ]
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 2,
+        "kind": "cc_priority",
+        "detail": "Diagnoses the AI pulled from the chief complaint: Coronary artery disease (BA86) \u2014 AI 90% sure",
+        "badge": "from chief complaint",
+        "data": [
+          {
+            "code": "BA86",
+            "name": "Coronary artery disease",
+            "confidence": 0.9,
+            "explicit": false
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 2,
+        "name": "DDx Analysis",
+        "status": "complete",
+        "detail": "5 candidates \u00b7 top: BA41.1",
+        "data": [
+          {
+            "code": "BA41.1",
+            "title": "Acute non-ST elevation myocardial infarction",
+            "similarity": 0.8979,
+            "base_similarity": 0.8979,
+            "final_score": 0.8979,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.135,
+            "cc_confidence": 0.9,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.8979,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.135,
+              "cc_boost_raw": 0.9,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.8979,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.898",
+              "Final DDx score 0.898",
+              "Keyword overlap: elevation, infarction, myocardial",
+              "LLM: Explicitly documented NSTEMI s/p PCI yesterday; no new chest pain argues against ongoing acute event."
+            ],
+            "math_rank": 1,
+            "llm_rank": 1,
+            "rank_delta": 0,
+            "override_reason": null
+          },
+          {
+            "code": "5A11",
+            "title": "Type 2 diabetes mellitus",
+            "similarity": 0.8237,
+            "base_similarity": 0.8237,
+            "final_score": 0.8237,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": 0.803,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.135,
+            "cc_confidence": 0.9,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.8237,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.135,
+              "cc_boost_raw": 0.9,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.8237,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.824",
+              "Final DDx score 0.824",
+              "Keyword overlap: diabetes, mellitus, type",
+              "LLM: Explicitly documented T2DM, confirmed by HbA1c 7.1 and current medications; no DKA symptoms argue against acute diabetic complication."
+            ],
+            "math_rank": 2,
+            "llm_rank": 2,
+            "rank_delta": 0,
+            "override_reason": null
+          },
+          {
+            "code": "BC81.3",
+            "title": "Atrial fibrillation",
+            "similarity": 0.6426,
+            "base_similarity": 0.6426,
+            "final_score": 0.6426,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.135,
+            "cc_confidence": 0.9,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6426,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.135,
+              "cc_boost_raw": 0.9,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6426,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.643",
+              "Final DDx score 0.643",
+              "Keyword overlap: atrial, fibrillation",
+              "LLM: Explicitly documented non-valvular AF, managed with warfarin and amiodarone; controlled HR argues against uncontrolled AF."
+            ],
+            "math_rank": 10,
+            "llm_rank": 3,
+            "rank_delta": 7,
+            "override_reason": "specificity_over_generic: BC81.3 better fits 'Non-valvular Atrial Fibrillation' than 'other specified'"
+          },
+          {
+            "code": "5A13.7",
+            "title": "Diabetes mellitus due to clinically defined subtypes or syndromes",
+            "similarity": 0.6844,
+            "base_similarity": 0.6844,
+            "final_score": 0.6844,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6844,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6844,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.684",
+              "Final DDx score 0.684",
+              "Keyword overlap: diabetes, mellitus",
+              "LLM: Less specific than 5A11 for documented Type 2 Diabetes Mellitus."
+            ],
+            "math_rank": 5,
+            "llm_rank": 6,
+            "rank_delta": -1,
+            "override_reason": "sibling_cluster: kept 5A11 as family representative"
+          },
+          {
+            "code": "BA42.1",
+            "title": "Subsequent myocardial infarction, non-ST elevation myocardial infarction",
+            "similarity": 0.6589,
+            "base_similarity": 0.6589,
+            "final_score": 0.6589,
+            "inclusion_match": false,
+            "matched_term": null,
+            "inclusion_similarity": null,
+            "exclusion_match": false,
+            "matched_exclusion": null,
+            "exclusion_similarity": null,
+            "exclusion_penalty": 0.0,
+            "cc_boost": 0.0,
+            "cc_confidence": null,
+            "cc_explicit": false,
+            "score_breakdown": {
+              "base_similarity": 0.6589,
+              "inclusion_match": 0.0,
+              "inclusion_phrase": null,
+              "cc_boost": 0.0,
+              "cc_boost_raw": null,
+              "exclusion_penalty": 0.0,
+              "exclusion_phrase": null,
+              "final_score": 0.6589,
+              "route_method": null
+            },
+            "matched_cpg_title": null,
+            "reasoning": [
+              "Vector similarity 0.659",
+              "Final DDx score 0.659",
+              "Keyword overlap: elevation, infarction, myocardial",
+              "LLM: NSTEMI was yesterday, not a subsequent event."
+            ],
+            "math_rank": 7,
+            "llm_rank": 8,
+            "rank_delta": -1,
+            "override_reason": "specificity_over_generic: BA41.1 better fits 'NSTEMI s/p primary PCI yesterday'"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "running",
+        "detail": "Matching ICD codes to clinical guidelines\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Excluded Heart-Disease-in-Pregnancy(2nd Edition) \u2014 pregnancy CPG requires pregnancy/obstetric context",
+        "badge": "excluded",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Excluded Diabetes-in-Pregnancy(2017) \u2014 pregnancy CPG requires pregnancy/obstetric context",
+        "badge": "excluded",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "NSTEMI(2011)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "NSTE-ACS(3rd Edition)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Percutaneous-Coronary-Intervention",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "T2-Diabetes-Mellitus(6th-Edition)",
+        "badge": "exact",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "stage3_quality_drop",
+      "data": {
+        "stage": 3,
+        "drops": [
+          {
+            "tier": "minor",
+            "code": "5A11",
+            "expected_slots": 2,
+            "actual_slots": 1
+          }
+        ],
+        "major_code": "BA41.1",
+        "selection_source": "clinician"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Co-consideration 5A11 backed by 1 CPG (expected 2)",
+        "badge": "under_evidenced",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Excluded Heart-Disease-in-Pregnancy(2nd Edition) \u2014 pregnancy CPG requires pregnancy/obstetric context",
+        "badge": "excluded",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Excluded Diabetes-in-Pregnancy(2017) \u2014 pregnancy CPG requires pregnancy/obstetric context",
+        "badge": "excluded",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Atrial-Fibrillation(2012)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "Primary-Secondary-Prevention-of-CVD(2017)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 3,
+        "detail": "CVD-Prevention-Women(2016)",
+        "badge": "comorbidity"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 3,
+        "name": "CPG Routing",
+        "status": "complete",
+        "detail": "7 CPGs matched",
+        "data": [
+          "NSTEMI(2011)",
+          "NSTE-ACS(3rd Edition)",
+          "Percutaneous-Coronary-Intervention",
+          "T2-Diabetes-Mellitus(6th-Edition)",
+          "Atrial-Fibrillation(2012)",
+          "Primary-Secondary-Prevention-of-CVD(2017)",
+          "CVD-Prevention-Women(2016)"
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "running",
+        "detail": "Retrieving relevant guideline chunks\u2026"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "detail": "Searching the matched guidelines with targeted questions\u2026",
+        "status": "running"
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Specialist referrals indicated and their urgency for this patient",
+        "anchor": true,
+        "badge": "+5 new",
+        "status": "complete",
+        "data": {
+          "new": 5,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Af",
+              "section": "Section 10: Referrals and Audit",
+              "snippet": "10.2: Outpatient Specialist Physician/Cardiologist Outpatient specialist referral is recommended for those who: - Need further investigation/echocardiography -\u2026",
+              "score": 0.569
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 10: Referrals and Audit",
+              "snippet": "Section 10: Referrals and Audit 10.1: Acute Hospitalisation/Referral This is required for patients with: - AF/AFL with haemodynamic compromise, acute dyspnoea,\u2026",
+              "score": 0.555
+            },
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 4: Management of Diabetic Metabolic Emergencies",
+              "snippet": "4.2.2: Assessment - Initial assessment - History and physical examination - Look for precipitating causes: infection, missed therapy, non-adherence, acute\u2026",
+              "score": 0.531
+            },
+            {
+              "cpg": "Acs",
+              "section": "Section 6: Pre-Hospital Management",
+              "snippet": "6.2: Primary Care Clinics Chest pain is one of the more common presentations in primary care facilities.",
+              "score": 0.53
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 7: Management Of UA/NSTEMI",
+              "snippet": "7.2.1: Initial Management \u2013 General Measures Following risk stratification: - Low risk patients may be treated as outpatient.",
+              "score": 0.514
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Lifestyle modifications, diet, exercise, weight, smoking, alcohol recommendations for this patient",
+        "anchor": true,
+        "badge": "+5 new",
+        "status": "complete",
+        "data": {
+          "new": 5,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 3.5: Lifestyle Modification",
+              "snippet": "3.5: Lifestyle Modification",
+              "score": 0.613
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 11: Cardiac Rehabilitation / Secondary Prevention",
+              "snippet": "11.3: Risk Factor Modification: - Smoking cessation \u2013 Patients who quit smoking can reduce the rate of reinfarction and death as early as 1 year.",
+              "score": 0.59
+            },
+            {
+              "cpg": "Acs",
+              "section": "Section 10: Cardiac Rehabilitation",
+              "snippet": "10.3: Risk Factor Modification: - Smoking cessation - Patients who quit smoking can reduce the rate of reinfarction and death as early as 1 year.",
+              "score": 0.588
+            },
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 3.5: Lifestyle Modification",
+              "snippet": "3.5.1.3: Weight Management - [Level I] Individuals who are overweight (BMI 23.0 kg/m\u00b2 \u2013 <27.5 kg/m\u00b2) and obese ( 27.5 kg/m\u00b2) and not achieving glycaemic\u2026",
+              "score": 0.552
+            },
+            {
+              "cpg": "Women",
+              "section": "Section 6: Recommendations For Prevention Of CVD In Women",
+              "snippet": "6.2.4: Overweight And Obesity Treatment of overweight and obesity can be achieved through a variety of modalities which include: - Changes in dietary\u2026",
+              "score": 0.551
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Baseline investigations, tests, and imaging indicated for this patient's diagnosis",
+        "anchor": true,
+        "badge": "+4 new",
+        "status": "complete",
+        "data": {
+          "new": 4,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Nstemi",
+              "section": "Section 4: Diagnosis",
+              "snippet": "4.5: Other Diagnostic Modalities [Grade II-a, Level B] Echocardiogram: LV systolic function is an important prognostic indicator in patients with UA/NSTEMI.",
+              "score": 0.573
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 3: Initial Management",
+              "snippet": "3.2: Diagnostic Evaluation The initial diagnostic work-up is driven by the initial presentation. The time of onset of AF should be established to define the\u2026",
+              "score": 0.569
+            },
+            {
+              "cpg": "Cvd",
+              "section": "Section 7: Other Risk Markers Of CVD",
+              "snippet": "7.2: Echocardiography Echocardiography in patients with: - Hypertension: - Is more sensitive than ECG for the detection of LVH - [Grade IIa, Level B] Should be\u2026",
+              "score": 0.539
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 10: Post Hospital Discharge",
+              "snippet": "10.2: Follow-Up Investigations (refer Figure 1: Non-invasive investigation of Low Risk Patients with UA/NSTEMI) In the outpatient evaluation of low risk\u2026",
+              "score": 0.535
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "In patients with atrial fibrillation CHA2DS2-VASc 4 undergoing PCI with DES for NSTEMI, triple antithrombotic therapy with warfarin and dual antiplatelet therapy is recommended for a short duration followed by dual therapy.",
+        "anchor": false,
+        "badge": "+5 new",
+        "status": "complete",
+        "data": {
+          "new": 5,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Af",
+              "section": "Section 6: Management: Prevention Of Thromboembolism",
+              "snippet": "6.4.4: Non-ST Elevation Myocardial Infarction In patients with non-ST elevation myocardial infarction, dual antiplatelet therapy with aspirin plus clopidogrel\u2026",
+              "score": 0.669
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 6: Management: Prevention Of Thromboembolism",
+              "snippet": "6.4.3: Anticoagulant And Antiplatelet Therapy Use In Patients With Atrial Fibrillation Undergoing Percutaneous Coronary Intervention There is a lack of\u2026",
+              "score": 0.667
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 7: Management Of UA/NSTEMI",
+              "snippet": "7.2.3: Anticoagulant Therapy Unfractionated heparin (UFH) - [Grade I, Level A] Low Molecular Weight Heparin (LMWH) - Enoxaparin - [Grade I, Level A] Anti Xa\u2026",
+              "score": 0.625
+            },
+            {
+              "cpg": "Acs",
+              "section": "Section 9: Post-Hospital Discharge",
+              "snippet": "9.1: Medications Post-Discharge Table 5: Level Of Evidence And Grade Of Recommendation For Pharmacotherapy In NSTE-ACS | Intervention | Grade of Recommendation\u2026",
+              "score": 0.624
+            },
+            {
+              "cpg": "Pci",
+              "section": "Section 2: Indications For PCI",
+              "snippet": "2.1.4: Technical Considerations During Primary PCI For a favourable outcome, it is important to obtain good TIMI 3 epicardial flow and optimum reperfusion of\u2026",
+              "score": 0.617
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Concomitant use of warfarin with amiodarone and fluconazole significantly increases INR and the risk of bleeding, requiring careful monitoring and dose adjustment.",
+        "anchor": false,
+        "badge": "+5 new",
+        "status": "complete",
+        "data": {
+          "new": 5,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Af",
+              "section": "Section 12: Appendices",
+              "snippet": "C.2: Initiation of Warfarin Therapy - Loading doses are not recommended because they may increase the risk of bleeding.",
+              "score": 0.598
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 12: Appendices",
+              "snippet": "C.6: Factors Affecting the Daily Dose - Age (for Caucasians): - < 35 yr \u2192 8.1 mg/day - 35\u201349 yr \u2192 6.4 mg/day - 50\u201359 yr \u2192 5.1 mg/day - 60\u201369 yr \u2192 4.2 mg/day -\u2026",
+              "score": 0.561
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 12: Appendices",
+              "snippet": "C.11: Managing Elevated INRs or Bleeding in Patients Receiving Warfarin | Condition | Recommendation | |---|---| | INR above therapeutic range but < 5; no\u2026",
+              "score": 0.559
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 12: Appendices",
+              "snippet": "C.9: Warfarin Initiation Tables Table: Warfarin Initiation \u2014 Average Daily Dose of 5 mg | DAY | INR | INPATIENT (Usually with daily INR) | OUTPATIENT |\u2026",
+              "score": 0.542
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 8: Management \u2014 Long-Term Rhythm Control",
+              "snippet": "8.2: Choice Of Antiarrhythmic Drugs Antiarrhythmic therapy for recurrent AF is recommended on the basis of choosing safer, although possibly less efficacious,\u2026",
+              "score": 0.536
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Patients on warfarin with amiodarone and fluconazole should have INR monitored frequently to maintain a target range of 2.0-3.0, alongside regular assessment for bleeding.",
+        "anchor": false,
+        "badge": "+2 new",
+        "status": "complete",
+        "data": {
+          "new": 2,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Af",
+              "section": "Section 6: Management: Prevention Of Thromboembolism",
+              "snippet": "6.3.2: Optimal International Normalized Ratio (INR) The level of anticoagulation is expressed as the INR and is derived from the ratio between the actual\u2026",
+              "score": 0.69
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 12: Appendices",
+              "snippet": "C.7: Warfarin Initiation Protocol Day 1: If there is an active or acute thromboembolic condition, warfarin should be started along with heparin, unless there\u2026",
+              "score": 0.656
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Metformin and sitagliptin dose adjustment is not typically required for an eGFR of 64 mL/min, but renal function should be monitored regularly.",
+        "anchor": false,
+        "badge": "+5 new",
+        "status": "complete",
+        "data": {
+          "new": 5,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Appendix: Drug Dosage Adjustments in Chronic Kidney Disease (CKD) and Cardiovascular Outcome Trials (CVOTs)",
+              "snippet": "Appendix 7: Dosage of Glucose Lowering Drugs in Chronic Kidney Disease (CKD) | Generic Name | Usual dose | Mild (CKD 2)<br (GFR 60-89) | Moderate (CKD 3)<br\u2026",
+              "score": 0.707
+            },
+            {
+              "cpg": "Acs",
+              "section": "Section 12: Appendices",
+              "snippet": "Appendix XIV: Calculation Of eGFR For Drug Dosing Adjustments Estimated GFR (eGFR) can be derived from various equations including: - CKD-EPI Creatinine (CKD\u2026",
+              "score": 0.673
+            },
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+              "snippet": "3.6.1.1: Biguanides (Metformin) - Metformin lowers blood glucose especially fasting plasma glucose by decreasing hepatic glucose production.",
+              "score": 0.666
+            },
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+              "snippet": "3.6.1.7: Sodium-Glucose Cotransporter 2 Inhibitors (SGLT2-i) - [Level I] This class of drugs selectively inhibits SGLT2, a transporter in the proximal tubule,\u2026",
+              "score": 0.663
+            },
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 3.7: Treatment algorithms for the management of T2DM",
+              "snippet": "3.7.4: Efficacy Of Various Glucose Lowering Drugs Figure 3-6: Efficacy of various GLDs. | | [Level I] MET | [Level I] [Level II] SU | [Level I] GLN | [Level I]\u2026",
+              "score": 0.632
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Criteria for escalation of antithrombotic therapy or switch to alternative agents in patients post-PCI with AF include recurrent ischemic events despite optimal therapy or significant bleeding complications.",
+        "anchor": false,
+        "badge": "+2 new",
+        "status": "complete",
+        "data": {
+          "new": 2,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Cvd",
+              "section": "Section 9: Management Of Individual Risk Factors",
+              "snippet": "9.5.2: Anticoagulant Therapy 9.5.2.1: Non-Valvular Atrial Fibrillation Patients with non-valvular AF irrespective of whether the pattern is paroxysmal,\u2026",
+              "score": 0.667
+            },
+            {
+              "cpg": "Af",
+              "section": "Section 5: Management \u2014 Acute-Onset AF",
+              "snippet": "5.1.4: Antithrombotic Therapy For Acute-Onset AF Refer Section 6: Management: Prevention Of Thromboembolism.",
+              "score": 0.664
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Patients post-NSTEMI PCI with type 2 diabetes and atrial fibrillation should receive counselling on smoking cessation, regular physical activity, healthy diet, and weight management.",
+        "anchor": false,
+        "badge": "+5 new",
+        "status": "complete",
+        "data": {
+          "new": 5,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 5: Management of Chronic Complications",
+              "snippet": "5.4.3: Coronary Heart Disease \u2014 Management I. General management - [Level I] Lifestyle modification, weight management and increased physical activity are\u2026",
+              "score": 0.683
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 9: UA/NSTEMI In Special Groups",
+              "snippet": "9.4: UA/NSTEMI In Diabetes Diabetics have an increased mortality following an ACS. The glucose level at admission has been shown to be a significant predictor\u2026",
+              "score": 0.676
+            },
+            {
+              "cpg": "Pci",
+              "section": "Section 4: Special Clinical Conditions",
+              "snippet": "Section 4: Special Clinical Conditions 4.1: Diabetes Diabetics have higher cardiovascular morbidity and mortality following both CABG and PCI.",
+              "score": 0.667
+            },
+            {
+              "cpg": "Type 2 Diabetes Mellitus",
+              "section": "Section 5: Management of Chronic Complications",
+              "snippet": "5.4.1: Coronary Heart Disease \u2014 Overview Summary of Updates - In addition to the importance of managing hyperglycaemia, management of the other traditional\u2026",
+              "score": 0.666
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 5: Risk Stratification",
+              "snippet": "5.2: Rationale For Risk Stratification Patients with UA/NSTEMI have an increased risk of death, recurrent MI, recurrent symptomatic ischemia, serious\u2026",
+              "score": 0.652
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_query",
+        "detail": "Following PCI for NSTEMI, patients require a structured follow-up schedule including reassessment of antithrombotic therapy, cardiovascular risk factors, and diabetes management within 1-3 months.",
+        "anchor": false,
+        "badge": "+3 new",
+        "status": "complete",
+        "data": {
+          "new": 3,
+          "total": 5,
+          "chunks": [
+            {
+              "cpg": "Nstemi",
+              "section": "Section 8: Revascularization Strategies",
+              "snippet": "8.2: Routine Early Conservative Management (Selective Invasive Therapy) [Grade I, Level A] The use of aggressive anticoagulant and antiplatelet agents has also\u2026",
+              "score": 0.686
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 11: Cardiac Rehabilitation / Secondary Prevention",
+              "snippet": "11.4: Discharge Instructions - Therapeutic lifestyle changes should be initiated in all patients and reemphasized during follow up.",
+              "score": 0.677
+            },
+            {
+              "cpg": "Nstemi",
+              "section": "Section 0: Summary",
+              "snippet": "Flowchart 1: Risk Stratification Of UA/NSTEMI [ PATHWAY A: LOW RISK ] 1. Clinical Profile Assessment: no angina in the past no ongoing angina no prior use of\u2026",
+              "score": 0.667
+            }
+          ]
+        }
+      }
+    },
+    {
+      "event": "sub_step",
+      "data": {
+        "stage": 4,
+        "kind": "evidence_summary",
+        "detail": "Selected 20 guideline passages (duplicates removed)",
+        "status": "complete"
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 4,
+        "name": "Evidence Retrieval",
+        "status": "complete",
+        "detail": "20 evidence chunks retrieved"
+      }
+    },
+    {
+      "event": "graph_navigator",
+      "data": {
+        "rules": [
+          {
+            "drug": "Flecainide",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Flecainide",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Propafenone",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Propafenone",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Sotalol",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Sotalol",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Diltiazem",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with \u00df-blockers, diltiazem or verapamil may be considered for rate control, although the efficacy of these agents in enhancing success of DCCV or preventing early recurrence of AF is uncertain.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Digitalis",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Rate control using pharmacological agents (\u00df-blockers, non-dihydropyridine CCBs, digitalis, or a combination) is recommended in patients with paroxysmal, persistent, or permanent AF.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Digitalis",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Drugs commonly used are \u00df-blockers, non-dihydropyridine calcium channel antagonists (diltiazem, verapamil), and digitalis.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Non-Dihydropyridine Ccb",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Rate control using pharmacological agents (\u00df-blockers, non-dihydropyridine CCBs, digitalis, or a combination) is recommended in patients with paroxysmal, persistent, or permanent AF.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Intravenous Amiodarone",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Intravenous amiodarone can be useful to control the heart rate in patients with AF when other measures are unsuccessful or contraindicated.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Digoxin And Beta-Blocker Combination",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "A combination of digoxin and either a \u00df-blocker, diltiazem, or verapamil is reasonable to control the heart rate both at rest and during exercise in patients with AF.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Digoxin And Diltiazem Combination",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "A combination of digoxin and either a \u00df-blocker, diltiazem, or verapamil is reasonable to control the heart rate both at rest and during exercise in patients with AF.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Digoxin And Verapamil Combination",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "A combination of digoxin and either a \u00df-blocker, diltiazem, or verapamil is reasonable to control the heart rate both at rest and during exercise in patients with AF.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Statin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "All patients over the age of 40 should be treated with a statin regardless of baseline LDL cholesterol level.",
+            "source_document": "Section 3.9: Management of Co-morbidities in T2DM",
+            "cpg_chunk_id": "fb3152be-f968-4712-87da-b41e6c7fe681"
+          },
+          {
+            "drug": "Verapamil",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with \u00df-blockers, diltiazem or verapamil may be considered for rate control, although the efficacy of these agents in enhancing success of DCCV or preventing early recurrence of AF is uncertain.",
+            "source_document": "Section 5: Management \u2014 Acute-Onset AF",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Vitamin K Antagonist",
+            "condition": "Non-Valvular Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "For patients with non-valvular AF, it is recommended that the target intensity of anticoagulation with a VKA should maintain an INR range of 2.0\u20133.0 (target 2.5).",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "2d75dedf-d836-4cc2-a5d9-1157c630abdf"
+          },
+          {
+            "drug": "Vitamin K Antagonist",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "For the patients with a CHADS\u2082 score of \u22652, chronic OAC therapy with a VKA is recommended in a dose-adjusted regimen to achieve an INR range of 2.0\u20133.0 (target 2.5), unless contraindicated",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "459eb0c5-c815-41c2-b202-c066f6591b49"
+          },
+          {
+            "drug": "Anticoagulant",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Women with AF benefit from both rate and rhythm control and anticoagulants for prophylaxis against thrombo-embolism.",
+            "source_document": "Section 2: Types Of Cardiovascular Disease",
+            "cpg_chunk_id": "a32d0cf6-7a83-4389-8ff8-0748e81c9ca0"
+          },
+          {
+            "drug": "Aspirin",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Patients with one 'clinically relevant non-major' risk factor are at intermediate risk and antithrombotic therapy is recommended, either as: i. VKA therapy or ii. aspirin 75\u2013325 mg daily",
+            "source_document": "Section 6: Management: Prevention Of Thromboembolism",
+            "cpg_chunk_id": "459eb0c5-c815-41c2-b202-c066f6591b49"
+          },
+          {
+            "drug": "Beta-Blocker",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Drugs commonly used are \u00df-blockers, non-dihydropyridine calcium channel antagonists (diltiazem, verapamil), and digitalis.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Beta-Blocker",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with \u00df-blockers, diltiazem or verapamil may be considered for rate control, although the efficacy of these agents in enhancing success of DCCV or preventing early recurrence of AF is uncertain.",
+            "source_document": "Section 10: Chronic Heart Failure - Heart Failure with Reduced LVEF (HFrEF)",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Non-Dihydropyridine Calcium Channel Antagonist",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Drugs commonly used are \u00df-blockers, non-dihydropyridine calcium channel antagonists (diltiazem, verapamil), and digitalis.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "8521f85b-55a6-4fe3-9dec-924c12569fa1"
+          },
+          {
+            "drug": "Amiodarone",
+            "condition": "Atrial Fibrillation",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 10: Chronic Heart Failure - Heart Failure with Reduced LVEF (HFrEF)",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Amiodarone",
+            "condition": "Atrial Fibrillation",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "Pre-treatment with amiodarone, sotalol, flecainide, propafenone increases the likelihood of restoring sinus rhythm.",
+            "source_document": "Section 7: Management: Long-Term Rate Control",
+            "cpg_chunk_id": "02bc64bf-023c-405b-b3f6-e714a2d5f5dc"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Insulin is the preferred pharmacological therapy for most hospitalised patients with T2DM or hyperglycaemia.",
+            "source_document": "Section 6: T2DM in Special Populations",
+            "cpg_chunk_id": "6faa08b9-ae79-4259-b8a7-9b66a3a98e15"
+          },
+          {
+            "drug": "Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Metformin is the preferred choice as a first line therapy.",
+            "source_document": "Section 3.7: Treatment algorithms for the management of T2DM",
+            "cpg_chunk_id": "1ac93945-1ed4-4674-abb6-a26cf41ead27"
+          },
+          {
+            "drug": "Metformin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "RECOMMENDED_FOR",
+            "evidence": "As first line therapy, metformin is the preferred choice.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          },
+          {
+            "drug": "Basal Insulin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "[Level I] basal insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "9eddae0d-0c56-4db1-9a27-89f8c1882d5d"
+          },
+          {
+            "drug": "Gliclazide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glimepiride",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Glipizide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Among the second generation SUs, gliclazide, glipizide and glimepiride are preferred over other SUs as they cause less hypoglycaemia and less weight gain.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "3fcdaf88-c971-48a3-be02-d87fb5930474"
+          },
+          {
+            "drug": "Dulaglutide",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "Dulaglutide monotherapy was slightly superior to metformin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "259f06c0-aa8a-47aa-a1e7-c6d3ee1f89cf"
+          },
+          {
+            "drug": "Metformin And Vildagliptin",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "FIRST_LINE_FOR",
+            "evidence": "The VERIFY study has confirmed a delay in loss of glycaemic control when combination therapy (metformin + vildagliptin) is initiated within 24 months of diagnosis, as compared to sequential therapy.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "94f476bd-047f-4a55-8141-6071846504e6"
+          },
+          {
+            "drug": "Glp-1Ra",
+            "condition": "Type 2 Diabetes Mellitus",
+            "relation": "SECOND_LINE_FOR",
+            "evidence": "If targets are not met after optimal combined OGLDs therapy, consider adding GLP-1RA or insulin.",
+            "source_document": "Section 3.6: Glucose Lowering Drugs and Insulin Therapy",
+            "cpg_chunk_id": "e5d67de1-4d68-42d8-8a2c-8c7a1f6d9601"
+          }
+        ]
+      }
+    },
+    {
+      "event": "stage_update",
+      "data": {
+        "stage": 5,
+        "name": "Plan Synthesis",
+        "status": "running",
+        "detail": "Generating evidence-based care plan\u2026"
+      }
+    },
+    {
+      "event": "error",
+      "data": {
+        "detail": "Error code: 401 - {'error': {'message': 'Invalid API Key', 'param': 'Please provide valid API Key', 'code': '401', 'type': 'invalid_key'}}"
+      }
+    },
+    {
+      "event": "done",
+      "data": {}
+    }
+  ],
+  "final": null
+}
