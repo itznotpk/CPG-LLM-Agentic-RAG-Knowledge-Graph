@@ -23,6 +23,10 @@ from dotenv import load_dotenv
 
 from .agent import rag_agent, AgentDependencies
 from .delivery_worker import start as start_delivery_worker, stop as stop_delivery_worker
+from .followup.enrollment import create_enrollment as create_followup_enrollment
+from .followup.enrollment import enrollment_status as get_followup_status
+from .followup import scheduler_worker as followup_scheduler
+from .followup import bot_poller as followup_bot_poller
 from .tracing import setup_tracing, shutdown_tracing, tag_request
 from .db_utils import (
     initialize_database,
@@ -288,6 +292,8 @@ async def lifespan(app: FastAPI):
         
         logger.info("Agentic RAG API startup complete")
         start_delivery_worker()
+        followup_scheduler.start()
+        followup_bot_poller.start()
 
     except asyncio.TimeoutError:
         logger.error("Startup timed out during database initialization")
@@ -304,6 +310,8 @@ async def lifespan(app: FastAPI):
 
     try:
         await stop_delivery_worker()
+        await followup_scheduler.stop()
+        await followup_bot_poller.stop()
         await close_supabase_db()
         await close_database()
         await close_graph()
@@ -2272,6 +2280,47 @@ async def delivery_status(consultation_id: int):
         "created_at": row["created_at"].isoformat() if row["created_at"] else None,
         "delivered_at": row["delivered_at"].isoformat() if row["delivered_at"] else None,
     }
+
+
+class FollowupEnrollRequest(_BaseModel):
+    consultation_id: int
+    patient_nric: str
+
+
+@app.post("/followup/enroll")
+async def followup_enroll(request: FollowupEnrollRequest):
+    """Issue a one-time Telegram deep-link token for post-visit follow-up."""
+    try:
+        return await create_followup_enrollment(request.consultation_id, request.patient_nric)
+    except Exception as e:
+        logger.error("followup enroll failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/followup/status/{consultation_id}")
+async def followup_status(consultation_id: int):
+    try:
+        return await get_followup_status(consultation_id)
+    except Exception as e:
+        logger.error("followup status failed: %s", e)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/followup/simulate-due")
+async def followup_simulate_due():
+    """Demo insurance: force the earliest pending check-in due now, then send it.
+    Hidden unless FOLLOWUP_DEMO_MODE=true."""
+    if os.environ.get("FOLLOWUP_DEMO_MODE", "").lower() != "true":
+        raise HTTPException(status_code=404, detail="Not found")
+    from .db_utils import supabase_pool as _pool
+    async with _pool.acquire() as conn:
+        await conn.execute(
+            """UPDATE followup_checkins SET due_at = now()
+                WHERE id = (SELECT id FROM followup_checkins
+                             WHERE status = 'pending' ORDER BY due_at LIMIT 1)"""
+        )
+    processed = await followup_scheduler.process_one_due()
+    return {"processed": processed}
 
 
 # Exception handlers
