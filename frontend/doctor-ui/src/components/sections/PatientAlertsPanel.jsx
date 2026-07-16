@@ -24,7 +24,11 @@ export default function PatientAlertsPanel({ isDark }) {
   }, [load]);
 
   const ack = async (id) => {
-    await ackPatientAlert(id, 'clinician');
+    try {
+      await ackPatientAlert(id, 'clinician');
+    } catch {
+      /* non-critical surface — swallow, the realtime refresh will re-sync */
+    }
     load();
   };
 
