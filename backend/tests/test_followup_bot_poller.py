@@ -75,3 +75,14 @@ async def test_no_active_enrollment_gets_fixed_reply():
         await bp.handle_update(_update("hello?"))
     sent = tg.send_message.await_args.args[1]
     assert "active follow-up plan" in sent
+
+
+async def test_stop_dispatch_logs_both_directions():
+    tg = AsyncMock(); tg.send_message = AsyncMock(return_value=True)
+    logm = AsyncMock()
+    with patch.object(bp, "get_client", lambda: tg), \
+         patch.object(bp, "stop_enrollment", AsyncMock(return_value=True)), \
+         patch.object(bp, "log_message", logm):
+        await bp.handle_update(_update("STOP"))
+    directions = [c.args[2] for c in logm.await_args_list]
+    assert "inbound" in directions and "outbound" in directions

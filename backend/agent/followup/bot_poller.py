@@ -53,11 +53,13 @@ def plan_context_text(plan: dict) -> str:
 
 
 async def _handle_start(chat_id: int, text: str) -> None:
+    await log_message(None, chat_id, "inbound", "[/start command]")
     parts = text.split(maxsplit=1)
     token = parts[1].strip() if len(parts) > 1 else None
     enrollment = await bind_enrollment(token, chat_id) if token else None
     if not enrollment:
         await get_client().send_message(chat_id, EXPIRED_LINK_REPLY)
+        await log_message(None, chat_id, "outbound", EXPIRED_LINK_REPLY)
         return
     plan = await load_plan(enrollment["consultation_id"])
     items = await generate_protocol(plan, enrollment.get("patient_first_name"))
@@ -80,14 +82,18 @@ async def handle_update(update: dict) -> None:
         return
 
     if text.split()[0].upper() == "STOP":
+        await log_message(None, chat_id, "inbound", text)
         stopped = await stop_enrollment(chat_id)
-        await get_client().send_message(chat_id, STOP_CONFIRM_REPLY if stopped else NO_ACTIVE_REPLY)
+        reply = STOP_CONFIRM_REPLY if stopped else NO_ACTIVE_REPLY
+        await get_client().send_message(chat_id, reply)
+        await log_message(None, chat_id, "outbound", reply)
         return
 
     enrollment = await active_enrollment_for_chat(chat_id)
     await log_message(enrollment["id"] if enrollment else None, chat_id, "inbound", text)
     if not enrollment:
         await get_client().send_message(chat_id, NO_ACTIVE_REPLY)
+        await log_message(None, chat_id, "outbound", NO_ACTIVE_REPLY)
         return
 
     tripwire = check_tripwires(text)
