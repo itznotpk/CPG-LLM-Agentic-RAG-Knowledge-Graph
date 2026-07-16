@@ -113,7 +113,12 @@ async def generate_protocol(plan: dict, patient_first_name: str | None) -> list[
 
 
 def compute_due_at(enrolled_at: datetime, day_offset: int) -> datetime:
-    scale = float(os.getenv("FOLLOWUP_TIME_SCALE", "1") or "1")
+    try:
+        scale = float(os.getenv("FOLLOWUP_TIME_SCALE", "1") or "1")
+    except ValueError:
+        scale = 1.0
+    if scale <= 0:
+        scale = 1.0
     return enrolled_at + timedelta(seconds=day_offset * 86400 / scale)
 
 
