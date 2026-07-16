@@ -17,6 +17,7 @@ import { GlassCard as Card } from '../shared';
 import { useTheme } from '../../context/ThemeContext';
 import { supabase } from '../../lib/supabase';
 import { safeJson } from '../../lib/helpers';
+import PatientAlertsPanel from './PatientAlertsPanel';
 
 function getSeverityOrder(s) {
   const m = { CRITICAL: 0, MAJOR: 1, MODERATE: 2, MINOR: 3 };
@@ -420,6 +421,8 @@ export function DashboardSection({ days = 30 }) {
         </div>
         {loading && <span className={`text-xs mt-1 ${isDark ? 'text-slate-500' : 'text-slate-400'} animate-pulse`}>Syncing…</span>}
       </div>
+
+      <PatientAlertsPanel isDark={isDark} />
 
       {/* ── Row 1: Core metrics ─────────────────────────────────────── */}
       <Card className="p-0 overflow-hidden" variant={isDark ? 'dark' : 'light'}>
