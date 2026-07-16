@@ -56,6 +56,9 @@ async def test_bind_supersedes_prior_active_and_activates():
     with patch.object(enr, "db_pool", pool):
         row = await enr.bind_enrollment("tok", 555)
     assert row["id"] == 2
+    assert row["status"] == "active"
+    assert row["telegram_chat_id"] == 555
+    assert row["activated_at"] is not None
     executed_sql = " ".join(str(c.args[0]) for c in conn.execute.call_args_list)
     assert "superseded" in executed_sql          # prior active rows superseded
     assert "cancelled" in executed_sql            # their pending check-ins cancelled

@@ -72,10 +72,14 @@ async def bind_enrollment(token: str, chat_id: int) -> dict | None:
             await conn.execute(
                 """UPDATE followup_enrollments
                       SET status = 'active', telegram_chat_id = $2, activated_at = now()
-                    WHERE id = $1""",
+                    WHERE id = $1 AND status = 'issued'""",
                 row["id"], chat_id,
             )
-    return dict(row)
+    result = dict(row)
+    result["status"] = "active"
+    result["telegram_chat_id"] = chat_id
+    result["activated_at"] = datetime.now(timezone.utc)
+    return result
 
 
 async def stop_enrollment(chat_id: int) -> bool:
