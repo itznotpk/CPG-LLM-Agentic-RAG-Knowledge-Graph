@@ -6046,6 +6046,8 @@ async def generate_prep_brief(
     patient_age: int | None,
     patient_sex: str | None,
     comorbidities: list[str] | None,
+    followup_alerts: list | None = None,
+    checkin_digest: str | None = None,
 ) -> dict:
     """Generate a 3-bullet pre-consultation briefing for a returning patient.
 
@@ -6071,7 +6073,7 @@ async def generate_prep_brief(
     if not PREP_BRIEF_PROMPT:
         return fallback
 
-    payload = json.dumps({
+    payload_dict = {
         "prior_visit": prior_visit,
         "current_medications": current_medications or [],
         "patient": {
@@ -6079,7 +6081,12 @@ async def generate_prep_brief(
             "sex": patient_sex,
             "comorbidities": comorbidities or [],
         },
-    }, ensure_ascii=False)
+    }
+    if followup_alerts:
+        payload_dict["followup_alerts"] = followup_alerts
+    if checkin_digest:
+        payload_dict["followup_checkin_digest"] = checkin_digest
+    payload = json.dumps(payload_dict, ensure_ascii=False)
 
     try:
         client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)

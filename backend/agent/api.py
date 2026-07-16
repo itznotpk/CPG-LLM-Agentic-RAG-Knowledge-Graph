@@ -909,6 +909,37 @@ class PrepBriefRequest(_BaseModel):
     comorbidities: list = []
 
 
+async def _load_followup_context(patient_nric: str) -> tuple[list, str | None]:
+    """Open alerts + check-in digest for the prep brief. Fail-open: ([], None)."""
+    try:
+        from .db_utils import supabase_pool as _pool
+        async with _pool.acquire() as conn:
+            alerts = await conn.fetch(
+                """SELECT severity, summary, patient_reply, status, created_at::text
+                     FROM patient_alerts
+                    WHERE patient_nric = $1 AND created_at > now() - interval '30 days'
+                    ORDER BY created_at DESC LIMIT 5""",
+                patient_nric,
+            )
+            stats = await conn.fetchrow(
+                """SELECT count(*) FILTER (WHERE direction = 'outbound') AS sent,
+                          count(*) FILTER (WHERE direction = 'inbound') AS replies,
+                          count(*) FILTER (WHERE triage_class = 'ESCALATE') AS escalations
+                     FROM patient_messages m
+                     JOIN followup_enrollments e ON e.id = m.enrollment_id
+                    WHERE e.patient_nric = $1 AND m.created_at > now() - interval '30 days'""",
+                patient_nric,
+            )
+        digest = None
+        if stats and (stats["sent"] or stats["replies"]):
+            digest = (f"{stats['sent']} check-ins sent, {stats['replies']} replies, "
+                      f"{stats['escalations']} escalation(s)")
+        return [dict(a) for a in alerts], digest
+    except Exception as exc:
+        logger.warning("followup context load failed (fail-open): %s", exc)
+        return [], None
+
+
 @app.post("/clinical/prep-brief")
 async def prep_brief(request: PrepBriefRequest):
     """30-second pre-consultation briefing for returning patients.
@@ -919,12 +950,15 @@ async def prep_brief(request: PrepBriefRequest):
     from .clinical_stages import generate_prep_brief
 
     try:
+        followup_alerts, checkin_digest = await _load_followup_context(request.patient_nric)
         brief = await generate_prep_brief(
             prior_visit=request.prior_visit,
             current_medications=request.current_medications,
             patient_age=request.patient_age,
             patient_sex=request.patient_sex,
             comorbidities=request.comorbidities,
+            followup_alerts=followup_alerts,
+            checkin_digest=checkin_digest,
         )
         return brief
     except Exception as e:

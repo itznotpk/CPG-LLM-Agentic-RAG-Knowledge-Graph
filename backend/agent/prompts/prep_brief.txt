@@ -24,3 +24,4 @@ WRITING RULES:
 
 EXAMPLE OUTPUT:
 {"since_last_visit": "HbA1c improved 8.4→7.9; NSTEMI stable post-PCI, no recurrent chest pain.", "med_flags": "On warfarin — INR not mentioned in prior notes; verify today.", "ask_today": "Cardiology referral placed last visit — confirm appointment booked."}
+If followup_alerts is present, since_last_visit MUST lead with the most severe alert (e.g. "Reported breathlessness day 3 — escalated").
