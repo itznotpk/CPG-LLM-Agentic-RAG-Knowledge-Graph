@@ -189,6 +189,30 @@ def tag_request(request_id: str) -> None:
         pass
 
 
+def add_span_attributes(**attributes) -> None:
+    """Stamp key/value attributes onto the CURRENT span (e.g. the pipeline
+    stage span opened by clinical_workflow._maybe_time). Lets stage runners
+    record outcome summaries — ddx.count, cpg.names, plan.confidence — so a
+    Jaeger trace reads as a story without cross-referencing logs.
+
+    Fail-open no-op when tracing is off; None values are skipped; non-scalar
+    values are stringified (OTel attributes must be scalars or scalar lists)."""
+    if not _initialized:
+        return
+    try:
+        span = _trace.get_current_span()
+        if span is None:
+            return
+        for key, value in attributes.items():
+            if value is None:
+                continue
+            if not isinstance(value, (str, bool, int, float)):
+                value = str(value)
+            span.set_attribute(key, value)
+    except Exception:
+        pass
+
+
 @contextmanager
 def stage_span(name: str, **attributes):
     """Open a named span (child of the current context — under FastAPI this is

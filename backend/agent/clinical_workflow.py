@@ -26,7 +26,7 @@ from .graph_navigator import get_graph_constraints
 from .pipeline_state import PipelineState, begin_state, compute_resume_key  # noqa: F401 (compute_resume_key re-exported for tests/tools)
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .stage_retry import run_with_retry
-from .tracing import stage_span
+from .tracing import add_span_attributes, stage_span
 
 logger = logging.getLogger(__name__)
 
@@ -371,6 +371,9 @@ async def _run_stage2(
                     )
                 else:
                     ddx = await run_with_retry("stage_2_ddx", lambda: stage_2_ddx(case, top_k=5))
+                add_span_attributes(
+                    **{"ddx.count": len(ddx), "ddx.top_code": ddx[0].code if ddx else None},
+                )
             if state is not None:
                 state.ddx = ddx
                 state.checkpoint()
@@ -449,10 +452,14 @@ async def _run_stage3(
                     ),
                     emit=emit, stage=3,
                 )
+                add_span_attributes(
+                    **{"cpg.count": len(cpgs),
+                       "cpg.names": ", ".join(c.cpg_name for c in cpgs)[:300]},
+                )
 
             async def _route_extras() -> list[CPGDocRef]:
                 with _maybe_time("stage_3_route_comorbidities", timings):
-                    return await route_comorbidities(
+                    extras = await route_comorbidities(
                         case.comorbidities,
                         cpgs,
                         patient_sex=case.sex,
@@ -460,6 +467,11 @@ async def _run_stage3(
                         staged_comorbidities=case.staged_comorbidities,
                         clinical_context=_build_symptom_text(case),
                     )
+                    add_span_attributes(
+                        **{"cpg.comorbidity_added": len(extras),
+                           "cpg.comorbidity_names": ", ".join(c.cpg_name for c in extras)[:300]},
+                    )
+                    return extras
 
             if comorbid_inner_try:
                 # Comorbidity routing — fan in any staged/free-text comorbidities so
@@ -542,6 +554,7 @@ async def _run_stage4(
                     evidence = await run_with_retry(
                         "stage_4_retrieve", lambda: stage_4_retrieve(case, ddx, cpgs),
                     )
+                add_span_attributes(**{"evidence.chunks": len(evidence)})
             if state is not None:
                 # Only a SUCCESSFUL retrieval is checkpointed — a failed one must
                 # re-run on resume, not replay the failure.
@@ -584,6 +597,9 @@ async def _run_kg_lookup(
                 patient_params=build_patient_params(case),
                 patient_age=case.age,
             )
+            add_span_attributes(
+                **{"kg.candidate_drugs": len(_candidate_drugs), "kg.flags": len(kg_flags)},
+            )
         logger.info("KG lookup: %d flags", len(kg_flags))
         return kg_flags
     except Exception as e:
@@ -607,6 +623,7 @@ async def _run_graph_navigator(
     try:
         with _maybe_time("graph_navigator", timings):
             nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
+            add_span_attributes(**{"nav.rules": len(nav_flags)})
         logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
         kg_flags = list(kg_flags) + list(nav_flags)
     except Exception as e:
@@ -646,6 +663,11 @@ async def _synthesize_or_degrade(
             "stage_5_synthesize",
             lambda: stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags),
         )
+        add_span_attributes(
+            **{"plan.icd_primary": treatment_plan.icd_primary,
+               "plan.confidence": treatment_plan.confidence,
+               "plan.recommendations": len(treatment_plan.recommendations or [])},
+        )
     if not evidence:
         _flag_empty_evidence(treatment_plan)
     return treatment_plan
@@ -670,6 +692,10 @@ async def _run_stage6(
                 "stage_6_safety", lambda: run_safety_critic(case, treatment_plan, emit=emit),
                 emit=emit, stage=6,
             )
+            add_span_attributes(
+                **{"safety.flags": len(safety_report.flags),
+                   "safety.safe_to_proceed": safety_report.safe_to_proceed},
+            )
         blocking_flags = [f for f in safety_report.flags if f.severity in ("CRITICAL", "MAJOR")]
         await emit("stage_update", {
             "stage": 6, "name": "Safety Review", "status": "complete",
@@ -684,6 +710,10 @@ async def _run_stage6(
         with _maybe_time("stage_6_safety", timings):
             safety_report = await run_with_retry(
                 "stage_6_safety", lambda: run_safety_critic(case, treatment_plan),
+            )
+            add_span_attributes(
+                **{"safety.flags": len(safety_report.flags),
+                   "safety.safe_to_proceed": safety_report.safe_to_proceed},
             )
     return safety_report
 
