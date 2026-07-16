@@ -42,8 +42,9 @@ TRIPWIRE_REPLY = (
     "please call 999 or go to the nearest hospital now. I've alerted your clinic."
 )
 ESCALATE_FALLBACK_REPLY = (
-    "Thank you for your message. I've flagged it for your clinic to review. "
-    "If your symptoms feel severe, please call 999 or go to the nearest hospital."
+    "Thank you for your message. I've flagged it for your clinic to review — "
+    "someone will be in touch. If anything feels urgent in the meantime, "
+    "please contact your clinic directly."
 )
 
 

@@ -32,3 +32,10 @@ async def test_classify_reply_failsafe_escalates_on_exception():
     with patch.object(tr, "_call_llm", AsyncMock(side_effect=TimeoutError("slow"))):
         result = await tr.classify_reply("plan ctx", None, "hmm")
     assert result.classification == "ESCALATE"
+
+
+def test_reply_constants_differentiate_emergency_guidance():
+    from agent.followup import triage as tr
+    assert "999" in tr.TRIPWIRE_REPLY            # confirmed hazard → urgent
+    assert "999" not in tr.ESCALATE_FALLBACK_REPLY  # LLM-failure fallback → no over-alarm
+    assert "clinic" in tr.ESCALATE_FALLBACK_REPLY.lower()
