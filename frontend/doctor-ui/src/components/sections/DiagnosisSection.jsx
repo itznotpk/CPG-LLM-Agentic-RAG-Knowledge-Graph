@@ -82,6 +82,7 @@ export function DiagnosisSection() {
         clinicianId: profile?.id,
         clinicianName,
         cpgReferences: null,
+        requestId: state.clinicalPlanResponse?.request_id || null,
       }).catch((err) => console.error('human_signals capture failed:', err));
       setRegenFeedback('');
       setRegenOpen(false);
@@ -105,6 +106,7 @@ export function DiagnosisSection() {
         clinicianId: profile?.id,
         clinicianName,
         cpgReferences: null,
+        requestId: state.clinicalPlanResponse?.request_id || null,
       }).catch((err) => console.error('human_signals capture failed:', err));
       setManualName('');
       setManualOpen(false);

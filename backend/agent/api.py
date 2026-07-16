@@ -23,6 +23,7 @@ from dotenv import load_dotenv
 
 from .agent import rag_agent, AgentDependencies
 from .delivery_worker import start as start_delivery_worker, stop as stop_delivery_worker
+from .tracing import setup_tracing, shutdown_tracing, tag_request
 from .db_utils import (
     initialize_database,
     initialize_supabase_db,
@@ -309,6 +310,7 @@ async def lifespan(app: FastAPI):
         logger.info("Connections closed")
     except Exception as e:
         logger.error(f"Shutdown error: {e}")
+    shutdown_tracing()
 
 
 # Create FastAPI app
@@ -323,6 +325,7 @@ app = FastAPI(
 async def _correlation_id_middleware(request: Request, call_next):
     rid = request.headers.get("X-Request-ID") or str(uuid.uuid4())
     _request_id_var.set(rid)
+    tag_request(rid)   # stamp rid onto the OTel context + HTTP root span (no-op when tracing off)
     response = await call_next(request)
     response.headers["X-Request-ID"] = rid
     return response
@@ -334,10 +337,18 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"]
+    allow_headers=["*"],
+    # Let the cross-origin frontend READ the correlation id set by
+    # _correlation_id_middleware — clinicalApi.js attaches it to responses so
+    # human_signals rows can be joined to the trace/logs of the run they judge.
+    expose_headers=["X-Request-ID"],
 )
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+# OpenTelemetry — must run before the app starts serving (middleware can't be
+# added once the stack is built). Env-gated no-op unless OTEL_TRACING_ENABLED=true.
+setup_tracing(app)
 
 
 # ── rPPG vital scanner ──────────────────────────────────────────────────────

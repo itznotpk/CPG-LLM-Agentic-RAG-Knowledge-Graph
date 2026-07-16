@@ -2,6 +2,17 @@ const CLINICAL_API_BASE = import.meta.env.VITE_CLINICAL_API_URL || 'http://local
 
 import { splitBulletItems } from './helpers';
 
+// Stamp the backend's X-Request-ID correlation id onto a response payload so
+// downstream feedback rows (human_signals) can be joined to the trace/logs of
+// the exact pipeline run they judge. Requires the API's CORS expose_headers.
+function attachRequestId(payload, response) {
+  if (payload && typeof payload === 'object' && payload.request_id == null) {
+    const rid = response?.headers?.get?.('X-Request-ID');
+    if (rid) payload.request_id = rid;
+  }
+  return payload;
+}
+
 // ─── shared helper ────────────────────────────────────────────────────────────
 function buildClinicalPlanBody(patientState, vitals, clinicalNotes, mpisData, stagingData, structuredComorbidities, consultationId) {
   return {
@@ -103,7 +114,9 @@ export async function runClinicalPlan(patientState, vitals, clinicalNotes, mpisD
     throw new Error(err.detail || 'Clinical plan request failed');
   }
 
-  return resp.json();   // ClinicalPlanResponse shape
+  const data = await resp.json();   // ClinicalPlanResponse shape
+  attachRequestId(data, resp);
+  return data;
 }
 
 // ─── stop-and-confirm phase 1: DDx only ───────────────────────────────────────
@@ -161,7 +174,7 @@ export async function runDDxStream(
           const { done, value } = await reader.read();
           if (done) {
             // Stream closed: resolve with whatever we captured (or empty).
-            resolve(ddxResult || { ddx: [] });
+            resolve(attachRequestId(ddxResult || { ddx: [] }, response));
             return;
           }
           buffer += decoder.decode(value, { stream: true });
@@ -186,7 +199,7 @@ export async function runDDxStream(
             else if (eventType === 'ddx_suggestion'  && onDDxSuggestion)  onDDxSuggestion(payload);
             else if (eventType === 'ddx_ready')                           ddxResult = payload;
             else if (eventType === 'error')                              reject(new Error(payload.detail || 'DDx pipeline error'));
-            else if (eventType === 'done')                              { resolve(ddxResult || { ddx: [] }); return; }
+            else if (eventType === 'done')                              { resolve(attachRequestId(ddxResult || { ddx: [] }, response)); return; }
           }
         }
       } catch (err) {
@@ -277,7 +290,7 @@ export async function runClinicalPlanStream(
             else if (eventType === 'ebm_evidence'   && onEbmEvidence)   onEbmEvidence(payload);
             else if (eventType === 'final_result') {
               if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
-              resolve(payload);
+              resolve(attachRequestId(payload, response));
             }
             else if (eventType === 'error')                               reject(new Error(payload.detail || 'Pipeline error'));
             else if (eventType === 'done')                                return; // resolve already called
@@ -385,7 +398,7 @@ export async function resynthesizePlanStream(
             else if (eventType === 'ebm_evidence'        && onEbmEvidence)        onEbmEvidence(payload);
             else if (eventType === 'final_result') {
               if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
-              resolve(payload);
+              resolve(attachRequestId(payload, response));
             }
             else if (eventType === 'error')                                      reject(new Error(payload.detail || 'Re-synthesis error'));
             else if (eventType === 'done')                                       return;

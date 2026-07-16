@@ -98,3 +98,13 @@ python-dateutil>=2.9.0      # Date utilities
 docling>=2.0.0              # PDF to Markdown (requires Python 3.12)
 
 
+
+# ------------------------------------------
+# Observability — OpenTelemetry tracing (env-gated via OTEL_TRACING_ENABLED)
+# ------------------------------------------
+opentelemetry-sdk>=1.39.0                       # TracerProvider + BatchSpanProcessor
+opentelemetry-exporter-otlp-proto-http>=1.39.0  # OTLP/HTTP exporter (Jaeger/Tempo/collector on :4318)
+opentelemetry-instrumentation-fastapi>=0.60b1   # HTTP request root spans
+opentelemetry-instrumentation-httpx>=0.60b1     # LLM calls (Gemini/MiMo via openai SDK), EBM lookups
+opentelemetry-instrumentation-asyncpg>=0.60b1   # pgvector + Supabase queries
+opentelemetry-instrumentation-botocore>=0.60b1  # Bedrock Titan embedding calls

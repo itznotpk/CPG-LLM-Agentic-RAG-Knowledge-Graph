@@ -680,7 +680,7 @@ export function AppProvider({ children }) {
       // The care plan (Stages 3–5) is NOT generated until the clinician confirms
       // a diagnosis in confirmDiagnosis() — so the authoritative plan is never
       // produced against an unvalidated diagnosis.
-      const { ddx } = await runDDxStream(
+      const { ddx, request_id } = await runDDxStream(
         { ...state.patient, priorVisit: state.priorVisit },
         state.vitals,
         state.clinicalNotes,
@@ -718,7 +718,7 @@ export function AppProvider({ children }) {
         },
       });
       // Stash DDx-only response so confirmDiagnosis can read the AI top picks.
-      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null } });
+      dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null, request_id: request_id || null } });
       dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
       // Care plan intentionally left unset until confirmation.
       dispatch({ type: 'SET_ANALYZING', payload: false });
@@ -769,7 +769,7 @@ export function AppProvider({ children }) {
     dispatch({ type: 'RESET_PIPELINE_FROM_STAGE', payload: 2 });
 
     try {
-      const { ddx } = await runDDxStream(
+      const { ddx, request_id } = await runDDxStream(
         { ...state.patient, priorVisit: state.priorVisit },
         state.vitals,
         state.clinicalNotes,
@@ -785,7 +785,7 @@ export function AppProvider({ children }) {
 
       if (ddx && ddx.length > 0) {
         const diagnosis = mapDdxToDiagnosis(ddx, []); // routing still runs on Confirm
-        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null } });
+        dispatch({ type: 'SET_CLINICAL_PLAN_RESPONSE', payload: { ddx, cpgs_matched: [], treatment_plan: null, request_id: request_id || null } });
         dispatch({ type: 'SET_DIAGNOSIS', payload: diagnosis });
         dispatch({
           type: 'SET_PIPELINE_SUMMARY',

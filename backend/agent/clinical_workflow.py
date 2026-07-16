@@ -23,7 +23,10 @@ from .clinical_stages import (  # noqa: F401 (stage_2_ddx imported for test patc
 from .ebm_lookup import fetch_ebm_evidence
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
+from .pipeline_state import PipelineState, begin_state, compute_resume_key  # noqa: F401 (compute_resume_key re-exported for tests/tools)
 from .routing import CPGDocRef, route_icd_to_cpgs
+from .stage_retry import run_with_retry
+from .tracing import stage_span
 
 logger = logging.getLogger(__name__)
 
@@ -213,6 +216,25 @@ def _time_stage(name: str, timings: dict[str, float]):
         timings[name] = (time.monotonic() - start) * 1000
 
 
+@contextmanager
+def _maybe_time(name: str, timings: dict[str, float] | None):
+    """_time_stage when a timings dict is provided; transparent no-op otherwise.
+
+    Lets the shared stage runners serve all three entrypoints while preserving
+    each one's original timing behaviour (streaming never timed its stages).
+
+    Also opens an OpenTelemetry span per stage (pipeline.<name>) — a no-op
+    unless OTEL_TRACING_ENABLED=true. The span wraps ALL paths, including
+    streaming's untimed stages, so the trace waterfall is complete even where
+    stage_timings never was."""
+    with stage_span(f"pipeline.{name}"):
+        if timings is None:
+            yield
+        else:
+            with _time_stage(name, timings):
+                yield
+
+
 def _log_stage_breakdown(timings: dict[str, float], total_ms: float) -> None:
     ordered = sorted(timings.items(), key=lambda kv: kv[1], reverse=True)
     parts = [f"{name}={ms:.0f}ms ({ms / total_ms * 100:.0f}%)" for name, ms in ordered] if total_ms else []
@@ -307,6 +329,370 @@ async def _apply_ebm_pass(*, case, ddx, draft_plan, cpgs, emit):
         return draft_plan
 
 
+# ---------------------------------------------------------------------------
+# Shared stage runners
+#
+# Single source of truth for each pipeline stage. The three entrypoints below
+# (non-streaming, streaming, resynthesize) are thin sequencers over these.
+# Behavioural differences between entrypoints are passed explicitly:
+#   emit=None      → no SSE events (non-streaming path)
+#   timings=None   → stage not timed (streaming path never timed its stages)
+# Stage functions (stage_2_ddx, stage_3_route, …) are resolved from module
+# globals at call time so test patches on agent.clinical_workflow.* keep working.
+# ---------------------------------------------------------------------------
+
+
+async def _run_stage2(
+    case: PatientCase,
+    errors: list[StageError],
+    *,
+    emit=None,
+    timings: dict[str, float] | None = None,
+    state: PipelineState | None = None,
+) -> list[DDxResult]:
+    """Stage 2 — DDx. Fail-open: returns [] on error."""
+    if emit is not None:
+        await emit("stage_update", {
+            "stage": 2, "name": "DDx Analysis",
+            "status": "running", "detail": "Analyzing symptoms and history…"
+        })
+    try:
+        if state is not None and state.is_resumed("ddx"):
+            ddx = state.ddx
+            logger.info("Stage 2 DDx restored from checkpoint (%d candidates)", len(ddx))
+            if emit is not None:
+                await emit("sub_step", {"stage": 2, "detail": "Restored from checkpoint", "badge": "resumed"})
+        else:
+            with _maybe_time("stage_2_ddx", timings):
+                if emit is not None:
+                    ddx = await run_with_retry(
+                        "stage_2_ddx", lambda: stage_2_ddx(case, top_k=5, emit=emit),
+                        emit=emit, stage=2,
+                    )
+                else:
+                    ddx = await run_with_retry("stage_2_ddx", lambda: stage_2_ddx(case, top_k=5))
+            if state is not None:
+                state.ddx = ddx
+                state.checkpoint()
+        top = ddx[0].code if ddx else "none"
+        if emit is not None:
+            await emit("stage_update", {
+                "stage": 2, "name": "DDx Analysis", "status": "complete",
+                "detail": f"{len(ddx)} candidates · top: {top}",
+                "data": [d.model_dump() for d in ddx],
+            })
+        logger.info("Stage 2 DDx: %d candidates. Top: %s", len(ddx), top)
+        return ddx
+    except Exception as e:
+        logger.error("Stage 2 DDx failed: %s", e)
+        errors.append(StageError.from_exc("Stage 2 DDx", e, recoverable=True))
+        if emit is not None:
+            await emit("stage_update", {
+                "stage": 2, "name": "DDx Analysis", "status": "error", "detail": str(e),
+            })
+        return []
+
+
+async def _run_stage3(
+    route_ddx: list[DDxResult],
+    case: PatientCase,
+    errors: list[StageError],
+    *,
+    emit=None,
+    timings: dict[str, float] | None = None,
+    selected: tuple[list[str] | None, str | None] | None = None,
+    running_detail: str | None = None,
+    emit_comorbidity_substeps: bool = False,
+    comorbid_inner_try: bool = False,
+    log_fmt: str = "Stage 3 Routing: %d CPGs: %s",
+    err_log_fmt: str = "Stage 3 Routing failed: %s",
+    state: PipelineState | None = None,
+) -> list[CPGDocRef]:
+    """Stage 3 — Route ICD codes to CPGs + fold in comorbidity CPGs.
+
+    selected: (selected_codes, major_code) for clinician-directed routing
+    (resynthesize path); None → headless auto-select from the DDx rank gap.
+    comorbid_inner_try: resynthesize wraps comorbidity routing in its own
+    try so a comorbidity failure keeps the primary-route CPGs (the full
+    paths treat it as part of the stage — failure clears cpgs entirely).
+    Fail-open: returns [] on (outer) error.
+    """
+    if emit is not None:
+        await emit("stage_update", {
+            "stage": 3, "name": "CPG Routing",
+            "status": "running", "detail": running_detail,
+        })
+    try:
+        if state is not None and state.is_resumed("cpgs"):
+            # Checkpointed cpgs are the FINAL list (primary + comorbidity fold),
+            # so the whole stage — including comorbidity routing — is skipped.
+            cpgs = state.cpgs
+            logger.info("Stage 3 Routing restored from checkpoint (%d CPGs)", len(cpgs))
+            if emit is not None:
+                await emit("sub_step", {"stage": 3, "detail": "Restored from checkpoint", "badge": "resumed"})
+        else:
+            if selected is None:
+                auto_selected, auto_major = _auto_select_codes(route_ddx)
+                selected_codes, major_code = (auto_selected or None), auto_major
+            else:
+                selected_codes, major_code = selected
+            with _maybe_time("stage_3_route", timings):
+                cpgs = await run_with_retry(
+                    "stage_3_route",
+                    lambda: stage_3_route(
+                        route_ddx,
+                        selected_codes=selected_codes,
+                        major_code=major_code,
+                        emit=emit,
+                        clinical_context=_build_symptom_text(case),
+                        patient_sex=case.sex,
+                    ),
+                    emit=emit, stage=3,
+                )
+
+            async def _route_extras() -> list[CPGDocRef]:
+                with _maybe_time("stage_3_route_comorbidities", timings):
+                    return await route_comorbidities(
+                        case.comorbidities,
+                        cpgs,
+                        patient_sex=case.sex,
+                        emit=emit,
+                        staged_comorbidities=case.staged_comorbidities,
+                        clinical_context=_build_symptom_text(case),
+                    )
+
+            if comorbid_inner_try:
+                # Comorbidity routing — fan in any staged/free-text comorbidities so
+                # CPGs like Obesity-Management(2023) don't drop on the resynth path.
+                # Initial /clinical/plan/stream does this; resynth was missing it.
+                try:
+                    extra_cpgs = await _route_extras()
+                    if extra_cpgs:
+                        cpgs = list(cpgs) + list(extra_cpgs)
+                        logger.info(
+                            "Re-synth Stage 3 comorbidity routing added %d CPG(s)",
+                            len(extra_cpgs),
+                        )
+                except Exception as e:
+                    logger.warning("Re-synth comorbidity routing failed (continuing): %s", e)
+            else:
+                extra_cpgs = await _route_extras()
+                if extra_cpgs:
+                    cpgs = cpgs + extra_cpgs
+                    if emit_comorbidity_substeps and emit is not None:
+                        for c in extra_cpgs:
+                            await emit("sub_step", {"stage": 3, "detail": c.cpg_name, "badge": "comorbidity"})
+
+            if state is not None:
+                state.cpgs = cpgs
+                state.checkpoint()
+
+        names = [c.cpg_name for c in cpgs]
+        if emit is not None:
+            await emit("stage_update", {
+                "stage": 3, "name": "CPG Routing", "status": "complete",
+                "detail": f"{len(cpgs)} CPGs matched",
+                "data": names,
+            })
+        logger.info(log_fmt, len(cpgs), names)
+        return cpgs
+    except Exception as e:
+        logger.error(err_log_fmt, e)
+        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
+        if emit is not None:
+            await emit("stage_update", {
+                "stage": 3, "name": "CPG Routing", "status": "error", "detail": str(e),
+            })
+        return []
+
+
+async def _run_stage4(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    cpgs: list[CPGDocRef],
+    errors: list[StageError],
+    *,
+    emit=None,
+    timings: dict[str, float] | None = None,
+    running_detail: str | None = None,
+    log_fmt: str = "Stage 4 Retrieval: %d chunks",
+    err_log_fmt: str = "Stage 4 Retrieval failed: %s",
+    state: PipelineState | None = None,
+) -> tuple[list[ChunkResult], bool]:
+    """Stage 4 — Retrieve evidence chunks. Returns (evidence, stage4_failed)."""
+    if emit is not None:
+        await emit("stage_update", {
+            "stage": 4, "name": "Evidence Retrieval",
+            "status": "running", "detail": running_detail,
+        })
+    try:
+        if state is not None and state.is_resumed("evidence"):
+            evidence = state.evidence
+            logger.info("Stage 4 Retrieval restored from checkpoint (%d chunks)", len(evidence))
+            if emit is not None:
+                await emit("sub_step", {"stage": 4, "detail": "Restored from checkpoint", "badge": "resumed"})
+        else:
+            with _maybe_time("stage_4_retrieve", timings):
+                if emit is not None:
+                    evidence = await run_with_retry(
+                        "stage_4_retrieve", lambda: stage_4_retrieve(case, ddx, cpgs, emit=emit),
+                        emit=emit, stage=4,
+                    )
+                else:
+                    evidence = await run_with_retry(
+                        "stage_4_retrieve", lambda: stage_4_retrieve(case, ddx, cpgs),
+                    )
+            if state is not None:
+                # Only a SUCCESSFUL retrieval is checkpointed — a failed one must
+                # re-run on resume, not replay the failure.
+                state.evidence = evidence
+                state.stage4_failed = False
+                state.checkpoint()
+        if emit is not None:
+            await emit("stage_update", {
+                "stage": 4, "name": "Evidence Retrieval", "status": "complete",
+                "detail": f"{len(evidence)} evidence chunks retrieved",
+            })
+        logger.info(log_fmt, len(evidence))
+        return evidence, False
+    except Exception as e:
+        logger.error(err_log_fmt, e)
+        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
+        if emit is not None:
+            await emit("stage_update", {
+                "stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e),
+            })
+        return [], True
+
+
+async def _run_kg_lookup(
+    case: PatientCase,
+    evidence: list[ChunkResult],
+    *,
+    timings: dict[str, float] | None = None,
+) -> list:
+    """KG lookup — runs between Stage 4 and Stage 5, fail-open."""
+    try:
+        with _maybe_time("kg_lookup", timings):
+            _chunk_ids = [c.chunk_id for c in evidence]
+            _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
+            kg_flags = await clinical_graph_lookup(
+                patient_meds=case.current_medications,
+                candidate_drugs=_candidate_drugs,
+                comorbidities=case.comorbidities,
+                allergies=case.allergies,
+                patient_params=build_patient_params(case),
+                patient_age=case.age,
+            )
+        logger.info("KG lookup: %d flags", len(kg_flags))
+        return kg_flags
+    except Exception as e:
+        logger.warning("KG lookup failed (non-fatal): %s", e)
+        return []
+
+
+async def _run_graph_navigator(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    cpgs: list[CPGDocRef],
+    kg_flags: list,
+    *,
+    emit=None,
+    timings: dict[str, float] | None = None,
+) -> tuple[list, list]:
+    """Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open.
+
+    Returns (nav_flags, kg_flags) with nav_flags merged into kg_flags."""
+    nav_flags = []
+    try:
+        with _maybe_time("graph_navigator", timings):
+            nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
+        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
+        kg_flags = list(kg_flags) + list(nav_flags)
+    except Exception as e:
+        logger.warning("Graph navigator failed (non-fatal): %s", e)
+    if nav_flags and emit is not None:
+        try:
+            await emit("graph_navigator", {"rules": [_nav_flag_to_dict(f) for f in nav_flags]})
+        except Exception:
+            pass
+    return nav_flags, kg_flags
+
+
+async def _synthesize_or_degrade(
+    case: PatientCase,
+    ddx: list[DDxResult],
+    cpgs: list[CPGDocRef],
+    evidence: list[ChunkResult],
+    kg_flags: list,
+    stage4_failed: bool,
+    *,
+    timings: dict[str, float] | None = None,
+    skip_log: str = "Skipping Stage 5: retrieval failed, no evidence to ground synthesis",
+) -> TreatmentPlan:
+    """Stage 5 — Synthesize (unrecoverable if it fails).
+
+    Retrieval outage: refuse to synthesise a confident-looking plan on absent
+    evidence — return an explicitly-degraded plan instead (INF-02). A healthy
+    retrieval that returned zero chunks still synthesises but is stamped
+    low-confidence by _flag_empty_evidence (SIL-02)."""
+    if stage4_failed:
+        logger.warning(skip_log)
+        return _degraded_no_evidence_plan(
+            ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
+        )
+    with _maybe_time("stage_5_synthesize", timings):
+        treatment_plan = await run_with_retry(
+            "stage_5_synthesize",
+            lambda: stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags),
+        )
+    if not evidence:
+        _flag_empty_evidence(treatment_plan)
+    return treatment_plan
+
+
+async def _run_stage6(
+    case: PatientCase,
+    treatment_plan: TreatmentPlan,
+    *,
+    emit=None,
+    timings: dict[str, float] | None = None,
+) -> SafetyReport:
+    """Stage 6 — Safety review (fail-open, never raises)."""
+    from .safety_critic import run_safety_critic
+    if emit is not None:
+        await emit("stage_update", {
+            "stage": 6, "name": "Safety Review",
+            "status": "running", "detail": "Running independent medication safety review...",
+        })
+        with _maybe_time("stage_6_safety", timings):
+            safety_report = await run_with_retry(
+                "stage_6_safety", lambda: run_safety_critic(case, treatment_plan, emit=emit),
+                emit=emit, stage=6,
+            )
+        blocking_flags = [f for f in safety_report.flags if f.severity in ("CRITICAL", "MAJOR")]
+        await emit("stage_update", {
+            "stage": 6, "name": "Safety Review", "status": "complete",
+            "detail": (
+                f"{len(blocking_flags)} major safety concern(s) found"
+                if blocking_flags else "Safety review complete"
+            ),
+            "badge": "review required" if blocking_flags else "passed",
+        })
+        await emit("safety_review", safety_report.model_dump())
+    else:
+        with _maybe_time("stage_6_safety", timings):
+            safety_report = await run_with_retry(
+                "stage_6_safety", lambda: run_safety_critic(case, treatment_plan),
+            )
+    return safety_report
+
+
+# ---------------------------------------------------------------------------
+# Entrypoints
+# ---------------------------------------------------------------------------
+
+
 async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     """
     Run the full clinical workflow for a patient case.
@@ -327,104 +713,36 @@ async def run_clinical_workflow(case: PatientCase) -> WorkflowResult:
     timings: dict[str, float] = {}
 
     _derive_bmi(case)
+    state = begin_state(case, "full")
 
-    # Stage 2 — DDx
-    try:
-        with _time_stage("stage_2_ddx", timings):
-            ddx = await stage_2_ddx(case, top_k=5)
-        logger.info("Stage 2 DDx: %d candidates. Top: %s",
-                    len(ddx), ddx[0].code if ddx else "none")
-    except Exception as e:
-        logger.error("Stage 2 DDx failed: %s", e)
-        errors.append(StageError.from_exc("Stage 2 DDx", e, recoverable=True))
-        ddx = []
+    ddx = await _run_stage2(case, errors, timings=timings, state=state)
+    cpgs = await _run_stage3(
+        ddx, case, errors, timings=timings,
+        log_fmt="Stage 3 Routing: %d CPGs matched: %s",
+        state=state,
+    )
+    evidence, stage4_failed = await _run_stage4(
+        case, ddx, cpgs, errors, timings=timings,
+        log_fmt="Stage 4 Retrieval: %d evidence chunks",
+        state=state,
+    )
+    kg_flags = await _run_kg_lookup(case, evidence, timings=timings)
+    nav_flags, kg_flags = await _run_graph_navigator(case, ddx, cpgs, kg_flags, timings=timings)
 
-    # Stage 3 — Route (headless: auto-select Major / Minor from rank-1/2 gap)
-    try:
-        auto_selected, auto_major = _auto_select_codes(ddx)
-        with _time_stage("stage_3_route", timings):
-            cpgs = await stage_3_route(
-                ddx,
-                selected_codes=auto_selected or None,
-                major_code=auto_major,
-                clinical_context=_build_symptom_text(case),
-                patient_sex=case.sex,
-            )
-        with _time_stage("stage_3_route_comorbidities", timings):
-            extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, staged_comorbidities=case.staged_comorbidities, clinical_context=_build_symptom_text(case))
-        if extra_cpgs:
-            cpgs = cpgs + extra_cpgs
-        logger.info("Stage 3 Routing: %d CPGs matched: %s",
-                    len(cpgs), [c.cpg_name for c in cpgs])
-    except Exception as e:
-        logger.error("Stage 3 Routing failed: %s", e)
-        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
-        cpgs = []
-
-    # Stage 4 — Retrieve
-    stage4_failed = False
-    try:
-        with _time_stage("stage_4_retrieve", timings):
-            evidence = await stage_4_retrieve(case, ddx, cpgs)
-        logger.info("Stage 4 Retrieval: %d evidence chunks", len(evidence))
-    except Exception as e:
-        logger.error("Stage 4 Retrieval failed: %s", e)
-        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
-        evidence = []
-        stage4_failed = True
-
-    # KG lookup — runs between Stage 4 and Stage 5, fail-open
-    try:
-        with _time_stage("kg_lookup", timings):
-            _chunk_ids = [c.chunk_id for c in evidence]
-            _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
-            kg_flags = await clinical_graph_lookup(
-                patient_meds=case.current_medications,
-                candidate_drugs=_candidate_drugs,
-                comorbidities=case.comorbidities,
-                allergies=case.allergies,
-                patient_params=build_patient_params(case),
-                patient_age=case.age,
-            )
-        logger.info("KG lookup: %d flags", len(kg_flags))
-    except Exception as e:
-        logger.warning("KG lookup failed (non-fatal): %s", e)
-        kg_flags = []
-
-    # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
-    nav_flags = []
-    try:
-        with _time_stage("graph_navigator", timings):
-            nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
-        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
-        kg_flags = list(kg_flags) + list(nav_flags)
-    except Exception as e:
-        logger.warning("Graph navigator failed (non-fatal): %s", e)
-
-    # Stage 5 — Synthesize (unrecoverable if it fails)
-    if stage4_failed:
-        # Retrieval errored out (infra failure): refuse to synthesize a plan on
-        # absent evidence — return an explicitly-degraded plan instead of a
-        # confident-looking one built from nothing (INF-02).
-        logger.warning("Skipping Stage 5: retrieval failed, no evidence to ground synthesis")
-        treatment_plan = _degraded_no_evidence_plan(
-            ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
-        )
-    else:
-        with _time_stage("stage_5_synthesize", timings):
-            treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
-        if not evidence:
-            _flag_empty_evidence(treatment_plan)
-
+    treatment_plan = await _synthesize_or_degrade(
+        case, ddx, cpgs, evidence, kg_flags, stage4_failed, timings=timings,
+    )
     if not stage4_failed:
         treatment_plan = await _apply_ebm_pass(
             case=case, ddx=ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=_noop_emit,
         )
 
     # Stage 6 — Safety review (fail-open, never raises)
-    from .safety_critic import run_safety_critic
-    with _time_stage("stage_6_safety", timings):
-        safety_report = await run_safety_critic(case, treatment_plan)
+    safety_report = await _run_stage6(case, treatment_plan, timings=timings)
+
+    state.treatment_plan = treatment_plan
+    state.safety_report = safety_report
+    state.complete()
 
     elapsed_ms = (time.monotonic() - t0) * 1000
     _log_stage_breakdown(timings, elapsed_ms)
@@ -534,134 +852,31 @@ async def run_clinical_workflow_streaming(
     errors: list[StageError] = []
 
     _derive_bmi(case)
+    state = begin_state(case, "streaming")
 
-    # Stage 2 — DDx
-    await emit("stage_update", {
-        "stage": 2, "name": "DDx Analysis",
-        "status": "running", "detail": "Analyzing symptoms and history…"
-    })
-    try:
-        ddx = await stage_2_ddx(case, top_k=5, emit=emit)
-        top = ddx[0].code if ddx else "none"
-        await emit("stage_update", {
-            "stage": 2, "name": "DDx Analysis", "status": "complete",
-            "detail": f"{len(ddx)} candidates · top: {top}",
-            "data": [d.model_dump() for d in ddx],
-        })
-        logger.info("Stage 2 DDx: %d candidates. Top: %s", len(ddx), top)
-    except Exception as e:
-        logger.error("Stage 2 DDx failed: %s", e)
-        errors.append(StageError.from_exc("Stage 2 DDx", e, recoverable=True))
-        await emit("stage_update", {
-            "stage": 2, "name": "DDx Analysis", "status": "error", "detail": str(e),
-        })
-        ddx = []
-
-    # Stage 3 — Route
-    await emit("stage_update", {
-        "stage": 3, "name": "CPG Routing",
-        "status": "running", "detail": "Matching ICD codes to clinical guidelines…"
-    })
-    try:
-        auto_selected, auto_major = _auto_select_codes(ddx)
-        cpgs = await stage_3_route(
-            ddx,
-            selected_codes=auto_selected or None,
-            major_code=auto_major,
-            emit=emit,
-            clinical_context=_build_symptom_text(case),
-            patient_sex=case.sex,
-        )
-        extra_cpgs = await route_comorbidities(case.comorbidities, cpgs, patient_sex=case.sex, emit=emit, staged_comorbidities=case.staged_comorbidities, clinical_context=_build_symptom_text(case))
-        if extra_cpgs:
-            cpgs = cpgs + extra_cpgs
-            for c in extra_cpgs:
-                await emit("sub_step", {"stage": 3, "detail": c.cpg_name, "badge": "comorbidity"})
-        names = [c.cpg_name for c in cpgs]
-        await emit("stage_update", {
-            "stage": 3, "name": "CPG Routing", "status": "complete",
-            "detail": f"{len(cpgs)} CPGs matched",
-            "data": names,
-        })
-        logger.info("Stage 3 Routing: %d CPGs: %s", len(cpgs), names)
-    except Exception as e:
-        logger.error("Stage 3 Routing failed: %s", e)
-        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
-        await emit("stage_update", {
-            "stage": 3, "name": "CPG Routing", "status": "error", "detail": str(e),
-        })
-        cpgs = []
-
-    # Stage 4 — Retrieve
-    await emit("stage_update", {
-        "stage": 4, "name": "Evidence Retrieval",
-        "status": "running", "detail": "Retrieving relevant guideline chunks…"
-    })
-    stage4_failed = False
-    try:
-        evidence = await stage_4_retrieve(case, ddx, cpgs, emit=emit)
-        await emit("stage_update", {
-            "stage": 4, "name": "Evidence Retrieval", "status": "complete",
-            "detail": f"{len(evidence)} evidence chunks retrieved",
-        })
-        logger.info("Stage 4 Retrieval: %d chunks", len(evidence))
-    except Exception as e:
-        logger.error("Stage 4 Retrieval failed: %s", e)
-        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
-        await emit("stage_update", {
-            "stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e),
-        })
-        evidence = []
-        stage4_failed = True
-
-    # KG lookup — runs between Stage 4 and Stage 5, fail-open
-    try:
-        _chunk_ids = [c.chunk_id for c in evidence]
-        _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
-        kg_flags = await clinical_graph_lookup(
-            patient_meds=case.current_medications,
-            candidate_drugs=_candidate_drugs,
-            comorbidities=case.comorbidities,
-            allergies=case.allergies,
-            patient_params=build_patient_params(case),
-            patient_age=case.age,
-        )
-        logger.info("KG lookup: %d flags", len(kg_flags))
-    except Exception as e:
-        logger.warning("KG lookup failed (non-fatal): %s", e)
-        kg_flags = []
-
-    # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
-    nav_flags = []
-    try:
-        nav_flags = await get_graph_constraints(case, ddx, cpgs=cpgs)
-        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
-        kg_flags = list(kg_flags) + list(nav_flags)
-    except Exception as e:
-        logger.warning("Graph navigator failed (non-fatal): %s", e)
-    if nav_flags:
-        try:
-            await emit("graph_navigator", {"rules": [_nav_flag_to_dict(f) for f in nav_flags]})
-        except Exception:
-            pass
+    ddx = await _run_stage2(case, errors, emit=emit, state=state)
+    cpgs = await _run_stage3(
+        ddx, case, errors, emit=emit,
+        running_detail="Matching ICD codes to clinical guidelines…",
+        emit_comorbidity_substeps=True,
+        state=state,
+    )
+    evidence, stage4_failed = await _run_stage4(
+        case, ddx, cpgs, errors, emit=emit,
+        running_detail="Retrieving relevant guideline chunks…",
+        state=state,
+    )
+    kg_flags = await _run_kg_lookup(case, evidence)
+    nav_flags, kg_flags = await _run_graph_navigator(case, ddx, cpgs, kg_flags, emit=emit)
 
     # Stage 5 — Synthesize (unrecoverable if it fails)
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan…"
     })
-    if stage4_failed:
-        # Retrieval outage: refuse to synthesise a confident-looking plan on absent
-        # evidence — emit a degraded plan instead (INF-02, mirrored from non-streaming).
-        logger.warning("Skipping Stage 5: retrieval failed, no evidence to ground synthesis")
-        treatment_plan = _degraded_no_evidence_plan(
-            ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
-        )
-    else:
-        treatment_plan = await stage_5_synthesize(case, ddx, cpgs, evidence, flags=kg_flags)
-        if not evidence:
-            _flag_empty_evidence(treatment_plan)
-
+    treatment_plan = await _synthesize_or_degrade(
+        case, ddx, cpgs, evidence, kg_flags, stage4_failed,
+    )
     if not stage4_failed:
         treatment_plan = await _apply_ebm_pass(
             case=case, ddx=ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=emit,
@@ -675,22 +890,11 @@ async def run_clinical_workflow_streaming(
     logger.info("Workflow complete in %.0f ms", elapsed_ms)
 
     # Stage 6 — Safety review (fail-open, never raises)
-    from .safety_critic import run_safety_critic
-    await emit("stage_update", {
-        "stage": 6, "name": "Safety Review",
-        "status": "running", "detail": "Running independent medication safety review...",
-    })
-    safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
-    blocking_flags = [f for f in safety_report.flags if f.severity in ("CRITICAL", "MAJOR")]
-    await emit("stage_update", {
-        "stage": 6, "name": "Safety Review", "status": "complete",
-        "detail": (
-            f"{len(blocking_flags)} major safety concern(s) found"
-            if blocking_flags else "Safety review complete"
-        ),
-        "badge": "review required" if blocking_flags else "passed",
-    })
-    await emit("safety_review", safety_report.model_dump())
+    safety_report = await _run_stage6(case, treatment_plan, emit=emit)
+
+    state.treatment_plan = treatment_plan
+    state.safety_report = safety_report
+    state.complete()
 
     return WorkflowResult(
         treatment_plan=treatment_plan,
@@ -743,6 +947,12 @@ async def run_resynthesize_streaming(
             selected_ddx = [selected_ddx[major_idx]] + [d for i, d in enumerate(selected_ddx) if i != major_idx]
 
     selected_codes = [d.code for d in selected_ddx]
+    # Clinician selection is part of the run's identity: changing the selected
+    # codes or the Major must produce a different checkpoint fingerprint.
+    state = begin_state(
+        case, "resynthesize",
+        extra={"selected": selected_codes, "major": major_code},
+    )
 
     # Signal the override to the UI — must be the first event
     await emit("clinician_override", {
@@ -750,128 +960,37 @@ async def run_resynthesize_streaming(
         "major_code": major_code,
     })
 
-    # Stage 3 — Route using clinician codes
-    await emit("stage_update", {
-        "stage": 3, "name": "CPG Routing",
-        "status": "running",
-        "detail": (
+    cpgs = await _run_stage3(
+        selected_ddx, case, errors, emit=emit, timings=timings,
+        selected=(selected_codes or None, major_code),
+        running_detail=(
             f"Routing {len(selected_ddx)} clinician-selected code(s); "
             f"major={major_code}"
         ),
-    })
-    try:
-        with _time_stage("stage_3_route", timings):
-            cpgs = await stage_3_route(
-                selected_ddx,
-                selected_codes=selected_codes or None,
-                major_code=major_code,
-                emit=emit,
-                clinical_context=_build_symptom_text(case),
-                patient_sex=case.sex,
-            )
-        # Comorbidity routing — fan in any staged/free-text comorbidities so
-        # CPGs like Obesity-Management(2023) don't drop on the resynth path.
-        # Initial /clinical/plan/stream does this; resynth was missing it.
-        try:
-            with _time_stage("stage_3_route_comorbidities", timings):
-                extra_cpgs = await route_comorbidities(
-                    case.comorbidities,
-                    cpgs,
-                    patient_sex=case.sex,
-                    emit=emit,
-                    staged_comorbidities=case.staged_comorbidities,
-                    clinical_context=_build_symptom_text(case),
-                )
-            if extra_cpgs:
-                cpgs = list(cpgs) + list(extra_cpgs)
-                logger.info(
-                    "Re-synth Stage 3 comorbidity routing added %d CPG(s)",
-                    len(extra_cpgs),
-                )
-        except Exception as e:
-            logger.warning("Re-synth comorbidity routing failed (continuing): %s", e)
-        names = [c.cpg_name for c in cpgs]
-        await emit("stage_update", {
-            "stage": 3, "name": "CPG Routing", "status": "complete",
-            "detail": f"{len(cpgs)} CPGs matched",
-            "data": names,
-        })
-        logger.info("Re-synth Stage 3 Routing: %d CPGs: %s", len(cpgs), names)
-    except Exception as e:
-        logger.error("Re-synth Stage 3 failed: %s", e)
-        errors.append(StageError.from_exc("Stage 3 Routing", e, recoverable=True))
-        await emit("stage_update", {"stage": 3, "name": "CPG Routing", "status": "error", "detail": str(e)})
-        cpgs = []
-
-    # Stage 4 — Retrieve
-    await emit("stage_update", {
-        "stage": 4, "name": "Evidence Retrieval",
-        "status": "running", "detail": "Retrieving guideline evidence for selected diagnosis…",
-    })
-    stage4_failed = False
-    try:
-        with _time_stage("stage_4_retrieve", timings):
-            evidence = await stage_4_retrieve(case, selected_ddx, cpgs, emit=emit)
-        await emit("stage_update", {
-            "stage": 4, "name": "Evidence Retrieval", "status": "complete",
-            "detail": f"{len(evidence)} evidence chunks retrieved",
-        })
-        logger.info("Re-synth Stage 4 Retrieval: %d chunks", len(evidence))
-    except Exception as e:
-        logger.error("Re-synth Stage 4 failed: %s", e)
-        errors.append(StageError.from_exc("Stage 4 Retrieval", e, recoverable=True))
-        await emit("stage_update", {"stage": 4, "name": "Evidence Retrieval", "status": "error", "detail": str(e)})
-        evidence = []
-        stage4_failed = True
-
-    # KG lookup — runs between Stage 4 and Stage 5, fail-open
-    try:
-        _chunk_ids = [c.chunk_id for c in evidence]
-        _candidate_drugs = await extract_candidate_drugs_from_chunks(_chunk_ids)
-        kg_flags = await clinical_graph_lookup(
-            patient_meds=case.current_medications,
-            candidate_drugs=_candidate_drugs,
-            comorbidities=case.comorbidities,
-            allergies=case.allergies,
-            patient_params=build_patient_params(case),
-            patient_age=case.age,
-        )
-        logger.info("KG lookup: %d flags", len(kg_flags))
-    except Exception as e:
-        logger.warning("KG lookup failed (non-fatal): %s", e)
-        kg_flags = []
-
-    # Graph Navigator (Agent 2 v1) — preferred-agent rules, fail-open
-    nav_flags = []
-    try:
-        nav_flags = await get_graph_constraints(case, selected_ddx, cpgs=cpgs)
-        logger.info("Graph navigator: %d preferred-agent rules", len(nav_flags))
-        kg_flags = list(kg_flags) + list(nav_flags)
-    except Exception as e:
-        logger.warning("Graph navigator failed (non-fatal): %s", e)
-    if nav_flags:
-        try:
-            await emit("graph_navigator", {"rules": [_nav_flag_to_dict(f) for f in nav_flags]})
-        except Exception:
-            pass
+        comorbid_inner_try=True,
+        log_fmt="Re-synth Stage 3 Routing: %d CPGs: %s",
+        err_log_fmt="Re-synth Stage 3 failed: %s",
+        state=state,
+    )
+    evidence, stage4_failed = await _run_stage4(
+        case, selected_ddx, cpgs, errors, emit=emit, timings=timings,
+        running_detail="Retrieving guideline evidence for selected diagnosis…",
+        log_fmt="Re-synth Stage 4 Retrieval: %d chunks",
+        err_log_fmt="Re-synth Stage 4 failed: %s",
+        state=state,
+    )
+    kg_flags = await _run_kg_lookup(case, evidence)
+    nav_flags, kg_flags = await _run_graph_navigator(case, selected_ddx, cpgs, kg_flags, emit=emit)
 
     # Stage 5 — Synthesize (unrecoverable)
     await emit("stage_update", {
         "stage": 5, "name": "Plan Synthesis",
         "status": "running", "detail": "Generating evidence-based care plan for confirmed diagnosis…",
     })
-    if stage4_failed:
-        # Retrieval outage: refuse to synthesise on absent evidence (INF-02, mirrored).
-        logger.warning("Re-synth skipping Stage 5: retrieval failed, no evidence to ground synthesis")
-        treatment_plan = _degraded_no_evidence_plan(
-            selected_ddx, "Stage 4 retrieval failed; re-run when the retrieval service recovers."
-        )
-    else:
-        with _time_stage("stage_5_synthesize", timings):
-            treatment_plan = await stage_5_synthesize(case, selected_ddx, cpgs, evidence, flags=kg_flags)
-        if not evidence:
-            _flag_empty_evidence(treatment_plan)
-
+    treatment_plan = await _synthesize_or_degrade(
+        case, selected_ddx, cpgs, evidence, kg_flags, stage4_failed, timings=timings,
+        skip_log="Re-synth skipping Stage 5: retrieval failed, no evidence to ground synthesis",
+    )
     if not stage4_failed:
         treatment_plan = await _apply_ebm_pass(
             case=case, ddx=selected_ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=emit,
@@ -885,23 +1004,11 @@ async def run_resynthesize_streaming(
     logger.info("Re-synthesis complete in %.0f ms", elapsed_ms)
 
     # Stage 6 — Safety review (fail-open, never raises)
-    from .safety_critic import run_safety_critic
-    await emit("stage_update", {
-        "stage": 6, "name": "Safety Review",
-        "status": "running", "detail": "Running independent medication safety review...",
-    })
-    with _time_stage("stage_6_safety", timings):
-        safety_report = await run_safety_critic(case, treatment_plan, emit=emit)
-    blocking_flags = [f for f in safety_report.flags if f.severity in ("CRITICAL", "MAJOR")]
-    await emit("stage_update", {
-        "stage": 6, "name": "Safety Review", "status": "complete",
-        "detail": (
-            f"{len(blocking_flags)} major safety concern(s) found"
-            if blocking_flags else "Safety review complete"
-        ),
-        "badge": "review required" if blocking_flags else "passed",
-    })
-    await emit("safety_review", safety_report.model_dump())
+    safety_report = await _run_stage6(case, treatment_plan, emit=emit, timings=timings)
+
+    state.treatment_plan = treatment_plan
+    state.safety_report = safety_report
+    state.complete()
 
     return WorkflowResult(
         treatment_plan=treatment_plan,

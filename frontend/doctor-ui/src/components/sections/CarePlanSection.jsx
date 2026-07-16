@@ -1729,6 +1729,8 @@ export function CarePlanSection() {
       // a plan the Stage-6 critic blocked was shipped only if it was unsafe AND ack'd
       safetyOverridden: !!(safetyReport && !safetyReport.safe_to_proceed && safetyAcknowledged),
       cpgReferences: carePlan?.cpgReferences || null,
+      // joins this feedback to the exact pipeline run (trace/logs/machine_signals)
+      requestId: state.clinicalPlanResponse?.request_id || null,
     }).catch((err) => console.error('human_signals capture failed:', err));
   };
 

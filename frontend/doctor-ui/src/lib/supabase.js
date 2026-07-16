@@ -1032,6 +1032,10 @@ export const saveConsultationSeverity = async (consultationId, severityStaging) 
  * @param {string}  [opts.clinicianName]
  * @param {boolean} [opts.safetyOverridden]  true if a Stage-6-blocked plan was shipped
  * @param {Array}   [opts.cpgReferences] CPGs the plan cited at approval time
+ * @param {string}  [opts.requestId]     X-Request-ID of the pipeline run this feedback
+ *                                       judges — joins the row to its OTel trace
+ *                                       (Jaeger request_id tag), SSE log and
+ *                                       machine_signals. Requires add_feedback_request_id.sql.
  */
 export const saveHumanSignal = async ({
   consultationId,
@@ -1042,6 +1046,7 @@ export const saveHumanSignal = async ({
   clinicianName = null,
   safetyOverridden = false,
   cpgReferences = null,
+  requestId = null,
 }) => {
   if (!action) return { error: new Error('saveHumanSignal: missing action') };
   if (!consultationId) {
@@ -1059,6 +1064,7 @@ export const saveHumanSignal = async ({
     clinician_name:    clinicianName || null,
     safety_overridden: !!safetyOverridden,
     cpg_references:    cpgReferences || null,
+    request_id:        requestId || null,
   });
   if (error) console.error('Error saving human signal:', error);
   return { error };

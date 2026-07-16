@@ -43,3 +43,17 @@ def _no_live_ebm_fetch(monkeypatch):
         return []
 
     monkeypatch.setattr(wf, "fetch_ebm_evidence", _empty_ebm, raising=False)
+
+
+@pytest.fixture(autouse=True)
+def _no_pipeline_checkpoints(monkeypatch):
+    """Force pipeline checkpointing OFF for tests regardless of .env
+    (api.py/conftest load_dotenv can leak PIPELINE_CHECKPOINT_ENABLED=true
+    into os.environ). Without this, a workflow test that fails Stage 5 leaves
+    a checkpoint that a later test with the identical fixture case silently
+    resumes from, skipping the very stage mocks it asserts on.
+
+    test_pipeline_checkpoint.py opts back in per-test: its ckpt_env fixture
+    runs after this autouse one, so its setenv("true") wins.
+    """
+    monkeypatch.setenv("PIPELINE_CHECKPOINT_ENABLED", "false")
