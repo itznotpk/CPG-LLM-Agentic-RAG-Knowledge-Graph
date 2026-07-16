@@ -1,15 +1,18 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { useApp } from '../../context/AppContext';
 import { useAuth } from '../../context/AuthContext';
+import { useTheme } from '../../context/ThemeContext';
 import { useToast } from '../shared/Notification';
 import { generatePdfFromElement } from '../../utils/htmlToPdf';
 import { FinalCarePlan } from './finalCarePlan/FinalCarePlan';
+import FollowupQRCard from './FollowupQRCard';
 import { enqueueDelivery, getDeliveryStatus } from '../../lib/clinicalApi';
 import './finalCarePlan/finalCarePlan.css';
 
 export function OutputSection() {
   const { state, resetApp, goToStep, uploadFinalCarePlanPDF } = useApp();
   const { profile: authProfile } = useAuth();
+  const { isDark } = useTheme();
   const toast = useToast();
   const {
     patient, patientData, carePlan, diagnosis, vitals,
@@ -208,27 +211,33 @@ export function OutputSection() {
 
   if (!carePlan) return null;
 
+  // Same NRIC source the delivery block uses (handleSendToPatient, above).
+  const patientNric = resolvedPatient?.nsn || resolvedPatient?.id || resolvedPatient?.nric;
+
   return (
-    <FinalCarePlan
-      ref={fcpRef}
-      patient={resolvedPatient}
-      diagnoses={diagnoses}
-      carePlan={carePlan}
-      allergies={allergies}
-      vitals={vitalsExt}
-      clinicalNotes={clinicalNotes || 'No clinical notes recorded for this encounter.'}
-      provider={provider}
-      encounter={encounter}
-      nextReviewDate={nextReviewDate}
-      onExportPDF={handleExportPDF}
-      onPrint={handlePrint}
-      onBack={handleBack}
-      onNewAssessment={handleNewAssessment}
-      pdfUploaded={pdfUploaded}
-      pdfUploading={pdfUploading}
-      onSendToPatient={handleSendToPatient}
-      deliveryStatus={delivery}
-      canSendToPatient={canSendToPatient}
-    />
+    <>
+      <FinalCarePlan
+        ref={fcpRef}
+        patient={resolvedPatient}
+        diagnoses={diagnoses}
+        carePlan={carePlan}
+        allergies={allergies}
+        vitals={vitalsExt}
+        clinicalNotes={clinicalNotes || 'No clinical notes recorded for this encounter.'}
+        provider={provider}
+        encounter={encounter}
+        nextReviewDate={nextReviewDate}
+        onExportPDF={handleExportPDF}
+        onPrint={handlePrint}
+        onBack={handleBack}
+        onNewAssessment={handleNewAssessment}
+        pdfUploaded={pdfUploaded}
+        pdfUploading={pdfUploading}
+        onSendToPatient={handleSendToPatient}
+        deliveryStatus={delivery}
+        canSendToPatient={canSendToPatient}
+      />
+      <FollowupQRCard consultationId={consultationId} patientNric={patientNric} isDark={isDark} />
+    </>
   );
 }
