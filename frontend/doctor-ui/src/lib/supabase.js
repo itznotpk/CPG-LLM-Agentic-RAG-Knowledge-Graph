@@ -1256,4 +1256,21 @@ export const updatePatientDeliveryPrefs = async (nric, { email, consented, prefe
   }
 };
 
+// --- Patient alerts (follow-up ecosystem) ---
+export async function getPatientAlerts({ openOnly = true, limit = 20 } = {}) {
+  let q = supabase.from('patient_alerts').select('*').order('created_at', { ascending: false }).limit(limit);
+  if (openOnly) q = q.eq('status', 'open');
+  const { data, error } = await q;
+  if (error) throw error;
+  return data || [];
+}
+
+export async function ackPatientAlert(alertId, ackedBy) {
+  const { error } = await supabase
+    .from('patient_alerts')
+    .update({ status: 'acked', acked_by: ackedBy || null, acked_at: new Date().toISOString() })
+    .eq('id', alertId);
+  if (error) throw error;
+}
+
 export default supabase;

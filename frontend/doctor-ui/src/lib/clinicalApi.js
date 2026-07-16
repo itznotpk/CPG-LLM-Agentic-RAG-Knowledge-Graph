@@ -430,6 +430,22 @@ export async function getDeliveryStatus(consultationId) {
   return r.ok ? r.json() : null;
 }
 
+// --- Follow-up ecosystem (Telegram companion) ---
+export async function enrollFollowup(consultationId, patientNric) {
+  const r = await fetch(`${CLINICAL_API_BASE}/followup/enroll`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ consultation_id: consultationId, patient_nric: patientNric }),
+  });
+  if (!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+export async function getFollowupStatus(consultationId) {
+  const r = await fetch(`${CLINICAL_API_BASE}/followup/status/${consultationId}`);
+  return r.ok ? r.json() : null;
+}
+
 // Ping the FastAPI /health endpoint — used by Settings → System to show live
 // AI-engine status. Throws on network failure or non-2xx.
 export async function getEngineHealth() {
