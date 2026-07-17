@@ -181,7 +181,6 @@ export function FeedbackInsightsSection({ days = 30 }) {
             <p className={`text-xs ${subtleText}`}>No pipeline signals recorded yet.</p>
           ) : (
             <div className="space-y-4">
-              {pipeline.missingData.length > 0 && (
               {pipeline.llmDegradations?.length > 0 && (
                 <div className={`space-y-2 pb-3 border-b ${rowBorder}`}>
                   <p className={`text-[10px] font-bold uppercase tracking-wider ${txt('amber')}`}>
@@ -207,6 +206,7 @@ export function FeedbackInsightsSection({ days = 30 }) {
                 </div>
               )}
 
+              {pipeline.missingData.length > 0 && (
                 <div className="space-y-2">
                   {pipeline.missingData.map((m, i) => (
                     <div key={i} className={`flex items-start justify-between gap-3 pb-2 ${i < pipeline.missingData.length - 1 ? `border-b ${rowBorder}` : ''}`}>
