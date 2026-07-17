@@ -1038,12 +1038,56 @@ async function nextStudent() {
     document.getElementById('sessionRecordCount').textContent = 'Session: 0 readings';
 }
 
+// Set to an index (0 = first camera, 1 = second, …) to force a specific
+// physical camera. Leave null to use the browser default. Override at runtime
+// with ?cam=1 in the URL.
+const CAMERA_INDEX = (() => {
+    const p = new URLSearchParams(location.search).get('cam');
+    return p !== null ? parseInt(p, 10) : null;
+})();
+
+async function listCameras() {
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    return devices.filter(d => d.kind === 'videoinput');
+}
+
+async function pickCameraConstraints() {
+    if (CAMERA_INDEX === null) {
+        return { width: 640, height: 480, facingMode: 'user' };
+    }
+    // enumerateDevices() only returns real deviceIds AFTER camera permission
+    // has been granted at least once. So we open a throwaway stream first to
+    // unlock the permission, enumerate, then stop it before opening the real one.
+    let cams = await listCameras();
+    if (cams.length === 0 || !cams.some(c => c.deviceId)) {
+        try {
+            const probe = await navigator.mediaDevices.getUserMedia({ video: true });
+            probe.getTracks().forEach(t => t.stop());
+            cams = await listCameras();
+        } catch (e) {
+            console.warn('[camera] permission probe failed:', e);
+        }
+    }
+    console.log('[camera] available video inputs:',
+        cams.map((c, i) => `${i}: ${c.label || '(no label)'} [${c.deviceId ? 'id ok' : 'NO id'}]`));
+
+    const chosen = cams[CAMERA_INDEX];
+    if (!chosen || !chosen.deviceId) {
+        console.warn(`[camera] index ${CAMERA_INDEX} unavailable (${cams.length} cams found); using default`);
+        return { width: 640, height: 480, facingMode: 'user' };
+    }
+    console.log(`[camera] using index ${CAMERA_INDEX}: ${chosen.label || chosen.deviceId}`);
+    return { width: 640, height: 480, deviceId: { exact: chosen.deviceId } };
+}
+
 async function startCamera() {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({
-            video: { width: 640, height: 480, facingMode: 'user' }
+            video: await pickCameraConstraints()
         });
         video.srcObject = stream;
+        const track = stream.getVideoTracks()[0];
+        console.log('[camera] active track:', track && track.label);
         await video.play();
         sendCanvas.width  = 480;
         sendCanvas.height = 360;
