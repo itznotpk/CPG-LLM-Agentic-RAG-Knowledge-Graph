@@ -5,8 +5,10 @@ FastAPI endpoints for the agentic RAG system.
 import os
 import asyncio
 import json
+import hashlib
 import logging
 from contextlib import asynccontextmanager
+import time
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 import uuid
@@ -41,6 +43,7 @@ from .db_utils import (
     supabase_pool,
 )
 from .graph_utils import initialize_graph, close_graph, test_graph_connection
+from .llm_runtime import LLMConfigurationError, LLMTarget, completion_kwargs, configuration_defects, resolve_target
 from .models import (
     ChatRequest,
     ChatResponse,
@@ -739,67 +742,110 @@ def _make_chatbox_model():
     return OpenAIModel(model, provider=provider)
 
 
-async def _probe_llm(base_url: str | None, api_key: str | None, model: str, timeout: float = 8.0) -> bool:
-    """Send a minimal completion to check reachability. Returns True if the provider responds."""
-    if not base_url or not api_key:
-        return False
+_LLM_PROBE_CACHE: dict[str, tuple[float, bool]] = {}
+_LLM_PROBE_CACHE_SECONDS = 30.0
+
+
+def _target_fingerprint(target: LLMTarget) -> str:
+    material = "\0".join(
+        (target.alias, target.base_url, target.api_key, target.model, target.provider)
+    )
+    return hashlib.sha256(material.encode("utf-8")).hexdigest()
+
+
+async def _probe_llm(target: LLMTarget, timeout: float = 8.0) -> bool:
+    """Require a successful completion with non-empty content, cached per target."""
+    fingerprint = _target_fingerprint(target)
+    now = time.monotonic()
+    cached = _LLM_PROBE_CACHE.get(fingerprint)
+    if cached and cached[0] > now:
+        return cached[1]
+
+    ok = False
     try:
         import httpx
         async with httpx.AsyncClient(timeout=timeout) as client:
             resp = await client.post(
-                base_url.rstrip("/") + "/chat/completions",
-                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                json={"model": model, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 1},
+                target.base_url.rstrip("/") + "/chat/completions",
+                headers={"Authorization": f"Bearer {target.api_key}", "Content-Type": "application/json"},
+                json={
+                    "model": target.model,
+                    "messages": [{"role": "user", "content": "Reply with pong."}],
+                    **completion_kwargs("readiness_probe", target),
+                },
             )
-        return resp.status_code < 500
+        if 200 <= resp.status_code < 300:
+            body = resp.json()
+            content = body["choices"][0]["message"]["content"]
+            ok = bool(str(content or "").strip())
     except Exception:
-        return False
+        ok = False
+    _LLM_PROBE_CACHE[fingerprint] = (now + _LLM_PROBE_CACHE_SECONDS, ok)
+    return ok
+
+
+async def _build_health_status() -> HealthStatus:
+    db_status, graph_status = await asyncio.gather(
+        test_connection(), test_graph_connection()
+    )
+    try:
+        synthesis_target = resolve_target("stage5_synthesis")
+        safety_target = resolve_target("safety_critic")
+        synthesis_ok, safety_ok = await asyncio.gather(
+            _probe_llm(synthesis_target), _probe_llm(safety_target)
+        )
+    except LLMConfigurationError:
+        synthesis_ok = safety_ok = False
+
+    llm_ok = synthesis_ok and safety_ok
+    if db_status and graph_status and llm_ok:
+        status = "healthy"
+    elif db_status:
+        status = "degraded"
+    else:
+        status = "unhealthy"
+    return HealthStatus(
+        status=status, database=db_status, graph_database=graph_status,
+        llm_connection=llm_ok,
+        llm_synthesis="ok" if synthesis_ok else "degraded",
+        llm_safety="ok" if safety_ok else "degraded",
+        version="0.1.0", timestamp=datetime.now(),
+    )
 
 
 # API Endpoints
+@app.get("/live")
+async def live_check():
+    """Process liveness only; never calls external dependencies."""
+    return {"status": "alive", "version": "0.1.0", "timestamp": datetime.now()}
+
+
 @app.get("/health", response_model=HealthStatus)
 async def health_check():
-    """Health check endpoint."""
+    """Backward-compatible dependency health body; degraded states remain HTTP 200."""
     try:
-        db_status, graph_status = await asyncio.gather(
-            test_connection(), test_graph_connection()
-        )
-
-        synthesis_ok, safety_ok = await asyncio.gather(
-            _probe_llm(
-                os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
-                os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
-                os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
-            ),
-            _probe_llm(
-                os.getenv("SAFETY_CRITIC_LLM_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
-                os.getenv("SAFETY_CRITIC_LLM_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
-                os.getenv("SAFETY_CRITIC_MODEL") or os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
-            ),
-        )
-
-        llm_ok = synthesis_ok and safety_ok
-        if db_status and graph_status and llm_ok:
-            status = "healthy"
-        elif db_status:
-            status = "degraded"
-        else:
-            status = "unhealthy"
-
-        return HealthStatus(
-            status=status,
-            database=db_status,
-            graph_database=graph_status,
-            llm_connection=llm_ok,
-            llm_synthesis="ok" if synthesis_ok else "degraded",
-            llm_safety="ok" if safety_ok else "degraded",
-            version="0.1.0",
-            timestamp=datetime.now()
-        )
-
+        return await _build_health_status()
     except Exception as e:
         logger.error(f"Health check failed: {e}")
         raise HTTPException(status_code=500, detail="Health check failed")
+
+
+@app.get("/ready")
+async def readiness_check():
+    """Strict readiness: dependencies and configured target tiers must be sound."""
+    try:
+        status = await _build_health_status()
+        payload = status.model_dump(mode="json")
+        ready = payload.get("status") == "healthy" and not configuration_defects()
+    except Exception as exc:
+        logger.error("Readiness check failed: %s", exc)
+        payload = HealthStatus(
+            status="unhealthy", database=False, graph_database=False,
+            llm_connection=False, llm_synthesis="degraded", llm_safety="degraded",
+            version="0.1.0", timestamp=datetime.now(),
+        ).model_dump(mode="json")
+        ready = False
+    return JSONResponse(status_code=200 if ready else 503, content=payload)
 
 
 @app.post("/chat", response_model=ChatResponse)
