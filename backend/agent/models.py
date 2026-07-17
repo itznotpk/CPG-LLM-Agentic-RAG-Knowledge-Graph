@@ -405,6 +405,27 @@ class TreatmentPlan(BaseModel):
     gate_audit: List[str] = Field(default_factory=list, description="Referrals evaluated and ruled out by the trigger gate, with reasoning — for clinician transparency")
     ebm_evidence: List[EbmEvidence] = Field(default_factory=list, description="Live Europe PMC citations informing this plan (Stage 4.6)")
 
+    @field_validator("red_flags", mode="before")
+    @classmethod
+    def _flatten_red_flags(cls, v):
+        """Coerce occasional LLM drift into structured {title, subtitle} objects
+        back into the documented "Title: subtitle" display string, instead of
+        hard-failing the whole plan over a formatting slip.
+        """
+        if not isinstance(v, list):
+            return v
+        flattened = []
+        for item in v:
+            if isinstance(item, dict):
+                title = str(item.get("title") or item.get("label") or "").strip()
+                subtitle = str(
+                    item.get("subtitle") or item.get("action") or item.get("trigger") or ""
+                ).strip()
+                flattened.append(f"{title}: {subtitle}" if subtitle else title)
+            else:
+                flattened.append(item)
+        return flattened
+
     @model_validator(mode="after")
     def actionable_or_unresolved(self) -> "TreatmentPlan":
         """A plan must carry actionable content OR an honest reason it can't.

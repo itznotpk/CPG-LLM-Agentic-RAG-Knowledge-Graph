@@ -1004,20 +1004,35 @@ async def prep_brief(request: PrepBriefRequest):
     Only call when prior_visit is non-null (returning patients only).
     """
     from .clinical_stages import generate_prep_brief
+    from . import demo_cache
 
     from .llm_runtime import begin_llm_run, end_llm_run
     run_token = begin_llm_run(_request_id_var.get())
     try:
         followup_alerts, checkin_digest = await _load_followup_context(request.patient_nric)
-        brief = await generate_prep_brief(
-            prior_visit=request.prior_visit,
-            current_medications=request.current_medications,
-            patient_age=request.patient_age,
-            patient_sex=request.patient_sex,
-            comorbidities=request.comorbidities,
-            followup_alerts=followup_alerts,
-            checkin_digest=checkin_digest,
-        )
+
+        async def _call():
+            return await generate_prep_brief(
+                prior_visit=request.prior_visit,
+                current_medications=request.current_medications,
+                patient_age=request.patient_age,
+                patient_sex=request.patient_sex,
+                comorbidities=request.comorbidities,
+                followup_alerts=followup_alerts,
+                checkin_digest=checkin_digest,
+            )
+
+        cache_key = demo_cache.key_for_payload({
+            "patient_nric": request.patient_nric,
+            "prior_visit": request.prior_visit,
+            "current_medications": request.current_medications,
+            "patient_age": request.patient_age,
+            "patient_sex": request.patient_sex,
+            "comorbidities": request.comorbidities,
+            "followup_alerts": followup_alerts,
+            "checkin_digest": checkin_digest,
+        })
+        brief = await demo_cache.get_or_call(cache_key, _call)
         return brief
     except Exception as e:
         logger.error("prep-brief failed: %s", e)

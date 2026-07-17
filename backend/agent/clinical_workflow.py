@@ -24,6 +24,7 @@ from .ebm_lookup import fetch_ebm_evidence
 from .graph_clinical import clinical_graph_lookup, extract_candidate_drugs_from_chunks, build_patient_params
 from .graph_navigator import get_graph_constraints
 from .pipeline_state import PipelineState, begin_state, compute_resume_key  # noqa: F401 (compute_resume_key re-exported for tests/tools)
+from . import demo_cache
 from .routing import CPGDocRef, route_icd_to_cpgs
 from .stage_retry import run_with_retry
 from .tracing import add_span_attributes, stage_span
@@ -888,6 +889,21 @@ async def run_clinical_workflow_streaming(
     errors: list[StageError] = []
 
     _derive_bmi(case)
+
+    cache_key = None
+    if demo_cache.enabled():
+        cache_key = demo_cache.cache_key_for_case(case)
+        cached = demo_cache.get(cache_key)
+        await emit("sub_step", {"stage": 0, "detail": f"[DEBUG] key={cache_key} hit={cached is not None} cache_size={len(demo_cache._CACHE)}", "badge": "debug"})
+        if cached is not None:
+            logger.info("Demo cache hit for streaming run (key=%s)", cache_key[:8])
+            await demo_cache.replay(cached, emit)
+            return cached.result
+
+    real_emit = emit
+    recorder = demo_cache.RecordingEmit(real_emit) if cache_key is not None else None
+    emit = recorder or real_emit
+
     state = begin_state(case, "streaming")
 
     ddx = await _run_stage2(case, errors, emit=emit, state=state)
@@ -932,7 +948,7 @@ async def run_clinical_workflow_streaming(
     state.safety_report = safety_report
     state.complete()
 
-    return WorkflowResult(
+    result = WorkflowResult(
         treatment_plan=treatment_plan,
         ddx=ddx,
         cpgs=cpgs,
@@ -942,6 +958,9 @@ async def run_clinical_workflow_streaming(
         graph_navigator_rules=[_nav_flag_to_dict(f) for f in nav_flags],
         evidence=evidence,
     )
+    if cache_key is not None and recorder is not None:
+        demo_cache.store(cache_key, recorder.events, result)
+    return result
 
 
 async def run_resynthesize_streaming(

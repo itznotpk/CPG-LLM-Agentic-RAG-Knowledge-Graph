@@ -270,7 +270,7 @@ def estimate_blood_pressure(bvp_signal, fs, hr, ptt_ms=None, aix=None):
             return 0.0, 0.0
         bvp_norm = (bvp - bvp.min()) / rng
 
-        min_dist = int(fs * 0.4)
+        min_dist = max(1, int(fs * 0.4))
         peaks, _ = scipy_signal.find_peaks(
             bvp_norm, distance=min_dist, height=0.5, prominence=0.25)
         if len(peaks) < 3:
@@ -1017,7 +1017,11 @@ async def websocket_endpoint(ws: WebSocket):
 
                 # Compute vitals every 8 frames (more stable, less jitter)
                 if frame_count % 8 == 0:
-                    vitals = proc.compute_vitals()
+                    # POS + FFT work is synchronous CPU work; run off the event
+                    # loop so it can't stall ping/pong and trip the keepalive
+                    # timeout (1011 disconnect) while a frame is being crunched.
+                    loop = asyncio.get_event_loop()
+                    vitals = await loop.run_in_executor(None, proc.compute_vitals)
                     vitals["face_detected"] = face_detected
                     vitals["type"] = "camera"
                     if face_detected:
