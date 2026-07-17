@@ -205,14 +205,6 @@ export function DiagnosisSection() {
     );
   }
 
-  // Confidence bar color — matches the target screenshot: green for high, amber for medium
-  const getBarColor = (pct) => {
-    if (pct == null) return isDark ? '#64748b' : '#94a3b8';
-    if (pct >= 70) return '#10b981'; // emerald-500
-    if (pct >= 40) return '#f59e0b'; // amber-500
-    return '#94a3b8'; // slate-400
-  };
-
   // Risk label badge colors
   const getRiskBadge = (pct) => {
     if (pct == null) return null;
@@ -368,7 +360,6 @@ export function DiagnosisSection() {
             const isMinorHint = state.ddxSuggestion?.headless_default_minors?.includes(diff.icdCode);
             // probability is already 0–100 (mapped from final_score*100 or similarity*100 in clinicalMappers.js)
             const pct = diff.probability != null ? Math.round(diff.probability) : null;
-            const barColor = getBarColor(pct);
             const riskBadge = getRiskBadge(pct);
             const tierBadge = getTierBadge(tier);
 
@@ -517,43 +508,11 @@ export function DiagnosisSection() {
                     </div>
                   </div>
 
-                  {/* Confidence bar with label */}
-                  {pct != null && (
-                    <div className="mt-3 flex items-center gap-3">
-                      <span className={`text-xs font-medium shrink-0 ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
-                        Confidence
-                      </span>
-                      <span className={`text-sm font-bold shrink-0 tabular-nums ${isDark ? 'text-white' : 'text-slate-700'}`}>
-                        {(pct / 100).toFixed(2)}
-                      </span>
-                      <div className="flex-1">
-                        <div
-                          style={{
-                            height: 8,
-                            borderRadius: 6,
-                            background: isDark ? 'rgba(255,255,255,0.08)' : '#e2e8f0',
-                            overflow: 'hidden',
-                          }}
-                        >
-                          <div
-                            style={{
-                              height: '100%',
-                              borderRadius: 6,
-                              background: `linear-gradient(90deg, ${barColor}, ${barColor}dd)`,
-                              width: `${Math.min(100, Math.max(0, pct))}%`,
-                              transition: 'width 0.7s cubic-bezier(0.4,0,0.2,1)',
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  )}
-
                   {/* Expanded "Why?" details — two-column gray box */}
                   {expandedWhy[diff.icdCode] && (() => {
                     const hasRankDelta = diff.mathRank && diff.mathRank !== (idx + 1);
                     const hasOverride = !!diff.overrideReason;
-                    if (!hasRankDelta && !hasOverride) return null;
+                    if (!hasRankDelta && !hasOverride && pct == null) return null;
                     return (
                       <div
                         className={`mt-3 rounded-lg p-4 ${
@@ -609,6 +568,14 @@ export function DiagnosisSection() {
                             </div>
                           )}
                         </div>
+                        {pct != null && (
+                          <div className={`mt-3 pt-3 text-[11px] ${
+                            hasRankDelta || hasOverride ? `border-t ${isDark ? 'border-slate-700/50' : 'border-slate-200'}` : ''
+                          } ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                            Model match score: <span className="font-mono">{(pct / 100).toFixed(2)}</span>
+                            <span className="opacity-70"> — retrieval similarity, not a probability of the disease</span>
+                          </div>
+                        )}
                       </div>
                     );
                   })()}
