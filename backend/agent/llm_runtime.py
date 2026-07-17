@@ -6,13 +6,26 @@ only resolves complete provider tuples and exposes provider-aware call kwargs.
 
 from __future__ import annotations
 
+import asyncio
+import hashlib
+import json
 import os
-from dataclasses import dataclass
-from typing import Mapping
+import time
+from contextvars import ContextVar, Token
+from dataclasses import dataclass, field
+from typing import Any, Mapping
 
 
 class LLMConfigurationError(RuntimeError):
     """Raised when an operation has no complete configured provider target."""
+
+
+class LLMResponseError(RuntimeError):
+    """A provider response could not satisfy a structured-call contract."""
+
+    def __init__(self, reason: str):
+        super().__init__(reason)
+        self.reason = reason
 
 
 @dataclass(frozen=True)
@@ -241,3 +254,282 @@ def completion_kwargs(
     if seed is not None and "gemini" not in model:
         kwargs["seed"] = seed
     return kwargs
+
+
+@dataclass
+class LLMCallRecord:
+    request_id: str
+    consultation_id: int | None
+    operation: str
+    provider: str = ""
+    model: str = ""
+    policy_version: str = "v1"
+    prompt_sha256: str = ""
+    max_tokens: int = 0
+    attempts: int = 1
+    latency_ms: float = 0.0
+    finish_reason: str | None = None
+    usage: dict[str, int] = field(default_factory=dict)
+    outcome: str = "ok"
+    reason: str | None = None
+
+    def to_payload(self) -> dict[str, Any]:
+        """Serialize an explicit safe allowlist; never include prompts or targets."""
+        return {
+            "request_id": self.request_id,
+            "consultation_id": self.consultation_id,
+            "operation": self.operation,
+            "provider": self.provider,
+            "model": self.model,
+            "policy_version": self.policy_version,
+            "prompt_sha256": self.prompt_sha256,
+            "max_tokens": self.max_tokens,
+            "attempts": self.attempts,
+            "latency_ms": round(self.latency_ms, 2),
+            "finish_reason": self.finish_reason,
+            "usage": dict(self.usage),
+            "outcome": self.outcome,
+            "reason": self.reason,
+        }
+
+
+@dataclass
+class LLMRunContext:
+    request_id: str
+    consultation_id: int | None = None
+    records: list[LLMCallRecord] = field(default_factory=list)
+
+
+@dataclass(frozen=True)
+class StructuredCallResult:
+    data: dict
+    raw_content: str
+    response: Any
+
+
+_RUN_CONTEXT: ContextVar[LLMRunContext | None] = ContextVar(
+    "llm_run_context", default=None
+)
+
+
+def begin_llm_run(
+    request_id: str,
+    consultation_id: int | None = None,
+) -> Token:
+    """Open an isolated run context and return the token required to restore it."""
+    return _RUN_CONTEXT.set(LLMRunContext(request_id, consultation_id))
+
+
+def end_llm_run(token: Token) -> list[LLMCallRecord]:
+    """Return completed records and restore the parent context."""
+    context = _RUN_CONTEXT.get()
+    completed = list(context.records) if context is not None else []
+    _RUN_CONTEXT.reset(token)
+    return completed
+
+
+def current_llm_records() -> list[LLMCallRecord]:
+    context = _RUN_CONTEXT.get()
+    return list(context.records) if context is not None else []
+
+
+def _append_record(record: LLMCallRecord) -> LLMCallRecord:
+    context = _RUN_CONTEXT.get()
+    if context is not None:
+        context.records.append(record)
+    return record
+
+
+def _record(
+    operation: str,
+    *,
+    target: LLMTarget | None = None,
+    prompt_template: str = "",
+    attempts: int = 1,
+    latency_ms: float = 0.0,
+    finish_reason: str | None = None,
+    usage: dict[str, int] | None = None,
+    outcome: str = "ok",
+    reason: str | None = None,
+) -> LLMCallRecord:
+    context = _RUN_CONTEXT.get()
+    policy = POLICIES[operation]
+    return _append_record(
+        LLMCallRecord(
+            request_id=context.request_id if context is not None else "",
+            consultation_id=context.consultation_id if context is not None else None,
+            operation=operation,
+            provider=target.provider if target is not None else "",
+            model=target.model if target is not None else "",
+            policy_version=policy.version,
+            prompt_sha256=(
+                hashlib.sha256(prompt_template.encode("utf-8")).hexdigest()
+                if prompt_template
+                else ""
+            ),
+            max_tokens=policy.max_tokens,
+            attempts=attempts,
+            latency_ms=latency_ms,
+            finish_reason=finish_reason,
+            usage=usage or {},
+            outcome=outcome,
+            reason=reason,
+        )
+    )
+
+
+def record_degradation(
+    operation: str,
+    reason: str,
+    *,
+    target: LLMTarget | None = None,
+    prompt_template: str = "",
+    attempts: int = 1,
+    latency_ms: float = 0.0,
+    finish_reason: str | None = None,
+) -> LLMCallRecord:
+    return _record(
+        operation,
+        target=target,
+        prompt_template=prompt_template,
+        attempts=attempts,
+        latency_ms=latency_ms,
+        finish_reason=finish_reason,
+        outcome="degraded",
+        reason=reason,
+    )
+
+
+def _usage_payload(usage: Any) -> dict[str, int]:
+    if usage is None:
+        return {}
+    names = ("prompt_tokens", "completion_tokens", "total_tokens")
+    if isinstance(usage, Mapping):
+        return {name: int(usage[name]) for name in names if usage.get(name) is not None}
+    return {
+        name: int(value)
+        for name in names
+        if (value := getattr(usage, name, None)) is not None
+    }
+
+
+def _is_transient(exc: Exception) -> bool:
+    status = getattr(exc, "status_code", None)
+    if status in {408, 409, 429, 500, 502, 503, 504}:
+        return True
+    message = str(exc).lower()
+    return any(
+        marker in message
+        for marker in ("timeout", "timed out", "connection", "rate limit", "overloaded")
+    )
+
+
+def _clean_json_content(content: str) -> str:
+    raw = content.strip()
+    if raw.startswith("```"):
+        raw = raw.strip("` \n")
+        if raw.startswith("json"):
+            raw = raw[4:].strip()
+    return raw
+
+
+async def call_structured(
+    client,
+    *,
+    operation: str,
+    target: LLMTarget,
+    messages: list[dict],
+    prompt_template: str,
+    temperature: float = 0.1,
+    seed: int | None = None,
+    retry_delays: tuple[float, ...] = (0.25, 0.5),
+) -> StructuredCallResult:
+    """Execute one structured call, recording one success or terminal degradation."""
+    started = time.perf_counter()
+    attempts = 0
+    for attempt in range(len(retry_delays) + 1):
+        attempts = attempt + 1
+        try:
+            response = await client.chat.completions.create(
+                model=target.model,
+                messages=messages,
+                temperature=temperature,
+                **completion_kwargs(operation, target, seed=seed),
+            )
+            choice = response.choices[0]
+            finish_reason = getattr(choice, "finish_reason", None)
+            content = (getattr(choice.message, "content", None) or "").strip()
+            if finish_reason == "length":
+                raise LLMResponseError("length_truncated")
+            if not content:
+                raise LLMResponseError("empty_content")
+            try:
+                data = json.loads(_clean_json_content(content))
+            except json.JSONDecodeError as exc:
+                raise LLMResponseError("invalid_json") from exc
+            if not isinstance(data, dict):
+                raise LLMResponseError("invalid_json")
+
+            _record(
+                operation,
+                target=target,
+                prompt_template=prompt_template,
+                attempts=attempts,
+                latency_ms=(time.perf_counter() - started) * 1000,
+                finish_reason=finish_reason,
+                usage=_usage_payload(getattr(response, "usage", None)),
+            )
+            return StructuredCallResult(data=data, raw_content=content, response=response)
+        except LLMResponseError as exc:
+            record_degradation(
+                operation,
+                exc.reason,
+                target=target,
+                prompt_template=prompt_template,
+                attempts=attempts,
+                latency_ms=(time.perf_counter() - started) * 1000,
+                finish_reason=(
+                    getattr(response.choices[0], "finish_reason", None)
+                    if "response" in locals()
+                    else None
+                ),
+            )
+            raise
+        except Exception as exc:
+            if attempt < len(retry_delays) and _is_transient(exc):
+                await asyncio.sleep(retry_delays[attempt])
+                continue
+            record_degradation(
+                operation,
+                "provider_error",
+                target=target,
+                prompt_template=prompt_template,
+                attempts=attempts,
+                latency_ms=(time.perf_counter() - started) * 1000,
+            )
+            raise
+
+    raise AssertionError("unreachable")
+
+
+def record_stream_completion(
+    operation: str,
+    *,
+    target: LLMTarget,
+    prompt_template: str,
+    attempts: int,
+    latency_ms: float,
+    finish_reason: str | None,
+    outcome: str = "ok",
+    reason: str | None = None,
+) -> LLMCallRecord:
+    return _record(
+        operation,
+        target=target,
+        prompt_template=prompt_template,
+        attempts=attempts,
+        latency_ms=latency_ms,
+        finish_reason=finish_reason,
+        outcome=outcome,
+        reason=reason,
+    )
