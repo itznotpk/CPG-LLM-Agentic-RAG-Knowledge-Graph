@@ -5,6 +5,7 @@ import {
   BrainCircuit, ShieldAlert, Eye, Camera, Activity,
   Heart, Stethoscope, ChevronDown, AlertTriangle, ShieldX,
   Baby, Pill, FlaskConical, Mic, Network, Send, FileText,
+  Microscope, Database, Gauge, MessageCircle,
 } from 'lucide-react';
 
 /**
@@ -383,6 +384,12 @@ const STAGES = [
     half: true,
   },
   {
+    n: '4.6', Icon: Microscope, type: 'mixed', title: 'Live Literature (EBM)',
+    desc: 'A live Europe PMC search injects graded, recent evidence — systematic reviews, meta-analyses, RCTs — then the plan is re-synthesised so recommendations are backed by, or extended with, current literature. Never stored, always fresh.',
+    tags: ['Europe PMC', 'two-pass refine'],
+    half: true,
+  },
+  {
     n: '5', Icon: FileText, type: 'llm', title: 'Care-Plan Synthesis',
     desc: 'An LLM drafts the eight-section executable care plan, constrained to the retrieved evidence and passed through an eight-layer post-synthesis validator chain (dedup, coverage, anti-hallucination).',
     tags: ['8-section plan', 'cite-or-abstain'],
@@ -397,6 +404,11 @@ const STAGES = [
     desc: 'On clinician approval, a fully cited care-plan PDF is generated, audit-logged, and delivered to the consented patient. A structured prior-visit summary is written for continuity.',
     tags: ['cited PDF', 'audit-logged'],
   },
+  {
+    n: '8', Icon: MessageCircle, type: 'mixed', title: 'Post-Visit Follow-up',
+    desc: 'After sign-off, an automated companion checks in with the patient, triages replies for red-flag symptoms — escalating to the clinician — and sends appointment reminders. Deterministic scheduling, LLM triage.',
+    tags: ['Telegram', 'tripwire triage'],
+  },
 ];
 
 function Architecture() {
@@ -405,7 +417,7 @@ function Architecture() {
       <div className="max-w-[1280px] mx-auto">
         <SectionHead
           eyebrow="Architecture"
-          title={<><span className="whitespace-nowrap">Seven stages —</span> <em className="italic text-teal-700">deterministic by default</em>.</>}
+          title={<><span className="whitespace-nowrap">Eight stages —</span> <em className="italic text-teal-700">deterministic by default</em>.</>}
           sub="Safety comes from the system around the model, not its size. The pipeline is rule-driven wherever a rule will do, and reserves language models strictly for the reasoning that can't be expressed as rules — each one constrained to cited evidence."
         />
 
@@ -479,6 +491,10 @@ function Architecture() {
 /* ---------- FEATURES ---------- */
 function Features() {
   const feats = [
+    { Icon: Microscope, t: 'Live evidence literature', d: 'Beyond the guidelines, ClearPath pulls graded, recent evidence from Europe PMC at consult time — systematic reviews, meta-analyses, RCTs — and folds it into the plan through a two-pass refine.', meta: ['Europe PMC', 'graded pyramid'] },
+    { Icon: Database, t: 'Dual-source knowledge base', d: 'A vector database recalls the exact guideline passages; a clinical knowledge graph reasons over drug–condition relationships. Recall and structural verification, working together.', meta: ['pgvector', 'Neo4j graph'] },
+    { Icon: Gauge, t: 'Fully traceable', d: 'Every stage and model call is traced end-to-end. One request ID links the trace, the live event log, per-stage timings, and clinician feedback — nothing happens off the record.', meta: ['OpenTelemetry', 'audit trail'] },
+    { Icon: MessageCircle, t: 'Follow-up companion', d: 'Care doesn’t end at sign-off. An automated companion checks in with patients after the visit, triages replies for red-flag symptoms, and sends appointment reminders.', meta: ['Telegram', 'tripwire triage'] },
     { Icon: BrainCircuit, t: 'Agentic RAG', d: 'The agent actively chooses which guidelines to retrieve based on its own working diagnosis — never blind keyword search.', meta: ['working DDx', 'retrieval loop'] },
     { Icon: ShieldAlert, t: 'Safety critic', d: 'Before the plan reaches you, a critic screens every drug for allergy, interaction, dose, and contraindication against the patient’s comorbidities.', meta: ['DDI checker', 'allergy guard'] },
     { Icon: Eye, t: 'Transparent reasoning', d: 'Watch the agent think — every retrieval, critic, and ranking step is visible live, and each recommendation tags the exact CPG paragraph it came from.', meta: ['chain of thought', 'paragraph-level cites'] },
@@ -492,7 +508,7 @@ function Features() {
         <SectionHead
           eyebrow="Powered by"
           title={<><span className="whitespace-nowrap">Decision support that</span> <em className="italic text-teal-700">shows its work</em>.</>}
-          sub="Six capabilities, one workflow. Every recommendation is grounded in a specific CPG paragraph and a specific reasoning trace — never a black box."
+          sub="From live evidence retrieval to post-visit follow-up — every recommendation grounded in a specific CPG paragraph and a specific reasoning trace, never a black box."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {feats.map(({ Icon, t, d, meta }, i) => (
