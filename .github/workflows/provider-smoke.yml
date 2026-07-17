@@ -1,0 +1,25 @@
+name: Provider smoke
+
+on:
+  schedule:
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+
+jobs:
+  gemini:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Run live provider contract
+        working-directory: backend
+        env:
+          GEMINI_BASE_URL: https://generativelanguage.googleapis.com/v1beta/openai/
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+        run: pytest tests/live/test_provider_smoke.py -m live_provider "--override-ini=addopts=" -q
+          RUN_LIVE_PROVIDER_TESTS: '1'
