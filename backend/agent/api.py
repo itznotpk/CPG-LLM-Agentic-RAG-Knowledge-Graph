@@ -932,6 +932,8 @@ async def summarise_prior(request: SummarisePriorRequest):
     """
     from .clinical_stages import summarise_prior_visit
 
+    from .llm_runtime import begin_llm_run, end_llm_run
+    run_token = begin_llm_run(_request_id_var.get())
     try:
         summary = await summarise_prior_visit(
             consultation_date=request.consultation_date,
@@ -945,6 +947,9 @@ async def summarise_prior(request: SummarisePriorRequest):
         logger.error("summarise-prior failed: %s", e)
         raise HTTPException(status_code=500, detail=str(e))
 
+    finally:
+        records = end_llm_run(run_token)
+        await _persist_llm_degradations(records)
 
 class PrepBriefRequest(_BaseModel):
     patient_nric: str
@@ -995,6 +1000,8 @@ async def prep_brief(request: PrepBriefRequest):
     """
     from .clinical_stages import generate_prep_brief
 
+    from .llm_runtime import begin_llm_run, end_llm_run
+    run_token = begin_llm_run(_request_id_var.get())
     try:
         followup_alerts, checkin_digest = await _load_followup_context(request.patient_nric)
         brief = await generate_prep_brief(
@@ -1012,6 +1019,9 @@ async def prep_brief(request: PrepBriefRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+    finally:
+        records = end_llm_run(run_token)
+        await _persist_llm_degradations(records)
 # ---------------------------------------------------------------------------
 # Shared SSE plumbing for clinical streaming endpoints.
 #
@@ -1037,6 +1047,29 @@ _SSE_HEADERS = {
     "Content-Encoding": "identity",
 }
 _SSE_DONE = object()
+
+
+async def _persist_llm_degradations(records, consultation_id=None) -> None:
+    """Best-effort persistence of PHI-free degraded call summaries."""
+    from .db_utils import log_machine_signal
+    rid = _request_id_var.get()
+    for record in records:
+        if record.outcome != "degraded":
+            continue
+        await log_machine_signal(
+            "llm_degradation",
+            consultation_id=consultation_id,
+            request_id=rid,
+            detail=f"{record.operation}: {record.reason or 'unknown'}",
+            severity="warning",
+            payload={
+                "operation": record.operation,
+                "reason": record.reason or "unknown",
+                "attempts": record.attempts,
+                "finish_reason": record.finish_reason,
+                "policy_version": record.policy_version,
+            },
+        )
 
 
 async def _sse_stream(request: Request, producer, log_label: str, consultation_id=None) -> StreamingResponse:
@@ -1072,6 +1105,8 @@ async def _sse_stream(request: Request, producer, log_label: str, consultation_i
 
     async def generate():
         seq = 0
+        from .llm_runtime import begin_llm_run, end_llm_run
+        run_token = begin_llm_run(_request_id_var.get(), consultation_id)
         prod_task = asyncio.create_task(run_producer(), name=f"sse-{log_label}")
         try:
             while True:
@@ -1103,6 +1138,8 @@ async def _sse_stream(request: Request, producer, log_label: str, consultation_i
                     await prod_task
                 except (asyncio.CancelledError, Exception):
                     pass
+            records = end_llm_run(run_token)
+            await _persist_llm_degradations(records, consultation_id)
 
     return StreamingResponse(
         generate(),
@@ -1160,6 +1197,31 @@ async def _harvest_machine_signals(result, consultation_id) -> None:
                 payload={"error_type": getattr(err, "error_type", None),
                          "recoverable": getattr(err, "recoverable", None)},
             )
+
+        from .llm_runtime import current_llm_records
+        records = current_llm_records()
+        cpg_documents = sorted({
+            str(identifier)
+            for cpg in (getattr(result, "cpgs", []) or [])
+            if (identifier := (
+                getattr(cpg, "document_id", None)
+                or getattr(cpg, "cpg_name", None)
+            ))
+        })
+        operation_payloads = [record.to_payload() for record in records]
+        config_material = json.dumps(operation_payloads, sort_keys=True, separators=(",", ":"))
+        manifest = {
+            "schema_version": 1,
+            "app_commit": os.getenv("APP_COMMIT_SHA", "unknown"),
+            "corpus_version": os.getenv("CPG_CORPUS_VERSION", "unknown"),
+            "config_fingerprint": hashlib.sha256(config_material.encode("utf-8")).hexdigest(),
+            "cpg_documents": cpg_documents,
+            "operations": operation_payloads,
+        }
+        await log_machine_signal(
+            "run_manifest", consultation_id=consultation_id, request_id=rid,
+            detail="Clinical pipeline run manifest", severity="info", payload=manifest,
+        )
     except Exception as exc:
         logger.warning("_harvest_machine_signals failed (non-fatal): %s", exc)
 
