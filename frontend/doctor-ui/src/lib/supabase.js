@@ -1080,6 +1080,30 @@ export const saveHumanSignal = async ({
  * @param {number} [opts.days=30] lookback window
  * @returns {Promise<Object>} aggregated insights (always returns a safe shape)
  */
+export const aggregateLLMDegradations = (rows = []) => {
+  const rank = { info: 0, warning: 1, critical: 2 };
+  const grouped = {};
+  for (const row of rows) {
+    if (row.signal_type !== 'llm_degradation') continue;
+    const payload = row.payload || {};
+    const detailParts = String(row.detail || '').split(':');
+    const operation = payload.operation || detailParts.shift()?.trim() || 'unknown';
+    const reason = payload.reason || detailParts.join(':').trim() || 'unknown';
+    const key = `${operation}::${reason}`;
+    if (!grouped[key]) {
+      grouped[key] = { operation, reason, count: 0, severity: row.severity || 'warning' };
+    }
+    grouped[key].count += 1;
+    if ((rank[row.severity] ?? 0) > (rank[grouped[key].severity] ?? 0)) {
+      grouped[key].severity = row.severity;
+    }
+  }
+  return Object.values(grouped)
+    .sort((a, b) => b.count - a.count || a.operation.localeCompare(b.operation))
+    .slice(0, 6);
+};
+
+
 export const getFeedbackInsights = async ({ days = 30 } = {}) => {
   const since = new Date(Date.now() - days * 86400000).toISOString();
   const empty = {
@@ -1089,7 +1113,7 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
     machine: { total: 0, byType: {} },
     // Structured pipeline rollup (parsed from gate_failure detail strings):
     // missingData = the actionable list — which absent inputs keep blocking referrals.
-    pipeline: { missingData: [], ruledOut: 0, suppressed: 0, otherTop: [] },
+    pipeline: { missingData: [], ruledOut: 0, suppressed: 0, otherTop: [], llmDegradations: [] },
     days,
   };
 
@@ -1171,6 +1195,10 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
       byType[row.signal_type] = (byType[row.signal_type] || 0) + 1;
       const detail = (row.detail || '').trim();
 
+      if (row.signal_type === 'run_manifest' || row.signal_type === 'llm_degradation') {
+        continue;
+      }
+
       // gate_decision is the current type; gate_failure is the legacy alias for
       // rows written before the rename — both are the referral gate's decision log.
       if (row.signal_type === 'gate_decision' || row.signal_type === 'gate_failure') {
@@ -1205,12 +1233,13 @@ export const getFeedbackInsights = async ({ days = 30 } = {}) => {
       .sort((a, b) => b.count - a.count)
       .slice(0, 6);
 
+    const llmDegradations = aggregateLLMDegradations(M);
     return {
       human: { ...counts, total, approvalRate, safetyOverrides },
       recentComments,
       cpgRejection,
       machine: { total: M.length, byType },
-      pipeline: { missingData, ruledOut, suppressed, otherTop },
+      pipeline: { missingData, ruledOut, suppressed, otherTop, llmDegradations },
       days,
     };
   } catch (err) {

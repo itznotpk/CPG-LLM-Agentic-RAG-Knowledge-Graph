@@ -1,0 +1,3 @@
+import os
+A = os.getenv("ALPHA")
+B = os.environ.get("BETA", "x")

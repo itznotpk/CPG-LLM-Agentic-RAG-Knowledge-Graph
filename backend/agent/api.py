@@ -5,8 +5,10 @@ FastAPI endpoints for the agentic RAG system.
 import os
 import asyncio
 import json
+import hashlib
 import logging
 from contextlib import asynccontextmanager
+import time
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 import uuid
@@ -42,6 +44,7 @@ from .db_utils import (
     supabase_pool,
 )
 from .graph_utils import initialize_graph, close_graph, test_graph_connection
+from .llm_runtime import LLMConfigurationError, LLMTarget, completion_kwargs, configuration_defects, resolve_target
 from .models import (
     ChatRequest,
     ChatResponse,
@@ -742,67 +745,110 @@ def _make_chatbox_model():
     return OpenAIModel(model, provider=provider)
 
 
-async def _probe_llm(base_url: str | None, api_key: str | None, model: str, timeout: float = 8.0) -> bool:
-    """Send a minimal completion to check reachability. Returns True if the provider responds."""
-    if not base_url or not api_key:
-        return False
+_LLM_PROBE_CACHE: dict[str, tuple[float, bool]] = {}
+_LLM_PROBE_CACHE_SECONDS = 30.0
+
+
+def _target_fingerprint(target: LLMTarget) -> str:
+    material = "\0".join(
+        (target.alias, target.base_url, target.api_key, target.model, target.provider)
+    )
+    return hashlib.sha256(material.encode("utf-8")).hexdigest()
+
+
+async def _probe_llm(target: LLMTarget, timeout: float = 8.0) -> bool:
+    """Require a successful completion with non-empty content, cached per target."""
+    fingerprint = _target_fingerprint(target)
+    now = time.monotonic()
+    cached = _LLM_PROBE_CACHE.get(fingerprint)
+    if cached and cached[0] > now:
+        return cached[1]
+
+    ok = False
     try:
         import httpx
         async with httpx.AsyncClient(timeout=timeout) as client:
             resp = await client.post(
-                base_url.rstrip("/") + "/chat/completions",
-                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
-                json={"model": model, "messages": [{"role": "user", "content": "ping"}], "max_tokens": 1},
+                target.base_url.rstrip("/") + "/chat/completions",
+                headers={"Authorization": f"Bearer {target.api_key}", "Content-Type": "application/json"},
+                json={
+                    "model": target.model,
+                    "messages": [{"role": "user", "content": "Reply with pong."}],
+                    **completion_kwargs("readiness_probe", target),
+                },
             )
-        return resp.status_code < 500
+        if 200 <= resp.status_code < 300:
+            body = resp.json()
+            content = body["choices"][0]["message"]["content"]
+            ok = bool(str(content or "").strip())
     except Exception:
-        return False
+        ok = False
+    _LLM_PROBE_CACHE[fingerprint] = (now + _LLM_PROBE_CACHE_SECONDS, ok)
+    return ok
+
+
+async def _build_health_status() -> HealthStatus:
+    db_status, graph_status = await asyncio.gather(
+        test_connection(), test_graph_connection()
+    )
+    try:
+        synthesis_target = resolve_target("stage5_synthesis")
+        safety_target = resolve_target("safety_critic")
+        synthesis_ok, safety_ok = await asyncio.gather(
+            _probe_llm(synthesis_target), _probe_llm(safety_target)
+        )
+    except LLMConfigurationError:
+        synthesis_ok = safety_ok = False
+
+    llm_ok = synthesis_ok and safety_ok
+    if db_status and graph_status and llm_ok:
+        status = "healthy"
+    elif db_status:
+        status = "degraded"
+    else:
+        status = "unhealthy"
+    return HealthStatus(
+        status=status, database=db_status, graph_database=graph_status,
+        llm_connection=llm_ok,
+        llm_synthesis="ok" if synthesis_ok else "degraded",
+        llm_safety="ok" if safety_ok else "degraded",
+        version="0.1.0", timestamp=datetime.now(),
+    )
 
 
 # API Endpoints
+@app.get("/live")
+async def live_check():
+    """Process liveness only; never calls external dependencies."""
+    return {"status": "alive", "version": "0.1.0", "timestamp": datetime.now()}
+
+
 @app.get("/health", response_model=HealthStatus)
 async def health_check():
-    """Health check endpoint."""
+    """Backward-compatible dependency health body; degraded states remain HTTP 200."""
     try:
-        db_status, graph_status = await asyncio.gather(
-            test_connection(), test_graph_connection()
-        )
-
-        synthesis_ok, safety_ok = await asyncio.gather(
-            _probe_llm(
-                os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
-                os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
-                os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
-            ),
-            _probe_llm(
-                os.getenv("SAFETY_CRITIC_LLM_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL"),
-                os.getenv("SAFETY_CRITIC_LLM_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY"),
-                os.getenv("SAFETY_CRITIC_MODEL") or os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", ""),
-            ),
-        )
-
-        llm_ok = synthesis_ok and safety_ok
-        if db_status and graph_status and llm_ok:
-            status = "healthy"
-        elif db_status:
-            status = "degraded"
-        else:
-            status = "unhealthy"
-
-        return HealthStatus(
-            status=status,
-            database=db_status,
-            graph_database=graph_status,
-            llm_connection=llm_ok,
-            llm_synthesis="ok" if synthesis_ok else "degraded",
-            llm_safety="ok" if safety_ok else "degraded",
-            version="0.1.0",
-            timestamp=datetime.now()
-        )
-
+        return await _build_health_status()
     except Exception as e:
         logger.error(f"Health check failed: {e}")
         raise HTTPException(status_code=500, detail="Health check failed")
+
+
+@app.get("/ready")
+async def readiness_check():
+    """Strict readiness: dependencies and configured target tiers must be sound."""
+    try:
+        status = await _build_health_status()
+        payload = status.model_dump(mode="json")
+        ready = payload.get("status") == "healthy" and not configuration_defects()
+    except Exception as exc:
+        logger.error("Readiness check failed: %s", exc)
+        payload = HealthStatus(
+            status="unhealthy", database=False, graph_database=False,
+            llm_connection=False, llm_synthesis="degraded", llm_safety="degraded",
+            version="0.1.0", timestamp=datetime.now(),
+        ).model_dump(mode="json")
+        ready = False
+    return JSONResponse(status_code=200 if ready else 503, content=payload)
 
 
 @app.post("/chat", response_model=ChatResponse)
@@ -889,6 +935,8 @@ async def summarise_prior(request: SummarisePriorRequest):
     """
     from .clinical_stages import summarise_prior_visit
 
+    from .llm_runtime import begin_llm_run, end_llm_run
+    run_token = begin_llm_run(_request_id_var.get())
     try:
         summary = await summarise_prior_visit(
             consultation_date=request.consultation_date,
@@ -902,6 +950,9 @@ async def summarise_prior(request: SummarisePriorRequest):
         logger.error("summarise-prior failed: %s", e)
         raise HTTPException(status_code=500, detail=str(e))
 
+    finally:
+        records = end_llm_run(run_token)
+        await _persist_llm_degradations(records)
 
 class PrepBriefRequest(_BaseModel):
     patient_nric: str
@@ -952,6 +1003,8 @@ async def prep_brief(request: PrepBriefRequest):
     """
     from .clinical_stages import generate_prep_brief
 
+    from .llm_runtime import begin_llm_run, end_llm_run
+    run_token = begin_llm_run(_request_id_var.get())
     try:
         followup_alerts, checkin_digest = await _load_followup_context(request.patient_nric)
         brief = await generate_prep_brief(
@@ -969,6 +1022,9 @@ async def prep_brief(request: PrepBriefRequest):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+    finally:
+        records = end_llm_run(run_token)
+        await _persist_llm_degradations(records)
 # ---------------------------------------------------------------------------
 # Shared SSE plumbing for clinical streaming endpoints.
 #
@@ -994,6 +1050,29 @@ _SSE_HEADERS = {
     "Content-Encoding": "identity",
 }
 _SSE_DONE = object()
+
+
+async def _persist_llm_degradations(records, consultation_id=None) -> None:
+    """Best-effort persistence of PHI-free degraded call summaries."""
+    from .db_utils import log_machine_signal
+    rid = _request_id_var.get()
+    for record in records:
+        if record.outcome != "degraded":
+            continue
+        await log_machine_signal(
+            "llm_degradation",
+            consultation_id=consultation_id,
+            request_id=rid,
+            detail=f"{record.operation}: {record.reason or 'unknown'}",
+            severity="warning",
+            payload={
+                "operation": record.operation,
+                "reason": record.reason or "unknown",
+                "attempts": record.attempts,
+                "finish_reason": record.finish_reason,
+                "policy_version": record.policy_version,
+            },
+        )
 
 
 async def _sse_stream(request: Request, producer, log_label: str, consultation_id=None) -> StreamingResponse:
@@ -1029,6 +1108,8 @@ async def _sse_stream(request: Request, producer, log_label: str, consultation_i
 
     async def generate():
         seq = 0
+        from .llm_runtime import begin_llm_run, end_llm_run
+        run_token = begin_llm_run(_request_id_var.get(), consultation_id)
         prod_task = asyncio.create_task(run_producer(), name=f"sse-{log_label}")
         try:
             while True:
@@ -1060,6 +1141,8 @@ async def _sse_stream(request: Request, producer, log_label: str, consultation_i
                     await prod_task
                 except (asyncio.CancelledError, Exception):
                     pass
+            records = end_llm_run(run_token)
+            await _persist_llm_degradations(records, consultation_id)
 
     return StreamingResponse(
         generate(),
@@ -1117,6 +1200,31 @@ async def _harvest_machine_signals(result, consultation_id) -> None:
                 payload={"error_type": getattr(err, "error_type", None),
                          "recoverable": getattr(err, "recoverable", None)},
             )
+
+        from .llm_runtime import current_llm_records
+        records = current_llm_records()
+        cpg_documents = sorted({
+            str(identifier)
+            for cpg in (getattr(result, "cpgs", []) or [])
+            if (identifier := (
+                getattr(cpg, "document_id", None)
+                or getattr(cpg, "cpg_name", None)
+            ))
+        })
+        operation_payloads = [record.to_payload() for record in records]
+        config_material = json.dumps(operation_payloads, sort_keys=True, separators=(",", ":"))
+        manifest = {
+            "schema_version": 1,
+            "app_commit": os.getenv("APP_COMMIT_SHA", "unknown"),
+            "corpus_version": os.getenv("CPG_CORPUS_VERSION", "unknown"),
+            "config_fingerprint": hashlib.sha256(config_material.encode("utf-8")).hexdigest(),
+            "cpg_documents": cpg_documents,
+            "operations": operation_payloads,
+        }
+        await log_machine_signal(
+            "run_manifest", consultation_id=consultation_id, request_id=rid,
+            detail="Clinical pipeline run manifest", severity="info", payload=manifest,
+        )
     except Exception as exc:
         logger.warning("_harvest_machine_signals failed (non-fatal): %s", exc)
 

@@ -30,6 +30,7 @@ from .graph_clinical import ClinicalFlag, format_flags_for_prompt
 from .models import ChunkResult, PatientCase, PriorVisitSummary, Recommendation, TreatmentPlan
 from .routing import CPGDocRef, SEMANTIC_SCOPE_THRESHOLD, route_icd_to_cpgs
 from .tools import VectorSearchInput, vector_search_tool
+from .llm_runtime import call_structured, completion_kwargs, resolve_target
 from .providers import make_vertex_client
 
 
@@ -1947,34 +1948,20 @@ async def _llm_rerank_ddx(
     # STAGE2_RERANK_LLM_* takes priority — allows re-rank to stay on a heavy model
     # (MiMo) while extraction/hypotheses move to a lighter model (Gemini Flash).
     # Falls back to STAGE2_LLM_* then the global LLM_* config.
-    stage2_base = (
-        os.getenv("STAGE2_RERANK_LLM_BASE_URL")
-        or os.getenv("STAGE2_LLM_BASE_URL")
-    )
-    stage2_key = (
-        os.getenv("STAGE2_RERANK_LLM_API_KEY")
-        or os.getenv("STAGE2_LLM_API_KEY")
-    )
-    stage2_model = (
-        os.getenv("STAGE2_RERANK_LLM_CHOICE")
-        or os.getenv("STAGE2_LLM_CHOICE")
-    )
-    stage2_provider = os.getenv("STAGE2_RERANK_LLM_PROVIDER", "") or os.getenv("STAGE2_LLM_PROVIDER", "")
-    using_override = bool(stage2_base and stage2_key and stage2_model)
-
+    target = resolve_target("ddx_rerank")
     client = _make_openai_client(
-        base_url=stage2_base or os.getenv("LLM_BASE_URL"),
-        api_key=stage2_key or os.getenv("LLM_API_KEY"),
-        provider=stage2_provider,
+        base_url=target.base_url,
+        api_key=target.api_key,
+        provider=target.provider,
         timeout=120,
         max_retries=1,
     )
-    active_model = stage2_model or DDX_RERANK_MODEL
+    active_model = target.model
     logger.info(
-        "Stage 2 rerank using model=%s endpoint=%s (override=%s)",
+        "Stage 2 rerank using model=%s target=%s (override=%s)",
         active_model,
-        stage2_base or os.getenv("LLM_BASE_URL"),
-        using_override,
+        target.alias,
+        target.alias != "global",
     )
 
     # D6: assign math_rank before building the prompt
@@ -2075,9 +2062,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=0,
-                **_seed_kwargs(active_model),
-                max_tokens=8000,
-                response_format={"type": "json_object"},
+                **completion_kwargs("ddx_rerank", target, seed=DDX_DETERMINISTIC_SEED),
                 stream=True,
             )
             async for chunk in stream:
@@ -2108,9 +2093,7 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
                 model=active_model,
                 messages=messages,
                 temperature=0,
-                **_seed_kwargs(active_model),
-                max_tokens=8000,
-                response_format={"type": "json_object"},
+                **completion_kwargs("ddx_rerank", target, seed=DDX_DETERMINISTIC_SEED),
             )
             raw_content = resp.choices[0].message.content
 
@@ -2205,9 +2188,9 @@ Candidate ICD-11 codes (pre-ranked by math score — math_rank=1 is highest):
 
     except Exception as exc:
         logger.warning(
-            "DDx LLM re-rank FAILED with model=%s endpoint=%s: %s — using original order",
+            "DDx LLM re-rank FAILED with model=%s target=%s: %s — using original order",
             active_model,
-            stage2_base or os.getenv("LLM_BASE_URL"),
+            target.alias,
             exc,
         )
         # Surface the silent degradation: the vector order we return is NOT a
@@ -3906,13 +3889,9 @@ async def _generate_retrieval_queries(
 ) -> list[str]:
     """Use the LLM to produce n focused retrieval queries for vector search."""
     # STAGE4_LLM_* vars override main LLM config (e.g. when primary API is blocked)
-    base_url = os.getenv("STAGE4_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("STAGE4_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("STAGE4_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
-    provider = os.getenv("STAGE4_LLM_PROVIDER", "")
-
+    target = resolve_target("stage4_queries")
     client = _make_openai_client(
-        base_url=base_url, api_key=api_key, provider=provider,
+        base_url=target.base_url, api_key=target.api_key, provider=target.provider,
     )
 
     icd_summary = ", ".join(f"{d.code} ({d.title})" for d in ddx[:2])
@@ -3947,9 +3926,10 @@ Generate exactly {n} queries (one per domain as instructed)."""
     try:
         resp = await _llm_call_with_retry(
             lambda: client.chat.completions.create(
-                model=model,
+                model=target.model,
                 messages=messages,
                 temperature=0.2,
+                max_tokens=completion_kwargs("stage4_queries", target)["max_tokens"],
             ),
             what="Stage 4 query generation",
         )
@@ -4294,13 +4274,9 @@ def _format_ebm_for_prompt(ebm: list) -> str:
 
 async def _refine_llm_call(case, ddx, draft_plan, ebm_evidence):
     """Isolated LLM call for Stage 5.5 refinement — patched in tests."""
-    base_url = os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
-
+    target = resolve_target("stage5_refine")
     client = openai.AsyncOpenAI(
-        base_url=base_url,
-        api_key=api_key,
+        base_url=target.base_url, api_key=target.api_key,
     )
 
     user_prompt = (
@@ -4309,19 +4285,18 @@ async def _refine_llm_call(case, ddx, draft_plan, ebm_evidence):
         f"Return the refined TreatmentPlan JSON."
     )
 
-    resp = await client.chat.completions.create(
-        model=model,
+    result = await call_structured(
+        client, operation="stage5_refine", target=target,
         messages=[
             {"role": "system", "content": STAGE5_5_REFINE_SYSTEM},
             {"role": "user", "content": user_prompt},
         ],
+        prompt_template=STAGE5_5_REFINE_SYSTEM,
         temperature=0.1,
         # Returns a whole refined TreatmentPlan, so it carries the same truncation
         # exposure as stage_5_synthesize under Gemini's thinking-token accounting.
-        max_tokens=32000,
-        response_format={"type": "json_object"},
     )
-    return TreatmentPlan.model_validate_json(resp.choices[0].message.content)
+    return TreatmentPlan.model_validate(result.data)
 
 
 def _normalize_intervention_text(intervention: str) -> str:
@@ -4425,18 +4400,11 @@ async def gate_referral_triggers(
     if not candidates or not REFERRAL_TRIGGER_GATE_PROMPT:
         return {}
 
-    base_url = os.getenv("REFERRAL_GATE_BASE_URL") or os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("REFERRAL_GATE_API_KEY") or os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
     # Default must track the base_url chain above — an id the configured endpoint
     # does not serve comes back 400 "Not supported model", which fails the gate and
     # dumps every triggered referral into unresolved_questions. That chain now
     # resolves to Gemini (STAGE5_* moved off the retired mimo endpoint), so the
     # default moves with it.
-    model = (
-        os.getenv("REFERRAL_GATE_MODEL")
-        or os.getenv("STAGE5_LLM_CHOICE")
-        or os.getenv("LLM_CHOICE", "gemini-2.5-flash")
-    )
 
     patient_ctx = {
         "age": getattr(case, "age", None),
@@ -4452,14 +4420,16 @@ async def gate_referral_triggers(
         {"patient": patient_ctx, "candidates": candidates},
         ensure_ascii=False,
     )
-    extra_body = (
-        {"chat_template_kwargs": {"enable_thinking": False}} if "mimo" in model.lower() else None
-    )
 
     try:
-        client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
-        resp = await client.chat.completions.create(
-            model=model,
+        target = resolve_target("referral_gate")
+        client = _make_openai_client(
+            base_url=target.base_url, api_key=target.api_key,
+            provider=target.provider, max_retries=0,
+        )
+        result = await call_structured(
+            client, operation="referral_gate", target=target,
+            prompt_template=REFERRAL_TRIGGER_GATE_PROMPT,
             messages=[
                 {"role": "system", "content": REFERRAL_TRIGGER_GATE_PROMPT},
                 {"role": "user", "content": user_payload},
@@ -4470,15 +4440,8 @@ async def gate_referral_triggers(
             # was disabled via extra_body) reasoning alone can consume the cap and
             # return empty, which reads as a gate failure and defaults every
             # triggered referral through ungated. Headroom, not output size.
-            max_tokens=4000,
-            extra_body=extra_body,
         )
-        raw = (resp.choices[0].message.content or "").strip()
-        if raw.startswith("```"):
-            raw = raw.strip("`")
-            if raw.startswith("json"):
-                raw = raw[4:].strip()
-        data = json.loads(raw)
+        data = result.data
         out: dict[int, tuple[str, str]] = {}
         for d in data.get("decisions", []) or []:
             try:
@@ -4542,16 +4505,9 @@ async def summarise_prior_visit(
     result to Supabase. Falls back to a minimal summary on LLM failure rather
     than raising, so consultation save never blocks on the summariser.
     """
-    base_url = os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
     # Same rationale as referral_trigger_gate: align the default with the endpoint
     # the base_url chain resolves to (now Gemini), not an id the configured server
     # does not serve.
-    model = (
-        os.getenv("PRIOR_VISIT_SUMMARISER_MODEL")
-        or os.getenv("STAGE5_LLM_CHOICE")
-        or os.getenv("LLM_CHOICE", "gemini-2.5-flash")
-    )
 
     fallback = PriorVisitSummary(
         visit_date=consultation_date,
@@ -4565,7 +4521,6 @@ async def summarise_prior_visit(
         logger.warning("prior_visit_summariser: prompt file missing; returning fallback")
         return fallback
 
-    client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
     user_payload = json.dumps(
         {
             "consultation_date": consultation_date,
@@ -4577,13 +4532,16 @@ async def summarise_prior_visit(
         ensure_ascii=False,
     )
 
-    extra_body = (
-        {"chat_template_kwargs": {"enable_thinking": False}} if "mimo" in model.lower() else None
-    )
 
     try:
-        resp = await client.chat.completions.create(
-            model=model,
+        target = resolve_target("prior_summary")
+        client = _make_openai_client(
+            base_url=target.base_url, api_key=target.api_key,
+            provider=target.provider, max_retries=0,
+        )
+        result = await call_structured(
+            client, operation="prior_summary", target=target,
+            prompt_template=PRIOR_VISIT_SUMMARISER_PROMPT,
             messages=[
                 {"role": "system", "content": PRIOR_VISIT_SUMMARISER_PROMPT},
                 {"role": "user", "content": user_payload},
@@ -4594,16 +4552,8 @@ async def summarise_prior_visit(
             # at 400 (a mimo-era budget, where thinking was disabled via extra_body)
             # reasoning alone can consume the cap and return empty content, silently
             # breaking the prior-visit → prep-brief loop. Headroom, not output size.
-            max_tokens=4000,
-            extra_body=extra_body,
         )
-        raw = (resp.choices[0].message.content or "").strip()
-        # Strip markdown fence if any
-        if raw.startswith("```"):
-            raw = raw.strip("`")
-            if raw.startswith("json"):
-                raw = raw[4:].strip()
-        data = json.loads(raw)
+        data = result.data
         # Enforce hard caps server-side as a belt-and-braces guard.
         for k, cap in (("prior_plan_summary", 200), ("key_labs_delta", 120), ("what_changed", 120)):
             v = data.get(k)
@@ -4633,21 +4583,20 @@ async def summarise_consultation(labeled_transcript: str) -> str:
         logger.warning("summarise_consultation: prompt file missing; returning empty summary")
         return ""
 
-    base_url = os.getenv("GEMINI_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("CONSULTATION_SUMMARY_MODEL", "gemini-2.0-flash")
-
-    client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
-
     try:
+        target = resolve_target("consultation_summary")
+        client = _make_openai_client(
+            base_url=target.base_url, api_key=target.api_key,
+            provider=target.provider, max_retries=0,
+        )
         resp = await client.chat.completions.create(
-            model=model,
+            model=target.model,
             messages=[
                 {"role": "system", "content": CONSULTATION_SUMMARISER_PROMPT},
                 {"role": "user", "content": labeled_transcript},
             ],
             temperature=0.1,
-            max_tokens=1200,
+            **completion_kwargs("consultation_summary", target),
         )
         summary = (resp.choices[0].message.content or "").strip()
         return summary
@@ -5139,13 +5088,9 @@ async def stage_5_synthesize(
             return _build_out_of_scope_plan(case, ddx, out_of_scope)
 
     # STAGE5_LLM_* vars override main LLM config (e.g. when primary API is blocked)
-    base_url = os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
-
+    target = resolve_target("stage5_synthesis")
     client = openai.AsyncOpenAI(
-        base_url=base_url,
-        api_key=api_key,
+        base_url=target.base_url, api_key=target.api_key,
     )
 
     await _prefetch_parent_content(evidence)
@@ -5184,7 +5129,7 @@ Produce a TreatmentPlan JSON object matching this schema:
     _guard_prompt_size(SYNTHESIS_SYSTEM, user_prompt)
 
     resp = await client.chat.completions.create(
-        model=model,
+        model=target.model,
         messages=[
             {"role": "system", "content": SYNTHESIS_SYSTEM},
             {"role": "user", "content": user_prompt},
@@ -5196,8 +5141,7 @@ Produce a TreatmentPlan JSON object matching this schema:
         # provider defaults to, and a truncated plan JSON fails Stage 5 — which is
         # fatal by design (recoverable=False), not degraded. Same class of fix as
         # _llm_rerank_ddx's 4000 → 8000 bump. Do not lower.
-        max_tokens=32000,
-        response_format={"type": "json_object"},
+        **completion_kwargs("stage5_synthesis", target),
     )
 
     raw_json = (resp.choices[0].message.content or "").strip()
@@ -6075,16 +6019,6 @@ async def generate_prep_brief(
     Returns dict with keys: since_last_visit, med_flags, ask_today.
     Falls back to a minimal dict on LLM failure — never raises.
     """
-    # Prefer prep-brief-specific vars, then Gemini, then fall back to the active
-    # LLM_* provider (MiMo). Without this fallback the client below raises when
-    # only MiMo is configured — bypassing the graceful fallback and 500-ing.
-    base_url = (os.getenv("PREP_BRIEF_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL")
-                or os.getenv("LLM_BASE_URL"))
-    api_key  = (os.getenv("PREP_BRIEF_LLM_API_KEY") or os.getenv("GEMINI_API_KEY")
-                or os.getenv("LLM_API_KEY"))
-    model    = (os.getenv("PREP_BRIEF_LLM_MODEL") or os.getenv("LLM_CHOICE")
-                or "gemini-2.5-flash")
-
     fallback = {
         "since_last_visit": prior_visit.get("what_changed") or "Prior visit data available — review chart.",
         "med_flags": None,
@@ -6110,22 +6044,23 @@ async def generate_prep_brief(
     payload = json.dumps(payload_dict, ensure_ascii=False)
 
     try:
-        client = _make_openai_client(base_url=base_url, api_key=api_key, max_retries=0)
-        resp = await client.chat.completions.create(
-            model=model,
+        target = resolve_target("prep_brief")
+        client = _make_openai_client(
+            base_url=target.base_url, api_key=target.api_key,
+            provider=target.provider, max_retries=0,
+        )
+        result = await call_structured(
+            client,
+            operation="prep_brief",
+            target=target,
             messages=[
                 {"role": "system", "content": PREP_BRIEF_PROMPT},
                 {"role": "user",   "content": payload},
             ],
+            prompt_template=PREP_BRIEF_PROMPT,
             temperature=0.1,
-            max_tokens=200,
         )
-        raw = (resp.choices[0].message.content or "").strip()
-        if raw.startswith("```"):
-            raw = raw.strip("`")
-            if raw.startswith("json"):
-                raw = raw[4:].strip()
-        data = json.loads(raw)
+        data = result.data
         # Enforce caps
         for k in ("since_last_visit", "med_flags", "ask_today"):
             v = data.get(k)

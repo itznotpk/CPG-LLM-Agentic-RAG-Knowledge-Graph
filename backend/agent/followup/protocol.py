@@ -16,6 +16,7 @@ from openai import AsyncOpenAI
 from pydantic import BaseModel, field_validator
 
 from ..db_utils import supabase_pool as db_pool
+from ..llm_runtime import call_structured, resolve_target
 
 logger = logging.getLogger(__name__)
 
@@ -65,30 +66,22 @@ def fallback_protocol(plan: dict) -> list[CheckinItem]:
 
 
 async def _call_llm(plan: dict, first_name: str | None) -> dict:
-    base_url = os.getenv("FOLLOWUP_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("FOLLOWUP_LLM_API_KEY") or os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("FOLLOWUP_LLM_MODEL") or "gemini-2.5-flash"
-    client = AsyncOpenAI(base_url=base_url, api_key=api_key, max_retries=0)
-    resp = await client.chat.completions.create(
-        model=model,
+    target = resolve_target("followup_protocol")
+    client = AsyncOpenAI(base_url=target.base_url, api_key=target.api_key, max_retries=0)
+    result = await call_structured(
+        client, operation="followup_protocol", target=target,
         messages=[
             {"role": "system", "content": _PROMPT},
             {"role": "user", "content": json.dumps({"plan": plan, "patient_first_name": first_name}, ensure_ascii=False)},
         ],
+        prompt_template=_PROMPT,
         temperature=0.1,
         # Gemini 2.5 Flash counts thinking tokens against max_tokens on its
         # OpenAI-compat endpoint; a tight budget truncates the JSON mid-string
         # ("Unterminated string...") and drops every protocol to the generic
         # deterministic fallback. Same fix as _llm_rerank_ddx. Do not lower.
-        max_tokens=8000,
-        response_format={"type": "json_object"},
     )
-    raw = (resp.choices[0].message.content or "").strip()
-    if raw.startswith("```"):
-        raw = raw.strip("`")
-        if raw.startswith("json"):
-            raw = raw[4:].strip()
-    return json.loads(raw)
+    return result.data
 
 
 def _apply_caps(items: list[CheckinItem]) -> list[CheckinItem]:

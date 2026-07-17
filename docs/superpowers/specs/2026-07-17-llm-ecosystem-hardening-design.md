@@ -1,7 +1,7 @@
 # LLM Ecosystem Hardening Design
 
 **Date:** 2026-07-17  
-**Status:** Approved in conversation; awaiting written-spec review  
+**Status:** Implemented and verified on the feature branch (2026-07-17)
 **Source:** Review of commit `8666940`
 
 ## Objective

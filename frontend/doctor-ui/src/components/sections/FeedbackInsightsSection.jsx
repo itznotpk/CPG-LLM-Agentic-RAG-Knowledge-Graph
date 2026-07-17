@@ -19,6 +19,7 @@ const SIGNAL_META = {
   data_quality: { label: 'Data quality', color: 'violet' },
   stage_error:  { label: 'Stage error', color: 'red' },
   kg_gap:       { label: 'KG gap', color: 'teal' },
+  llm_degradation: { label: 'LLM degradation', color: 'amber' },
 };
 
 const ACTION_META = {
@@ -181,6 +182,31 @@ export function FeedbackInsightsSection({ days = 30 }) {
           ) : (
             <div className="space-y-4">
               {pipeline.missingData.length > 0 && (
+              {pipeline.llmDegradations?.length > 0 && (
+                <div className={`space-y-2 pb-3 border-b ${rowBorder}`}>
+                  <p className={`text-[10px] font-bold uppercase tracking-wider ${txt('amber')}`}>
+                    LLM degradation patterns
+                  </p>
+                  {pipeline.llmDegradations.map((item) => (
+                    <div key={`${item.operation}:${item.reason}`} className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <SeverityDot severity={item.severity} />
+                        <p className={`text-xs truncate ${isDark ? 'text-slate-300' : 'text-slate-600'}`}>
+                          <span className="font-medium">{item.operation.replaceAll('_', ' ')}</span>
+                          <span className={subtleText}> · {item.reason.replaceAll('_', ' ')}</span>
+                        </p>
+                      </div>
+                      <span className={`text-xs font-bold tabular-nums shrink-0 ${mutedText}`}>
+                        ×{item.count}
+                      </span>
+                    </div>
+                  ))}
+                  <p className={`text-[10px] ${subtleText}`}>
+                    Calls completed through a fallback or returned an unusable response.
+                  </p>
+                </div>
+              )}
+
                 <div className="space-y-2">
                   {pipeline.missingData.map((m, i) => (
                     <div key={i} className={`flex items-start justify-between gap-3 pb-2 ${i < pipeline.missingData.length - 1 ? `border-b ${rowBorder}` : ''}`}>

@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import json
 import logging
-import os
 import re
 from pathlib import Path
 from typing import Literal
@@ -19,6 +18,7 @@ from openai import AsyncOpenAI
 from pydantic import BaseModel
 
 from ..db_utils import supabase_pool as db_pool
+from ..llm_runtime import call_structured, resolve_target
 
 logger = logging.getLogger(__name__)
 
@@ -112,22 +112,19 @@ def check_tripwires(text: str) -> str | None:
 
 
 async def _call_llm(system: str, user: str) -> str:
-    base_url = os.getenv("FOLLOWUP_LLM_BASE_URL") or os.getenv("GEMINI_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("FOLLOWUP_LLM_API_KEY") or os.getenv("GEMINI_API_KEY") or os.getenv("LLM_API_KEY")
-    model = os.getenv("FOLLOWUP_LLM_MODEL") or "gemini-2.5-flash"
-    client = AsyncOpenAI(base_url=base_url, api_key=api_key, max_retries=0)
-    resp = await client.chat.completions.create(
-        model=model,
+    target = resolve_target("followup_triage")
+    client = AsyncOpenAI(base_url=target.base_url, api_key=target.api_key, max_retries=0)
+    result = await call_structured(
+        client, operation="followup_triage", target=target,
         messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
+        prompt_template=system,
         temperature=0.1,
         # Gemini 2.5 Flash counts thinking tokens against max_tokens on its
         # OpenAI-compat endpoint; a tight budget truncates the JSON mid-string
         # ("Unterminated string...") and every reply then hits the ESCALATE
         # fail-safe. Same fix as _llm_rerank_ddx. Do not lower.
-        max_tokens=8000,
-        response_format={"type": "json_object"},
     )
-    return (resp.choices[0].message.content or "").strip()
+    return result.raw_content
 
 
 async def classify_reply(plan_context: str, checkin_question: str | None, message: str) -> TriageResult:
