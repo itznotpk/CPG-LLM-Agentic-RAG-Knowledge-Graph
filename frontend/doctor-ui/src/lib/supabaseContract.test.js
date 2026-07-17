@@ -49,6 +49,10 @@ const flagsParams    = rpcSignatureParams(readSql('add_safety_flags.sql'));
 const timingsParams  = rpcSignatureParams(readSql('add_pipeline_timings.sql'));
 const ackSql         = readSql('add_safety_acknowledgement.sql');
 const ackParams      = rpcSignatureParams(ackSql);
+const droppedSql     = readSql('drop_patient_education.sql');
+const droppedParams  = rpcSignatureParams(droppedSql);
+const guidanceSql    = readSql('add_international_guidance_audit.sql');
+const guidanceParams = rpcSignatureParams(guidanceSql);
 const jsKeys         = jsRpcKeys(readSrc('supabase.js'));
 
 describe('update_consultation — signature superset chain', () => {
@@ -62,7 +66,7 @@ describe('update_consultation — signature superset chain', () => {
     for (const p of flagsParams) expect(timingsParams).toContain(p);
   });
 
-  it('safety_acknowledgement migration (latest) is a superset of pipeline_timings migration', () => {
+  it('safety_acknowledgement migration is a superset of pipeline_timings migration', () => {
     for (const p of timingsParams) expect(ackParams).toContain(p);
   });
 
@@ -76,23 +80,27 @@ describe('update_consultation — signature superset chain', () => {
     expect(ackParams).toContain('p_pipeline_timings');
     expect(ackParams).toContain('p_request_id');
   });
+
+  it('international-guidance migration (latest) retains the current post-cleanup signature and adds its audit payload', () => {
+    for (const p of droppedParams) expect(guidanceParams).toContain(p);
+    expect(guidanceParams).toContain('p_international_guidance_audit');
+  });
 });
 
 describe('update_consultation — overload-trap guards', () => {
   it('drops EVERY overload via the pg_proc loop, not a hand-listed DROP', () => {
-    expect(ackSql).toMatch(/FROM\s+pg_proc/i);
-    expect(ackSql).toMatch(/proname\s*=\s*'update_consultation'/i);
-    expect(ackSql).toMatch(/DROP FUNCTION/i);
+    expect(guidanceSql).toMatch(/FROM\s+pg_proc/i);
+    expect(guidanceSql).toMatch(/proname\s*=\s*'update_consultation'/i);
+    expect(guidanceSql).toMatch(/DROP FUNCTION/i);
   });
 
   it('re-grants EXECUTE to anon and authenticated after the rebuild', () => {
-    expect(ackSql).toMatch(/GRANT EXECUTE ON FUNCTION update_consultation TO anon/i);
-    expect(ackSql).toMatch(/GRANT EXECUTE ON FUNCTION update_consultation TO authenticated/i);
+    expect(guidanceSql).toMatch(/GRANT EXECUTE ON FUNCTION update_consultation TO anon/i);
+    expect(guidanceSql).toMatch(/GRANT EXECUTE ON FUNCTION update_consultation TO authenticated/i);
   });
 
   it('adds the new columns idempotently (ADD COLUMN IF NOT EXISTS)', () => {
-    expect(ackSql).toMatch(/ADD COLUMN IF NOT EXISTS\s+safe_to_proceed/i);
-    expect(ackSql).toMatch(/ADD COLUMN IF NOT EXISTS\s+safety_acknowledged_by/i);
+    expect(guidanceSql).toMatch(/ADD COLUMN IF NOT EXISTS\s+international_guidance_audit/i);
   });
 });
 
@@ -103,7 +111,7 @@ describe('update_consultation — JS↔SQL call contract', () => {
   });
 
   it('every key the frontend sends exists in the latest RPC signature', () => {
-    for (const k of jsKeys) expect(ackParams).toContain(k);
+    for (const k of jsKeys) expect(guidanceParams).toContain(k);
   });
 
   it('the frontend does NOT send p_patient_education (column dropped 2026-06-02)', () => {
@@ -113,7 +121,7 @@ describe('update_consultation — JS↔SQL call contract', () => {
 
 describe('schema gotcha', () => {
   it('p_consultation_id is INTEGER, not UUID (consultations.id is INTEGER)', () => {
-    expect(ackSql).toMatch(/p_consultation_id\s+INTEGER/i);
-    expect(ackSql).not.toMatch(/p_consultation_id\s+UUID/i);
+    expect(guidanceSql).toMatch(/p_consultation_id\s+INTEGER/i);
+    expect(guidanceSql).not.toMatch(/p_consultation_id\s+UUID/i);
   });
 });

@@ -8,6 +8,7 @@ import { runClinicalPlan, runDDxStream, resynthesizePlanStream, summarisePriorVi
 // from generatePdfFromElement() in OutputSection, ensuring the Supabase PDF matches the
 // "Export PDF" output exactly.
 import { mapDdxToDiagnosis, mapTreatmentPlanToCarePlan } from '../lib/clinicalMappers';
+import { getCuratedInternationalGuidance } from '../data/internationalGuidanceData';
 import {
   supabase,
   searchPatientByNRIC,
@@ -90,6 +91,9 @@ export const initialState = {
 // Snapshot persistence intentionally disabled — refreshes start from a clean
 // state so a previous patient's fields can't leak into a new-patient entry.
 const PERSIST_KEY = 'cpg.consultation.v1';
+initialState.internationalGuidanceCheckEnabled = false;
+initialState.internationalGuidanceDecision = 'local';
+initialState.internationalGuidanceRationale = '';
 
 export function loadPersistedState() {
   try { sessionStorage.removeItem(PERSIST_KEY); } catch { /* ignore */ }
@@ -133,6 +137,12 @@ export function appReducer(state, action) {
       return { ...state, clinicalPlanResponse: action.payload };
     case 'SET_DIAGNOSIS':
       return { ...state, diagnosis: action.payload };
+    case 'SET_INTERNATIONAL_GUIDANCE_CHECK':
+      return { ...state, internationalGuidanceCheckEnabled: Boolean(action.payload) };
+    case 'SET_INTERNATIONAL_GUIDANCE_DECISION':
+      return { ...state, internationalGuidanceDecision: action.payload };
+    case 'SET_INTERNATIONAL_GUIDANCE_RATIONALE':
+      return { ...state, internationalGuidanceRationale: action.payload };
     case 'SELECT_DIAGNOSIS': {
       const currentSelected = state.diagnosis?.selectedDiagnosisIds || [];
       const diagnosisId = action.payload;
@@ -1075,6 +1085,26 @@ export function AppProvider({ children }) {
         const referrals = state.carePlan?.referrals || null;
         const lifestyleGoals = state.carePlan?.lifestyle || null;
         const cpgReferences = state.carePlan?.cpgReferences || null;
+        const guidanceSelectedIds = state.diagnosis?.selectedDiagnosisIds?.length
+          ? state.diagnosis.selectedDiagnosisIds
+          : [state.diagnosis?.differentials?.[0]?.id].filter(Boolean);
+        const guidanceDiagnoses = (state.diagnosis?.differentials || [])
+          .filter((d) => guidanceSelectedIds.includes(d.id));
+        const guidanceComparison = getCuratedInternationalGuidance(guidanceDiagnoses);
+        const internationalGuidanceAudit = {
+          checked: Boolean(state.internationalGuidanceCheckEnabled),
+          decision: state.internationalGuidanceDecision || 'local',
+          rationale: state.internationalGuidanceRationale?.trim() || null,
+          recorded_at: new Date().toISOString(),
+          selected_diagnoses: guidanceDiagnoses.map((d) => ({ name: d.name, icd_code: d.icdCode })),
+          comparison_status: state.internationalGuidanceCheckEnabled ? guidanceComparison.status : 'not_requested',
+          comparison: guidanceComparison.status === 'available' ? {
+            condition: guidanceComparison.record.condition,
+            reviewed_on: guidanceComparison.record.reviewedOn,
+            local: guidanceComparison.record.local,
+            international: guidanceComparison.record.international,
+          } : null,
+        };
         const safetyFlags = state.safetyReport?.flags?.length
           ? state.safetyReport.flags.map(f => ({
               severity: f.severity,
@@ -1095,6 +1125,7 @@ export function AppProvider({ children }) {
           referrals,
           lifestyleGoals,
           cpgReferences,
+          internationalGuidanceAudit,
           safetyFlags,
           // Stage-6 verdict + override audit trail. acknowledgement is only
           // meaningful when the critic blocked the plan (safe_to_proceed=false).

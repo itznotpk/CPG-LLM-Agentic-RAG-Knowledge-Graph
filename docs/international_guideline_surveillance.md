@@ -54,18 +54,18 @@ an authorised clinical/governance reviewer.
 ClearPath presents the ranked differential diagnoses. The clinician selects the
 working diagnosis that will guide the care-plan workflow.
 
-### 2. Choose whether to check international guidance
+### 2. Choose the care-plan guidance mode
 
-After diagnosis selection, display an optional control:
+At the top of the care-plan screen, display a plan-level control:
 
 ```text
-International guidance check                                  [ Off / On ]
-Check approved international guideline sources for newer guidance.
-Malaysian MoH CPG remains the active local standard.
+Care-plan guidance mode
+[ Malaysian CPG only ] [ Compare international changes ]
 ```
 
-The default is **Off** to preserve the fast standard workflow. When enabled,
-ClearPath runs the check for the selected diagnosis while preparing the plan.
+The default is **Malaysian CPG only**. Comparison mode exposes curated,
+diagnosis-specific differences for review, while the Malaysian CPG remains the
+active local plan standard.
 
 ### 3. Generate the Malaysian CPG-grounded plan
 
@@ -97,17 +97,13 @@ relevant approved source is found:
 If no relevant update is found, state that clearly rather than implying that the
 Malaysian CPG has been verified as current worldwide.
 
-### 5. Clinician action
+### 5. Review changes by care-plan section
 
-Below the comparison, offer actions that preserve clinical control:
-
-- **Use Malaysian guidance** — keeps the active local plan; this is the default.
-- **Consider international guidance for this patient** — records a
-  citation-backed, explicitly supplementary consideration in this consultation.
-  It does not overwrite Malaysian CPG recommendations.
-- **Flag for governance review** — creates a review item for authorised clinical
-  reviewers to assess whether the international change should become a reusable
-  local overlay or future CPG update request.
+The Guidance tab acts like a source-controlled diff. Each curated change is
+mapped to the affected care-plan section (for example, Medications or Care &
+Monitoring) and shows the active Malaysian position, the international
+comparison, and the reason it requires review. It does not automatically
+replace a recommendation.
 
 ### 6. Final plan and audit trail
 
@@ -116,8 +112,7 @@ The signed-off plan records:
 - active Malaysian CPG title and version;
 - whether the international check was enabled;
 - sources and versions returned by the check;
-- the clinician's chosen action and rationale, if international guidance was
-  considered; and
+- the selected plan-level guidance mode; and
 - any governance-review reference.
 
 Example status:

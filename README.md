@@ -24,41 +24,64 @@
 
 ---
 
-**One Line Summary:** A deterministic, auditable clinical practice guidance pipeline that streams evidence-graded specialist second opinions to isolated rural clinics in minutes, well inside the standard consultation window.
+**One Line Summary:** A deterministic, auditable clinical practice guidance pipeline that turns complex patient information into citation-traceable, safety-checked care-plan drafts within the consultation workflow.
 
-**Key Insight:** Authoritative medical guidelines are only useful if they can be referenced within a standard 10-minute consultation window. By transforming massive static CPG PDFs into a contextual, real-time routing engine audited by an adversarial safety critic, we shift clinical guideline utilization from active, high-friction search to passive, intelligent decision-support at the speed of a glance.
+**Key Insight:** Doctors don't skip CPGs because they're careless — they skip them because checking is too slow and too socially awkward to do in front of a patient, so they default to memory that silently drifts from the guideline over time. Passive, search-when-asked tools repeat this failure; ClearPath surfaces guideline-grounded, citation-traced, safety-checked plans automatically at the point of decision, with zero visible search step.
 
 ---
 
-## Project Background & Remote Medicine Context
+## Codex Community Meetup KL — Submission Info
 
-In remote medicine, junior Medical Officers (MOs) and Medical Assistants (MAs) in rural Malaysian *Klinik Kesihatan* operate under severe structural constraints:
-* **Resident Doctor Shortage:** Up to **45.6% of rural clinics in East Malaysia operate without a resident doctor**, run entirely by medical assistants and nurses with basic paracetamol-level supplies.
-* **Specialist & Pharmacist Absence:** Junior clinicians face absolute clinical isolation, devoid of immediate senior specialist consult teams or clinical pharmacists to audit prescribing safety.
+* **Track / Category:** Health and Care
+* **Built with:** [OpenAI Codex](https://openai.com/codex/) using **GPT-5.6**, So/Terra/Luna
+* **Codex `/feedback` Session ID:** `[ADD SESSION ID]` — where the majority of ClearPath's core pipeline (Stages 2–6, safety critic, KG lookup) was built
+* **Code Repository:** this repository (public)
+* **Demo Video:** `[ADD DEMO VIDEO URL]` (<3 min, public YouTube, audio walkthrough of Codex + GPT-5.6 usage)
+
+### Where Codex accelerated the workflow
+* **Deterministic routing ladder (Stage 3, `agent/routing.py`):** Codex scaffolded the D1–D6 fallback chain and the sex-incompatibility / staged-comorbidity short-circuit logic from a natural-language spec of the routing rules, then iterated with GPT-5.6 to close edge cases (e.g. the D3 exclusion-penalty gate) surfaced by the eval harness.
+* **Hybrid safety critic (Stage 6, `agent/safety_critic.py`):** Codex wired the `asyncio.gather` fan-out between the LLM clinical-pharmacist critic and the Neo4j KG plan-verifier, and implemented the no-dedup flag-merge policy — a key decision made with GPT-5.6 was to **never dedupe across the two critics**, since a structural KG violation and an LLM narrative catch are independent evidence, not duplicates.
+* **8-layer post-synthesis validator chain (Stage 5):** each validator (medication dedup, referral dedup, urgency↔severity harmonisation, coverage-gap detector, etc.) was built and tested incrementally in Codex sessions, with GPT-5.6 used to reason through ambiguous cases (e.g. STOP-with-switch splitting) against real CPG text.
+* **Eval harness (`backend/eval/run_*.py`, `backend/scripts/run_eval_case_08…12.py`):** Codex generated the reproducibility scripts and measured the pilot metrics reported in [Validation & Measured Results](#validation--measured-results) — numbers in this README are Codex-run outputs, not hand-computed estimates.
+
+### Run it yourself (judging / testing)
+1. **Backend:** `cd backend`, create a venv, `pip install -r requirements.txt`, copy `.env.example` → `.env` and fill in Supabase/Neo4j/Bedrock/Gemini keys, then `uvicorn agent.api:app --reload`.
+2. **Frontend:** `cd frontend/doctor-ui`, `npm install`, `npm run dev`.
+3. **Terminal driver (no UI needed):** `python backend/clinical_cli.py` — exercises the same SSE pipeline against sample patient cases.
+4. **Sample data:** see `backend/scripts/run_eval_case_08…12.py` for ready-made patient cases (including the pregnancy + chronic HTN + GDM worked example in the [Decision & Reasoning Matrix](#decision--reasoning-matrix)).
+
+---
+
+## Project Background & Clinical Context
+
+Malaysian primary-care doctors work under short consultation windows (~10–15 min per patient) while authoritative CPGs remain long, static, multi-hundred-page PDFs. In practice, doctors rarely open a CPG mid-consult:
+* **Checking is too slow.** Flipping through a 100+ page PDF to find one section doesn't fit inside a 10-minute consult.
+* **Checking is socially costly.** Visibly searching a guideline in front of a patient reads as uncertainty, so doctors default to memory and clinical habit instead.
+* **The drift is silent.** Guidelines update; memory doesn't. Because the check never happens, no one catches the gap between what the doctor recalls and what the current CPG says.
 
 ---
 
 ## Problem Statements & Transformed Needs
 
-ClearPath directly addresses the three core bottlenecks of rural clinical delivery, transforming each clinical friction into a structured capability:
+ClearPath directly addresses three core bottlenecks in point-of-care guideline usability and safety, transforming each clinical friction into a structured capability:
 
-### 1. Guideline Accessibility & Search Friction
-* **The Clinical Bottleneck:** Authoritative Clinical Practice Guidelines (CPGs) reside in massive, multi-hundred-page static PDFs. Under intense patient volume, junior clinicians cannot manually open, search, and parse these documents within a standard **10-minute consultation window**, leading to guideline underutilization.
-* **Need (Top Feature):** **Deterministic Scoped Routing & Multi-Query Retrieval** (Stages 3 & 4). Six-level routing ladder (D1 exact → D2 sibling → ancestor → semantic pgvector against `documents.scope_embedding` → out-of-scope) deterministically scopes queries to verified CPGs and brings deduplicated, evidence-graded chunks to the doctor instantly, eliminating manual PDF searches.
+### 1. Adherence Gap — CPG Check Too Slow & Too Awkward Mid-Consult
+* **The Clinical Bottleneck:** Authoritative Clinical Practice Guidelines (CPGs) reside in massive, multi-hundred-page static PDFs. Manually searching one mid-consult is both too slow for the **10-minute consultation window** and socially awkward in front of a patient — so doctors default to memory, which silently drifts from the guideline over time with no check to catch it.
+* **Need (Top Feature):** **Deterministic Scoped Routing & Multi-Query Retrieval** (Stages 3 & 4). Six-level routing ladder (D1 exact → D2 sibling → ancestor → semantic pgvector against `documents.scope_embedding` → out-of-scope) deterministically scopes queries to verified CPGs and surfaces deduplicated, evidence-graded chunks automatically — no visible manual search step.
 
-### 2. Clinical Diagnostic Isolation & Cognitive Fatigue
-* **The Clinical Bottleneck:** Rural clinicians operate in professional isolation without senior specialists. When presented with patients exhibiting complex, overlapping comorbidities (e.g., uncontrolled diabetes and stage-2 hypertension), junior officers face extreme diagnostic cognitive fatigue and increased risk of misdiagnosis.
+### 2. Decision Consistency Under Complexity — Multimorbidity & Polypharmacy Reconciliation
+* **The Clinical Bottleneck:** Patients with overlapping comorbidities (e.g., diabetes + hypertension + CKD) span multiple CPGs, each written standalone with no guidance on merging conflicting dosing thresholds or drug choices across guidelines. Doctors are left to manually cross-check interactions and contraindications under time pressure — error-prone and cognitively taxing.
 * **Need (Top Feature):** **Contextual DDx Re-Ranking + Clinician-Named CC Boost + Interactive Override** (Stages 2 & 5). Generates named-disease hypotheses, lifts diagnoses the clinician already named in CC/HPI via a name→ICD resolver (never trusting LLM-emitted codes), re-ranks differentials with reasoning-token LLMs tailored to age/sex/comorbidities/meds, and gives clinicians full override controls that trigger instant care-plan re-synthesis.
 
-### 3. Medication Safety Vulnerability in Pharmacist-Vacant Clinics
-* **The Clinical Bottleneck:** Resource-constrained rural clinics operate without on-site clinical pharmacists. Junior practitioners prescribing multi-drug therapies face significant risks of severe adverse drug events (ADEs) due to overlooked drug-drug interactions, cross-reactive allergies, and organ-clearance dosing limits (e.g., renal failure).
-* **Need (Top Feature):** **Hybrid Adversarial Safety Critic** (Stage 6). Runs an independent LLM clinical-pharmacist critic and a Neo4j knowledge-graph plan-verifier in parallel (`asyncio.gather`), merges both flag streams **without dedup** so structural drug/condition violations surface even when no CPG paragraph explicitly mentions them, and blocks sign-off on any CRITICAL/MAJOR flag.
+### 3. Safety & Traceability Gap in AI-Assisted Care
+* **The Clinical Bottleneck:** Generic AI tools summarize CPG text but don't show source, don't check their own output for hallucination, and stop at a passive summary rather than an actionable plan — doctors are left to verify and act alone, with no independent medication-safety check.
+* **Need (Top Feature):** **Hybrid Adversarial Safety Critic** (Stage 6). Runs an independent LLM clinical-pharmacist critic and a Neo4j knowledge-graph plan-verifier in parallel (`asyncio.gather`), merges both flag streams **without dedup** so structural drug/condition violations surface even when no CPG paragraph explicitly mentions them, and blocks sign-off on any CRITICAL/MAJOR flag — every recommendation is citation-traced back to its CPG source.
 
 ---
 
 ## Solution
 
-We propose **ClearPath<span style="color:#0d9488">.</span>**, an AI-powered Clinical Practice Guidance System designed specifically for the **Remote Medicine Track**.
+We propose **ClearPath<span style="color:#0d9488">.</span>**, a Malaysian CPG-grounded clinical decision-support system that turns complex patient information into citation-traceable, safety-checked care-plan drafts within the consultation workflow.
 
 ClearPath acts as a clinician's second opinion, at the speed of a glance. By converting static, complex guidelines into an automated, moment-driven pipeline, it minimizes documentation time, safeguards patient care, and allows doctors to spend their precious hours **with patients, not paperwork**.
 
@@ -226,7 +249,7 @@ ClearPath is a **hybrid deterministic + agentic clinical pipeline**: every routi
 
 ## Implementation
 
-ClearPath represents a complete clinical end-product, designed for visual tablet/desktop dashboards at rural clinics or standalone terminal deployments. The React Doctor UI and the terminal `clinical_cli.py` share an identical SSE contract — every event (`stage_start`, `ddx`, `routing`, `retrieval`, `plan`, `safety_review`, `final_result`, `out_of_scope`) renders in both surfaces:
+ClearPath represents a complete clinical end-product, designed for visual tablet/desktop dashboards in primary-care and outpatient clinics or standalone terminal deployments. The React Doctor UI and the terminal `clinical_cli.py` share an identical SSE contract — every event (`stage_start`, `ddx`, `routing`, `retrieval`, `plan`, `safety_review`, `final_result`, `out_of_scope`) renders in both surfaces:
 
 <table width="100%">
   <tr>

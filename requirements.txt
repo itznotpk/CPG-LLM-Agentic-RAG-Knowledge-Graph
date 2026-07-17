@@ -84,6 +84,7 @@ colorama>=0.4.6             # Terminal colors (Windows)
 # ------------------------------------------
 pytest>=8.4.0               # Testing framework
 pytest-asyncio>=1.0.0       # Async test support
+pytest-cov>=7.1.0           # Coverage reporting (required by backend/pytest.ini addopts)
 
 # ------------------------------------------
 # Utilities

@@ -550,6 +550,7 @@ function renderObjectiveNotes(notes) {
 export const FinalCarePlan = forwardRef(function FinalCarePlan({
   patient, diagnoses, carePlan: plan, allergies, vitals,
   clinicalNotes, provider, encounter, nextReviewDate,
+  internationalGuidanceAudit,
   onExportPDF, onPrint, onBack, onNewAssessment,
   pdfUploaded, pdfUploading,
   onSendToPatient, deliveryStatus, canSendToPatient,
@@ -796,6 +797,18 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
                   </div>
                 </div>
               </PlanSub>
+              {internationalGuidanceAudit && (
+                <PlanSub num="P8" title="International Guidance Review">
+                  <div className="narrative" style={{ lineHeight: 1.6 }}>
+                    <strong>Active standard:</strong> Malaysian MoH CPG.{' '}
+                    {internationalGuidanceAudit.comparison ? <>
+                      <strong>Comparison source:</strong> {internationalGuidanceAudit.comparison.international.publisher}, {internationalGuidanceAudit.comparison.international.version} ({internationalGuidanceAudit.comparison.international.year}).{' '}
+                    </> : null}
+                    <strong>Guidance mode:</strong> {internationalGuidanceAudit.decision === 'malaysia_only' ? 'Malaysian guidance only.' : 'International changes reviewed alongside the Malaysian CPG; the Malaysian CPG remains the active plan standard.'}
+                    {internationalGuidanceAudit.rationale ? <><br /><strong>Rationale:</strong> {internationalGuidanceAudit.rationale}</> : null}
+                  </div>
+                </PlanSub>
+              )}
             </SoapSection>
           </div>
         </div>

@@ -7,6 +7,7 @@ import { generatePdfFromElement } from '../../utils/htmlToPdf';
 import { FinalCarePlan } from './finalCarePlan/FinalCarePlan';
 import FollowupQRCard from './FollowupQRCard';
 import { enqueueDelivery, getDeliveryStatus } from '../../lib/clinicalApi';
+import { getCuratedInternationalGuidance } from '../../data/internationalGuidanceData';
 import './finalCarePlan/finalCarePlan.css';
 
 export function OutputSection() {
@@ -44,6 +45,14 @@ export function OutputSection() {
       icdCode: d.icdCode,
       note: d.note || (i === 0 ? 'Primary diagnosis' : 'Comorbid finding'),
     }));
+  const guidanceComparison = getCuratedInternationalGuidance(
+    (diagnosis?.differentials || []).filter((d) => selectedIds.includes(d.id))
+  );
+  const internationalGuidanceAudit = state.internationalGuidanceCheckEnabled ? {
+    decision: state.internationalGuidanceDecision || 'local',
+    rationale: state.internationalGuidanceRationale?.trim() || null,
+    comparison: guidanceComparison.status === 'available' ? guidanceComparison.record : null,
+  } : null;
 
   // Allergies: array | comma-string | "none known"
   let allergies = [];
@@ -227,6 +236,7 @@ export function OutputSection() {
         provider={provider}
         encounter={encounter}
         nextReviewDate={nextReviewDate}
+        internationalGuidanceAudit={internationalGuidanceAudit}
         onExportPDF={handleExportPDF}
         onPrint={handlePrint}
         onBack={handleBack}

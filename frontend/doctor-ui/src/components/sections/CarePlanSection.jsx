@@ -39,7 +39,9 @@ import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
 import CareMonitoringPanel from './CareMonitoringPanel';
 import EvidenceLiteraturePanel from './EvidenceLiteraturePanel';
+import InternationalGuidancePanel from './InternationalGuidancePanel';
 import { mapEbmEvidence } from '../../lib/clinicalMappers';
+import { getCuratedInternationalGuidance } from '../../data/internationalGuidanceData';
 
 /* ============================================================
    Graph-verified badge — folds Graph Navigator KG edges into the
@@ -1750,6 +1752,14 @@ export function CarePlanSection() {
     ]);
     recordHumanSignal('rejected', comment);
   };
+  const setGuidanceMode = (compare) => {
+    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_CHECK', payload: compare });
+    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_DECISION', payload: compare ? 'compare' : 'malaysia_only' });
+    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_RATIONALE', payload: '' });
+    recordHumanSignal(compare ? 'international_guidance_compare' : 'international_guidance_malaysia_only', compare
+      ? 'Curated international changes opened for comparison; Malaysian CPG remains active.'
+      : 'Care plan set to Malaysian MoH CPG-only mode.');
+  };
   const handleRegenerate = async (feedback) => {
     console.log('Regenerating with feedback:', feedback);
     recordHumanSignal('regenerate', feedback);
@@ -1804,6 +1814,7 @@ export function CarePlanSection() {
   const refsCount = carePlan.cpgReferences?.length || 0;
   const refsGroupCount = carePlan.cpgReferenceGroups?.length || 0;
   const ebmEvidence = mapEbmEvidence(clinicalPlanResponse?.treatment_plan);
+  const internationalGuidance = getCuratedInternationalGuidance(selectedDiagnoses);
 
   const tabs = [
     { key: 'overview', label: 'Overview',          icon: LayoutGrid },
@@ -1812,6 +1823,7 @@ export function CarePlanSection() {
     { key: 'followup', label: 'Follow-up & Safety', icon: Calendar,    count: followupCount },
     { key: 'refs',     label: 'References',        icon: BookOpen,     count: refsCount },
     { key: 'evidence', label: 'Evidence',          icon: BookOpen,     count: ebmEvidence.length },
+    { key: 'guidance', label: 'Guidance',          icon: BookOpen },
   ];
 
   return (
@@ -1825,6 +1837,16 @@ export function CarePlanSection() {
         <p className={`text-sm ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           Review and accept the AI's recommended interventions before finalizing.
         </p>
+        <div className={`mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border px-4 py-3 ${isDark ? 'border-slate-700 bg-slate-900/50' : 'border-slate-200 bg-white shadow-sm'}`}>
+          <div>
+            <p className={`text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Care-plan guidance mode</p>
+            <p className={`text-sm mt-0.5 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{state.internationalGuidanceCheckEnabled ? 'International changes are visible for review; Malaysian MoH CPG remains active.' : 'Malaysian MoH CPG only.'}</p>
+          </div>
+          <div className={`inline-flex rounded-lg p-1 shrink-0 ${isDark ? 'bg-slate-800' : 'bg-slate-100'}`}>
+            <button type="button" onClick={() => setGuidanceMode(false)} className={`rounded-md px-3 py-2 text-xs font-semibold transition-colors ${!state.internationalGuidanceCheckEnabled ? (isDark ? 'bg-emerald-500/20 text-emerald-200' : 'bg-white text-emerald-800 shadow-sm') : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>Malaysia CPG only</button>
+            <button type="button" onClick={() => setGuidanceMode(true)} className={`rounded-md px-3 py-2 text-xs font-semibold transition-colors ${state.internationalGuidanceCheckEnabled ? (isDark ? 'bg-sky-500/20 text-sky-200' : 'bg-white text-sky-800 shadow-sm') : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>Compare international changes</button>
+          </div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -2086,6 +2108,12 @@ export function CarePlanSection() {
           )}
 
           {tab === 'evidence' && <EvidenceLiteraturePanel evidence={ebmEvidence} />}
+          {tab === 'guidance' && (
+            <InternationalGuidancePanel
+              comparisonEnabled={state.internationalGuidanceCheckEnabled}
+              comparison={internationalGuidance}
+            />
+          )}
 
           {/* Approval workflow — stays visible across all tabs */}
           <div className="mt-6">

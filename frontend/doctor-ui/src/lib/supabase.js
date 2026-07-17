@@ -647,7 +647,8 @@ export const updateConsultation = async (consultationId, updates = {}) => {
         p_safe_to_proceed: typeof updates.safeToProceed === 'boolean' ? updates.safeToProceed : null,
         p_safety_acknowledged: typeof updates.safetyAcknowledged === 'boolean' ? updates.safetyAcknowledged : null,
         p_safety_acknowledged_by: updates.safetyAcknowledgedBy || null,
-        p_safety_acknowledged_at: updates.safetyAcknowledgedAt || null
+        p_safety_acknowledged_at: updates.safetyAcknowledgedAt || null,
+        p_international_guidance_audit: updates.internationalGuidanceAudit || null
       });
 
     if (error) {

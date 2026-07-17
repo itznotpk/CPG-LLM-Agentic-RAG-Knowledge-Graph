@@ -48,6 +48,14 @@ class TelegramClient:
                 self._url("getUpdates"),
                 params={"offset": offset, "timeout": timeout},
             )
+            if r.status_code == 409:
+                # Another getUpdates consumer holds this bot token's long-poll slot
+                # (e.g. a second local instance, or a deployed instance sharing the
+                # token). Not transient like a network blip — retrying instantly
+                # just hot-loops against Telegram, so back off instead.
+                logger.warning("getUpdates 409: another poller holds this bot token; backing off 15s")
+                await asyncio.sleep(15)
+                return []
             if r.status_code == 200 and r.json().get("ok"):
                 return r.json().get("result", [])
         except Exception as exc:

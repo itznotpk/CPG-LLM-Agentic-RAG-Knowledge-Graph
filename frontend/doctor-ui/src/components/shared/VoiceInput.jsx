@@ -409,11 +409,7 @@ export function VoiceInputButton({ onTranscript, disabled = false, className = '
         <button
           onClick={toggle}
           disabled={disabled}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-all ${
-            isDark
-              ? 'border-white/20 text-slate-300 hover:bg-white/10 hover:border-[var(--accent-primary)]/40'
-              : 'border-slate-300 text-slate-600 hover:bg-teal-50 hover:border-teal-300'
-          } disabled:opacity-40 disabled:cursor-not-allowed`}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed`}
           title={mode === 'consultation' ? 'Record consultation (Google Cloud STT + Gemini summary)' : 'Record voice note (Google Cloud STT)'}
         >
           <Mic className="w-4 h-4" strokeWidth={1.5} />
