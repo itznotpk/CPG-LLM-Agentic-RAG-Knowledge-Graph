@@ -27,6 +27,7 @@ from .followup.enrollment import create_enrollment as create_followup_enrollment
 from .followup.enrollment import enrollment_status as get_followup_status
 from .followup import scheduler_worker as followup_scheduler
 from .followup import bot_poller as followup_bot_poller
+from .followup import reminder_scanner as followup_reminders
 from .tracing import setup_tracing, shutdown_tracing, tag_request
 from .db_utils import (
     initialize_database,
@@ -294,6 +295,7 @@ async def lifespan(app: FastAPI):
         start_delivery_worker()
         followup_scheduler.start()
         followup_bot_poller.start()
+        followup_reminders.start()
 
     except asyncio.TimeoutError:
         logger.error("Startup timed out during database initialization")
@@ -312,6 +314,7 @@ async def lifespan(app: FastAPI):
         await stop_delivery_worker()
         await followup_scheduler.stop()
         await followup_bot_poller.stop()
+        await followup_reminders.stop()
         await close_supabase_db()
         await close_database()
         await close_graph()
