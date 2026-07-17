@@ -27,6 +27,10 @@
 
 ## Overview
 
+> **What is a CPG?** A **Clinical Practice Guideline** is an official, evidence-based document that tells doctors how to diagnose and treat a specific condition — the national standard of care. ClearPath is grounded in the **30 Malaysian Ministry of Health (MoH) CPGs**; each is a 100+ page reference covering one disease.
+>
+> **What is ICD-11?** The **International Classification of Diseases (11th revision)** is the WHO's standardised catalogue of diagnosis codes. ClearPath uses it as the shared vocabulary that maps a patient's diagnoses to the right guideline.
+
 **ClearPath** turns complex patient information into a **citation-traceable, safety-checked care-plan draft** — automatically, inside the consultation, with no visible search step.
 
 > **Why doctors skip guidelines:** not carelessness. Checking a 100+ page CPG mid-consult is too slow for a 10-minute window and socially awkward in front of a patient — so doctors default to memory, which silently drifts from the guideline over time. Passive "search-when-asked" AI tools repeat that failure. ClearPath instead **surfaces** a grounded, safety-critiqued plan at the moment of decision.
