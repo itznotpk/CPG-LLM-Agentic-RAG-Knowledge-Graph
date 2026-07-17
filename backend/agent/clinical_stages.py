@@ -4316,6 +4316,9 @@ async def _refine_llm_call(case, ddx, draft_plan, ebm_evidence):
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.1,
+        # Returns a whole refined TreatmentPlan, so it carries the same truncation
+        # exposure as stage_5_synthesize under Gemini's thinking-token accounting.
+        max_tokens=32000,
         response_format={"type": "json_object"},
     )
     return TreatmentPlan.model_validate_json(resp.choices[0].message.content)
@@ -4424,14 +4427,15 @@ async def gate_referral_triggers(
 
     base_url = os.getenv("REFERRAL_GATE_BASE_URL") or os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("REFERRAL_GATE_API_KEY") or os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    # Default must track the base_url chain above — the configured STAGE5/LLM
-    # endpoint serves mimo-v2.5-pro, not the bare "xiaomimimo/MiMo-7B-RL" id
-    # (which that endpoint rejects with 400 "Not supported model", failing the
-    # gate and dumping every triggered referral into unresolved_questions).
+    # Default must track the base_url chain above — an id the configured endpoint
+    # does not serve comes back 400 "Not supported model", which fails the gate and
+    # dumps every triggered referral into unresolved_questions. That chain now
+    # resolves to Gemini (STAGE5_* moved off the retired mimo endpoint), so the
+    # default moves with it.
     model = (
         os.getenv("REFERRAL_GATE_MODEL")
         or os.getenv("STAGE5_LLM_CHOICE")
-        or os.getenv("LLM_CHOICE", "mimo-v2.5-pro")
+        or os.getenv("LLM_CHOICE", "gemini-2.5-flash")
     )
 
     patient_ctx = {
@@ -4461,7 +4465,12 @@ async def gate_referral_triggers(
                 {"role": "user", "content": user_payload},
             ],
             temperature=0.0,
-            max_tokens=900,
+            # The decisions JSON is small, but Gemini 2.5 Flash bills thinking
+            # tokens against max_tokens — at 900 (a mimo-era budget, where thinking
+            # was disabled via extra_body) reasoning alone can consume the cap and
+            # return empty, which reads as a gate failure and defaults every
+            # triggered referral through ungated. Headroom, not output size.
+            max_tokens=4000,
             extra_body=extra_body,
         )
         raw = (resp.choices[0].message.content or "").strip()
@@ -4535,13 +4544,13 @@ async def summarise_prior_visit(
     """
     base_url = os.getenv("PRIOR_VISIT_SUMMARISER_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
     api_key = os.getenv("PRIOR_VISIT_SUMMARISER_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    # Same rationale as referral_trigger_gate: align the default with the
-    # endpoint the base_url chain resolves to (mimo-v2.5-pro), not an id the
-    # configured server does not serve.
+    # Same rationale as referral_trigger_gate: align the default with the endpoint
+    # the base_url chain resolves to (now Gemini), not an id the configured server
+    # does not serve.
     model = (
         os.getenv("PRIOR_VISIT_SUMMARISER_MODEL")
         or os.getenv("STAGE5_LLM_CHOICE")
-        or os.getenv("LLM_CHOICE", "mimo-v2.5-pro")
+        or os.getenv("LLM_CHOICE", "gemini-2.5-flash")
     )
 
     fallback = PriorVisitSummary(
@@ -4580,7 +4589,12 @@ async def summarise_prior_visit(
                 {"role": "user", "content": user_payload},
             ],
             temperature=0.1,
-            max_tokens=400,
+            # The summary itself is tiny and hard-capped server-side (<=600 chars
+            # total), but Gemini 2.5 Flash bills thinking tokens against max_tokens:
+            # at 400 (a mimo-era budget, where thinking was disabled via extra_body)
+            # reasoning alone can consume the cap and return empty content, silently
+            # breaking the prior-visit → prep-brief loop. Headroom, not output size.
+            max_tokens=4000,
             extra_body=extra_body,
         )
         raw = (resp.choices[0].message.content or "").strip()
@@ -5176,6 +5190,13 @@ Produce a TreatmentPlan JSON object matching this schema:
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.1,
+        # Gemini 2.5 Flash counts thinking tokens against max_tokens on its
+        # OpenAI-compat endpoint, and this is the largest output in the pipeline
+        # (a full 8-section TreatmentPlan). Left unset, the cap is whatever the
+        # provider defaults to, and a truncated plan JSON fails Stage 5 — which is
+        # fatal by design (recoverable=False), not degraded. Same class of fix as
+        # _llm_rerank_ddx's 4000 → 8000 bump. Do not lower.
+        max_tokens=32000,
         response_format={"type": "json_object"},
     )
 
