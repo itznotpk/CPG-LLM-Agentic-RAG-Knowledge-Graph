@@ -118,7 +118,7 @@ function AddBtn({ onClick, children }) {
   );
 }
 
-export default function CareMonitoringPanel({ carePlan, dispatch }) {
+export default function CareMonitoringPanel({ carePlan, dispatch, internationalEvidence = [], internationalActive = false }) {
   const { isDark } = useTheme();
   const [activeTab, setActiveTab] = useState('proc');
   const [expandedId, setExpandedId] = useState(null);
@@ -166,6 +166,8 @@ export default function CareMonitoringPanel({ carePlan, dispatch }) {
             {total}
           </span>
         </div>
+
+        {internationalActive && <div className={`mt-3 rounded-lg border px-3 py-2 text-xs ${isDark ? 'border-sky-400/20 bg-sky-500/5 text-slate-300' : 'border-sky-200 bg-sky-50 text-slate-600'}`}><strong>International evidence embedded for review:</strong> {internationalEvidence.length} live record(s) are available alongside local monitoring and referral pathways. Local CPG remains active unless a clinician approves a mapped change.</div>}
 
         {/* Segmented control */}
         <div className={`mt-4 flex gap-1 p-1 rounded-xl ${isDark ? 'bg-white/5' : 'bg-slate-100'}`}>

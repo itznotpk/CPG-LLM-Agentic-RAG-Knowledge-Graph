@@ -21,6 +21,7 @@ import {
   Trash2,
   Plus,
   Network,
+  Globe2,
   X,
 } from 'lucide-react';
 import {
@@ -39,9 +40,9 @@ import { PipelineProgress } from './PipelineProgress';
 import { SafetyReviewBanner } from './SafetyReviewBanner';
 import CareMonitoringPanel from './CareMonitoringPanel';
 import EvidenceLiteraturePanel from './EvidenceLiteraturePanel';
-import InternationalGuidancePanel from './InternationalGuidancePanel';
+import InternationalGuidancePanel, { DemoMappingApprovalPanel, InternationalCarePlanContext, InternationalCarePlanDiff } from './InternationalGuidancePanel';
 import { mapEbmEvidence } from '../../lib/clinicalMappers';
-import { getCuratedInternationalGuidance } from '../../data/internationalGuidanceData';
+import { getInternationalMappingCandidates } from '../../data/internationalMappingCandidates';
 
 /* ============================================================
    Graph-verified badge — folds Graph Navigator KG edges into the
@@ -381,8 +382,15 @@ function parseAgentOptions(raw) {
   return { label: '', options: clean([s]) };
 }
 
-function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule, highlighted }) {
+function MedicationRow({ med, action, originalAction, onFieldChange, onActionChange, onDelete, graphRule, highlighted, internationalEvidence = [], internationalActive = false }) {
   const { isDark } = useTheme();
+  const internationalMatches = internationalActive
+    ? internationalEvidence.filter((item) => {
+      const medicine = String(med.name || '').split('(')[0].trim().toLowerCase();
+      const sourceText = `${item.title || ''} ${item.abstract_snippet || ''}`.toLowerCase();
+      return medicine.length >= 4 && sourceText.includes(medicine);
+    })
+    : [];
   // originalAction = the category the med belongs to (determines content rendering)
   // action = the displayed action (may be overridden by user)
   return (
@@ -406,6 +414,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
               <div className={`flex items-center gap-2 flex-wrap font-semibold text-sm ${isDark ? 'text-white' : 'text-slate-800'}`}>
                 <InlineEdit value={med.name} onChange={(v) => onFieldChange('name', v)} placeholder="Medication name" renderDisplay={(v) => capitalizeFirst(v)} />
                 <GraphVerifiedBadge rule={graphRule} />
+                {internationalMatches.length > 0 && <span title="Live international evidence is available in the Guidance tab; this does not replace the Malaysian CPG recommendation." className={`inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5 text-[9px] font-bold ${isDark ? 'border-sky-400/30 bg-sky-500/10 text-sky-200' : 'border-sky-300 bg-sky-50 text-sky-700'}`}><Globe2 className="w-3 h-3" />Intl {internationalMatches.some((item) => item.source_category === 'international_guideline') ? 'guideline' : 'EBM'}</span>}
               </div>
             );
           }
@@ -551,7 +560,7 @@ function MedicationRow({ med, action, originalAction, onFieldChange, onActionCha
     </tr>
   );
 }
-function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId }) {
+function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId, internationalEvidence, internationalActive }) {
   const { isDark } = useTheme();
   const ordered = [
     ...(medications.contraindicated || []).map((m) => ({ med: m, action: 'contraindicated' })),
@@ -603,6 +612,8 @@ function MedicationsTable({ medications, dispatch, graphRules, highlightedMedId 
                 onDelete={() => handleDelete(action, med.id)}
                 graphRule={pickBestRuleForMed(med.name, graphRules)}
                 highlighted={highlightedMedId === med.id}
+                internationalEvidence={internationalEvidence}
+                internationalActive={internationalActive}
               />
             ))}
           </tbody>
@@ -1678,7 +1689,7 @@ function UnresolvedQuestionsPanel({ qs, isDark }) {
 }
 
 export function CarePlanSection() {
-  const { state, dispatch, finalizePlan, goToStep, applySafetyDecisions } = useApp();
+  const { state, dispatch, finalizePlan, generatePriorVisitSummary, goToStep, applySafetyDecisions } = useApp();
   const { isDark } = useTheme();
   const { user, profile } = useAuth();
   const clinicianName = profile?.full_name || user?.email || 'Unknown clinician';
@@ -1742,7 +1753,13 @@ export function CarePlanSection() {
       { status: newStatus, action: newStatus === WORKFLOW_STATES.REVIEWED ? 'Marked as Reviewed' : 'Approved', user: clinicianName, timestamp: new Date().toLocaleString(), comment },
       ...prev,
     ]);
-    if (newStatus === WORKFLOW_STATES.APPROVED) recordHumanSignal('approved', comment);
+    if (newStatus === WORKFLOW_STATES.APPROVED) {
+      recordHumanSignal('approved', comment);
+      // Fire-and-forget: start the prior-visit summary LLM call now, at Approve,
+      // so it's already done by the time the clinician clicks "Generate Report"
+      // a step later — that used to await this call and made the button feel slow.
+      generatePriorVisitSummary().catch((err) => console.error('generatePriorVisitSummary failed:', err));
+    }
   };
   const handleReject = (comment) => {
     setWorkflowStatus(WORKFLOW_STATES.DRAFT);
@@ -1752,13 +1769,13 @@ export function CarePlanSection() {
     ]);
     recordHumanSignal('rejected', comment);
   };
-  const setGuidanceMode = (compare) => {
-    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_CHECK', payload: compare });
-    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_DECISION', payload: compare ? 'compare' : 'malaysia_only' });
-    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_RATIONALE', payload: '' });
-    recordHumanSignal(compare ? 'international_guidance_compare' : 'international_guidance_malaysia_only', compare
-      ? 'Curated international changes opened for comparison; Malaysian CPG remains active.'
-      : 'Care plan set to Malaysian MoH CPG-only mode.');
+  const toggleGuidanceSetting = (setting) => {
+    if (setting === 'comparison' && !state.internationalGuidanceActivated) return;
+    const enabled = setting === 'malaysia'
+      ? !state.malaysiaCpgOnly
+      : !state.internationalGuidanceCheckEnabled;
+    dispatch({ type: setting === 'malaysia' ? 'SET_MALAYSIA_CPG_ONLY' : 'SET_INTERNATIONAL_GUIDANCE_CHECK', payload: enabled });
+    recordHumanSignal(setting === 'malaysia' ? 'malaysia_cpg_only_toggle' : 'international_guidance_compare_toggle', `${setting === 'malaysia' ? 'Malaysia CPG only' : 'International comparison'} ${enabled ? 'enabled' : 'disabled'}.`);
   };
   const handleRegenerate = async (feedback) => {
     console.log('Regenerating with feedback:', feedback);
@@ -1814,7 +1831,12 @@ export function CarePlanSection() {
   const refsCount = carePlan.cpgReferences?.length || 0;
   const refsGroupCount = carePlan.cpgReferenceGroups?.length || 0;
   const ebmEvidence = mapEbmEvidence(clinicalPlanResponse?.treatment_plan);
-  const internationalGuidance = getCuratedInternationalGuidance(selectedDiagnoses);
+  const internationalEvidence = state.internationalEvidence?.length
+    ? state.internationalEvidence
+    : (state.clinicalPlanResponse?.treatment_plan?.ebm_evidence || []);
+  const mappingCandidates = getInternationalMappingCandidates(selectedDiagnoses);
+  const approvedMappings = mappingCandidates.filter((item) => state.demoApprovedInternationalMappings?.includes(item.id));
+  const activeDiff = (section) => state.internationalGuidanceActivated && state.internationalGuidanceCheckEnabled ? approvedMappings.filter((item) => item.section === section) : [];
 
   const tabs = [
     { key: 'overview', label: 'Overview',          icon: LayoutGrid },
@@ -1840,11 +1862,10 @@ export function CarePlanSection() {
         <div className={`mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 rounded-xl border px-4 py-3 ${isDark ? 'border-slate-700 bg-slate-900/50' : 'border-slate-200 bg-white shadow-sm'}`}>
           <div>
             <p className={`text-xs font-bold uppercase tracking-wider ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Care-plan guidance mode</p>
-            <p className={`text-sm mt-0.5 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{state.internationalGuidanceCheckEnabled ? 'International changes are visible for review; Malaysian MoH CPG remains active.' : 'Malaysian MoH CPG only.'}</p>
+            <p className={`text-sm mt-0.5 ${isDark ? 'text-slate-200' : 'text-slate-700'}`}>{!state.internationalGuidanceActivated ? 'International guidance was not activated in Diagnosis; comparison is unavailable.' : state.malaysiaCpgOnly ? 'Malaysian MoH CPG plan is active.' : 'Default recommended plan: Malaysian CPG + approved supporting evidence.'}{state.internationalGuidanceCheckEnabled ? ' International changes are visible for review.' : ''}</p>
           </div>
-          <div className={`inline-flex rounded-lg p-1 shrink-0 ${isDark ? 'bg-slate-800' : 'bg-slate-100'}`}>
-            <button type="button" onClick={() => setGuidanceMode(false)} className={`rounded-md px-3 py-2 text-xs font-semibold transition-colors ${!state.internationalGuidanceCheckEnabled ? (isDark ? 'bg-emerald-500/20 text-emerald-200' : 'bg-white text-emerald-800 shadow-sm') : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>Malaysia CPG only</button>
-            <button type="button" onClick={() => setGuidanceMode(true)} className={`rounded-md px-3 py-2 text-xs font-semibold transition-colors ${state.internationalGuidanceCheckEnabled ? (isDark ? 'bg-sky-500/20 text-sky-200' : 'bg-white text-sky-800 shadow-sm') : (isDark ? 'text-slate-400' : 'text-slate-500')}`}>Compare international changes</button>
+          <div className="flex flex-wrap gap-2 shrink-0">
+            {state.internationalGuidanceActivated && <><button type="button" onClick={() => toggleGuidanceSetting('malaysia')} className={`rounded-lg border px-3 py-2 text-xs font-semibold ${state.malaysiaCpgOnly ? (isDark ? 'border-emerald-400/50 bg-emerald-500/15 text-emerald-200' : 'border-emerald-400 bg-emerald-50 text-emerald-800') : (isDark ? 'border-slate-700 text-slate-400' : 'border-slate-200 text-slate-600')}`}>Malaysia CPG only: {state.malaysiaCpgOnly ? 'ON' : 'OFF'}</button><button type="button" onClick={() => toggleGuidanceSetting('comparison')} className={`rounded-lg border px-3 py-2 text-xs font-semibold ${state.internationalGuidanceCheckEnabled ? (isDark ? 'border-sky-400/50 bg-sky-500/15 text-sky-200' : 'border-sky-400 bg-sky-50 text-sky-800') : (isDark ? 'border-slate-700 text-slate-400' : 'border-slate-200 text-slate-600')}`}>Compare international: {state.internationalGuidanceCheckEnabled ? 'ON' : 'OFF'}</button></>}
           </div>
         </div>
       </div>
@@ -1996,10 +2017,16 @@ export function CarePlanSection() {
           />
 
           <TabBar tabs={tabs} active={tab} onChange={setTab} />
+          <InternationalCarePlanContext
+            activated={state.internationalGuidanceActivated}
+            comparisonEnabled={state.internationalGuidanceCheckEnabled}
+            evidence={internationalEvidence}
+          />
 
           {/* ── OVERVIEW ───────────────────────────────────────── */}
           {tab === 'overview' && (
             <>
+              <InternationalCarePlanDiff mappings={activeDiff('overview')} />
               <ClinicalSummary
                 summary={carePlan.clinicalSummary}
                 readSummaryButton={<TextToSpeechButton text={generateCarePlanSummary()} label="Read" />}
@@ -2058,16 +2085,18 @@ export function CarePlanSection() {
           {/* ── MEDICATIONS ────────────────────────────────────── */}
           {tab === 'meds' && (
             <Section title="Medications" icon={Pill} count={medsCount}>
-              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} graphRules={graphNavigatorRules} highlightedMedId={highlightedMedId} />
+              <InternationalCarePlanDiff mappings={activeDiff('meds')} />
+              <MedicationsTable medications={carePlan.medications} dispatch={dispatch} graphRules={graphNavigatorRules} highlightedMedId={highlightedMedId} internationalEvidence={internationalEvidence} internationalActive={state.internationalGuidanceActivated} />
             </Section>
           )}
 
           {/* ── CARE & MONITORING ──────────────────────────────── */}
-          {tab === 'care' && <CareMonitoringPanel carePlan={carePlan} dispatch={dispatch} />}
+          {tab === 'care' && <><InternationalCarePlanDiff mappings={activeDiff('care')} /><CareMonitoringPanel carePlan={carePlan} dispatch={dispatch} internationalEvidence={internationalEvidence} internationalActive={state.internationalGuidanceActivated} /></>}
 
           {/* ── FOLLOW-UP & SAFETY ─────────────────────────────── */}
           {tab === 'followup' && (
             <>
+              <InternationalCarePlanDiff mappings={activeDiff('followup')} />
               <Section title="Follow-up Plan" icon={Calendar}>
                 <FollowUpBlock followUp={carePlan.followUp} />
               </Section>
@@ -2088,6 +2117,7 @@ export function CarePlanSection() {
 
           {tab === 'refs' && (
             <Section title="CPG References" icon={BookOpen} count={refsCount}>
+              <InternationalCarePlanDiff mappings={activeDiff('refs')} />
               {/* Summary line */}
               {refsGroupCount > 0 && (
                 <p className={`text-xs mb-3 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
@@ -2107,12 +2137,13 @@ export function CarePlanSection() {
             </Section>
           )}
 
-          {tab === 'evidence' && <EvidenceLiteraturePanel evidence={ebmEvidence} />}
+          {tab === 'evidence' && <><InternationalCarePlanDiff mappings={activeDiff('evidence')} /><EvidenceLiteraturePanel evidence={ebmEvidence} /></>}
           {tab === 'guidance' && (
-            <InternationalGuidancePanel
-              comparisonEnabled={state.internationalGuidanceCheckEnabled}
-              comparison={internationalGuidance}
-            />
+            <><DemoMappingApprovalPanel candidates={mappingCandidates} approvedIds={state.demoApprovedInternationalMappings || []} onToggle={(id) => dispatch({ type: 'TOGGLE_DEMO_INTERNATIONAL_MAPPING', payload: id })} /><InternationalGuidancePanel
+              activated={state.internationalGuidanceActivated}
+              comparisonEnabled={state.internationalGuidanceActivated && state.internationalGuidanceCheckEnabled}
+              evidence={internationalEvidence}
+            /></>
           )}
 
           {/* Approval workflow — stays visible across all tabs */}

@@ -92,8 +92,12 @@ export const initialState = {
 // state so a previous patient's fields can't leak into a new-patient entry.
 const PERSIST_KEY = 'cpg.consultation.v1';
 initialState.internationalGuidanceCheckEnabled = false;
+initialState.internationalGuidanceActivated = false;
+initialState.malaysiaCpgOnly = false;
 initialState.internationalGuidanceDecision = 'local';
 initialState.internationalGuidanceRationale = '';
+initialState.internationalEvidence = [];
+initialState.demoApprovedInternationalMappings = [];
 
 export function loadPersistedState() {
   try { sessionStorage.removeItem(PERSIST_KEY); } catch { /* ignore */ }
@@ -139,6 +143,14 @@ export function appReducer(state, action) {
       return { ...state, diagnosis: action.payload };
     case 'SET_INTERNATIONAL_GUIDANCE_CHECK':
       return { ...state, internationalGuidanceCheckEnabled: Boolean(action.payload) };
+    case 'SET_INTERNATIONAL_GUIDANCE_ACTIVATED':
+      return {
+        ...state,
+        internationalGuidanceActivated: Boolean(action.payload),
+        internationalGuidanceCheckEnabled: action.payload ? state.internationalGuidanceCheckEnabled : false,
+      };
+    case 'SET_MALAYSIA_CPG_ONLY':
+      return { ...state, malaysiaCpgOnly: Boolean(action.payload) };
     case 'SET_INTERNATIONAL_GUIDANCE_DECISION':
       return { ...state, internationalGuidanceDecision: action.payload };
     case 'SET_INTERNATIONAL_GUIDANCE_RATIONALE':
@@ -381,6 +393,12 @@ export function appReducer(state, action) {
       return { ...state, safetyReport: action.payload };
     case 'SET_EBM_EVIDENCE':
       return { ...state, ebmEvidence: action.payload || [] };
+    case 'SET_INTERNATIONAL_EVIDENCE':
+      return { ...state, internationalEvidence: action.payload || [] };
+    case 'TOGGLE_DEMO_INTERNATIONAL_MAPPING': {
+      const ids = state.demoApprovedInternationalMappings || [];
+      return { ...state, demoApprovedInternationalMappings: ids.includes(action.payload) ? ids.filter((id) => id !== action.payload) : [...ids, action.payload] };
+    }
     case 'APPEND_THINKING_CHUNK': {
       const { node, chunk } = action.payload;
       return {
@@ -963,6 +981,8 @@ export function AppProvider({ children }) {
           drops.forEach((d) => dispatch({ type: 'APPEND_DDX_QUALITY_DROP', payload: d }));
         },
         (p) => dispatch({ type: 'SET_EBM_EVIDENCE', payload: p.evidence }),
+        state.internationalGuidanceActivated,
+        (p) => dispatch({ type: 'SET_INTERNATIONAL_EVIDENCE', payload: p.evidence }),
       );
 
       const newCarePlan = mapTreatmentPlanToCarePlan(response.treatment_plan, response.evidence);
@@ -1093,7 +1113,9 @@ export function AppProvider({ children }) {
         const guidanceComparison = getCuratedInternationalGuidance(guidanceDiagnoses);
         const internationalGuidanceAudit = {
           checked: Boolean(state.internationalGuidanceCheckEnabled),
-          decision: state.internationalGuidanceDecision || 'local',
+          activated: Boolean(state.internationalGuidanceActivated),
+          malaysia_cpg_only: Boolean(state.malaysiaCpgOnly),
+          decision: state.malaysiaCpgOnly ? 'malaysia_only' : 'best_available',
           rationale: state.internationalGuidanceRationale?.trim() || null,
           recorded_at: new Date().toISOString(),
           selected_diagnoses: guidanceDiagnoses.map((d) => ({ name: d.name, icd_code: d.icdCode })),
@@ -1152,42 +1174,52 @@ export function AppProvider({ children }) {
     // uploadFinalCarePlanPDF() to ensure Supabase stores the exact same
     // PDF the clinician sees and downloads.
 
-    // PRIOR-VISIT SUMMARISER — fires ONLY here, after the clinician has agreed
-    // and finalised the care plan. Best-effort: never blocks the step transition.
-    if (USE_SUPABASE && state.currentConsultationId && state.currentConsultationNumber != null && state.patient?.nsn) {
-      try {
-        const carePlanSummary = state.carePlan?.clinicalSummary || state.carePlan?.summary || null;
-        const priorIcdPrimary = state.carePlan?.icdPrimary
-          || state.clinicalPlanResponse?.treatment_plan?.icd_primary
-          || null;
-        const medicationRecommendations = state.carePlan?.medications || null;
-
-        console.log('📝 Generating prior-visit summary for next consultation...');
-        const summary = await summarisePriorVisit({
-          consultationDate: new Date().toISOString().split('T')[0],
-          clinicalNotes: state.clinicalNotes || '',
-          carePlanSummary,
-          priorIcdPrimary,
-          medicationRecommendations,
-        });
-        console.log('✅ Prior-visit summary generated:', summary);
-
-        const writeResult = await writePriorVisitSummary(
-          state.patient.nsn,
-          state.currentConsultationNumber,
-          summary,
-        );
-        if (writeResult.success) {
-          console.log('✅ Prior-visit summary persisted to Supabase');
-        } else {
-          console.error('❌ Failed to persist prior-visit summary:', writeResult.error);
-        }
-      } catch (err) {
-        console.error('💥 Exception during prior-visit summariser:', err);
-      }
-    }
+    // NOTE: the prior-visit summariser now fires from generatePriorVisitSummary()
+    // at Approve time (see handleStatusChange in CarePlanSection), not here —
+    // running it here made "Generate Report" block on an LLM call the clinician
+    // had already effectively greenlit a step earlier.
 
     dispatch({ type: 'SET_STEP', payload: 4 });
+  };
+
+  // PRIOR-VISIT SUMMARISER — kicked off fire-and-forget as soon as the clinician
+  // approves the care plan, so the summary is usually already written to Supabase
+  // by the time they click "Generate Report" a step later. Best-effort: errors
+  // are logged only, never surfaced to the clinician.
+  const generatePriorVisitSummary = async () => {
+    if (!(USE_SUPABASE && state.currentConsultationId && state.currentConsultationNumber != null && state.patient?.nsn)) {
+      return;
+    }
+    try {
+      const carePlanSummary = state.carePlan?.clinicalSummary || state.carePlan?.summary || null;
+      const priorIcdPrimary = state.carePlan?.icdPrimary
+        || state.clinicalPlanResponse?.treatment_plan?.icd_primary
+        || null;
+      const medicationRecommendations = state.carePlan?.medications || null;
+
+      console.log('📝 Generating prior-visit summary for next consultation...');
+      const summary = await summarisePriorVisit({
+        consultationDate: new Date().toISOString().split('T')[0],
+        clinicalNotes: state.clinicalNotes || '',
+        carePlanSummary,
+        priorIcdPrimary,
+        medicationRecommendations,
+      });
+      console.log('✅ Prior-visit summary generated:', summary);
+
+      const writeResult = await writePriorVisitSummary(
+        state.patient.nsn,
+        state.currentConsultationNumber,
+        summary,
+      );
+      if (writeResult.success) {
+        console.log('✅ Prior-visit summary persisted to Supabase');
+      } else {
+        console.error('❌ Failed to persist prior-visit summary:', writeResult.error);
+      }
+    } catch (err) {
+      console.error('💥 Exception during prior-visit summariser:', err);
+    }
   };
 
   /**
@@ -1309,6 +1341,7 @@ export function AppProvider({ children }) {
     confirmDiagnosis,
     confirmManualDiagnosis,
     finalizePlan,
+    generatePriorVisitSummary,
     uploadFinalCarePlanPDF,
     goToStep,
     updateCarePlanItem,

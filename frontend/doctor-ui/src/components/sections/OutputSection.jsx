@@ -48,8 +48,10 @@ export function OutputSection() {
   const guidanceComparison = getCuratedInternationalGuidance(
     (diagnosis?.differentials || []).filter((d) => selectedIds.includes(d.id))
   );
-  const internationalGuidanceAudit = state.internationalGuidanceCheckEnabled ? {
-    decision: state.internationalGuidanceDecision || 'local',
+  const internationalGuidanceAudit = state.internationalGuidanceActivated ? {
+    decision: state.malaysiaCpgOnly ? 'malaysia_only' : 'best_available',
+    malaysia_cpg_only: Boolean(state.malaysiaCpgOnly),
+    activated: true,
     rationale: state.internationalGuidanceRationale?.trim() || null,
     comparison: guidanceComparison.status === 'available' ? guidanceComparison.record : null,
   } : null;
@@ -224,30 +226,28 @@ export function OutputSection() {
   const patientNric = resolvedPatient?.nsn || resolvedPatient?.id || resolvedPatient?.nric;
 
   return (
-    <>
-      <FinalCarePlan
-        ref={fcpRef}
-        patient={resolvedPatient}
-        diagnoses={diagnoses}
-        carePlan={carePlan}
-        allergies={allergies}
-        vitals={vitalsExt}
-        clinicalNotes={clinicalNotes || 'No clinical notes recorded for this encounter.'}
-        provider={provider}
-        encounter={encounter}
-        nextReviewDate={nextReviewDate}
-        internationalGuidanceAudit={internationalGuidanceAudit}
-        onExportPDF={handleExportPDF}
-        onPrint={handlePrint}
-        onBack={handleBack}
-        onNewAssessment={handleNewAssessment}
-        pdfUploaded={pdfUploaded}
-        pdfUploading={pdfUploading}
-        onSendToPatient={handleSendToPatient}
-        deliveryStatus={delivery}
-        canSendToPatient={canSendToPatient}
-      />
-      <FollowupQRCard consultationId={consultationId} patientNric={patientNric} isDark={isDark} />
-    </>
+    <FinalCarePlan
+      ref={fcpRef}
+      patient={resolvedPatient}
+      diagnoses={diagnoses}
+      carePlan={carePlan}
+      allergies={allergies}
+      vitals={vitalsExt}
+      clinicalNotes={clinicalNotes || 'No clinical notes recorded for this encounter.'}
+      provider={provider}
+      encounter={encounter}
+      nextReviewDate={nextReviewDate}
+      internationalGuidanceAudit={internationalGuidanceAudit}
+      onExportPDF={handleExportPDF}
+      onPrint={handlePrint}
+      onBack={handleBack}
+      onNewAssessment={handleNewAssessment}
+      pdfUploaded={pdfUploaded}
+      pdfUploading={pdfUploading}
+      onSendToPatient={handleSendToPatient}
+      deliveryStatus={delivery}
+      canSendToPatient={canSendToPatient}
+      railTop={<FollowupQRCard consultationId={consultationId} patientNric={patientNric} isDark={isDark} compact />}
+    />
   );
 }

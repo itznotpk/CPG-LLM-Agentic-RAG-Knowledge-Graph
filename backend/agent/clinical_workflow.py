@@ -307,7 +307,7 @@ async def _noop_emit(*args, **kwargs):
     pass
 
 
-async def _apply_ebm_pass(*, case, ddx, draft_plan, cpgs, emit):
+async def _apply_ebm_pass(*, case, ddx, draft_plan, cpgs, emit, international_guidance_activated=False):
     """Stage 4.6 + 5.5: fetch EBM keyed off dx + draft terms, refine, emit. Fail-open."""
     try:
         diseases = [d.title for d in ddx[:3] if getattr(d, "title", None)]
@@ -323,6 +323,12 @@ async def _apply_ebm_pass(*, case, ddx, draft_plan, cpgs, emit):
             "detail": f"{len(ebm)} citation(s) found" if ebm else "No new literature",
         })
         await emit("ebm_evidence", {"evidence": [e.model_dump() for e in refined.ebm_evidence]})
+        if international_guidance_activated:
+            await emit("international_evidence", {
+                "evidence": [e.model_dump() for e in refined.ebm_evidence],
+                "source": "Europe PMC",
+                "notice": "Live Europe PMC results are supporting international evidence. Recommendation-level replacement requires an approved publisher adapter and clinical review.",
+            })
         return refined
     except Exception as e:  # noqa: BLE001 — additive, never block the plan
         logger.warning("EBM pass failed (non-fatal): %s", e)
@@ -943,6 +949,7 @@ async def run_resynthesize_streaming(
     selected_ddx: list[DDxResult],
     emit,
     major_code: str | None = None,
+    international_guidance_activated: bool = False,
 ) -> WorkflowResult:
     """
     Re-run Stages 3–5 with clinician-selected diagnoses.
@@ -1024,6 +1031,7 @@ async def run_resynthesize_streaming(
     if not stage4_failed:
         treatment_plan = await _apply_ebm_pass(
             case=case, ddx=selected_ddx, draft_plan=treatment_plan, cpgs=cpgs, emit=emit,
+            international_guidance_activated=international_guidance_activated,
         )
     elapsed_ms = (time.monotonic() - t0) * 1000
     await emit("stage_update", {

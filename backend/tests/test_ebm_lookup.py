@@ -1,6 +1,6 @@
 import pytest
 from agent.models import EbmEvidence, TreatmentPlan, Recommendation
-from agent.ebm_lookup import evidence_tier_for, build_europepmc_query
+from agent.ebm_lookup import evidence_tier_for, source_category_for, build_europepmc_query
 
 
 def test_ebm_evidence_defaults_and_treatmentplan_field():
@@ -43,6 +43,16 @@ def test_ebm_evidence_defaults_and_treatmentplan_field():
 ])
 def test_evidence_tier_for(pub_types, expected):
     assert evidence_tier_for(pub_types) == expected
+
+
+@pytest.mark.parametrize("pub_types, expected", [
+    (["Guideline"], "international_guideline"),
+    (["Practice Guideline", "Journal Article"], "international_guideline"),
+    (["systematic-review"], "international_ebm"),
+    ([], "international_ebm"),
+])
+def test_source_category_for(pub_types, expected):
+    assert source_category_for(pub_types) == expected
 
 
 def test_build_query_combines_disease_terms_filters_and_recency():
@@ -89,6 +99,7 @@ def test_parse_builds_models_grades_and_truncates_and_drops_abstractless():
     ev = out[0]
     assert ev.pmid == "12345678"
     assert ev.evidence_tier == "high"
+    assert ev.source_category == "international_ebm"
     assert len(ev.abstract_snippet) <= 500
     assert ev.url == "https://europepmc.org/article/MED/12345678"
 

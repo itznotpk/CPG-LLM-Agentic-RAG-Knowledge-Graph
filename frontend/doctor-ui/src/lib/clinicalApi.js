@@ -331,6 +331,8 @@ export async function resynthesizePlanStream(
   majorCode,
   onQualityDrop,
   onEbmEvidence,
+  internationalGuidanceActivated,
+  onInternationalEvidence,
 ) {
   const BASE_URL = import.meta.env.VITE_CLINICAL_API_URL || 'http://localhost:8058';
 
@@ -351,6 +353,7 @@ export async function resynthesizePlanStream(
       manual:      !!d.manual,
     })),
     ...(majorCode ? { major_code: majorCode } : {}),
+    international_guidance_activated: Boolean(internationalGuidanceActivated),
   };
 
   const response = await fetch(`${BASE_URL}/clinical/plan/resynthesize/stream`, {
@@ -396,6 +399,7 @@ export async function resynthesizePlanStream(
             else if (eventType === 'stage3_quality_drop' && onQualityDrop)        onQualityDrop(payload);
             else if (eventType === 'safety_review'       && onSafetyReview)       onSafetyReview(payload);
             else if (eventType === 'ebm_evidence'        && onEbmEvidence)        onEbmEvidence(payload);
+            else if (eventType === 'international_evidence' && onInternationalEvidence) onInternationalEvidence(payload);
             else if (eventType === 'final_result') {
               if (payload?.safety_report && onSafetyReview) onSafetyReview(payload.safety_report);
               resolve(attachRequestId(payload, response));

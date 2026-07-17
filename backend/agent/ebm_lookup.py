@@ -33,6 +33,14 @@ def evidence_tier_for(pub_types: list[str]) -> Literal["high", "moderate", "low"
     return "low"
 
 
+def source_category_for(pub_types: list[str]) -> Literal["international_guideline", "international_ebm"]:
+    """Separate guideline records from supporting international EBM records."""
+    norm = {p.strip().lower() for p in pub_types if p}
+    if "guideline" in norm or "practice guideline" in norm:
+        return "international_guideline"
+    return "international_ebm"
+
+
 def build_europepmc_query(diseases: list[str], terms: list[str], *, recency_years: int = 7) -> str:
     """Build a Europe PMC search query scoped to graded, recent, abstract-bearing evidence."""
     diseases = [d.strip() for d in diseases if d and d.strip()]
@@ -75,6 +83,8 @@ def parse_europepmc_response(payload: dict, *, snippet_chars: int = 500) -> list
             year=year,
             pub_type=", ".join(pub_types),
             evidence_tier=evidence_tier_for(pub_types),
+            source_category=source_category_for(pub_types),
+            source_label="Europe PMC",
             pmid=pmid,
             doi=r.get("doi"),
             url=f"https://europepmc.org/article/MED/{pmid}" if pmid else "",

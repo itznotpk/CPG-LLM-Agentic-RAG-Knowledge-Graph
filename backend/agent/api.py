@@ -103,6 +103,8 @@ class ResynthesizeRequest(_BaseModel):
     # re-synth run is associated with the same consultation as the initial DDx run.
     # Optional — older callers may not send it.
     consultation_id: int | None = None
+    # Local Malaysian CPG routing remains the plan base when this optional layer is on.
+    international_guidance_activated: bool = False
 
 
 class ClinicalPlanResponse(_BaseModel):
@@ -1358,6 +1360,7 @@ async def clinical_resynthesize_stream(request: Request, payload: ResynthesizeRe
         try:
             result = await run_resynthesize_streaming(
                 payload.case, selected_ddx, emit, major_code=major_code,
+                international_guidance_activated=payload.international_guidance_activated,
             )
         except Exception as e:
             log_failed_job("clinical_resynthesize_stream", payload.case, str(e), request_id=_request_id_var.get())

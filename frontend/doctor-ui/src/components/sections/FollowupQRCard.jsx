@@ -9,7 +9,7 @@ import { enrollFollowup, getFollowupStatus } from '../../lib/clinicalApi';
  * t.me deep-link QR, then polls status every 3 s until the patient scans
  * (status flips to 'active') and shows "Connected".
  */
-export default function FollowupQRCard({ consultationId, patientNric, isDark }) {
+export default function FollowupQRCard({ consultationId, patientNric, isDark, compact = false }) {
   const [deepLink, setDeepLink] = useState(null);
   const [status, setStatus] = useState('none');
   const [error, setError] = useState(null);
@@ -33,6 +33,32 @@ export default function FollowupQRCard({ consultationId, patientNric, isDark }) 
   }, [status, consultationId]);
 
   if (error) return null; // follow-up is optional — never block the output step
+
+  if (compact) {
+    return (
+      <div className="rail-card">
+        <h5>Patient Follow-up</h5>
+        {status === 'active' ? (
+          <div className="flex items-center gap-2 text-teal-500">
+            <CheckCircle2 size={18} />
+            <span className="text-sm font-medium">Connected — first check-in sent</span>
+          </div>
+        ) : deepLink ? (
+          <div className="flex flex-col items-center gap-3 text-center">
+            <div className="bg-white p-2 rounded-lg">
+              <QRCodeSVG value={deepLink} size={120} />
+            </div>
+            <p className={`text-xs ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+              Ask the patient to scan this with their phone to receive follow-up
+              check-ins on Telegram. Link expires in 48 hours.
+            </p>
+          </div>
+        ) : (
+          <p className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Preparing follow-up link…</p>
+        )}
+      </div>
+    );
+  }
 
   return (
     <GlassCard className="p-5">

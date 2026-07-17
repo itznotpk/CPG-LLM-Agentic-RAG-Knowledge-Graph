@@ -382,6 +382,8 @@ class EbmEvidence(BaseModel):
     year: Optional[int] = None
     pub_type: str = Field("", description="Raw Europe PMC publication type, normalised")
     evidence_tier: Literal["high", "moderate", "low"] = "low"
+    source_category: Literal["international_guideline", "international_ebm"] = "international_ebm"
+    source_label: str = "Europe PMC"
     pmid: Optional[str] = None
     doi: Optional[str] = None
     url: str = ""

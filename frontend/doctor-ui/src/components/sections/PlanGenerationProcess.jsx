@@ -514,8 +514,14 @@ function StageCard({ item, isDark }) {
         <div className={`mt-3 space-y-1.5 max-h-24 overflow-hidden ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
           {item.subSteps.slice(-3).map((sub, idx) => (
             <div key={`${sub.detail}-${idx}`} className="flex items-center gap-2 text-xs min-w-0">
-              <GitBranch className="w-3.5 h-3.5 shrink-0 text-[var(--accent-primary)]" strokeWidth={1.8} />
-              <span className="truncate">{sub.detail}</span>
+              {isComplete ? (
+                <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-500" strokeWidth={2.2} />
+              ) : (
+                <GitBranch className="w-3.5 h-3.5 shrink-0 text-[var(--accent-primary)]" strokeWidth={1.8} />
+              )}
+              <span className="truncate">
+                {isComplete ? sub.detail.replace(/[.…]+$/, '') : sub.detail}
+              </span>
               {sub.badge && (
                 <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded-full ${isDark ? 'bg-white/10 text-slate-300' : 'bg-slate-100 text-slate-600'}`}>
                   {sub.badge}

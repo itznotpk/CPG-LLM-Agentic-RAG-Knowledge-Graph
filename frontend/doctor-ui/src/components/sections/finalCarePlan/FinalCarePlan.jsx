@@ -554,6 +554,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
   onExportPDF, onPrint, onBack, onNewAssessment,
   pdfUploaded, pdfUploading,
   onSendToPatient, deliveryStatus, canSendToPatient,
+  railTop,
 }, ref) {
   const [editing, setEditing] = useState(false);
   const [emailFormOpen, setEmailFormOpen] = useState(false);
@@ -816,6 +817,7 @@ export const FinalCarePlan = forwardRef(function FinalCarePlan({
 
       {/* ============ RIGHT ACTION RAIL ============ */}
       <aside className="action-rail">
+        {railTop}
         <div className="rail-card">
           <h5>Status</h5>
           <p style={{ margin: '0 0 12px', fontSize: 13, color: 'var(--fg-secondary)', fontWeight: '700' }}>

@@ -51,7 +51,7 @@ export function DiagnosisSection() {
   const { isDark } = useTheme();
   const { user, profile } = useAuth();
   const clinicianName = profile?.full_name || user?.email || 'Unknown clinician';
-  const { diagnosis, isGeneratingPlan, isRegeneratingDdx, ddxExcludedCodes, ddxRegenExhausted, internationalGuidanceCheckEnabled } = state;
+  const { diagnosis, isGeneratingPlan, isRegeneratingDdx, ddxExcludedCodes, ddxRegenExhausted, internationalGuidanceActivated } = state;
   const [traceCollapsed, setTraceCollapsed] = React.useState(true);
   const [expandedWhy, setExpandedWhy] = React.useState({});
   const [sortBy, setSortBy] = React.useState('rank');
@@ -163,12 +163,9 @@ export function DiagnosisSection() {
     }
   };
 
-  const toggleInternationalComparison = () => {
+  const toggleInternationalGuidance = () => {
     if (!majorCode || locked) return;
-    const enabled = !internationalGuidanceCheckEnabled;
-    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_CHECK', payload: enabled });
-    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_DECISION', payload: enabled ? 'compare' : 'malaysia_only' });
-    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_RATIONALE', payload: '' });
+    dispatch({ type: 'SET_INTERNATIONAL_GUIDANCE_ACTIVATED', payload: !internationalGuidanceActivated });
   };
 
   // Tap the card itself to cycle Off → Minor → Major → Off. Pill / hint
@@ -243,22 +240,22 @@ export function DiagnosisSection() {
         <div className="flex flex-col sm:flex-row items-center justify-end gap-3 flex-shrink-0">
           <button
             type="button"
-            onClick={toggleInternationalComparison}
+            onClick={toggleInternationalGuidance}
             disabled={!majorCode || locked}
             role="switch"
-            aria-checked={internationalGuidanceCheckEnabled}
-            title={majorCode ? 'Compare curated international guidance after generating the Malaysian CPG plan' : 'Select a Major diagnosis first'}
+            aria-checked={internationalGuidanceActivated}
+            title={majorCode ? 'Activate approved international-guidance retrieval for this diagnosis' : 'Select a Major diagnosis first'}
             className={`inline-flex items-center gap-2.5 rounded-xl border px-3 py-2 text-xs font-semibold transition-all disabled:cursor-not-allowed disabled:opacity-50 ${
-              internationalGuidanceCheckEnabled
+              internationalGuidanceActivated
                 ? (isDark ? 'border-emerald-400/50 bg-emerald-500/15 text-emerald-100 shadow-[0_0_20px_rgba(16,185,129,0.22)]' : 'border-emerald-400 bg-emerald-50 text-emerald-800 shadow-sm')
                 : (isDark ? 'border-slate-700 bg-slate-800/60 text-slate-300 hover:border-slate-600' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300')
             }`}
           >
-            <span>Compare international guidance</span>
-            <span className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${internationalGuidanceCheckEnabled ? 'bg-emerald-500' : (isDark ? 'bg-slate-600' : 'bg-slate-300')}`}>
-              <span className="absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ease-out" style={{ transform: internationalGuidanceCheckEnabled ? 'translateX(20px)' : 'translateX(0)' }} />
+            <span>Activate international guidance</span>
+            <span className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${internationalGuidanceActivated ? 'bg-emerald-500' : (isDark ? 'bg-slate-600' : 'bg-slate-300')}`}>
+              <span className="absolute top-0.5 left-0.5 h-5 w-5 rounded-full bg-white shadow-sm transition-transform duration-200 ease-out" style={{ transform: internationalGuidanceActivated ? 'translateX(20px)' : 'translateX(0)' }} />
             </span>
-            <span className="w-5 text-left font-bold tabular-nums">{internationalGuidanceCheckEnabled ? 'ON' : 'OFF'}</span>
+            <span className="w-5 text-left font-bold tabular-nums">{internationalGuidanceActivated ? 'ON' : 'OFF'}</span>
           </button>
           <Button
             variant="secondary"
