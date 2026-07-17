@@ -20,6 +20,7 @@ from pydantic import ValidationError
 from .models import PatientCase, TreatmentPlan, SafetyFlag, SafetyReport  # noqa: F401 re-export
 from .graph_clinical import clinical_graph_lookup, match_plan_drugs, ClinicalFlag, build_patient_params, _norm as _kg_norm, _DRUG_CLASS_EXPANSION
 from .providers import make_vertex_client
+from .llm_runtime import call_structured, resolve_target
 
 logger = logging.getLogger(__name__)
 
@@ -355,17 +356,11 @@ async def run_safety_critic(
     rather than fail-closed, because a missing safety review must not block
     the clinician seeing the plan.
     """
-    base_url = os.getenv("SAFETY_CRITIC_LLM_BASE_URL") or os.getenv("STAGE5_LLM_BASE_URL") or os.getenv("LLM_BASE_URL")
-    api_key = os.getenv("SAFETY_CRITIC_LLM_API_KEY") or os.getenv("STAGE5_LLM_API_KEY") or os.getenv("LLM_API_KEY")
-    provider = os.getenv("SAFETY_CRITIC_LLM_PROVIDER", "")
-    # Prefer a cheaper/faster model for the critic; fall back to Stage 5 model
-    stage5_model = os.getenv("STAGE5_LLM_CHOICE") or os.getenv("LLM_CHOICE", "gpt-4o")
-    model = os.getenv("SAFETY_CRITIC_MODEL", stage5_model)
-
-    if provider.lower() == "vertex" or api_key == "vertex-adc":
-        client = make_vertex_client(base_url)
+    target = resolve_target("safety_critic")
+    if target.provider.lower() == "vertex" or target.api_key == "vertex-adc":
+        client = make_vertex_client(target.base_url)
     else:
-        client = openai.AsyncOpenAI(base_url=base_url, api_key=api_key)
+        client = openai.AsyncOpenAI(base_url=target.base_url, api_key=target.api_key)
 
     user_prompt = json.dumps({
         "patient": {
@@ -395,17 +390,18 @@ async def run_safety_critic(
     # verification of the final plan concurrently, then merge.
     async def _llm_critic() -> SafetyReport:
         try:
-            resp = await client.chat.completions.create(
-                model=model,
+            result = await call_structured(
+                client,
+                operation="safety_critic",
+                target=target,
                 messages=[
                     {"role": "system", "content": SAFETY_CRITIC_SYSTEM},
                     {"role": "user", "content": user_prompt},
                 ],
+                prompt_template=SAFETY_CRITIC_SYSTEM,
                 temperature=0.0,
-                response_format={"type": "json_object"},
             )
-            raw_json = (resp.choices[0].message.content or "").strip()
-            data = json.loads(raw_json)
+            data = result.data
             rep = SafetyReport.model_validate(data)
             return rep
         except (json.JSONDecodeError, ValidationError, Exception) as exc:
