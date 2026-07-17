@@ -76,7 +76,11 @@ async def _call_llm(plan: dict, first_name: str | None) -> dict:
             {"role": "user", "content": json.dumps({"plan": plan, "patient_first_name": first_name}, ensure_ascii=False)},
         ],
         temperature=0.1,
-        max_tokens=1500,
+        # Gemini 2.5 Flash counts thinking tokens against max_tokens on its
+        # OpenAI-compat endpoint; a tight budget truncates the JSON mid-string
+        # ("Unterminated string...") and drops every protocol to the generic
+        # deterministic fallback. Same fix as _llm_rerank_ddx. Do not lower.
+        max_tokens=8000,
         response_format={"type": "json_object"},
     )
     raw = (resp.choices[0].message.content or "").strip()

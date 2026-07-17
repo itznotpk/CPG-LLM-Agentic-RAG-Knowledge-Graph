@@ -1,6 +1,6 @@
 """Idempotent demo seed for the follow-up ecosystem rehearsal.
 
-Ensures a demo patient + a finalized consultation with a treatment_plan exist,
+Ensures a demo patient + a finalized consultation with a care plan exist,
 then prints the enroll curl. Run with the backend up.
 
 Usage: python backend/scripts/seed_followup_demo.py [--url http://localhost:8058]
@@ -19,15 +19,24 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DEMO_NRIC = "990101-14-1234"
-DEMO_PLAN = {
-    "summary": "HFrEF optimisation: start bisoprolol, daily weights, review 2 weeks.",
-    "recommendations": [
-        {"intervention": "[START] Bisoprolol 2.5 mg OD", "recommendation_type": "pharmacological", "action": "start"},
-    ],
-    "monitoring": [{"parameter": "daily weight", "schedule": "daily for 2 weeks"}],
-    "follow_up": [{"when": "2 weeks", "what": "symptom + weight review"}],
-    "safety_netting": ["Worsening breathlessness at rest", "Ankle swelling", "Weight gain >2 kg in 3 days"],
+
+# The plan is stored section-by-section — there is no consultations.treatment_plan
+# column. Shapes here must match what the UI persists, since bot_poller.load_plan
+# reconstructs the plan dict from exactly these columns.
+DEMO_SUMMARY = "HFrEF optimisation: start bisoprolol, daily weights, review 2 weeks."
+DEMO_MEDS = {
+    "start": [{"id": 1, "name": "Bisoprolol", "dose": "2.5 mg OD, titrate to target 10 mg OD",
+               "reason": "Beta-blockers improve survival in HFrEF", "accepted": True}],
+    "stop": [],
+    "continue": [],
 }
+DEMO_MONITORING = [
+    {"id": 1, "parameter": "Daily weight", "schedule": "daily for 2 weeks",
+     "target": "report gain >2 kg in 3 days"},
+    {"id": 2, "parameter": "Breathlessness at rest", "schedule": "daily",
+     "target": "any worsening to be reported"},
+]
+DEMO_LIFESTYLE = [{"id": 1, "goal": "Sodium restriction <2 g/day", "accepted": True}]
 
 
 async def main():
@@ -45,14 +54,21 @@ async def main():
         if row:
             cid = row["id"]
             await conn.execute(
-                "UPDATE consultations SET treatment_plan = $2 WHERE id = $1",
-                cid, json.dumps(DEMO_PLAN),
+                """UPDATE consultations
+                      SET care_plan_summary = $2, medication_recommendations = $3,
+                          monitoring = $4, lifestyle_goals = $5
+                    WHERE id = $1""",
+                cid, DEMO_SUMMARY, json.dumps(DEMO_MEDS),
+                json.dumps(DEMO_MONITORING), json.dumps(DEMO_LIFESTYLE),
             )
         else:
             cid = (await conn.fetchrow(
-                """INSERT INTO consultations (patient_nric, treatment_plan)
-                   VALUES ($1, $2) RETURNING id""",
-                DEMO_NRIC, json.dumps(DEMO_PLAN),
+                """INSERT INTO consultations
+                     (patient_nric, care_plan_summary, medication_recommendations,
+                      monitoring, lifestyle_goals)
+                   VALUES ($1, $2, $3, $4, $5) RETURNING id""",
+                DEMO_NRIC, DEMO_SUMMARY, json.dumps(DEMO_MEDS),
+                json.dumps(DEMO_MONITORING), json.dumps(DEMO_LIFESTYLE),
             ))["id"]
         print(f"Demo consultation id: {cid}")
         print(f'Enroll: curl -X POST http://localhost:8058/followup/enroll '

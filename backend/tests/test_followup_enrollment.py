@@ -72,3 +72,18 @@ async def test_stop_enrollment_cancels_pending():
         assert await enr.stop_enrollment(555) is True
     executed_sql = " ".join(str(c.args[0]) for c in conn.execute.call_args_list)
     assert "stopped" in executed_sql and "cancelled" in executed_sql
+
+
+async def test_create_enrollment_reads_full_name_column(monkeypatch):
+    """patients has full_name, not name — a bare `name` select raises UndefinedColumn."""
+    monkeypatch.setenv("TELEGRAM_BOT_USERNAME", "ClearPathFollowupBot")
+    pool, conn = _mock_pool(fetchrow_results=[{"full_name": "Ahmad bin Ali"}, {"id": 1}])
+    with patch.object(enr, "db_pool", pool):
+        await enr.create_enrollment(101, "900101-14-5555")
+    select_sql = str(conn.fetchrow.call_args_list[0].args[0])
+    assert "full_name" in select_sql
+    assert "SELECT name" not in select_sql
+    # first name only ever reaches Telegram (PHI constraint)
+    insert_args = conn.fetchrow.call_args_list[1].args
+    assert "Ahmad" in insert_args
+    assert "Ahmad bin Ali" not in insert_args

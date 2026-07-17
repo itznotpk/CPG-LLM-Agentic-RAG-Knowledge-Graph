@@ -2,7 +2,7 @@
  * Supabase Client Configuration
  * ==============================
  * 
- * This file initializes the Supabase client for the MHNexus CPG-LLM application.
+ * This file initializes the Supabase client for the ClearPath CPG-LLM application.
  * 
  * Setup Instructions:
  * 1. Create a project at https://app.supabase.com
@@ -50,7 +50,7 @@ export const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '', {
   global: {
     // Custom headers for all requests
     headers: {
-      'x-application-name': 'MHNexus-CPG-LLM',
+      'x-application-name': 'ClearPath-CPG-LLM',
     },
   },
 });

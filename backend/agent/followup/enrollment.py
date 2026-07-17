@@ -17,15 +17,46 @@ logger = logging.getLogger(__name__)
 
 TOKEN_TTL_HOURS = 48
 
+# Patient-facing copy. Follows the MHNexus voice: plain English, respectful, no
+# decorative emoji, no exclamation marks, no marketing tone. Written as the clinic's
+# service ("your care team"), not as a chatty persona.
+#
+# SAFETY: every message that could be read as "someone is watching" must state the
+# opposite. This service is polled, not monitored — a patient who waits for a reply
+# instead of calling 999 is the failure mode that matters most.
 WELCOME_TEMPLATE = (
-    "Hi {first_name}! I'm ClearPath, your follow-up companion after today's visit. "
-    "I'll check in with you over the coming days. "
-    "I am NOT an emergency service — if you feel severely unwell, call 999 or go "
-    "to the nearest hospital. Reply STOP anytime to end these check-ins."
+    "Hello {first_name}. This is ClearPath, the follow-up service from your clinic.\n\n"
+    "Over the next few weeks you will receive a small number of short check-in "
+    "questions — about how you are feeling, your medicines, and anything your care "
+    "team asked you to watch for. Most take a few seconds to answer, and you can "
+    "always reply in your own words.\n\n"
+    "Your answers are saved to your clinic record and reviewed by your care team "
+    "during clinic hours.\n\n"
+    "Please note: these messages are not monitored around the clock, and this is "
+    "not an emergency service. If you feel severely unwell, call 999 or go to the "
+    "nearest hospital.\n\n"
+    "Reply STOP at any time to end these check-ins."
 )
-EXPIRED_LINK_REPLY = "This link has expired — please ask your clinic for a new one."
-NO_ACTIVE_REPLY = "I don't have an active follow-up plan for you. Please contact your clinic."
-STOP_CONFIRM_REPLY = "Okay — I've stopped your check-ins. Take care, and contact your clinic if you need anything."
+# A bare "/start" (Telegram's Start button) carries no token — that is NOT an
+# expired link. Telling the patient it expired sends them back to the clinic for
+# nothing, so the two cases get different copy.
+NO_TOKEN_REPLY = (
+    "To begin your check-ins, please scan the QR code provided by your clinic. "
+    "That link is what connects this service to your care plan. If you no longer "
+    "have it, please ask your clinic for a new one."
+)
+EXPIRED_LINK_REPLY = (
+    "This link has expired or has already been used. Please ask your clinic for a "
+    "new QR code."
+)
+NO_ACTIVE_REPLY = (
+    "There is no active follow-up plan linked to this chat, so these messages are "
+    "not being reviewed by anyone. Please contact your clinic directly."
+)
+STOP_CONFIRM_REPLY = (
+    "Your check-ins have been stopped and no further messages will be sent. "
+    "Please contact your clinic whenever you need them."
+)
 
 
 async def create_enrollment(consultation_id: int, patient_nric: str) -> dict:
@@ -33,9 +64,9 @@ async def create_enrollment(consultation_id: int, patient_nric: str) -> dict:
     expires_at = datetime.now(timezone.utc) + timedelta(hours=TOKEN_TTL_HOURS)
     async with db_pool.acquire() as conn:
         name_row = await conn.fetchrow(
-            "SELECT name FROM patients WHERE nric = $1", patient_nric
+            "SELECT full_name FROM patients WHERE nric = $1", patient_nric
         )
-        first_name = ((name_row or {}).get("name") or "").split(" ")[0] or None
+        first_name = ((name_row or {}).get("full_name") or "").split(" ")[0] or None
         await conn.fetchrow(
             """INSERT INTO followup_enrollments
                  (consultation_id, patient_nric, patient_first_name, token, token_expires_at)

@@ -36,8 +36,6 @@ function Nav({ onSignIn }) {
         <a href="#" className="flex items-center gap-3.5 min-w-0">
           <img src="/UniMalaya.png" alt="University of Malaya" className="h-9 w-auto" />
           <span className="w-px h-7 bg-slate-300" />
-          <img src="/MHNexus.png" alt="MHNexus" className="h-14 w-auto -my-2.5" />
-          <span className="w-px h-7 bg-slate-300" />
           <span className="font-display italic text-teal-700 text-2xl leading-none tracking-tight">
             ClearPath.
           </span>
@@ -191,7 +189,7 @@ function HeroVisual() {
               ['02', 'Hypertension stage 2', 'BA00', 71, false],
               ['03', 'Metabolic syndrome', '5A40', 64, false],
             ].map(([rk, nm, icd, pct, top]) => {
-              // Canonical MHNexus probability colors (19-probability.html)
+              // Canonical ClearPath probability colors (19-probability.html)
               const barFill = pct >= 70 ? '#ef4444' : pct >= 40 ? '#f59e0b' : '#22c55e';
               return (
                 <div
@@ -775,8 +773,8 @@ function Footer() {
         <div>
           <div className="font-display italic text-teal-700 text-[26px] leading-none mb-4">ClearPath.</div>
           <p className="text-[13px] text-slate-600 max-w-[36ch] leading-relaxed">
-            An Evidence-Based Clinical Practice Guidance System — a research collaboration
-            between Universiti Malaya and MHNexus.
+            An Evidence-Based Clinical Practice Guidance System — a research project
+            at Universiti Malaya.
           </p>
         </div>
         <FootCol title="Product" links={['Features', 'How it works', 'Use cases', 'Request a pilot']} />
@@ -784,7 +782,7 @@ function Footer() {
         <FootCol title="Trust" links={['Cited recommendations', 'Audit logging', 'Security overview', 'Contact IT']} />
       </div>
       <div className="max-w-[1280px] mx-auto mt-8 flex justify-between items-center text-xs text-slate-500">
-        <span>© 2026 ClearPath · UM × MHNexus</span>
+        <span>© 2026 ClearPath · UM</span>
         <span className="font-mono tracking-wide">30 MOH CPGs · Cited · Audit-logged</span>
       </div>
     </footer>

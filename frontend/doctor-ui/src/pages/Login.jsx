@@ -108,7 +108,7 @@ export default function Login({ onBackToLanding }) {
     <div className={styles.page}>
 
       {/* ====== LEFT — BRAND PANEL ====== */}
-      <section className={styles.left} aria-label="MHNexus product brand panel">
+      <section className={styles.left} aria-label="ClearPath product brand panel">
         <div className={styles.orb + ' ' + styles.orbA} />
         <div className={styles.orb + ' ' + styles.orbB} />
 
@@ -119,12 +119,6 @@ export default function Login({ onBackToLanding }) {
               className={styles.logo}
               src="/UniMalaya.png"
               alt="University of Malaya"
-            />
-            <span className={styles.sep} aria-hidden="true" />
-            <img
-              className={`${styles.logo} ${styles.logoMh}`}
-              src="/MHNexus.png"
-              alt="MHNexus"
             />
           </div>
         </header>
@@ -245,7 +239,7 @@ export default function Login({ onBackToLanding }) {
                     id="lp-email"
                     type="email"
                     inputMode="email"
-                    placeholder="dr.tay@mhnexus.com"
+                    placeholder="dr.tay@clearpath.health"
                     autoComplete="username"
                     required
                     className={styles.inputField}

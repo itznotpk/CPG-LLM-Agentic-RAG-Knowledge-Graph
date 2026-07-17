@@ -1,5 +1,5 @@
 -- ==============================================================================
--- MHNEXUS CPG-LLM SIMPLIFIED SCHEMA (Phase 1)
+-- CLEARPATH CPG-LLM SIMPLIFIED SCHEMA (Phase 1)
 -- ==============================================================================
 -- This is a MINIMAL schema to get started with:
 --   1. Clinicians (profiles) - doctors/nurses who use the system

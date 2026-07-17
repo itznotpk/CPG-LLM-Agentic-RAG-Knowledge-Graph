@@ -12,8 +12,9 @@ import os
 
 from ..db_utils import supabase_pool as db_pool
 from .enrollment import (
-    EXPIRED_LINK_REPLY, NO_ACTIVE_REPLY, STOP_CONFIRM_REPLY, WELCOME_TEMPLATE,
-    active_enrollment_for_chat, bind_enrollment, log_message, stop_enrollment,
+    EXPIRED_LINK_REPLY, NO_ACTIVE_REPLY, NO_TOKEN_REPLY, STOP_CONFIRM_REPLY,
+    WELCOME_TEMPLATE, active_enrollment_for_chat, bind_enrollment, log_message,
+    stop_enrollment,
 )
 from .protocol import generate_protocol, schedule_checkins
 from .telegram_client import get_client
@@ -27,16 +28,102 @@ _stop_event = asyncio.Event()
 _task: asyncio.Task | None = None
 
 
+def _jsonb(value):
+    """asyncpg hands JSONB back as str on some codecs, parsed on others."""
+    if isinstance(value, str):
+        try:
+            return json.loads(value)
+        except ValueError:
+            return None
+    return value
+
+
+def _plan_from_row(row) -> dict:
+    """Reconstruct the plan dict from the decomposed consultations columns.
+
+    There is no consultations.treatment_plan column — the finalized plan is
+    persisted section-by-section (care_plan_summary, medication_recommendations,
+    monitoring, ...). Rebuild the shape protocol.py / triage expect from those.
+    """
+    recs: list[dict] = []
+    meds = _jsonb(row.get("medication_recommendations")) or {}
+    # medication_recommendations is {action: [med, ...]} keyed by start/stop/continue/...
+    for action, items in (meds.items() if isinstance(meds, dict) else []):
+        for med in items or []:
+            name = (med.get("name") or "").strip()
+            if not name:
+                continue
+            dose = (med.get("dose") or "").strip()
+            recs.append({
+                "intervention": f"{name} — {dose}" if dose else name,
+                "recommendation_type": "pharmacological",
+                "action": action,
+            })
+    for ref in _jsonb(row.get("referrals")) or []:
+        spec = (ref.get("specialty") or "").strip()
+        if spec:
+            recs.append({
+                "intervention": f"Refer to {spec}",
+                "recommendation_type": "referral",
+                "action": ref.get("urgency") or "routine",
+            })
+    for goal in _jsonb(row.get("lifestyle_goals")) or []:
+        text = (goal.get("goal") or "").strip()
+        if text:
+            recs.append({
+                "intervention": text,
+                "recommendation_type": "lifestyle",
+                "action": "advise",
+            })
+
+    # Clinician-facing risk headlines. Deliberately NOT mapped to safety_netting:
+    # those are drug-interaction concerns ("Enalapril + Spironolactone -
+    # hyperkalaemia"), not patient-facing red flags to ask a patient about.
+    safety_flags = [
+        (f.get("title") or "").strip()
+        for f in (_jsonb(row.get("safety_flags")) or [])
+        if (f.get("title") or "").strip()
+    ]
+
+    follow_up = []
+    if row.get("next_review"):
+        follow_up.append({"when": str(row["next_review"]), "what": "scheduled review"})
+
+    monitoring = _jsonb(row.get("monitoring")) or []
+
+    # The backend's plan.red_flags is never persisted (update_consultation has no
+    # column for it), but the P7 safety-netting trip-wires live in each monitoring
+    # item's `target` — recover the patient-facing red flags from there.
+    safety_netting = []
+    for m in monitoring:
+        if not isinstance(m, dict):
+            continue
+        target = (m.get("target") or "").strip()
+        if not target:
+            continue
+        parameter = (m.get("parameter") or "").strip()
+        safety_netting.append(f"{parameter}: {target}" if parameter else target)
+
+    return {
+        "summary": row.get("care_plan_summary") or "",
+        "recommendations": recs,
+        "monitoring": monitoring,
+        "follow_up": follow_up,
+        "safety_netting": safety_netting,
+        "safety_flags": safety_flags,
+    }
+
+
 async def load_plan(consultation_id: int) -> dict:
     try:
         async with db_pool.acquire() as conn:
             row = await conn.fetchrow(
-                "SELECT treatment_plan FROM consultations WHERE id = $1", consultation_id
+                """SELECT care_plan_summary, medication_recommendations, monitoring,
+                          referrals, lifestyle_goals, safety_flags, next_review
+                     FROM consultations WHERE id = $1""",
+                consultation_id,
             )
-        raw = (row or {}).get("treatment_plan")
-        if isinstance(raw, str):
-            return json.loads(raw)
-        return dict(raw) if raw else {}
+        return _plan_from_row(dict(row)) if row else {}
     except Exception as exc:
         logger.warning("load_plan(%s) failed: %s", consultation_id, exc)
         return {}
@@ -47,6 +134,8 @@ def plan_context_text(plan: dict) -> str:
     flags = plan.get("safety_netting") or plan.get("red_flags") or []
     if flags:
         parts.append("Red flags: " + "; ".join(str(f) for f in flags))
+    for risk in plan.get("safety_flags") or []:
+        parts.append(f"Known risk on this plan: {risk}")
     for m in plan.get("monitoring") or []:
         parts.append(f"Monitoring: {m}")
     return "\n".join(parts)[:2000]
@@ -56,7 +145,12 @@ async def _handle_start(chat_id: int, text: str) -> None:
     await log_message(None, chat_id, "inbound", "[/start command]")
     parts = text.split(maxsplit=1)
     token = parts[1].strip() if len(parts) > 1 else None
-    enrollment = await bind_enrollment(token, chat_id) if token else None
+    if not token:
+        # Telegram's Start button, not the QR deep link — no token to bind.
+        await get_client().send_message(chat_id, NO_TOKEN_REPLY)
+        await log_message(None, chat_id, "outbound", NO_TOKEN_REPLY)
+        return
+    enrollment = await bind_enrollment(token, chat_id)
     if not enrollment:
         await get_client().send_message(chat_id, EXPIRED_LINK_REPLY)
         await log_message(None, chat_id, "outbound", EXPIRED_LINK_REPLY)
@@ -81,7 +175,10 @@ async def handle_update(update: dict) -> None:
         await _handle_start(chat_id, text)
         return
 
-    if text.split()[0].upper() == "STOP":
+    # Accept both the typed word and the /stop command (Telegram's command menu
+    # sends the latter). Missing a form routes an opt-out to the LLM as if it
+    # were a symptom report, and the patient stays enrolled.
+    if text.split()[0].upper().lstrip("/") == "STOP":
         await log_message(None, chat_id, "inbound", text)
         stopped = await stop_enrollment(chat_id)
         reply = STOP_CONFIRM_REPLY if stopped else NO_ACTIVE_REPLY
